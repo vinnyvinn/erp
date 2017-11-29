@@ -93,6 +93,10 @@
                     $sidebar_menu[] = array("name" => "finance", "url" => $finance_url, "class" => "fa-money", "submenu" => $finance_submenu);
                 }
 
+                if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin || $access_ticket)) {
+                    $sidebar_menu[] = array("name" => "Escalation Matrix", "url" => "escalation_matrix", "class" => "fa-stack-overflow");
+                }
+
                 if (get_setting("module_ticket") == "1" && ($this->login_user->is_admin || $access_ticket)) {
 
                     $ticket_badge = 0;

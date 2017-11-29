@@ -39,7 +39,7 @@
 <label for="project" class=" col-md-3"><?php echo lang('project'); ?></label>
 <div class="col-md-8">
 <?php
-echo form_dropdown("project_id", $assign_to_dropdown, array(), ['class' => 'form-control select2', 'id' => 'project_id']);
+echo form_dropdown("project_id", $assign_to_dropdown, array($model_info->project_id), ['class' => 'select2 form-control', 'id' => 'project_id']);
 ?>
 </div>
 <div class="col-md-1">

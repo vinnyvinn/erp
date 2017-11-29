@@ -399,13 +399,11 @@ class Projects extends Pre_loader {
                         log_notification("project_task_created", array("project_id" => $project_id, "task_id" => $save_id));
                     }
 
-                    //echo json_encode(array("success" => true, "data" => $this->_task_row_data($save_id), 'id' => $save_id, 'message' => lang('record_saved')));
+                    // echo json_encode(array("success" => true, "data" => $this->_task_row_data($save_id), 'id' => $save_id, 'message' => lang('record_saved')));
                 } else {
                     //echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
                 }
             }
-            // echo "<pre>";
-            // print_r($data);
         }
 
         redirect(base_url().'projects/view/'. $project_id);

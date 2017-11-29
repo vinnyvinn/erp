@@ -5,13 +5,13 @@
  Source Server Type    : MySQL
  Source Server Version : 100125
  Source Host           : localhost:3306
- Source Schema         : teamkazi
+ Source Schema         : pro_kazi
 
  Target Server Type    : MySQL
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 26/11/2017 00:36:42
+ Date: 29/11/2017 19:28:27
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `activity_logs`  (
   `log_for_id2` int(11) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 662 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 663 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of activity_logs
@@ -90,6 +90,7 @@ INSERT INTO `activity_logs` VALUES (658, '2017-11-09 07:06:00', 5, 'created', 't
 INSERT INTO `activity_logs` VALUES (659, '2017-11-13 06:06:19', 5, 'created', 'task', 'trhgt', 4, NULL, 'project', 8, '', 0, 0);
 INSERT INTO `activity_logs` VALUES (660, '2017-11-13 06:31:51', 5, 'created', 'task', 'project task', 5, NULL, 'project', 8, '', 0, 0);
 INSERT INTO `activity_logs` VALUES (661, '2017-11-14 06:52:38', 5, 'created', 'task', 'project two sub task one', 6, NULL, 'project', 10, '', 0, 0);
+INSERT INTO `activity_logs` VALUES (662, '2017-11-28 15:02:48', 5, 'created', 'task', 'demo', 7, NULL, 'project', 10, '', 0, 0);
 
 -- ----------------------------
 -- Table structure for announcements
@@ -246,6 +247,21 @@ INSERT INTO `email_templates` VALUES (8, 'ticket_commented', 'Ticket  #{TICKET_I
 INSERT INTO `email_templates` VALUES (9, 'ticket_closed', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', 0);
 INSERT INTO `email_templates` VALUES (10, 'ticket_reopened', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', 0);
 INSERT INTO `email_templates` VALUES (11, 'general_notification', '{EVENT_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', 0);
+
+-- ----------------------------
+-- Table structure for escalation_matrix
+-- ----------------------------
+DROP TABLE IF EXISTS `escalation_matrix`;
+CREATE TABLE `escalation_matrix`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `escalation_matrix` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `agent_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `escalation` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `assigned_date` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for estimate_forms
@@ -506,13 +522,14 @@ CREATE TABLE `main_tasks`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `PROJECTS_FK`(`project_id`) USING BTREE,
   CONSTRAINT `PROJECTS_FK` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of main_tasks
 -- ----------------------------
 INSERT INTO `main_tasks` VALUES (3, 'PJG0000', 'main task one', '', 8, 0);
 INSERT INTO `main_tasks` VALUES (4, 'PJG0001', 'main task one', '', 10, 0);
+INSERT INTO `main_tasks` VALUES (6, 'PJG0002', 'y', '', 8, 0);
 
 -- ----------------------------
 -- Table structure for messages
@@ -687,7 +704,7 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 680 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 683 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notifications
@@ -742,6 +759,9 @@ INSERT INTO `notifications` VALUES (676, 5, '', '2017-11-09 07:06:01', '', '', '
 INSERT INTO `notifications` VALUES (677, 5, '', '2017-11-13 06:06:19', '', '', 'project_task_created', 8, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `notifications` VALUES (678, 5, '', '2017-11-13 06:31:51', '89', '', 'project_task_created', 8, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `notifications` VALUES (679, 5, '', '2017-11-14 06:52:38', '', '', 'project_task_created', 10, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (680, 5, '', '2017-11-28 15:02:48', '', '', 'project_task_created', 10, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (681, 5, '', '2017-11-28 21:27:55', '', '', 'project_task_deleted', 0, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (682, 5, '', '2017-11-29 08:56:25', '', '', 'project_task_deleted', 0, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for payment_methods
@@ -971,24 +991,29 @@ INSERT INTO `settings` VALUES ('email_smtp_pass', '', 0);
 INSERT INTO `settings` VALUES ('email_smtp_port', '', 0);
 INSERT INTO `settings` VALUES ('email_smtp_security_type', 'tls', 0);
 INSERT INTO `settings` VALUES ('email_smtp_user', '', 0);
+INSERT INTO `settings` VALUES ('escalation_duration', '30', 0);
+INSERT INTO `settings` VALUES ('escalation_via_email', '1', 0);
+INSERT INTO `settings` VALUES ('escalation_via_sms', '1', 0);
 INSERT INTO `settings` VALUES ('first_day_of_week', '0', 0);
 INSERT INTO `settings` VALUES ('HR', '', 0);
 INSERT INTO `settings` VALUES ('HR_sync', 'off', 0);
 INSERT INTO `settings` VALUES ('invoice_logo', 'default-invoice-logo.png', 0);
 INSERT INTO `settings` VALUES ('item_purchase_code', 'ITEM-PURCHASE-CODE', 0);
 INSERT INTO `settings` VALUES ('language', 'english', 0);
-INSERT INTO `settings` VALUES ('module_announcement', '', 0);
+INSERT INTO `settings` VALUES ('module_announcement', '1', 0);
 INSERT INTO `settings` VALUES ('module_attendance', '1', 0);
-INSERT INTO `settings` VALUES ('module_estimate', '', 0);
-INSERT INTO `settings` VALUES ('module_estimate_request', '', 0);
-INSERT INTO `settings` VALUES ('module_event', '', 0);
-INSERT INTO `settings` VALUES ('module_expense', '', 0);
-INSERT INTO `settings` VALUES ('module_invoice', '', 0);
-INSERT INTO `settings` VALUES ('module_leave', '', 0);
-INSERT INTO `settings` VALUES ('module_message', '', 0);
-INSERT INTO `settings` VALUES ('module_note', '', 0);
-INSERT INTO `settings` VALUES ('module_ticket', '', 0);
-INSERT INTO `settings` VALUES ('module_timeline', '', 0);
+INSERT INTO `settings` VALUES ('module_escalation_matrix', '1', 0);
+INSERT INTO `settings` VALUES ('module_estimate', '1', 0);
+INSERT INTO `settings` VALUES ('module_estimate_request', '1', 0);
+INSERT INTO `settings` VALUES ('module_event', '1', 0);
+INSERT INTO `settings` VALUES ('module_expense', '1', 0);
+INSERT INTO `settings` VALUES ('module_invoice', '1', 0);
+INSERT INTO `settings` VALUES ('module_leave', '1', 0);
+INSERT INTO `settings` VALUES ('module_message', '1', 0);
+INSERT INTO `settings` VALUES ('module_note', '1', 0);
+INSERT INTO `settings` VALUES ('module_sage', '1', 0);
+INSERT INTO `settings` VALUES ('module_ticket', '1', 0);
+INSERT INTO `settings` VALUES ('module_timeline', '1', 0);
 INSERT INTO `settings` VALUES ('opening_hours', '', 0);
 INSERT INTO `settings` VALUES ('order_project_tasks', 'title', 0);
 INSERT INTO `settings` VALUES ('Payroll', 'on', 0);
@@ -1053,7 +1078,7 @@ CREATE TABLE `tasks`  (
   `priority` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tasks
@@ -1062,6 +1087,7 @@ INSERT INTO `tasks` VALUES (3, 'PJG0000-8', 'sub task 0001', 'pen drive', 8, 3, 
 INSERT INTO `tasks` VALUES (4, 'PJG0000-8', 'trhgt', 'demo now', 8, 3, NULL, 0, 5, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:06:19');
 INSERT INTO `tasks` VALUES (5, 'PJG0000-8', 'project task', '', 8, 3, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:31:51');
 INSERT INTO `tasks` VALUES (6, 'PJG0001-10', 'project two sub task one', '', 10, 4, NULL, 0, 5, '2017-11-15', '', 0, 1, 'to_do - 0%', 0, '2017-11-14', '', 0, 'Normal', '2017-11-14 09:52:38');
+INSERT INTO `tasks` VALUES (7, 'SN0014', 'demo', 'testing', 10, 4, NULL, 0, 5, '2012-12-12', 'desig, penart', 23, 1, 'to_do - 0%', 0, '2009-12-01', '5', 0, 'Normal', '2017-11-28 18:02:48');
 
 -- ----------------------------
 -- Table structure for taxes
@@ -1134,7 +1160,23 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of ticket_comments
+-- ----------------------------
+INSERT INTO `ticket_comments` VALUES (1, 5, '2017-11-28 21:25:31', 'testing', 1, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (2, 5, '2017-11-29 08:59:56', 'demo', 2, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (3, 90, '2017-11-29 09:00:43', 'ok', 2, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (4, 90, '2017-11-29 09:03:04', 'testing', 2, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (5, 5, '2017-11-29 09:17:47', 'demo', 3, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (6, 5, '2017-11-29 12:27:03', 'utgryiy', 4, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (7, 5, '2017-11-29 09:39:14', 'demo', 5, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (8, 90, '2017-11-29 09:55:42', 'working', 5, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (9, 5, '2017-11-29 10:03:26', ';hgfi', 6, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (10, 90, '2017-11-29 11:06:40', 'hello', 6, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (11, 5, '2017-11-29 14:02:21', 'phiygo', 8, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (12, 5, '2017-11-29 16:16:07', 'demo', 9, 'a:0:{}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -1168,10 +1210,16 @@ CREATE TABLE `tickets`  (
   `status` enum('new','client_replied','open','closed') CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'new',
   `last_activity_at` datetime(0) NULL DEFAULT NULL,
   `assigned_to` int(11) NOT NULL DEFAULT 0,
+  `escalation_matrix` int(11) NOT NULL,
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tickets
+-- ----------------------------
+INSERT INTO `tickets` VALUES (9, 8, 'demo', 1, 'demo ticket', 5, '2017-11-29 16:21:24', 'new', '2017-11-29 16:21:24', 89, 22, '', 0);
 
 -- ----------------------------
 -- Table structure for users
@@ -1214,14 +1262,15 @@ CREATE TABLE `users`  (
   INDEX `email`(`email`) USING BTREE,
   INDEX `client_id`(`client_id`) USING BTREE,
   INDEX `deleted`(`deleted`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 92 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 93 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (5, 'Team', 'Member', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-10-28 21:10:57', 0, '2017-11-01 08:04:38', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
 INSERT INTO `users` VALUES (89, 'team', '1', 'staff', 0, 0, 'team2@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
-INSERT INTO `users` VALUES (90, 'SAMMY', 'MUTURI NJENGA', 'staff', 0, 0, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'ELECTRICIAN', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (90, 'SAMMY', 'MUTURI NJENGA', 'staff', 0, 1, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'ELECTRICIAN', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 INSERT INTO `users` VALUES (91, 'SAMWEL', 'CHEGE', 'staff', 0, 0, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (92, 'SAMWEL', 'CHEGE', 'client', 0, 0, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;

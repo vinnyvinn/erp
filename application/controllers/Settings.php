@@ -382,6 +382,25 @@ class Settings extends Pre_loader {
         echo json_encode(array("success" => true, 'message' => lang('settings_updated')));
     }
 
+    function escalation_matrix() {
+        $this->template->rander("settings/escalation_matrix");
+    }
+
+    function save_escalation_matrix_settings() {
+
+        $settings = array("escalation_via_email", "escalation_via_sms", "escalation_duration");
+
+        foreach ($settings as $setting) {
+            $value = $this->input->post($setting);
+            if (is_null($value)) {
+                $value = "";
+            }
+
+            $this->Settings_model->save_setting($setting, $value);
+        }
+        echo json_encode(array("success" => true, 'message' => lang('settings_updated')));
+    }
+
 }
 
 /* End of file general_settings.php */

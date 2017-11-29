@@ -140,6 +140,7 @@ $autoload['model'] = array(
     'Messages_model',
     'Clients_model',
     'Projects_model',
+    'Escalation_matrix_model',
     'Milestones_model',
     'Tasks_model',
     'Project_comments_model',

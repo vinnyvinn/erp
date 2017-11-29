@@ -17,4 +17,5 @@
     <li role="presentation" class="<?php echo ($active_tab == 'email_templates') ? 'active' : ''; ?>"><a href="<?php echo_uri("email_templates"); ?>"><?php echo lang("email_templates"); ?></a></li>
     <li role="presentation" class="<?php echo ($active_tab == 'notification') ? 'active' : ''; ?>"><a href="<?php echo_uri("settings/notification"); ?>"><?php echo lang("notification"); ?></a></li>
     <li role="presentation" class="<?php echo ($active_tab == 'modules') ? 'active' : ''; ?>"><a href="<?php echo_uri("settings/modules"); ?>"><?php echo lang("modules"); ?></a></li>
+    <li role="presentation" class="<?php echo ($active_tab == 'escalation_matrix') ? 'active' : ''; ?>"><a href="<?php echo_uri("settings/escalation_matrix"); ?>">Escalation matrix</a></li>
 </ul>

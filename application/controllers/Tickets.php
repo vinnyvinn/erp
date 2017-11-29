@@ -84,6 +84,17 @@ class Tickets extends Pre_loader
 
         $view_data['assigned_to_dropdown'] = $assigned_to_dropdown;
 
+        $escalation_matrix_dropdown = array("" => "-") + $this->Escalation_matrix_model
+        ->get_dropdown_list(
+            ["escalation_matrix"],
+            "id",
+            ["deleted" => 0]
+        );
+
+        asort($escalation_matrix_dropdown, SORT_STRING);
+
+        $view_data['escalation_matrix_dropdown'] = $escalation_matrix_dropdown;
+
         //prepare label suggestions
         $labels = explode(",", $this->Tickets_model->get_label_suggestions());
         $label_suggestions = array();
@@ -112,6 +123,7 @@ class Tickets extends Pre_loader
 
         $ticket_type_id = $this->input->post('ticket_type_id');
         $assigned_to = $this->input->post('assigned_to');
+        $escalation_matrix = $this->input->post('escalation_matrix');
 
         $now = get_current_utc_time();
         $ticket_data = array(
@@ -123,6 +135,7 @@ class Tickets extends Pre_loader
             "last_activity_at" => $now,
             "labels" => $this->input->post('labels'),
             "assigned_to" => $assigned_to ? $assigned_to : 0,
+            "escalation_matrix" => $escalation_matrix ? $escalation_matrix : 0,
             "external_reference" => $this->input->post('external_reference')
         );
 

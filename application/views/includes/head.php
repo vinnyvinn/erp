@@ -43,7 +43,7 @@
         "assets/js/summernote/summernote.min.js",
         "assets/js/app-0000006.js",
         "assets/js/sweetalert2.min.js",
-        "assets/js/es6-promise.auto.min"
+        "assets/js/es6-promise.auto.min.js"
     ));
     ?>
 </head>

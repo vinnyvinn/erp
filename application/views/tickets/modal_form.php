@@ -67,7 +67,8 @@
         <?php } ?>
 
         <!-- Assign to only visible to team members -->
-        <?php if ($this->login_user->user_type == "staff") { ?>    
+        <?php if ($this->login_user->user_type == "staff") { ?>
+
             <div class="form-group">
                 <label for="assigned_to" class=" col-md-3"><?php echo lang('assign_to'); ?></label>
                 <div class="col-md-9">
@@ -92,6 +93,18 @@
                 </div>
             </div>
         <?php } ?>
+
+        <div class="form-group">
+            <label for="escalation_matrix" class=" col-md-3">Escalation matrix</label>
+            <div class="col-md-8">
+                <?php
+                echo form_dropdown("escalation_matrix", $escalation_matrix_dropdown, $model_info->escalation_matrix, "class='select2'");
+                ?>
+            </div>
+            <div class="col-md-1">
+                <?php echo modal_anchor(get_uri("escalation_matrix/modal_form"), "<i class='fa fa-plus-circle'></i>", array("data-is-popup" => '1', 'data-populate' => 'client_id', "class" => "btn btn-info btn-add", "title" => "Add Escalation Matrix")); ?>
+            </div>
+        </div>
 
         <?php $this->load->view("includes/dropzone_preview"); ?>
 
