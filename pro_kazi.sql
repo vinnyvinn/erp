@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 29/11/2017 19:28:27
+ Date: 30/11/2017 18:32:35
 */
 
 SET NAMES utf8mb4;
@@ -36,61 +36,12 @@ CREATE TABLE `activity_logs`  (
   `log_for_id2` int(11) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 663 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of activity_logs
 -- ----------------------------
-INSERT INTO `activity_logs` VALUES (613, '2017-10-28 15:49:16', 5, 'created', 'task', 'title sub one', 38, NULL, 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (614, '2017-10-28 15:51:23', 30, 'created', 'task_comment', 'come on now', 14, NULL, 'project', 14, 'task', 38, 0);
-INSERT INTO `activity_logs` VALUES (615, '2017-10-28 15:51:44', 30, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:17:\"in_progress - 75%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (616, '2017-10-28 15:52:41', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:11:\"done - 100%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (617, '2017-10-28 15:52:57', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:17:\"in_progress - 75%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (618, '2017-10-28 15:54:02', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:17:\"in_progress - 50%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (619, '2017-10-28 15:54:05', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:17:\"in_progress - 75%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (620, '2017-10-28 15:54:32', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:11:\"done - 100%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (621, '2017-10-28 15:55:14', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:17:\"in_progress - 75%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (622, '2017-10-28 16:16:35', 5, 'created', 'task', 'same yeah', 39, NULL, 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (623, '2017-10-28 16:54:59', 5, 'updated', 'task', 'same yeah', 39, 'a:2:{s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:50;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (624, '2017-10-28 16:55:06', 5, 'updated', 'task', 'doest have to end', 40, 'a:2:{s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:25;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (625, '2017-10-28 16:55:11', 5, 'updated', 'task', 'doest have to end', 40, 'a:1:{s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (626, '2017-10-28 16:56:06', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:75;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (627, '2017-10-28 17:05:43', 30, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"75\";s:2:\"to\";i:100;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (628, '2017-10-28 17:06:17', 30, 'updated', 'task', 'doest have to end', 40, 'a:3:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"25\";s:2:\"to\";i:100;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (629, '2017-10-28 17:06:35', 30, 'updated', 'task', 'same yeah', 39, 'a:3:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"50\";s:2:\"to\";i:100;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (630, '2017-10-28 17:13:08', 5, 'updated', 'task', 'doest have to end', 40, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:10:\"to_do - 0%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (631, '2017-10-28 17:13:23', 5, 'updated', 'task', 'doest have to end', 40, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:17:\"in_progress - 75%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (632, '2017-10-28 17:13:28', 5, 'updated', 'task', 'same yeah', 39, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:17:\"in_progress - 25%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (633, '2017-10-28 17:13:32', 5, 'updated', 'task', 'title sub one', 38, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:17:\"in_progress - 50%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (634, '2017-10-28 17:14:33', 5, 'updated', 'task', 'doest have to end', 40, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:11:\"done - 100%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (635, '2017-10-28 17:15:19', 5, 'updated', 'task', 'doest have to end', 40, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:10:\"to_do - 0%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (636, '2017-10-28 17:15:21', 5, 'updated', 'task', 'doest have to end', 40, 'a:1:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:11:\"done - 100%\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (637, '2017-10-28 17:21:20', 30, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:10:\"to_do - 0%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:0;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (638, '2017-10-28 17:21:35', 30, 'updated', 'task', 'same yeah', 39, 'a:3:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:10:\"to_do - 0%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:0;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (639, '2017-10-28 17:22:09', 30, 'updated', 'task', 'doest have to end', 40, 'a:3:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:17:\"in_progress - 25%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"10\";s:2:\"to\";i:25;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (640, '2017-10-28 17:23:33', 5, 'updated', 'task', 'doest have to end', 40, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"25\";s:2:\"to\";i:100;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (641, '2017-10-28 17:23:47', 5, 'updated', 'task', 'same yeah', 39, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:100;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (642, '2017-10-28 17:23:48', 5, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:100;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (643, '2017-10-28 17:24:57', 5, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:17:\"in_progress - 75%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:75;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (644, '2017-10-28 17:25:01', 5, 'updated', 'task', 'doest have to end', 40, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:17:\"in_progress - 75%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:75;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (645, '2017-10-28 17:25:05', 5, 'updated', 'task', 'same yeah', 39, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:17:\"in_progress - 75%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:75;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (646, '2017-10-28 18:03:38', 5, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"75\";s:2:\"to\";i:100;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (647, '2017-10-28 18:05:23', 5, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:17:\"in_progress - 50%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:50;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (648, '2017-10-28 18:49:03', 5, 'created', 'task', 'luck try', 41, NULL, 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (649, '2017-10-28 18:51:48', 5, 'updated', 'task', 'luck try', 41, 'a:3:{s:9:\"parent_id\";a:2:{s:4:\"from\";s:2:\"36\";s:2:\"to\";s:2:\"35\";}s:5:\"title\";a:2:{s:4:\"from\";s:8:\"luck try\";s:2:\"to\";s:12:\"luck try now\";}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (650, '2017-10-28 19:25:43', 30, 'updated', 'task', 'title sub one', 38, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:17:\"in_progress - 75%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"50\";s:2:\"to\";i:75;}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (651, '2017-10-28 19:25:54', 30, 'updated', 'task', 'luck try now', 41, 'a:3:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:17:\"in_progress - 50%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:50;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (652, '2017-10-28 21:04:17', 30, 'updated', 'task', 'same yeah', 39, 'a:3:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 75%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"75\";s:2:\"to\";i:100;}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (653, '2017-11-01 08:02:49', 30, 'updated', 'task', 'luck try now', 41, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:17:\"in_progress - 75%\";}s:9:\"max_hours\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";s:0:\"\";}}', 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (654, '2017-11-01 08:04:28', 30, 'created', 'customer_feedback', 'am 80% done', 15, NULL, 'project', 14, 'customer_feedback', 14, 0);
-INSERT INTO `activity_logs` VALUES (655, '2017-11-01 08:05:31', 5, 'created', 'project_comment', 'Hi contractor', 16, NULL, 'project', 14, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (656, '2017-11-08 08:45:42', 5, 'created', 'task', 'task 0001', 1, NULL, 'project', 1, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (657, '2017-11-09 07:03:52', 5, 'created', 'task', ' nbv vb', 2, NULL, 'project', 7, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (658, '2017-11-09 07:06:00', 5, 'created', 'task', 'sub task 0001', 3, NULL, 'project', 8, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (659, '2017-11-13 06:06:19', 5, 'created', 'task', 'trhgt', 4, NULL, 'project', 8, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (660, '2017-11-13 06:31:51', 5, 'created', 'task', 'project task', 5, NULL, 'project', 8, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (661, '2017-11-14 06:52:38', 5, 'created', 'task', 'project two sub task one', 6, NULL, 'project', 10, '', 0, 0);
-INSERT INTO `activity_logs` VALUES (662, '2017-11-28 15:02:48', 5, 'created', 'task', 'demo', 7, NULL, 'project', 10, '', 0, 0);
+INSERT INTO `activity_logs` VALUES (1, '2017-11-30 06:07:19', 5, 'created', 'task', 'time', 8, NULL, 'project', 10, '', 0, 0);
 
 -- ----------------------------
 -- Table structure for announcements
@@ -261,7 +212,7 @@ CREATE TABLE `escalation_matrix`  (
   `updated_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for estimate_forms
@@ -666,7 +617,7 @@ INSERT INTO `notification_settings` VALUES (24, 'leave_approved', 'leave', 0, 1,
 INSERT INTO `notification_settings` VALUES (25, 'leave_assigned', 'leave', 0, 1, '', '', 'leave_applicant', 25, 0);
 INSERT INTO `notification_settings` VALUES (26, 'leave_rejected', 'leave', 0, 1, '', '', 'leave_applicant', 26, 0);
 INSERT INTO `notification_settings` VALUES (27, 'leave_canceled', 'leave', 0, 0, '', '', '', 27, 0);
-INSERT INTO `notification_settings` VALUES (28, 'ticket_created', 'ticket', 0, 0, '', '', '', 28, 0);
+INSERT INTO `notification_settings` VALUES (28, 'ticket_created', 'ticket', 1, 1, '', '', 'ticket_assignee', 28, 0);
 INSERT INTO `notification_settings` VALUES (29, 'ticket_commented', 'ticket', 0, 1, '', '', 'client_primary_contact,ticket_creator', 29, 0);
 INSERT INTO `notification_settings` VALUES (30, 'ticket_closed', 'ticket', 0, 1, '', '', 'client_primary_contact,ticket_creator', 30, 0);
 INSERT INTO `notification_settings` VALUES (31, 'ticket_reopened', 'ticket', 0, 1, '', '', 'client_primary_contact,ticket_creator', 31, 0);
@@ -704,64 +655,17 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 683 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notifications
 -- ----------------------------
-INSERT INTO `notifications` VALUES (630, 5, '', '2017-10-28 15:49:16', '27', '', 'project_task_created', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (631, 30, '', '2017-10-28 15:51:23', '5', ',5', 'project_task_commented', 14, 38, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (632, 30, '', '2017-10-28 15:51:44', '5', ',5', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (633, 5, '', '2017-10-28 15:52:41', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (634, 5, '', '2017-10-28 15:52:57', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (635, 5, '', '2017-10-28 15:54:02', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (636, 5, '', '2017-10-28 15:54:05', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (637, 5, '', '2017-10-28 15:54:32', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (638, 5, '', '2017-10-28 15:55:14', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (639, 5, '', '2017-10-28 16:16:35', '27', '', 'project_task_created', 14, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (640, 5, '', '2017-10-28 16:54:59', '', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 623, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (641, 5, '', '2017-10-28 16:55:06', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 624, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (642, 5, '', '2017-10-28 16:55:11', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 625, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (643, 5, '', '2017-10-28 16:56:06', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 626, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (644, 30, '', '2017-10-28 17:05:44', '5', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 627, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (645, 30, '', '2017-10-28 17:06:17', '5', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 628, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (646, 30, '', '2017-10-28 17:06:36', '5', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 629, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (647, 5, '', '2017-10-28 17:13:08', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (648, 5, '', '2017-10-28 17:13:23', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (649, 5, '', '2017-10-28 17:13:28', '', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (650, 5, '', '2017-10-28 17:13:33', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (651, 5, '', '2017-10-28 17:14:34', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (652, 5, '', '2017-10-28 17:15:20', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (653, 5, '', '2017-10-28 17:15:21', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (654, 30, '', '2017-10-28 17:21:20', '5', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 637, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (655, 30, '', '2017-10-28 17:21:28', '5', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (656, 30, '', '2017-10-28 17:21:35', '5', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 638, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (657, 30, '', '2017-10-28 17:22:09', '5', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 639, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (658, 5, '', '2017-10-28 17:23:34', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 640, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (659, 5, '', '2017-10-28 17:23:47', '', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 641, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (660, 5, '', '2017-10-28 17:23:48', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 642, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (661, 5, '', '2017-10-28 17:24:57', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 643, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (662, 5, '', '2017-10-28 17:25:01', '', '', 'project_task_updated', 14, 40, 0, 0, 0, 0, 0, 0, 0, 644, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (663, 5, '', '2017-10-28 17:25:05', '', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 645, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (664, 5, '', '2017-10-28 18:03:38', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 646, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (665, 5, '', '2017-10-28 18:05:23', '', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 647, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (666, 5, '', '2017-10-28 18:49:03', '27', '', 'project_task_created', 14, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (667, 5, '', '2017-10-28 18:51:48', '', '', 'project_task_updated', 14, 41, 0, 0, 0, 0, 0, 0, 0, 649, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (668, 30, '', '2017-10-28 19:25:43', '5', '', 'project_task_updated', 14, 38, 0, 0, 0, 0, 0, 0, 0, 650, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (669, 30, '', '2017-10-28 19:25:54', '5', '', 'project_task_updated', 14, 41, 0, 0, 0, 0, 0, 0, 0, 651, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (670, 30, '', '2017-10-28 21:04:17', '5', '', 'project_task_updated', 14, 39, 0, 0, 0, 0, 0, 0, 0, 652, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (671, 30, '', '2017-11-01 08:02:49', '5', ',5', 'project_task_updated', 14, 41, 0, 0, 0, 0, 0, 0, 0, 653, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (672, 30, '', '2017-11-01 08:04:28', '5,27', ',5', 'project_customer_feedback_added', 14, 0, 15, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (673, 5, '', '2017-11-01 08:05:31', '27', '', 'project_comment_added', 14, 0, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (674, 5, '', '2017-11-08 08:45:42', '', '', 'project_task_created', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (675, 5, '', '2017-11-09 07:03:52', '', '', 'project_task_created', 7, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (676, 5, '', '2017-11-09 07:06:01', '', '', 'project_task_created', 8, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (677, 5, '', '2017-11-13 06:06:19', '', '', 'project_task_created', 8, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (678, 5, '', '2017-11-13 06:31:51', '89', '', 'project_task_created', 8, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (679, 5, '', '2017-11-14 06:52:38', '', '', 'project_task_created', 10, 6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (680, 5, '', '2017-11-28 15:02:48', '', '', 'project_task_created', 10, 7, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (681, 5, '', '2017-11-28 21:27:55', '', '', 'project_task_deleted', 0, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (682, 5, '', '2017-11-29 08:56:25', '', '', 'project_task_deleted', 0, 1, 0, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (39, 5, '', '2017-11-30 10:39:05', '', '', 'ticket_created', 0, 0, 0, 15, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (40, 5, '', '2017-11-30 10:52:13', ' 89', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (41, 5, '', '2017-11-30 14:45:38', '90', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (42, 5, '', '2017-11-30 14:58:50', '90', '', 'ticket_created', 0, 0, 0, 16, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (43, 5, '', '2017-11-30 15:00:23', '89', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (44, 5, '', '2017-11-30 15:04:44', '5', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for payment_methods
@@ -869,7 +773,7 @@ CREATE TABLE `project_members`  (
   `is_leader` tinyint(1) NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 39 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of project_members
@@ -878,6 +782,7 @@ INSERT INTO `project_members` VALUES (35, 5, 8, 1, 0);
 INSERT INTO `project_members` VALUES (36, 5, 9, 1, 0);
 INSERT INTO `project_members` VALUES (37, 89, 8, 0, 0);
 INSERT INTO `project_members` VALUES (38, 5, 10, 1, 0);
+INSERT INTO `project_members` VALUES (39, 89, 10, 0, 0);
 
 -- ----------------------------
 -- Table structure for project_time
@@ -984,13 +889,14 @@ INSERT INTO `settings` VALUES ('decimal_separator', '.', 0);
 INSERT INTO `settings` VALUES ('default_currency', 'USD', 0);
 INSERT INTO `settings` VALUES ('disable_client_login', '', 0);
 INSERT INTO `settings` VALUES ('disable_client_signup', '', 0);
+INSERT INTO `settings` VALUES ('email_protocol', 'smtp', 0);
 INSERT INTO `settings` VALUES ('email_sent_from_address', 'wizag@teamkazi.biz', 0);
 INSERT INTO `settings` VALUES ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0);
-INSERT INTO `settings` VALUES ('email_smtp_host', '', 0);
-INSERT INTO `settings` VALUES ('email_smtp_pass', '', 0);
-INSERT INTO `settings` VALUES ('email_smtp_port', '', 0);
+INSERT INTO `settings` VALUES ('email_smtp_host', 'smtp.mailtrap.io', 0);
+INSERT INTO `settings` VALUES ('email_smtp_pass', '4fefe28f506618', 0);
+INSERT INTO `settings` VALUES ('email_smtp_port', '25 ', 0);
 INSERT INTO `settings` VALUES ('email_smtp_security_type', 'tls', 0);
-INSERT INTO `settings` VALUES ('email_smtp_user', '', 0);
+INSERT INTO `settings` VALUES ('email_smtp_user', 'dd5ba209d6a718', 0);
 INSERT INTO `settings` VALUES ('escalation_duration', '30', 0);
 INSERT INTO `settings` VALUES ('escalation_via_email', '1', 0);
 INSERT INTO `settings` VALUES ('escalation_via_sms', '1', 0);
@@ -1078,7 +984,7 @@ CREATE TABLE `tasks`  (
   `priority` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tasks
@@ -1088,6 +994,7 @@ INSERT INTO `tasks` VALUES (4, 'PJG0000-8', 'trhgt', 'demo now', 8, 3, NULL, 0, 
 INSERT INTO `tasks` VALUES (5, 'PJG0000-8', 'project task', '', 8, 3, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:31:51');
 INSERT INTO `tasks` VALUES (6, 'PJG0001-10', 'project two sub task one', '', 10, 4, NULL, 0, 5, '2017-11-15', '', 0, 1, 'to_do - 0%', 0, '2017-11-14', '', 0, 'Normal', '2017-11-14 09:52:38');
 INSERT INTO `tasks` VALUES (7, 'SN0014', 'demo', 'testing', 10, 4, NULL, 0, 5, '2012-12-12', 'desig, penart', 23, 1, 'to_do - 0%', 0, '2009-12-01', '5', 0, 'Normal', '2017-11-28 18:02:48');
+INSERT INTO `tasks` VALUES (8, 'PJG0001-10', 'time', '', 10, 4, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '5', 0, 'Normal', '2017-11-30 09:07:19');
 
 -- ----------------------------
 -- Table structure for taxes
@@ -1160,23 +1067,13 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_comments
 -- ----------------------------
-INSERT INTO `ticket_comments` VALUES (1, 5, '2017-11-28 21:25:31', 'testing', 1, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (2, 5, '2017-11-29 08:59:56', 'demo', 2, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (3, 90, '2017-11-29 09:00:43', 'ok', 2, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (4, 90, '2017-11-29 09:03:04', 'testing', 2, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (5, 5, '2017-11-29 09:17:47', 'demo', 3, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (6, 5, '2017-11-29 12:27:03', 'utgryiy', 4, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (7, 5, '2017-11-29 09:39:14', 'demo', 5, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (8, 90, '2017-11-29 09:55:42', 'working', 5, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (9, 5, '2017-11-29 10:03:26', ';hgfi', 6, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (10, 90, '2017-11-29 11:06:40', 'hello', 6, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (11, 5, '2017-11-29 14:02:21', 'phiygo', 8, 'a:0:{}', 0);
-INSERT INTO `ticket_comments` VALUES (12, 5, '2017-11-29 16:16:07', 'demo', 9, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (18, 5, '2017-11-30 10:39:05', 'maintain-ace ', 15, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (19, 5, '2017-11-30 14:58:49', 'klhcdsdgcysdgvcysdgcvsdy', 16, 'a:0:{}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -1214,12 +1111,13 @@ CREATE TABLE `tickets`  (
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tickets
 -- ----------------------------
-INSERT INTO `tickets` VALUES (9, 8, 'demo', 1, 'demo ticket', 5, '2017-11-29 16:21:24', 'new', '2017-11-29 16:21:24', 89, 22, '', 0);
+INSERT INTO `tickets` VALUES (15, 8, '', 1, 'demo ticket', 5, '2017-11-30 14:45:38', 'new', '2017-11-30 14:45:38', 90, 5, '', 0);
+INSERT INTO `tickets` VALUES (16, 8, '', 1, 'demo 0ne', 5, '2017-11-30 15:04:44', 'new', '2017-11-30 15:04:44', 5, 6, '', 0);
 
 -- ----------------------------
 -- Table structure for users
@@ -1267,10 +1165,10 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (5, 'Team', 'Member', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-10-28 21:10:57', 0, '2017-11-01 08:04:38', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
-INSERT INTO `users` VALUES (89, 'team', '1', 'staff', 0, 0, 'team2@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
+INSERT INTO `users` VALUES (5, 'Team', 'Member', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-11-30 10:36:07', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
+INSERT INTO `users` VALUES (89, 'team', '1', 'staff', 0, 1, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 09:37:26', 0, '2017-11-30 10:34:52', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
 INSERT INTO `users` VALUES (90, 'SAMMY', 'MUTURI NJENGA', 'staff', 0, 1, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'ELECTRICIAN', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
-INSERT INTO `users` VALUES (91, 'SAMWEL', 'CHEGE', 'staff', 0, 0, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (91, 'SAMWEL', 'CHEGE', 'staff', 0, 1, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 INSERT INTO `users` VALUES (92, 'SAMWEL', 'CHEGE', 'client', 0, 0, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
