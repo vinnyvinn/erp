@@ -388,7 +388,7 @@ class Settings extends Pre_loader {
 
     function save_escalation_matrix_settings() {
 
-        $settings = array("escalation_via_email", "escalation_via_sms", "escalation_duration");
+        $settings = array("escalation_via_sms", "escalation_duration");
 
         foreach ($settings as $setting) {
             $value = $this->input->post($setting);
