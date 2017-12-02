@@ -76,6 +76,7 @@ class Events extends Pre_loader {
             "share_with" => $share_with
         );
 
+
         //only admin can edit other team members events
         //non-admin team members can edit only their own events
         if ($id && !$this->login_user->is_admin) {

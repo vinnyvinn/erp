@@ -65,7 +65,7 @@ ini_set('error_reporting', E_ALL);
 //define('ENVIRONMENT', isset($_SERVER['CI_ENV']) ? $_SERVER['CI_ENV'] : 'development');
 
 //set the environment to production after installation
-define('ENVIRONMENT', 'production');
+define('ENVIRONMENT', 'development');
 
 /*
  * ---------------------------------------------------------------

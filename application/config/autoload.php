@@ -171,6 +171,8 @@ $autoload['model'] = array(
     'Custom_field_values_model',
     'Estimates_model',
     'Estimate_items_model',
-    'MainTask'
+    'MainTask',
+    'LegalDocumentTypesModel',
+    'LegalDocumentsModel'
 );
 

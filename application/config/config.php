@@ -31,7 +31,7 @@ $config['base_url'] = '';
 
 
 //try to catch the base url in case of undefined base url 
-if (!$config['base_url']) {
+if (!$config['base_url'] & false) {
 
     $domain = $_SERVER['HTTP_HOST'] . $_SERVER['SCRIPT_NAME'];
 

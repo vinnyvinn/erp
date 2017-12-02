@@ -144,6 +144,14 @@
                 }
 
                 if ($this->login_user->is_admin) {
+                    $attendanceSubs = [];
+                    $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
+                    $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
+
+                    $sidebar_menu[] = array("name" => "legal", "url" => "attendance", "class" => "fa-road font-16", "submenu" => $attendanceSubs);
+                }
+
+                if ($this->login_user->is_admin) {
                     $sidebar_menu[] = array("name" => "settings", "url" => "settings/general", "class" => "fa-wrench");
                 }
             } else {

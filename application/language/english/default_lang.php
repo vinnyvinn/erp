@@ -902,3 +902,23 @@ $lang["chart"] = "Chart";
 $lang["signin_page_background"] = "Signin page background";
 $lang["show_logo_in_signin_page"] = "Show logo in signin page";
 $lang["show_background_image_in_signin_page"] = "Show background image in signin page";
+
+
+//legal
+$lang["legal"] = "Legal";
+$lang["documents"] = "Documents";
+$lang["document_types"] = "Document Types";
+$lang["add_document_types"] = "Add Document Types";
+$lang["add_documents"] = "Add Legal Documents";
+$lang["covered_from"] = "Covered From";
+$lang["covered_to"] = "Covered To";
+$lang["doc_type"] = "Document Type";
+$lang["edit_legal_document"] = "Edit Legal document";
+$lang["user_responsible"] = "Responsible";
+
+//lawsuits
+$lang["add_lawsuits"] = "Add Cases and Lawsuits";
+
+//lawsuits
+
+

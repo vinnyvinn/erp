@@ -663,6 +663,7 @@ class Projects extends Pre_loader {
             "project_label" => $this->input->post("project_label")
         );
 
+
         //only admin can see all projects, other team mebers can see only their own projects.
         if (!$this->login_user->is_admin) {
             $options["user_id"] = $this->login_user->id;
@@ -674,7 +675,7 @@ class Projects extends Pre_loader {
             $result[] = $this->_make_row($data);
             // $result[] = $data;
         }
-        // print_r($result);
+
         echo json_encode(array("data" => $result));
     }
 
