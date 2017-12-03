@@ -27,16 +27,37 @@ class Escalation_matrix extends Pre_loader {
 
   }
 
+  public function get_user_info($value) {
+    // $agents[] = explode(',', $value);
+    $users = [];
+    foreach ((explode(',', $value)) as $user_id) {
+      $users[] = $user_id; 
+    }
+
+    $list_data = [];
+    foreach ($users as $data) {
+      $list_data[] = $this->Users_model->get_all_where(array("id" => $data, "deleted" => 0))->result();
+    }
+
+    $return = [];
+    for ($i=0; $i < count($list_data); $i++) { 
+      foreach ($list_data[$i] as $_listdata) {
+        $return[] = ($i + 1) . " " .ucwords($_listdata->first_name . " " . $_listdata->first_name);
+      }
+    }
+
+    return json_encode($return);
+  }
+
   public function list_data() {
 
     $query = $this->db->get('escalation_matrix');
 
     $return = [];
-    $getCount = [];
+    // $getCount = [];
     foreach ($query->result() as $row) {
-      $getCount[] = $row->escalation_matrix;
-
-      $return[] = ["id" => $row->id, "escalation_matrix" => $row->escalation_matrix, "escalation" => $row->escalation];
+      // $getCount[] = $row->escalation_matrix;
+      $return[] = ["id" => $row->id, "escalation_matrix" => $row->escalation_matrix, "Agents" => implode('<br>', json_decode($this->get_user_info($row->agent_name))), "escalation" => $row->escalation];
     }
 
     /*foreach ($getCount as $key => $value) {

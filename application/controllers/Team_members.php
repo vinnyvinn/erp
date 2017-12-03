@@ -136,10 +136,7 @@ class Team_members extends Pre_loader
         //add a new team member
         $user_id = $this->Users_model->save($user_data);
 
-        $name = $user_data['first_name'] . " " . $user_data['last_name'];
-
-
-        $SAGE_query = "INSERT INTO DEMO.dbo._rtblAgents(cAgentName, cPassword, cFirstName, cLastName, cDisplayName, cTelWork, cEmail, id) VALUES ('" . $name . "', 'msPhRqkbAPEZEqnRQbQB4p8mKlf3bO7H2tqxESayKSU=', '" . $user_data['first_name'] . "', '" . $user_data['last_name'] . "', '" . $name . "', '" . $user_data['phone'] . "', '" . $user_data['email'] . "', '$user_id')";
+        $SAGE_query = "INSERT INTO DEMO.dbo._rtblAgents(cAgentName, cPassword, cFirstName, cLastName, cDisplayName, cTelWork, cEmail, id) VALUES ('" . $name . "', 'msPhRqkbAPEZEqnRQbQB4p8mKlf3bO7H2tqxESayKSU=', '" . $user_data['first_name'] . "', '" . $user_data['last_name'] . "', '" . $user_data['first_name'] . " " . $user_data['last_name'] . "', '" . $user_data['phone'] . "', '" . $user_data['email'] . "', '$user_id')";
         $this->SAGE_DB()->query($SAGE_query);
 
         if ($user_id) {
@@ -679,33 +676,65 @@ class Team_members extends Pre_loader
 
         $HR_DB = $this->load->database('HR', TRUE);
 
-        $query = "SELECT HR.dbo.tblEmployee.Emp_First_Name, HR.dbo.tblEmployee.Emp_Last_Name, HR.dbo.tblEmployee_Contact.Emp_WorkEmail, HR.dbo.tblEmployee_Contact.Emp_WorkPhone, HR.dbo.tblDesignation.Desig_Name FROM HR.dbo.tblEmployee INNER JOIN HR.dbo.tblDesignation ON HR.dbo.tblEmployee.Emp_Desig_Id = HR.dbo.tblDesignation.Desig_Id INNER JOIN HR.dbo.tblEmployee_Contact ON HR.dbo.tblEmployee_Contact.Emp_Id = HR.dbo.tblEmployee.Emp_Id";
+        $query = "SELECT
+            tblEmployee.Emp_First_Name,
+            tblEmployee.Emp_Last_Name,
+            tblEmployee_Contact.Emp_WorkEmail,
+            tblEmployee_Contact.Emp_WorkPhone,
+            tblEmployee.Emp_Join_Date,
+            tblDepartment.Dept_Id,
+            tblDepartment.Dept_Name,
+            tblDesignation.Desig_Id,
+            tblDesignation.Desig_Name,
+            tblEmployee_Contract.Contract_From_Date,
+            tblEmployee_Contract.Contract_To_Date
+
+            FROM
+            tblEmployee
+            INNER JOIN tblDesignation ON tblEmployee.Emp_Desig_Id = tblDesignation.Desig_Id
+            INNER JOIN tblEmployee_Contact ON tblEmployee_Contact.Emp_Id = tblEmployee.Emp_Id
+            INNER JOIN tblDepartment ON tblEmployee.Cmp_Id = tblDepartment.Cmp_Id AND tblEmployee.Emp_Dept_Id = tblDepartment.Dept_Id
+            INNER JOIN tblEmployee_Contract ON tblEmployee_Contract.Cmp_Id = tblEmployee.Cmp_Id AND tblEmployee_Contract.Emp_Id = tblEmployee.Emp_Id";
 
         $return = []; // return array of objects
-        foreach ($HR_DB->query($query)->result() as $row){
+        foreach ($HR_DB->query($query)->result() as $row) {
             $return[] = $row;
         }
 
         $objData = json_decode(json_encode((array) $return), true); // convert objects to associative array
 
-        for ($i=0; $i < count($objData); $i++) {        
+        for ($i=0; $i < count($objData); $i++) {     
 
-            $data = array(
+            $user_data = array(
                 'first_name' => $objData[$i]['Emp_First_Name'],
                 'last_name' => $objData[$i]['Emp_Last_Name'],
                 'user_type' => 'staff',
                 'is_admin' => 0,
-                'role_id' => 0,
+                'role_id' => 10,
                 'email'   => $objData[$i]['Emp_WorkEmail'],
                 'password' => '25d55ad283aa400af464c76d713c07ad',
                 'job_title' => $objData[$i]['Desig_Name'],
-                'phone'      => $objData[$i]['Emp_WorkPhone'],
+                'phone'      => $objData[$i]['Emp_WorkPhone']
             );
 
             if (!$this->Users_model->is_email_exists($objData[$i]['Emp_WorkEmail'])) {
-                // echo "<pre>";
-                // print_r($data);
-                $this->db->insert('users', $data);
+
+                // add a new team member
+                $user_id = $this->Users_model->save($user_data);
+
+                if ($user_id) {
+                    //user added, now add the job info for the user
+                    $job_data = array(
+                        "user_id"      => $user_id,
+                        "salary"       => 0,
+                        "salary_term"  => "Uknown",
+                        "working_hours"  => 0,
+                        "hourly_rate"  => 0,
+                        "date_of_hire" => (new DateTime($objData[$i]['Emp_Join_Date']))->format('Y-m-d')
+                    );
+
+                    $this->Team_member_model->save($job_data);
+                }
             }
 
         }
