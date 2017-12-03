@@ -175,6 +175,10 @@ $autoload['model'] = array(
     'Inventory_requisitions_model',
     'Petty_cash_model',
     'Petty_cash_type_model',
-    'Team_member_model'
+    'Team_member_model',
+    'LegalDocumentTypesModel',
+    'LegalDocumentsModel',
+    'LegalProceduresModel',
+    'LegalTypesModel'
 );
 

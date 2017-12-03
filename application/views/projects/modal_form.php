@@ -21,12 +21,13 @@
     <div class="form-group">
         <label for="client_id" class=" col-md-3">Service provider</label>
         <div class="col-md-8">
+
             <?php
             echo form_dropdown("client_id", $clients_dropdown, array($model_info->client_id), "id='client_id' class='select2 validate-hidden' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
             ?>
         </div>
 
-        <div class="col-md-1">
+        <div class="col-md-1">z
             <?php echo modal_anchor(get_uri("clients/modal_form"), "<i class='fa fa-plus-circle'></i>", array("data-is-popup" => '1', 'data-populate' => 'client_id', "class" => "btn btn-info btn-add", "title" => lang('add_client'))); ?>
         </div>
 
