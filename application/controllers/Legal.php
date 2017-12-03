@@ -47,6 +47,7 @@ class Legal extends Pre_loader
             $optoins.=modal_anchor(get_uri("legal/form_modal"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('edit_legal_document'), "data-post-id" => $datas->id));
         }
 
+        $docname = anchor(get_uri("legal/view/" . $datas->id), $datas->name);
 
         $doctype = $this->LegalDocumentTypesModel->get_one($datas->document_type);
         $responsible = $this->Users_model->get_one($datas->user_responsible);
@@ -58,7 +59,7 @@ class Legal extends Pre_loader
 
         return array(
            $key+1,
-            $datas->name,
+            $docname,
             $doctype->name,
             date("Y-m-d",strtotime($datas->covered_from)),
             date("Y-m-d",strtotime($datas->covered_to)),
@@ -77,6 +78,7 @@ class Legal extends Pre_loader
             "contact_personnel" => "required",
             "covered_from" => "required",
             "covered_to" => "required",
+
         ));
 
         $data = array(
@@ -85,6 +87,7 @@ class Legal extends Pre_loader
             "user_responsible" => $this->input->post('contact_personnel'),
             "covered_from" => $this->input->post('covered_from'),
             "covered_to" => $this->input->post('covered_to'),
+            "status"=>1
         );
         if($this->LegalDocumentsModel->save($data, $id)){
             $doctypeid = (int)$this->input->post('document_type');
@@ -125,6 +128,9 @@ class Legal extends Pre_loader
 
     }
 
+    function view($id){
+
+    }
     //LAWSUITS
     function lawsuits(){
         $this->template->rander("legal/lawsuits/index");

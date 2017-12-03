@@ -918,6 +918,9 @@ $lang["user_responsible"] = "Responsible";
 
 //lawsuits
 $lang["add_lawsuits"] = "Add Cases and Lawsuits";
+$lang["add_legal_procedures"] = "Add Legal Procedures";
+$lang["add_law_suits_types"] = "Add LawSuit Types";
+$lang["law_suits_types"] = "LawSuit Types";
 
 //lawsuits
 

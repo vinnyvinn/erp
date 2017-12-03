@@ -173,6 +173,8 @@ $autoload['model'] = array(
     'Estimate_items_model',
     'MainTask',
     'LegalDocumentTypesModel',
-    'LegalDocumentsModel'
+    'LegalDocumentsModel',
+    'LegalProceduresModel',
+    'LegalTypesModel'
 );
 

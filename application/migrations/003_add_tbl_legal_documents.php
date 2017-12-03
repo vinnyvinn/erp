@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Add_Tbl_Legal_Documents extends CI_Migration
+class Migration_Add_tbl_legal_documents extends CI_Migration
 {
 
     public function up()
@@ -24,6 +24,8 @@ class Migration_Add_Tbl_Legal_Documents extends CI_Migration
             ),
             'document_type' => array(
                 'type' => 'INT',
+                'constraint' => '10',
+                'unsigned' => TRUE,
             ),
             'user_responsible' => array(
                 'type' => 'INT',
@@ -35,11 +37,9 @@ class Migration_Add_Tbl_Legal_Documents extends CI_Migration
             ),
             'covered_from' => array(
                 'type' => 'TIMESTAMP',
-
             ),
             'covered_to' => array(
                 'type' => 'TIMESTAMP',
-
             ),
             'deleted' => array(
                 'type' => 'INT',
@@ -51,17 +51,11 @@ class Migration_Add_Tbl_Legal_Documents extends CI_Migration
             'updated_at' => array(
                 'type' => 'TIMESTAMP',
             ),
-
-
         ));
         $this->dbforge->add_key('id', TRUE);
         $this->dbforge->add_key('document_type', TRUE);
-        $this->dbforge->add_field('CONSTRAINT FOREIGN KEY document_typeaa REFERENCES tbl_legal_document_types(id)');
-
         $this->dbforge->create_table('tbl_legal_documents');
         //$this->db->query("ALTER TABLE `tbl_legal_documents` ADD FOREIGN KEY(`document_type`) REFERENCES 'tbl_legal_document_types'(id);");
-
-
     }
 
     public function down()
