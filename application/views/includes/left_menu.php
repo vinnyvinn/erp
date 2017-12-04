@@ -93,6 +93,19 @@
                     $sidebar_menu[] = array("name" => "finance", "url" => $finance_url, "class" => "fa-money", "submenu" => $finance_submenu);
                 }
 
+                if ((get_setting("module_admin") == "1") && ($this->login_user->is_admin)) {
+                    $administration_submenu = array();
+                    $administration_url = "";
+
+                        $administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash");
+                        $administration_url = "petty_cash";
+
+                        $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
+                        $administration_url = "inventory_requisitions";
+
+                    $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu);
+                }
+
                 if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin || $access_ticket)) {
                     $sidebar_menu[] = array("name" => "Escalation Matrix", "url" => "escalation_matrix", "class" => "fa-stack-overflow");
                 }
@@ -111,7 +124,7 @@
                 if ($this->login_user->is_admin) {
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Team Members", "url" => "team_members"];
-//                    $attendanceSubs [] = ["name" => "Task Summary", "url" => "attendance/task_summary"];
+                    // $attendanceSubs [] = ["name" => "Task Summary", "url" => "attendance/task_summary"];
 
                     $sidebar_menu[] = array("name" => "Team", "url" => "team_members", "class" => "fa-user font-16", "submenu" => $attendanceSubs);
                 } else if (get_setting("module_attendance") == "1") {

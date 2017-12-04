@@ -48,8 +48,9 @@ $('#example').DataTable({
             columns: [
                 {title: 'ID', "class": "w50", "data": "id"},
                 {title: 'Escalation Matrix', "data": "escalation_matrix"},
-                // {title: 'Agents', "class": "w20p", "data": "count"},
+                {title: 'Agents', "class": "w20p", "data": "Agents"},
                 {title: 'Escalation Duration (Min)', "class": "w20p", "data": "escalation"},
+                // {title: '<i class="fa fa-bars"></i>', "class": "text-center option w100"}
             ],
             // order: [[1, "desc"]],
             printColumns: [0, 1, 2, 3],

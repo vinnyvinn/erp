@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 30/11/2017 18:32:35
+ Date: 03/12/2017 14:01:08
 */
 
 SET NAMES utf8mb4;
@@ -208,10 +208,13 @@ CREATE TABLE `escalation_matrix`  (
   `escalation_matrix` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `agent_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `escalation` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `created_by` int(11) NULL DEFAULT NULL,
   `assigned_date` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`) USING BTREE
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `created_by`(`created_by`) USING BTREE,
+  CONSTRAINT `escalation_matrix_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -353,6 +356,34 @@ CREATE TABLE `expenses`  (
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Table structure for inventory_requisitions
+-- ----------------------------
+DROP TABLE IF EXISTS `inventory_requisitions`;
+CREATE TABLE `inventory_requisitions`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `item_id` int(11) NOT NULL,
+  `item_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `item_quantity` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `item_cost` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
+  `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `status` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Pending',
+  `approver_id` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of inventory_requisitions
+-- ----------------------------
+INSERT INTO `inventory_requisitions` VALUES (7, 0, 2, 'Mouse', '5', '1250', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (8, 5, 2, 'Mouse', '3', '750', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (9, 5, 3, 'ballboint pen', '6', '150', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (10, 5, 2, 'Mouse', '4', '1000', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (11, 5, 1, 'Test', '25476', '0', '2017-12-02 00:00:00', NULL, 'Pending', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -705,6 +736,53 @@ CREATE TABLE `paypal_ipn`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for petty_cash
+-- ----------------------------
+DROP TABLE IF EXISTS `petty_cash`;
+CREATE TABLE `petty_cash`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `type_id` int(11) NOT NULL,
+  `petty_cash` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `amount` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `project` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `created_at` date NOT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `status` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Pending',
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `type_id`(`type_id`) USING BTREE,
+  CONSTRAINT `petty_cash_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `petty_cash_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of petty_cash
+-- ----------------------------
+INSERT INTO `petty_cash` VALUES (1, 5, 1, 'example', 'dtrddrs', 'sddfzdf', 'strgxgrfsdf', '2017-12-02', '2017-12-02 13:21:15', 'Pending', 0);
+INSERT INTO `petty_cash` VALUES (2, 5, 1, 'transport', 'westlands to upperhill', '1200', '01 : Petty Cash', '2017-12-02', NULL, 'Pending', 0);
+
+-- ----------------------------
+-- Table structure for petty_cash_types
+-- ----------------------------
+DROP TABLE IF EXISTS `petty_cash_types`;
+CREATE TABLE `petty_cash_types`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name_type` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `admin_id` int(11) NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `update_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of petty_cash_types
+-- ----------------------------
+INSERT INTO `petty_cash_types` VALUES (1, 'transport', 1, '2017-12-02 00:25:44', '2017-12-02 00:26:05', 0);
+INSERT INTO `petty_cash_types` VALUES (2, 'phone bill', 2, '2017-12-02 00:26:01', '2017-12-02 00:26:21', 0);
+
+-- ----------------------------
 -- Table structure for posts
 -- ----------------------------
 DROP TABLE IF EXISTS `posts`;
@@ -835,7 +913,7 @@ CREATE TABLE `roles`  (
   `permissions` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of roles
@@ -849,6 +927,7 @@ INSERT INTO `roles` VALUES (6, 'Manual worker', NULL, 0);
 INSERT INTO `roles` VALUES (7, 'Project Manager', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0);
 INSERT INTO `roles` VALUES (8, 'Client', 'a:24:{s:5:\"leave\";N;s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";N;s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";N;s:8:\"estimate\";N;s:7:\"expense\";N;s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";N;s:17:\"can_edit_projects\";N;s:19:\"can_delete_projects\";N;s:30:\"can_add_remove_project_members\";N;s:16:\"can_create_tasks\";N;s:14:\"can_edit_tasks\";N;s:16:\"can_delete_tasks\";N;s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";N;s:19:\"can_edit_milestones\";N;s:21:\"can_delete_milestones\";N;s:16:\"can_delete_files\";N;s:34:\"can_view_team_members_contact_info\";N;s:34:\"can_view_team_members_social_links\";N;}', 0);
 INSERT INTO `roles` VALUES (9, 'Contractor', NULL, 0);
+INSERT INTO `roles` VALUES (10, 'Normal Employees', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0);
 
 -- ----------------------------
 -- Table structure for settings
@@ -906,6 +985,7 @@ INSERT INTO `settings` VALUES ('HR_sync', 'off', 0);
 INSERT INTO `settings` VALUES ('invoice_logo', 'default-invoice-logo.png', 0);
 INSERT INTO `settings` VALUES ('item_purchase_code', 'ITEM-PURCHASE-CODE', 0);
 INSERT INTO `settings` VALUES ('language', 'english', 0);
+INSERT INTO `settings` VALUES ('module_admin', '1', 0);
 INSERT INTO `settings` VALUES ('module_announcement', '1', 0);
 INSERT INTO `settings` VALUES ('module_attendance', '1', 0);
 INSERT INTO `settings` VALUES ('module_escalation_matrix', '1', 0);
@@ -1014,6 +1094,102 @@ CREATE TABLE `taxes`  (
 INSERT INTO `taxes` VALUES (1, 'Tax (16%)', 16, 0);
 
 -- ----------------------------
+-- Table structure for tbl_case_procedures
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_case_procedures`;
+CREATE TABLE `tbl_case_procedures`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_case_procedures
+-- ----------------------------
+INSERT INTO `tbl_case_procedures` VALUES (1, 'First procedure', 0);
+INSERT INTO `tbl_case_procedures` VALUES (2, 'Second Procedure', 0);
+
+-- ----------------------------
+-- Table structure for tbl_case_status
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_case_status`;
+CREATE TABLE `tbl_case_status`  (
+  `id` int(50) NOT NULL AUTO_INCREMENT,
+  `status` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_case_status
+-- ----------------------------
+INSERT INTO `tbl_case_status` VALUES (1, 'active/opened');
+INSERT INTO `tbl_case_status` VALUES (2, 'inactive/closed');
+
+-- ----------------------------
+-- Table structure for tbl_case_type
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_case_type`;
+CREATE TABLE `tbl_case_type`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_case_type
+-- ----------------------------
+INSERT INTO `tbl_case_type` VALUES (1, 'Incomming', 0);
+INSERT INTO `tbl_case_type` VALUES (2, 'OutGoing', 0);
+
+-- ----------------------------
+-- Table structure for tbl_legal_document_types
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_legal_document_types`;
+CREATE TABLE `tbl_legal_document_types`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_legal_document_types
+-- ----------------------------
+INSERT INTO `tbl_legal_document_types` VALUES (1, 'Policy', 0);
+INSERT INTO `tbl_legal_document_types` VALUES (2, 'Insuarance', 0);
+INSERT INTO `tbl_legal_document_types` VALUES (3, 'Permits', 0);
+INSERT INTO `tbl_legal_document_types` VALUES (4, 'test1', 1);
+
+-- ----------------------------
+-- Table structure for tbl_legal_documents
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_legal_documents`;
+CREATE TABLE `tbl_legal_documents`  (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+  `document_type` int(10) UNSIGNED NOT NULL,
+  `user_responsible` int(11) NOT NULL DEFAULT 0,
+  `status` int(11) NOT NULL DEFAULT 0,
+  `covered_from` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
+  `covered_to` timestamp(0) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  `created_at` timestamp(0) NOT NULL,
+  `updated_at` timestamp(0) NOT NULL,
+  PRIMARY KEY (`id`, `document_type`) USING BTREE,
+  INDEX `fk_doc_type`(`document_type`) USING BTREE,
+  INDEX `fk_status`(`status`) USING BTREE,
+  CONSTRAINT `fk_doc_type` FOREIGN KEY (`document_type`) REFERENCES `tbl_legal_document_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `fk_status` FOREIGN KEY (`status`) REFERENCES `tbl_case_status` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_legal_documents
+-- ----------------------------
+INSERT INTO `tbl_legal_documents` VALUES (5, 'ewwewe', 2, 90, 1, '2017-12-06 00:00:00', '2017-12-05 00:00:00', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+
+-- ----------------------------
 -- Table structure for team
 -- ----------------------------
 DROP TABLE IF EXISTS `team`;
@@ -1046,13 +1222,15 @@ CREATE TABLE `team_member_job_info`  (
   `salary_term` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of team_member_job_info
 -- ----------------------------
-INSERT INTO `team_member_job_info` VALUES (4, 5, '2016-09-16', 0, 15000, 176, 85, 'Monthly');
-INSERT INTO `team_member_job_info` VALUES (9, 89, '0000-00-00', 0, 40000, 176, 227.27272727273, '');
+INSERT INTO `team_member_job_info` VALUES (4, 5, '2016-09-16', 0, 15000, 176, 85.227272727273, 'Monthly');
+INSERT INTO `team_member_job_info` VALUES (9, 89, '2017-12-27', 0, 40000, 176, 227.27272727273, '');
+INSERT INTO `team_member_job_info` VALUES (17, 113, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (18, 114, '2014-07-16', 0, 0, 0, 0, 'Uknown');
 
 -- ----------------------------
 -- Table structure for ticket_comments
@@ -1111,13 +1289,7 @@ CREATE TABLE `tickets`  (
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of tickets
--- ----------------------------
-INSERT INTO `tickets` VALUES (15, 8, '', 1, 'demo ticket', 5, '2017-11-30 14:45:38', 'new', '2017-11-30 14:45:38', 90, 5, '', 0);
-INSERT INTO `tickets` VALUES (16, 8, '', 1, 'demo 0ne', 5, '2017-11-30 15:04:44', 'new', '2017-11-30 15:04:44', 5, 6, '', 0);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for users
@@ -1160,15 +1332,14 @@ CREATE TABLE `users`  (
   INDEX `email`(`email`) USING BTREE,
   INDEX `client_id`(`client_id`) USING BTREE,
   INDEX `deleted`(`deleted`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 93 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 115 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (5, 'Team', 'Member', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-11-30 10:36:07', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
 INSERT INTO `users` VALUES (89, 'team', '1', 'staff', 0, 1, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 09:37:26', 0, '2017-11-30 10:34:52', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
-INSERT INTO `users` VALUES (90, 'SAMMY', 'MUTURI NJENGA', 'staff', 0, 1, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'ELECTRICIAN', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
-INSERT INTO `users` VALUES (91, 'SAMWEL', 'CHEGE', 'staff', 0, 1, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
-INSERT INTO `users` VALUES (92, 'SAMWEL', 'CHEGE', 'client', 0, 0, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (113, 'SILVESTER', 'GACHIGO', 'staff', 0, 10, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 10, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
