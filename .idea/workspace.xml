@@ -2,40 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="816702af-ac45-4b2d-87bb-b28bdd528c42" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/migrations/008_add_tbl_time_durations.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/migrations/009_add_tbl_escalation_reminders.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/migrations/010_add_tbl_esc_reminders_fkey.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/migrations/011_add_tbl_escalation_matrix.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/models/LegalReminders.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/models/TblLegalEscalationMatrix.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/documents/view.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/escalation-matrix/index.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/escalation-matrix/modal_form.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/reminders/index.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/reminders/modal_form.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/settings/time-durations/index.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/prokazi.iml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/application/config/autoload.php" afterPath="$PROJECT_DIR$/application/config/autoload.php" />
-      <change beforePath="$PROJECT_DIR$/application/config/config.php" afterPath="$PROJECT_DIR$/application/config/config.php" />
-      <change beforePath="$PROJECT_DIR$/application/config/migration.php" afterPath="$PROJECT_DIR$/application/config/migration.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Document_types.php" afterPath="$PROJECT_DIR$/application/controllers/Document_types.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Legal.php" afterPath="$PROJECT_DIR$/application/controllers/Legal.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Sendmails.php" afterPath="$PROJECT_DIR$/application/controllers/Sendmails.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Settings.php" afterPath="$PROJECT_DIR$/application/controllers/Settings.php" />
-      <change beforePath="$PROJECT_DIR$/application/index.html" afterPath="$PROJECT_DIR$/application/index.html" />
-      <change beforePath="$PROJECT_DIR$/application/language/english/default_lang.php" afterPath="$PROJECT_DIR$/application/language/english/default_lang.php" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/002_add_tbl_legal_document_types.php" afterPath="$PROJECT_DIR$/application/migrations/002_add_tbl_legal_document_types.php" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/003_add_tbl_legal_documents.php" afterPath="$PROJECT_DIR$/application/migrations/003_add_tbl_legal_documents.php" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/006_add_tbl_cases.php" afterPath="$PROJECT_DIR$/application/migrations/007_add_tbl_cases.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/LegalDocumentsModel.php" afterPath="$PROJECT_DIR$/application/models/LegalDocumentsModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/includes/left_menu.php" afterPath="$PROJECT_DIR$/application/views/includes/left_menu.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/layout/index.php" afterPath="$PROJECT_DIR$/application/views/layout/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/document_types/modal_form.php" afterPath="$PROJECT_DIR$/application/views/legal/document_types/modal_form.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/documents/index.php" afterPath="$PROJECT_DIR$/application/views/legal/documents/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/documents/modal_form.php" afterPath="$PROJECT_DIR$/application/views/legal/documents/modal_form.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/tabs.php" afterPath="$PROJECT_DIR$/application/views/legal/tabs.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/settings/tabs.php" afterPath="$PROJECT_DIR$/application/views/settings/tabs.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -50,7 +17,7 @@
         <entry file="file://$PROJECT_DIR$/application/views/layout/index.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="102">
-              <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+              <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -60,7 +27,7 @@
         <entry file="file://$PROJECT_DIR$/application/views/includes/left_menu.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="210">
-              <caret line="149" column="20" lean-forward="false" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+              <caret line="162" column="20" lean-forward="false" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -212,16 +179,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1512376457872</updated>
-      <workItem from="1512376460924" duration="27461000" />
+      <workItem from="1512376460924" duration="27612000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27461000" />
+    <option name="totallyTimeSpent" value="27612000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -231,7 +197,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -423,7 +389,7 @@
           <caret line="92" column="40" lean-forward="false" selection-start-line="92" selection-start-column="17" selection-end-line="92" selection-end-column="40" />
           <folding>
             <element signature="n#div#4;n#div#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#footer#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#button#0;n#footer#0;n#div#0;n#div#0;n#div#1;n#!!top" expanded="false" />
             <element signature="e#5018#5910#0#HTML" expanded="false" />
           </folding>
         </state>
@@ -482,7 +448,7 @@
     <entry file="file://$PROJECT_DIR$/application/views/layout/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
-          <caret line="6" column="38" lean-forward="true" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
+          <caret line="6" column="38" lean-forward="false" selection-start-line="6" selection-start-column="38" selection-end-line="6" selection-end-column="38" />
           <folding />
         </state>
       </provider>
@@ -490,7 +456,7 @@
     <entry file="file://$PROJECT_DIR$/application/views/includes/left_menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
-          <caret line="149" column="20" lean-forward="false" selection-start-line="149" selection-start-column="20" selection-end-line="149" selection-end-column="20" />
+          <caret line="162" column="20" lean-forward="false" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
           <folding />
         </state>
       </provider>
