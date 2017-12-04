@@ -29,6 +29,10 @@
 
             $("#documents").appTable({
                 source: '<?php echo_uri("legal/list_data") ?>',
+                radioButtons: [
+                        {text: 'Active', name: "status", value: 1, isChecked: true},
+                        {text: 'Expired', name: "status", value: 2, isChecked: false},
+                    ],
                 columns: [
                     {title: "<?php echo lang("id") ?>", "class": "text-center w50"},
                     {title: "name"},

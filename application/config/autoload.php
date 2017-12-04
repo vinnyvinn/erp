@@ -175,6 +175,9 @@ $autoload['model'] = array(
     'LegalDocumentTypesModel',
     'LegalDocumentsModel',
     'LegalProceduresModel',
-    'LegalTypesModel'
+    'LegalTypesModel',
+    'TimeDurationModel',
+    'TblLegalEscalationMatrix',
+    'LegalReminders'
 );
 

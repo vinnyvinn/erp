@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Add_Tbl_Legal_Document_Types extends CI_Migration
+class Migration_Add_tbl_escalation_reminders extends CI_Migration
 {
 
     public function up()
@@ -16,34 +16,48 @@ class Migration_Add_Tbl_Legal_Document_Types extends CI_Migration
             'id' => array(
                 'type' => 'INT',
                 'unsigned' => TRUE,
-                'constraint' => '10',
                 'auto_increment' => TRUE
             ),
             'name' => array(
                 'type' => 'VARCHAR',
-                'constraint' => '100',
+               'constraint'=>200
             ),
-            'has_expiry'=> array(
+            'doc_type' => array(
                 'type' => 'INT',
-                'default' => '0',
+                'unsigned' => TRUE,
             ),
-            'can_upload'=> array(
+            'reminder_to' => array(
                 'type' => 'INT',
-                'default' => '0',
+                'constraint' => '11',
+            ),
+            'duration_before'=> array(
+                'type' => 'INT',
+                'unsigned' => TRUE,
+            ),
+            'reminder_every' => array(
+                'type' => 'INT',
+                'unsigned' => TRUE,
+
+            ),
+            'reminder_for' => array(
+                'type' => 'INT',
+                'unsigned' => TRUE,
             ),
             'deleted' => array(
                 'type' => 'INT',
                 'default' => '0',
             ),
 
+
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('tbl_legal_document_types');
+        $this->dbforge->create_table('tbl_doc_escalation_n_reminders');
     }
 
     public function down()
     {
-        $this->dbforge->drop_table('tbl_legal_document_types');
+
+
     }
 }
-    ?>
+?>

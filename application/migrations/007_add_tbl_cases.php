@@ -38,7 +38,7 @@ class Migration_Add_tbl_cases extends CI_Migration
 
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('tbl_case_type');
+        $this->dbforge->create_table('tbl_cases');
     }
 
     public function down()

@@ -1,4 +1,4 @@
-<?php echo form_open(get_uri("document_types/save"),
+<?php echo form_open(get_uri("settings/timedurations_save"),
     array("id" => "legaldocumenttypesform",
         "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
@@ -21,26 +21,19 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="name" class=" col-md-3">Has Covered from and Covered to</label>
+        <label for="name" class=" col-md-3">Seconds </label>
         <div class=" col-md-9">
             <?php
-            $options = array(
-                '1'         => 'Yes',
-                '0'           => 'No',
-            );
-            echo form_dropdown('has_expiry', $options,$model_info->has_expiry);
-            ?>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="name" class=" col-md-3">Requires Document Upload</label>
-        <div class=" col-md-9">
-            <?php
-            $options = array(
-                '0'           => 'No',
-                '1'         => 'Yes',
-            );
-              echo form_dropdown('can_upload', $options, $model_info->can_upload);
+            echo form_input(array(
+                "id" => "seconds",
+                "name" => "seconds",
+                "value" => $model_info->seconds,
+                "class" => "form-control",
+                "placeholder" => "Seconds",
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required"),
+            ));
             ?>
         </div>
     </div>
@@ -58,10 +51,6 @@
 
 <script type="text/javascript">
     $(document).ready(function () {
-        $('#can_upload').prop('checked', function(){
-            console.log("checked ")
-
-        });
         $("#legaldocumenttypesform").appForm({
             onSuccess: function (result) {
                 setTimeout(function () {

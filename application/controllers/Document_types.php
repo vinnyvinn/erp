@@ -35,10 +35,14 @@ class Document_types extends Pre_loader
         $datasaved = false;
         $id = $this->input->post('id');
         validate_submitted_data(array(
-            "name" => "required"
+            "name" => "required",
+            'can_upload'=>'required',
+            'has_expiry'=>'required'
         ));
         $data = array(
             "name" => $this->input->post('name'),
+            "can_upload" => $this->input->post('can_upload'),
+            "has_expiry" => $this->input->post('has_expiry'),
         );
         if($this->LegalDocumentTypesModel->save($data, $id)){
             $datasaved = true;

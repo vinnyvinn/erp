@@ -922,6 +922,10 @@ $lang["add_legal_procedures"] = "Add Legal Procedures";
 $lang["add_law_suits_types"] = "Add LawSuit Types";
 $lang["law_suits_types"] = "LawSuit Types";
 
-//lawsuits
+//settings extra
+$lang["add_time_durations"] = "Add Time Duration";
+
+
+
 
 
