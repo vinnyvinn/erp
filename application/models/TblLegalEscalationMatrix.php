@@ -6,12 +6,12 @@
  * Time: 15:43
  */
 
-class LegalDocumentsModel  extends Crud_model  {
+class TblLegalEscalationMatrix  extends Crud_model  {
 
     private $table = null;
 
     function __construct() {
-        $this->table = 'tbl_legal_documents';
+        $this->table = 'tbl_escalation_matrix';
         parent::__construct($this->table);
     }
 
@@ -19,24 +19,16 @@ class LegalDocumentsModel  extends Crud_model  {
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where($this->table.".id", $id);
-        $this->db->join('tbl_legal_document_types', 'tbl_legal_document_types.id = '.$this->table.'.document_type');
         $query = $this->db->get();
-        if(isset($newQuery)){
-            $query = $newQuery;
-        }
-        return $query->row();
+        return $query->result();
     }
 
 
-    function getDocuments($status = 1){
+    function getMatrix(){
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where($this->table.'.deleted',0);
-        $this->db->where($this->table.'.status',$status);
         $query = $this->db->get();
-        if(isset($newQuery)){
-            $query = $newQuery;
-        }
 
        return $query->result();
     }

@@ -401,6 +401,81 @@ class Settings extends Pre_loader {
         echo json_encode(array("success" => true, 'message' => lang('settings_updated')));
     }
 
+
+
+    //time durations
+    function time_durations() {
+        $this->template->rander("settings/time-durations/index");
+    }
+
+    function time_duration_list_data(){
+        $list_data = $this->TimeDurationModel->getTime();
+
+        $result = [];
+        foreach ($list_data as $key=>$data) {
+            $result[] = $this->_make_time_row($data, $key);
+        }
+        echo json_encode(array("data" => $result));
+    }
+
+    private function _make_time_row($datas, $key=0) {
+        $optoins = "";
+        $optoins.=modal_anchor(get_uri("settings/time_duration_modal"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('edit_legal_document'), "data-post-id" => $datas->id));
+
+        $optoins.=js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_project'), "class" => "delete", "data-id" => $datas->id,
+            "data-action-url" => get_uri("settings/delete_time_duration"), "data-action" => "delete"));
+
+        return array(
+            $key+1,
+            $datas->name,
+            $datas->seconds,
+            $optoins
+        );
+    }
+
+    function time_duration_modal(){
+        $id = $this->input->post('id');
+        $view_data['model_info']=$this->TimeDurationModel->get_one($id);
+        $this->load->view('settings/time-durations/modal_form', $view_data);
+    }
+
+    function timedurations_save(){
+        $datasaved = false;
+        $id = $this->input->post('id');
+
+        validate_submitted_data(array(
+            "name" => "required",
+            "seconds" => "required",
+        ));
+
+        $data = array(
+            "name" => $this->input->post('name'),
+            "seconds" => $this->input->post('seconds'),
+
+        );
+        if($this->TimeDurationModel->save($data, $id)){
+            $doctypeid = (int)$this->input->post('document_type');
+            $datasaved = true;
+
+        }
+        echo json_encode(array("success" => $datasaved, 'message' => lang('record_saved')));
+    }
+
+    function delete_time_duration(){
+        $id = $this->input->post('id');
+
+        $deleted = false;
+        if($id){
+            $this->TimeDurationModel->row_delete($id);
+            $deleted = true;
+        }
+        echo json_encode(array("success" => $deleted, 'message' => (!$deleted)?lang('record_cannot_be_deleted'):lang('record_deleted')));
+
+    }
+
+
+
+
 }
 
 /* End of file general_settings.php */

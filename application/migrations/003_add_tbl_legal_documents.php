@@ -27,6 +27,9 @@ class Migration_Add_tbl_legal_documents extends CI_Migration
                 'constraint' => '10',
                 'unsigned' => TRUE,
             ),
+            'file_document' => array(
+                'type' => 'TEXT',
+            ),
             'user_responsible' => array(
                 'type' => 'INT',
                 'default' => '0',
@@ -36,12 +39,27 @@ class Migration_Add_tbl_legal_documents extends CI_Migration
                 'default' => '0',
             ),
             'covered_from' => array(
-                'type' => 'TIMESTAMP',
+                'type' => 'TEXT',
             ),
             'covered_to' => array(
-                'type' => 'TIMESTAMP',
+                'type' => 'TEXT',
             ),
             'deleted' => array(
+                'type' => 'INT',
+                'default' => '0',
+            ),
+            'reminder' => array(
+                'type' => 'INT',
+                'default' => '0',
+            ),
+
+            //check the no of reminders sent here
+            "reminder_sent"=> array(
+                'type' => 'INT',
+                'default' => '0',
+            ),
+            //whether escalations have completely run
+            'completed_escalations' => array(
                 'type' => 'INT',
                 'default' => '0',
             ),
@@ -53,7 +71,7 @@ class Migration_Add_tbl_legal_documents extends CI_Migration
             ),
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->add_key('document_type', TRUE);
+        //$this->dbforge->add_key('document_type', TRUE);
         $this->dbforge->create_table('tbl_legal_documents');
         //$this->db->query("ALTER TABLE `tbl_legal_documents` ADD FOREIGN KEY(`document_type`) REFERENCES 'tbl_legal_document_types'(id);");
     }

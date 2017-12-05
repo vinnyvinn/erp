@@ -42,5 +42,4 @@ class Sendmails extends CI_Controller {
 			echo "false";
 		}
 	}
-
 }
