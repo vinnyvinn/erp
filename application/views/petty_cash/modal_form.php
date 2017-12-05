@@ -12,10 +12,13 @@
               ?>
             </select>
         </div>
+       <!-- <div class="col-md-1">
+            <?php echo modal_anchor(get_uri("petty_cash/modal_form_types"), "<i class='fa fa-plus-circle'></i>", array("data-is-popup" => '1', 'data-populate' => 'client_id', "class" => "btn btn-info btn-add", "title" => "Add PettyCash Types")); ?>
+        </div> -->
     </div>
 
     <div class="form-group">
-        <label for="project" class=" col-md-3">Project</label>
+        <label for="project" class=" col-md-3">Sage Project</label>
         <div class="col-md-9">
           <select class="select2 validate-hidden" name="project" id="project" required>
               <?php
@@ -76,6 +79,9 @@
         $("#project-form").appForm({
             onSuccess: function (result) {
                 // $("#petty_cash-table").appTable({newData: result.data, dataId: result.id});
+                setTimeout(function () {
+                    window.location.reload();
+                }, 100);
             }
         });
 

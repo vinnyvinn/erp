@@ -179,6 +179,7 @@ $autoload['model'] = array(
     'LegalDocumentTypesModel',
     'LegalDocumentsModel',
     'LegalProceduresModel',
-    'LegalTypesModel'
+    'LegalTypesModel',
+    'Send_mail_model'
 );
 

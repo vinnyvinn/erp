@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="table-responsive">
-            <table id="escalation_matrix_table" class="display" cellspacing="0" width="100%">            
+            <table id="escalation_matrix-table" class="display" cellspacing="0" width="100%">            
             </table>
             <!-- <table id="example" class="display" cellspacing="0" width="100%">
                 <thead>
@@ -43,7 +43,7 @@ $('#example').DataTable({
 <script type="text/javascript">
     $(document).ready(function () {
 
-        $("#escalation_matrix_table").appTable({
+        $("#escalation_matrix-table").appTable({
             source: '<?php echo_uri("escalation_matrix/list_data") ?>',
             columns: [
                 {title: 'ID', "class": "w50", "data": "id"},
