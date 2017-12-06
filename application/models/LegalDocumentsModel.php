@@ -41,6 +41,19 @@ class LegalDocumentsModel  extends Crud_model  {
        return $query->result();
     }
 
+    function getTypeDocuments($type, $status=1){
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where($this->table.'.deleted',0);
+        $this->db->where($this->table.'.status',$status);
+        $this->db->where($this->table.'.document_type',$type);
+        $query = $this->db->get();
+
+        return $query->result();
+    }
+
+
+
     function row_delete($id){
 
         return $this->delete($id);

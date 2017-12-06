@@ -13,7 +13,7 @@ class LegalReminders extends Crud_model  {
     function getReminders($deleted=0){
         $sql = "SELECT $this->table.*  FROM $this->table WHERE deleted=".$deleted;
 
-        return $this->db->query($sql);
+        return $this->db->query($sql)->result();
     }
 
     function row_delete($id){

@@ -13,7 +13,7 @@
                 <h1>Cases and Lawsuits</h1>
                 <div class="title-button-group">
                     <?php
-                    echo modal_anchor(get_uri("lawsuits/form_modal"), "<i class='fa fa-plus-circle'></i> " . lang('add_lawsuits'), array("class" => "btn btn-default", "title" => lang('add_lawsuits')));
+                    echo modal_anchor(get_uri("lawsuits/form_modal2"), "<i class='fa fa-plus-circle'></i> " . lang('add_lawsuits'), array("class" => "btn btn-default", "title" => lang('add_lawsuits')));
                     ?>
                 </div>
             </div>
@@ -28,15 +28,14 @@
         $(document).ready(function() {
 
             $("#documents").appTable({
-                source: '<?php echo_uri("legal/list_data") ?>',
+                source: '<?php echo_uri("lawsuits/list_data") ?>',
                 columns: [
                     {title: "<?php echo lang("id") ?>", "class": "text-center w50"},
                     {title: "name"},
-                    {title: "<?php echo lang("doc_type") ?>"},
-                    {title: "<?php echo lang("covered_from") ?>"},
-                    {title: "<?php echo lang("covered_to") ?>"},
-                    {title: "<?php echo lang("user_responsible") ?>"},
-                    {title: '<i class="fa fa-bars"></i>', "class": "text-center option w100"}
+                    {title: "Type"},
+                    {title: "description"},
+                    {title: "status"},
+                 //   {title: "current procedure"},
                 ],
                 printColumns: [0, 1, 2, 3, 4, 5],
                 xlsColumns: [0, 1, 2, 3, 4, 5]

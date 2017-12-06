@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://C:/My Web Sites/admindash/thememinister.com/bootstrap-admin-template/template/theme/adminpage_v1.0/.idea/adminpage_v1.0.iml" filepath="C:/My Web Sites/admindash/thememinister.com/bootstrap-admin-template/template/theme/adminpage_v1.0/.idea/adminpage_v1.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/prokazi.iml" filepath="$PROJECT_DIR$/.idea/prokazi.iml" />
     </modules>
   </component>

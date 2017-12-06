@@ -27,9 +27,11 @@ class Lawsuits extends Pre_loader
         $id = $this->input->post('id');
         $view_data['model_info'] = $this->LegalDocumentsModel->get_one($id);
         $view_data['types'] = $this->LegalDocumentTypesModel->get_dropdown_list(array('name'));
-        $view_data['procedures'] = $this->LegalProceduresModel->get_dropdown_list(array('name'));
+        $view_data['procedures'] = $this->LegalDocumentTypesModel->get_dropdown_list(array('name'));
         $view_data['case_types'] = $this->LegalCaseTypesModel->getAll();
         $view_data['users']=$this->Users_model->get_dropdown_list(array('first_name','last_name'));
+
+
 
         $this->load->view('legal/lawsuits/form_modal', $view_data);
     }
@@ -50,12 +52,12 @@ class Lawsuits extends Pre_loader
     private function _make_row($datas, $key)
     {
         $optoins = "";
+        if ($this->can_edit_types()) {
+            $optoins .= modal_anchor(get_uri("legal/form_modal"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('edit_legal_document'), "data-post-id" => $datas->id));
+        }
 
         $case_type = $this->LegalCaseTypesModel->get_one($datas->case_type);
-        $procedure = $this->LegalProceduresModel->get_one($datas->case_procedure);
-
-        $name = anchor(get_uri("lawsuits/view/" . $datas->id), $datas->name);
-
+        $procedure = $this->LegalProceduresModel->get_one($datas->procedure);
 
         if ($this->can_delete_types()) {
             $optoins .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_project'), "class" => "delete", "data-id" => $datas->id,
@@ -64,22 +66,17 @@ class Lawsuits extends Pre_loader
 
         return array(
             (int)$key + 1,
-            $name,
-            (empty($case_type->name))?'Not-Set':$case_type->name,
-            implode(' ', array_slice(explode(' ',  $datas->description), 0, 100))."...",
-
-            ((int)$datas->status == 0)? 'Active': 'Closed',
+            $datas->name,
+            $datas->description,
+            ($datas->status === 1)? 'Active': 'Closed',
             $procedure->name,
+            $case_type->name,
             $optoins
         );
     }
 
     function save()
     {
-
-
-
-
         $datasaved = false;
         $id = $this->input->post('id');
 
@@ -87,55 +84,38 @@ class Lawsuits extends Pre_loader
             "name" => "required",
             "description" => "required",
             "case_type" => "required",
-            "procedure" => "required",
-            "procedure_date" => "required",
-            "assigned" => "required",
         ));
 
-        $casedetails = array(
-            "name" => $this->input->post('name'),
-            "description" =>$this->input->post('description'),
-            "case_type" => $this->input->post('case_type'),
-            "status" => 0,//$this->input->post('case_type'),
+        $data = array(
+            "name" => "required",
+            "description" => "required",
+            "case_type" => "required",
         );
-
-        $saved_id = $this->LegalCasesModel->save($casedetails, $id);
-        if ($saved_id) {
-            //create a case procedure
-
-            $data2 = array(
-                "legal_case" => $saved_id,
-                "date" => $this->input->post('procedure_date'),
-                "assigned" => $this->input->post('assigned'),
-
-            );
-            $assigned_user = $this->Users_model->get_details(["id"=>$this->input->post('assigned')])->row();
-
-            $saved_proceed_id = $this->LegalCasesProceduresModel->save($data2);
-
-            if($saved_proceed_id){
-                //update case details
-                $newcasedetails = array(
-                    "case_procedure" =>$saved_proceed_id,
-                );
-                //$this->LegalCasesModel->save($newcasedetails, $saved_id);
-                  //send notification
-               $data=array();
-               $data["casename"]= $this->input->post('name');
-               $data["username"]= $assigned_user->first_name;
-               $data["date"]= $this->input->post('procedure_date');
-               $this->sendLegalEmail($assigned_user->email,'Prokazi Cases',$data);
-               $datasaved = true;
+        if ($this->LegalDocumentsModel->save($data, $id)) {
+            $doctypeid = (int)$this->input->post('document_type');
+            $doc = '';
+            if ($doctypeid) {
+                $doc = $this->LegalDocumentTypesModel->get_one($doctypeid)->name;
             }
 
 
+            //save to an event
+            $event = array(
+                "title" => $this->input->post('name'),
+                "description" => $doc,
+                "start_date" => $this->input->post('covered_from'),
+                "end_date" => $this->input->post('covered_to'),
+                "location" => 'N/A',
+                "color" => '#d43480',
+                "created_by" => $this->login_user->id,
+                "share_with" => $this->input->post('contact_personnel'),
+            );
+            $event = $this->Events_model->save($event, $id);
+
+            $datasaved = true;
 
         }
         echo json_encode(array("success" => $datasaved, 'message' => lang('record_saved')));
-    }
-
-    function sendLegalEmail($to, $subject, $data){
-        $this->SendLegalMails->case_email($to, $subject,$data);
     }
 
     function delete()
@@ -148,125 +128,6 @@ class Lawsuits extends Pre_loader
             $deleted = true;
         }
         echo json_encode(array("success" => $deleted, 'message' => (!$deleted) ? lang('record_cannot_be_deleted') : lang('record_deleted')));
-
-    }
-
-    function view($id){
-        $viewdata["casedetails"]  = $this->LegalCasesModel->getCaseDetails($id);
-
-
-        $this->template->rander("legal/lawsuits/view", $viewdata);
-    }
-
-    function add_procedures($id){
-        $viewdata["case_details"]  = $this->LegalCasesModel->getCaseDetails($id);
-        $viewdata['procedures'] = $this->LegalProceduresModel->get_dropdown_list(array('name'));
-        $viewdata['case_types'] = $this->LegalCaseTypesModel->getAll();
-        $viewdata['users']=$this->Users_model->get_dropdown_list(array('first_name','last_name'));
-
-        $this->load->view("legal/lawsuits/modal_add_procedures", $viewdata);
-    }
-
-    function save_extra_procedures(){
-        $id = $this->input->post('id');
-        validate_submitted_data(array(
-            "procedures" => "required",
-            "assigned" => "required",
-            "procedure_date" => "required",
-        ));
-
-        $sql = "INSERT INTO tbl_legal_case_procedures (legal_case, date, 	assigned,	procedure_val)
-                VALUES ('".$this->input->post('id')."', '".$this->input->post('procedure_date')."', '".$this->input->post('assigned')."',
-                '".(int)$this->input->post('procedures')."');";
-        $done = $this->db->query($sql);
-
-        if ($done) {
-            $saved = true;
-        }
-        echo json_encode(array("success" => $saved, 'message' => (!$saved) ? lang('record_cannot_be_deleted') : lang('record_deleted')));
-    }
-
-    function delete_case_procedure($id){
-        $procedure = $this->LegalCasesProceduresModel->getSingleCasesProcedures($id);
-        $deleted= false;
-        if($id){
-            //delete the procedure
-            $this->LegalCasesProceduresModel->row_delete($id);
-            $deleted=true;
-        }
-
-
-
-        echo json_encode(array("success" => $deleted, 'message' => (!$deleted) ? lang('record_cannot_be_deleted') : lang('record_deleted')));
-
-    }
-
-    function back_to_cases(){
-        redirect('/lawsuits');
-    }
-
-
-
-
-
-    function procedure_list_data_for_case($case){
-        $list_data = $this->LegalCasesProceduresModel->getCasesProcedures($case);
-
-        $result = [];
-        foreach ($list_data as $key => $data) {
-            $result[] = $this->_make_procedure_row_data_for_case($data, $key);
-        }
-        echo json_encode(array("data" => $result));
-    }
-
-    private function _make_procedure_row_data_for_case($datas, $key)
-    {
-        $optoins = "";
-
-        $assigned_user = $this->Users_model->get_details(["id"=>$datas->assigned])->row();
-        $procedure = $this->LegalProceduresModel->getProcedure($datas->procedure_val);
-
-        if ($this->can_delete_types()) {
-            $optoins .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_project'), "class" => "delete", "data-id" => $datas->id,
-                "data-action-url" => get_uri("lawsuits/delete_case_procedure/".$datas->id), "data-action" => "delete"));
-        }
-
-        return array(
-            (int)$key + 1,
-            $assigned_user->first_name." ".$assigned_user->last_name,
-            $procedure->name,
-            $datas->date,
-            $optoins
-        );
-    }
-
-
-
-    function close_case_modal($id){
-        $viewdata["case_details"]  = $this->LegalCasesModel->getCaseDetails($id);
-        $this->load->view("legal/lawsuits/close_case_modal", $viewdata);
-
-    }
-
-    function close_case_save(){
-        $id = $this->input->post('id');
-        validate_submitted_data(array(
-            "comment" => "required",
-        ));
-        $closed = false;
-        $casedetails = $this->LegalCasesModel->getCaseDetails($id);
-        if($casedetails){
-            $data = array(
-                "comment" => $this->input->post('comment'),
-                'status'=>1
-            );
-            if ($this->LegalCasesModel->save($data, $id)) {
-                $saved = true;
-            }
-
-        }
-
-        echo json_encode(array("success" => $saved, 'message' => (!$saved) ? "Case could not be closed" : "Case closed"));
 
     }
 
@@ -283,7 +144,6 @@ class Lawsuits extends Pre_loader
         $view_data['model_info'] = $this->LegalProceduresModel->get_one($id);
         $this->template->rander("legal/lawsuits/procedures", $view_data);
     }
-
 
     function procedure_modal()
     {

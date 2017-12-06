@@ -16,6 +16,12 @@ class LegalProceduresModel extends Crud_model  {
         return $this->db->query($sql);
     }
 
+    function getProcedure($id){
+        $sql = "SELECT $this->table.*  FROM $this->table WHERE id=".$id;
+
+        return $this->db->query($sql)->row();
+    }
+
     function row_delete($id){
         return $this->delete($id);
     }

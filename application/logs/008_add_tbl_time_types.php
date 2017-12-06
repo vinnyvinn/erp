@@ -7,7 +7,7 @@
  */
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Migration_Add_tbl_escalation_matrix extends CI_Migration
+class Migration_Add_tbl_time_types extends CI_Migration
 {
 
     public function up()
@@ -18,30 +18,36 @@ class Migration_Add_tbl_escalation_matrix extends CI_Migration
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
+            'label' => array(
+                'type' => 'VARCHAR',
+                'constraint' => '200',
+            ),
             'name' => array(
                 'type' => 'VARCHAR',
-                'constraint' => '100',
+                'constraint' => '200',
             ),
-            'users' => array(
-                'type' => 'VARCHAR',
-                'constraint' => '100',
-            ),
-            'duration' => array(
-                'type' => 'INT',
-            ),
-            'deleted' => array(
-                'type' => 'INT',
-            ),
-
 
         ));
         $this->dbforge->add_key('id', TRUE);
-        $this->dbforge->create_table('tbl_escalation_matrix');
+        $this->dbforge->create_table('tbl_time_types');
+
+        //insert time types
+        $sql = "INSERT INTO table (label, name)
+                VALUES
+                    ('sec', 'Seconds'),
+                    ('min', 'Minutes'),
+                    ('hours', 'Hours'),
+                    ('days', 'Days'),
+                    ('months', 'Months')";
+
+        $this->db->query($sql);
+
+
     }
 
     public function down()
     {
-        //remove foreign key
+
 
     }
 }

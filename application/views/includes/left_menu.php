@@ -159,7 +159,7 @@
                 if ($this->login_user->is_admin) {
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
-               //     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
+                    $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
                   //  $attendanceSubs [] = ["name" => "Escalation Matrix", "url" => "legal/escalation_matrix"];
 
                     $sidebar_menu[] = array("name" => "legal", "url" => "attendance", "class" => "fa-road font-16", "submenu" => $attendanceSubs);
