@@ -16,6 +16,13 @@ class LegalDocumentTypesModel extends Crud_model  {
         return $this->db->query($sql);
     }
 
+    //get all the documents that can expire
+    function getCanexpireTypes(){
+        $sql = "SELECT $this->table.*  FROM $this->table WHERE deleted=0 AND has_expiry=1";
+
+        return $this->db->query($sql)->result();
+    }
+
     function row_delete($id){
         return $this->delete($id);
     }

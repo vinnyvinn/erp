@@ -183,6 +183,10 @@ $autoload['model'] = array(
     'Send_mail_model',
     'TimeDurationModel',
     'TblLegalEscalationMatrix',
-    'LegalReminders'
+    'LegalReminders',
+    'LegalCaseTypesModel',
+    'LegalCasesModel',
+    'LegalCasesProceduresModel',
+    'SendLegalMails'
 );
 
