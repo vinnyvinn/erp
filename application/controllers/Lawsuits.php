@@ -76,11 +76,7 @@ class Lawsuits extends Pre_loader
 
     function save()
     {
-
-
-
-
-        $datasaved = false;
+       $datasaved = false;
         $id = $this->input->post('id');
 
         validate_submitted_data(array(
@@ -118,7 +114,7 @@ class Lawsuits extends Pre_loader
                 $newcasedetails = array(
                     "case_procedure" =>$saved_proceed_id,
                 );
-                //$this->LegalCasesModel->save($newcasedetails, $saved_id);
+                $this->LegalCasesModel->save($newcasedetails, $saved_id);
                   //send notification
                $data=array();
                $data["casename"]= $this->input->post('name');

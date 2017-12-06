@@ -26,7 +26,8 @@ class SendLegalMails extends Crud_model {
         $this->email->to($send_to);  // replace it with receiver mail id
         $this->email->subject($subject); // replace it with relevant subject
 
-        $body = $this->load->view('email_templates/legal_template.php', $data, TRUE);
+        $body = "jddj";
+        //$this->load->view('email_templates/legal_template.php', $data, TRUE);
         $this->email->message($body);
         $this->email->send();
 
