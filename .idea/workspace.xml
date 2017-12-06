@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="816702af-ac45-4b2d-87bb-b28bdd528c42" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/application/controllers/test2.php" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Lawsuits.php" afterPath="$PROJECT_DIR$/application/controllers/Lawsuits.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/SendLegalMails.php" afterPath="$PROJECT_DIR$/application/models/SendLegalMails.php" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Legal.php" afterPath="$PROJECT_DIR$/application/controllers/Legal.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,72 +19,27 @@
       <file leaf-file-name="Lawsuits.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Lawsuits.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="123" column="21" lean-forward="true" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
+            <state relative-caret-position="-289">
+              <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="31" />
               <folding>
                 <element signature="n#list_data#0;n#Lawsuits#0;n#!!top" expanded="false" />
                 <element signature="n#_make_row#0;n#Lawsuits#0;n#!!top" expanded="false" />
-                <marker date="1512564825595" expanded="true" signature="5738:5845" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512564825595" expanded="true" signature="5738:5876" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512564825595" expanded="true" signature="5738:5920" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512564825595" expanded="true" signature="5738:5958" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512564825595" expanded="true" signature="5738:5976" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512564825595" expanded="true" signature="5738:6019" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512567611475" expanded="true" signature="6334:6441" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512567611475" expanded="true" signature="6334:6472" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512567611475" expanded="true" signature="6334:6516" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512567611475" expanded="true" signature="6334:6554" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512567611475" expanded="true" signature="6334:6572" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512567611475" expanded="true" signature="6334:6615" ph="INSERT INTO tbl_legal_case_procedures... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SendLegalMails.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/SendLegalMails.php">
+      <file leaf-file-name="test2.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/test2.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="legal_template.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/email_templates/legal_template.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autoload.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="189" column="20" lean-forward="true" selection-start-line="186" selection-start-column="3" selection-end-line="189" selection-end-column="20" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="left_menu.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/includes/left_menu.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2431">
-              <caret line="161" column="18" lean-forward="false" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Sendmails.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Sendmails.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="680">
-              <caret line="40" column="1" lean-forward="false" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+            <state relative-caret-position="153">
+              <caret line="9" column="98" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -93,14 +49,11 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>reminde</find>
-      <find>modal-for</find>
       <find>upload_</find>
       <find>$ticket_info</find>
       <find>save_comment</find>
       <find>ticket-comment-dropzone</find>
       <find>edit</find>
-      <find>email</find>
       <find>male</find>
       <find>procedure</find>
       <find>date_of_hire</find>
@@ -122,7 +75,10 @@
       <find>USER</find>
       <find>close</find>
       <find>User</find>
+      <find>emai</find>
       <find>Users_model</find>
+      <find>send</find>
+      <find>email</find>
     </findStrings>
     <replaceStrings>
       <replace>$model_info</replace>
@@ -144,7 +100,6 @@
         <option value="$PROJECT_DIR$/application/migrations/003_add_tbl_legal_documents.php" />
         <option value="$PROJECT_DIR$/application/views/legal/documents/view.php" />
         <option value="$PROJECT_DIR$/application/migrations/011_add_tbl_notification_history.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Legal.php" />
         <option value="$PROJECT_DIR$/application/controllers/EmailerController.php" />
         <option value="$PROJECT_DIR$/application/controllers/test.html" />
         <option value="$PROJECT_DIR$/application/views/includes/left_menu.php" />
@@ -175,8 +130,10 @@
         <option value="$PROJECT_DIR$/application/views/email_templates/legal_template.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/controllers/Sendmails.php" />
-        <option value="$PROJECT_DIR$/application/controllers/Lawsuits.php" />
         <option value="$PROJECT_DIR$/application/models/SendLegalMails.php" />
+        <option value="$PROJECT_DIR$/application/controllers/test2.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Legal.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Lawsuits.php" />
       </list>
     </option>
   </component>
@@ -230,7 +187,7 @@
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
               <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
@@ -280,12 +237,12 @@
       <workItem from="1512454784193" duration="1856000" />
       <workItem from="1512465043298" duration="15498000" />
       <workItem from="1512503706637" duration="9044000" />
-      <workItem from="1512535843685" duration="11544000" />
+      <workItem from="1512535843685" duration="13947000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69630000" />
+    <option name="totallyTimeSpent" value="72033000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -299,7 +256,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30376345" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30376345" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -319,7 +276,7 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30376345" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30376345" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22622108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -344,21 +301,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/EmailerController.php" />
-    <entry file="file://$PROJECT_DIR$/application/controllers/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Notifications.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Notification_processor.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
@@ -501,17 +443,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Events.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -693,23 +629,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/email_templates/legal_template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/includes/left_menu.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2431">
-          <caret line="161" column="18" lean-forward="false" selection-start-line="161" selection-start-column="18" selection-end-line="161" selection-end-column="18" />
+          <caret line="164" column="18" lean-forward="false" selection-start-line="164" selection-start-column="18" selection-end-line="164" selection-end-column="18" />
           <folding />
         </state>
       </provider>
@@ -725,7 +648,15 @@
     <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
-          <caret line="189" column="20" lean-forward="true" selection-start-line="186" selection-start-column="3" selection-end-line="189" selection-end-column="20" />
+          <caret line="189" column="20" lean-forward="false" selection-start-line="186" selection-start-column="3" selection-end-line="189" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Notifications.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="38" column="57" lean-forward="false" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -733,24 +664,65 @@
     <entry file="file://$PROJECT_DIR$/application/models/SendLegalMails.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="263">
-          <caret line="30" column="37" lean-forward="true" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <caret line="30" column="37" lean-forward="false" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/email_templates/legal_template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="40" lean-forward="false" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Petty_cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-68">
+          <caret line="140" column="1" lean-forward="true" selection-start-line="140" selection-start-column="1" selection-end-line="167" selection-end-column="5" />
+          <folding>
+            <marker date="1512565659735" expanded="true" signature="5688:6046" ph="SELECT petty... petty_cash" />
+            <marker date="1512565659735" expanded="true" signature="8721:8805" ph="SELECT petty... petty_cash_types" />
+            <marker date="1512565659735" expanded="true" signature="8989:9093" ph="SELECT (Proj... Project" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="527">
+          <caret line="356" column="3" lean-forward="false" selection-start-line="356" selection-start-column="3" selection-end-line="356" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/test2.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="98" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="16" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Lawsuits.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="123" column="21" lean-forward="true" selection-start-line="123" selection-start-column="21" selection-end-line="123" selection-end-column="21" />
+        <state relative-caret-position="-289">
+          <caret line="137" column="31" lean-forward="false" selection-start-line="137" selection-start-column="22" selection-end-line="137" selection-end-column="31" />
           <folding>
             <element signature="n#list_data#0;n#Lawsuits#0;n#!!top" expanded="false" />
             <element signature="n#_make_row#0;n#Lawsuits#0;n#!!top" expanded="false" />
-            <marker date="1512564825595" expanded="true" signature="5738:5845" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512564825595" expanded="true" signature="5738:5876" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512564825595" expanded="true" signature="5738:5920" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512564825595" expanded="true" signature="5738:5958" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512564825595" expanded="true" signature="5738:5976" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512564825595" expanded="true" signature="5738:6019" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512567611475" expanded="true" signature="6334:6441" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512567611475" expanded="true" signature="6334:6472" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512567611475" expanded="true" signature="6334:6516" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512567611475" expanded="true" signature="6334:6554" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512567611475" expanded="true" signature="6334:6572" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512567611475" expanded="true" signature="6334:6615" ph="INSERT INTO tbl_legal_case_procedures... " />
           </folding>
         </state>
       </provider>

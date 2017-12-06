@@ -120,11 +120,26 @@ class Lawsuits extends Pre_loader
                $data["casename"]= $this->input->post('name');
                $data["username"]= $assigned_user->first_name;
                $data["date"]= $this->input->post('procedure_date');
-               $this->sendLegalEmail($assigned_user->email,'Prokazi Cases',$data);
+               $data["send_to"]=$assigned_user->email;// $this->input->post('procedure_date');
+               $this->SendMail($data);
                $datasaved = true;
             }
         }
         echo json_encode(array("success" => $datasaved, 'message' => lang('record_saved')));
+    }
+
+
+    public function SendMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("legal_notification");
+
+        $parser_data["USER_NAME"] = $data["username"];
+        $parser_data["CASE_TITLE"] = $data["casename"];
+        $parser_data["CASE_DATE"] =  $data["date"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
     }
 
     function sendLegalEmail($to, $subject, $data){
