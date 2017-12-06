@@ -21,12 +21,17 @@
         $("#inventory_requisitions-table").appTable({
             source: '<?php echo_uri("inventory_requisitions/list_data") ?>',
             columns: [
-                {title: 'ID', "class": "w50", "data": "id"},
-                {title: 'Stock Item', "class": "w20p", "data": "item_name"},
-                {title: 'Quantity', "class": "w20p", "data": "item_quantity"},
-                {title: 'Cost Amount', "class": "w20p", "data": "item_cost"},
-                {title: 'Request Created', "class": "w20p", "data": "created_at"},
-                {title: 'Status', "class": "w20p", "data": "status"}
+                {title: 'ID', "class": "w50"},
+                {title: 'Stock Item', "class": "w20p"},
+                {title: 'Quantity', "class": "w20p"},
+                {title: 'Cost Amount', "class": "w20p"},
+                {title: 'Requested On', "class": "w20p"},
+                {title: 'Status', "class": "w20p"},
+                <?php
+                    if ($this->login_user->is_admin) {
+                        echo '{title: \'<i class="fa fa-bars"></i>\', "class": "text-center option w100"}';
+                    }
+                    ?>
             ],
             // order: [[1, "desc"]],
             printColumns: [0, 1, 2, 3, 4, 5],

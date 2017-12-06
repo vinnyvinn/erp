@@ -94,7 +94,7 @@ class Escalation_matrix extends Pre_loader {
     $this->load->view('escalation_matrix/modal_form', $view_data);
   }
 
-  public function save() {
+  function save() {
     
     $data = array(
       "escalation_matrix" => $this->input->post('profile_name'),
@@ -102,7 +102,7 @@ class Escalation_matrix extends Pre_loader {
       "escalation" => $this->input->post('duration')
     );
 
-    $save_id = $this->Escalation_matrix_model->save($data, $id);
+    $save_id = $this->Escalation_matrix_model->save($data);
 
       if ($save_id) {
           echo json_encode(array("success" => true, 'message' => lang('record_saved')));

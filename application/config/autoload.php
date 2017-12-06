@@ -180,6 +180,7 @@ $autoload['model'] = array(
     'LegalDocumentsModel',
     'LegalProceduresModel',
     'LegalTypesModel',
+    'Send_mail_model',
     'TimeDurationModel',
     'TblLegalEscalationMatrix',
     'LegalReminders',

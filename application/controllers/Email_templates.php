@@ -23,7 +23,8 @@ class Email_templates extends Pre_loader {
             "ticket_closed" => array("TICKET_ID", "TICKET_TITLE", "USER_NAME", "TICKET_URL", "SIGNATURE"),
             "ticket_reopened" => array("TICKET_ID", "TICKET_TITLE", "USER_NAME", "TICKET_URL", "SIGNATURE"),
             "general_notification" => array("EVENT_TITLE", "EVENT_DETAILS", "APP_TITLE", "COMPANY_NAME", "NOTIFICATION_URL", "SIGNATURE"),
-            "signature" => array()
+            "signature" => array(),
+            "petty_cash" => array()
         );
     }
 

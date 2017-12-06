@@ -4,6 +4,7 @@
             <h1>Petty Cash</h1>
             <div class="title-button-group">
                 <?php
+	                echo modal_anchor(get_uri("petty_cash/modal_form_types"), "<i class='fa fa-plus-circle'></i> " . "Add Petty Cash Types", array("class" => "btn btn-default", "title" => "Add Petty Cash Types"));
                     echo modal_anchor(get_uri("petty_cash/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Petty Cash", array("class" => "btn btn-default", "title" => "Add Petty Cash"));
                 ?>
             </div>
@@ -21,13 +22,19 @@
         $("#petty_cash-table").appTable({
             source: '<?php echo_uri("petty_cash/list_data") ?>',
             columns: [
-                {title: 'ID', "class": "w50", "data": "id"},
-                {title: 'Petty Cash Type', "class": "w20p", "data": "petty_cash"},
-                {title: 'Cost Amount', "class": "w20p", "data": "amount"},
-                {title: 'Project', "class": "w20p", "data": "project"},
-                {title: 'Request Created', "class": "w20p", "data": "created_at"},
-                {title: 'Status', "class": "w20p", "data": "status"}
-            ],
+                    {title: "ID", "class": "text-center w50"},
+                    {title: "Petty Cash Type"},
+                    {title: "Cost Amount"},
+                    {title: "Project"},
+                    {title: "Requested On"},
+                    {title: "Status"},
+                    <?php
+                    if ($this->login_user->is_admin) {
+                        echo '{title: \'<i class="fa fa-bars"></i>\', "class": "text-center option w100"}';
+                    }
+                    ?>
+
+                ],
             // order: [[1, "desc"]],
             printColumns: [0, 1, 2, 3, 4, 5],
             xlsColumns: [0, 1, 2, 3, 4, 5]

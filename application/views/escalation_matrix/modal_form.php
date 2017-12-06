@@ -24,7 +24,7 @@
                 echo form_input(array(
                     "id" => "collaborators",
                     "name" => "collaborators",
-                    "value" => $model_info->collaborators,
+                    // "value" => $model_info->collaborators,
                     "class" => "form-control tagged",
                     "placeholder" => "Enter Agent Name"
                 ));

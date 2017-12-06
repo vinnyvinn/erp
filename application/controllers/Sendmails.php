@@ -1,8 +1,9 @@
 <?php
 
 if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+	exit('No direct script access allowed');
 class Sendmails extends CI_Controller {
+
 
     public function htmlmail(){
      /*   $config = Array(
@@ -38,5 +39,4 @@ class Sendmails extends CI_Controller {
         $this->email->send();
 
 }
-
 }

@@ -1,29 +1,16 @@
-<?php echo form_open(get_uri("inventory_requisitions/save"), array("id" => "project-form", "class" => "general-form", "role" => "form")); ?>
+<?php echo form_open(get_uri("petty_cash/save_petty_cash_type"), array("id" => "project-form", "class" => "general-form", "role" => "form")); ?>
 
 <div class="modal-body clearfix">
-    <div class="form-group">
-        <label for="inventory" class=" col-md-3">Inventory (sage)</label>
-        <div class="col-md-9">
-           <select class="select2 validate-hidden" name="item" id="item" required>
-              <?php
-              foreach ($stocks_dropdown as $value) {
-                  echo "<option value=". $value->StockLink . ">" . $value->StockItem . "</option>";
-              }
-              ?>
-            </select>
-        </div>
-    </div>
 
     <div class="form-group">
-        <label for="quantity" class=" col-md-3">Quantity</label>
+        <label for="petty cash type name" class=" col-md-3">Petty Cash Type Name</label>
         <div class=" col-md-9">
             <?php
             echo form_input(array(
-                "type" => "number",
-                "id" => "quantity",
-                "name" => "quantity",
+                "id" => "petty_cash_type",
+                "name" => "petty_cash_type",
                 "class" => "form-control",
-                "placeholder" => "Item Quantity",
+                "placeholder" => "Enter Petty Cash Type Name",
                 "autofocus" => true,
                 "data-rule-required" => true,
                 "data-msg-required" => lang("field_required"),
@@ -31,6 +18,16 @@
             ?>
         </div>
     </div>
+
+    <div class="form-group">
+        <label for="assigned_to" class=" col-md-3"><?php echo lang('assign_to'); ?></label>
+        <div class="col-md-9">
+            <?php
+            echo form_dropdown("assigned_to", $assigned_to_dropdown, "assigned_to", "class='select2'");
+            ?>
+        </div>
+    </div>
+
 </div>
 
 <div class="modal-footer">
@@ -43,7 +40,7 @@
     $(document).ready(function () {
         $("#project-form").appForm({
             onSuccess: function (result) {
-                // $("#inventory_requisitions-table").appTable({newData: result.data, dataId: result.id});
+                // $("#petty_cash-table").appTable({newData: result.data, dataId: result.id});
                 setTimeout(function () {
                     window.location.reload();
                 }, 100);

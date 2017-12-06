@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 03/12/2017 14:01:08
+ Date: 05/12/2017 09:36:12
 */
 
 SET NAMES utf8mb4;
@@ -182,12 +182,12 @@ CREATE TABLE `email_templates`  (
   `custom_message` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of email_templates
 -- ----------------------------
-INSERT INTO `email_templates` VALUES (1, 'login_info', 'Login details', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '', 0);
+INSERT INTO `email_templates` VALUES (1, 'login_info', 'Login details', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"ProKazi\" style=\"width: 212.667px; height: 66px;\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', 0);
 INSERT INTO `email_templates` VALUES (2, 'reset_password', 'Reset password', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Reset Password</h1>\n </div>\n <div style=\"padding: 20px; background-color: rgb(255, 255, 255); color:#555;\">                    <p style=\"font-size: 14px;\"> Hello {ACCOUNT_HOLDER_NAME},<br><br>A password reset request has been created for your account.&nbsp;</p>\n                    <p style=\"font-size: 14px;\"> To initiate the password reset process, please click on the following link:</p>\n                    <p style=\"font-size: 14px;\"><a href=\"{RESET_PASSWORD_URL}\" target=\"_blank\">Reset Password</a></p>\n                    <p style=\"font-size: 14px;\"></p>\n                    <p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you\'ve received this mail in error, it\'s likely that another user entered your email address by mistake while trying to reset a password.</span><br></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you didn\'t initiate the request, you don\'t need to take any further action and can safely disregard this email.</span><br></p>\n<p style=\"font-size: 14px;\"><br></p>\n<p style=\"font-size: 14px;\">{SIGNATURE}</p>\n                </div>\n            </div>\n        </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Reset Password</h1>\n </div>\n <div style=\"padding: 20px; background-color: rgb(255, 255, 255); color:#555;\">                    <p style=\"font-size: 14px;\"> Hello {ACCOUNT_HOLDER_NAME},<br><br>A password reset request has been created for your account.&nbsp;</p>\n                    <p style=\"font-size: 14px;\"> To initiate the password reset process, please click on the following link:</p>\n                    <p style=\"font-size: 14px;\"><a href=\"{RESET_PASSWORD_URL}\" target=\"_blank\">Reset Password</a></p>\n                    <p style=\"font-size: 14px;\"></p>\n                    <p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you\'ve received this mail in error, it\'s likely that another user entered your email address by mistake while trying to reset a password.</span><br></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you didn\'t initiate the request, you don\'t need to take any further action and can safely disregard this email.</span><br></p>\n<p style=\"font-size: 14px;\"><br></p>\n<p style=\"font-size: 14px;\">{SIGNATURE}</p>\n                </div>\n            </div>\n        </div>', 0);
 INSERT INTO `email_templates` VALUES (3, 'team_member_invitation', 'You are invited', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Account Invitation</h1>   </div>  <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello,</span><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\"><br></span></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\">{INVITATION_SENT_BY}</span> has sent you an invitation to join with a team.</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVITATION_URL}\" target=\"_blank\">Accept this Invitation</a></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Account Invitation</h1>   </div>  <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello,</span><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\"><br></span></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\">{INVITATION_SENT_BY}</span> has sent you an invitation to join with a team.</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVITATION_URL}\" target=\"_blank\">Accept this Invitation</a></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', 0);
 INSERT INTO `email_templates` VALUES (4, 'send_invoice', 'New invoice', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>INVOICE #{INVOICE_ID}</h1></div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">  <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Thank you for your business cooperation.</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your invoice for the project {PROJECT_TITLE} has been generated and is attached here.</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVOICE_URL}\" target=\"_blank\">Show Invoice</a></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Invoice balance due is {BALANCE_DUE}</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Please pay this invoice within {DUE_DATE}.&nbsp;</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>INVOICE #{INVOICE_ID}</h1></div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">  <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Thank you for your business cooperation.</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your invoice for the project {PROJECT_TITLE} has been generated and is attached here.</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVOICE_URL}\" target=\"_blank\">Show Invoice</a></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Invoice balance due is {BALANCE_DUE}</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Please pay this invoice within {DUE_DATE}.&nbsp;</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>  </div> </div></div>', 0);
@@ -198,6 +198,7 @@ INSERT INTO `email_templates` VALUES (8, 'ticket_commented', 'Ticket  #{TICKET_I
 INSERT INTO `email_templates` VALUES (9, 'ticket_closed', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', 0);
 INSERT INTO `email_templates` VALUES (10, 'ticket_reopened', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', 0);
 INSERT INTO `email_templates` VALUES (11, 'general_notification', '{EVENT_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', 0);
+INSERT INTO `email_templates` VALUES (12, 'petty_cash', 'Petty cash details', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://teamkazi.com/files/system/default-stie-logo.png\" alt=\"TeamKazi\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"ProKazi\" style=\"width: 212.667px; height: 66px;\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', 0);
 
 -- ----------------------------
 -- Table structure for escalation_matrix
@@ -215,7 +216,16 @@ CREATE TABLE `escalation_matrix`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE,
   CONSTRAINT `escalation_matrix_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of escalation_matrix
+-- ----------------------------
+INSERT INTO `escalation_matrix` VALUES (1, 'exiting', '114,113,5,89', '30', NULL, '2017-12-03 16:40:15', NULL, 0);
+INSERT INTO `escalation_matrix` VALUES (2, 'UberX', '114,113,5,89', '30', NULL, '2017-12-03 17:16:12', NULL, 0);
+INSERT INTO `escalation_matrix` VALUES (3, 'test', '114', '30', NULL, '2017-12-03 17:17:54', NULL, 0);
+INSERT INTO `escalation_matrix` VALUES (4, 'test', '5', '30', NULL, '2017-12-03 17:19:01', NULL, 0);
+INSERT INTO `escalation_matrix` VALUES (5, 'y', '5', '30', NULL, '2017-12-03 17:19:45', NULL, 0);
 
 -- ----------------------------
 -- Table structure for estimate_forms
@@ -311,7 +321,7 @@ CREATE TABLE `events`  (
   `color` varchar(15) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of events
@@ -322,6 +332,7 @@ INSERT INTO `events` VALUES (3, 'test1', 'test1', '2017-03-27', '2017-03-27', '0
 INSERT INTO `events` VALUES (4, 'tuesday event', 'tuesday event checking', '2017-04-18', '2017-04-19', '01:00:00', '13:00:00', 7, '', '', 0, '#83c340');
 INSERT INTO `events` VALUES (5, 'Testing', 'Party', '2017-04-21', '2017-04-21', '13:00:00', '14:00:00', 6, '', 'all', 0, '#83c340');
 INSERT INTO `events` VALUES (6, 'another one', 'sdf', '2017-04-21', '2017-04-21', '00:00:00', '00:00:00', 6, '', '', 0, '#83c340');
+INSERT INTO `events` VALUES (7, 'erwrewr', 'Policy', '2017-12-12', '2017-12-22', NULL, NULL, 5, 'N/A', '113', 0, '#d43480');
 
 -- ----------------------------
 -- Table structure for expense_categories
@@ -374,16 +385,14 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of inventory_requisitions
 -- ----------------------------
-INSERT INTO `inventory_requisitions` VALUES (7, 0, 2, 'Mouse', '5', '1250', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (8, 5, 2, 'Mouse', '3', '750', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (9, 5, 3, 'ballboint pen', '6', '150', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (10, 5, 2, 'Mouse', '4', '1000', '2017-12-01 00:00:00', NULL, 'Pending', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (11, 5, 1, 'Test', '25476', '0', '2017-12-02 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (17, 113, 2, 'Mouse', '3', '750', '2017-12-05 09:24:19', '2017-12-05 09:24:19', 'Disapproved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (18, 5, 2, 'Mouse', '4', '1000', '2017-12-05 09:28:37', '2017-12-05 09:28:37', 'Approved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (19, 113, 1, 'Test', '2', '0', '2017-12-05 00:48:45', '2017-12-05 00:48:45', 'Approved', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -686,17 +695,12 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 48 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notifications
 -- ----------------------------
-INSERT INTO `notifications` VALUES (39, 5, '', '2017-11-30 10:39:05', '', '', 'ticket_created', 0, 0, 0, 15, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (40, 5, '', '2017-11-30 10:52:13', ' 89', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (41, 5, '', '2017-11-30 14:45:38', '90', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (42, 5, '', '2017-11-30 14:58:50', '90', '', 'ticket_created', 0, 0, 0, 16, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (43, 5, '', '2017-11-30 15:00:23', '89', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (44, 5, '', '2017-11-30 15:04:44', '5', '', 'ticket_created', 0, 0, 0, 13, 16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (47, 5, '', '2017-12-04 09:41:28', '89', ',89', 'ticket_created', 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for payment_methods
@@ -746,21 +750,22 @@ CREATE TABLE `petty_cash`  (
   `petty_cash` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `amount` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `project` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `sage_project_id` int(11) NOT NULL,
+  `sage_project` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `created_at` date NOT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `status` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL DEFAULT 'Pending',
   `deleted` int(11) NOT NULL DEFAULT 0,
-  PRIMARY KEY (`id`) USING BTREE,
+  PRIMARY KEY (`id`, `sage_project_id`) USING BTREE,
   INDEX `type_id`(`type_id`) USING BTREE,
   CONSTRAINT `petty_cash_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `petty_cash_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of petty_cash
 -- ----------------------------
-INSERT INTO `petty_cash` VALUES (1, 5, 1, 'example', 'dtrddrs', 'sddfzdf', 'strgxgrfsdf', '2017-12-02', '2017-12-02 13:21:15', 'Pending', 0);
-INSERT INTO `petty_cash` VALUES (2, 5, 1, 'transport', 'westlands to upperhill', '1200', '01 : Petty Cash', '2017-12-02', NULL, 'Pending', 0);
+INSERT INTO `petty_cash` VALUES (10, 5, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-04 20:50:07', 'Approved', 0);
+INSERT INTO `petty_cash` VALUES (11, 113, 7, 'Transport', '232refew', '1243', 21, '01 : Petty Cash', '2017-12-04', '2017-12-04 20:50:24', 'Approved', 0);
 
 -- ----------------------------
 -- Table structure for petty_cash_types
@@ -774,13 +779,16 @@ CREATE TABLE `petty_cash_types`  (
   `update_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of petty_cash_types
 -- ----------------------------
-INSERT INTO `petty_cash_types` VALUES (1, 'transport', 1, '2017-12-02 00:25:44', '2017-12-02 00:26:05', 0);
-INSERT INTO `petty_cash_types` VALUES (2, 'phone bill', 2, '2017-12-02 00:26:01', '2017-12-02 00:26:21', 0);
+INSERT INTO `petty_cash_types` VALUES (5, 'demo', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:14', 0);
+INSERT INTO `petty_cash_types` VALUES (6, 'demo', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:17', 0);
+INSERT INTO `petty_cash_types` VALUES (7, 'Transport', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:18', 0);
+INSERT INTO `petty_cash_types` VALUES (8, 'phone bill', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:19', 0);
+INSERT INTO `petty_cash_types` VALUES (9, ' vcbb', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:24', 0);
 
 -- ----------------------------
 -- Table structure for posts
@@ -851,7 +859,7 @@ CREATE TABLE `project_members`  (
   `is_leader` tinyint(1) NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 40 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of project_members
@@ -861,6 +869,7 @@ INSERT INTO `project_members` VALUES (36, 5, 9, 1, 0);
 INSERT INTO `project_members` VALUES (37, 89, 8, 0, 0);
 INSERT INTO `project_members` VALUES (38, 5, 10, 1, 0);
 INSERT INTO `project_members` VALUES (39, 89, 10, 0, 0);
+INSERT INTO `project_members` VALUES (40, 5, 11, 1, 0);
 
 -- ----------------------------
 -- Table structure for project_time
@@ -894,7 +903,7 @@ CREATE TABLE `projects`  (
   `price` double NOT NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of projects
@@ -902,6 +911,7 @@ CREATE TABLE `projects`  (
 INSERT INTO `projects` VALUES (8, 'project one', '', '2017-11-09', '2017-11-17', 30, '2017-11-09', 'open', '', 20000, 0);
 INSERT INTO `projects` VALUES (9, 'project two', '', '2017-11-09', '2017-11-16', 30, '2017-11-09', 'open', '', 20000, 1);
 INSERT INTO `projects` VALUES (10, 'project two', '', '2017-11-14', '2017-11-22', 30, '2017-11-14', 'open', '', 20000, 0);
+INSERT INTO `projects` VALUES (11, 'project 3', 'fdgdgdsg', '2017-12-04', '2017-12-28', 30, '2017-12-04', 'open', 'rewrw', 5435, 0);
 
 -- ----------------------------
 -- Table structure for roles
@@ -962,20 +972,20 @@ INSERT INTO `settings` VALUES ('company_email', '', 0);
 INSERT INTO `settings` VALUES ('company_name', '', 0);
 INSERT INTO `settings` VALUES ('company_phone', '', 0);
 INSERT INTO `settings` VALUES ('company_website', '', 0);
-INSERT INTO `settings` VALUES ('currency_symbol', '$', 0);
+INSERT INTO `settings` VALUES ('currency_symbol', 'Ksh', 0);
 INSERT INTO `settings` VALUES ('date_format', 'd/m/Y', 0);
 INSERT INTO `settings` VALUES ('decimal_separator', '.', 0);
-INSERT INTO `settings` VALUES ('default_currency', 'USD', 0);
+INSERT INTO `settings` VALUES ('default_currency', 'KES', 0);
 INSERT INTO `settings` VALUES ('disable_client_login', '', 0);
 INSERT INTO `settings` VALUES ('disable_client_signup', '', 0);
 INSERT INTO `settings` VALUES ('email_protocol', 'smtp', 0);
-INSERT INTO `settings` VALUES ('email_sent_from_address', 'wizag@teamkazi.biz', 0);
+INSERT INTO `settings` VALUES ('email_sent_from_address', 'wagura.maurice@hotmail.com', 0);
 INSERT INTO `settings` VALUES ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0);
-INSERT INTO `settings` VALUES ('email_smtp_host', 'smtp.mailtrap.io', 0);
-INSERT INTO `settings` VALUES ('email_smtp_pass', '4fefe28f506618', 0);
-INSERT INTO `settings` VALUES ('email_smtp_port', '25 ', 0);
+INSERT INTO `settings` VALUES ('email_smtp_host', 'wizag.biz', 0);
+INSERT INTO `settings` VALUES ('email_smtp_pass', 'Qwerty123!', 0);
+INSERT INTO `settings` VALUES ('email_smtp_port', '587', 0);
 INSERT INTO `settings` VALUES ('email_smtp_security_type', 'tls', 0);
-INSERT INTO `settings` VALUES ('email_smtp_user', 'dd5ba209d6a718', 0);
+INSERT INTO `settings` VALUES ('email_smtp_user', 't.development@wizag.biz', 0);
 INSERT INTO `settings` VALUES ('escalation_duration', '30', 0);
 INSERT INTO `settings` VALUES ('escalation_via_email', '1', 0);
 INSERT INTO `settings` VALUES ('escalation_via_sms', '1', 0);
@@ -1006,9 +1016,15 @@ INSERT INTO `settings` VALUES ('Payroll', 'on', 0);
 INSERT INTO `settings` VALUES ('Payroll_sync', 'on', 0);
 INSERT INTO `settings` VALUES ('product_serial', 'auto', 0);
 INSERT INTO `settings` VALUES ('rows_per_page', '50', 0);
+INSERT INTO `settings` VALUES ('sage_IDInvJrBatches', '1', 0);
+INSERT INTO `settings` VALUES ('sage_Inventory_Project', '22', 0);
+INSERT INTO `settings` VALUES ('sage_petty_cash_account_id', '94', 0);
+INSERT INTO `settings` VALUES ('sage_petty_cash_batches_id', '3', 0);
+INSERT INTO `settings` VALUES ('sage_TrCode', '37', 0);
+INSERT INTO `settings` VALUES ('sage_WarehouseID', '1', 0);
 INSERT INTO `settings` VALUES ('scrollbar', 'native', 0);
-INSERT INTO `settings` VALUES ('serial_prefix', 'PJG', 0);
-INSERT INTO `settings` VALUES ('show_background_image_in_signin_page', 'no', 0);
+INSERT INTO `settings` VALUES ('serial_prefix', 'SN', 0);
+INSERT INTO `settings` VALUES ('show_background_image_in_signin_page', 'yes', 0);
 INSERT INTO `settings` VALUES ('show_logo_in_signin_page', 'yes', 0);
 INSERT INTO `settings` VALUES ('site_logo', 'default-stie-logo.png', 0);
 INSERT INTO `settings` VALUES ('time_format', 'capital', 0);
@@ -1182,12 +1198,13 @@ CREATE TABLE `tbl_legal_documents`  (
   INDEX `fk_status`(`status`) USING BTREE,
   CONSTRAINT `fk_doc_type` FOREIGN KEY (`document_type`) REFERENCES `tbl_legal_document_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_status` FOREIGN KEY (`status`) REFERENCES `tbl_case_status` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_legal_documents
 -- ----------------------------
 INSERT INTO `tbl_legal_documents` VALUES (5, 'ewwewe', 2, 90, 1, '2017-12-06 00:00:00', '2017-12-05 00:00:00', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+INSERT INTO `tbl_legal_documents` VALUES (6, 'erwrewr', 1, 113, 1, '2017-12-12 00:00:00', '2017-12-22 00:00:00', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for team
@@ -1245,13 +1262,15 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 22 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_comments
 -- ----------------------------
 INSERT INTO `ticket_comments` VALUES (18, 5, '2017-11-30 10:39:05', 'maintain-ace ', 15, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (19, 5, '2017-11-30 14:58:49', 'klhcdsdgcysdgvcysdgcvsdy', 16, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (20, 5, '2017-12-04 09:11:20', 'gsgfdgfdgfdsxg', 1, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (21, 5, '2017-12-04 09:41:28', 'fd xcfd', 2, 'a:0:{}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -1289,7 +1308,12 @@ CREATE TABLE `tickets`  (
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tickets
+-- ----------------------------
+INSERT INTO `tickets` VALUES (2, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 89, 0, '', 0);
 
 -- ----------------------------
 -- Table structure for users
@@ -1337,9 +1361,9 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (5, 'Team', 'Member', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-11-30 10:36:07', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
-INSERT INTO `users` VALUES (89, 'team', '1', 'staff', 0, 1, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 09:37:26', 0, '2017-11-30 10:34:52', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
-INSERT INTO `users` VALUES (113, 'SILVESTER', 'GACHIGO', 'staff', 0, 10, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
-INSERT INTO `users` VALUES (114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 10, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-04 09:04:23', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
+INSERT INTO `users` VALUES (89, 'John', 'Doe', 'staff', 0, 1, 'john@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-12-04 09:23:16', 0, '2017-12-04 09:43:40', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
+INSERT INTO `users` VALUES (113, 'SILVESTER', 'GACHIGO', 'staff', 0, 1, 'silvester@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'constant@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;
