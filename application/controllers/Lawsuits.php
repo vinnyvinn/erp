@@ -127,9 +127,6 @@ class Lawsuits extends Pre_loader
                $this->sendLegalEmail($assigned_user->email,'Prokazi Cases',$data);
                $datasaved = true;
             }
-
-
-
         }
         echo json_encode(array("success" => $datasaved, 'message' => lang('record_saved')));
     }

@@ -2,35 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="816702af-ac45-4b2d-87bb-b28bdd528c42" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/controllers/Legal_cron_jobs.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/controllers/test.html" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/controllers/test.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/models/LegalCaseTypesModel.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/models/LegalCasesProceduresModel.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/email_templates/legal_template.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/close_case_modal.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/form2_modal.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/modal_add_procedures.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/view.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/prokazi.iml" afterPath="$PROJECT_DIR$/.idea/prokazi.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/config/autoload.php" afterPath="$PROJECT_DIR$/application/config/autoload.php" />
-      <change beforePath="$PROJECT_DIR$/application/config/migration.php" afterPath="$PROJECT_DIR$/application/config/migration.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Lawsuits.php" afterPath="$PROJECT_DIR$/application/controllers/Lawsuits.php" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Sendmails.php" afterPath="$PROJECT_DIR$/application/controllers/Sendmails.php" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/008_add_tbl_time_durations.php" afterPath="$PROJECT_DIR$/application/migrations/008_add_tbl_time_durations.php" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/010_add_tbl_esc_reminders_fkey.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/011_add_tbl_escalation_matrix.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/application/models/LegalCasesModel.php" afterPath="$PROJECT_DIR$/application/models/LegalCasesModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/LegalDocumentTypesModel.php" afterPath="$PROJECT_DIR$/application/models/LegalDocumentTypesModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/LegalDocumentsModel.php" afterPath="$PROJECT_DIR$/application/models/LegalDocumentsModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/LegalProceduresModel.php" afterPath="$PROJECT_DIR$/application/models/LegalProceduresModel.php" />
-      <change beforePath="$PROJECT_DIR$/application/models/LegalReminders.php" afterPath="$PROJECT_DIR$/application/models/LegalReminders.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/includes/left_menu.php" afterPath="$PROJECT_DIR$/application/views/includes/left_menu.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/lawsuits/form_modal.php" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/form_modal.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/lawsuits/index.php" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/index.php" />
-      <change beforePath="$PROJECT_DIR$/application/views/legal/lawsuits/tabs.php" afterPath="$PROJECT_DIR$/application/views/legal/lawsuits/tabs.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,17 +16,17 @@
       <file leaf-file-name="Lawsuits.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Lawsuits.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="120" column="18" lean-forward="false" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+            <state relative-caret-position="199">
+              <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding>
                 <element signature="n#list_data#0;n#Lawsuits#0;n#!!top" expanded="false" />
                 <element signature="n#_make_row#0;n#Lawsuits#0;n#!!top" expanded="false" />
-                <marker date="1512544692556" expanded="true" signature="5748:5855" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512544692556" expanded="true" signature="5748:5886" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512544692556" expanded="true" signature="5748:5930" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512544692556" expanded="true" signature="5748:5968" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512544692556" expanded="true" signature="5748:5986" ph="INSERT INTO tbl_legal_case_procedures... " />
-                <marker date="1512544692556" expanded="true" signature="5748:6029" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512544740311" expanded="true" signature="5745:5852" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512544740311" expanded="true" signature="5745:5883" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512544740311" expanded="true" signature="5745:5927" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512544740311" expanded="true" signature="5745:5965" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512544740311" expanded="true" signature="5745:5983" ph="INSERT INTO tbl_legal_case_procedures... " />
+                <marker date="1512544740311" expanded="true" signature="5745:6026" ph="INSERT INTO tbl_legal_case_procedures... " />
               </folding>
             </state>
           </provider>
@@ -293,16 +265,15 @@
       <workItem from="1512454784193" duration="1856000" />
       <workItem from="1512465043298" duration="15498000" />
       <workItem from="1512503706637" duration="9044000" />
-      <workItem from="1512535843685" duration="8827000" />
+      <workItem from="1512535843685" duration="8995000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66913000" />
+    <option name="totallyTimeSpent" value="67081000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22622108" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -312,7 +283,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30376345" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30376345" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -751,17 +722,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Lawsuits.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="120" column="18" lean-forward="false" selection-start-line="120" selection-start-column="18" selection-end-line="120" selection-end-column="18" />
+        <state relative-caret-position="199">
+          <caret line="128" column="0" lean-forward="false" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding>
             <element signature="n#list_data#0;n#Lawsuits#0;n#!!top" expanded="false" />
             <element signature="n#_make_row#0;n#Lawsuits#0;n#!!top" expanded="false" />
-            <marker date="1512544692556" expanded="true" signature="5748:5855" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512544692556" expanded="true" signature="5748:5886" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512544692556" expanded="true" signature="5748:5930" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512544692556" expanded="true" signature="5748:5968" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512544692556" expanded="true" signature="5748:5986" ph="INSERT INTO tbl_legal_case_procedures... " />
-            <marker date="1512544692556" expanded="true" signature="5748:6029" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512544740311" expanded="true" signature="5745:5852" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512544740311" expanded="true" signature="5745:5883" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512544740311" expanded="true" signature="5745:5927" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512544740311" expanded="true" signature="5745:5965" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512544740311" expanded="true" signature="5745:5983" ph="INSERT INTO tbl_legal_case_procedures... " />
+            <marker date="1512544740311" expanded="true" signature="5745:6026" ph="INSERT INTO tbl_legal_case_procedures... " />
           </folding>
         </state>
       </provider>
