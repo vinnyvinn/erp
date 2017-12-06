@@ -136,8 +136,13 @@ class Team_members extends Pre_loader
         //add a new team member
         $user_id = $this->Users_model->save($user_data);
 
-        $SAGE_query = "INSERT INTO DEMO.dbo._rtblAgents(cAgentName, cPassword, cFirstName, cLastName, cDisplayName, cTelWork, cEmail, id) VALUES ('" . $name . "', 'msPhRqkbAPEZEqnRQbQB4p8mKlf3bO7H2tqxESayKSU=', '" . $user_data['first_name'] . "', '" . $user_data['last_name'] . "', '" . $user_data['first_name'] . " " . $user_data['last_name'] . "', '" . $user_data['phone'] . "', '" . $user_data['email'] . "', '$user_id')";
+        $SAGE_query = "INSERT INTO DEMO.dbo._rtblAgents(cAgentName, cPassword, cFirstName, cLastName, cDisplayName, cTelWork, cEmail, id) VALUES ('". $user_data['first_name'] . " " . $user_data['last_name'] . "', 'msPhRqkbAPEZEqnRQbQB4p8mKlf3bO7H2tqxESayKSU=', '" . $user_data['first_name'] . "', '" . $user_data['last_name'] . "', '" . $user_data['first_name'] . " " . $user_data['last_name'] . "', '" . $user_data['phone'] . "', '" . $user_data['email'] . "', '$user_id')";
         $this->SAGE_DB()->query($SAGE_query);
+
+        $hourly_rate = @($this->input->post('salary') / $this->input->post('working_hours'));
+        if(false === $hourly_rate) {
+          $hourly_rate = 0;
+        }
 
         if ($user_id) {
             //user added, now add the job info for the user
@@ -146,7 +151,7 @@ class Team_members extends Pre_loader
                 "salary"       => $this->input->post('salary') ? $this->input->post('salary') : 0,
                 "salary_term"  => $this->input->post('salary_term'),
                 "working_hours"  => $this->input->post('working_hours'),
-                "hourly_rate"  => $this->input->post('salary') / $this->input->post('working_hours'),
+                "hourly_rate"  => $hourly_rate,
                 "date_of_hire" => $this->input->post('date_of_hire')
             );
             $this->Users_model->save_job_info($job_data);

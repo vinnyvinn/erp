@@ -106,16 +106,19 @@
                     $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu);
                 }
 
-                if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin || $access_ticket)) {
+                if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin)) {
                     $sidebar_menu[] = array("name" => "Escalation Matrix", "url" => "escalation_matrix", "class" => "fa-stack-overflow");
                 }
 
                 if (get_setting("module_ticket") == "1" && ($this->login_user->is_admin || $access_ticket)) {
 
                     $ticket_badge = 0;
-                    if ($this->login_user->is_admin || $access_ticket === "all") {
-                        $ticket_badge = count_new_tickets();
+                    if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
+                        $ticket_badge = count_new_tickets(NULL,NULL);
+                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+                        $ticket_badge = count_new_tickets(NULL, $this->login_user->id);
                     }
+                    // die();
 
                     $sidebar_menu[] = array("name" => "tickets", "url" => "tickets", "class" => "fa-life-ring", "devider" => true, "badge" => $ticket_badge, "badge_class" => "badge-secondary");
                 }

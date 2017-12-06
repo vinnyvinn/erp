@@ -55,16 +55,21 @@ class Tickets_model extends Crud_model {
         return $this->db->query($sql);
     }
 
-    function count_new_tickets($ticket_types = "") {
+    function count_new_tickets($ticket_types = "", $assigned_to_id = "") {
         $tickets_table = $this->db->dbprefix('tickets');
         $where = "";
+        $assigned_to = "";
         if ($ticket_types) {
             $where = " AND FIND_IN_SET($tickets_table.ticket_type_id, '$ticket_types')";
         }
+        if ($assigned_to_id) {
+            $assigned_to = " AND assigned_to = " . $assigned_to_id;
+        }
         $sql = "SELECT COUNT($tickets_table.id) AS total
         FROM $tickets_table
-        WHERE $tickets_table.deleted=0  AND $tickets_table.status='new' $where";
+        WHERE $tickets_table.deleted=0  AND $tickets_table.status='new' $where $assigned_to";
         return $this->db->query($sql)->row()->total;
+        // echo $sql;
     }
 
     function get_ticket_status_info() {

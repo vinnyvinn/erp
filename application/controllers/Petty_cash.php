@@ -98,6 +98,9 @@ class Petty_cash extends Pre_loader {
                 // $sql = $this->SAGE_DB()->set($sage_data)->get_compiled_insert('_btblCbBatchLines');
                 $this->SAGE_DB()->insert('_btblCbBatchLines', $sage_data);
             }
+
+            
+            $this->mail_status($id);
             // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
             $this->template->rander("petty_cash/index");
         } else {
@@ -125,13 +128,43 @@ class Petty_cash extends Pre_loader {
 
                 $this->SAGE_DB()->delete('_btblCbBatchLines', $sage_data);
             }
-
+            
+            $this->mail_status($id);
             // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
             $this->template->rander("petty_cash/index");
         } else {
             // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
             $this->template->rander("petty_cash/index");
         }
+    }
+
+    public function mail_status($id) {
+
+        $variables = $this->db->query("SELECT petty_cash.id, petty_cash_types.name_type, users.`status`, petty_cash.amount, petty_cash.description, users.first_name, users.last_name, users.email, petty_cash.created_at, petty_cash.status FROM petty_cash INNER JOIN users ON petty_cash.user_id = users.id INNER JOIN petty_cash_types ON petty_cash.type_id = petty_cash_types.id WHERE petty_cash.id = " . $id)->result();
+
+        foreach ($variables as $key => $value) {
+           $data = ["petty_cash_id" => $id, "petty_cash_name" => $value->name_type, "first_name" => $value->first_name, "last_name" => $value->last_name, "petty_cash_amount" => $value->amount,"petty_cash_date" => date("dS M Y",strtotime($value->created_at)), "petty_cash_status" => $value->status, "send_to" => $value->email];
+
+           $this->_Mailler($data);
+        }
+    }
+
+
+    public function _Mailler($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("petty_cash");
+
+        $parser_data["PETTY_CASH_ID"] = $data['petty_cash_id'];
+        $parser_data["PETTY_CASH_NAME"] = $data["petty_cash_name"];
+        $parser_data["CONTACT_FIRST_NAME"] = $data["first_name"];
+        $parser_data["CONTACT_LAST_NAME"] = $data["last_name"];
+        $parser_data["PETTY_CASH_AMOUNT"] = $data['petty_cash_amount'];
+        $parser_data["PETTY_CASH_REQUEST_DATE"] = $data['petty_cash_date'];
+        $parser_data["PETTY_CASH_STATUS"] = $data['petty_cash_status'];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
     }
 
     function Projects() {

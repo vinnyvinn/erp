@@ -550,9 +550,9 @@ if (!function_exists('count_unread_message')) {
  */
 if (!function_exists('count_new_tickets')) {
 
-    function count_new_tickets($ticket_types = "") {
+    function count_new_tickets($ticket_types = "", $assigned_to_id = "") {
         $ci = get_instance();
-        return $ci->Tickets_model->count_new_tickets($ticket_types);
+        return $ci->Tickets_model->count_new_tickets($ticket_types, $assigned_to_id);
     }
 
 }
