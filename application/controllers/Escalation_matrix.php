@@ -82,7 +82,7 @@ class Escalation_matrix extends Pre_loader {
     echo json_encode(array("data" => $return));
   }
 
-    
+    public function modal_form() {
 
     $project_members = $this->Users_model->all_dropdown()->result();
     $collaborators_dropdown = array();
