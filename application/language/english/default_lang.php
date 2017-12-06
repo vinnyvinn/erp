@@ -554,6 +554,8 @@ $lang["reset_password"] = "Reset password";
 $lang["team_member_invitation"] = "Team member invitation";
 $lang["client_contact_invitation"] = "Client contact invitation";
 $lang["send_invoice"] = "Send invoice";
+$lang["petty_cash"] = "Petty Cash";
+$lang["inventory_requisitions"] = "Inventory Requisitions";
 $lang["signature"] = "Signature";
 
 /* roles */

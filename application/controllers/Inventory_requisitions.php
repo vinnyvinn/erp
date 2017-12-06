@@ -91,13 +91,15 @@ class Inventory_requisitions extends Pre_loader {
                 ];
 
                 $this->SAGE_DB()->insert('_etblInvJrBatchLines', $sage_data);
-
-                $this->Send_mail_model->htmlmail("wagura465@gmail.com", "petty cash",  array('userName'=> 'Maurice Wagura'));
             }
+
+            $this->mail_status($id);
+
             // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
-            // $this->template->rander("inventory_requisitions/index");
+            $this->template->rander("inventory_requisitions/index");
         } else {
-            echo "failed";
+            // echo "failed";
+            $this->template->rander("inventory_requisitions/index");
         }
     }
 
@@ -122,12 +124,42 @@ class Inventory_requisitions extends Pre_loader {
                 $this->SAGE_DB()->delete('_etblInvJrBatchLines', $sage_data);
             }
 
+            $this->mail_status($id);
+
             // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
             $this->template->rander("inventory_requisitions/index");
         } else {
             // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
             $this->template->rander("inventory_requisitions/index");
         }
+    }
+
+    public function mail_status($id) {
+
+        $variables = $this->db->query("SELECT inventory_requisitions.id, inventory_requisitions.item_name, inventory_requisitions.item_quantity, inventory_requisitions.item_cost, users.first_name, users.last_name, users.email, inventory_requisitions.created_at, inventory_requisitions.`status` FROM inventory_requisitions INNER JOIN users ON inventory_requisitions.user_id = users.id WHERE inventory_requisitions.id = " . $id)->result();
+
+        foreach ($variables as $key => $value) {
+           $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity,"requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "send_to" => $value->email];
+
+           $this->_Mailler($data);
+        }
+    }
+
+    public function _Mailler($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("inventory_requisitions");
+
+        $parser_data["INVENTORY_REQUISITIONS_ID"] = $data['requisitions_id'];
+        $parser_data["INVENTORY_REQUISITIONS_NAME"] = $data["requisitions_name"];
+        $parser_data["CONTACT_FIRST_NAME"] = $data["first_name"];
+        $parser_data["CONTACT_LAST_NAME"] = $data["last_name"];
+        $parser_data["INVENTORY_REQUISITIONS_QUANTITY"] = $data['requisitions_quantity'];
+        $parser_data["INVENTORY_REQUISITIONS_REQUEST_DATE"] = $data['requisitions_date'];
+        $parser_data["INVENTORY_REQUISITIONS_STATUS"] = $data['requisitions_status'];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
     }
 
     function Stocks() {
@@ -181,6 +213,17 @@ class Inventory_requisitions extends Pre_loader {
 
     public function SAGE_DB() {
     	return $this->load->database('SAGE', TRUE);
+    }
+
+    public function fields($object) {
+
+        $return = new stdClass();
+
+        foreach ($object as $value) {
+            $return = $value;
+        }
+
+        return $return;
     }
 
 }

@@ -23,8 +23,9 @@ class Email_templates extends Pre_loader {
             "ticket_closed" => array("TICKET_ID", "TICKET_TITLE", "USER_NAME", "TICKET_URL", "SIGNATURE"),
             "ticket_reopened" => array("TICKET_ID", "TICKET_TITLE", "USER_NAME", "TICKET_URL", "SIGNATURE"),
             "general_notification" => array("EVENT_TITLE", "EVENT_DETAILS", "APP_TITLE", "COMPANY_NAME", "NOTIFICATION_URL", "SIGNATURE"),
-            "signature" => array(),
-            "petty_cash" => array()
+            "petty_cash" => array("PETTY_CASH_ID", "PETTY_CASH_NAME", "CONTACT_FIRST_NAME", "CONTACT_LAST_NAME", "PETTY_CASH_AMOUNT", "PETTY_CASH_REQUEST_DATE", "PETTY_CASH_STATUS", "SIGNATURE"),
+            "inventory_requisitions" => array("INVENTORY_REQUISITIONS_ID", "INVENTORY_REQUISITIONS_NAME", "CONTACT_FIRST_NAME", "CONTACT_LAST_NAME", "INVENTORY_REQUISITIONS_QUANTITY", "INVENTORY_REQUISITIONS_REQUEST_DATE", "INVENTORY_REQUISITIONS_STATUS", "SIGNATURE"),
+            "signature" => array()
         );
     }
 
@@ -78,6 +79,7 @@ class Email_templates extends Pre_loader {
             $list[] = array("<span class='template-row' data-name='$template_name'>" . lang($template_name) . "</span>");
         }
         echo json_encode(array("data" => $list));
+
     }
 
     /* load template edit form */

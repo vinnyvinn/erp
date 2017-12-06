@@ -3,7 +3,12 @@
         <div class="page-title clearfix">
             <h1><?php echo lang('tickets'); ?></h1>
             <div class="title-button-group">
-                <?php echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "title" => lang('add_ticket'))); ?>
+                <?php
+                if ($this->login_user->is_admin) {
+                    // echo modal_anchor(get_uri("tickets/type_modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Ticket Types", array("class" => "btn btn-default", "title" => "Add Ticket Types"));
+                    echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "title" => lang('add_ticket')));
+                }
+                ?>
             </div>
         </div>
         <div class="table-responsive">
@@ -30,7 +35,11 @@
                 {visible: false, searchable: false},
                 {title: '<?php echo lang("last_activity") ?>', "iDataSort": 5, "class": "w10p"},
                 {title: '<?php echo lang("status") ?>', "class": "w5p"},
-                {title: '<i class="fa fa-bars"></i>', "class": "text-center option w80"}
+                <?php
+                if ($this->login_user->is_admin) {
+                    echo '{title: \'<i class="fa fa-bars"></i>\', "class": "text-center option w80"}';
+                }
+                ?>
             ],
             printColumns: [0, 1, 2, 3, 4, 6, 7, 8],
             xlsColumns: [0, 1, 2, 3, 4, 6, 7, 8]

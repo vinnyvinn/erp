@@ -12,7 +12,11 @@
                     <ul class="dropdown-menu pull-right" role="menu">
                         <?php if ($this->login_user->user_type == "staff") { ?>
                             <li role="presentation">
-                                <?php echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-pencil'></i> " . lang('edit'), array( "title" => lang('ticket'), "data-post-view" => "details", "data-post-id" => $ticket_info->id)); ?>
+                                <?php
+                                if ($this->login_user->is_admin) {
+                                    echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-pencil'></i> " . lang('edit'), array( "title" => lang('ticket'), "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+                                }
+                                ?>
                             </li>
                         <?php } ?>
                         <?php if ($ticket_info->status === "closed") { ?>

@@ -34,11 +34,20 @@ class Tickets extends Pre_loader
             $view_data['ticket_labels_dropdown'] = json_encode($label_suggestions);
 
             //prepare assign to filter list
-            $assigned_to_dropdown = array(array("id" => "", "text" => "- " . lang("assigned_to") . " -"));
+            if ($this->login_user->is_admin) {
+                $assigned_to_dropdown = array(array("id" => "", "text" => "- " . lang("assigned_to") . " -"));
 
-            $assigned_to_list = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("deleted" => 0, "user_type" => "staff"));
-            foreach ($assigned_to_list as $key => $value) {
-                $assigned_to_dropdown[] = array("id" => $key, "text" => $value);
+                $assigned_to_list = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("deleted" => 0, "user_type" => "staff"));
+                foreach ($assigned_to_list as $key => $value) {
+                    $assigned_to_dropdown[] = array("id" => $key, "text" => $value);
+                }
+            } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+                $assigned_to_dropdown = array(array("id" => "", "text" => "- " . lang("assigned_to") . " -"));
+
+                $assigned_to_list = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("deleted" => 0, "user_type" => "staff", "id" => $this->login_user->id));
+                foreach ($assigned_to_list as $key => $value) {
+                    $assigned_to_dropdown[] = array("id" => $key, "text" => $value);
+                }
             }
 
             $view_data['assigned_to_dropdown'] = json_encode($assigned_to_dropdown);
@@ -112,6 +121,10 @@ class Tickets extends Pre_loader
         $this->load->view('tickets/modal_form', $view_data);
     }
 
+    public function type_modal_form() {
+        $this->template->rander("tickets/type_modal_form");
+    }
+
     // add a new ticket
     public function save()
     {
@@ -151,7 +164,6 @@ class Tickets extends Pre_loader
             unset($ticket_data['created_at']);
             unset($ticket_data['last_activity_at']);
         }
-
 
         $ticket_id = $this->Tickets_model->save($ticket_data, $id);
 
@@ -203,7 +215,13 @@ class Tickets extends Pre_loader
 
         $status = $this->input->post("status");
         $ticket_label = $this->input->post("ticket_label");
-        $assigned_to = $this->input->post("assigned_to");
+
+        if ($this->login_user->is_admin) {
+            $assigned_to = $this->input->post("assigned_to");
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+            $assigned_to = $this->login_user->id;
+        }
+
         $options = array("status" => $status, "access_type" => $this->access_type, "ticket_label" => $ticket_label, "assigned_to" => $assigned_to);
 
         $list_data = $this->Tickets_model->get_details($options)->result();
