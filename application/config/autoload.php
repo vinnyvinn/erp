@@ -190,6 +190,8 @@ $autoload['model'] = array(
     'SendLegalMails',
     'Knowledge_base_types_model',
     'Knowledge_base_model',
-    'Knowledge_base_ticket_model'
+    'Knowledge_base_ticket_model',
+    'TblKnowledgeBaseModel',
+    'TblKnowledgeBaseTypesModel'
 );
 
