@@ -50,7 +50,7 @@ class Inventory_requisitions extends Pre_loader {
             $optoins = NULL;
         }
 
-        return array($data->id, $title, $data->item_quantity, number_format($data->item_cost,2), date("dS M Y",strtotime($data->created_at)), $status, $optoins);
+        return array($data->id, $title, $data->item_quantity . " / " . $data->available_quantity, number_format($data->item_cost,2), date("dS M Y",strtotime($data->created_at)), $status, $optoins);
     }
 
     public function view_modal() {
@@ -136,10 +136,10 @@ class Inventory_requisitions extends Pre_loader {
 
     public function mail_status($id) {
 
-        $variables = $this->db->query("SELECT inventory_requisitions.id, inventory_requisitions.item_name, inventory_requisitions.item_quantity, inventory_requisitions.item_cost, users.first_name, users.last_name, users.email, inventory_requisitions.created_at, inventory_requisitions.`status` FROM inventory_requisitions INNER JOIN users ON inventory_requisitions.user_id = users.id WHERE inventory_requisitions.id = " . $id)->result();
+        $variables = $this->db->query("SELECT inventory_requisitions.id, inventory_requisitions.item_name, inventory_requisitions.item_quantity, inventory_requisitions.available_quantity, inventory_requisitions.item_cost, users.first_name, users.last_name, users.email, inventory_requisitions.created_at, inventory_requisitions.`status` FROM inventory_requisitions INNER JOIN users ON inventory_requisitions.user_id = users.id WHERE inventory_requisitions.id = " . $id)->result();
 
         foreach ($variables as $key => $value) {
-           $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity,"requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "send_to" => $value->email];
+           $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity, "requisitions_amount" => $value->available_quantity, "requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "send_to" => $value->email];
 
            $this->_Mailler($data);
         }
@@ -154,6 +154,7 @@ class Inventory_requisitions extends Pre_loader {
         $parser_data["CONTACT_FIRST_NAME"] = $data["first_name"];
         $parser_data["CONTACT_LAST_NAME"] = $data["last_name"];
         $parser_data["INVENTORY_REQUISITIONS_QUANTITY"] = $data['requisitions_quantity'];
+        $parser_data["INVENTORY_REQUISITIONS_AVAILABLE"] = $data['requisitions_amount'];
         $parser_data["INVENTORY_REQUISITIONS_REQUEST_DATE"] = $data['requisitions_date'];
         $parser_data["INVENTORY_REQUISITIONS_STATUS"] = $data['requisitions_status'];
         $parser_data["SIGNATURE"] = $email_template->signature;
@@ -171,7 +172,8 @@ class Inventory_requisitions extends Pre_loader {
         foreach ($query->result() as $row) {
             $data[] = array(
                'StockLink' => $row->StockLink,
-               'StockItem' => $row->Code . " : " . $row->Description_1
+               'StockItem' => $row->Code . " : " . $row->Description_1,
+               'QuantityAvailable' => $row->Qty_On_Hand
             );
         }
         return json_encode($data);
@@ -189,7 +191,7 @@ class Inventory_requisitions extends Pre_loader {
         // $query = $this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst FROM DEMO.dbo.StkItem WHERE StockLink = " . $this->input->post('item'))->result();
 
         $fields = new stdClass();
-        foreach (($this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst FROM DEMO.dbo.StkItem WHERE StockLink = " . $this->input->post('item'))->result()) as $value) {
+        foreach (($this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst, Qty_On_Hand FROM DEMO.dbo.StkItem WHERE StockLink = " . $this->input->post('item'))->result()) as $value) {
         	$fields = $value;
         }
 
@@ -198,6 +200,7 @@ class Inventory_requisitions extends Pre_loader {
             "item_id" => $this->input->post('item'),
             "item_name" => $fields->Description_1,
             "item_quantity" => $this->input->post('quantity'),
+            "available_quantity" => $fields->Qty_On_Hand,
             "item_cost" => $fields->AveUCst * $this->input->post('quantity'),
             "created_at" => date('Y-m-d')
         );
