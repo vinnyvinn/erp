@@ -556,6 +556,7 @@ $lang["client_contact_invitation"] = "Client contact invitation";
 $lang["send_invoice"] = "Send invoice";
 $lang["petty_cash"] = "Petty Cash";
 $lang["inventory_requisitions"] = "Inventory Requisitions";
+$lang["legal_notification"] = "Legal Notification";
 $lang["signature"] = "Signature";
 
 /* roles */

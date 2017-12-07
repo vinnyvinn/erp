@@ -23,7 +23,7 @@
             columns: [
                 {title: 'ID', "class": "w50"},
                 {title: 'Stock Item', "class": "w20p"},
-                {title: 'Quantity', "class": "w20p"},
+                {title: 'Requested / Available', "class": "w20p"},
                 {title: 'Cost Amount', "class": "w20p"},
                 {title: 'Requested On', "class": "w20p"},
                 {title: 'Status', "class": "w20p"},
