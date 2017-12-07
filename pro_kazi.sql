@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 07/12/2017 09:15:14
+ Date: 07/12/2017 10:16:32
 */
 
 SET NAMES utf8mb4;
@@ -390,12 +390,13 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of inventory_requisitions
 -- ----------------------------
 INSERT INTO `inventory_requisitions` VALUES (22, 113, 2, 'Mouse', '2', '5', '500', '2017-12-07 09:01:51', '2017-12-07 09:01:51', 'Approved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (23, 113, 2, 'Mouse', '5', '5', '1250', '2017-12-07 00:00:00', NULL, 'Pending', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -1233,6 +1234,45 @@ CREATE TABLE `tbl_escalation_matrix`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for tbl_knowledge_base
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_knowledge_base`;
+CREATE TABLE `tbl_knowledge_base`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type_id` int(11) NULL DEFAULT NULL,
+  `title` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `solution` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `deleted` int(11) NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `type_id`(`type_id`) USING BTREE,
+  CONSTRAINT `tbl_knowledge_base_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tbl_knowledge_base_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_knowledge_base
+-- ----------------------------
+INSERT INTO `tbl_knowledge_base` VALUES (1, 1, 'demo error one', 'demo solution two', '2017-12-07 10:11:58', '0000-00-00 00:00:00', 0);
+INSERT INTO `tbl_knowledge_base` VALUES (2, 2, 'demo error two', 'demo solution two', '2017-12-07 10:11:58', NULL, 0);
+
+-- ----------------------------
+-- Table structure for tbl_knowledge_base_types
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_knowledge_base_types`;
+CREATE TABLE `tbl_knowledge_base_types`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_knowledge_base_types
+-- ----------------------------
+INSERT INTO `tbl_knowledge_base_types` VALUES (1, 'bug');
+INSERT INTO `tbl_knowledge_base_types` VALUES (2, 'improvement');
+
+-- ----------------------------
 -- Table structure for tbl_legal_case_procedures
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_legal_case_procedures`;
@@ -1397,7 +1437,7 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 23 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_comments
@@ -1407,6 +1447,7 @@ INSERT INTO `ticket_comments` VALUES (19, 5, '2017-11-30 14:58:49', 'klhcdsdgcys
 INSERT INTO `ticket_comments` VALUES (20, 5, '2017-12-04 09:11:20', 'gsgfdgfdgfdsxg', 1, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (21, 5, '2017-12-04 09:41:28', 'fd xcfd', 2, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (22, 5, '2017-12-06 07:36:20', 'TRFHGFHGFHNGFJNHGFN', 4, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (23, 113, '2017-12-07 06:39:26', 'bvvcbvcxbvcxbvcxbvcx', 4, 'a:0:{}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -1451,7 +1492,7 @@ CREATE TABLE `tickets`  (
 -- ----------------------------
 INSERT INTO `tickets` VALUES (2, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 89, 0, 'high', 0);
 INSERT INTO `tickets` VALUES (3, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 113, 0, 'high', 0);
-INSERT INTO `tickets` VALUES (4, 11, '', 1, 'demo ticket 1', 5, '2017-12-06 07:36:20', 'new', '2017-12-06 07:36:20', 113, 0, '', 0);
+INSERT INTO `tickets` VALUES (4, 11, '', 1, 'demo ticket 1', 5, '2017-12-06 07:36:20', 'open', '2017-12-07 06:39:26', 113, 0, '', 0);
 
 -- ----------------------------
 -- Table structure for users
