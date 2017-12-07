@@ -164,7 +164,7 @@ class Legal extends Pre_loader
 
     public function reminders_list_data() {
 
-        $list_data = $this->LegalReminders->getReminders(0)->result();
+        $list_data = $this->LegalReminders->getReminders(0);
 
         $result = [];
         foreach ($list_data as $key=>$data) {
