@@ -125,6 +125,58 @@ class Tickets extends Pre_loader
         $this->template->rander("tickets/type_modal_form");
     }
 
+    public function knowledge_base_modal_form() {
+
+        $view_data['id'] = $this->input->post('id');
+
+        $view_data['issue_subject'] = $this->Tickets_model->get_one_where(array("id" => $this->input->post('id')))->title;
+
+        //prepare assign to list
+        $knowledge_base_types_dropdown = array("" => "-") + $this->Knowledge_base_types_model
+                ->get_dropdown_list(
+                    ["name"],
+                    "id",
+                    ["deleted" => 0]
+                );
+
+        asort($knowledge_base_types_dropdown, SORT_STRING);
+
+        $view_data['knowledge_base_types_dropdown'] = $knowledge_base_types_dropdown;
+
+        $this->load->view('tickets/knowledge_base_modal_form', $view_data);
+    }
+
+    public function knowledge_base_save() {
+
+        $datasaved = false;
+        $Knowledge_base_data1 = array(
+            'type_id' => $this->input->post('knowledge_base_types_dropdown'),
+            'title' => $this->input->post('issue_subject'),
+            'solution' => $this->input->post('issue_solution'),
+            "created_by" => $this->login_user->id,
+            "created_at" => date('Y-m-d H:i:s')
+        );
+
+        $knowledge_base_id1 = $this->Knowledge_base_model->save($Knowledge_base_data1);
+
+        if($knowledge_base_id1) {
+
+            $Knowledge_base_data2 = array(
+                'ticket_id' => $this->input->post('id'),
+                'solution_id' => $knowledge_base_id1,
+                "created_by" => $this->login_user->id,
+                "created_at" => date('Y-m-d H:i:s')
+            );
+
+            if ($this->Knowledge_base_ticket_model->save($Knowledge_base_data2)) {
+                $datasaved = true;
+            }
+        }
+
+        echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+        
+    }
+
     // add a new ticket
     public function save()
     {
