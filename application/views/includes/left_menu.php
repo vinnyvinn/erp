@@ -123,6 +123,8 @@
                     $sidebar_menu[] = array("name" => "tickets", "url" => "tickets", "class" => "fa-life-ring", "devider" => true, "badge" => $ticket_badge, "badge_class" => "badge-secondary");
                 }
 
+                $sidebar_menu[] = array("name" => "Knowledge Base", "url" => "knowledge_base", "class" => "fa-stethoscope");
+
 
                 if ($this->login_user->is_admin) {
                     $attendanceSubs = [];
