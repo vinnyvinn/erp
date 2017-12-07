@@ -58,14 +58,16 @@ class Knowledge_base extends Pre_loader {
         validate_submitted_data(array(
             "title" => "required",
             "type_id" => "required",
-            "solution" => "required"
+            "solution" => "required",
+
         ));
 
         $data = array(
             "title" => $this->input->post('title'),
             "type_id" => (int)$this->input->post('type_id'),
             "solution" => $this->input->post('solution'),
-
+            'created_by'=>$this->login_user->id,
+            'created_at'=>date('Y-m-d H:i:s')
         );
 
 
