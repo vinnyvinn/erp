@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 07/12/2017 10:16:32
+ Date: 07/12/2017 16:24:33
 */
 
 SET NAMES utf8mb4;
@@ -36,13 +36,14 @@ CREATE TABLE `activity_logs`  (
   `log_for_id2` int(11) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of activity_logs
 -- ----------------------------
 INSERT INTO `activity_logs` VALUES (1, '2017-11-30 06:07:19', 5, 'created', 'task', 'time', 8, NULL, 'project', 10, '', 0, 0);
 INSERT INTO `activity_logs` VALUES (2, '2017-12-06 09:11:30', 113, 'created', 'task', 'demo bug', 9, NULL, 'project', 11, '', 0, 0);
+INSERT INTO `activity_logs` VALUES (3, '2017-12-07 07:41:30', 5, 'created', 'task', 'hgfghgfhgf', 10, NULL, 'project', 11, '', 0, 0);
 
 -- ----------------------------
 -- Table structure for announcements
@@ -517,7 +518,7 @@ CREATE TABLE `main_tasks`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `PROJECTS_FK`(`project_id`) USING BTREE,
   CONSTRAINT `PROJECTS_FK` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of main_tasks
@@ -526,6 +527,7 @@ INSERT INTO `main_tasks` VALUES (3, 'PJG0000', 'main task one', '', 8, 0);
 INSERT INTO `main_tasks` VALUES (4, 'PJG0001', 'main task one', '', 10, 0);
 INSERT INTO `main_tasks` VALUES (6, 'PJG0002', 'y', '', 8, 0);
 INSERT INTO `main_tasks` VALUES (7, '', 'Ticket: employees', '', 11, 0);
+INSERT INTO `main_tasks` VALUES (8, '', 'Ticket: demo ticket 1', '', 11, 0);
 
 -- ----------------------------
 -- Table structure for messages
@@ -1088,7 +1090,7 @@ CREATE TABLE `tasks`  (
   `priority` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tasks
@@ -1100,6 +1102,7 @@ INSERT INTO `tasks` VALUES (6, 'PJG0001-10', 'project two sub task one', '', 10,
 INSERT INTO `tasks` VALUES (7, 'SN0014', 'demo', 'testing', 10, 4, NULL, 0, 5, '2012-12-12', 'desig, penart', 23, 1, 'to_do - 0%', 0, '2009-12-01', '5', 0, 'Normal', '2017-11-28 18:02:48');
 INSERT INTO `tasks` VALUES (8, 'PJG0001-10', 'time', '', 10, 4, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '5', 0, 'Normal', '2017-11-30 09:07:19');
 INSERT INTO `tasks` VALUES (9, '', 'demo bug', '', 11, 7, 3, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-06', '', 0, 'High', '2017-12-06 12:11:30');
+INSERT INTO `tasks` VALUES (10, '', 'hgfghgfhgf', '', 11, 8, 4, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-07', '', 0, 'High', '2017-12-07 10:41:30');
 
 -- ----------------------------
 -- Table structure for taxes
@@ -1127,12 +1130,13 @@ CREATE TABLE `tbl_case_procedures`  (
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_case_procedures
 -- ----------------------------
 INSERT INTO `tbl_case_procedures` VALUES (1, 'Hearing', 0);
+INSERT INTO `tbl_case_procedures` VALUES (2, 'mentioning', 0);
 
 -- ----------------------------
 -- Table structure for tbl_case_status
@@ -1242,19 +1246,48 @@ CREATE TABLE `tbl_knowledge_base`  (
   `type_id` int(11) NULL DEFAULT NULL,
   `title` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `solution` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `created_by` int(11) NULL DEFAULT NULL,
   `created_at` timestamp(0) NULL DEFAULT NULL,
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `type_id`(`type_id`) USING BTREE,
-  CONSTRAINT `tbl_knowledge_base_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tbl_knowledge_base_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+  INDEX `created_by`(`created_by`) USING BTREE,
+  CONSTRAINT `tbl_knowledge_base_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tbl_knowledge_base_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `tbl_knowledge_base_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_knowledge_base
 -- ----------------------------
-INSERT INTO `tbl_knowledge_base` VALUES (1, 1, 'demo error one', 'demo solution two', '2017-12-07 10:11:58', '0000-00-00 00:00:00', 0);
-INSERT INTO `tbl_knowledge_base` VALUES (2, 2, 'demo error two', 'demo solution two', '2017-12-07 10:11:58', NULL, 0);
+INSERT INTO `tbl_knowledge_base` VALUES (10, 1, 'demo ticket 1', 'trojan', 113, '2017-12-07 15:54:18', NULL, 0);
+INSERT INTO `tbl_knowledge_base` VALUES (11, 2, 'dgfdgd', 'cxvcxvcxv', 5, '2017-12-07 16:21:33', NULL, 0);
+
+-- ----------------------------
+-- Table structure for tbl_knowledge_base_ticket
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_knowledge_base_ticket`;
+CREATE TABLE `tbl_knowledge_base_ticket`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ticket_id` int(11) NULL DEFAULT NULL,
+  `solution_id` int(11) NULL DEFAULT NULL,
+  `created_by` int(11) NULL DEFAULT NULL,
+  `created_at` timestamp(0) NULL DEFAULT NULL,
+  `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `deleted` int(11) NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `ticket_id`(`ticket_id`) USING BTREE,
+  INDEX `created_by`(`created_by`) USING BTREE,
+  INDEX `solution_id`(`solution_id`) USING BTREE,
+  CONSTRAINT `tbl_knowledge_base_ticket_ibfk_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `tbl_knowledge_base_ticket_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `tbl_knowledge_base_ticket_ibfk_4` FOREIGN KEY (`solution_id`) REFERENCES `tbl_knowledge_base` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_knowledge_base_ticket
+-- ----------------------------
+INSERT INTO `tbl_knowledge_base_ticket` VALUES (9, 4, 10, 113, '2017-12-07 15:54:18', NULL, 0);
 
 -- ----------------------------
 -- Table structure for tbl_knowledge_base_types
@@ -1263,14 +1296,17 @@ DROP TABLE IF EXISTS `tbl_knowledge_base_types`;
 CREATE TABLE `tbl_knowledge_base_types`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `deleted` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_knowledge_base_types
 -- ----------------------------
-INSERT INTO `tbl_knowledge_base_types` VALUES (1, 'bug');
-INSERT INTO `tbl_knowledge_base_types` VALUES (2, 'improvement');
+INSERT INTO `tbl_knowledge_base_types` VALUES (1, 'bug', 0);
+INSERT INTO `tbl_knowledge_base_types` VALUES (2, 'improvement', 0);
+INSERT INTO `tbl_knowledge_base_types` VALUES (3, 'recomendation', 0);
+INSERT INTO `tbl_knowledge_base_types` VALUES (4, 'development', 0);
 
 -- ----------------------------
 -- Table structure for tbl_legal_case_procedures
@@ -1284,7 +1320,12 @@ CREATE TABLE `tbl_legal_case_procedures`  (
   `deleted` int(11) NOT NULL,
   `procedure_val` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 25 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_legal_case_procedures
+-- ----------------------------
+INSERT INTO `tbl_legal_case_procedures` VALUES (1, 5, '2017-12-07', 5, 0, 1);
 
 -- ----------------------------
 -- Table structure for tbl_legal_document_types
@@ -1491,7 +1532,7 @@ CREATE TABLE `tickets`  (
 -- Records of tickets
 -- ----------------------------
 INSERT INTO `tickets` VALUES (2, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 89, 0, 'high', 0);
-INSERT INTO `tickets` VALUES (3, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 113, 0, 'high', 0);
+INSERT INTO `tickets` VALUES (3, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'open', '2017-12-04 09:41:28', 113, 0, 'high', 0);
 INSERT INTO `tickets` VALUES (4, 11, '', 1, 'demo ticket 1', 5, '2017-12-06 07:36:20', 'open', '2017-12-07 06:39:26', 113, 0, '', 0);
 
 -- ----------------------------
@@ -1540,7 +1581,7 @@ CREATE TABLE `users`  (
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-04 09:04:23', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
+INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-07 10:07:48', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
 INSERT INTO `users` VALUES (89, 'John', 'Doe', 'staff', 0, 1, 'john@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-12-04 09:23:16', 0, '2017-12-04 09:43:40', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
 INSERT INTO `users` VALUES (113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura465@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-06 07:40:26', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 INSERT INTO `users` VALUES (114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'constant@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
