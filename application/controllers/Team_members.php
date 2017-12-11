@@ -679,6 +679,8 @@ class Team_members extends Pre_loader
 
     function sync_members() {
 
+        $datasaved = false;
+
         $HR_DB = $this->load->database('HR', TRUE);
 
         $query = "SELECT
@@ -715,7 +717,7 @@ class Team_members extends Pre_loader
                 'last_name' => $objData[$i]['Emp_Last_Name'],
                 'user_type' => 'staff',
                 'is_admin' => 0,
-                'role_id' => 10,
+                'role_id' => 1,
                 'email'   => $objData[$i]['Emp_WorkEmail'],
                 'password' => '25d55ad283aa400af464c76d713c07ad',
                 'job_title' => $objData[$i]['Desig_Name'],
@@ -739,8 +741,12 @@ class Team_members extends Pre_loader
                     );
 
                     $this->Team_member_model->save($job_data);
+                    
+                    $datasaved = true;
                 }
             }
+
+            echo json_encode(array("success" => $datasaved, 'message' => lang('record_saved')));
 
         }
 

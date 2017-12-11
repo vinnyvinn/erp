@@ -14,7 +14,7 @@ class Projects extends Pre_loader {
         $this->load->helper(array('form', 'url'));
     }
 
-    //When checking project permissions, to reduce db query we'll use this init function, where team members has to be access on the project
+    // When checking project permissions, to reduce db query we'll use this init function, where team members has to be access on the project
     private function init_project_permission_checker($project_id = 0) {
         if ($this->login_user->user_type == "client") {
             $project_info = $this->Projects_model->get_one($project_id);
@@ -1481,29 +1481,16 @@ class Projects extends Pre_loader {
             redirect("forbidden");
         }
 
+        //prepare assign to list
+        $projects_dropdown = array("" => "-") + $this->Projects_model->get_dropdown_list(["title"], "id", ["deleted" => 0]);
 
-        $object = $this->Projects_model->getAll();
-        $data   = array("" => "-- Select Project --");;
-        foreach ($object as $key => $value) {
-            $data[$value->id] = $value->title;
-        }
-        $viewData['assign_to_dropdown'] = $data;
+        asort($projects_dropdown, SORT_STRING);
 
-        $view_data['show_assign_to_dropdown'] = true;
-        if ($this->login_user->user_type == "client") {
-            $view_data['show_assign_to_dropdown'] = false;
-        } /*else {
-            //set default assigne to for new tasks
-            if (!$id && !$viewData['model_info']->assigned_to) {
-                $viewData['model_info']->assigned_to = $this->login_user->id;
-            }
-        }*/
+        $view_data['projects_dropdown'] = $projects_dropdown;
+        $view_data['prefix'] = get_setting("serial_prefix");
+        $view_data['serial'] = $this->Projects_model->hesabu("SELECT * FROM `main_tasks`");
 
-        $viewData['prefix'] = get_setting("serial_prefix");
-        $viewData['serial'] = $this->Projects_model->hesabu("SELECT * FROM `main_tasks`");
-        
-
-        $this->load->view('projects/tasks/main_task_modal_form', $viewData);
+        $this->load->view('projects/tasks/main_task_modal_form', $view_data);
     }
 
     /* task add/edit modal */

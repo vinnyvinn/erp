@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 07/12/2017 16:24:33
+ Date: 11/12/2017 02:18:58
 */
 
 SET NAMES utf8mb4;
@@ -383,7 +383,7 @@ CREATE TABLE `inventory_requisitions`  (
   `item_id` int(11) NOT NULL,
   `item_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `item_quantity` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `available_quantity` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `StkItem_id` int(11) NULL DEFAULT NULL,
   `item_cost` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
@@ -391,13 +391,13 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of inventory_requisitions
 -- ----------------------------
-INSERT INTO `inventory_requisitions` VALUES (22, 113, 2, 'Mouse', '2', '5', '500', '2017-12-07 09:01:51', '2017-12-07 09:01:51', 'Approved', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (23, 113, 2, 'Mouse', '5', '5', '1250', '2017-12-07 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (24, 113, 2, 'Mouse', '20', 2, '750', '2017-12-07 21:53:28', '2017-12-07 21:53:28', 'Approved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (25, 113, 2, 'Mouse', '45', 2, '11250', '2017-12-07 00:00:00', NULL, 'Pending', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -518,16 +518,15 @@ CREATE TABLE `main_tasks`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `PROJECTS_FK`(`project_id`) USING BTREE,
   CONSTRAINT `PROJECTS_FK` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of main_tasks
 -- ----------------------------
-INSERT INTO `main_tasks` VALUES (3, 'PJG0000', 'main task one', '', 8, 0);
-INSERT INTO `main_tasks` VALUES (4, 'PJG0001', 'main task one', '', 10, 0);
-INSERT INTO `main_tasks` VALUES (6, 'PJG0002', 'y', '', 8, 0);
-INSERT INTO `main_tasks` VALUES (7, '', 'Ticket: employees', '', 11, 0);
-INSERT INTO `main_tasks` VALUES (8, '', 'Ticket: demo ticket 1', '', 11, 0);
+INSERT INTO `main_tasks` VALUES (9, 'SN0000', 'demo main task', 'gfy', 14, 0);
+INSERT INTO `main_tasks` VALUES (10, 'SN0001', 'employees', 'ugyu', 14, 0);
+INSERT INTO `main_tasks` VALUES (11, 'SN0002', 'demo project', 'fd', 15, 0);
+INSERT INTO `main_tasks` VALUES (12, 'SN0003', 'demo main 3', 'fd68', 14, 0);
 
 -- ----------------------------
 -- Table structure for messages
@@ -702,13 +701,7 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of notifications
--- ----------------------------
-INSERT INTO `notifications` VALUES (47, 5, '', '2017-12-04 09:41:28', '89', ',89', 'ticket_created', 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (48, 5, '', '2017-12-06 07:36:21', '113', ',113', 'ticket_created', 0, 0, 0, 4, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+) ENGINE = InnoDB AUTO_INCREMENT = 50 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for payment_methods
@@ -836,13 +829,6 @@ CREATE TABLE `project_comments`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of project_comments
--- ----------------------------
-INSERT INTO `project_comments` VALUES (14, 30, '2017-10-28 15:51:23', 'come on now', 14, 0, 38, 0, 0, 'a:0:{}', 0);
-INSERT INTO `project_comments` VALUES (15, 30, '2017-11-01 08:04:28', 'am 80% done', 14, 0, 0, 0, 14, 'a:0:{}', 0);
-INSERT INTO `project_comments` VALUES (16, 5, '2017-11-01 08:05:31', 'Hi contractor', 14, 0, 0, 0, 0, 'a:0:{}', 0);
-
--- ----------------------------
 -- Table structure for project_files
 -- ----------------------------
 DROP TABLE IF EXISTS `project_files`;
@@ -869,17 +855,12 @@ CREATE TABLE `project_members`  (
   `is_leader` tinyint(1) NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of project_members
 -- ----------------------------
-INSERT INTO `project_members` VALUES (35, 5, 8, 1, 0);
-INSERT INTO `project_members` VALUES (36, 5, 9, 1, 0);
-INSERT INTO `project_members` VALUES (37, 89, 8, 0, 0);
-INSERT INTO `project_members` VALUES (38, 5, 10, 1, 0);
-INSERT INTO `project_members` VALUES (39, 89, 10, 0, 0);
-INSERT INTO `project_members` VALUES (40, 5, 11, 1, 0);
+INSERT INTO `project_members` VALUES (41, 5, 14, 1, 0);
 
 -- ----------------------------
 -- Table structure for project_time
@@ -913,15 +894,13 @@ CREATE TABLE `projects`  (
   `price` double NOT NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of projects
 -- ----------------------------
-INSERT INTO `projects` VALUES (8, 'project one', '', '2017-11-09', '2017-11-17', 30, '2017-11-09', 'open', '', 20000, 0);
-INSERT INTO `projects` VALUES (9, 'project two', '', '2017-11-09', '2017-11-16', 30, '2017-11-09', 'open', '', 20000, 1);
-INSERT INTO `projects` VALUES (10, 'project two', '', '2017-11-14', '2017-11-22', 30, '2017-11-14', 'open', '', 20000, 0);
-INSERT INTO `projects` VALUES (11, 'project 3', 'fdgdgdsg', '2017-12-04', '2017-12-28', 30, '2017-12-04', 'open', 'rewrw', 5435, 0);
+INSERT INTO `projects` VALUES (14, 'demo project one', 'demo', '2017-12-11', '2017-12-27', 30, '2017-12-10', 'open', 'high', 5435, 0);
+INSERT INTO `projects` VALUES (15, 'demo project two', 'demo', '2017-12-11', '2017-12-27', 30, '2017-12-10', 'open', 'high', 5435, 0);
 
 -- ----------------------------
 -- Table structure for roles
@@ -1091,18 +1070,6 @@ CREATE TABLE `tasks`  (
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of tasks
--- ----------------------------
-INSERT INTO `tasks` VALUES (3, 'PJG0000-8', 'sub task 0001', 'pen drive', 8, 3, NULL, 0, 5, '2017-11-21', '', 0, 1, 'to_do - 0%', 0, '2017-11-09', '', 0, 'Normal', '2017-11-09 10:06:00');
-INSERT INTO `tasks` VALUES (4, 'PJG0000-8', 'trhgt', 'demo now', 8, 3, NULL, 0, 5, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:06:19');
-INSERT INTO `tasks` VALUES (5, 'PJG0000-8', 'project task', '', 8, 3, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:31:51');
-INSERT INTO `tasks` VALUES (6, 'PJG0001-10', 'project two sub task one', '', 10, 4, NULL, 0, 5, '2017-11-15', '', 0, 1, 'to_do - 0%', 0, '2017-11-14', '', 0, 'Normal', '2017-11-14 09:52:38');
-INSERT INTO `tasks` VALUES (7, 'SN0014', 'demo', 'testing', 10, 4, NULL, 0, 5, '2012-12-12', 'desig, penart', 23, 1, 'to_do - 0%', 0, '2009-12-01', '5', 0, 'Normal', '2017-11-28 18:02:48');
-INSERT INTO `tasks` VALUES (8, 'PJG0001-10', 'time', '', 10, 4, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '5', 0, 'Normal', '2017-11-30 09:07:19');
-INSERT INTO `tasks` VALUES (9, '', 'demo bug', '', 11, 7, 3, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-06', '', 0, 'High', '2017-12-06 12:11:30');
-INSERT INTO `tasks` VALUES (10, '', 'hgfghgfhgf', '', 11, 8, 4, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-07', '', 0, 'High', '2017-12-07 10:41:30');
 
 -- ----------------------------
 -- Table structure for taxes
@@ -1444,7 +1411,7 @@ CREATE TABLE `team_member_job_info`  (
   `salary_term` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of team_member_job_info
@@ -1464,6 +1431,12 @@ INSERT INTO `team_member_job_info` VALUES (26, 125, '0000-00-00', 0, 0, 0, 0, ''
 INSERT INTO `team_member_job_info` VALUES (27, 126, '0000-00-00', 0, 0, 0, 0, '');
 INSERT INTO `team_member_job_info` VALUES (28, 127, '0000-00-00', 0, 0, 0, 0, '');
 INSERT INTO `team_member_job_info` VALUES (29, 128, '0000-00-00', 0, 0, 0, 0, '');
+INSERT INTO `team_member_job_info` VALUES (30, 129, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (31, 130, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (32, 131, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (33, 132, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (34, 133, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (35, 134, '2014-07-16', 0, 0, 0, 0, 'Uknown');
 
 -- ----------------------------
 -- Table structure for ticket_comments
@@ -1576,18 +1549,13 @@ CREATE TABLE `users`  (
   INDEX `email`(`email`) USING BTREE,
   INDEX `client_id`(`client_id`) USING BTREE,
   INDEX `deleted`(`deleted`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 135 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-07 10:07:48', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
-INSERT INTO `users` VALUES (89, 'John', 'Doe', 'staff', 0, 1, 'john@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-12-04 09:23:16', 0, '2017-12-04 09:43:40', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
-INSERT INTO `users` VALUES (113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura465@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-06 07:40:26', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
-INSERT INTO `users` VALUES (114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'constant@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura465@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-10 21:15:28', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 INSERT INTO `users` VALUES (115, 'BETT', 'SAGE', 'staff', 0, 1, 'bethuel@tikone.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sage Expert', 0, NULL, '', NULL, '0720088045', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 12:44:52', 0);
-INSERT INTO `users` VALUES (126, 'ter', 'trre', 'staff', 0, 0, 'admin@teamkazi.co8', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'grtg', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 14:38:17', 0);
-INSERT INTO `users` VALUES (127, 'ttertert', 'tertert', 'staff', 0, 0, 'admin@teamkazi.coy', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'tertert', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 14:51:13', 0);
-INSERT INTO `users` VALUES (128, 'hd', 'gfdg', 'staff', 0, 0, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'dgfgfd', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 15:01:20', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;

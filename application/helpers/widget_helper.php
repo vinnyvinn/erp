@@ -556,3 +556,12 @@ if (!function_exists('count_new_tickets')) {
     }
 
 }
+
+if (!function_exists('count_ict_administration')) {
+
+    function count_ict_administration($super_admin = "", $general_staff = "") {
+        $ci = get_instance();
+        return $ci->Administration_model->count_ict_administration($super_admin, $general_staff);
+    }
+
+}

@@ -27,7 +27,7 @@
             ?>
         </div>
 
-        <div class="col-md-1">z
+        <div class="col-md-1">
             <?php echo modal_anchor(get_uri("clients/modal_form"), "<i class='fa fa-plus-circle'></i>", array("data-is-popup" => '1', 'data-populate' => 'client_id', "class" => "btn btn-info btn-add", "title" => lang('add_client'))); ?>
         </div>
 
