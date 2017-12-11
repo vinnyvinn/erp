@@ -39,7 +39,10 @@
 <label for="project" class=" col-md-3"><?php echo lang('project'); ?></label>
 <div class="col-md-8">
 <?php
-echo form_dropdown("project_id", $assign_to_dropdown, array($model_info->project_id), ['class' => 'select2 form-control', 'id' => 'project_id']);
+
+echo form_dropdown("project_id", $projects_dropdown, "project_id", ['class' => 'select2', 'id' => 'project_id']);
+
+// echo form_dropdown("project_id", $projects_dropdown, "project_id", "id='project_id' class='select2 validate-hidden form-control' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
 ?>
 </div>
 <div class="col-md-1">
@@ -78,7 +81,10 @@ echo modal_anchor(get_uri("projects/modal_form"), "<i class='fa fa-plus-circle'>
         $("#main-task-form").appForm({
             onSuccess: function (result) {
                 if (localStorage.getItem('isPopup') == 'true') {
-                    postTask.updateListeners(JSON.parse(result.data));
+                    // postTask.updateListeners(JSON.parse(result.data));
+                    setTimeout(function () {
+                        window.location.reload();
+                    }, 100);
                 }
             }
         });
@@ -86,5 +92,7 @@ echo modal_anchor(get_uri("projects/modal_form"), "<i class='fa fa-plus-circle'>
         $("#title").focus();
 
         $('[data-toggle="tooltip"]').tooltip();
+
+        $("#main-task-form .select2").select2();
     });
 </script>  

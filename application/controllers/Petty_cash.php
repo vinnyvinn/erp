@@ -193,16 +193,16 @@ class Petty_cash extends Pre_loader {
     function modal_form_types() {
 
         //prepare assign to list
-        $assigned_to_dropdown = array("" => "-") + $this->Users_model
+        $assign_to_dropdown = array("" => "-") + $this->Users_model
                 ->get_dropdown_list(
                     ["first_name", "last_name"],
                     "id",
                     ['status' => 'active', "deleted" => 0, "user_type" => "staff",  "is_admin" => 1]
                 );
 
-        asort($assigned_to_dropdown, SORT_STRING);
+        asort($assign_to_dropdown, SORT_STRING);
 
-        $view_data['assigned_to_dropdown'] = $assigned_to_dropdown;
+        $view_data['assign_to_dropdown'] = $assign_to_dropdown;
 
         $this->load->view('petty_cash/modal_form_types', $view_data);
     }

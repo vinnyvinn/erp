@@ -23,10 +23,12 @@ class Inventory_requisitions extends Pre_loader {
             $list_data = $this->Inventory_requisitions_model->get_all_where(array("user_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
-        $result = array();
+        $result = [];
         foreach ($list_data as $data) {
+            $data->available_quantity = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand;
             $result[] = $this->_make_row($data);
         }
+
         echo json_encode(array("data" => $result));
     }
 
@@ -44,13 +46,24 @@ class Inventory_requisitions extends Pre_loader {
 
         if ($this->login_user->is_admin) {
             $optoins = NULL;
-            $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
-            $optoins .= anchor(get_uri("inventory_requisitions/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
+
+            if ($data->status == "Pending") {
+                 $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
+                 $optoins .= anchor(get_uri("inventory_requisitions/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
+            } elseif ($data->status == "Approved") {
+                 $optoins .= NULL;
+             }
         } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
             $optoins = NULL;
         }
 
-        return array($data->id, $title, $data->item_quantity . " / " . $data->available_quantity, number_format($data->item_cost,2), date("dS M Y",strtotime($data->created_at)), $status, $optoins);
+        if ($this->login_user->is_admin) {
+            $quantities = $data->item_quantity . " / " . $data->available_quantity;
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+            $quantities = $data->item_quantity;
+        }
+
+        return array($data->id, $title, $quantities, number_format($data->item_cost,2), date("dS M Y",strtotime($data->created_at)), $status, $optoins);
     }
 
     public function view_modal() {
@@ -93,7 +106,7 @@ class Inventory_requisitions extends Pre_loader {
                 $this->SAGE_DB()->insert('_etblInvJrBatchLines', $sage_data);
             }
 
-            $this->mail_status($id);
+            $this->stock_arithmetics($id); // do some arithmetics on the stock item requested here
 
             // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
             $this->template->rander("inventory_requisitions/index");
@@ -134,12 +147,15 @@ class Inventory_requisitions extends Pre_loader {
         }
     }
 
-    public function mail_status($id) {
+    public function mail_status($id, $custom_msg = '') {
 
-        $variables = $this->db->query("SELECT inventory_requisitions.id, inventory_requisitions.item_name, inventory_requisitions.item_quantity, inventory_requisitions.available_quantity, inventory_requisitions.item_cost, users.first_name, users.last_name, users.email, inventory_requisitions.created_at, inventory_requisitions.`status` FROM inventory_requisitions INNER JOIN users ON inventory_requisitions.user_id = users.id WHERE inventory_requisitions.id = " . $id)->result();
+        $list_data = $this->db->query("SELECT inventory_requisitions.id, inventory_requisitions.item_name, inventory_requisitions.item_quantity, inventory_requisitions.StkItem_id, inventory_requisitions.item_cost, users.first_name, users.last_name, users.email, inventory_requisitions.created_at, inventory_requisitions.`status` FROM inventory_requisitions INNER JOIN users ON inventory_requisitions.user_id = users.id WHERE inventory_requisitions.id = " . $id)->result();
 
-        foreach ($variables as $key => $value) {
-           $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity, "requisitions_amount" => $value->available_quantity, "requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "send_to" => $value->email];
+        foreach ($list_data as $key => $value) {
+
+            $requisitions_amount = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand;
+
+            $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity, "requisitions_available" => $requisitions_amount, "requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "requisitions_custom_msg" => $custom_msg, "send_to" => $value->email];
 
            $this->_Mailler($data);
         }
@@ -154,19 +170,48 @@ class Inventory_requisitions extends Pre_loader {
         $parser_data["CONTACT_FIRST_NAME"] = $data["first_name"];
         $parser_data["CONTACT_LAST_NAME"] = $data["last_name"];
         $parser_data["INVENTORY_REQUISITIONS_QUANTITY"] = $data['requisitions_quantity'];
-        $parser_data["INVENTORY_REQUISITIONS_AVAILABLE"] = $data['requisitions_amount'];
+        $parser_data["INVENTORY_REQUISITIONS_AVAILABLE"] = $data['requisitions_available'];
         $parser_data["INVENTORY_REQUISITIONS_REQUEST_DATE"] = $data['requisitions_date'];
         $parser_data["INVENTORY_REQUISITIONS_STATUS"] = $data['requisitions_status'];
+        $parser_data["INVENTORY_REQUISITIONS_CUSTOM_MSG"] = $data['requisitions_custom_msg'];
+
         $parser_data["SIGNATURE"] = $email_template->signature;
 
         $message = $this->parser->parse_string($email_template->message, $parser_data, true);
         send_app_mail($data['send_to'], $email_template->subject, $message);
     }
 
+    public function stock_arithmetics($id) {
+
+        $list_data = $this->Inventory_requisitions_model->get_all_where(array("id" => $id, "deleted" => 0))->result();
+
+            $current_stock = $this->SAGE_DB()->query("SELECT Qty_On_Hand FROM StkItem WHERE StockLink = {$list_data[0]->item_id}")->result()[0]->Qty_On_Hand;
+            $to_deducte = $list_data[0]->item_quantity;
+
+            //if current stock is less what the user requests
+            if ($current_stock < $to_deducte) {
+                // user will receive all thats available in stock
+                $this->mail_status($id, "You Requested In Amount For {$to_deducte}, But Will Receive An Amount Of {$current_stock} Because Stocks Are Out");
+                $this->update_stock($id, 0); // all stock will be depleted thus updated to zero items in stock
+            } else {
+                $this->mail_status($id); // user will receive exactly amount requested
+                $this->update_stock($id, ($current_stock - $to_deducte)); // stock will be less what the user receives
+            }
+    }
+
+    public function update_stock($id, $stock) {
+
+        $list_data = $this->Inventory_requisitions_model->get_all_where(array("id" => $id, "deleted" => 0))->result();
+
+        // $this->SAGE_DB()->query("UPDATE StkItem SET Qty_On_Hand = abs((SELECT Qty_On_Hand FROM StkItem WHERE StockLink = {$list_data[0]->item_id}) -  {$list_data[0]->item_quantity}) WHERE StockLink = {$list_data[0]->item_id}");
+
+        $this->SAGE_DB()->query("UPDATE StkItem SET Qty_On_Hand = $stock WHERE StockLink = {$list_data[0]->item_id}");
+    }
+
     function Stocks() {
 
         $query = $this->SAGE_DB()->get('StkItem');
-        $row = $query->result();
+        // $row = $query->result();
 
         $data = array();
         foreach ($query->result() as $row) {
@@ -188,10 +233,8 @@ class Inventory_requisitions extends Pre_loader {
 
     function save() {
 
-        // $query = $this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst FROM DEMO.dbo.StkItem WHERE StockLink = " . $this->input->post('item'))->result();
-
         $fields = new stdClass();
-        foreach (($this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst, Qty_On_Hand FROM DEMO.dbo.StkItem WHERE StockLink = " . $this->input->post('item'))->result()) as $value) {
+        foreach (($this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst FROM DEMO.dbo.StkItem WHERE StockLink = " . $this->input->post('item'))->result()) as $value) {
         	$fields = $value;
         }
 
@@ -200,7 +243,7 @@ class Inventory_requisitions extends Pre_loader {
             "item_id" => $this->input->post('item'),
             "item_name" => $fields->Description_1,
             "item_quantity" => $this->input->post('quantity'),
-            "available_quantity" => $fields->Qty_On_Hand,
+            "StkItem_id" => $fields->StockLink,
             "item_cost" => $fields->AveUCst * $this->input->post('quantity'),
             "created_at" => date('Y-m-d')
         );

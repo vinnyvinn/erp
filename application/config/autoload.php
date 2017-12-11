@@ -192,6 +192,7 @@ $autoload['model'] = array(
     'Knowledge_base_model',
     'Knowledge_base_ticket_model',
     'TblKnowledgeBaseModel',
-    'TblKnowledgeBaseTypesModel'
+    'TblKnowledgeBaseTypesModel',
+    'Administration_model'
 );
 

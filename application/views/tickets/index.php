@@ -5,9 +5,9 @@
             <div class="title-button-group">
                 <?php
                 if ($this->login_user->is_admin) {
-                    // echo modal_anchor(get_uri("tickets/type_modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Ticket Types", array("class" => "btn btn-default", "title" => "Add Ticket Types"));
-                    echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "title" => lang('add_ticket')));
+                    echo modal_anchor(get_uri("ticket_types/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Ticket Types", array("class" => "btn btn-default", "title" => "Add Ticket Types"));
                 }
+                echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "title" => lang('add_ticket')));
                 ?>
             </div>
         </div>

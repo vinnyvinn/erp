@@ -4,8 +4,10 @@
             <h1>Petty Cash</h1>
             <div class="title-button-group">
                 <?php
-	                echo modal_anchor(get_uri("petty_cash/modal_form_types"), "<i class='fa fa-plus-circle'></i> " . "Add Petty Cash Types", array("class" => "btn btn-default", "title" => "Add Petty Cash Types"));
-                    echo modal_anchor(get_uri("petty_cash/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Petty Cash", array("class" => "btn btn-default", "title" => "Add Petty Cash"));
+                if ($this->login_user->is_admin) {
+                    echo modal_anchor(get_uri("petty_cash/modal_form_types"), "<i class='fa fa-plus-circle'></i> " . "Petty Cash Types", array("class" => "btn btn-default", "title" => "Add Petty Cash Types"));
+                }
+                    echo modal_anchor(get_uri("petty_cash/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Request Petty Cash", array("class" => "btn btn-default", "title" => "Add Petty Cash"));
                 ?>
             </div>
         </div>
