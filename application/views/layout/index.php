@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php $this->load->view('includes/head'); ?>
-    <script src="https://unpkg.com/vue"></script>
-    <body >
+    <body>
+    <div>
         <?php $this->load->view('includes/topbar'); ?>
         <div id="content" class="box">
             <?php $this->load->view('includes/left_menu'); ?>
@@ -37,7 +37,8 @@
                 ?>
             </script>
         </div>
-        <script src="https://unpkg.com/vue"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+
+    </div>
+
     </body>
 </html>
