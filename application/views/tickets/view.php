@@ -6,7 +6,7 @@
 
                 <span class="dropdown inline-block">
                     <button class="btn btn-default dropdown-toggle  mt0 mb0" type="button" data-toggle="dropdown" aria-expanded="true">
-                        <i class='fa fa-cogs'></i> <?php echo lang('actions'); ?>
+                        <i class='fa fa-cogs'></i> <?php echo lang('actions');?>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu pull-right" role="menu">
@@ -19,7 +19,7 @@
                                 ?>
                             </li>
                         <?php } ?>
-                        <?php if ($ticket_info->status === "closed") { ?>
+                        <?php if ($ticket_info->status === "closed" ) { ?>
                             <li role="presentation"><?php echo ajax_anchor(get_uri("tickets/save_ticket_status/$ticket_info->id/open"), "<i class='fa fa-check-circle'></i> " . lang('mark_as_open'), array("class" => "", "title" => lang('mark_as_open'), "data-reload-on-success" => "1")); ?> </li>
                         <?php } else { ?>
                             <li role="presentation">
@@ -28,8 +28,12 @@
                                 echo modal_anchor(get_uri("tickets/knowledge_base_modal_form"), "<i class='fa fa-stethoscope'></i> Add knowledge base", array( "title" => "Add knowledge base", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
                                 ?>
                             </li>
-                            <li role="presentation"><?php echo ajax_anchor(get_uri("tickets/save_ticket_status/$ticket_info->id/closed"), "<i class='fa fa-check-circle'></i> " . lang('mark_as_closed'), array("class" => "", "title" => lang('mark_project_as_open'), "data-reload-on-success" => "1")); ?> </li>
-                        <?php } ?>
+                          
+                            <?php if($status==1) {?>
+
+                              <li role="presentation"><?php echo modal_anchor(get_uri("ticket_types/model_comment"), "<i class='fa fa-check-circle'></i> " . lang('mark_as_closed'), array("class" => "", "title" => 'Add Comment Before Closing', "data-reload-on-success" => "1")); ?> </li>
+
+                        <?php }} ?>
                     </ul>
                 </span>
             </div>

@@ -7,6 +7,7 @@
             <div class="page-title clearfix">
                 <h1><?php echo lang('tickets'); ?></h1>
                 <div class="title-button-group">
+
                     <?php echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "data-post-client_id" => $client_id, "title" => lang('add_ticket'))); ?>
                 </div>
             </div>
@@ -20,7 +21,7 @@
         <?php } ?>
 
         <div class="table-responsive">
-            <table id="ticket-table" class="display" width="100%">            
+            <table id="ticket-table" class="display" width="100%">
             </table>
         </div>
     </div>

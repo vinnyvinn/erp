@@ -3,6 +3,14 @@
         <?php echo form_open(get_uri("tickets/save"), array("id" => "ticket-form", "class" => "general-form", "role" => "form")); ?>
         <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
 
+        <div class="form-group">
+            <label for="ticket_type_id" class=" col-md-3"><?php echo lang('ticket_type'); ?></label>
+            <div class="col-md-9">
+                <?php
+                echo form_dropdown("ticket_type_id", $ticket_types_dropdown, array(""), "class='select2'");
+                ?>
+            </div>
+        </div>
 
         <div class="form-group">
             <label for="title" class=" col-md-3"><?php echo lang('subject'); ?></label>
@@ -38,14 +46,6 @@
                 </div>
             <?php } ?>
         <?php } ?>
-        <div class="form-group">
-            <label for="ticket_type_id" class=" col-md-3"><?php echo lang('ticket_type'); ?></label>
-            <div class="col-md-9">
-                <?php
-                echo form_dropdown("ticket_type_id", $ticket_types_dropdown, array(""), "class='select2'");
-                ?>
-            </div>
-        </div>
 
         <?php if (!$model_info->id) { ?>
             <!-- description can't be changed during editing -->

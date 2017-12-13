@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php $this->load->view('includes/head'); ?>
+<<<<<<< HEAD
+    <body >
+=======
     <body>
     <div>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         <?php $this->load->view('includes/topbar'); ?>
         <div id="content" class="box">
             <?php $this->load->view('includes/left_menu'); ?>
@@ -38,7 +42,10 @@
             </script>
         </div>
 
+<<<<<<< HEAD
+=======
     </div>
 
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
     </body>
 </html>
