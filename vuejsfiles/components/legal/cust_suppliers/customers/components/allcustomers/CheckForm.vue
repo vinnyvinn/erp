@@ -94,15 +94,21 @@
                 this.saveData();
             },
             saveData() {
-                this.submitted = true;
-                this.$http.post('checkitems/savecustsuppchecks/1', this.items_form)
-                    .then((res) => {
-                        this.submitted = false;
-                        this.closeform();
-                    }, (res) => {
-                        this.submitted = false;
-                        this.closeform();
-                    });
+
+                if(this.items_form.check.length > 0 ){
+                    this.submitted = true;
+                    this.$http.post('checkitems/savecustsuppchecks/1', this.items_form)
+                        .then((res) => {
+                            this.submitted = false;
+                            this.closeform();
+                        }, (res) => {
+                            this.submitted = false;
+                            this.closeform();
+                        });
+                }else{
+                    alert("You must check at least one item before submitting");
+                }
+
             },
 
             getCustomersChecklists() {

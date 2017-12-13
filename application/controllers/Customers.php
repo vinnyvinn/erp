@@ -26,10 +26,11 @@ class Customers extends Pre_loader
             //find if result is in local table
             $statuses = '';
             $custsupplier = $this->TblCustSuppChecksModel->getCustSupp($result->DCLink);
+
             if(!$custsupplier){
-                $statuses.=$status[2];
+                $statuses=2;
             }else{
-                $statuses.=$status[$custsupplier->status];
+                $statuses =$custsupplier->status;
             }
 
             $result->status_val = $statuses;

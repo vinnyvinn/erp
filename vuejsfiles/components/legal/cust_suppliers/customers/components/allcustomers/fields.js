@@ -23,6 +23,7 @@ let columns = [
         name: 'status_val',
         sortField: 'status',
         title: 'Status',
+        callback: 'statusLabel'
     },
     {
         name: '__slot:actions',

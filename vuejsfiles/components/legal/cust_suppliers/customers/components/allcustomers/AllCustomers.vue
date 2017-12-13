@@ -64,6 +64,29 @@
             VuetablePagination,VueTable
         },
         methods:{
+            statusLabel (value) {
+                var label="";
+              switch(+value){
+                  case 0:{
+                      label+='<span class="label label-success"><i class="glyphicon glyphicon-star"></i> Submitted</span>'
+                      break;
+                  }
+                  case 1:{
+                      label+='<span class="label label-primary"><i class="glyphicon glyphicon-star"></i> Partially Submitted</span>'
+                        break;
+                    }
+                  case 2:{
+                      label+='<span class="label label-danger"><i class="glyphicon glyphicon-star"></i> Not Submitted</span>'
+                      break;
+                  }
+                  default:{
+                      label+='<span class="label label-danger"><i class="glyphicon glyphicon-star"></i> Not Submitted</span>'
+                      break;
+                  }
+                }
+
+                return label;
+            },
           fetchcustomers(){
               this.$emit('customerchanged', false);
               this.$http.get('customers/list_customers')

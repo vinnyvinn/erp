@@ -3,12 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="475e264e-041d-4742-b336-99065ec053f2" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Checkitems.php" afterPath="$PROJECT_DIR$/application/controllers/Checkitems.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Customers.php" afterPath="$PROJECT_DIR$/application/controllers/Customers.php" />
       <change beforePath="$PROJECT_DIR$/assets/vuejs/app.min.js" afterPath="$PROJECT_DIR$/assets/vuejs/app.min.js" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
       <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" />
-      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" />
-      <change beforePath="$PROJECT_DIR$/vuejsfiles/npm-debug.log" afterPath="" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,57 +18,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fields.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js">
+      <file leaf-file-name="CheckForm.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="139">
+              <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="fields.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Items.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="65">
-              <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Customers.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="282">
-              <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
-              <folding>
-                <marker date="1513176053845" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
-                <marker date="1513176053845" expanded="true" signature="1313:1351" ph="SELECT * FRO... Vendor" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TblCustSuppChecksModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppChecksModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="24" />
-              <folding>
-                <marker date="1513167037221" expanded="true" signature="351:415" ph="SELECT * FRO... ${$this-&gt;table}" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -143,11 +97,9 @@
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js" />
         <option value="$PROJECT_DIR$/application/views/legal/custsupp/index.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/Customers.vue" />
-        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Form.vue" />
         <option value="$PROJECT_DIR$/application/models/TblCustSuppCheckItemsModel.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/View.vue" />
-        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/models/TblCustSuppChecksModel.php" />
         <option value="$PROJECT_DIR$/application/views/knowledgebase/modal_form.php" />
@@ -155,8 +107,10 @@
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/viewfields.js" />
         <option value="$PROJECT_DIR$/application/controllers/Checkitems.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" />
-        <option value="$PROJECT_DIR$/application/controllers/Customers.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
+        <option value="$PROJECT_DIR$/application/controllers/Customers.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
       </list>
     </option>
   </component>
@@ -198,11 +152,6 @@
             <path>
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
               <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
@@ -324,12 +273,12 @@
       <workItem from="1512973480056" duration="15493000" />
       <workItem from="1513072708353" duration="8326000" />
       <workItem from="1513110708378" duration="14881000" />
-      <workItem from="1513141860226" duration="29913000" />
+      <workItem from="1513141860226" duration="31663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90897000" />
+    <option name="totallyTimeSpent" value="92647000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -587,17 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="112" column="50" lean-forward="false" selection-start-line="112" selection-start-column="50" selection-end-line="112" selection-end-column="50" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppCheckItemsModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -666,14 +604,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="66" column="27" lean-forward="false" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/layout/Tabs.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -718,17 +648,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="282">
-          <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
-          <folding>
-            <marker date="1513176053845" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
-            <marker date="1513176053845" expanded="true" signature="1313:1351" ph="SELECT * FRO... Vendor" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="65">
@@ -739,16 +658,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
+        <state relative-caret-position="170">
           <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="70" column="114" lean-forward="false" selection-start-line="70" selection-start-column="105" selection-end-line="70" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-823">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <marker date="1513177697221" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
+            <marker date="1513177697221" expanded="true" signature="1295:1333" ph="SELECT * FRO... Vendor" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
           <folding />
         </state>
       </provider>
