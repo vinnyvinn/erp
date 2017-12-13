@@ -20,14 +20,7 @@
                                @vuetable:loading="onStartLoading"
                                @vuetable:loaded="onLoaded"
 
-                    >
-                        <template slot="actions" slot-scope="props">
-                            <div class="table-button-container">
-                                <a @click="open(props.rowData)">View</a>
-                            </div>
-                        </template>
-
-                    </vue-table>
+                    ></vue-table>
                     <vuetable-pagination ref="pagination"
                                          @vuetable-pagination:change-page="onChangePage"
                     ></vuetable-pagination>
@@ -73,10 +66,6 @@
                       this.$emit('customerchanged', false);
                   });
           },
-            open(data){
-                localStorage.setItem('customer', data.DCLink);
-                this.$emit('changedparentcust', 1)
-            },
             onPaginationData(paginationData) {
 
                 this.$refs.pagination.setPaginationData(paginationData);
@@ -99,9 +88,3 @@
 
     }
 </script>
-<style>
-    .table-button-container a{
-        cursor:pointer;
-
-    }
-</style>

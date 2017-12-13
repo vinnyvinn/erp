@@ -1,5 +1,5 @@
 <template>
-    <h2>Fully submitted users</h2>
+    <h2>Fully submitted customers</h2>
 </template>
 <script>
     export default {

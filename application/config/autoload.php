@@ -193,6 +193,9 @@ $autoload['model'] = array(
     'Knowledge_base_ticket_model',
     'TblKnowledgeBaseModel',
     'TblKnowledgeBaseTypesModel',
-    'Administration_model'
+    'Administration_model',
+    'TblCustSuppCheckItemsModel',
+    'TblCustSuppSpecificChecksModel',
+    'TblCustSuppChecksModel'
 );
 

@@ -16,7 +16,6 @@
         <customer-suppliers></customer-suppliers>
     </div>
 
-
     <?php $this->load->view('includes/vuejs'); ?>
 </div>
 
