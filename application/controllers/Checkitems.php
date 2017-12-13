@@ -155,8 +155,9 @@ class CheckItems extends Pre_loader
     function check_passed($check){
         $checkpassed = true;
         if (explode('_', $check)[0] == 'no') {
-            $allyes = false;
+            $checkpassed = false;
         }
+
         return !$checkpassed;
     }
 

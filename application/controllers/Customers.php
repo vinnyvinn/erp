@@ -17,11 +17,22 @@ class Customers extends Pre_loader
     function list_customers()
     {
         $SAGE_DB = $this->load->database('SAGE', TRUE);
-        $sql = "SELECT * FROM dbo.Vendor";
+        $sql = "SELECT * FROM dbo.Client";
         $results = $SAGE_DB->query($sql)->result();
         foreach ($results as $key => $result) {
             $key++;
             $result->idval = $key;
+            $status = ["Submitted", "Partially Submitted","Not Submitted"];
+            //find if result is in local table
+            $statuses = '';
+            $custsupplier = $this->TblCustSuppChecksModel->getCustSupp($result->DCLink);
+            if(!$custsupplier){
+                $statuses.=$status[2];
+            }else{
+                $statuses.=$status[$custsupplier->status];
+            }
+
+            $result->status_val = $statuses;
         }
         $data = [];
         $data["links"] = $this->make_links($results, 20);
@@ -63,7 +74,7 @@ class Customers extends Pre_loader
             foreach ($datas as $key=>$data){
                 $key++;
                 $checkitem =$this->TblCustSuppCheckItemsModel->get_item((int)$data->check_item);
-                $statuses = ["Submitted","Partially", "Partially Submitted"];
+                $statuses = ["Submitted","Not Submitted"];
                 $data->status_val =$statuses[(int)$data->status];
                 $data->id_val = $key;
                 $data->check_item_name = ($checkitem)?$checkitem->name:'';

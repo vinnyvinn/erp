@@ -4,14 +4,25 @@ let columns = [
         name: 'idval'
     },
     {
-        name: 'Account',
-        sortField: 'Account',
+        name: 'Name',
+        sortField: 'Name',
         title: 'Name',
     },
     {
-        name: 'cAccDescription',
-        sortField: 'cAccDescription',
-        title: 'Description',
+        name: 'Telephone',
+        sortField: 'Telephone',
+        title: 'Telephone',
+    },
+
+    {
+        name: 'EMail',
+        sortField: 'EMail',
+        title: 'Email',
+    },
+    {
+        name: 'status_val',
+        sortField: 'status',
+        title: 'Status',
     },
     {
         name: '__slot:actions',

@@ -1,6 +1,7 @@
 <template>
     <ul class="nav nav-tabs vertical" role="tablist">
         <li role="presentation" :class="(active == 0)?'active':''"><a @click="changecmp(0)">Customers</a></li>
+        <li role="presentation" :class="(active == 1)?'active':''"><a @click="changecmp(1)">Suppliers</a></li>
         <li role="presentation":class="(active == 2)?'active':''"><a @click="changecmp(2)">Check Items</a></li>
     </ul>
 </template>
