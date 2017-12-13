@@ -32,7 +32,15 @@ module.exports = {
         options: {
           name: '[name].[ext]?[hash]'
         }
-      }
+      },
+        {
+            test: /\.es6$/,
+            exclude: /node_modules/,
+            loader: "babel-loader",
+            query: {
+                presets: ["es2015"]
+            }
+        }
     ]
   },
   resolve: {
