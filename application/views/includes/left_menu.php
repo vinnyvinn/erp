@@ -176,7 +176,7 @@
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
                     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
-                  //  $attendanceSubs [] = ["name" => "Escalation Matrix", "url" => "legal/escalation_matrix"];
+                    $attendanceSubs [] = ["name" => "Customers & Suppliers", "url" => "cust_suppliers/index"];
 
                     $sidebar_menu[] = array("name" => "legal", "url" => "attendance", "class" => "fa-road font-16", "submenu" => $attendanceSubs);
                 }
