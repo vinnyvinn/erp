@@ -60,7 +60,7 @@ class Tickets extends Pre_loader
         }
     }
 
-    //load new tickt modal 
+    //load new tickt modal
     public function modal_form()
     {
         validate_submitted_data(array(
@@ -174,7 +174,7 @@ class Tickets extends Pre_loader
         }
 
         echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
-        
+
     }
 
     // add a new ticket
@@ -260,7 +260,7 @@ class Tickets extends Pre_loader
         return validate_post_file($this->input->post("file_name"));
     }
 
-    // list of tickets, prepared for datatable 
+    // list of tickets, prepared for datatable
     public function list_data()
     {
         $this->access_only_allowed_members();
@@ -285,7 +285,7 @@ class Tickets extends Pre_loader
         echo json_encode(array("data" => $result));
     }
 
-    // list of tickets of a specific client, prepared for datatable 
+    // list of tickets of a specific client, prepared for datatable
     public function ticket_list_data_of_client($client_id) {
         $this->access_only_allowed_members_or_client_contact($client_id);
 
@@ -299,7 +299,7 @@ class Tickets extends Pre_loader
         echo json_encode(array("data" => $result));
     }
 
-    // return a row of ticket list table 
+    // return a row of ticket list table
     private function _row_data($id) {
         $options = array("id" => $id, "access_type" => $this->access_type);
 
@@ -390,7 +390,7 @@ class Tickets extends Pre_loader
     }
 
 
-    // load ticket details view 
+    // load ticket details view
     public function view($ticket_id = 0)
     {
         if (! $ticket_id) {
@@ -403,13 +403,14 @@ class Tickets extends Pre_loader
         $ticket_info = $this->Tickets_model->get_details($options)->row();
         $this->access_only_allowed_members_or_client_contact($ticket_info->client_id);
 
-
         if ($ticket_info) {
             $view_data['ticket_info'] = $ticket_info;
-
+            $this->session->set_userdata('ticket_ID',$ticket_id);
             $comments_options = array("ticket_id" => $ticket_id);
-            $view_data['comments'] = $this->Ticket_comments_model->get_details($comments_options)->result();
 
+            $view_data['comments'] = $this->Ticket_comments_model->get_details($comments_options)->result();
+            $view_data['status']=$this->Tickets_model->get_tickets_id();
+          
             $this->template->rander("tickets/view", $view_data);
         } else {
             show_404();
@@ -469,11 +470,18 @@ class Tickets extends Pre_loader
 
         $data = array(
             "status" => $status
+
         );
 
         $save_id = $this->Tickets_model->save($data, $ticket_id);
 
         if ($save_id) {
+          $data_comment=array('description' => $this->input->post('description'),
+                     'created_by' => $this->session->user_id,
+                      'created_at' => date('Y/m/d'),
+                       'ticket_id' => $this->session->ticket_ID);
+          $this->Ticket_comments_model->insert_comment($data_comment);
+
             $options = array("id" => $ticket_id, "access_type" => $this->access_type);
 
             $ticket_info = $this->Tickets_model->get_details($options)->row();

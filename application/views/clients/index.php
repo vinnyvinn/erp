@@ -3,11 +3,12 @@
         <div class="page-title clearfix">
             <h1><?php echo lang('clients'); ?></h1>
             <div class="title-button-group">
+                <h1>hello there!</h1>
                 <?php echo modal_anchor(get_uri("clients/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_client'), array("class" => "btn btn-default", "title" => lang('add_client'))); ?>
             </div>
         </div>
         <div class="table-responsive">
-            <table id="client-table" class="display" cellspacing="0" width="100%">            
+            <table id="client-table" class="display" cellspacing="0" width="100%">
             </table>
         </div>
     </div>

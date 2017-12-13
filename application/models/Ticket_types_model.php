@@ -22,5 +22,6 @@ class Ticket_types_model extends Crud_model {
         WHERE $ticket_types_table.deleted=0 $where";
         return $this->db->query($sql);
     }
+    
 
 }

@@ -11,7 +11,7 @@
                 ?>
             </div>
         </div>
-        <div class="table-responsive">
+             <div class="table-responsive">
             <table id="ticket-table" class="display" cellspacing="0" width="100%">            
             </table>
         </div>
