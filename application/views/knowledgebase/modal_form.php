@@ -50,6 +50,20 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="client_id" class=" col-md-3">Upload File</label>
+        <div class="col-md-9">
+            <div id="ticket-comment-dropzone" class="post-dropzone box-content form-group">
+                <?php $this->load->view("includes/dropzone_preview"); ?>
+                <footer class="panel-footer b-a clearfix ">
+                    <button class="btn btn-default upload-file-button pull-left btn-sm round" type="button"
+                            style="color:#7988a2"><i class='fa fa-camera'></i> <?php echo lang("upload_file"); ?></button>
+
+                </footer>
+            </div>
+        </div>
+    </div>
+
 
 </div>
 

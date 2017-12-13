@@ -32,5 +32,8 @@ class Ticket_comments_model extends Crud_model {
 
         return $this->db->query($sql);
     }
-
+    function insert_comment($data)
+    {
+    $this->db->insert('ticket_comments',$data);
+    }
 }

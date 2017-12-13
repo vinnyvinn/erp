@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/prokazi.iml" filepath="$PROJECT_DIR$/.idea/prokazi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../prowritfront/.idea/prowritfront.iml" filepath="$PROJECT_DIR$/../prowritfront/.idea/prowritfront.iml" />
     </modules>
   </component>
 </project>

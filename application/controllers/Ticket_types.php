@@ -14,9 +14,30 @@ class Ticket_types extends Pre_loader {
     function index() {
         $this->template->rander("ticket_types/index");
     }
+function model_comment(){
+  validate_submitted_data(array(
+      "id" => "numeric"
+  ));
 
+  $view_data['model_info'] = $this->Ticket_types_model->get_one($this->input->post('id'));
+    $view_data['tk_id'] = $this->session->ticket_ID;
+$this->load->view('ticket_types/comments_form',$view_data);
+}
+
+function add_comment()
+  {
+   $data=array('description' => $this->input->post('description'),
+              'user_id' => $this->session->user_id);
+   if($this->Ticket_types_model->insert_comment($data)){
+     $saved = true;
+   }
+
+   echo json_encode(array("success" => true, 'message' => lang('record_saved')) );
+
+
+  }
     function modal_form() {
-     
+
         validate_submitted_data(array(
             "id" => "numeric"
         ));
