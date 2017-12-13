@@ -6,7 +6,7 @@
                 {{customer_name}} Checks</h1>
             <div class="title-button-group" id="project-timer-box">
                 <a @click="backtocustomers" class="btn btn-sm btn-info"><i
-                        class="fa fa fa-chevron-left"></i> Back to customers</a></div>
+                        class="fa fa fa-chevron-left"></i> Back to suppliers</a></div>
         </div>
         <div class="tab-content">
             <div role="tabpanel" class="tab-pane fade active in">
@@ -63,7 +63,7 @@
             dataloaded: false,
             showloading: false,
             columns: columns,
-            url: appdetails.approoturl + '/customers/getCustomersChecks/' + localStorage.getItem('customer'),
+            url: appdetails.approoturl + '/suppliers/getCustomersChecks/' + localStorage.getItem('customer'),
         }),
         components: {
             VuetablePagination, VueTable,CustomerCheckForm

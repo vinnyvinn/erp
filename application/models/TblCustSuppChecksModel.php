@@ -15,8 +15,8 @@ class TblCustSuppChecksModel extends Crud_model
         parent::__construct($this->table);
     }
 
-    function getCustSupp($cust_supp_id){
-        $sql = "SELECT * FROM ".$this->table." WHERE deleted=0 AND cust_supp_id=".$cust_supp_id;
+    function getCustSupp($cust_supp_id, $nature=1){
+        $sql = "SELECT * FROM ".$this->table." WHERE deleted=0 AND cust_supp_id=".$cust_supp_id. " AND type= ".$nature;
         return $this->db->query($sql)->row();
     }
 }
