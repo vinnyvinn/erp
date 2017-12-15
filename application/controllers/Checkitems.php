@@ -94,20 +94,21 @@ class CheckItems extends Pre_loader
         $saved = false;
         $fullysubmitted = true;
         $postdata = json_decode(file_get_contents('php://input'));
-        $customer_supp_id = $this->get_customer($postdata->cust_supp_id, (int)$this->allyes($postdata->check)); //customer or supplier id
+        $customer_supp_id = $this->get_customer($postdata->cust_supp_id, (int)$this->allyes($postdata->check), $nature); //customer or supplier id
         $datas = $this->TblCustSuppSpecificChecksModel->getChecks($customer_supp_id);
         foreach ($datas as $key=>$data){
-            $this->TblCustSuppSpecificChecksModel->forcedelete($data->id);
+            $this->TblCustSuppSpecificChecksModel->forcedelete($data->id,$nature);
         }
         //save customer data
         $datasaved = true;
         foreach ($postdata->check as $key=>$check){
             //get check id
+
             $data = array(
                 "status" => (int)$this->check_passed($check),
                 "check_item" => ($postdata->checkitems)?$postdata->checkitems[$key]->id:'',
                 "comment" => ($postdata->comment)?$postdata->comment[$key]:'',
-                "expiry_date" => ($postdata->date_expiry)?$postdata->date_expiry[$key]:'',
+                "expiry_date" => (!empty($postdata->date_expiry[$key]))?date('Y-m-d',strtotime($postdata->date_expiry[$key])):'',
                 "customer_id" => $customer_supp_id,
             );
 
@@ -122,19 +123,17 @@ class CheckItems extends Pre_loader
 
     }
 
-    function get_customer($id, $status){
+    function get_customer($id, $status, $nature){
         $data = array(
-            "type" => 1,
             "cust_supp_id" => $id,
             "checked_by" => $this->login_user->id,
             "checked_on" => date('Y-m-d'),
-            "status"=>$status
+            "status"=>$status,
+            "type"=>$nature
 
         );
-        $customer = $this->TblCustSuppChecksModel->getCustSupp($id);//
-
+        $customer = $this->TblCustSuppChecksModel->getCustSupp($id, $nature);//
         return $this->TblCustSuppChecksModel->save($data, ($customer)?$customer->id:null);
-
     }
 
     //use int so reverse the value
@@ -158,6 +157,8 @@ class CheckItems extends Pre_loader
             $checkpassed = false;
         }
 
+        //check if all are nos
+
         return !$checkpassed;
     }
 
@@ -171,6 +172,21 @@ class CheckItems extends Pre_loader
         }
 
         return $id;
+
+    }
+
+
+    //get the preiously done checks
+    function get_performed_checks($type){ //type identifies if its a customer or supplier, 1 for customer, 2 for supplier
+        $postdata = json_decode(file_get_contents('php://input'));
+
+        $custsupp = $this->TblCustSuppChecksModel->getCustSupp((int)$postdata->custid, $type);
+        if($custsupp){
+            //get all performed
+            $performed = $this->TblCustSuppSpecificChecksModel->getChecks($custsupp->id);
+            echo json_encode($performed);
+
+        }
 
     }
 

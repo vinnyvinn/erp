@@ -10,14 +10,14 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 require_once("Pre_loader.php");
 
-class Customers extends Pre_loader
+class Suppliers extends Pre_loader
 {
 
     //customers
-    function list_customers()
+    function list_suppliers()
     {
         $SAGE_DB = $this->load->database('SAGE', TRUE);
-        $sql = "SELECT * FROM dbo.Client";
+        $sql = "SELECT * FROM dbo.Vendor";
         $results = $SAGE_DB->query($sql)->result();
         foreach ($results as $key => $result) {
             $key++;
@@ -25,8 +25,7 @@ class Customers extends Pre_loader
             $status = ["Submitted", "Partially Submitted", "Not Submitted"];
             //find if result is in local table
             $statuses = '';
-            $custsupplier = $this->TblCustSuppChecksModel->getCustSupp($result->DCLink);
-
+            $custsupplier = $this->TblCustSuppChecksModel->getCustSupp($result->DCLink,2);
             if (!$custsupplier) {
                 $statuses = 2;
             } else {
@@ -87,7 +86,7 @@ class Customers extends Pre_loader
     function getCustomersChecks($custid)
     {
         //get customer with an id
-        $customer = $this->TblCustSuppChecksModel->getCustSupp($custid);
+        $customer = $this->TblCustSuppChecksModel->getCustSupp($custid, 2);
         if ($customer) {
             $datas = $this->TblCustSuppSpecificChecksModel->getChecks($customer->id);
             foreach ($datas as $key => $data) {

@@ -43,7 +43,7 @@ class Tickets_model extends Crud_model {
             $where .= " AND $tickets_table.assigned_to=$assigned_to";
         }
 
-        $sql = "SELECT $tickets_table.*, $ticket_types_table.title AS ticket_type, $projectsTable.title as projectTitle,
+        $sql = "SELECT $tickets_table.*, $ticket_types_table.title AS ticket_type,$projectsTable.title as projectTitle,
               $projectsTable.id as projectId, $clientsTable.company_name, $clientsTable.id as client_id,
               CONCAT($users_table.first_name, ' ',$users_table.last_name) AS assigned_to_user, $users_table.image as assigned_to_avatar
         FROM $tickets_table
@@ -109,7 +109,29 @@ return true;
 else {
   return false;
 }
-  // $wee=$this->db('tickets')->get();
-  //return $tickets_table;
+
+}
+function get_userassigned()
+{
+  $tickets_table = $this->db->dbprefix('tickets');
+  $users_table = $this->db->dbprefix('users');
+  $id=$this->session->assgn;
+  $sq="SELECT $tickets_table.created_by,$users_table.first_name,$users_table.last_name
+  FROM $tickets_table
+     JOIN $users_table ON $tickets_table.created_by= $users_table.id
+      WHERE $tickets_table.created_by=$id";
+
+       $query= $this->db->query($sq)->num_rows();
+       if($query>0)
+       {
+         return true;
+       }
+       else {
+         return false;
+}
+}
+function insert_thirdparty($data)
+{
+  $this->db->insert('tbl_third_party',$data);
 }
 }

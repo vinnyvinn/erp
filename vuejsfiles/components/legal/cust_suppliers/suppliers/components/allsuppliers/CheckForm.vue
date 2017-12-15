@@ -98,7 +98,7 @@
             saveData() {
                 if (this.checklistitems.length === this.items_form.check.length) {
                     this.submitted = true;
-                    this.$http.post('checkitems/savecustsuppchecks/1', this.items_form)
+                    this.$http.post('checkitems/savecustsuppchecks/2', this.items_form)
                         .then((res) => {
                             this.submitted = false;
                             this.closeform();
@@ -114,7 +114,7 @@
 
             getCustomersChecklists() {
                 this.loadedchecks = false;
-                this.$http.get('checkitems/getCust_suppChecks/1')
+                this.$http.get('checkitems/getCust_suppChecks/2')
                     .then((res) => {
                         this.checklistitems = res.body;
                         this.items_form.checkitems = res.body;
@@ -126,7 +126,7 @@
             },
             getAlreadyPerformed() {
                 this.loadedprevious = false;
-                this.$http.post('checkitems/get_performed_checks/1', {custid: localStorage.getItem('customer')})
+                this.$http.post('checkitems/get_performed_checks/2', {custid: localStorage.getItem('customer')})
                     .then((res) => {
                         this.loadedprevious = true;
                         res.body.forEach((val) => {

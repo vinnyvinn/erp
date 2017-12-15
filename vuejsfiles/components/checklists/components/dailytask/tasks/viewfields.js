@@ -1,9 +1,5 @@
 let columns = [
     {
-        'title': '#',
-        name: 'id_val'
-    },
-    {
         name: 'check_item_name',
         title: 'Item',
     },

@@ -12,7 +12,7 @@
             </div>
         </div>
              <div class="table-responsive">
-            <table id="ticket-table" class="display" cellspacing="0" width="100%">            
+            <table id="ticket-table" class="display" cellspacing="0" width="100%">
             </table>
         </div>
     </div>
@@ -27,6 +27,7 @@
             filterDropdown: [{name: "ticket_label", class: "w200", options: <?php echo $ticket_labels_dropdown; ?>}, {name: "assigned_to", class: "w200", options: <?php echo $assigned_to_dropdown; ?>}],
             columns: [
                 {title: '<?php echo lang("ticket_id") ?>', "class": "w10p"},
+                {title: '<?php echo lang("duration") ?>', "class": "w10p"},
                 {title: '<?php echo lang("subject") ?>', "class": "w40p"},
                 {title: '<?php echo lang("project") ?>', "class": "w15p"},
                 {title: '<?php echo lang("ticket_type") ?>', "class": "w10p"},

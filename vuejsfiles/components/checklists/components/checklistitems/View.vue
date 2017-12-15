@@ -44,7 +44,7 @@
             </div>
 
         </div>
-        <modal name="customer_checks" @before-close="reloadTable" width="850" height="600px">
+        <modal name="customer_checks" @before-close="reloadTable" width="850" height="800px">
             <customer-check-form></customer-check-form>
         </modal>
     </div>

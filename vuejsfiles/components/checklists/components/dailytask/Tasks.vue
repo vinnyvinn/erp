@@ -5,28 +5,28 @@
 
 </template>
 <script>
-    import AllSuppliers from './components/allsuppliers/AllSuppliers.vue'
-    import ViewSupplier from './components/allsuppliers/View.vue'
+    import DailyTasks from './tasks/DailyTask.vue'
+    import ViewTask from './tasks/View.vue'
     export default {
         data:()=>({
-            loadedcmp:AllSuppliers
+            loadedcmp:DailyTasks
         }),
         components:{
-            AllSuppliers,ViewSupplier
+            DailyTasks,ViewTask
         },
         methods:{
             changedcmp(value){
                 switch (value){
                     case 0:{
-                        this.loadedcmp = AllSuppliers;
+                        this.loadedcmp = DailyTasks;
                         break;
                     };
                     case 1:{
-                        this.loadedcmp =ViewSupplier;
+                        this.loadedcmp = ViewTask;
                         break;
-                    }
+                    };
                     default:{
-                        this.loadedcmp = AllSuppliers;
+                        this.loadedcmp = DailyTasks;
                         break;
                     }
                 }

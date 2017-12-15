@@ -196,6 +196,12 @@ $autoload['model'] = array(
     'Administration_model',
     'TblCustSuppCheckItemsModel',
     'TblCustSuppSpecificChecksModel',
-    'TblCustSuppChecksModel'
-);
+    'TblCustSuppChecksModel',
+    'TblChecklists',
+    'TblChecklistStatus',
+    'TblChecklistTypes',
+    'TblChecklistPerformedOn',
+    'TblChecklistsTasks',
+    'TblChecklistsTasksChecks'
 
+);

@@ -237,6 +237,7 @@ $lang["site_logo"] = "Site Logo";
 $lang["invoice_logo"] = "Invoice Logo";
 $lang["csv_logo"] = "Excel Logo";
 $lang["timezone"] = "Timezone";
+$lang["duration"] = "Time";
 $lang["date_format"] = "Date Format";
 $lang["time_format"] = "Time Format";
 $lang["first_day_of_week"] = "First Day of Week";
@@ -475,6 +476,7 @@ $lang["add_ticket"] = "Add ticket";
 $lang["ticket"] = "Ticket";
 $lang["tickets"] = "Tickets";
 $lang["ticket_id"] = "Ticket ID";
+$lang["add_third_party"] = "Add Third Party";
 $lang["client_replied"] = "Client replied";
 $lang["change_status"] = "Change status";
 $lang["last_activity"] = "Last activity";
@@ -927,8 +929,3 @@ $lang["law_suits_types"] = "LawSuit Types";
 
 //settings extra
 $lang["add_time_durations"] = "Add Time Duration";
-
-
-
-
-
