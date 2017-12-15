@@ -196,6 +196,6 @@ $autoload['model'] = array(
     'Administration_model',
     'TblCustSuppCheckItemsModel',
     'TblCustSuppSpecificChecksModel',
-    'TblCustSuppChecksModel'
+    'TblCustSuppChecksModel',
+     'Third_partyusers_model'
 );
-
