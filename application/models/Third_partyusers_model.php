@@ -20,6 +20,7 @@ function get_userId()
   $sql = "SELECT $usertype_table.*
   FROM $usertype_table
   WHERE $usertype_table.username=$ID";
-  return $this->db->query($sql)->row()->id;
+  $answer = $this->db->query($sql)->row();
+  return ($answer)?$answer->id:null;
 }
 }

@@ -202,6 +202,7 @@ $autoload['model'] = array(
     'TblChecklistTypes',
     'TblChecklistPerformedOn',
     'TblChecklistsTasks',
-    'TblChecklistsTasksChecks'
+    'TblChecklistsTasksChecks',
+    'Third_partyusers_model'
 
 );
