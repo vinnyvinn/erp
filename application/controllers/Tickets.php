@@ -59,7 +59,23 @@ class Tickets extends Pre_loader
             $this->template->rander("clients/tickets/index", $view_data);
         }
     }
+       public function thirdparty_form()
+     {
+       validate_submitted_data(array(
+           "id" => "numeric"
+       ));
+    $view_data['model_info'] = $this->Tickets_model->get_one($this->input->post('id'));
+     $this->load->view('tickets/thirdparty_form',$view_data);
 
+   }
+   public function save_thirdparty()
+   {
+
+     $data=array('username' => $this->input->post('username'),
+                 'phone' => $this->input->post('phone'),
+                  'email' => $this->input->post('email'));
+     $this->Tickets_model->insert_thirdparty($data);
+   }
     //load new tickt modal
     public function modal_form()
     {
@@ -124,7 +140,37 @@ class Tickets extends Pre_loader
     public function type_modal_form() {
         $this->template->rander("tickets/type_modal_form");
     }
+    public function third_partyusers_modal_form() {
 
+        $view_data['id'] = $this->input->post('id');
+
+        //$view_data['issue_subject'] = $this->Tickets_model->get_one_where(array("id" => $this->input->post('id')))->title;
+
+        //prepare assign to list
+        $thirdparty_users_dropdown = array("" => "-") + $this->Third_partyusers_model
+                ->get_dropdown_list(
+                    ["username"],
+                    "id",
+                    ["deleted" =>0]
+                );
+
+        asort($thirdparty_users_dropdown, SORT_STRING);
+
+        $view_data['thirdparty_users_dropdown'] = $thirdparty_users_dropdown;
+
+        $this->load->view('tickets/third_party_users', $view_data);
+    }
+    public function save_thirdparty_issues()
+    {
+      $user=$this->input->post('thirdparty_users_dropdown');
+      $this->session->set_userdata('usn',$user);
+      $set_id=$this->Third_partyusers_model->get_userId();
+      $data = array('message' => $this->input->post('message'),
+                    'third_p_id' => 1 ,
+                     'sender_id' => $this->session->user_id);
+
+      $this->Third_partyusers_model->add_messages($data);
+    }
     public function knowledge_base_modal_form() {
 
         $view_data['id'] = $this->input->post('id');
@@ -145,6 +191,7 @@ class Tickets extends Pre_loader
 
         $this->load->view('tickets/knowledge_base_modal_form', $view_data);
     }
+
 
     public function knowledge_base_save() {
 
@@ -280,7 +327,10 @@ class Tickets extends Pre_loader
 
         $result = array();
         foreach ($list_data as $data) {
+
+
             $result[] = $this->_make_row($data);
+
         }
         echo json_encode(array("data" => $result));
     }
@@ -348,9 +398,19 @@ class Tickets extends Pre_loader
             $options .= modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('ticket'), "data-post-view" => "details", "data-post-id" => $data->id));
             $options .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_task'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("tickets/delete_ticket"), "data-action" => "delete"));
         }
+      //   $date1=$data->created_at;
+      //  $date2=new DateTime($data->last_activity);
+      //  $time_diff=$date2->diff($date1);
+      // $duration= gmdate('H:i:s', $time_diff);
+      // $t1=json_encode($duration);
+      //  // $post_date = $data->created_at;
+      //  // $now = $data->last_activity;
+      //  //
+      //  // $tt=$post_date-$now;
 
         return array(
             $data->id,
+            $data->created_at,
             $title,
             $data->projectTitle ? anchor(get_uri("projects/view/" . $data->projectId), $data->projectTitle) : "",
             $data->ticket_type,
@@ -402,6 +462,8 @@ class Tickets extends Pre_loader
 
         $ticket_info = $this->Tickets_model->get_details($options)->row();
         $this->access_only_allowed_members_or_client_contact($ticket_info->client_id);
+        $asn_to=(int)$ticket_info->assigned_to;
+        $this->session->set_userdata('assgn',$asn_to);
 
         if ($ticket_info) {
             $view_data['ticket_info'] = $ticket_info;
@@ -410,7 +472,7 @@ class Tickets extends Pre_loader
 
             $view_data['comments'] = $this->Ticket_comments_model->get_details($comments_options)->result();
             $view_data['status']=$this->Tickets_model->get_tickets_id();
-          
+            $view_data['assgn_status']=$this->Tickets_model->get_userassigned();
             $this->template->rander("tickets/view", $view_data);
         } else {
             show_404();

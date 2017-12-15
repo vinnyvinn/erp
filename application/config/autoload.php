@@ -203,5 +203,5 @@ $autoload['model'] = array(
     'TblChecklistPerformedOn',
     'TblChecklistsTasks',
     'TblChecklistsTasksChecks'
-);
 
+);
