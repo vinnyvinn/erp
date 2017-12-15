@@ -4,7 +4,7 @@
             <button type="button" class="close" @click="closeform"><span aria-hidden="true">×</span></button>
             <h4 class="modal-title" id="ajaxModalTitle" data-title="PRO-KAZI">Perform Checks</h4>
         </div>
-        <div class="row" style="width: 90%;margin: auto; text-align: left">
+        <div class="row" style="width: 90%;margin: auto; text-align: left" v-if="loadedprevious">
             <div class="content-area" v-if="loadedchecks">
                 <div class="row">
                     <table>
@@ -36,7 +36,7 @@
                                 <input v-model="items_form.comment[key]" type="text"/>
                             </td>
                             <td>
-                                <datepicker  v-model="items_form.date_expiry[key]" ></datepicker>
+                                <datepicker v-model="items_form.date_expiry[key]"></datepicker>
                             </td>
                         </tr>
                         </tbody>
@@ -62,30 +62,32 @@
 </template>
 <script>
     import Datepicker from 'vuejs-datepicker';
+
     export default {
         data: () => ({
             items_form: {
                 check: [], //set for update purposes
                 comment: [], //set for update purposes
                 date_expiry: [], //set for update purposes,
-                cust_supp_id:localStorage.getItem('customer'),
-                checkitems:[]
+                cust_supp_id: localStorage.getItem('customer'),
+                checkitems: []
 
             },
             checklistitems: [],
             submitted: false,
-            loadedchecks: false
+            loadedchecks: false,
+            loadedprevious:false
         }),
         methods: {
-            yes_val(data){
-                return "yes_"+data.id;
+            yes_val(data) {
+                return "yes_" + data.id;
 
             },
-            no_val(data){
-                return "no_"+data.id;
+            no_val(data) {
+                return "no_" + data.id;
             },
-            radioname(data){
-              return "radio_"+data.id;
+            radioname(data) {
+                return "radio_" + data.id;
             },
             closeform() {
                 this.$modal.hide('customer_checks');
@@ -94,15 +96,20 @@
                 this.saveData();
             },
             saveData() {
-                this.submitted = true;
-                this.$http.post('checkitems/savecustsuppchecks/1', this.items_form)
-                    .then((res) => {
-                        this.submitted = false;
-                        this.closeform();
-                    }, (res) => {
-                        this.submitted = false;
-                        this.closeform();
-                    });
+                if (this.checklistitems.length === this.items_form.check.length) {
+                    this.submitted = true;
+                    this.$http.post('checkitems/savecustsuppchecks/1', this.items_form)
+                        .then((res) => {
+                            this.submitted = false;
+                            this.closeform();
+                        }, (res) => {
+                            this.submitted = false;
+                            this.closeform();
+                        });
+                } else {
+                    alert("You must check eithe yes or no on each item before submitting");
+                }
+
             },
 
             getCustomersChecklists() {
@@ -112,19 +119,42 @@
                         this.checklistitems = res.body;
                         this.items_form.checkitems = res.body;
                         this.loadedchecks = true;
-                        console.log(this.checklistitems[0]);
+                        this.getAlreadyPerformed();
                     }, (err) => {
                         this.loadedchecks = true;
                     })
-
-
+            },
+            getAlreadyPerformed() {
+                this.loadedprevious = false;
+                this.$http.post('checkitems/get_performed_checks/1', {custid: localStorage.getItem('customer')})
+                    .then((res) => {
+                        this.loadedprevious = true;
+                        res.body.forEach((val) => {
+                            //find the index
+                            for (var i = 0; i < this.checklistitems.length; i++) {
+                                if (this.checklistitems[i].id === val.check_item) {
+                                    this.items_form.date_expiry[i] = val.expiry_date;
+                                    this.items_form.comment[i] = val.comment;
+                                    if (+val.status !== 1) {
+                                        console.log("its a yes");
+                                        this.items_form.check[i] = "yes_" + val.check_item
+                                    } else {
+                                        this.items_form.check[i] = "no_" + val.check_item
+                                    }
+                                }
+                            }
+                        });
+                    }, (err) => {
+                        this.loadedchecks = true;
+                    })
             }
         },
-        components:{
+        components: {
             Datepicker
         },
         mounted() {
             this.getCustomersChecklists();
+            //   this.getAlreadyPerformed();
         },
 
     }
@@ -142,10 +172,11 @@
         margin: auto;
     }
 
-    thead td{
+    thead td {
         font-weight: bolder;
     }
-    td{
+
+    td {
         padding: 10px;
     }
 </style>

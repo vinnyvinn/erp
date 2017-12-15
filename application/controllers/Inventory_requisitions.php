@@ -48,8 +48,9 @@ class Inventory_requisitions extends Pre_loader {
             $optoins = NULL;
 
             if ($data->status == "Pending") {
-                 $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
-                 $optoins .= anchor(get_uri("inventory_requisitions/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
+                $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
+                 // $optoins .= anchor(get_uri("inventory_requisitions/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
+                $optoins .= modal_anchor(get_uri("inventory_requisitions/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Inventory Requisitions Disapproval", "data-post-id" => $data->id));
             } elseif ($data->status == "Approved") {
                  $optoins .= NULL;
              }
@@ -64,6 +65,15 @@ class Inventory_requisitions extends Pre_loader {
         }
 
         return array($data->id, $title, $quantities, number_format($data->item_cost,2), date("dS M Y",strtotime($data->created_at)), $status, $optoins);
+    }
+
+    public function modal_disapprove() {
+
+        $id = $this->input->post('id');
+
+        $view_data['_id'] = $this->input->post('id');
+
+        $this->load->view('inventory_requisitions/modal_disapprove', $view_data);
     }
 
     public function view_modal() {
@@ -116,17 +126,16 @@ class Inventory_requisitions extends Pre_loader {
         }
     }
 
-    public function disapprove($id = 0) {
+    public function disapprove() {
 
-        if (!$id) {
-            return;
-        }
+        $id = $this->input->post('_id');
+        $_reason = "Because of : " . $this->input->post('disapproval_comment');
 
         $data = ["status" => "Disapproved"];
 
         if($this->Inventory_requisitions_model->update_where($data, array("id" => $id, "deleted" => 0))) {
 
-            $list_data = $this->Inventory_requisitions_model->get_all_where(array("id" => $id, "deleted" => 0))->result();
+            /*$list_data = $this->Inventory_requisitions_model->get_all_where(array("id" => $id, "deleted" => 0))->result();
 
             if ($this->SAGE_DB()->get_where('_etblInvJrBatchLines', ["iStockID" => $list_data[0]->item_id])->result()) {
 
@@ -135,19 +144,19 @@ class Inventory_requisitions extends Pre_loader {
                 );
 
                 $this->SAGE_DB()->delete('_etblInvJrBatchLines', $sage_data);
-            }
+            }*/
 
-            $this->mail_status($id);
+            $this->mail_status($id, $_reason);
 
-            // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
-            $this->template->rander("inventory_requisitions/index");
+            echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+            // $this->template->rander("inventory_requisitions/index");
         } else {
             // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
             $this->template->rander("inventory_requisitions/index");
         }
     }
 
-    public function mail_status($id, $custom_msg = '') {
+    public function mail_status($id, $_reason = NULL) {
 
         $list_data = $this->db->query("SELECT inventory_requisitions.id, inventory_requisitions.item_name, inventory_requisitions.item_quantity, inventory_requisitions.StkItem_id, inventory_requisitions.item_cost, users.first_name, users.last_name, users.email, inventory_requisitions.created_at, inventory_requisitions.`status` FROM inventory_requisitions INNER JOIN users ON inventory_requisitions.user_id = users.id WHERE inventory_requisitions.id = " . $id)->result();
 
@@ -155,7 +164,7 @@ class Inventory_requisitions extends Pre_loader {
 
             $requisitions_amount = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand;
 
-            $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity, "requisitions_available" => $requisitions_amount, "requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "requisitions_custom_msg" => $custom_msg, "send_to" => $value->email];
+            $data = ["requisitions_id" => $id, "requisitions_name" => $value->item_name, "first_name" => $value->first_name, "last_name" => $value->last_name, "requisitions_quantity" => $value->item_quantity, "requisitions_available" => $requisitions_amount, "requisitions_date" => date("dS M Y",strtotime($value->created_at)), "requisitions_status" => $value->status, "send_to" => $value->email, "_reason" => $_reason];
 
            $this->_Mailler($data);
         }
@@ -173,7 +182,7 @@ class Inventory_requisitions extends Pre_loader {
         $parser_data["INVENTORY_REQUISITIONS_AVAILABLE"] = $data['requisitions_available'];
         $parser_data["INVENTORY_REQUISITIONS_REQUEST_DATE"] = $data['requisitions_date'];
         $parser_data["INVENTORY_REQUISITIONS_STATUS"] = $data['requisitions_status'];
-        $parser_data["INVENTORY_REQUISITIONS_CUSTOM_MSG"] = $data['requisitions_custom_msg'];
+        $parser_data["INVENTORY_REQUISITIONS_COMMENT"] = $data['_reason'];
 
         $parser_data["SIGNATURE"] = $email_template->signature;
 

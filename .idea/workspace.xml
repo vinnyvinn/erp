@@ -11,13 +11,17 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
 =======
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Checkitems.php" afterPath="$PROJECT_DIR$/application/controllers/Checkitems.php" />
       <change beforePath="$PROJECT_DIR$/application/controllers/Customers.php" afterPath="$PROJECT_DIR$/application/controllers/Customers.php" />
       <change beforePath="$PROJECT_DIR$/assets/vuejs/app.min.js" afterPath="$PROJECT_DIR$/assets/vuejs/app.min.js" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
       <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" />
+<<<<<<< HEAD
+=======
       <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" />
       <change beforePath="$PROJECT_DIR$/vuejsfiles/npm-debug.log" afterPath="" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -45,17 +49,24 @@
               <caret line="452" column="38" selection-start-line="452" selection-start-column="38" selection-end-line="452" selection-end-column="38" />
 =======
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fields.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js">
+      <file leaf-file-name="CheckForm.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="139">
+              <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+=======
             <state relative-caret-position="149">
               <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+=======
 <<<<<<< HEAD
       <file leaf-file-name="Tickets.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Tickets.php">
@@ -147,6 +158,7 @@
           </provider>
         </entry>
       </file>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -222,11 +234,9 @@
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js" />
         <option value="$PROJECT_DIR$/application/views/legal/custsupp/index.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/Customers.vue" />
-        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Form.vue" />
         <option value="$PROJECT_DIR$/application/models/TblCustSuppCheckItemsModel.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/View.vue" />
-        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/models/TblCustSuppChecksModel.php" />
         <option value="$PROJECT_DIR$/application/views/knowledgebase/modal_form.php" />
@@ -234,9 +244,14 @@
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/viewfields.js" />
         <option value="$PROJECT_DIR$/application/controllers/Checkitems.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" />
-        <option value="$PROJECT_DIR$/application/controllers/Customers.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
+        <option value="$PROJECT_DIR$/application/controllers/Customers.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
+=======
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
       </list>
     </option>
   </component>
@@ -427,11 +442,6 @@
             <path>
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
               <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
-              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
@@ -550,12 +560,12 @@
       <workItem from="1512973480056" duration="15493000" />
       <workItem from="1513072708353" duration="8326000" />
       <workItem from="1513110708378" duration="14881000" />
-      <workItem from="1513141860226" duration="29913000" />
+      <workItem from="1513141860226" duration="31663000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="90897000" />
+    <option name="totallyTimeSpent" value="92647000" />
   </component>
   <component name="ToolWindowManager">
 <<<<<<< HEAD
@@ -992,6 +1002,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1008,6 +1020,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
     <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppCheckItemsModel.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1118,6 +1131,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1131,6 +1146,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/layout/Tabs.vue">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1200,6 +1216,8 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
     <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1216,6 +1234,7 @@
         </state>
       </provider>
     </entry>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
@@ -1232,11 +1251,16 @@
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+=======
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="54" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
 =======
         <state relative-caret-position="149">
           <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </state>
@@ -1244,6 +1268,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="170">
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
@@ -1318,11 +1345,42 @@
     </entry>
 =======
         <state relative-caret-position="374">
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
           <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="70" column="114" lean-forward="false" selection-start-line="70" selection-start-column="105" selection-end-line="70" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-823">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <marker date="1513177697221" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
+            <marker date="1513177697221" expanded="true" signature="1295:1333" ph="SELECT * FRO... Vendor" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+=======
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
   </component>
 </project>

@@ -8,8 +8,9 @@ let columns = [
         title: 'Item',
     },
     {
-        name: 'status_val',
-        title: 'Status'
+        name: 'status',
+        title: 'Status',
+        callback: 'statusLabel'
     },
     {
         name: 'comment',

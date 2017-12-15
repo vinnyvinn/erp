@@ -27,7 +27,7 @@ class TblCustSuppCheckItemsModel  extends Crud_model {
         return $this->db->query($sql)->row();
     }
     function getChecks($nature){
-        $oldsql = "SELECT * FROM ".$this->table." WHERE CONCAT(',', performed_on, ',') LIKE '%,$nature,%'";
+        $oldsql = "SELECT * FROM ".$this->table." WHERE CONCAT(',', performed_on, ',') LIKE '%,$nature,%' AND deleted=0";
         return $this->db->query($oldsql)->result();
     }
 

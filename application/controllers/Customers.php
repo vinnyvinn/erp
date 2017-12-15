@@ -22,14 +22,31 @@ class Customers extends Pre_loader
         foreach ($results as $key => $result) {
             $key++;
             $result->idval = $key;
-            $status = ["Submitted", "Partially Submitted","Not Submitted"];
+            $status = ["Submitted", "Partially Submitted", "Not Submitted"];
             //find if result is in local table
             $statuses = '';
             $custsupplier = $this->TblCustSuppChecksModel->getCustSupp($result->DCLink);
-            if(!$custsupplier){
-                $statuses.=$status[2];
-            }else{
-                $statuses.=$status[$custsupplier->status];
+
+            if (!$custsupplier) {
+                $statuses = 2;
+            } else {
+                //check if all checked are no
+                $checks = $this->TblCustSuppSpecificChecksModel->getChecks($custsupplier->id);
+                $allarenos = true;
+                foreach ($checks as $check) {
+                    if ((int)$check->status == 0) {
+                        $allarenos = false;
+
+                    }
+                }
+
+                if ($allarenos) {
+                    $statuses = 2;
+                }else{
+                    //check if all required documents are submitted
+
+                    $statuses = $custsupplier->status;
+                }
             }
 
             $result->status_val = $statuses;
@@ -41,10 +58,11 @@ class Customers extends Pre_loader
         echo json_encode($data);
     }
 
-    function getCustomer(){
+    function getCustomer()
+    {
         $postdata = json_decode(file_get_contents('php://input'));
         $SAGE_DB = $this->load->database('SAGE', TRUE);
-        $sql = "SELECT * FROM dbo.Vendor WHERE DCLink=".$postdata->id;
+        $sql = "SELECT * FROM dbo.Vendor WHERE DCLink=" . $postdata->id;
         $result = $SAGE_DB->query($sql)->row();
         echo json_encode($result);
     }
@@ -66,18 +84,19 @@ class Customers extends Pre_loader
     }
 
     //get customers checklists
-    function getCustomersChecks($custid){
+    function getCustomersChecks($custid)
+    {
         //get customer with an id
         $customer = $this->TblCustSuppChecksModel->getCustSupp($custid);
-        if($customer){
+        if ($customer) {
             $datas = $this->TblCustSuppSpecificChecksModel->getChecks($customer->id);
-            foreach ($datas as $key=>$data){
+            foreach ($datas as $key => $data) {
                 $key++;
-                $checkitem =$this->TblCustSuppCheckItemsModel->get_item((int)$data->check_item);
-                $statuses = ["Submitted","Not Submitted"];
-                $data->status_val =$statuses[(int)$data->status];
+                $checkitem = $this->TblCustSuppCheckItemsModel->get_item((int)$data->check_item);
+                $statuses = ["Submitted", "Not Submitted"];
+                $data->status_val = $statuses[(int)$data->status];
                 $data->id_val = $key;
-                $data->check_item_name = ($checkitem)?$checkitem->name:'';
+                $data->check_item_name = ($checkitem) ? $checkitem->name : '';
             }
             $data = [];
             $data["links"] = $this->make_links($datas, 20);
@@ -88,7 +107,8 @@ class Customers extends Pre_loader
 
     }
 
-    function delete_check(){
+    function delete_check()
+    {
         $postdata = json_decode(file_get_contents('php://input'));
         $this->TblCustSuppSpecificChecksModel->delete($postdata->id);
         echo json_encode(true);
