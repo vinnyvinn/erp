@@ -23,7 +23,7 @@
         <label for="assigned_to" class=" col-md-3"><?php echo lang('assign_to'); ?></label>
         <div class="col-md-9">
             <?php
-            echo form_dropdown("assigned_to", $assigned_to_dropdown, "assigned_to", "class='select2'");
+            echo form_dropdown("assigned_to", $assign_to_dropdown, "assigned_to", ['class' => 'select2', 'id' => 'assigned_to']);
             ?>
         </div>
     </div>
