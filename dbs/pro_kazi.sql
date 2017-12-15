@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 13/12/2017 20:12:06
+ Date: 15/12/2017 10:24:22
 */
 
 SET NAMES utf8mb4;
@@ -393,7 +393,7 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 28 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of inventory_requisitions
@@ -402,6 +402,7 @@ INSERT INTO `inventory_requisitions` VALUES (24, 113, 2, 'Mouse', '20', 2, '750'
 INSERT INTO `inventory_requisitions` VALUES (25, 113, 2, 'Mouse', '45', 2, '11250', '2017-12-13 18:06:44', '2017-12-13 18:06:44', 'Disapproved', 0, 0);
 INSERT INTO `inventory_requisitions` VALUES (26, 113, 2, 'Mouse', '4', 2, '1000', '2017-12-13 18:08:47', '2017-12-13 18:08:47', 'Disapproved', 0, 0);
 INSERT INTO `inventory_requisitions` VALUES (27, 5, 2, 'Mouse', '34', 2, '8500', '2017-12-13 19:21:12', '2017-12-13 19:21:12', 'Disapproved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (28, 5, 2, 'Mouse', '4', 2, '1000', '2017-12-15 10:07:44', '2017-12-15 10:07:44', 'Disapproved', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -705,7 +706,7 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notifications
@@ -714,6 +715,7 @@ INSERT INTO `notifications` VALUES (50, 137, '', '2017-12-11 00:22:33', '', '', 
 INSERT INTO `notifications` VALUES (51, 113, '', '2017-12-11 07:17:02', '5', '', 'ticket_created', 0, 0, 0, 6, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `notifications` VALUES (52, 5, '', '2017-12-11 15:35:08', '115', '', 'ticket_created', 0, 0, 0, 7, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `notifications` VALUES (53, 5, '', '2017-12-13 16:32:07', '113', '', 'ticket_created', 0, 0, 0, 8, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (54, 5, '', '2017-12-15 07:09:23', '113', '', 'ticket_created', 0, 0, 0, 9, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for payment_methods
@@ -772,15 +774,17 @@ CREATE TABLE `petty_cash`  (
   PRIMARY KEY (`id`, `sage_project_id`) USING BTREE,
   INDEX `type_id`(`type_id`) USING BTREE,
   CONSTRAINT `petty_cash_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `petty_cash_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of petty_cash
 -- ----------------------------
-INSERT INTO `petty_cash` VALUES (10, 113, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-13 17:46:51', 'Disapproved', 0);
+INSERT INTO `petty_cash` VALUES (10, 113, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-15 10:06:11', 'Approved', 0);
 INSERT INTO `petty_cash` VALUES (11, 113, 7, 'Transport', '232refew', '1243', 21, '01 : Petty Cash', '2017-12-04', '2017-12-06 11:31:45', 'Disapproved', 0);
 INSERT INTO `petty_cash` VALUES (12, 113, 7, 'Transport', 'fgdgfdgfdg', '12121', 22, '00056 : inventory', '2017-12-05', '2017-12-13 19:36:22', 'Approved', 0);
 INSERT INTO `petty_cash` VALUES (13, 113, 5, 'demo', 'jhggfjgfj', '465', 12, 'PJG0008 : project one', '2017-12-13', '2017-12-13 20:09:11', 'Approved', 0);
+INSERT INTO `petty_cash` VALUES (14, 5, 5, 'demo', '434343', '4', 12, 'PJG0008 : project one', '2017-12-14', NULL, 'Pending', 0);
+INSERT INTO `petty_cash` VALUES (15, 5, 5, 'demo', 'vsfdvfds', '32', 16, 'PJG0010 : project two', '2017-12-15', NULL, 'Pending', 0);
 
 -- ----------------------------
 -- Table structure for petty_cash_types
@@ -794,7 +798,7 @@ CREATE TABLE `petty_cash_types`  (
   `update_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of petty_cash_types
@@ -805,6 +809,7 @@ INSERT INTO `petty_cash_types` VALUES (7, 'Transport', 5, '2017-12-04 00:00:00',
 INSERT INTO `petty_cash_types` VALUES (8, 'phone bill', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:19', 0);
 INSERT INTO `petty_cash_types` VALUES (9, ' vcbb', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:24', 0);
 INSERT INTO `petty_cash_types` VALUES (10, '3432432', 5, '2017-12-05 00:00:00', NULL, 0);
+INSERT INTO `petty_cash_types` VALUES (11, 'demo petty', 5, '2017-12-15 00:00:00', NULL, 0);
 
 -- ----------------------------
 -- Table structure for posts
@@ -1175,6 +1180,130 @@ INSERT INTO `tbl_cases` VALUES (5, 'new case', 1, 0, 0, 'new case here', 1, 'bdy
 INSERT INTO `tbl_cases` VALUES (6, 'demo case', 0, 0, 23, 'demo case', 1, NULL);
 
 -- ----------------------------
+-- Table structure for tbl_checklist_performed_on
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_performed_on`;
+CREATE TABLE `tbl_checklist_performed_on`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_performed_on
+-- ----------------------------
+INSERT INTO `tbl_checklist_performed_on` VALUES (1, 'ICT', 0);
+INSERT INTO `tbl_checklist_performed_on` VALUES (2, 'Maintenance', 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_status
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_status`;
+CREATE TABLE `tbl_checklist_status`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_status
+-- ----------------------------
+INSERT INTO `tbl_checklist_status` VALUES (1, 'Submitted', 0);
+INSERT INTO `tbl_checklist_status` VALUES (2, 'Escalated', 0);
+INSERT INTO `tbl_checklist_status` VALUES (3, 'Closed', 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_task_checks
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_task_checks`;
+CREATE TABLE `tbl_checklist_task_checks`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `check_item` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '1 passed 0 failed',
+  `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `checklist_task` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_task_checks
+-- ----------------------------
+INSERT INTO `tbl_checklist_task_checks` VALUES (7, 8, 1, NULL, 7);
+INSERT INTO `tbl_checklist_task_checks` VALUES (8, 9, 0, 'ksdkmsdk', 7);
+INSERT INTO `tbl_checklist_task_checks` VALUES (9, 8, 1, '', 8);
+INSERT INTO `tbl_checklist_task_checks` VALUES (10, 9, 0, '', 8);
+INSERT INTO `tbl_checklist_task_checks` VALUES (11, 8, 1, '', 9);
+INSERT INTO `tbl_checklist_task_checks` VALUES (12, 9, 1, '', 9);
+INSERT INTO `tbl_checklist_task_checks` VALUES (13, 8, 1, '', 10);
+INSERT INTO `tbl_checklist_task_checks` VALUES (14, 9, 0, '', 10);
+INSERT INTO `tbl_checklist_task_checks` VALUES (15, 8, 1, '', 11);
+INSERT INTO `tbl_checklist_task_checks` VALUES (16, 9, 1, '', 11);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_tasks
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_tasks`;
+CREATE TABLE `tbl_checklist_tasks`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ref_no` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `performed_by` int(11) NOT NULL,
+  `performed_on` date NOT NULL,
+  `escalate_to` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_tasks
+-- ----------------------------
+INSERT INTO `tbl_checklist_tasks` VALUES (7, '1513304821', 2, 5, '2017-12-15', 114, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (8, '1513316522', 2, 5, '2017-12-15', 113, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (9, '1513318031', 1, 5, '2017-12-15', 0, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (10, '1513318081', 2, 5, '2017-12-15', 114, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (11, '1513318093', 1, 5, '2017-12-15', 0, 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_types
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_types`;
+CREATE TABLE `tbl_checklist_types`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_types
+-- ----------------------------
+INSERT INTO `tbl_checklist_types` VALUES (1, 'Daily', 0);
+INSERT INTO `tbl_checklist_types` VALUES (2, 'Weekly', 1);
+INSERT INTO `tbl_checklist_types` VALUES (3, 'Monthly', 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklists
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklists`;
+CREATE TABLE `tbl_checklists`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL,
+  `performed_on` int(11) NOT NULL,
+  `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklists
+-- ----------------------------
+INSERT INTO `tbl_checklists` VALUES (7, 'sddssd', 1, 1, 'sddssd');
+INSERT INTO `tbl_checklists` VALUES (8, 'Check ICT router', 0, 1, 'The router should be good');
+INSERT INTO `tbl_checklists` VALUES (9, 'new order here', 0, 2, 'ddfdf');
+
+-- ----------------------------
 -- Table structure for tbl_cust_supp_checkitems
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_cust_supp_checkitems`;
@@ -1184,18 +1313,16 @@ CREATE TABLE `tbl_cust_supp_checkitems`  (
   `deleted` int(11) NOT NULL DEFAULT 0,
   `performed_on` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '1 customer and 2 suppliers',
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_cust_supp_checkitems
 -- ----------------------------
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (12, 'DSKSDM', 1, '1,2');
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (13, 'Neema Licence', 1, '1,2');
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (14, 'kmsdksd', 1, '');
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (15, 'Government certificates', 1, '1,2');
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (16, 'test first certificate', 1, '2');
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (17, 'Legal laws', 0, '1,2');
-INSERT INTO `tbl_cust_supp_checkitems` VALUES (18, 'Kra pin', 0, '2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (21, 'Kra Pin', 0, '1,2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (22, 'Account opening form', 0, '1,2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (23, 'New item', 1, '1,');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (24, 'National Identity', 1, '1,2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (25, 'First item', 1, '');
 
 -- ----------------------------
 -- Table structure for tbl_cust_supp_status
@@ -1228,12 +1355,14 @@ CREATE TABLE `tbl_cust_supplier_checks`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `status`(`status`) USING BTREE,
   INDEX `cust_supp_id`(`cust_supp_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_cust_supplier_checks
 -- ----------------------------
-INSERT INTO `tbl_cust_supplier_checks` VALUES (4, 1, 1, 2017, 1, 5, 0);
+INSERT INTO `tbl_cust_supplier_checks` VALUES (33, 2, 1, 2017, 0, 5, 0);
+INSERT INTO `tbl_cust_supplier_checks` VALUES (34, 1, 16, 2017, 0, 5, 0);
+INSERT INTO `tbl_cust_supplier_checks` VALUES (35, 1, 17, 2017, 1, 5, 0);
 
 -- ----------------------------
 -- Table structure for tbl_cust_supplier_specific_checks
@@ -1248,15 +1377,18 @@ CREATE TABLE `tbl_cust_supplier_specific_checks`  (
   `customer_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 27 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 411 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_cust_supplier_specific_checks
 -- ----------------------------
-INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (23, 12, 0, NULL, NULL, 4, 0);
-INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (24, 13, 0, 'test comment new', '2017-12-12T13:18:00.000Z', 4, 0);
-INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (25, 15, 0, NULL, NULL, 4, 0);
-INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (26, 17, 0, NULL, NULL, 4, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (382, 24, 0, '', '', 32, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (404, 21, 1, '', '', 35, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (405, 22, 1, '', '', 35, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (407, 21, 0, '', '', 33, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (408, 22, 0, NULL, '', 33, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (409, 21, 0, 'New comment here', '2017-12-04', 34, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (410, 22, 0, '', '2017-12-11', 34, 0);
 
 -- ----------------------------
 -- Table structure for tbl_doc_escalation_n_reminders
@@ -1282,12 +1414,13 @@ CREATE TABLE `tbl_doc_escalation_n_reminders`  (
   CONSTRAINT `fk_esc_rem_esc_to` FOREIGN KEY (`reminder_to`) REFERENCES `team` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_esc_rem_rem_every` FOREIGN KEY (`reminder_every`) REFERENCES `tbl_time_durations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_esc_rem_reminder_for` FOREIGN KEY (`reminder_for`) REFERENCES `tbl_time_durations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_doc_escalation_n_reminders
 -- ----------------------------
 INSERT INTO `tbl_doc_escalation_n_reminders` VALUES (1, 'test reminder', 3, 1, 3, 2, 3, 0);
+INSERT INTO `tbl_doc_escalation_n_reminders` VALUES (2, 'Weekly reminder', 3, 2, 2, 2, 2, 0);
 
 -- ----------------------------
 -- Table structure for tbl_escalation_matrix
@@ -1320,14 +1453,13 @@ CREATE TABLE `tbl_knowledge_base`  (
   INDEX `created_by`(`created_by`) USING BTREE,
   CONSTRAINT `tbl_knowledge_base_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tbl_knowledge_base_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `tbl_knowledge_base_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_knowledge_base
 -- ----------------------------
 INSERT INTO `tbl_knowledge_base` VALUES (10, 1, 'demo ticket 1', 'trojan', 113, '2017-12-07 15:54:18', NULL, 0);
 INSERT INTO `tbl_knowledge_base` VALUES (11, 2, 'dgfdgd', 'cxvcxvcxv', 5, '2017-12-07 16:21:33', NULL, 0);
-INSERT INTO `tbl_knowledge_base` VALUES (12, 4, 'employees', 'kutduhyg', 5, '2017-12-13 19:32:42', NULL, 0);
 
 -- ----------------------------
 -- Table structure for tbl_knowledge_base_ticket
@@ -1345,13 +1477,12 @@ CREATE TABLE `tbl_knowledge_base_ticket`  (
   INDEX `ticket_id`(`ticket_id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE,
   INDEX `solution_id`(`solution_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_knowledge_base_ticket
 -- ----------------------------
 INSERT INTO `tbl_knowledge_base_ticket` VALUES (9, 4, 10, 113, '2017-12-07 15:54:18', NULL, 0);
-INSERT INTO `tbl_knowledge_base_ticket` VALUES (10, 8, 12, 5, '2017-12-13 19:32:43', NULL, 0);
 
 -- ----------------------------
 -- Table structure for tbl_knowledge_base_types
@@ -1434,12 +1565,13 @@ CREATE TABLE `tbl_legal_documents`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_doc_type`(`document_type`) USING BTREE,
   INDEX `fk_status`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_legal_documents
 -- ----------------------------
 INSERT INTO `tbl_legal_documents` VALUES (2, 'New s', 2, 'a:0:{}', 89, 1, '2017-12-05', '2017-12-13', 0, 0, 0, 0, '2017-12-05 10:09:31', '0000-00-00 00:00:00');
+INSERT INTO `tbl_legal_documents` VALUES (3, 'terest', 2, 'a:0:{}', 115, 1, '2017-12-15', '2017-12-22', 0, 0, 0, 0, '2017-12-14 15:28:42', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for tbl_migartions
@@ -1453,6 +1585,27 @@ CREATE TABLE `tbl_migartions`  (
 -- Records of tbl_migartions
 -- ----------------------------
 INSERT INTO `tbl_migartions` VALUES (4);
+
+-- ----------------------------
+-- Table structure for tbl_third_party
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_third_party`;
+CREATE TABLE `tbl_third_party`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `deleted` tinyint(1) NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_third_party
+-- ----------------------------
+INSERT INTO `tbl_third_party` VALUES (4, 'demo', '0700000000', 'admin@teamkazi.com', '2017-12-15 10:12:46', NULL, 0);
+INSERT INTO `tbl_third_party` VALUES (5, 'montanabay39', '4131523', 'gfdgfd@gf.com', '2017-12-15 10:19:30', NULL, 0);
 
 -- ----------------------------
 -- Table structure for tbl_time_durations
@@ -1536,6 +1689,30 @@ INSERT INTO `team_member_job_info` VALUES (36, 135, '2014-06-19', 0, 0, 0, 0, 'U
 INSERT INTO `team_member_job_info` VALUES (37, 136, '2014-07-16', 0, 0, 0, 0, 'Uknown');
 
 -- ----------------------------
+-- Table structure for third_party_messages
+-- ----------------------------
+DROP TABLE IF EXISTS `third_party_messages`;
+CREATE TABLE `third_party_messages`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `third_p_id` int(100) NOT NULL,
+  `sender_id` int(100) NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of third_party_messages
+-- ----------------------------
+INSERT INTO `third_party_messages` VALUES (1, 'efrr', 1, 5, '2017-12-14 17:19:44', NULL);
+INSERT INTO `third_party_messages` VALUES (2, 'dsdsff', 1, 5, '2017-12-15 08:47:59', NULL);
+INSERT INTO `third_party_messages` VALUES (3, 'fvf', 1, 5, '2017-12-15 09:00:09', NULL);
+INSERT INTO `third_party_messages` VALUES (4, 'fedgfdwfvds', 1, 5, '2017-12-15 10:11:39', NULL);
+INSERT INTO `third_party_messages` VALUES (5, 'csfs ds da', 1, 5, '2017-12-15 10:19:42', NULL);
+INSERT INTO `third_party_messages` VALUES (6, 'vxnvxn', 1, 5, '2017-12-15 10:21:44', NULL);
+
+-- ----------------------------
 -- Table structure for ticket_comments
 -- ----------------------------
 DROP TABLE IF EXISTS `ticket_comments`;
@@ -1548,7 +1725,7 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_comments
@@ -1565,6 +1742,7 @@ INSERT INTO `ticket_comments` VALUES (26, 5, '2017-12-11 15:35:08', ' bvbmnghngh
 INSERT INTO `ticket_comments` VALUES (27, 5, '2017-12-11 15:40:26', 'm,ghm', 7, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (28, 5, '2017-12-13 16:32:07', 'safgdagdsf', 8, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (29, 5, '2017-12-13 16:32:28', '8itu0[u9o', 8, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (30, 5, '2017-12-15 07:09:22', ' cxvcvcx vcx ', 9, 'a:0:{}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -1575,7 +1753,7 @@ CREATE TABLE `ticket_types`  (
   `title` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_types
@@ -1583,6 +1761,7 @@ CREATE TABLE `ticket_types`  (
 INSERT INTO `ticket_types` VALUES (1, 'System', 0);
 INSERT INTO `ticket_types` VALUES (2, 'Email', 0);
 INSERT INTO `ticket_types` VALUES (3, 'Call', 0);
+INSERT INTO `ticket_types` VALUES (5, 'gftrvr', 0);
 
 -- ----------------------------
 -- Table structure for tickets
@@ -1603,7 +1782,7 @@ CREATE TABLE `tickets`  (
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tickets
@@ -1612,6 +1791,7 @@ INSERT INTO `tickets` VALUES (5, 14, 'ufifuii', 1, 'ety', 137, '2017-12-11 00:22
 INSERT INTO `tickets` VALUES (6, 14, ' fdfd', 1, 'employees', 113, '2017-12-11 07:17:02', 'closed', '2017-12-11 07:17:02', 5, 7, '', 0);
 INSERT INTO `tickets` VALUES (7, 15, '', 2, 'trytery', 5, '2017-12-11 15:35:08', 'closed', '2017-12-11 15:40:26', 115, 6, 'hgfgfh', 0);
 INSERT INTO `tickets` VALUES (8, 14, '', 2, 'employees', 5, '2017-12-13 16:32:07', 'open', '2017-12-13 16:32:28', 113, 1, 'hgfgfh', 0);
+INSERT INTO `tickets` VALUES (9, 14, '', 1, 'ertgter', 5, '2017-12-15 07:09:22', 'new', '2017-12-15 07:09:22', 113, 0, '', 0);
 
 -- ----------------------------
 -- Table structure for users
