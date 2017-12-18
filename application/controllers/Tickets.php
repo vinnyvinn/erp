@@ -75,6 +75,8 @@ class Tickets extends Pre_loader
                  'phone' => $this->input->post('phone'),
                   'email' => $this->input->post('email'));
      $this->Tickets_model->insert_thirdparty($data);
+      $datasaved = true;
+      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
    }
     //load new tickt modal
     public function modal_form()
@@ -169,6 +171,8 @@ class Tickets extends Pre_loader
                      'sender_id' => $this->session->user_id);
 
       $this->Third_partyusers_model->add_messages($data);
+      $datasaved = true;
+      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
     }
     public function knowledge_base_modal_form() {
 
