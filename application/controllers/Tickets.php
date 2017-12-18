@@ -164,9 +164,8 @@ class Tickets extends Pre_loader
     {
       $user=$this->input->post('thirdparty_users_dropdown');
       $this->session->set_userdata('usn',$user);
-      $set_id=$this->Third_partyusers_model->get_userId();
       $data = array('message' => $this->input->post('message'),
-                    'third_p_id' => 1 ,
+                    'third_p_id' => $this->session->usn,
                      'sender_id' => $this->session->user_id);
 
       $this->Third_partyusers_model->add_messages($data);

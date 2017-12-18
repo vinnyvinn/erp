@@ -2,7 +2,8 @@
 <?php echo form_open(get_uri("tickets/save_thirdparty_issues"), array("id" => "thirdusers-form", "class" => "general-form", "role" => "form")); ?>
 
 <div class="modal-body clearfix">
-
+   <input type="hidden" name="id" value="<?php echo $id; ?>" />
+   
           <div class="form-group">
         <label for="username" class=" col-md-3">Third Party Username</label>
         <div class="col-md-9">
