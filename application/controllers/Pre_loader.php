@@ -15,7 +15,8 @@ class Pre_loader extends CI_Controller {
         $login_user_id = $this->Users_model->login_user_id();
         if (!$login_user_id) {
             $uri_string = uri_string();
-
+//        var_dump($uri_string);
+//        die();
             if (!$uri_string || $uri_string === "signin") {
                 redirect('signin');
             } else {
