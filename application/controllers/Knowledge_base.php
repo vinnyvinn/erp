@@ -104,6 +104,3 @@ class Knowledge_base extends Pre_loader {
 
 
 }
-
-/* End of file invoices.php */
-/* Location: ./application/controllers/invoices.php */

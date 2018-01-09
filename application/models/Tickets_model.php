@@ -37,15 +37,15 @@ class Tickets_model extends Crud_model {
         if ($ticket_label) {
             $where .= " AND (FIND_IN_SET('$ticket_label', $tickets_table.labels)) ";
         }
-        
+
         $assigned_to = get_array_value($options, "assigned_to");
         if ($assigned_to) {
             $where .= " AND $tickets_table.assigned_to=$assigned_to";
         }
 
-        $sql = "SELECT $tickets_table.*, $ticket_types_table.title AS ticket_type, $projectsTable.title as projectTitle,
+        $sql = "SELECT $tickets_table.*, $ticket_types_table.title AS ticket_type,$projectsTable.title as projectTitle,
               $projectsTable.id as projectId, $clientsTable.company_name, $clientsTable.id as client_id,
-              CONCAT($users_table.first_name, ' ',$users_table.last_name) AS assigned_to_user, $users_table.image as assigned_to_avatar 
+              CONCAT($users_table.first_name, ' ',$users_table.last_name) AS assigned_to_user, $users_table.image as assigned_to_avatar
         FROM $tickets_table
         LEFT JOIN $ticket_types_table ON $ticket_types_table.id= $tickets_table.ticket_type_id
         LEFT JOIN $projectsTable ON $projectsTable.id= $tickets_table.project_id
@@ -90,5 +90,48 @@ class Tickets_model extends Crud_model {
         WHERE $tickets_table.deleted=0";
         return $this->db->query($sql)->row()->label_groups;
     }
+function get_tickets_id()
+{
+    $ss=$this->session->user_id;
+    $t_ID=$this->session->ticket_ID;
+    $tickets_table = $this->db->dbprefix('tickets');
+    $users_table = $this->db->dbprefix('users');
+    $sq="SELECT $tickets_table.*,$users_table.id
+    FROM $tickets_table
+       JOIN $users_table ON $tickets_table.created_by= $users_table.id
+        WHERE $tickets_table.created_by=$ss AND $tickets_table.id=$t_ID";
 
+         $query= $this->db->query($sq)->num_rows();
+
+
+if($query>0)
+return true;
+else {
+  return false;
+}
+
+}
+function get_userassigned()
+{
+  $tickets_table = $this->db->dbprefix('tickets');
+  $users_table = $this->db->dbprefix('users');
+  $id=$this->session->assgn;
+  $sq="SELECT $tickets_table.created_by,$users_table.first_name,$users_table.last_name
+  FROM $tickets_table
+     JOIN $users_table ON $tickets_table.created_by= $users_table.id
+      WHERE $tickets_table.created_by=$id";
+
+       $query= $this->db->query($sq)->num_rows();
+       if($query>0)
+       {
+         return true;
+       }
+       else {
+         return false;
+}
+}
+function insert_thirdparty($data)
+{
+  $this->db->insert('tbl_third_party',$data);
+}
 }

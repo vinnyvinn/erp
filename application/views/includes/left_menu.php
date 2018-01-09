@@ -35,21 +35,26 @@
                 }
 
 
-                if ($this->login_user->is_admin || $access_client) {
-                    $sidebar_menu[] = array("name" => "clients", "url" => "clients", "class" => "fa-briefcase");
+                if (get_setting("module_clients") == "1") {
+                    if ($this->login_user->is_admin || $access_client) {
+                        $sidebar_menu[] = array("name" => "clients", "url" => "clients", "class" => "fa-briefcase");
+                    }
                 }
 
-//                $openProjects = [];
-//                $openProjects [] = ["name" => "All Projects", "url" => "projects/all_projects"];
-//
-//                foreach ($projects as $project) {
-//                    $openProjects[] = ['name' => $project->title, 'url' => 'projects/view/' . $project->id];
-//                }
-//
-//                $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);
+               /*$openProjects = [];
+               $openProjects [] = ["name" => "All Projects", "url" => "projects/all_projects"];
+
+               foreach ($projects as $project) {
+                   $openProjects[] = ['name' => $project->title, 'url' => 'projects/view/' . $project->id];
+               }
+
+               $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
                 $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
                 $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
+                if ( ($this->login_user->is_admin)) {
+                    $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "devider" => true);
+                }
 
                 if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
 
@@ -94,16 +99,25 @@
                 }
 
                 if ((get_setting("module_admin") == "1") && ($this->login_user->role_id)) {
+
+                    $administration_badge = 0;
+                    if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
+                        $administration_badge = count_ict_administration($this->login_user->id,NULL);
+                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+                        $administration_badge = count_ict_administration(NULL, $this->login_user->id);
+                    }
+
                     $administration_submenu = array();
                     $administration_url = "";
 
-                        $administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash");
+                        $administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash", "class" =>"badge");
                         $administration_url = "petty_cash";
 
                         $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
                         $administration_url = "inventory_requisitions";
 
-                    $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu);
+                    $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu, "devider" => false, "badge" => $administration_badge, "badge_class" => "badge-secondary");
+
                 }
 
                 if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin)) {
@@ -165,7 +179,7 @@
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
                     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
-                  //  $attendanceSubs [] = ["name" => "Escalation Matrix", "url" => "legal/escalation_matrix"];
+                    $attendanceSubs [] = ["name" => "Customers & Suppliers", "url" => "cust_suppliers/index"];
 
                     $sidebar_menu[] = array("name" => "legal", "url" => "attendance", "class" => "fa-road font-16", "submenu" => $attendanceSubs);
                 }

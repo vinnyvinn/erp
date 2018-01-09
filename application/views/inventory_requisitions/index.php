@@ -23,7 +23,13 @@
             columns: [
                 {title: 'ID', "class": "w50"},
                 {title: 'Stock Item', "class": "w20p"},
-                {title: 'Requested / Available', "class": "w20p"},
+                {title: '<?php
+                    if ($this->login_user->is_admin) {
+                        echo 'Requested / Available';
+                    } else {
+                        echo 'Requested';
+                    }
+                ?>', "class": "w20p"},
                 {title: 'Cost Amount', "class": "w20p"},
                 {title: 'Requested On', "class": "w20p"},
                 {title: 'Status', "class": "w20p"},
@@ -31,7 +37,7 @@
                     if ($this->login_user->is_admin) {
                         echo '{title: \'<i class="fa fa-bars"></i>\', "class": "text-center option w100"}';
                     }
-                    ?>
+                ?>
             ],
             // order: [[1, "desc"]],
             printColumns: [0, 1, 2, 3, 4, 5],

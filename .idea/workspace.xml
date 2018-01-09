@@ -2,10 +2,34 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="475e264e-041d-4742-b336-99065ec053f2" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Pre_loader.php" afterPath="$PROJECT_DIR$/application/controllers/Pre_loader.php" />
+=======
+<<<<<<< HEAD
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/clients/index.php" afterPath="$PROJECT_DIR$/application/views/clients/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/clients/tickets/index.php" afterPath="$PROJECT_DIR$/application/views/clients/tickets/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/index.php" afterPath="$PROJECT_DIR$/application/views/tickets/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/modal_form.php" afterPath="$PROJECT_DIR$/application/views/tickets/modal_form.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/application/controllers/Customers.php" afterPath="$PROJECT_DIR$/application/controllers/Customers.php" />
+      <change beforePath="$PROJECT_DIR$/assets/vuejs/app.min.js" afterPath="$PROJECT_DIR$/assets/vuejs/app.min.js" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" />
+<<<<<<< HEAD
+=======
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" afterPath="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/npm-debug.log" afterPath="" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
     </list>
+    <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -13,7 +37,16 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="prokazi" />
+  </component>
   <component name="FileEditorManager">
+<<<<<<< HEAD
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="modal_form.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/modal_form.php">
@@ -27,34 +60,144 @@
       </file>
       <file leaf-file-name="types_modal_form.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php">
+=======
+<<<<<<< HEAD
+    <leaf>
+      <file leaf-file-name="Settings.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="54" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
+            <state vertical-scroll-proportion="-0.0">
+              <caret line="452" column="38" selection-start-line="452" selection-start-column="38" selection-end-line="452" selection-end-column="38" />
+=======
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CheckForm.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+          <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+            <state relative-caret-position="139">
+              <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+=======
+            <state relative-caret-position="149">
+              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="LegalDocumentsModel.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="18">
               <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+      <file leaf-file-name="Tickets.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Tickets.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-21.038462">
+              <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+=======
+      <file leaf-file-name="fields.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="modal_form.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/tickets/modal_form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.35111877">
+              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+=======
+      <file leaf-file-name="Items.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="65">
+              <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/tickets/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-5.8846154">
+              <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/clients/tickets/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.807693">
+              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
       <file leaf-file-name="Pre_loader.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/controllers/Pre_loader.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="310">
               <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
               <folding />
+=======
+      <file leaf-file-name="default_lang.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/language/english/default_lang.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.3454545">
+              <caret line="480" column="19" selection-start-line="480" selection-start-column="12" selection-end-line="480" selection-end-column="19" />
+              <folding>
+                <marker date="1512958615816" expanded="true" signature="19691:19710" placeholder="Select from list..." />
+=======
+      <file leaf-file-name="Customers.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+              <folding>
+                <marker date="1513176053845" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
+                <marker date="1513176053845" expanded="true" signature="1313:1351" ph="SELECT * FRO... Vendor" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="TblCustSuppChecksModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppChecksModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="24" />
+              <folding>
+                <marker date="1513167037221" expanded="true" signature="351:415" ph="SELECT * FRO... ${$this-&gt;table}" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+              </folding>
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+            </state>
+          </provider>
+        </entry>
+      </file>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
     </leaf>
   </component>
   <component name="FindInProjectRecents">
@@ -64,10 +207,21 @@
       <find>$invoice_url</find>
       <find>TblKnowledgeBaseTypesModel</find>
       <find>make_row</find>
+      <find>Invoice ID</find>
+      <find>form</find>
+      <find>&lt;form</find>
+      <find>editRow</find>
+      <find>compu</find>
+      <find>first_name</find>
+      <find>modal</find>
+      <find>convert</find>
+      <find>forEa</find>
+      <find>get</find>
     </findStrings>
     <replaceStrings>
       <replace>$knowledgebase_table</replace>
       <replace>$options</replace>
+      <replace>name</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -76,34 +230,116 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/application/models/Taxes_model.php" />
         <option value="$PROJECT_DIR$/application/config/autoload.php" />
         <option value="$PROJECT_DIR$/application/models/TblKnowledgeBaseModel.php" />
         <option value="$PROJECT_DIR$/application/models/TblKnowledgeBaseTypesModel.php" />
         <option value="$PROJECT_DIR$/application/views/knowledgebase/modal_form.php" />
+=======
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         <option value="$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php" />
         <option value="$PROJECT_DIR$/application/views/knowledgebase/index.php" />
         <option value="$PROJECT_DIR$/application/controllers/Legal.php" />
         <option value="$PROJECT_DIR$/application/controllers/Knowledge_base.php" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/config/database.php" />
         <option value="$PROJECT_DIR$/application/controllers/Pre_loader.php" />
+=======
+        <option value="$PROJECT_DIR$/application/controllers/Settings.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/application/views/clients/tickets/index.php" />
+        <option value="$PROJECT_DIR$/application/views/clients/index.php" />
+        <option value="$PROJECT_DIR$/application/views/tickets/index.php" />
+        <option value="$PROJECT_DIR$/application/views/tickets/modal_form.php" />
+=======
+        <option value="$PROJECT_DIR$/application/controllers/CustSuppliers.php" />
+        <option value="$PROJECT_DIR$/../../index.php" />
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Legal_customers.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/webpack.config.js" />
+        <option value="$PROJECT_DIR$/application/views/includes/vuejs.php" />
+        <option value="$PROJECT_DIR$/application/views/includes/head.php" />
+        <option value="$PROJECT_DIR$/application/views/layout/index.php" />
+        <option value="$PROJECT_DIR$/application/views/legal/customers/index.php" />
+        <option value="$PROJECT_DIR$/application/views/includes/left_menu.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/CustomerSuppliers.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/suppliers/Suppliers.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/nonsubmitted/NonSubmitted.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/partiallysubmitted/PartiallySubmitted.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/layout/Tabs.vue" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/fullysubmitted/FullySubmitted.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/common/loading/LoadingScreen.vue" />
+        <option value="$PROJECT_DIR$/application/controllers/Cust_suppliers.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/CheckItems.vue" />
+        <option value="$PROJECT_DIR$/application/controllers/CheckItems.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/package.json" />
+        <option value="$PROJECT_DIR$/vuejsfiles/app.js" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/AllCustomers.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/CustomerSuppliers.vue" />
+        <option value="$PROJECT_DIR$/application/models/CheckItemsModel.php" />
+        <option value="$PROJECT_DIR$/application/models/TblCustSuppCheckItems.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js" />
+        <option value="$PROJECT_DIR$/application/views/legal/custsupp/index.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/Customers.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Form.vue" />
+        <option value="$PROJECT_DIR$/application/models/TblCustSuppCheckItemsModel.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/View.vue" />
+        <option value="$PROJECT_DIR$/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/application/models/TblCustSuppChecksModel.php" />
+        <option value="$PROJECT_DIR$/application/views/knowledgebase/modal_form.php" />
+        <option value="$PROJECT_DIR$/application/models/TblCustSuppSpecificChecksModel.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/viewfields.js" />
+        <option value="$PROJECT_DIR$/application/controllers/Checkitems.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue" />
+        <option value="$PROJECT_DIR$/application/controllers/Customers.php" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue" />
+=======
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       </list>
     </option>
   </component>
-  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolGruntFileManager" detection-done="true" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NamedScopeManager">
+    <order />
+  </component>
+  <component name="PhpServers">
+    <servers />
+  </component>
+  <component name="NodeModulesDirectoryManager">
+    <handled-path value="$PROJECT_DIR$/vuejsfiles/node_modules" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="50" />
-    <option name="y" value="140" />
-    <option name="width" value="1400" />
-    <option name="height" value="808" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -115,13 +351,145 @@
       <autoscrollToSource />
       <autoscrollFromSource />
       <sortByType />
-      <manualOrder />
-      <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <pane id="ProjectPane">
         <subPane>
+<<<<<<< HEAD
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tickets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="language" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="language" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="english" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prokazi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+=======
           <expand>
             <path>
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
@@ -130,29 +498,100 @@
             <path>
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
               <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
               <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="application" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="legal" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="legal" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cust_suppliers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="legal" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cust_suppliers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="customers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="legal" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cust_suppliers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="customers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="legal" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="cust_suppliers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="customers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="allcustomers" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prowritfront" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </subPane>
       </pane>
+<<<<<<< HEAD
       <pane id="Scratches" />
+=======
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../myapp" />
+=======
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
+=======
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../prowritfront" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\job\prokazi\application\views\knowledgebase" />
-      <recent name="C:\xampp\htdocs\job\prokazi\application\models" />
+      <recent name="C:\xampp\htdocs\prokazi\application\models" />
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\legal\cust_suppliers" />
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\legal\cust_suppliers\customers" />
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\legal\cust_suppliers\checkitems\items" />
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\common" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\legal\cust_suppliers\customers\components\allcustomers" />
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\legal\cust_suppliers\customers\components" />
+      <recent name="C:\xampp\htdocs\prokazi\vuejsfiles\components\legal\cust_suppliers" />
+      <recent name="C:\xampp\htdocs\prokazi\application\views\legal\customers" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -167,9 +606,7 @@
       </list>
     </option>
   </component>
-  <component name="ShelveChangesManager" show_recycled="false">
-    <option name="remove_strategy" value="false" />
-  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -178,16 +615,28 @@
       <changelist id="475e264e-041d-4742-b336-99065ec053f2" name="Default" comment="" />
       <created>1512633377524</created>
       <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
       <updated>1512633377524</updated>
+<<<<<<< HEAD
       <workItem from="1512633388329" duration="10743000" />
       <workItem from="1512742589315" duration="76000" />
       <workItem from="1512800455924" duration="2351000" />
       <workItem from="1512831382705" duration="1407000" />
+=======
+      <workItem from="1512633388329" duration="12243000" />
+      <workItem from="1512720812673" duration="597000" />
+      <workItem from="1512728261869" duration="3461000" />
+      <workItem from="1512803706376" duration="5384000" />
+      <workItem from="1512967219897" duration="599000" />
+      <workItem from="1512973480056" duration="15493000" />
+      <workItem from="1513072708353" duration="8326000" />
+      <workItem from="1513110708378" duration="14881000" />
+      <workItem from="1513141860226" duration="31663000" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="14577000" />
   </component>
   <component name="ToolWindowManager">
@@ -202,6 +651,67 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+    <option name="totallyTimeSpent" value="92647000" />
+  </component>
+  <component name="ToolWindowManager">
+<<<<<<< HEAD
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25622255" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32913387" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+=======
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2718509" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -209,44 +719,57 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+<<<<<<< HEAD
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2596401" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USER_GROUPS">
+      <collection />
+    </option>
+    <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="2" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
@@ -372,10 +895,32 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="504">
           <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/layout/Tabs.vue" />
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="19" lean-forward="false" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/components/services/allcustomerservice.js" />
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2988">
@@ -417,11 +962,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="17" />
+=======
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/components/fullysubmitted/FullySubmitted.vue" />
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/common/loading/LoadingScreen.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Lawsuits.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/node_modules/vuetable-2/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="221">
           <caret line="22" column="5" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
         </state>
@@ -429,142 +983,688 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/index.php/.php" />
     <entry file="file://$PROJECT_DIR$/application/views/legal/reminders/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-273">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="93" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
+=======
+        <state relative-caret-position="387">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/lawsuits/index.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/node_modules/vuetable-2/src/components/VuetablePagination.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="59" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/common/table/Vuetable.vue">
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+=======
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/common/table/VuetablePagination.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-290">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+=======
+        <state relative-caret-position="306">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/types/index.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="-204">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+=======
+        <state relative-caret-position="51">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/documents/index.php">
+    <entry file="file://$PROJECT_DIR$/../prowritfront/package.json">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+=======
+        <state relative-caret-position="210">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../prowritfront/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="54" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
+=======
+        <state relative-caret-position="65">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../prowritfront/src/components/backend/user-management/users/fields.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+=======
+        <state relative-caret-position="268">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="52" selection-start-column="0" selection-end-line="57" selection-end-column="5" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../prowritfront/src/components/backend/user-management/users/forms/PersonalDetails.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="93" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
+=======
+        <state relative-caret-position="255">
+          <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../prowritfront/src/components/backend/user-management/permissions/Permissions.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="272">
           <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+        <state relative-caret-position="242">
+          <caret line="82" column="12" lean-forward="false" selection-start-line="77" selection-start-column="12" selection-end-line="82" selection-end-column="12" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/document_types/index.php">
+    <entry file="file://$PROJECT_DIR$/../prowritfront/src/components/backend/user-management/users/Users.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="59" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+=======
+        <state relative-caret-position="159">
+          <caret line="40" column="101" lean-forward="false" selection-start-line="40" selection-start-column="70" selection-end-line="40" selection-end-column="101" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Document_types.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+=======
+        <state relative-caret-position="380">
+          <caret line="52" column="0" lean-forward="false" selection-start-line="33" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Knowledge_base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+=======
+        <state relative-caret-position="136">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/components/allcustomers/fields.js" />
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers2/layout/Tabs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+=======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/escalation-matrix/index.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/components/allcustomers/AllCustomers.vue" />
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers2/Customers.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="17" />
+=======
+        <state relative-caret-position="414">
+          <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Invoices.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/AllCustomers.vue" />
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/Customers.vue" />
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/CustomerSuppliers.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="255">
           <caret line="271" column="3" lean-forward="true" selection-start-line="250" selection-start-column="3" selection-end-line="271" selection-end-column="3" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="5" selection-start-line="19" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/document_types/modal_form.php">
+    <entry file="file://$PROJECT_DIR$/application/views/legal/reminders/index.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="118">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="e#297#339#0" expanded="false" />
+          </folding>
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/CheckItemsModel.php" />
+    <entry file="file://$PROJECT_DIR$/application/controllers/Cust_suppliers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/legal/custsupp/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
         <state relative-caret-position="0">
+<<<<<<< HEAD
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="9" />
+=======
+          <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/projects/tasks/index.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/package.json">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="612">
           <caret line="36" column="69" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="69" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="125">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/projects/index.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/documents/modal_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-748">
-          <caret line="34" column="4" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="42" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/legal/lawsuits/form_modal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1547">
-          <caret line="112" column="30" lean-forward="false" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/LegalCasesProceduresModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TblKnowledgeBaseModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
-          <caret line="43" column="48" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/TblKnowledgeBaseTypesModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="54" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+=======
+        <state relative-caret-position="119">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="4" />
           <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/index.php">
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/CheckItems.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="13" column="93" lean-forward="false" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/LegalReminders.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2988">
-          <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="68">
+          <caret line="4" column="33" lean-forward="false" selection-start-line="4" selection-start-column="33" selection-end-line="4" selection-end-column="33" />
           <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="996">
+          <caret line="90" column="3" lean-forward="false" selection-start-line="90" selection-start-column="3" selection-end-line="95" selection-end-column="9" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="271" column="3" selection-start-line="250" selection-start-column="3" selection-end-line="271" selection-end-column="3" />
+=======
+        <state relative-caret-position="377">
+          <caret line="112" column="50" lean-forward="false" selection-start-line="112" selection-start-column="50" selection-end-line="112" selection-end-column="50" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+    <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppCheckItemsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="9" />
+=======
+        <state relative-caret-position="221">
+          <caret line="21" column="48" lean-forward="true" selection-start-line="20" selection-start-column="6" selection-end-line="21" selection-end-column="48" />
+          <folding>
+            <marker date="1513155507657" expanded="true" signature="396:442" ph="SELECT * FRO... tbl_checkitems" />
+            <marker date="1513155507657" expanded="true" signature="545:585" ph="SELECT * FRO... ${$this-&gt;table}" />
+            <marker date="1513155507657" expanded="true" signature="696:709" ph="SELECT * FRO... " />
+            <marker date="1513155507657" expanded="true" signature="696:782" ph="SELECT * FRO... tbl_cust_supp_checkitems" />
+            <marker date="1513155507657" expanded="true" signature="793:835" ph="SELECT * FRO... ${$this-&gt;table}" />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-748">
+          <caret line="34" column="4" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="42" selection-end-column="10" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="69" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="69" />
+=======
+        <state relative-caret-position="301">
+          <caret line="197" column="35" lean-forward="false" selection-start-line="197" selection-start-column="5" selection-end-line="197" selection-end-column="35" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
+        <state relative-caret-position="414">
+          <caret line="64" column="10" lean-forward="false" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/legal/documents/modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="42" selection-end-column="10" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/legal/lawsuits/form_modal.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1547">
+          <caret line="112" column="30" lean-forward="false" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="30" />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="112" column="30" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="30" />
+=======
+        <state relative-caret-position="-680">
+          <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="101" selection-end-column="6" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppSpecificChecksModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+=======
+        <state relative-caret-position="289">
+          <caret line="22" column="24" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="24" />
+          <folding>
+            <marker date="1513170394508" expanded="true" signature="362:425" ph="SELECT * FRO... ${$this-&gt;table}" />
+            <marker date="1513170394508" expanded="true" signature="540:577" ph="DELETE FROM Production.ProductCostHistory... " />
+            <marker date="1513170394508" expanded="true" signature="540:579" ph="DELETE FROM ${$this-&gt;table}... " />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/viewfields.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="489">
+          <caret line="43" column="48" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+=======
+        <state relative-caret-position="251">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/View.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="5" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+=======
+        <state relative-caret-position="782">
+          <caret line="46" column="89" lean-forward="false" selection-start-line="46" selection-start-column="89" selection-end-line="46" selection-end-column="89" />
+          <folding>
+            <element signature="e#2420#2505#0" expanded="false" />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
+=======
+        <state relative-caret-position="816">
+          <caret line="66" column="27" lean-forward="false" selection-start-line="66" selection-start-column="27" selection-end-line="66" selection-end-column="27" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/layout/Tabs.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="166" column="59" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+=======
+        <state relative-caret-position="357">
+          <caret line="21" column="9" lean-forward="false" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/layout/SideBar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="193" column="0" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+=======
+        <state relative-caret-position="51">
+          <caret line="3" column="89" lean-forward="false" selection-start-line="3" selection-start-column="89" selection-end-line="3" selection-end-column="89" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Checkitems.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+=======
+        <state relative-caret-position="139">
+          <caret line="154" column="20" lean-forward="false" selection-start-line="154" selection-start-column="19" selection-end-line="154" selection-end-column="20" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/Customers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+=======
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="false" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding>
+            <element signature="e#138#207#0" expanded="false" />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppChecksModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
+=======
+        <state relative-caret-position="204">
+          <caret line="17" column="24" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="24" />
+          <folding>
+            <marker date="1513167037221" expanded="true" signature="351:415" ph="SELECT * FRO... ${$this-&gt;table}" />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+        <state relative-caret-position="282">
+          <caret line="31" column="48" lean-forward="false" selection-start-line="31" selection-start-column="48" selection-end-line="31" selection-end-column="48" />
+          <folding>
+            <marker date="1513176053845" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
+            <marker date="1513176053845" expanded="true" signature="1313:1351" ph="SELECT * FRO... Vendor" />
+          </folding>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="13" column="93" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
+=======
+        <state relative-caret-position="65">
+          <caret line="50" column="29" lean-forward="false" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="234">
+          <caret line="13" column="93" lean-forward="false" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="170">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="54" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
+=======
+        <state relative-caret-position="149">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+          <folding />
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="144">
+          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+=======
+<<<<<<< HEAD
+        <state relative-caret-position="170">
+=======
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.0">
+          <caret line="70" column="19" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="452" column="38" selection-start-line="452" selection-start-column="38" selection-end-line="452" selection-end-column="38" />
+          <folding />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/custom_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2988">
+          <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/language/english/default_lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.3454545">
+          <caret line="480" column="19" selection-start-line="480" selection-start-column="12" selection-end-line="480" selection-end-column="19" />
+          <folding>
+            <marker date="1512958615816" expanded="true" signature="19691:19710" placeholder="Select from list..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/clients/tickets/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="3474">
           <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
         </state>
@@ -574,18 +1674,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1260">
           <caret line="70" column="19" lean-forward="false" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+=======
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/controllers/Knowledge_base.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1116">
           <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/application/views/clients/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.807693">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/pro_kazi.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -604,17 +1716,77 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.8846154">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/controllers/Pre_loader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+=======
+    <entry file="file://$PROJECT_DIR$/application/controllers/Tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-21.038462">
+          <caret line="126" column="0" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35111877">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+=======
+        <state relative-caret-position="374">
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+          <caret line="22" column="25" lean-forward="false" selection-start-line="22" selection-start-column="25" selection-end-line="22" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="70" column="114" lean-forward="false" selection-start-line="70" selection-start-column="105" selection-end-line="70" selection-end-column="114" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Customers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-823">
+          <caret line="30" column="27" lean-forward="false" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+          <folding>
+            <marker date="1513177697221" expanded="true" signature="352:376" ph="SELECT * FRO... Vendor" />
+            <marker date="1513177697221" expanded="true" signature="1295:1333" ph="SELECT * FRO... Vendor" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
+          <folding />
+        </state>
+      </provider>
+    </entry>
+=======
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
   </component>
 </project>

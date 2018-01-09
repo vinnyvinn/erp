@@ -192,6 +192,17 @@ $autoload['model'] = array(
     'Knowledge_base_model',
     'Knowledge_base_ticket_model',
     'TblKnowledgeBaseModel',
-    'TblKnowledgeBaseTypesModel'
-);
+    'TblKnowledgeBaseTypesModel',
+    'Administration_model',
+    'TblCustSuppCheckItemsModel',
+    'TblCustSuppSpecificChecksModel',
+    'TblCustSuppChecksModel',
+    'TblChecklists',
+    'TblChecklistStatus',
+    'TblChecklistTypes',
+    'TblChecklistPerformedOn',
+    'TblChecklistsTasks',
+    'TblChecklistsTasksChecks',
+    'Third_partyusers_model'
 
+);

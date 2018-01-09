@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 07/12/2017 16:24:33
+ Date: 15/12/2017 10:24:22
 */
 
 SET NAMES utf8mb4;
@@ -200,8 +200,8 @@ INSERT INTO `email_templates` VALUES (8, 'ticket_commented', 'Ticket  #{TICKET_I
 INSERT INTO `email_templates` VALUES (9, 'ticket_closed', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', 0);
 INSERT INTO `email_templates` VALUES (10, 'ticket_reopened', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', 1);
 INSERT INTO `email_templates` VALUES (11, 'general_notification', '{EVENT_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', 1);
-INSERT INTO `email_templates` VALUES (12, 'petty_cash', 'Petty Cash', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0);
-INSERT INTO `email_templates` VALUES (13, 'inventory_requisitions', 'Inventory Requisitions', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0);
+INSERT INTO `email_templates` VALUES (12, 'petty_cash', 'Petty Cash', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}. {PETTY_CASH_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}. {PETTY_CASH_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0);
+INSERT INTO `email_templates` VALUES (13, 'inventory_requisitions', 'Inventory Requisitions', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}. {INVENTORY_REQUISITIONS_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}. {INVENTORY_REQUISITIONS_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0);
 INSERT INTO `email_templates` VALUES (14, 'legal_notification', 'Prokazi Cases', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', 0);
 
 -- ----------------------------
@@ -220,7 +220,7 @@ CREATE TABLE `escalation_matrix`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE,
   CONSTRAINT `escalation_matrix_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of escalation_matrix
@@ -231,6 +231,8 @@ INSERT INTO `escalation_matrix` VALUES (3, 'test', '114', '30', NULL, '2017-12-0
 INSERT INTO `escalation_matrix` VALUES (4, 'test', '5', '30', NULL, '2017-12-03 17:19:01', NULL, 0);
 INSERT INTO `escalation_matrix` VALUES (5, 'y', '5', '30', NULL, '2017-12-03 17:19:45', NULL, 0);
 INSERT INTO `escalation_matrix` VALUES (6, 'UberX', '115', '30', NULL, '2017-12-06 08:56:57', NULL, 0);
+INSERT INTO `escalation_matrix` VALUES (7, 'etdty', '136', '30', NULL, '2017-12-11 03:22:06', NULL, 0);
+INSERT INTO `escalation_matrix` VALUES (8, 'ict team', '115,113,135', '45', NULL, '2017-12-11 18:38:12', NULL, 0);
 
 -- ----------------------------
 -- Table structure for estimate_forms
@@ -383,7 +385,7 @@ CREATE TABLE `inventory_requisitions`  (
   `item_id` int(11) NOT NULL,
   `item_name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `item_quantity` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
-  `available_quantity` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `StkItem_id` int(11) NULL DEFAULT NULL,
   `item_cost` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP(0),
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
@@ -391,13 +393,16 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 29 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of inventory_requisitions
 -- ----------------------------
-INSERT INTO `inventory_requisitions` VALUES (22, 113, 2, 'Mouse', '2', '5', '500', '2017-12-07 09:01:51', '2017-12-07 09:01:51', 'Approved', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (23, 113, 2, 'Mouse', '5', '5', '1250', '2017-12-07 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (24, 113, 2, 'Mouse', '20', 2, '750', '2017-12-07 21:53:28', '2017-12-07 21:53:28', 'Approved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (25, 113, 2, 'Mouse', '45', 2, '11250', '2017-12-13 18:06:44', '2017-12-13 18:06:44', 'Disapproved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (26, 113, 2, 'Mouse', '4', 2, '1000', '2017-12-13 18:08:47', '2017-12-13 18:08:47', 'Disapproved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (27, 5, 2, 'Mouse', '34', 2, '8500', '2017-12-13 19:21:12', '2017-12-13 19:21:12', 'Disapproved', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (28, 5, 2, 'Mouse', '4', 2, '1000', '2017-12-15 10:07:44', '2017-12-15 10:07:44', 'Disapproved', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -518,16 +523,15 @@ CREATE TABLE `main_tasks`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `PROJECTS_FK`(`project_id`) USING BTREE,
   CONSTRAINT `PROJECTS_FK` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of main_tasks
 -- ----------------------------
-INSERT INTO `main_tasks` VALUES (3, 'PJG0000', 'main task one', '', 8, 0);
-INSERT INTO `main_tasks` VALUES (4, 'PJG0001', 'main task one', '', 10, 0);
-INSERT INTO `main_tasks` VALUES (6, 'PJG0002', 'y', '', 8, 0);
-INSERT INTO `main_tasks` VALUES (7, '', 'Ticket: employees', '', 11, 0);
-INSERT INTO `main_tasks` VALUES (8, '', 'Ticket: demo ticket 1', '', 11, 0);
+INSERT INTO `main_tasks` VALUES (9, 'SN0000', 'demo main task', 'gfy', 14, 0);
+INSERT INTO `main_tasks` VALUES (10, 'SN0001', 'employees', 'ugyu', 14, 0);
+INSERT INTO `main_tasks` VALUES (11, 'SN0002', 'demo project', 'fd', 15, 0);
+INSERT INTO `main_tasks` VALUES (12, 'SN0003', 'demo main 3', 'fd68', 14, 0);
 
 -- ----------------------------
 -- Table structure for messages
@@ -702,13 +706,16 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 49 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 55 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notifications
 -- ----------------------------
-INSERT INTO `notifications` VALUES (47, 5, '', '2017-12-04 09:41:28', '89', ',89', 'ticket_created', 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-INSERT INTO `notifications` VALUES (48, 5, '', '2017-12-06 07:36:21', '113', ',113', 'ticket_created', 0, 0, 0, 4, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (50, 137, '', '2017-12-11 00:22:33', '', '', 'ticket_created', 0, 0, 0, 5, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (51, 113, '', '2017-12-11 07:17:02', '5', '', 'ticket_created', 0, 0, 0, 6, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (52, 5, '', '2017-12-11 15:35:08', '115', '', 'ticket_created', 0, 0, 0, 7, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (53, 5, '', '2017-12-13 16:32:07', '113', '', 'ticket_created', 0, 0, 0, 8, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (54, 5, '', '2017-12-15 07:09:23', '113', '', 'ticket_created', 0, 0, 0, 9, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for payment_methods
@@ -767,14 +774,17 @@ CREATE TABLE `petty_cash`  (
   PRIMARY KEY (`id`, `sage_project_id`) USING BTREE,
   INDEX `type_id`(`type_id`) USING BTREE,
   CONSTRAINT `petty_cash_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `petty_cash_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 13 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of petty_cash
 -- ----------------------------
-INSERT INTO `petty_cash` VALUES (10, 5, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-06 00:32:50', 'Disapproved', 0);
+INSERT INTO `petty_cash` VALUES (10, 113, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-15 10:06:11', 'Approved', 0);
 INSERT INTO `petty_cash` VALUES (11, 113, 7, 'Transport', '232refew', '1243', 21, '01 : Petty Cash', '2017-12-04', '2017-12-06 11:31:45', 'Disapproved', 0);
-INSERT INTO `petty_cash` VALUES (12, 5, 7, 'Transport', 'fgdgfdgfdg', '12121', 22, '00056 : inventory', '2017-12-05', NULL, 'Pending', 0);
+INSERT INTO `petty_cash` VALUES (12, 113, 7, 'Transport', 'fgdgfdgfdg', '12121', 22, '00056 : inventory', '2017-12-05', '2017-12-13 19:36:22', 'Approved', 0);
+INSERT INTO `petty_cash` VALUES (13, 113, 5, 'demo', 'jhggfjgfj', '465', 12, 'PJG0008 : project one', '2017-12-13', '2017-12-13 20:09:11', 'Approved', 0);
+INSERT INTO `petty_cash` VALUES (14, 5, 5, 'demo', '434343', '4', 12, 'PJG0008 : project one', '2017-12-14', NULL, 'Pending', 0);
+INSERT INTO `petty_cash` VALUES (15, 5, 5, 'demo', 'vsfdvfds', '32', 16, 'PJG0010 : project two', '2017-12-15', NULL, 'Pending', 0);
 
 -- ----------------------------
 -- Table structure for petty_cash_types
@@ -788,7 +798,7 @@ CREATE TABLE `petty_cash_types`  (
   `update_date` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of petty_cash_types
@@ -799,6 +809,7 @@ INSERT INTO `petty_cash_types` VALUES (7, 'Transport', 5, '2017-12-04 00:00:00',
 INSERT INTO `petty_cash_types` VALUES (8, 'phone bill', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:19', 0);
 INSERT INTO `petty_cash_types` VALUES (9, ' vcbb', 5, '2017-12-04 00:00:00', '2017-12-04 20:32:24', 0);
 INSERT INTO `petty_cash_types` VALUES (10, '3432432', 5, '2017-12-05 00:00:00', NULL, 0);
+INSERT INTO `petty_cash_types` VALUES (11, 'demo petty', 5, '2017-12-15 00:00:00', NULL, 0);
 
 -- ----------------------------
 -- Table structure for posts
@@ -833,14 +844,7 @@ CREATE TABLE `project_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of project_comments
--- ----------------------------
-INSERT INTO `project_comments` VALUES (14, 30, '2017-10-28 15:51:23', 'come on now', 14, 0, 38, 0, 0, 'a:0:{}', 0);
-INSERT INTO `project_comments` VALUES (15, 30, '2017-11-01 08:04:28', 'am 80% done', 14, 0, 0, 0, 14, 'a:0:{}', 0);
-INSERT INTO `project_comments` VALUES (16, 5, '2017-11-01 08:05:31', 'Hi contractor', 14, 0, 0, 0, 0, 'a:0:{}', 0);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for project_files
@@ -869,17 +873,12 @@ CREATE TABLE `project_members`  (
   `is_leader` tinyint(1) NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 41 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 42 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of project_members
 -- ----------------------------
-INSERT INTO `project_members` VALUES (35, 5, 8, 1, 0);
-INSERT INTO `project_members` VALUES (36, 5, 9, 1, 0);
-INSERT INTO `project_members` VALUES (37, 89, 8, 0, 0);
-INSERT INTO `project_members` VALUES (38, 5, 10, 1, 0);
-INSERT INTO `project_members` VALUES (39, 89, 10, 0, 0);
-INSERT INTO `project_members` VALUES (40, 5, 11, 1, 0);
+INSERT INTO `project_members` VALUES (41, 5, 14, 1, 0);
 
 -- ----------------------------
 -- Table structure for project_time
@@ -913,15 +912,13 @@ CREATE TABLE `projects`  (
   `price` double NOT NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of projects
 -- ----------------------------
-INSERT INTO `projects` VALUES (8, 'project one', '', '2017-11-09', '2017-11-17', 30, '2017-11-09', 'open', '', 20000, 0);
-INSERT INTO `projects` VALUES (9, 'project two', '', '2017-11-09', '2017-11-16', 30, '2017-11-09', 'open', '', 20000, 1);
-INSERT INTO `projects` VALUES (10, 'project two', '', '2017-11-14', '2017-11-22', 30, '2017-11-14', 'open', '', 20000, 0);
-INSERT INTO `projects` VALUES (11, 'project 3', 'fdgdgdsg', '2017-12-04', '2017-12-28', 30, '2017-12-04', 'open', 'rewrw', 5435, 0);
+INSERT INTO `projects` VALUES (14, 'demo project one', 'demo', '2017-12-11', '2017-12-27', 30, '2017-12-10', 'open', 'high', 5435, 0);
+INSERT INTO `projects` VALUES (15, 'demo project two', 'demo', '2017-12-11', '2017-12-27', 30, '2017-12-10', 'open', 'high', 5435, 0);
 
 -- ----------------------------
 -- Table structure for roles
@@ -986,17 +983,17 @@ INSERT INTO `settings` VALUES ('currency_symbol', 'Ksh', 0);
 INSERT INTO `settings` VALUES ('date_format', 'd/m/Y', 0);
 INSERT INTO `settings` VALUES ('decimal_separator', '.', 0);
 INSERT INTO `settings` VALUES ('default_currency', 'KES', 0);
-INSERT INTO `settings` VALUES ('disable_client_login', '', 0);
-INSERT INTO `settings` VALUES ('disable_client_signup', '', 0);
+INSERT INTO `settings` VALUES ('disable_client_login', '1', 0);
+INSERT INTO `settings` VALUES ('disable_client_signup', '1', 0);
 INSERT INTO `settings` VALUES ('email_protocol', 'smtp', 0);
-INSERT INTO `settings` VALUES ('email_sent_from_address', 'm.wagura@wizag.biz', 0);
+INSERT INTO `settings` VALUES ('email_sent_from_address', 'wagura465@gmail.com', 0);
 INSERT INTO `settings` VALUES ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0);
-INSERT INTO `settings` VALUES ('email_smtp_host', 'wizag.biz', 0);
-INSERT INTO `settings` VALUES ('email_smtp_pass', 'Qwerty123!', 0);
-INSERT INTO `settings` VALUES ('email_smtp_port', '587', 0);
-INSERT INTO `settings` VALUES ('email_smtp_security_type', 'tls', 0);
-INSERT INTO `settings` VALUES ('email_smtp_user', 't.development@wizag.biz', 0);
-INSERT INTO `settings` VALUES ('escalation_duration', '30', 0);
+INSERT INTO `settings` VALUES ('email_smtp_host', 'in.mailjet.com', 0);
+INSERT INTO `settings` VALUES ('email_smtp_pass', '8b49011a29bba60a1e89774b6aa01a95', 0);
+INSERT INTO `settings` VALUES ('email_smtp_port', '465', 0);
+INSERT INTO `settings` VALUES ('email_smtp_security_type', 'ssl', 0);
+INSERT INTO `settings` VALUES ('email_smtp_user', 'ac746108f48ffb16045549bb3fbab8d9', 0);
+INSERT INTO `settings` VALUES ('escalation_duration', '45', 0);
 INSERT INTO `settings` VALUES ('escalation_via_email', '1', 0);
 INSERT INTO `settings` VALUES ('escalation_via_sms', '1', 0);
 INSERT INTO `settings` VALUES ('first_day_of_week', '0', 0);
@@ -1008,6 +1005,7 @@ INSERT INTO `settings` VALUES ('language', 'english', 0);
 INSERT INTO `settings` VALUES ('module_admin', '1', 0);
 INSERT INTO `settings` VALUES ('module_announcement', '1', 0);
 INSERT INTO `settings` VALUES ('module_attendance', '1', 0);
+INSERT INTO `settings` VALUES ('module_clients', '0', 0);
 INSERT INTO `settings` VALUES ('module_escalation_matrix', '1', 0);
 INSERT INTO `settings` VALUES ('module_estimate', '1', 0);
 INSERT INTO `settings` VALUES ('module_estimate_request', '1', 0);
@@ -1090,19 +1088,7 @@ CREATE TABLE `tasks`  (
   `priority` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of tasks
--- ----------------------------
-INSERT INTO `tasks` VALUES (3, 'PJG0000-8', 'sub task 0001', 'pen drive', 8, 3, NULL, 0, 5, '2017-11-21', '', 0, 1, 'to_do - 0%', 0, '2017-11-09', '', 0, 'Normal', '2017-11-09 10:06:00');
-INSERT INTO `tasks` VALUES (4, 'PJG0000-8', 'trhgt', 'demo now', 8, 3, NULL, 0, 5, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:06:19');
-INSERT INTO `tasks` VALUES (5, 'PJG0000-8', 'project task', '', 8, 3, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 09:31:51');
-INSERT INTO `tasks` VALUES (6, 'PJG0001-10', 'project two sub task one', '', 10, 4, NULL, 0, 5, '2017-11-15', '', 0, 1, 'to_do - 0%', 0, '2017-11-14', '', 0, 'Normal', '2017-11-14 09:52:38');
-INSERT INTO `tasks` VALUES (7, 'SN0014', 'demo', 'testing', 10, 4, NULL, 0, 5, '2012-12-12', 'desig, penart', 23, 1, 'to_do - 0%', 0, '2009-12-01', '5', 0, 'Normal', '2017-11-28 18:02:48');
-INSERT INTO `tasks` VALUES (8, 'PJG0001-10', 'time', '', 10, 4, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '5', 0, 'Normal', '2017-11-30 09:07:19');
-INSERT INTO `tasks` VALUES (9, '', 'demo bug', '', 11, 7, 3, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-06', '', 0, 'High', '2017-12-06 12:11:30');
-INSERT INTO `tasks` VALUES (10, '', 'hgfghgfhgf', '', 11, 8, 4, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-07', '', 0, 'High', '2017-12-07 10:41:30');
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for taxes
@@ -1194,6 +1180,217 @@ INSERT INTO `tbl_cases` VALUES (5, 'new case', 1, 0, 0, 'new case here', 1, 'bdy
 INSERT INTO `tbl_cases` VALUES (6, 'demo case', 0, 0, 23, 'demo case', 1, NULL);
 
 -- ----------------------------
+-- Table structure for tbl_checklist_performed_on
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_performed_on`;
+CREATE TABLE `tbl_checklist_performed_on`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_performed_on
+-- ----------------------------
+INSERT INTO `tbl_checklist_performed_on` VALUES (1, 'ICT', 0);
+INSERT INTO `tbl_checklist_performed_on` VALUES (2, 'Maintenance', 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_status
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_status`;
+CREATE TABLE `tbl_checklist_status`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_status
+-- ----------------------------
+INSERT INTO `tbl_checklist_status` VALUES (1, 'Submitted', 0);
+INSERT INTO `tbl_checklist_status` VALUES (2, 'Escalated', 0);
+INSERT INTO `tbl_checklist_status` VALUES (3, 'Closed', 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_task_checks
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_task_checks`;
+CREATE TABLE `tbl_checklist_task_checks`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `check_item` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '1 passed 0 failed',
+  `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `checklist_task` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_task_checks
+-- ----------------------------
+INSERT INTO `tbl_checklist_task_checks` VALUES (7, 8, 1, NULL, 7);
+INSERT INTO `tbl_checklist_task_checks` VALUES (8, 9, 0, 'ksdkmsdk', 7);
+INSERT INTO `tbl_checklist_task_checks` VALUES (9, 8, 1, '', 8);
+INSERT INTO `tbl_checklist_task_checks` VALUES (10, 9, 0, '', 8);
+INSERT INTO `tbl_checklist_task_checks` VALUES (11, 8, 1, '', 9);
+INSERT INTO `tbl_checklist_task_checks` VALUES (12, 9, 1, '', 9);
+INSERT INTO `tbl_checklist_task_checks` VALUES (13, 8, 1, '', 10);
+INSERT INTO `tbl_checklist_task_checks` VALUES (14, 9, 0, '', 10);
+INSERT INTO `tbl_checklist_task_checks` VALUES (15, 8, 1, '', 11);
+INSERT INTO `tbl_checklist_task_checks` VALUES (16, 9, 1, '', 11);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_tasks
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_tasks`;
+CREATE TABLE `tbl_checklist_tasks`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ref_no` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `performed_by` int(11) NOT NULL,
+  `performed_on` date NOT NULL,
+  `escalate_to` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_tasks
+-- ----------------------------
+INSERT INTO `tbl_checklist_tasks` VALUES (7, '1513304821', 2, 5, '2017-12-15', 114, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (8, '1513316522', 2, 5, '2017-12-15', 113, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (9, '1513318031', 1, 5, '2017-12-15', 0, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (10, '1513318081', 2, 5, '2017-12-15', 114, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (11, '1513318093', 1, 5, '2017-12-15', 0, 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklist_types
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklist_types`;
+CREATE TABLE `tbl_checklist_types`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` varchar(20) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklist_types
+-- ----------------------------
+INSERT INTO `tbl_checklist_types` VALUES (1, 'Daily', 0);
+INSERT INTO `tbl_checklist_types` VALUES (2, 'Weekly', 1);
+INSERT INTO `tbl_checklist_types` VALUES (3, 'Monthly', 0);
+
+-- ----------------------------
+-- Table structure for tbl_checklists
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_checklists`;
+CREATE TABLE `tbl_checklists`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL,
+  `performed_on` int(11) NOT NULL,
+  `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_checklists
+-- ----------------------------
+INSERT INTO `tbl_checklists` VALUES (7, 'sddssd', 1, 1, 'sddssd');
+INSERT INTO `tbl_checklists` VALUES (8, 'Check ICT router', 0, 1, 'The router should be good');
+INSERT INTO `tbl_checklists` VALUES (9, 'new order here', 0, 2, 'ddfdf');
+
+-- ----------------------------
+-- Table structure for tbl_cust_supp_checkitems
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_cust_supp_checkitems`;
+CREATE TABLE `tbl_cust_supp_checkitems`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  `performed_on` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL COMMENT '1 customer and 2 suppliers',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 26 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_cust_supp_checkitems
+-- ----------------------------
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (21, 'Kra Pin', 0, '1,2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (22, 'Account opening form', 0, '1,2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (23, 'New item', 1, '1,');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (24, 'National Identity', 1, '1,2');
+INSERT INTO `tbl_cust_supp_checkitems` VALUES (25, 'First item', 1, '');
+
+-- ----------------------------
+-- Table structure for tbl_cust_supp_status
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_cust_supp_status`;
+CREATE TABLE `tbl_cust_supp_status`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `status` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_cust_supp_status
+-- ----------------------------
+INSERT INTO `tbl_cust_supp_status` VALUES (1, 'Submitted');
+INSERT INTO `tbl_cust_supp_status` VALUES (2, 'Partially Submitted');
+
+-- ----------------------------
+-- Table structure for tbl_cust_supplier_checks
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_cust_supplier_checks`;
+CREATE TABLE `tbl_cust_supplier_checks`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `type` int(11) NOT NULL COMMENT '1 customer, 2 supplier',
+  `cust_supp_id` int(11) NOT NULL,
+  `checked_on` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 for subitted 1 for partially',
+  `checked_by` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE,
+  INDEX `status`(`status`) USING BTREE,
+  INDEX `cust_supp_id`(`cust_supp_id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 36 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_cust_supplier_checks
+-- ----------------------------
+INSERT INTO `tbl_cust_supplier_checks` VALUES (33, 2, 1, 2017, 0, 5, 0);
+INSERT INTO `tbl_cust_supplier_checks` VALUES (34, 1, 16, 2017, 0, 5, 0);
+INSERT INTO `tbl_cust_supplier_checks` VALUES (35, 1, 17, 2017, 1, 5, 0);
+
+-- ----------------------------
+-- Table structure for tbl_cust_supplier_specific_checks
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_cust_supplier_specific_checks`;
+CREATE TABLE `tbl_cust_supplier_specific_checks`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `check_item` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 for subitted 1 for partially',
+  `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `expiry_date` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `customer_id` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 411 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_cust_supplier_specific_checks
+-- ----------------------------
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (382, 24, 0, '', '', 32, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (404, 21, 1, '', '', 35, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (405, 22, 1, '', '', 35, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (407, 21, 0, '', '', 33, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (408, 22, 0, NULL, '', 33, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (409, 21, 0, 'New comment here', '2017-12-04', 34, 0);
+INSERT INTO `tbl_cust_supplier_specific_checks` VALUES (410, 22, 0, '', '2017-12-11', 34, 0);
+
+-- ----------------------------
 -- Table structure for tbl_doc_escalation_n_reminders
 -- ----------------------------
 DROP TABLE IF EXISTS `tbl_doc_escalation_n_reminders`;
@@ -1217,12 +1414,13 @@ CREATE TABLE `tbl_doc_escalation_n_reminders`  (
   CONSTRAINT `fk_esc_rem_esc_to` FOREIGN KEY (`reminder_to`) REFERENCES `team` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_esc_rem_rem_every` FOREIGN KEY (`reminder_every`) REFERENCES `tbl_time_durations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_esc_rem_reminder_for` FOREIGN KEY (`reminder_for`) REFERENCES `tbl_time_durations` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_doc_escalation_n_reminders
 -- ----------------------------
 INSERT INTO `tbl_doc_escalation_n_reminders` VALUES (1, 'test reminder', 3, 1, 3, 2, 3, 0);
+INSERT INTO `tbl_doc_escalation_n_reminders` VALUES (2, 'Weekly reminder', 3, 2, 2, 2, 2, 0);
 
 -- ----------------------------
 -- Table structure for tbl_escalation_matrix
@@ -1278,10 +1476,7 @@ CREATE TABLE `tbl_knowledge_base_ticket`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `ticket_id`(`ticket_id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE,
-  INDEX `solution_id`(`solution_id`) USING BTREE,
-  CONSTRAINT `tbl_knowledge_base_ticket_ibfk_2` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `tbl_knowledge_base_ticket_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `tbl_knowledge_base_ticket_ibfk_4` FOREIGN KEY (`solution_id`) REFERENCES `tbl_knowledge_base` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+  INDEX `solution_id`(`solution_id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
@@ -1369,15 +1564,14 @@ CREATE TABLE `tbl_legal_documents`  (
   `updated_at` timestamp(0) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_doc_type`(`document_type`) USING BTREE,
-  INDEX `fk_status`(`status`) USING BTREE,
-  CONSTRAINT `fk_doc_type` FOREIGN KEY (`document_type`) REFERENCES `tbl_legal_document_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  CONSTRAINT `fk_status` FOREIGN KEY (`status`) REFERENCES `tbl_case_status` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+  INDEX `fk_status`(`status`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_legal_documents
 -- ----------------------------
 INSERT INTO `tbl_legal_documents` VALUES (2, 'New s', 2, 'a:0:{}', 89, 1, '2017-12-05', '2017-12-13', 0, 0, 0, 0, '2017-12-05 10:09:31', '0000-00-00 00:00:00');
+INSERT INTO `tbl_legal_documents` VALUES (3, 'terest', 2, 'a:0:{}', 115, 1, '2017-12-15', '2017-12-22', 0, 0, 0, 0, '2017-12-14 15:28:42', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for tbl_migartions
@@ -1391,6 +1585,27 @@ CREATE TABLE `tbl_migartions`  (
 -- Records of tbl_migartions
 -- ----------------------------
 INSERT INTO `tbl_migartions` VALUES (4);
+
+-- ----------------------------
+-- Table structure for tbl_third_party
+-- ----------------------------
+DROP TABLE IF EXISTS `tbl_third_party`;
+CREATE TABLE `tbl_third_party`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `phone` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `deleted` tinyint(1) NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_third_party
+-- ----------------------------
+INSERT INTO `tbl_third_party` VALUES (4, 'demo', '0700000000', 'admin@teamkazi.com', '2017-12-15 10:12:46', NULL, 0);
+INSERT INTO `tbl_third_party` VALUES (5, 'montanabay39', '4131523', 'gfdgfd@gf.com', '2017-12-15 10:19:30', NULL, 0);
 
 -- ----------------------------
 -- Table structure for tbl_time_durations
@@ -1444,7 +1659,7 @@ CREATE TABLE `team_member_job_info`  (
   `salary_term` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 30 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 38 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of team_member_job_info
@@ -1464,6 +1679,38 @@ INSERT INTO `team_member_job_info` VALUES (26, 125, '0000-00-00', 0, 0, 0, 0, ''
 INSERT INTO `team_member_job_info` VALUES (27, 126, '0000-00-00', 0, 0, 0, 0, '');
 INSERT INTO `team_member_job_info` VALUES (28, 127, '0000-00-00', 0, 0, 0, 0, '');
 INSERT INTO `team_member_job_info` VALUES (29, 128, '0000-00-00', 0, 0, 0, 0, '');
+INSERT INTO `team_member_job_info` VALUES (30, 129, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (31, 130, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (32, 131, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (33, 132, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (34, 133, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (35, 134, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (36, 135, '2014-06-19', 0, 0, 0, 0, 'Uknown');
+INSERT INTO `team_member_job_info` VALUES (37, 136, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+
+-- ----------------------------
+-- Table structure for third_party_messages
+-- ----------------------------
+DROP TABLE IF EXISTS `third_party_messages`;
+CREATE TABLE `third_party_messages`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `message` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `third_p_id` int(100) NOT NULL,
+  `sender_id` int(100) NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of third_party_messages
+-- ----------------------------
+INSERT INTO `third_party_messages` VALUES (1, 'efrr', 1, 5, '2017-12-14 17:19:44', NULL);
+INSERT INTO `third_party_messages` VALUES (2, 'dsdsff', 1, 5, '2017-12-15 08:47:59', NULL);
+INSERT INTO `third_party_messages` VALUES (3, 'fvf', 1, 5, '2017-12-15 09:00:09', NULL);
+INSERT INTO `third_party_messages` VALUES (4, 'fedgfdwfvds', 1, 5, '2017-12-15 10:11:39', NULL);
+INSERT INTO `third_party_messages` VALUES (5, 'csfs ds da', 1, 5, '2017-12-15 10:19:42', NULL);
+INSERT INTO `third_party_messages` VALUES (6, 'vxnvxn', 1, 5, '2017-12-15 10:21:44', NULL);
 
 -- ----------------------------
 -- Table structure for ticket_comments
@@ -1478,7 +1725,7 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 24 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 31 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_comments
@@ -1489,6 +1736,13 @@ INSERT INTO `ticket_comments` VALUES (20, 5, '2017-12-04 09:11:20', 'gsgfdgfdgfd
 INSERT INTO `ticket_comments` VALUES (21, 5, '2017-12-04 09:41:28', 'fd xcfd', 2, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (22, 5, '2017-12-06 07:36:20', 'TRFHGFHGFHNGFJNHGFN', 4, 'a:0:{}', 0);
 INSERT INTO `ticket_comments` VALUES (23, 113, '2017-12-07 06:39:26', 'bvvcbvcxbvcxbvcxbvcx', 4, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (24, 137, '2017-12-11 00:22:33', 'fiy', 5, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (25, 113, '2017-12-11 07:17:02', 'gfdsbsfd', 6, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (26, 5, '2017-12-11 15:35:08', ' bvbmnghnghn', 7, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (27, 5, '2017-12-11 15:40:26', 'm,ghm', 7, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (28, 5, '2017-12-13 16:32:07', 'safgdagdsf', 8, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (29, 5, '2017-12-13 16:32:28', '8itu0[u9o', 8, 'a:0:{}', 0);
+INSERT INTO `ticket_comments` VALUES (30, 5, '2017-12-15 07:09:22', ' cxvcvcx vcx ', 9, 'a:0:{}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -1499,13 +1753,15 @@ CREATE TABLE `ticket_types`  (
   `title` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_types
 -- ----------------------------
-INSERT INTO `ticket_types` VALUES (1, 'General Support', 0);
-INSERT INTO `ticket_types` VALUES (2, 'concrete preparation', 0);
+INSERT INTO `ticket_types` VALUES (1, 'System', 0);
+INSERT INTO `ticket_types` VALUES (2, 'Email', 0);
+INSERT INTO `ticket_types` VALUES (3, 'Call', 0);
+INSERT INTO `ticket_types` VALUES (5, 'gftrvr', 0);
 
 -- ----------------------------
 -- Table structure for tickets
@@ -1526,14 +1782,16 @@ CREATE TABLE `tickets`  (
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tickets
 -- ----------------------------
-INSERT INTO `tickets` VALUES (2, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 89, 0, 'high', 0);
-INSERT INTO `tickets` VALUES (3, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'open', '2017-12-04 09:41:28', 113, 0, 'high', 0);
-INSERT INTO `tickets` VALUES (4, 11, '', 1, 'demo ticket 1', 5, '2017-12-06 07:36:20', 'open', '2017-12-07 06:39:26', 113, 0, '', 0);
+INSERT INTO `tickets` VALUES (5, 14, 'ufifuii', 1, 'ety', 137, '2017-12-11 00:22:33', 'new', '2017-12-11 00:22:33', 0, 2, NULL, 0);
+INSERT INTO `tickets` VALUES (6, 14, ' fdfd', 1, 'employees', 113, '2017-12-11 07:17:02', 'closed', '2017-12-11 07:17:02', 5, 7, '', 0);
+INSERT INTO `tickets` VALUES (7, 15, '', 2, 'trytery', 5, '2017-12-11 15:35:08', 'closed', '2017-12-11 15:40:26', 115, 6, 'hgfgfh', 0);
+INSERT INTO `tickets` VALUES (8, 14, '', 2, 'employees', 5, '2017-12-13 16:32:07', 'open', '2017-12-13 16:32:28', 113, 1, 'hgfgfh', 0);
+INSERT INTO `tickets` VALUES (9, 14, '', 1, 'ertgter', 5, '2017-12-15 07:09:22', 'new', '2017-12-15 07:09:22', 113, 0, '', 0);
 
 -- ----------------------------
 -- Table structure for users
@@ -1576,18 +1834,16 @@ CREATE TABLE `users`  (
   INDEX `email`(`email`) USING BTREE,
   INDEX `client_id`(`client_id`) USING BTREE,
   INDEX `deleted`(`deleted`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 129 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 138 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-07 10:07:48', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
-INSERT INTO `users` VALUES (89, 'John', 'Doe', 'staff', 0, 1, 'john@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-12-04 09:23:16', 0, '2017-12-04 09:43:40', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0);
-INSERT INTO `users` VALUES (113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura465@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-06 07:40:26', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
-INSERT INTO `users` VALUES (114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'constant@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-13 16:31:14', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
+INSERT INTO `users` VALUES (113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-10 21:15:28', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
 INSERT INTO `users` VALUES (115, 'BETT', 'SAGE', 'staff', 0, 1, 'bethuel@tikone.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sage Expert', 0, NULL, '', NULL, '0720088045', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 12:44:52', 0);
-INSERT INTO `users` VALUES (126, 'ter', 'trre', 'staff', 0, 0, 'admin@teamkazi.co8', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'grtg', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 14:38:17', 0);
-INSERT INTO `users` VALUES (127, 'ttertert', 'tertert', 'staff', 0, 0, 'admin@teamkazi.coy', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'tertert', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 14:51:13', 0);
-INSERT INTO `users` VALUES (128, 'hd', 'gfdg', 'staff', 0, 0, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'dgfgfd', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 15:01:20', 0);
+INSERT INTO `users` VALUES (135, 'SILVESTER', 'GACHIGO', 'staff', 0, 1, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (136, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0);
+INSERT INTO `users` VALUES (137, 'info', 'tex', 'client', 0, 0, 'ict@infotex.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 30, '0000-00-00 00:00:00', 1, 'director', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, '', 1, 1, '/dashboard', '2017-12-11 00:13:41', 0);
 
 SET FOREIGN_KEY_CHECKS = 1;

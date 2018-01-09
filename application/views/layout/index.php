@@ -1,8 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php $this->load->view('includes/head'); ?>
-    <script src="https://unpkg.com/vue"></script>
+<<<<<<< HEAD
     <body >
+=======
+    <body>
+    <div>
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         <?php $this->load->view('includes/topbar'); ?>
         <div id="content" class="box">
             <?php $this->load->view('includes/left_menu'); ?>
@@ -37,7 +41,11 @@
                 ?>
             </script>
         </div>
-        <script src="https://unpkg.com/vue"></script>
-        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.4"></script>
+
+<<<<<<< HEAD
+=======
+    </div>
+
+>>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
     </body>
 </html>

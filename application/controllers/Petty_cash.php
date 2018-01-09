@@ -46,13 +46,24 @@ class Petty_cash extends Pre_loader {
         if ($this->login_user->is_admin) {
             $optoins = NULL;
             $optoins .= anchor(get_uri("petty_cash/approve/" . $data->id), "<i class='fa fa-check'></i>");
-            $optoins .= anchor(get_uri("petty_cash/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
+            $optoins .= modal_anchor(get_uri("petty_cash/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Petty Cash Disapproval", "data-post-id" => $data->id));
+            // $optoins .= anchor(get_uri("petty_cash/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
         } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
             $optoins = NULL;
         }
 
         return array($data->id, $title, number_format($data->amount,2), $data->sage_project, date("dS M Y",strtotime($data->created_at)), $status, $optoins);
     }
+
+    public function modal_disapprove() {
+
+        $id = $this->input->post('id');
+
+        $view_data['_id'] = $this->input->post('id');
+
+        $this->load->view('petty_cash/modal_disapprove', $view_data);
+    }
+
 
     public function view_modal() {
 
@@ -109,17 +120,16 @@ class Petty_cash extends Pre_loader {
         }
     }
 
-    public function disapprove($id = 0) {
+    public function disapprove() {
 
-        if (!$id) {
-            return;
-        }
+        $id = $this->input->post('_id');
+        $_reason = "Because of : " . $this->input->post('disapproval_comment');
 
         $data = ["status" => "Disapproved"];
 
         if($this->Petty_cash_model->update_where($data, array("id" => $id, "deleted" => 0))) {
 
-            if ($this->SAGE_DB()->get_where('_btblCbBatchLines', ["TK_ID" => $id])->result()) {
+            /*if ($this->SAGE_DB()->get_where('_btblCbBatchLines', ["TK_ID" => $id])->result()) {
                 $accQuery = $this->SAGE_DB()->get_where('Accounts', ["AccountLink" => get_setting('sage_petty_cash_account_id')])->result();
 
                 $sage_data = array(
@@ -127,23 +137,23 @@ class Petty_cash extends Pre_loader {
                 );
 
                 $this->SAGE_DB()->delete('_btblCbBatchLines', $sage_data);
-            }
+            }*/
             
-            $this->mail_status($id);
-            // echo json_encode(array("success" => true, 'message' => lang('record_saved')));
-            $this->template->rander("petty_cash/index");
+            $this->mail_status($id, $_reason);
+            echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+            // $this->template->rander("petty_cash/index");
         } else {
             // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
             $this->template->rander("petty_cash/index");
         }
     }
 
-    public function mail_status($id) {
+    public function mail_status($id, $_reason = NULL) {
 
         $variables = $this->db->query("SELECT petty_cash.id, petty_cash_types.name_type, users.`status`, petty_cash.amount, petty_cash.description, users.first_name, users.last_name, users.email, petty_cash.created_at, petty_cash.status FROM petty_cash INNER JOIN users ON petty_cash.user_id = users.id INNER JOIN petty_cash_types ON petty_cash.type_id = petty_cash_types.id WHERE petty_cash.id = " . $id)->result();
 
         foreach ($variables as $key => $value) {
-           $data = ["petty_cash_id" => $id, "petty_cash_name" => $value->name_type, "first_name" => $value->first_name, "last_name" => $value->last_name, "petty_cash_amount" => $value->amount,"petty_cash_date" => date("dS M Y",strtotime($value->created_at)), "petty_cash_status" => $value->status, "send_to" => $value->email];
+           $data = ["petty_cash_id" => $id, "petty_cash_name" => $value->name_type, "first_name" => $value->first_name, "last_name" => $value->last_name, "petty_cash_amount" => $value->amount,"petty_cash_date" => date("dS M Y",strtotime($value->created_at)), "petty_cash_status" => $value->status, "send_to" => $value->email, "_reason" => $_reason];
 
            $this->_Mailler($data);
         }
@@ -161,6 +171,7 @@ class Petty_cash extends Pre_loader {
         $parser_data["PETTY_CASH_AMOUNT"] = $data['petty_cash_amount'];
         $parser_data["PETTY_CASH_REQUEST_DATE"] = $data['petty_cash_date'];
         $parser_data["PETTY_CASH_STATUS"] = $data['petty_cash_status'];
+        $parser_data["PETTY_CASH_COMMENT"] = $data['_reason'];
         $parser_data["SIGNATURE"] = $email_template->signature;
 
         $message = $this->parser->parse_string($email_template->message, $parser_data, true);
@@ -193,16 +204,16 @@ class Petty_cash extends Pre_loader {
     function modal_form_types() {
 
         //prepare assign to list
-        $assigned_to_dropdown = array("" => "-") + $this->Users_model
+        $assign_to_dropdown = array("" => "-") + $this->Users_model
                 ->get_dropdown_list(
                     ["first_name", "last_name"],
                     "id",
                     ['status' => 'active', "deleted" => 0, "user_type" => "staff",  "is_admin" => 1]
                 );
 
-        asort($assigned_to_dropdown, SORT_STRING);
+        asort($assign_to_dropdown, SORT_STRING);
 
-        $view_data['assigned_to_dropdown'] = $assigned_to_dropdown;
+        $view_data['assign_to_dropdown'] = $assign_to_dropdown;
 
         $this->load->view('petty_cash/modal_form_types', $view_data);
     }

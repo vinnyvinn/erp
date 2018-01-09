@@ -3,10 +3,10 @@
         <div class="page-title clearfix">
             <h1><?php echo lang('ticket') . ": #" . $ticket_info->id . " - " . $ticket_info->title ?></h1>
             <div class="title-button-group p10">
-
+                            
                 <span class="dropdown inline-block">
                     <button class="btn btn-default dropdown-toggle  mt0 mb0" type="button" data-toggle="dropdown" aria-expanded="true">
-                        <i class='fa fa-cogs'></i> <?php echo lang('actions'); ?>
+                        <i class='fa fa-cogs'></i> <?php echo lang('actions');?>
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu pull-right" role="menu">
@@ -19,17 +19,31 @@
                                 ?>
                             </li>
                         <?php } ?>
-                        <?php if ($ticket_info->status === "closed") { ?>
+                        <?php if ($ticket_info->status === "closed" ) { ?>
                             <li role="presentation"><?php echo ajax_anchor(get_uri("tickets/save_ticket_status/$ticket_info->id/open"), "<i class='fa fa-check-circle'></i> " . lang('mark_as_open'), array("class" => "", "title" => lang('mark_as_open'), "data-reload-on-success" => "1")); ?> </li>
                         <?php } else { ?>
                             <li role="presentation">
                                 <?php
-                                echo modal_anchor(get_uri("tickets/observation_modal"), "<i class='fa fa-eye'></i> Add Issues", array( "title" => lang('Add observations noted'), "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+                                echo modal_anchor(get_uri("tickets/third_partyusers_modal_form"), "<i class='fa fa-stack-overflow'></i> Add to Third Party", array( "title" => "Add to Third Party", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+
+                                //echo modal_anchor(get_uri("tickets/observation_modal"), "<i class='fa fa-eye'></i> Add Issues", array( "title" => lang('Add observations noted'), "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+                                if($assgn_status==1){
                                 echo modal_anchor(get_uri("tickets/knowledge_base_modal_form"), "<i class='fa fa-stethoscope'></i> Add knowledge base", array( "title" => "Add knowledge base", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+                                 }
+                                 echo modal_anchor(get_uri("tickets/ticket_solved_email"), "<i class='fa fa-stack-exchange'></i> Mark as done", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+
+                                  echo modal_anchor(get_uri("tickets/mark_solved_modal"), "<i class='fa fa-stack-exchange'></i> Mark as Solved", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+
                                 ?>
+
                             </li>
-                            <li role="presentation"><?php echo ajax_anchor(get_uri("tickets/save_ticket_status/$ticket_info->id/closed"), "<i class='fa fa-check-circle'></i> " . lang('mark_as_closed'), array("class" => "", "title" => lang('mark_project_as_open'), "data-reload-on-success" => "1")); ?> </li>
-                        <?php } ?>
+
+
+                            <?php if($status==1) {?>
+
+                              <li role="presentation"><?php echo modal_anchor(get_uri("ticket_types/model_comment"), "<i class='fa fa-check-circle'></i> " . lang('mark_as_closed'), array("class" => "", "title" => 'Add Comment Before Closing', "data-reload-on-success" => "1")); ?> </li>
+
+                        <?php }} ?>
                     </ul>
                 </span>
             </div>

@@ -5,14 +5,14 @@
             <div class="title-button-group">
                 <?php
                 if ($this->login_user->is_admin) {
-                    // echo modal_anchor(get_uri("tickets/type_modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Ticket Types", array("class" => "btn btn-default", "title" => "Add Ticket Types"));
-                    echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "title" => lang('add_ticket')));
+                    echo modal_anchor(get_uri("ticket_types/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Ticket Types", array("class" => "btn btn-default", "title" => "Add Ticket Types"));
                 }
+                echo modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_ticket'), array("class" => "btn btn-default", "title" => lang('add_ticket')));
                 ?>
             </div>
         </div>
-        <div class="table-responsive">
-            <table id="ticket-table" class="display" cellspacing="0" width="100%">            
+             <div class="table-responsive">
+            <table id="ticket-table" class="display" cellspacing="0" width="100%">
             </table>
         </div>
     </div>
@@ -27,6 +27,7 @@
             filterDropdown: [{name: "ticket_label", class: "w200", options: <?php echo $ticket_labels_dropdown; ?>}, {name: "assigned_to", class: "w200", options: <?php echo $assigned_to_dropdown; ?>}],
             columns: [
                 {title: '<?php echo lang("ticket_id") ?>', "class": "w10p"},
+                {title: '<?php echo lang("duration") ?>', "class": "w10p"},
                 {title: '<?php echo lang("subject") ?>', "class": "w40p"},
                 {title: '<?php echo lang("project") ?>', "class": "w15p"},
                 {title: '<?php echo lang("ticket_type") ?>', "class": "w10p"},

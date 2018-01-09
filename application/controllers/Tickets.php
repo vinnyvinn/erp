@@ -59,8 +59,28 @@ class Tickets extends Pre_loader
             $this->template->rander("clients/tickets/index", $view_data);
         }
     }
+       public function thirdparty_form()
+     {
+       validate_submitted_data(array(
+           "id" => "numeric"
+       ));
+    $view_data['model_info'] = $this->Tickets_model->get_one($this->input->post('id'));
+     $this->load->view('tickets/thirdparty_form',$view_data);
 
-    //load new tickt modal 
+   }
+   public function save_thirdparty()
+   {
+
+     $data=array('username' => $this->input->post('username'),
+                 'phone' => $this->input->post('phone'),
+                  'email' => $this->input->post('email'));
+     $this->Tickets_model->insert_thirdparty($data);
+      $datasaved = true;
+      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+
+
+   }
+    //load new tickt modal
     public function modal_form()
     {
         validate_submitted_data(array(
@@ -124,7 +144,57 @@ class Tickets extends Pre_loader
     public function type_modal_form() {
         $this->template->rander("tickets/type_modal_form");
     }
+    public function third_partyusers_modal_form() {
 
+        $view_data['id'] = $this->input->post('id');
+
+        //$view_data['issue_subject'] = $this->Tickets_model->get_one_where(array("id" => $this->input->post('id')))->title;
+
+        //prepare assign to list
+        $thirdparty_users_dropdown = array("" => "-") + $this->Third_partyusers_model
+                ->get_dropdown_list(
+                    ["username"],
+                    "id",
+                    ["deleted" =>0]
+                );
+
+        asort($thirdparty_users_dropdown, SORT_STRING);
+
+        $view_data['thirdparty_users_dropdown'] = $thirdparty_users_dropdown;
+
+        $this->load->view('tickets/third_party_users', $view_data);
+    }
+    public function save_thirdparty_issues()
+    {
+      $user=$this->input->post('thirdparty_users_dropdown');
+      $this->session->set_userdata('usn',$user);
+      $myName=$this->session->usn;
+      $get_thirdparty=$this->Third_partyusers_model->get_thirdparty_details($myName);
+      $this->session->set_userdata('Name',$get_thirdparty->username);
+      $this->session->set_userdata('myemail',$get_thirdparty->email);
+
+      $data = array('message' => $this->input->post('message'),
+                    'third_p_id' => $this->session->usn,
+                     'sender_id' => $this->session->user_id);
+
+      $this->Third_partyusers_model->add_messages($data);
+      $datasaved = true;
+      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+
+        $email=$this->session->myemail;
+        $email_template = $this->Email_templates_model->get_final_template("third_party");
+
+            $parser_data["TICKET_ID"] = $this->session->ticket_ID;
+            $parser_data["CREATED_BY"] = $this->session->person_name;
+            $parser_data["CREATED_AT"] =  $this->session->created_at;
+            $parser_data["THIRD_PARTY_NAME"] =  $this->session->Name;
+           $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
+            if (send_app_mail($email, $email_template->subject, $message)) {
+                echo json_encode(array('success' => true, 'message' => lang("reset_info_send")));
+            } else {
+                echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
+            }
+    }
     public function knowledge_base_modal_form() {
 
         $view_data['id'] = $this->input->post('id');
@@ -133,7 +203,7 @@ class Tickets extends Pre_loader
 
         //prepare assign to list
         $knowledge_base_types_dropdown = array("" => "-") + $this->Knowledge_base_types_model
-                ->get_dropdown_list(
+               ->get_dropdown_list(
                     ["name"],
                     "id",
                     ["deleted" => 0]
@@ -145,6 +215,7 @@ class Tickets extends Pre_loader
 
         $this->load->view('tickets/knowledge_base_modal_form', $view_data);
     }
+
 
     public function knowledge_base_save() {
 
@@ -174,9 +245,72 @@ class Tickets extends Pre_loader
         }
 
         echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
-        
+
+    }
+    //add knowledge_types form
+    function add_knowledge_type(){
+        $this->load->view('tickets/add_knowledge_type_form');
     }
 
+//save knowledge type
+ function save_knowledge_type(){
+    $data=array('name' => $this->input->post('name'));
+    if($this->Knowledge_base_types_model->save($data)){
+        $datasaved=true;
+         }
+         echo json_encode(array('success' => $datasaved, 'message' =>($datasaved) ? lang('record_saved') : lang('error_occurred')));
+ }
+
+    //send email for ticket mark as solved
+
+    function ticket_solved_email(){
+
+    $email=$this->session->person_email;
+    $email_template = $this->Email_templates_model->get_final_template("ticket_done");
+
+            $parser_data["TICKET_ID"] = $this->session->ticket_ID;
+            $parser_data["CREATED_BY"] = $this->session->person_name;
+            $parser_data["CREATED_AT"] =  $this->session->created_at;
+             
+           $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
+            if (send_app_mail($email, $email_template->subject, $message)) {
+                echo json_encode(array('success' => true, 'message' => lang("reset_info_send")));
+            } else {
+                echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
+            }
+        } 
+
+     //comments for mark as solved
+        function mark_solved_modal()
+        {
+            $this->load->view('tickets/mark_solved_form');
+        }
+
+        //save comment
+        function save_mark_solved(){
+
+        $now = get_current_utc_time();
+
+        $target_path = get_setting("timeline_file_path");
+        $files_data = move_files_from_temp_dir_to_permanent_dir($target_path, "ticket");
+
+        $comment_data = array(
+            "description" => $this->input->post('description'),
+            "ticket_id" => $this->session->ticket_ID,
+            "created_by" => $this->login_user->id,
+            "created_at" => $now,
+            "files" => $files_data
+        );
+
+        validate_submitted_data(array(
+            "description" => "required"
+             ));
+       $this->Ticket_comments_model->save($comment_data);
+         $datasaved = true;
+      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+        
+        
+     }
     // add a new ticket
     public function save()
     {
@@ -260,7 +394,7 @@ class Tickets extends Pre_loader
         return validate_post_file($this->input->post("file_name"));
     }
 
-    // list of tickets, prepared for datatable 
+    // list of tickets, prepared for datatable
     public function list_data()
     {
         $this->access_only_allowed_members();
@@ -280,12 +414,15 @@ class Tickets extends Pre_loader
 
         $result = array();
         foreach ($list_data as $data) {
+
+
             $result[] = $this->_make_row($data);
+
         }
         echo json_encode(array("data" => $result));
     }
 
-    // list of tickets of a specific client, prepared for datatable 
+    // list of tickets of a specific client, prepared for datatable
     public function ticket_list_data_of_client($client_id) {
         $this->access_only_allowed_members_or_client_contact($client_id);
 
@@ -299,7 +436,7 @@ class Tickets extends Pre_loader
         echo json_encode(array("data" => $result));
     }
 
-    // return a row of ticket list table 
+    // return a row of ticket list table
     private function _row_data($id) {
         $options = array("id" => $id, "access_type" => $this->access_type);
 
@@ -348,9 +485,19 @@ class Tickets extends Pre_loader
             $options .= modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('ticket'), "data-post-view" => "details", "data-post-id" => $data->id));
             $options .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_task'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("tickets/delete_ticket"), "data-action" => "delete"));
         }
+      //   $date1=$data->created_at;
+      //  $date2=new DateTime($data->last_activity);
+      //  $time_diff=$date2->diff($date1);
+      // $duration= gmdate('H:i:s', $time_diff);
+      // $t1=json_encode($duration);
+      //  // $post_date = $data->created_at;
+      //  // $now = $data->last_activity;
+      //  //
+      //  // $tt=$post_date-$now;
 
         return array(
             $data->id,
+            $data->created_at,
             $title,
             $data->projectTitle ? anchor(get_uri("projects/view/" . $data->projectId), $data->projectTitle) : "",
             $data->ticket_type,
@@ -390,7 +537,7 @@ class Tickets extends Pre_loader
     }
 
 
-    // load ticket details view 
+    // load ticket details view
     public function view($ticket_id = 0)
     {
         if (! $ticket_id) {
@@ -402,14 +549,22 @@ class Tickets extends Pre_loader
 
         $ticket_info = $this->Tickets_model->get_details($options)->row();
         $this->access_only_allowed_members_or_client_contact($ticket_info->client_id);
-
-
+        $asn_to=(int)$ticket_info->assigned_to;
+        $this->session->set_userdata('assgn',$asn_to);
+        $this->session->set_userdata('created_at',$ticket_info->created_at);
+        $this->session->set_userdata('creator',$ticket_info->created_by);
+        $userID=$this->session->creator;
+        $get_user=$this->Users_model->get_email_user($userID);
+        $this->session->set_userdata('person_name',$get_user->first_name);
+         $this->session->set_userdata('person_email',$get_user->email);
         if ($ticket_info) {
             $view_data['ticket_info'] = $ticket_info;
-
+            $this->session->set_userdata('ticket_ID',$ticket_id);
             $comments_options = array("ticket_id" => $ticket_id);
-            $view_data['comments'] = $this->Ticket_comments_model->get_details($comments_options)->result();
 
+            $view_data['comments'] = $this->Ticket_comments_model->get_details($comments_options)->result();
+            $view_data['status']=$this->Tickets_model->get_tickets_id();
+            $view_data['assgn_status']=$this->Tickets_model->get_userassigned();
             $this->template->rander("tickets/view", $view_data);
         } else {
             show_404();
@@ -469,11 +624,18 @@ class Tickets extends Pre_loader
 
         $data = array(
             "status" => $status
+
         );
 
         $save_id = $this->Tickets_model->save($data, $ticket_id);
 
         if ($save_id) {
+          $data_comment=array('description' => $this->input->post('description'),
+                     'created_by' => $this->session->user_id,
+                      'created_at' => date('Y/m/d'),
+                       'ticket_id' => $this->session->ticket_ID);
+          $this->Ticket_comments_model->insert_comment($data_comment);
+
             $options = array("id" => $ticket_id, "access_type" => $this->access_type);
 
             $ticket_info = $this->Tickets_model->get_details($options)->row();

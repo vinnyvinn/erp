@@ -473,6 +473,13 @@ class Settings extends Pre_loader {
 
     }
 
+    function legal_settings(){
+        $id = $this->input->post('id');
+        if($id){
+            $this->TimeDurationModel->row_delete($id);
+        }
+    }
+
 
 
 
