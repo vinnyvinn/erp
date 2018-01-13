@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="475e264e-041d-4742-b336-99065ec053f2" name="Default" comment="">
 <<<<<<< HEAD
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/database.php" afterPath="$PROJECT_DIR$/application/config/database.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/Pre_loader.php" afterPath="$PROJECT_DIR$/application/controllers/Pre_loader.php" />
+=======
+<<<<<<< HEAD
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/clients/index.php" afterPath="$PROJECT_DIR$/application/views/clients/index.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/clients/tickets/index.php" afterPath="$PROJECT_DIR$/application/views/clients/tickets/index.php" />
@@ -22,6 +27,7 @@
       <change beforePath="$PROJECT_DIR$/vuejsfiles/npm-debug.log" afterPath="" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
 >>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,6 +47,21 @@
   </component>
   <component name="FileEditorManager">
 <<<<<<< HEAD
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="modal_form.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/modal_form.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1260">
+              <caret line="70" column="19" lean-forward="false" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="types_modal_form.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php">
+=======
+<<<<<<< HEAD
     <leaf>
       <file leaf-file-name="Settings.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Settings.php">
@@ -51,6 +72,7 @@
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="CheckForm.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/CheckForm.vue">
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
             <state relative-caret-position="139">
@@ -65,6 +87,13 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="LegalDocumentsModel.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -119,11 +148,20 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-9.807693">
               <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
               <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
+      <file leaf-file-name="Pre_loader.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/Pre_loader.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="310">
+              <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+              <folding />
+=======
       <file leaf-file-name="default_lang.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/language/english/default_lang.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -154,6 +192,7 @@
                 <marker date="1513167037221" expanded="true" signature="351:415" ph="SELECT * FRO... ${$this-&gt;table}" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
               </folding>
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
             </state>
           </provider>
         </entry>
@@ -191,10 +230,23 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/application/models/Taxes_model.php" />
+        <option value="$PROJECT_DIR$/application/config/autoload.php" />
+        <option value="$PROJECT_DIR$/application/models/TblKnowledgeBaseModel.php" />
+        <option value="$PROJECT_DIR$/application/models/TblKnowledgeBaseTypesModel.php" />
+        <option value="$PROJECT_DIR$/application/views/knowledgebase/modal_form.php" />
+=======
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         <option value="$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php" />
         <option value="$PROJECT_DIR$/application/views/knowledgebase/index.php" />
         <option value="$PROJECT_DIR$/application/controllers/Legal.php" />
         <option value="$PROJECT_DIR$/application/controllers/Knowledge_base.php" />
+<<<<<<< HEAD
+        <option value="$PROJECT_DIR$/application/config/database.php" />
+        <option value="$PROJECT_DIR$/application/controllers/Pre_loader.php" />
+=======
         <option value="$PROJECT_DIR$/application/controllers/Settings.php" />
 <<<<<<< HEAD
         <option value="$PROJECT_DIR$/application/views/clients/tickets/index.php" />
@@ -252,6 +304,7 @@
 =======
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
 >>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       </list>
     </option>
   </component>
@@ -301,7 +354,10 @@
     </navigator>
     <panes>
       <pane id="Scope" />
+<<<<<<< HEAD
+=======
       <pane id="Scratches" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <pane id="ProjectPane">
         <subPane>
 <<<<<<< HEAD
@@ -504,16 +560,24 @@
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
         </subPane>
       </pane>
+<<<<<<< HEAD
+      <pane id="Scratches" />
+=======
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
+<<<<<<< HEAD
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../myapp" />
+=======
 <<<<<<< HEAD
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
 =======
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../prowritfront" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -552,6 +616,12 @@
       <created>1512633377524</created>
       <option name="number" value="Default" />
       <updated>1512633377524</updated>
+<<<<<<< HEAD
+      <workItem from="1512633388329" duration="10743000" />
+      <workItem from="1512742589315" duration="76000" />
+      <workItem from="1512800455924" duration="2351000" />
+      <workItem from="1512831382705" duration="1407000" />
+=======
       <workItem from="1512633388329" duration="12243000" />
       <workItem from="1512720812673" duration="597000" />
       <workItem from="1512728261869" duration="3461000" />
@@ -561,10 +631,27 @@
       <workItem from="1513072708353" duration="8326000" />
       <workItem from="1513110708378" duration="14881000" />
       <workItem from="1513141860226" duration="31663000" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
+    <option name="totallyTimeSpent" value="14577000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="50" y="140" width="1299" height="743" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24942264" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
     <option name="totallyTimeSpent" value="92647000" />
   </component>
   <component name="ToolWindowManager">
@@ -624,6 +711,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3293011" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -631,6 +719,10 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+<<<<<<< HEAD
+      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+=======
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -680,6 +772,133 @@
 <<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Pre_loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="70" column="19" lean-forward="false" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="54" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TblKnowledgeBaseTypesModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Knowledge_base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pro_kazi.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2988">
+          <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3474">
+          <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/LegalReminders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1422">
+          <caret line="79" column="30" lean-forward="true" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="70" column="19" lean-forward="false" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/types_modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="54" lean-forward="false" selection-start-line="0" selection-start-column="45" selection-end-line="0" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/TblKnowledgeBaseTypesModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="93" lean-forward="false" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="28" column="0" lean-forward="true" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
 =======
@@ -696,21 +915,75 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="41" lean-forward="false" selection-start-line="1" selection-start-column="41" selection-end-line="1" selection-end-column="41" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2988">
+          <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3474">
+          <caret line="193" column="0" lean-forward="true" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/LegalReminders.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Knowledge_base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1242">
+          <caret line="69" column="45" lean-forward="false" selection-start-line="69" selection-start-column="45" selection-end-line="69" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="31" lean-forward="false" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/Taxes_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="17" lean-forward="false" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="17" />
+=======
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/components/fullysubmitted/FullySubmitted.vue" />
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/common/loading/LoadingScreen.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/node_modules/vuetable-2/src/index.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="221">
+          <caret line="22" column="5" lean-forward="true" selection-start-line="19" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/index.php/.php" />
+    <entry file="file://$PROJECT_DIR$/application/views/legal/reminders/index.php">
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="93" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
@@ -734,6 +1007,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/common/table/Vuetable.vue">
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
@@ -741,13 +1015,20 @@
 =======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/common/table/VuetablePagination.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-290">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="54" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
@@ -756,11 +1037,16 @@
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/Items.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="-204">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="106" column="0" selection-start-line="106" selection-start-column="0" selection-end-line="106" selection-end-column="0" />
@@ -817,11 +1103,16 @@
         <state relative-caret-position="255">
           <caret line="15" column="22" lean-forward="true" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../prowritfront/src/components/backend/user-management/permissions/Permissions.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="272">
+          <caret line="16" column="22" lean-forward="true" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
@@ -862,6 +1153,7 @@
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="54" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
@@ -885,14 +1177,21 @@
 =======
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+<<<<<<< HEAD
+=======
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/components/allcustomers/AllCustomers.vue" />
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers2/Customers.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="2" column="17" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="17" />
@@ -901,6 +1200,7 @@
           <caret line="47" column="5" lean-forward="false" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
@@ -908,6 +1208,10 @@
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers3/Customers.vue" />
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/CustomerSuppliers.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="255">
+          <caret line="271" column="3" lean-forward="true" selection-start-line="250" selection-start-column="3" selection-end-line="271" selection-end-column="3" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="5" selection-start-line="19" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
@@ -924,6 +1228,7 @@
           <folding>
             <element signature="e#297#339#0" expanded="false" />
           </folding>
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
@@ -944,14 +1249,22 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
 =======
         <state relative-caret-position="0">
+<<<<<<< HEAD
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="74" selection-end-column="9" />
+=======
           <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/package.json">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="612">
+          <caret line="36" column="69" lean-forward="true" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="69" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -960,11 +1273,16 @@
           <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="22" selection-start-line="16" selection-start-column="22" selection-end-line="16" selection-end-column="22" />
@@ -973,6 +1291,7 @@
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="9" selection-end-column="4" />
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
@@ -1043,6 +1362,10 @@
     <entry file="file://$PROJECT_DIR$/application/config/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+        <state relative-caret-position="-748">
+          <caret line="34" column="4" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="42" selection-end-column="10" />
+=======
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="36" column="69" selection-start-line="36" selection-start-column="7" selection-end-line="36" selection-end-column="69" />
 =======
@@ -1071,11 +1394,16 @@
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="4" selection-start-line="34" selection-start-column="4" selection-end-line="42" selection-end-column="10" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/legal/lawsuits/form_modal.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="1547">
+          <caret line="112" column="30" lean-forward="false" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="30" />
+=======
         <state vertical-scroll-proportion="0.0">
           <caret line="112" column="30" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="30" />
 =======
@@ -1083,11 +1411,16 @@
           <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="101" selection-end-column="6" />
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/TblCustSuppSpecificChecksModel.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="323">
+          <caret line="19" column="0" lean-forward="true" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
@@ -1100,11 +1433,16 @@
             <marker date="1513170394508" expanded="true" signature="540:579" ph="DELETE FROM ${$this-&gt;table}... " />
           </folding>
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/viewfields.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="489">
+          <caret line="43" column="48" lean-forward="false" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="43" column="48" selection-start-line="43" selection-start-column="48" selection-end-line="43" selection-end-column="48" />
@@ -1128,6 +1466,7 @@
             <element signature="e#2420#2505#0" expanded="false" />
           </folding>
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
@@ -1135,6 +1474,10 @@
 =======
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/AllCustomers.vue">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+=======
 <<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="75" column="7" selection-start-line="75" selection-start-column="7" selection-end-line="75" selection-end-column="7" />
@@ -1198,6 +1541,7 @@
             <element signature="e#138#207#0" expanded="false" />
           </folding>
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
@@ -1251,6 +1595,10 @@
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/checkitems/items/fields.js">
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
+        <state relative-caret-position="234">
+          <caret line="13" column="93" lean-forward="false" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="93" />
+=======
+<<<<<<< HEAD
         <state relative-caret-position="170">
           <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
 =======
@@ -1263,11 +1611,16 @@
 >>>>>>> c1c6578ea7065619e22cc6b1aa3c3399f1ea8c7f
           <folding />
 >>>>>>> 5b914279170534e8aef159e4c118390efbe8bc4e
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/components/legal/cust_suppliers/customers/components/allcustomers/fields.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="144">
+          <caret line="8" column="54" lean-forward="false" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="54" />
+=======
 <<<<<<< HEAD
         <state relative-caret-position="170">
 =======
@@ -1282,13 +1635,19 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="452" column="38" selection-start-line="452" selection-start-column="38" selection-end-line="452" selection-end-column="38" />
           <folding />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/language/english/custom_lang.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="2988">
+          <caret line="166" column="59" lean-forward="false" selection-start-line="166" selection-start-column="59" selection-end-line="166" selection-end-column="59" />
+=======
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
@@ -1305,28 +1664,74 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/clients/tickets/index.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state relative-caret-position="3474">
+          <caret line="193" column="0" lean-forward="false" selection-start-line="193" selection-start-column="0" selection-end-line="193" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/modal_form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1260">
+          <caret line="70" column="19" lean-forward="false" selection-start-line="70" selection-start-column="19" selection-end-line="70" selection-end-column="19" />
+=======
         <state vertical-scroll-proportion="-9.807693">
           <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/application/controllers/Knowledge_base.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1116">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+=======
     <entry file="file://$PROJECT_DIR$/application/views/clients/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/pro_kazi.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="79" column="30" lean-forward="false" selection-start-line="79" selection-start-column="30" selection-end-line="79" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/LegalDocumentsModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+=======
     <entry file="file://$PROJECT_DIR$/application/views/tickets/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.8846154">
           <caret line="9" column="55" selection-start-line="9" selection-start-column="55" selection-end-line="9" selection-end-column="55" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/application/controllers/Pre_loader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="310">
+          <caret line="22" column="62" lean-forward="true" selection-start-line="22" selection-start-column="62" selection-end-line="22" selection-end-column="62" />
+=======
     <entry file="file://$PROJECT_DIR$/application/controllers/Tickets.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.038462">
@@ -1375,6 +1780,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
           <caret line="98" column="42" lean-forward="false" selection-start-line="98" selection-start-column="42" selection-end-line="98" selection-end-column="42" />
+>>>>>>> 52c20559608558928350aa2263d6b742146774dd
           <folding />
         </state>
       </provider>

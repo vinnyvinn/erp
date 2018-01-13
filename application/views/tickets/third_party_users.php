@@ -6,11 +6,17 @@
    
           <div class="form-group">
         <label for="username" class=" col-md-3">Third Party Username</label>
-        <div class="col-md-9">
+        <div class="col-md-8">
               <?php
               echo form_dropdown("thirdparty_users_dropdown", $thirdparty_users_dropdown , "thirdparty_users_dropdown", "class='select2'");
               ?>
         </div>
+        <div class="col-md-1">
+<?php
+
+echo modal_anchor(get_uri("tickets/thirdparty_form"), "<i class='fa fa-plus-circle'></i>", array("class" => "btn btn-info btn-add", "title" => lang('add_project'), "data-is-popup" => '1', 'data-populate' => 'add_third_party'));
+?>
+</div>
     </div>
 
     <div class="form-group">

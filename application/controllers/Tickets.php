@@ -77,6 +77,8 @@ class Tickets extends Pre_loader
      $this->Tickets_model->insert_thirdparty($data);
       $datasaved = true;
       echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+
+
    }
     //load new tickt modal
     public function modal_form()
@@ -166,6 +168,11 @@ class Tickets extends Pre_loader
     {
       $user=$this->input->post('thirdparty_users_dropdown');
       $this->session->set_userdata('usn',$user);
+      $myName=$this->session->usn;
+      $get_thirdparty=$this->Third_partyusers_model->get_thirdparty_details($myName);
+      $this->session->set_userdata('Name',$get_thirdparty->username);
+      $this->session->set_userdata('myemail',$get_thirdparty->email);
+
       $data = array('message' => $this->input->post('message'),
                     'third_p_id' => $this->session->usn,
                      'sender_id' => $this->session->user_id);
@@ -173,6 +180,20 @@ class Tickets extends Pre_loader
       $this->Third_partyusers_model->add_messages($data);
       $datasaved = true;
       echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+
+        $email=$this->session->myemail;
+        $email_template = $this->Email_templates_model->get_final_template("third_party");
+
+            $parser_data["TICKET_ID"] = $this->session->ticket_ID;
+            $parser_data["CREATED_BY"] = $this->session->person_name;
+            $parser_data["CREATED_AT"] =  $this->session->created_at;
+            $parser_data["THIRD_PARTY_NAME"] =  $this->session->Name;
+           $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
+            if (send_app_mail($email, $email_template->subject, $message)) {
+                echo json_encode(array('success' => true, 'message' => lang("reset_info_send")));
+            } else {
+                echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
+            }
     }
     public function knowledge_base_modal_form() {
 
@@ -182,7 +203,7 @@ class Tickets extends Pre_loader
 
         //prepare assign to list
         $knowledge_base_types_dropdown = array("" => "-") + $this->Knowledge_base_types_model
-                ->get_dropdown_list(
+               ->get_dropdown_list(
                     ["name"],
                     "id",
                     ["deleted" => 0]
@@ -226,7 +247,70 @@ class Tickets extends Pre_loader
         echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
 
     }
+    //add knowledge_types form
+    function add_knowledge_type(){
+        $this->load->view('tickets/add_knowledge_type_form');
+    }
 
+//save knowledge type
+ function save_knowledge_type(){
+    $data=array('name' => $this->input->post('name'));
+    if($this->Knowledge_base_types_model->save($data)){
+        $datasaved=true;
+         }
+         echo json_encode(array('success' => $datasaved, 'message' =>($datasaved) ? lang('record_saved') : lang('error_occurred')));
+ }
+
+    //send email for ticket mark as solved
+
+    function ticket_solved_email(){
+
+    $email=$this->session->person_email;
+    $email_template = $this->Email_templates_model->get_final_template("ticket_done");
+
+            $parser_data["TICKET_ID"] = $this->session->ticket_ID;
+            $parser_data["CREATED_BY"] = $this->session->person_name;
+            $parser_data["CREATED_AT"] =  $this->session->created_at;
+             
+           $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
+            if (send_app_mail($email, $email_template->subject, $message)) {
+                echo json_encode(array('success' => true, 'message' => lang("reset_info_send")));
+            } else {
+                echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
+            }
+        } 
+
+     //comments for mark as solved
+        function mark_solved_modal()
+        {
+            $this->load->view('tickets/mark_solved_form');
+        }
+
+        //save comment
+        function save_mark_solved(){
+
+        $now = get_current_utc_time();
+
+        $target_path = get_setting("timeline_file_path");
+        $files_data = move_files_from_temp_dir_to_permanent_dir($target_path, "ticket");
+
+        $comment_data = array(
+            "description" => $this->input->post('description'),
+            "ticket_id" => $this->session->ticket_ID,
+            "created_by" => $this->login_user->id,
+            "created_at" => $now,
+            "files" => $files_data
+        );
+
+        validate_submitted_data(array(
+            "description" => "required"
+             ));
+       $this->Ticket_comments_model->save($comment_data);
+         $datasaved = true;
+      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
+        
+        
+     }
     // add a new ticket
     public function save()
     {
@@ -467,7 +551,12 @@ class Tickets extends Pre_loader
         $this->access_only_allowed_members_or_client_contact($ticket_info->client_id);
         $asn_to=(int)$ticket_info->assigned_to;
         $this->session->set_userdata('assgn',$asn_to);
-
+        $this->session->set_userdata('created_at',$ticket_info->created_at);
+        $this->session->set_userdata('creator',$ticket_info->created_by);
+        $userID=$this->session->creator;
+        $get_user=$this->Users_model->get_email_user($userID);
+        $this->session->set_userdata('person_name',$get_user->first_name);
+         $this->session->set_userdata('person_email',$get_user->email);
         if ($ticket_info) {
             $view_data['ticket_info'] = $ticket_info;
             $this->session->set_userdata('ticket_ID',$ticket_id);

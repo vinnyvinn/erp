@@ -3,8 +3,7 @@
         <div class="page-title clearfix">
             <h1><?php echo lang('ticket') . ": #" . $ticket_info->id . " - " . $ticket_info->title ?></h1>
             <div class="title-button-group p10">
-              <?php echo modal_anchor(get_uri("tickets/thirdparty_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_third_party'), array("class" => "btn btn-default", "title" => lang('add_third_party')));
-              ?>
+                            
                 <span class="dropdown inline-block">
                     <button class="btn btn-default dropdown-toggle  mt0 mb0" type="button" data-toggle="dropdown" aria-expanded="true">
                         <i class='fa fa-cogs'></i> <?php echo lang('actions');?>
@@ -31,9 +30,12 @@
                                 if($assgn_status==1){
                                 echo modal_anchor(get_uri("tickets/knowledge_base_modal_form"), "<i class='fa fa-stethoscope'></i> Add knowledge base", array( "title" => "Add knowledge base", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
                                  }
-                                 //echo modal_anchor(get_uri("tickets/knowledge_base_modal_form"), "<i class='fa fa-stack-exchange'></i> Mark as Solved", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+                                 echo modal_anchor(get_uri("tickets/ticket_solved_email"), "<i class='fa fa-stack-exchange'></i> Mark as done", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+
+                                  echo modal_anchor(get_uri("tickets/mark_solved_modal"), "<i class='fa fa-stack-exchange'></i> Mark as Solved", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
 
                                 ?>
+
                             </li>
 
 

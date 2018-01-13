@@ -477,11 +477,13 @@ $lang["ticket"] = "Ticket";
 $lang["tickets"] = "Tickets";
 $lang["ticket_id"] = "Ticket ID";
 $lang["add_third_party"] = "Add Third Party";
+$lang["third_party"] = "Third Party";
 $lang["client_replied"] = "Client replied";
 $lang["change_status"] = "Change status";
 $lang["last_activity"] = "Last activity";
 $lang["open_tickets"] = "Open tickets";
 $lang["ticket_status"] = "Ticket Status";
+$lang["ticket_done"] = "Ticket Done";
 
 /* ticket types */
 

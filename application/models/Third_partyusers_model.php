@@ -13,4 +13,10 @@ function add_messages($data)
   $this->db->insert('third_party_messages',$data);
 }
 
+function get_thirdparty_details($myName=""){
+	$sql= "SELECT * FROM $this->table WHERE id=$myName";
+	return $this->db->query($sql)->row();
+
+	  
+}
 }

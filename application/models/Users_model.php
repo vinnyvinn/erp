@@ -197,5 +197,12 @@ class Users_model extends Crud_model {
 
         return $this->db->query($sql);
     }
+     
+     function get_email_user($userID=0){
+     $users = $this->db->dbprefix('users');
 
+     $sql="SELECT * FROM users WHERE id=$userID";
+     return $this->db->query($sql)->row();
+        
+     }
 }
