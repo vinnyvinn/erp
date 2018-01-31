@@ -1,45 +1,47 @@
-<?php
-echo form_open(get_uri("projects/save_task"), array("id" => "task-form", "class" => "general-form", "role" => "form"));
-if ($this->login_user->user_type === "client") {
-    // $policy = ["readonly" => "enabled"];
-    $policy = "hidden";
-}
-?>
+<?php echo form_open(get_uri("projects/save_task"), array("id" => "task-form", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
     <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
-    <input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />
-    <div class="form-group <?php echo $policy; ?>">
-        <label for="Sub-Task Of" class=" col-md-3">Sub-Task Of</label>
-        <div class="col-md-9">
-            <select name="parent_id" id="parent_id" class="select2" required>
-                <?php foreach ($tasks_dropdown as $task) : ?>
-                    <option value="<?= $task->id; ?>"><?= $task->title; ?></option>
-                <?php endforeach; ?>
-            </select>
-        </div>
-    </div>
+    <?php if($project_id) : ?>
+        <input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />
+        <div class="form-group">
+            <label for="title" class=" col-md-3">Main Task <small>(Optional)</small></label>
+            <div class=" col-md-8">
+                <select name="parent_id" id="parent_id" class="form-control select2">
+                    <option value="0" <?= $model_info->parent_id == 0 || is_null($model_info->parent_id) ? ' selected' : ''; ?>>None / Default</option>
+                    <?php foreach ($tasks_dropdown as $task) : ?>
+                        <option<?= $model_info->parent_id == $task->id ? ' selected' : ''; ?> value="<?= $task->id; ?>"><?= $task->title; ?></option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+            <div class="col-md-1">
 
-    <div class="form-group <?php echo $policy; ?>">
-        <label for="main serial" class=" col-md-3">Sub <?php echo lang('serial'); ?></label>
-        <div class=" col-md-9">
-            <?php
-            echo form_input(array(
-                "id" => "serial",
-                "name" => "serial",
-                "value" => $sub_serial,
-                "class" => "form-control",
-                "placeholder" => lang('serial'),
-                "autofocus" => true,
-                "data-rule-required" => true,
-                "data-msg-required" => lang("field_required"),
-                "minlength" => 4,
-                "readonly" => "enabled"
+                <?php
+                echo modal_anchor(get_uri("projects/main_task_modal_form"), "<i class='fa fa-plus-circle'></i>", array("class" => "btn btn-info btn-add", "title" => 'Add Main Task', "data-is-popup" => '1', 'data-populate' => 'parent_id', "data-post-project_id" => $project_id));
+                ?>
+            </div>
+        </div>
+    <?php else : ?>
+        <div class="form-group">
+            <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
+            <div class=" col-md-9">
+                <?php
+                echo form_input(array(
+                    "id" => "title",
+                    "name" => "title",
+                    "value" => $model_info->title,
+                    "class" => "form-control",
+                    "placeholder" => lang('title'),
+                    "autofocus" => true,
+                    "data-rule-required" => true,
+                    "data-msg-required" => lang("field_required"),
                 ));
                 ?>
             </div>
         </div>
+    <?php endif; ?>
 
-    <div class="form-group <?php echo $policy; ?>">
+
+    <div class="form-group">
         <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
         <div class=" col-md-9">
             <?php
@@ -52,13 +54,11 @@ if ($this->login_user->user_type === "client") {
                 "autofocus" => true,
                 "data-rule-required" => true,
                 "data-msg-required" => lang("field_required"),
-                $policy['readonly']
             ));
             ?>
         </div>
     </div>
-
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="points" class="col-md-3"><?php echo lang('points'); ?>
             <span class="help" data-toggle="tooltip" title="<?php echo lang('task_point_help_text'); ?>"><i class="fa fa-question-circle"></i></span>
         </label>
@@ -69,7 +69,7 @@ if ($this->login_user->user_type === "client") {
             ?>
         </div>
     </div>
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="milestone_id" class=" col-md-3"><?php echo lang('milestone'); ?></label>
         <div class="col-md-8">
             <?php
@@ -86,7 +86,7 @@ if ($this->login_user->user_type === "client") {
     </div>
 
     <?php if ($show_assign_to_dropdown) { ?>
-        <div class="form-group <?php echo $policy; ?>">
+        <div class="form-group">
             <label for="assigned_to" class=" col-md-3"><?php echo lang('assign_to'); ?></label>
             <div class="col-md-8">
                 <?php
@@ -102,7 +102,7 @@ if ($this->login_user->user_type === "client") {
             </div>
         </div>
 
-        <div class="form-group <?php echo $policy; ?>">
+        <div class="form-group">
             <label for="collaborators" class=" col-md-3"><?php echo lang('collaborators'); ?></label>
             <div class="col-md-9">
                 <?php
@@ -134,7 +134,7 @@ if ($this->login_user->user_type === "client") {
             ?>
         </div>
     </div>
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="project_labels" class=" col-md-3"><?php echo lang('labels'); ?></label>
         <div class=" col-md-9">
             <?php
@@ -148,7 +148,7 @@ if ($this->login_user->user_type === "client") {
             ?>
         </div>
     </div>
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="start_date" class=" col-md-3">Max. Allowed Hours</label>
         <div class=" col-md-9">
             <?php
@@ -164,10 +164,10 @@ if ($this->login_user->user_type === "client") {
             ?>
         </div>
     </div>
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="priority" class=" col-md-3">Priority</label>
         <div class="col-md-9">
-            <select name="priority" id="priority" class="form-control">
+            <select name="priority" id="priority" class="select2">
                 <option<?= $model_info->priority == 'High' ? ' selected' : '' ?> value="High">High</option>
                 <option<?= $model_info->priority == 'Normal' || $model_info->priority == '' ? ' selected' : '' ?> value="Normal">Normal</option>
                 <option<?= $model_info->priority == 'Low' ? ' selected' : '' ?> value="Low">Low</option>
@@ -175,7 +175,7 @@ if ($this->login_user->user_type === "client") {
         </div>
     </div>
 
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="start_date" class=" col-md-3"><?php echo lang('start_date'); ?></label>
         <div class=" col-md-9">
             <?php
@@ -184,13 +184,12 @@ if ($this->login_user->user_type === "client") {
                 "name" => "start_date",
                 "value" => $model_info->start_date * 1 ? $model_info->start_date : "",
                 "class" => "form-control",
-                "placeholder" => "YYYY-MM-DD",
-                "data-date-start-date" => "-1d"
+                "placeholder" => "YYYY-MM-DD"
             ));
             ?>
         </div>
     </div>
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="deadline" class=" col-md-3"><?php echo lang('deadline'); ?></label>
         <div class=" col-md-9">
             <?php
@@ -199,14 +198,13 @@ if ($this->login_user->user_type === "client") {
                 "name" => "deadline",
                 "value" => $model_info->deadline * 1 ? $model_info->deadline : "",
                 "class" => "form-control",
-                "placeholder" => "YYYY-MM-DD",
-                "data-date-start-date" => "+1d"
+                "placeholder" => "YYYY-MM-DD"
             ));
             ?>
         </div>
     </div>
 
-    <div class="form-group <?php echo $policy; ?>">
+    <div class="form-group">
         <label for="description" class=" col-md-12"><?php echo lang('description'); ?></label>
         <div class=" col-md-12">
             <?php
@@ -259,5 +257,4 @@ if ($this->login_user->user_type === "client") {
 
         $('[data-toggle="tooltip"]').tooltip();
     });
-</script>
-
+</script>    

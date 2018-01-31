@@ -1,5 +1,3 @@
-<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.css">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.11.4/sweetalert2.min.js"></script>
 <link rel="stylesheet" type="text/css" href="<?php echo get_uri("team_members/sync_members"); ?>">
 
 <div class="page-title clearfix">

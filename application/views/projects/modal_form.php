@@ -19,9 +19,8 @@
         </div>
     </div>
     <div class="form-group">
-        <label for="client_id" class=" col-md-3">Service provider</label>
+        <label for="client_id" class=" col-md-3"><?php echo lang('client'); ?></label>
         <div class="col-md-8">
-
             <?php
             echo form_dropdown("client_id", $clients_dropdown, array($model_info->client_id), "id='client_id' class='select2 validate-hidden' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
             ?>
@@ -41,9 +40,9 @@
                 "id" => "start_date",
                 "name" => "start_date",
                 "value" => $model_info->start_date * 1 ? $model_info->start_date : "",
+                "data-date-start-date" => "1d",
                 "class" => "form-control",
-                "placeholder" => lang('start_date'),
-                "data-date-start-date" => "-1d"
+                "placeholder" => lang('start_date')
             ));
             ?>
         </div>
@@ -56,9 +55,9 @@
                 "id" => "deadline",
                 "name" => "deadline",
                 "value" => $model_info->deadline * 1 ? $model_info->deadline : "",
+                "data-date-start-date" => "1d",
                 "class" => "form-control",
-                "placeholder" => lang('deadline'),
-                "data-date-start-date" => "+1d"
+                "placeholder" => lang('deadline')
             ));
             ?>
         </div>
@@ -149,4 +148,4 @@
             tags: <?php echo json_encode($label_suggestions); ?>
         });
     });
-</script>
+</script>    

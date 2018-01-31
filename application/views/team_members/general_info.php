@@ -10,9 +10,7 @@
                 <div class=" col-md-10">
                     <?php
                         $landingPages = [
-                            '/dashboard' => 'Dashboard',
-                            '/projects/all_projects' => 'All Projects',
-                            '/projects/all_tasks' => 'My Tasks',
+                            '/petty_cash' => 'Dashboard'
                         ];
                     
                         echo form_dropdown("landing_page", $landingPages, array($user_info->landing_page), "class='select2'");

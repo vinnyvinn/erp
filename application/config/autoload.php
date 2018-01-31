@@ -204,6 +204,10 @@ $autoload['model'] = array(
     'TblChecklistsTasks',
     'TblChecklistsTasksChecks',
     'Third_partyusers_model',
+    'Call_types_model',
+    'Objective_types_model',
+    'Business_types_model',
+    'Events_comments_model',
+    'Event_notes_model',
     'TblLegalDocsItems'
-
-);
+    );

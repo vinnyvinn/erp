@@ -1,4 +1,4 @@
-<?php echo form_open(get_uri("events/save"), array("id" => "event-form", "class" => "general-form", "role" => "form")); ?>
+<?php echo form_open(get_uri("events/save"), array("id" => "event-form", "class" => "general-form", "role" => "form", "enctype" => "multipart/form-data")); ?>
 <div class="modal-body clearfix">
     <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
     <div class="form-group">
@@ -16,6 +16,86 @@
                 "data-msg-required" => lang("field_required"),
             ));
             ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="client : contact person" class=" col-md-3">Clients</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="client_contact_persons" id="client_contact_persons" required>
+          <option value="0" selected> None</option>
+              <?php
+              foreach ($client_contact_persons_dropdown as $value) {
+                  echo "<option value=". $value->DCLink . ">" . ucfirst($value->Contact_Person . " : " . $value->Name) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="prospect : contact person" class=" col-md-3">Prospecting Clients</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="prospect_contact_persons" id="prospect_contact_persons" required>
+          <option value="0" selected> None</option>
+              <?php
+              foreach ($prospect_contact_persons_dropdown as $value) {
+                  echo "<option value=". $value->IDProspect . ">" . ucfirst($value->cCompanyName) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="business type" class=" col-md-3">Business Type</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="business_type" id="business_type" required>
+              <?php
+              foreach ($business_type_dropdown as $value) {
+                  echo "<option value=". $value->id . ">" . ucfirst($value->title) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="call type" class=" col-md-3">Call Type</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="call_type" id="call_type" required>
+              <?php
+              foreach ($call_types_dropdown as $value) {
+                  echo "<option value=". $value->id . ">" . ucfirst($value->title) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="objective" class=" col-md-3">Objective</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="objective" id="objective" required>
+              <?php
+              foreach ($objectives_dropdown as $value) {
+                  echo "<option value=". $value->id . ">" . ucfirst($value->title) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="pipeline stage" class=" col-md-3">Pipeline Stage</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="pipeline_stage" id="pipeline_stage" required>
+              <?php
+              foreach ($pipeline_stage_dropdown as $value) {
+                  echo "<option value=". $value->IDOpportunityStage . ">" . ucfirst($value->cStageName) . "</option>";
+              }
+              ?>
+            </select>
         </div>
     </div>
 
@@ -50,7 +130,10 @@
                 "name" => "start_time",
                 "value" => $start_time,
                 "class" => "form-control",
-                "placeholder" => lang('start_time')
+                "placeholder" => lang('start_time'),
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required")
             ));
             ?>
         </div>
@@ -89,7 +172,10 @@
                 "name" => "end_time",
                 "value" => $end_time,
                 "class" => "form-control",
-                "placeholder" => lang('end_time')
+                "placeholder" => lang('end_time'),
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required")
             ));
             ?>
         </div>
@@ -105,6 +191,9 @@
                 "value" => $model_info->location,
                 "class" => "form-control",
                 "placeholder" => lang('location'),
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required")
             ));
             ?>
         </div>
@@ -156,25 +245,7 @@
     </div>
 
     <div class="form-group">
-        <label for="location" class=" col-md-3"></label>
-        <div class="color-palet col-md-9">
-            <?php
-            $selected_color = $model_info->color ? $model_info->color : "#83c340";
-            $colors = array("#83c340", "#29c2c2", "#2d9cdb", "#aab7b7", "#f1c40f", "#e18a00", "#e74c3c", "#d43480", "#ad159e", "#34495e", "#dbadff");
-            foreach ($colors as $color) {
-                $active_class = "";
-                if ($selected_color === $color) {
-                    $active_class = "active";
-                }
-                echo "<span style='background-color:" . $color . "' class='color-tag clickable mr15 " . $active_class . "' data-color='" . $color . "'></span>";
-            }
-            ?> 
-            <input id="color" type="hidden" name="color" value="<?php echo $selected_color; ?>" />
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="description" class=" col-md-12"><?php echo lang('description'); ?></label>
+        <label for="description" class=" col-md-12">Comment</label>
         <div class=" col-md-12">
             <?php
             echo form_textarea(array(
@@ -190,16 +261,35 @@
         </div>
     </div>
 
+    <div class="form-group">
+        <label for="upload file" class=" col-md-3">Upload File</label>
+        <div class="col-md-9">
+            <div id="event-dropzone" class="post-dropzone box-content form-group">
+                <?php $this->load->view("includes/dropzone_preview"); ?>
+                    <button class="btn btn-default upload-file-button pull-left btn-sm round" type="button"
+                            style="color:#7988a2"><i class='fa fa-camera'></i> <?php echo lang("upload_file"); ?></button>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> <?php echo lang('close'); ?></button>
     <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> <?php echo lang('save'); ?></button>
 </div>
+
 <?php echo form_close(); ?>
 
 <script type="text/javascript">
     $(document).ready(function () {
+
+        var uploadUrl = "<?php echo get_uri("events/upload_file"); ?>";
+        var validationUrl = "<?php echo get_uri("events/validate_file"); ?>";
+
+        var dropzone = attachDropzoneWithForm("#event-dropzone", uploadUrl, validationUrl);
+
+        $("#event-form .select2").select2();
         $("#event-form").appForm({
             onSuccess: function (result) {
                 $("#event-calendar").fullCalendar('refetchEvents');

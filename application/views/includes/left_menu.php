@@ -23,7 +23,7 @@
                 }
 
                 if (get_setting("module_event") == "1") {
-                    $sidebar_menu[] = array("name" => "events", "url" => "events", "class" => "fa-calendar");
+                    $sidebar_menu[] = array("name" => "Call Planner", "url" => "events", "class" => "fa-calendar");
                 }
 
                 if (get_setting("module_note") == "1") {

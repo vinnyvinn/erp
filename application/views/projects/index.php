@@ -4,9 +4,7 @@
             <h1><?php echo lang('projects'); ?></h1>
             <div class="title-button-group">
                 <?php
-
                 if ($can_create_projects) {
-                   // echo modal_anchor(get_uri("projects/sync_supervisors"), "<i class='fa fa-refresh'></i> " . 'Sync Supervisors', array("class" => "btn btn-default", "title" => 'sync_upervisors'));
                     echo modal_anchor(get_uri("projects/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_project'), array("class" => "btn btn-default", "title" => lang('add_project')));
                 }
                 ?>

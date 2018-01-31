@@ -40,10 +40,6 @@
             <li><a  role="presentation" href="<?php echo_uri("team_members/job_info/" . $user_info->id); ?>" data-target="#tab-job-info"> <?php echo lang('job_info'); ?></a></li>
         <?php } ?>
 
-        <?php if ($show_projects) { ?>
-            <li><a role="presentation" href="<?php echo_uri("team_members/projects_info/" . $user_info->id); ?>" data-target="#tab-projects-info"><?php echo lang('projects'); ?></a></li>
-        <?php } ?>
-
         <?php if ($show_attendance) { ?>
             <li><a role="presentation" href="<?php echo_uri("team_members/attendance_info/" . $user_info->id); ?>" data-target="#tab-attendance-info"> <?php echo lang('attendance'); ?></a></li>
         <?php } ?>

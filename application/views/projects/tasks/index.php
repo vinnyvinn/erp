@@ -3,17 +3,12 @@
         <h4><?php echo lang('tasks'); ?></h4>
         <div class="title-button-group">
             <?php
-
             if ($can_create_tasks) {
-                echo modal_anchor(get_uri("projects/main_task_modal_form"), "<i class='fa fa-plus-circle'></i> Add Main Task", array("class" => "btn btn-default", "title" => 'Add Main Tasks', "data-post-project_id" => $project_id));
-                
-                if ($can_import_tasks == "YES") {
-                    echo modal_anchor(get_uri("projects/task_import_modal_form"), "<i class='fa fa-plus-circle'></i> Import Sub Tasks", array("class" => "btn btn-default", "title" => 'Import Sub Tasks', "data-post-project_id" => $project_id));
+                if (get_setting('tasks_excel') == "yes") {
+                    echo modal_anchor(get_uri("projects/task_import_modal_form"), "<i class='fa fa-plus-circle'></i> Import Excel Tasks", array("class" => "btn btn-default", "title" => 'Import Excel Tasks', "data-post-project_id" => $project_id));
                 }
-
-                echo modal_anchor(get_uri("projects/task_modal_form"), "<i class='fa fa-plus-circle'></i> Add Sub Task", array("class" => "btn btn-default", "title" => "Add Sub Task", "data-post-project_id" => $project_id));
+                echo modal_anchor(get_uri("projects/task_modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_task'), array("class" => "btn btn-default", "title" => lang('add_task'), "data-post-project_id" => $project_id));
             }
-
             ?>
         </div>
     </div>
@@ -72,8 +67,8 @@
                     {visible: false, searchable: false},
                     {title: '<i class="fa fa-bars"></i>', visible: optionVisibility, "class": "text-center option w100"}
                 ],
-                printColumns: [2, 7, 9, 13],
-                xlsColumns: [2, 7, 9, 13],
+                printColumns: [0, 1, 3, 6],
+                xlsColumns: [0, 1, 3, 6],
                 rowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                     $('td:eq(0)', nRow).addClass(aData[16]);
                 }
@@ -81,7 +76,7 @@
         } else {
             $("#task-table").appTable({
                 source: '<?php echo_uri("projects/tasks_list_data/" . $project_id) ?>',
-                order: [[1, "asc"]],
+                order: [[0, "desc"]],
                 filterDropdown: [{name: "milestone_id", class: "w200", options: <?php echo $milestone_dropdown; ?>}, {name: "assigned_to", class: "w200", options: <?php echo $assigned_to_dropdown; ?>}],
                 checkBoxes: [
                     {text: 'ToDo', name: "status", value: "to_do - 0%", isChecked: true},
@@ -108,8 +103,8 @@
                     {title: 'Date Created'},
                     {title: '<i class="fa fa-bars"></i>', visible: optionVisibility, "class": "text-center option w80"}
                 ],
-                printColumns: [2, 4, 7, 9, 11, 12, 13, 14],
-                xlsColumns: [2, 4, 7, 9, 11, 12, 13, 14],
+                printColumns: [0, 1, 2, 3, 5, 7, 9],
+                xlsColumns: [0, 1, 2, 3, 5, 7, 9],
 //                summation: [{column: 4, dataType: 'float'}],
                 rowCallback: function (nRow, aData, iDisplayIndex, iDisplayIndexFull) {
                     $('td:eq(0)', nRow).addClass(aData[16]);
