@@ -82,162 +82,7 @@ class Team_members extends Pre_loader
         $view_data['model_info'] = $this->Users_model->get_details($options)->row();
         $this->load->view('team_members/modal_form', $view_data);
     }
-
-    /* save new member */
-
-    function add_team_member()
-    {
-        $this->access_only_admin();
-
-        //check duplicate email address, if found then show an error message
-        if ($this->Users_model->is_email_exists($this->input->post('email'))) {
-            echo json_encode(array("success" => false, 'message' => lang('duplicate_email')));
-            exit();
-        }
-
-        validate_submitted_data(
-            array(
-                "email"      => "required|valid_email",
-                "first_name" => "required",
-                "last_name"  => "required",
-                "job_title"  => "required",
-                "role"       => "required"
-            ));
-
-        $user_data = array(
-            "email"      => $this->input->post('email'),
-            "password"   => md5($this->input->post('password')),
-            "first_name" => $this->input->post('first_name'),
-            "last_name"  => $this->input->post('last_name'),
-            "is_admin"   => $this->input->post('is_admin'),
-            "address"    => $this->input->post('address'),
-            "phone"      => $this->input->post('phone'),
-            "gender"     => $this->input->post('gender'),
-            "job_title"  => $this->input->post('job_title'),
-            "phone"      => $this->input->post('phone'),
-            "gender"     => $this->input->post('gender'),
-            "user_type"  => "staff",
-            "created_at" => get_current_utc_time()
-        );
-
-        //make role id or admin permission 
-        $role = $this->input->post('role');
-        $role_id = $role;
-
-        if ($role === "admin") {
-            $user_data["is_admin"] = 1;
-            $user_data["role_id"] = 0;
-        } else {
-            $user_data["is_admin"] = 0;
-            $user_data["role_id"] = $role_id;
-        }
-
-
-        //add a new team member
-        $user_id = $this->Users_model->save($user_data);
-
-        $SAGE_query = "INSERT INTO DEMO.dbo._rtblAgents(cAgentName, cPassword, cFirstName, cLastName, cDisplayName, cTelWork, cEmail, id) VALUES ('". $user_data['first_name'] . " " . $user_data['last_name'] . "', 'msPhRqkbAPEZEqnRQbQB4p8mKlf3bO7H2tqxESayKSU=', '" . $user_data['first_name'] . "', '" . $user_data['last_name'] . "', '" . $user_data['first_name'] . " " . $user_data['last_name'] . "', '" . $user_data['phone'] . "', '" . $user_data['email'] . "', '$user_id')";
-        $this->SAGE_DB()->query($SAGE_query);
-
-        $hourly_rate = @($this->input->post('salary') / $this->input->post('working_hours'));
-        if(false === $hourly_rate) {
-          $hourly_rate = 0;
-        }
-
-        if ($user_id) {
-            //user added, now add the job info for the user
-            $job_data = array(
-                "user_id"      => $user_id,
-                "salary"       => $this->input->post('salary') ? $this->input->post('salary') : 0,
-                "salary_term"  => $this->input->post('salary_term'),
-                "working_hours"  => $this->input->post('working_hours'),
-                "hourly_rate"  => $hourly_rate,
-                "date_of_hire" => $this->input->post('date_of_hire')
-            );
-            $this->Users_model->save_job_info($job_data);
-
-            //send login details to user
-            if ($this->input->post('email_login_details')) {
-
-                //get the login details template
-                $email_template = $this->Email_templates_model->get_final_template("login_info");
-
-                $parser_data["SIGNATURE"] = $email_template->signature;
-                $parser_data["USER_FIRST_NAME"] = $user_data["first_name"];
-                $parser_data["USER_LAST_NAME"] = $user_data["last_name"];
-                $parser_data["USER_LOGIN_EMAIL"] = $user_data["email"];
-                $parser_data["USER_LOGIN_PASSWORD"] = $this->input->post('password');
-                $parser_data["DASHBOARD_URL"] = base_url();
-
-                $message = $this->parser->parse_string($email_template->message, $parser_data, true);
-                send_app_mail($this->input->post('email'), $email_template->subject, $message);
-            }
-        }
-
-        if ($user_id) {
-            if ($this->input->post('data-type') == 'plain') {
-                echo json_encode([
-                    "success" => true,
-                    "data" => json_encode([
-                        'id' => $user_id,
-                        'title' => $user_data['first_name'] . ' ' . $user_data['last_name']
-                    ]),
-                    'id' => $user_id,
-                    'message' => lang('record_saved')
-                ]);
-            } else {
-                echo json_encode([
-                    "success" => true,
-                    "data" => $this->_row_data($user_id),
-                    'id' => $user_id,
-                    'message' => lang('record_saved')
-                ]);
-            }
-        } else {
-            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
-        }
-    }
-
-    /* open invitation modal */
-
-    function invitation_modal()
-    {
-        $this->access_only_admin();
-        $this->load->view('team_members/invitation_modal');
-    }
-
-    //send a team member invitation to an email address
-    function send_invitation()
-    {
-        $this->access_only_admin();
-
-        validate_submitted_data(
-            array(
-                "email" => "required|valid_email"
-            ));
-
-        $email = $this->input->post('email');
-
-        //get the send invitation template 
-        $email_template = $this->Email_templates_model->get_final_template("team_member_invitation");
-
-        $parser_data["INVITATION_SENT_BY"] = $this->login_user->first_name . " " . $this->login_user->last_name;
-        $parser_data["SIGNATURE"] = $email_template->signature;
-        $parser_data["SITE_URL"] = get_uri();
-
-        //make the invitation url with 24hrs validity
-        $key = encode_id($this->encrypt->encode('staff|' . $email . '|' . (time() + (24 * 60 * 60))), "signup");
-        $parser_data['INVITATION_URL'] = get_uri("signup/accept_invitation/" . $key);
-
-        //send invitation email
-        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
-        if (send_app_mail($email, $email_template->subject, $message)) {
-            echo json_encode(array('success' => true, 'message' => lang("invitation_sent")));
-        } else {
-            echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
-        }
-    }
-
+    
     //prepere the data for members list
     function list_data()
     {
@@ -468,9 +313,9 @@ class Team_members extends Pre_loader
         $name = $user_data['first_name'] . " " . $user_data['last_name'];
 
 
-        $SAGE_query = "UPDATE DEMO.dbo._rtblAgents SET cAgentName = '".$name."', cFirstName = '".$user_data['first_name']."', cLastName = '".$user_data['last_name']."', cDisplayName = '".$name."', cTelWork = '".$user_data['phone']."' WHERE id = '". $user_id ."'";
+        /*$SAGE_query = "UPDATE DEMO.dbo._rtblAgents SET cAgentName = '".$name."', cFirstName = '".$user_data['first_name']."', cLastName = '".$user_data['last_name']."', cDisplayName = '".$name."', cTelWork = '".$user_data['phone']."' WHERE id = '". $user_id ."'";
 
-        $this->SAGE_DB()->query($SAGE_query);
+        $this->SAGE_DB()->query($SAGE_query);*/
 
         if ($user_info_updated) {
             echo json_encode(array("success" => true, 'message' => lang('record_updated')));
@@ -562,8 +407,10 @@ class Team_members extends Pre_loader
             "email" => $this->input->post('email')
         );
 
-        $SAGE_query = "UPDATE DEMO.dbo._rtblAgents SET cEmail = '".$account_data['email']."' WHERE id = '". $user_id ."'";
-        $this->SAGE_DB()->query($SAGE_query);
+        $this->SAGE_DB()->set('cEmail', $account_data['email'])->where('cEmail', $this->Users_model->get_one($user_id)->email)->update('_rtblAgents');
+
+/*        $SAGE_query = "UPDATE DEMO.dbo._rtblAgents SET cEmail = '".$account_data['email']."' WHERE id = '". $user_id ."'";
+        $this->SAGE_DB()->query($SAGE_query);*/
 
         if ($this->login_user->is_admin && $this->login_user->id != $user_id) {
             //only admin user has permission to update team member's role
@@ -677,54 +524,27 @@ class Team_members extends Pre_loader
         $this->load->view("team_members/expenses", $view_data);
     }
 
-    function sync_members() {
+    function import_sage_agents() {
 
-        $datasaved = false;
-
-        $HR_DB = $this->load->database('HR', TRUE);
-
-        $query = "SELECT
-            tblEmployee.Emp_First_Name,
-            tblEmployee.Emp_Last_Name,
-            tblEmployee_Contact.Emp_WorkEmail,
-            tblEmployee_Contact.Emp_WorkPhone,
-            tblEmployee.Emp_Join_Date,
-            tblDepartment.Dept_Id,
-            tblDepartment.Dept_Name,
-            tblDesignation.Desig_Id,
-            tblDesignation.Desig_Name,
-            tblEmployee_Contract.Contract_From_Date,
-            tblEmployee_Contract.Contract_To_Date
-
-            FROM
-            tblEmployee
-            INNER JOIN tblDesignation ON tblEmployee.Emp_Desig_Id = tblDesignation.Desig_Id
-            INNER JOIN tblEmployee_Contact ON tblEmployee_Contact.Emp_Id = tblEmployee.Emp_Id
-            INNER JOIN tblDepartment ON tblEmployee.Cmp_Id = tblDepartment.Cmp_Id AND tblEmployee.Emp_Dept_Id = tblDepartment.Dept_Id
-            INNER JOIN tblEmployee_Contract ON tblEmployee_Contract.Cmp_Id = tblEmployee.Cmp_Id AND tblEmployee_Contract.Emp_Id = tblEmployee.Emp_Id";
-
-        $return = []; // return array of objects
-        foreach ($HR_DB->query($query)->result() as $row) {
-            $return[] = $row;
-        }
-
-        $objData = json_decode(json_encode((array) $return), true); // convert objects to associative array
-
-        for ($i=0; $i < count($objData); $i++) {     
+       foreach ($this->SAGE_DB()->get_where('_rtblAgents', array('bSysAccount' => 0, 'cPassword !='=> '', 'cEmail !='=> ''))->result() as $value) {    
 
             $user_data = array(
-                'first_name' => $objData[$i]['Emp_First_Name'],
-                'last_name' => $objData[$i]['Emp_Last_Name'],
-                'user_type' => 'staff',
-                'is_admin' => 0,
-                'role_id' => 1,
-                'email'   => $objData[$i]['Emp_WorkEmail'],
-                'password' => '25d55ad283aa400af464c76d713c07ad',
-                'job_title' => $objData[$i]['Desig_Name'],
-                'phone'      => $objData[$i]['Emp_WorkPhone']
+                'first_name' => $value->cFirstName,
+                'last_name'  => $value->cLastName,
+                'user_type'  => 'staff',
+                'is_admin'   => 0,
+                'role_id'    => 1,
+                'email'      => $value->cEmail ? $value->cEmail : strtolower($value->cAgentName) . "@teamkazi.com",
+                'password'   => '25d55ad283aa400af464c76d713c07ad', // 12345678
+                'status'     => ($value->bAgentActive == 1) ? "active" : "inactive",
+                'job_title'  => $value->cDescription ? $value->cDescription : "Sage User",
+                'phone'      => $value->cTelWork ? $value->cTelWork : "0700000000",
+                'dob'        => "00-00-00",
+                'gender'     => "male",
+                'created_at' => date('Y-m-d')
             );
 
-            if (!$this->Users_model->is_email_exists($objData[$i]['Emp_WorkEmail'])) {
+            if (!$this->Users_model->is_email_exists($value->cEmail)) {
 
                 // add a new team member
                 $user_id = $this->Users_model->save($user_data);
@@ -734,24 +554,18 @@ class Team_members extends Pre_loader
                     $job_data = array(
                         "user_id"      => $user_id,
                         "salary"       => 0,
-                        "salary_term"  => "Uknown",
-                        "working_hours"  => 0,
-                        "hourly_rate"  => 0,
-                        "date_of_hire" => (new DateTime($objData[$i]['Emp_Join_Date']))->format('Y-m-d')
+                        "salary_term"  => "Monthly",
+                        "working_hours" => get_setting("working_hours"),
+                        "hourly_rate"  => 0 / get_setting("working_hours"), // salary / hourly_rate
+                        "date_of_hire" => date('Y-m-d')
                     );
 
                     $this->Team_member_model->save($job_data);
                     
-                    $datasaved = true;
                 }
-            }
-
-            echo json_encode(array("success" => $datasaved, 'message' => lang('record_saved')));
-
+            }            
         }
 
-         // echo json_encode(array("success" => true, 'message' => 'Team Members Synchronized'));
-        
     }
 
 }

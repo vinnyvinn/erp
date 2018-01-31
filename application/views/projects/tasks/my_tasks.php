@@ -1,12 +1,7 @@
 <div id="page-content" class="p20 clearfix">
     <div class="panel panel-default">
         <div class="page-title clearfix">
-            <h1> <?php echo lang('my_tasks'); ?> <small>(sub-tasks)</small></h1>
-            <div class="tab-title clearfix">
-                <div class="title-button-group">
-                <a href="#" class="btn btn-default" title="Add task" data-post-project_id="2" data-act="ajax-modal" data-title="Add task" data-action-url="<?php echo get_uri("projects/main_task_modal_form"); ?>"><i class="fa fa-plus-circle"></i> Add main task</a>
-                </div>
-            </div>
+            <h1> <?php echo lang('tasks'); ?></h1>
         </div>
         <div class="table-responsive">
             <table id="task-table" class="display" cellspacing="0" width="100%">            
@@ -31,20 +26,19 @@
             ],
             columns: [
                 {title: ''},
-                {title: 'Main Task'},
+                {visible: false, searchable: false},
                 {title: '<?php echo lang("title") ?>'},
                 {visible: false, searchable: false},
                 {visible: false, searchable: false},
                 {visible: false, searchable: false},
                 {visible: false, searchable: false},
-                {visible: false, searchable: false},
+                {title: '<?php echo lang("start_date") ?>', "iDataSort": 2},
                 {visible: false, searchable: false},
                 {title: '<?php echo lang("deadline") ?>', "iDataSort": 4},
                 {title: '<?php echo lang("project") ?>'},
                 {title: '<?php echo lang("assigned_to") ?>', "class": "min-w150"},
                 {title: 'Priority'},
                 {title: '<?php echo lang("status") ?>'},
-                {title: '<?php echo lang("start_date") ?>', "iDataSort": 2},
                 {visible: false, searchable: false},
             ],
             printColumns: [0, 1, 3, 5, 6, 7, 8, 9],

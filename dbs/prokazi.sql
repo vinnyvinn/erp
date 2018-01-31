@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
--- https://www.phpmyadmin.net/
+-- version 4.5.4.1deb2ubuntu2
+-- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Jan 09, 2018 at 11:56 PM
--- Server version: 10.1.28-MariaDB
--- PHP Version: 5.6.32
+-- Host: localhost
+-- Generation Time: Jan 29, 2018 at 06:21 PM
+-- Server version: 5.7.21-0ubuntu0.16.04.1
+-- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -104,6 +102,52 @@ INSERT INTO `attendance` (`id`, `status`, `user_id`, `task_id`, `project_id`, `i
 (5, 'pending', 89, 3, 8, '2017-11-13 22:00:00', '2017-11-13 23:00:00', '3600', NULL, NULL, NULL, NULL, 0),
 (6, 'pending', 5, 6, 10, '2017-11-13 23:00:00', '2017-11-13 21:00:00', '7200', NULL, NULL, NULL, NULL, 0),
 (7, 'pending', 89, 6, 10, '2017-11-14 11:00:00', '2017-11-14 08:00:00', '10800', NULL, NULL, NULL, NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `business_types`
+--
+
+CREATE TABLE `business_types` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `deleted` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `business_types`
+--
+
+INSERT INTO `business_types` (`id`, `title`, `created_at`, `updated_at`, `deleted`) VALUES
+(1, 'Useless', '2018-01-22 10:05:34', NULL, 0),
+(2, 'Not Profitable', '2018-01-22 10:05:48', NULL, 0),
+(3, 'Good for Nothing', '2018-01-22 10:06:01', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `call_types`
+--
+
+CREATE TABLE `call_types` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `deleted` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `call_types`
+--
+
+INSERT INTO `call_types` (`id`, `title`, `created_at`, `updated_at`, `deleted`) VALUES
+(1, 'Visit', '2018-01-22 07:38:42', NULL, 0),
+(2, 'Phone Call', '2018-01-22 07:38:56', NULL, 0),
+(3, 'Email', '2018-01-22 07:39:02', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -209,22 +253,20 @@ CREATE TABLE `email_templates` (
 --
 
 INSERT INTO `email_templates` (`id`, `template_name`, `email_subject`, `default_message`, `custom_message`, `deleted`) VALUES
-(1, 'login_info', 'Login details', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"PRO-KAZI\">\n  <h1>Login Details</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"> Please use the following info to login your dashboard:</p>            <hr>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">Dashboard URL:&nbsp;<a href=\"{DASHBOARD_URL}\" target=\"_blank\">{DASHBOARD_URL}</a></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\"></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style=\"color: rgb(85, 85, 85);\"><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', 0),
-(2, 'reset_password', 'Reset password', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Reset Password</h1>\n </div>\n <div style=\"padding: 20px; background-color: rgb(255, 255, 255); color:#555;\">                    <p style=\"font-size: 14px;\"> Hello {ACCOUNT_HOLDER_NAME},<br><br>A password reset request has been created for your account.&nbsp;</p>\n                    <p style=\"font-size: 14px;\"> To initiate the password reset process, please click on the following link:</p>\n                    <p style=\"font-size: 14px;\"><a href=\"{RESET_PASSWORD_URL}\" target=\"_blank\">Reset Password</a></p>\n                    <p style=\"font-size: 14px;\"></p>\n                    <p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you\'ve received this mail in error, it\'s likely that another user entered your email address by mistake while trying to reset a password.</span><br></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you didn\'t initiate the request, you don\'t need to take any further action and can safely disregard this email.</span><br></p>\n<p style=\"font-size: 14px;\"><br></p>\n<p style=\"font-size: 14px;\">{SIGNATURE}</p>\n                </div>\n            </div>\n        </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"PRO-KAZI\"><h1>Reset Password</h1>\n </div>\n <div style=\"padding: 20px; background-color: rgb(255, 255, 255); color:#555;\">                    <p style=\"font-size: 14px;\"> Hello {ACCOUNT_HOLDER_NAME},<br><br>A password reset request has been created for your account.&nbsp;</p>\n                    <p style=\"font-size: 14px;\"> To initiate the password reset process, please click on the following link:</p>\n                    <p style=\"font-size: 14px;\"><a href=\"{RESET_PASSWORD_URL}\" target=\"_blank\">Reset Password</a></p>\n                    <p style=\"font-size: 14px;\"></p>\n                    <p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you\'ve received this mail in error, it\'s likely that another user entered your email address by mistake while trying to reset a password.</span><br></p>\n<p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">If you didn\'t initiate the request, you don\'t need to take any further action and can safely disregard this email.</span><br></p>\n<p style=\"font-size: 14px;\"><br></p>\n<p style=\"font-size: 14px;\">{SIGNATURE}</p>\n                </div>\n            </div>\n        </div>', 0),
-(3, 'team_member_invitation', 'You are invited', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Account Invitation</h1>   </div>  <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello,</span><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\"><br></span></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\">{INVITATION_SENT_BY}</span> has sent you an invitation to join with a team.</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVITATION_URL}\" target=\"_blank\">Accept this Invitation</a></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Account Invitation</h1>   </div>  <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello,</span><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\"><br></span></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\">{INVITATION_SENT_BY}</span> has sent you an invitation to join with a team.</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVITATION_URL}\" target=\"_blank\">Accept this Invitation</a></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', 0),
-(4, 'send_invoice', 'New invoice', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>INVOICE #{INVOICE_ID}</h1></div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">  <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Thank you for your business cooperation.</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your invoice for the project {PROJECT_TITLE} has been generated and is attached here.</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVOICE_URL}\" target=\"_blank\">Show Invoice</a></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Invoice balance due is {BALANCE_DUE}</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Please pay this invoice within {DUE_DATE}.&nbsp;</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>INVOICE #{INVOICE_ID}</h1></div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">  <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Thank you for your business cooperation.</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your invoice for the project {PROJECT_TITLE} has been generated and is attached here.</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVOICE_URL}\" target=\"_blank\">Show Invoice</a></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"font-size: 14px; line-height: 20px;\">Invoice balance due is {BALANCE_DUE}</span><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Please pay this invoice within {DUE_DATE}.&nbsp;</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>  </div> </div></div>', 0),
-(5, 'signature', 'Signature', '<p>Â© Pro-Kazi. Powered By: <a href=\"https://wizag.biz/\" target=\"_blank\">Wise &amp; Agile Solutions Limited. </a></p>', '<p>Â© Pro-Kazi. Powered By: <a href=\"https://wizag.biz/\" target=\"_blank\">Wise &amp; Agile Solutions Limited. </a></p>', 0),
-(6, 'client_contact_invitation', 'You are invited', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Account Invitation</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello,</span><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\"><br></span></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\">{INVITATION_SENT_BY}</span> has sent you an invitation to a client portal.</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVITATION_URL}\" target=\"_blank\">Accept this Invitation</a></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Account Invitation</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello,</span><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\"><br></span></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><span style=\"font-weight: bold;\">{INVITATION_SENT_BY}</span> has sent you an invitation to a client portal.</span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{INVITATION_URL}\" target=\"_blank\">Accept this Invitation</a></span></p>            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p>        </div>    </div></div>', 0),
-(7, 'ticket_created', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID} Opened</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px; font-weight: bold;\">Title: {TICKET_TITLE}</span><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{TICKET_CONTENT}</span><br></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p> <p style=\"\"><br></p><p style=\"\">Regards,</p><p style=\"\"><span style=\"line-height: 18.5714px;\">{USER_NAME}</span><br></p>   </div>  </div> </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID} Opened</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px; font-weight: bold;\">Title: {TICKET_TITLE}</span><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{TICKET_CONTENT}</span><br></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p> <p style=\"\"><br></p><p style=\"\">Regards,</p><p style=\"\"><span style=\"line-height: 18.5714px;\">{USER_NAME}</span><br></p>   </div>  </div> </div>', 0),
-(8, 'ticket_commented', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID} Replies</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px; font-weight: bold;\">Title: {TICKET_TITLE}</span><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{TICKET_CONTENT}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p></div></div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID} Replies</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px; font-weight: bold;\">Title: {TICKET_TITLE}</span><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{TICKET_CONTENT}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p></div></div></div>', 0),
-(9, 'ticket_closed', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p> <p style=\"\"><br></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>   </div>  </div> </div>', 0),
-(10, 'ticket_reopened', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>Ticket #{TICKET_ID}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style=\"line-height: 18.5714px;\">{USER_NAME}</span></p><p style=\"\"><br></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #00b393; padding: 10px 15px; color: #ffffff;\" href=\"{TICKET_URL}\" target=\"_blank\">Show Ticket</a></span></p>  </div> </div></div>', 1),
-(11, 'general_notification', '{EVENT_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', 1),
-(12, 'petty_cash', 'Petty Cash', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0),
-(13, 'inventory_requisitions', 'Inventory Requisitions', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0),
-(14, 'legal_notification', 'Prokazi Cases', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', 0),
-(15, 'ticket_done', 'Ticket Marked as Solved', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>TICKECT ID: # {TICKET_ID}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {CREATED_BY} Kindly your ticket # {TICKET_ID} raised on {CREATED_AT} has been solved.</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">Kindly marked it as solved to complete your query.<br></span></p><br><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\n    <div style=\"max-width:640px; margin:0 auto; \">\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\n            <h1>TICKECT ID: # {TICKET_ID}</h1></div>\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {CREATED_BY} Kindly your ticket # {TICKET_ID} raised on {CREATED_AT} has been solved.</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">Kindly marked it as solved to complete your query.<br></span></p><br><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\n        </div>\n    </div>\n', 0),
-(16, 'third_party', 'Solved by third party', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>TICKECT ID: # {TICKET_ID}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {THIRD_PARTY_NAME}, I am {CREATED_BY} Kindly check this&nbsp; ticket # {TICKET_ID} raised on {CREATED_AT} and help with finding the solution.</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">Kindly I will appreciate for your immediate response.<br></span></p><br><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\n    <div style=\"max-width:640px; margin:0 auto; \">\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\n            <h1>TICKECT ID: # {TICKET_ID}</h1></div>\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {THIRD_PARTY_NAME}, I am {CREATED_BY} Kindly check this&nbsp; ticket # {TICKET_ID} raised on {CREATED_AT} and help with finding the solution.</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">Kindly I will appreciate for your immediate response.<br></span></p><br><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\n        </div>\n    </div>\n', 0);
+(1, 'login_info', 'Login details', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi">\n  <h1>Login Details</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);">            <p style="color: rgb(85, 85, 85); font-size: 14px;"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style="color: rgb(85, 85, 85); font-size: 14px;"> Please use the following info to login your dashboard:</p>            <hr>            <p style="color: rgb(85, 85, 85); font-size: 14px;">Dashboard URL:&nbsp;<a href="{DASHBOARD_URL}" target="_blank">{DASHBOARD_URL}</a></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;"></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style="color: rgb(85, 85, 85);"><br></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>        </div>    </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="PRO-KAZI">\n  <h1>Login Details</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);">            <p style="color: rgb(85, 85, 85); font-size: 14px;"> Hello {USER_FIRST_NAME}, &nbsp;{USER_LAST_NAME},<br><br>An account has been created for you.</p>            <p style="color: rgb(85, 85, 85); font-size: 14px;"> Please use the following info to login your dashboard:</p>            <hr>            <p style="color: rgb(85, 85, 85); font-size: 14px;">Dashboard URL:&nbsp;<a href="{DASHBOARD_URL}" target="_blank">{DASHBOARD_URL}</a></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;"></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Email: {USER_LOGIN_EMAIL}</span><br></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Password:&nbsp;{USER_LOGIN_PASSWORD}</span></p>            <p style="color: rgb(85, 85, 85);"><br></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>        </div>    </div></div>', 0),
+(2, 'reset_password', 'Reset password', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Reset Password</h1>\n </div>\n <div style="padding: 20px; background-color: rgb(255, 255, 255); color:#555;">                    <p style="font-size: 14px;"> Hello {ACCOUNT_HOLDER_NAME},<br><br>A password reset request has been created for your account.&nbsp;</p>\n                    <p style="font-size: 14px;"> To initiate the password reset process, please click on the following link:</p>\n                    <p style="font-size: 14px;"><a href="{RESET_PASSWORD_URL}" target="_blank">Reset Password</a></p>\n                    <p style="font-size: 14px;"></p>\n                    <p style=""><span style="font-size: 14px; line-height: 20px;"><br></span></p>\n<p style=""><span style="font-size: 14px; line-height: 20px;">If you\'ve received this mail in error, it\'s likely that another user entered your email address by mistake while trying to reset a password.</span><br></p>\n<p style=""><span style="font-size: 14px; line-height: 20px;">If you didn\'t initiate the request, you don\'t need to take any further action and can safely disregard this email.</span><br></p>\n<p style="font-size: 14px;"><br></p>\n<p style="font-size: 14px;">{SIGNATURE}</p>\n                </div>\n            </div>\n        </div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="PRO-KAZI"><h1>Reset Password</h1>\n </div>\n <div style="padding: 20px; background-color: rgb(255, 255, 255); color:#555;">                    <p style="font-size: 14px;"> Hello {ACCOUNT_HOLDER_NAME},<br><br>A password reset request has been created for your account.&nbsp;</p>\n                    <p style="font-size: 14px;"> To initiate the password reset process, please click on the following link:</p>\n                    <p style="font-size: 14px;"><a href="{RESET_PASSWORD_URL}" target="_blank">Reset Password</a></p>\n                    <p style="font-size: 14px;"></p>\n                    <p style=""><span style="font-size: 14px; line-height: 20px;"><br></span></p>\n<p style=""><span style="font-size: 14px; line-height: 20px;">If you\'ve received this mail in error, it\'s likely that another user entered your email address by mistake while trying to reset a password.</span><br></p>\n<p style=""><span style="font-size: 14px; line-height: 20px;">If you didn\'t initiate the request, you don\'t need to take any further action and can safely disregard this email.</span><br></p>\n<p style="font-size: 14px;"><br></p>\n<p style="font-size: 14px;">{SIGNATURE}</p>\n                </div>\n            </div>\n        </div>', 0),
+(3, 'team_member_invitation', 'You are invited', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Account Invitation</h1>   </div>  <div style="padding: 20px; background-color: rgb(255, 255, 255);">            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello,</span><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;"><br></span></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;">{INVITATION_SENT_BY}</span> has sent you an invitation to join with a team.</span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{INVITATION_URL}" target="_blank">Accept this Invitation</a></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>        </div>    </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Account Invitation</h1>   </div>  <div style="padding: 20px; background-color: rgb(255, 255, 255);">            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello,</span><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;"><br></span></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;">{INVITATION_SENT_BY}</span> has sent you an invitation to join with a team.</span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{INVITATION_URL}" target="_blank">Accept this Invitation</a></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>        </div>    </div></div>', 0),
+(4, 'send_invoice', 'New invoice', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>INVOICE #{INVOICE_ID}</h1></div> <div style="padding: 20px; background-color: rgb(255, 255, 255);">  <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello {CONTACT_FIRST_NAME},</span><br></p><p style=""><span style="font-size: 14px; line-height: 20px;">Thank you for your business cooperation.</span><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Your invoice for the project {PROJECT_TITLE} has been generated and is attached here.</span></p><p style=""><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{INVOICE_URL}" target="_blank">Show Invoice</a></span></p><p style=""><span style="font-size: 14px; line-height: 20px;"><br></span></p><p style=""><span style="font-size: 14px; line-height: 20px;">Invoice balance due is {BALANCE_DUE}</span><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Please pay this invoice within {DUE_DATE}.&nbsp;</span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p><p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>  </div> </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>INVOICE #{INVOICE_ID}</h1></div> <div style="padding: 20px; background-color: rgb(255, 255, 255);">  <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello {CONTACT_FIRST_NAME},</span><br></p><p style=""><span style="font-size: 14px; line-height: 20px;">Thank you for your business cooperation.</span><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Your invoice for the project {PROJECT_TITLE} has been generated and is attached here.</span></p><p style=""><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{INVOICE_URL}" target="_blank">Show Invoice</a></span></p><p style=""><span style="font-size: 14px; line-height: 20px;"><br></span></p><p style=""><span style="font-size: 14px; line-height: 20px;">Invoice balance due is {BALANCE_DUE}</span><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Please pay this invoice within {DUE_DATE}.&nbsp;</span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p><p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>  </div> </div></div>', 0),
+(5, 'signature', 'Signature', '<p>Â© Pro-Kazi. Powered By: <a href="https://wizag.biz/" target="_blank">Wise &amp; Agile Solutions Limited. </a></p>', '<p>Â© Pro-Kazi. Powered By: <a href="https://wizag.biz/" target="_blank">Wise &amp; Agile Solutions Limited. </a></p>', 0),
+(6, 'client_contact_invitation', 'You are invited', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Account Invitation</h1> </div> <div style="padding: 20px; background-color: rgb(255, 255, 255);">            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello,</span><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;"><br></span></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;">{INVITATION_SENT_BY}</span> has sent you an invitation to a client portal.</span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{INVITATION_URL}" target="_blank">Accept this Invitation</a></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>        </div>    </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Account Invitation</h1> </div> <div style="padding: 20px; background-color: rgb(255, 255, 255);">            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello,</span><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;"><br></span></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><span style="font-weight: bold;">{INVITATION_SENT_BY}</span> has sent you an invitation to a client portal.</span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{INVITATION_URL}" target="_blank">Accept this Invitation</a></span></p>            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">If you don\'t want to accept this invitation, simply ignore this email.</span><br><br></p>            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p>        </div>    </div></div>', 0),
+(7, 'ticket_created', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID} Opened</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px; font-weight: bold;">Title: {TICKET_TITLE}</span><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="line-height: 18.5714px;">{TICKET_CONTENT}</span><br></p> <p style=""><br></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p> <p style=""><br></p><p style="">Regards,</p><p style=""><span style="line-height: 18.5714px;">{USER_NAME}</span><br></p>   </div>  </div> </div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID} Opened</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px; font-weight: bold;">Title: {TICKET_TITLE}</span><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="line-height: 18.5714px;">{TICKET_CONTENT}</span><br></p> <p style=""><br></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p> <p style=""><br></p><p style="">Regards,</p><p style=""><span style="line-height: 18.5714px;">{USER_NAME}</span><br></p>   </div>  </div> </div>', 0),
+(8, 'ticket_commented', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID} Replies</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px; font-weight: bold;">Title: {TICKET_TITLE}</span><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="line-height: 18.5714px;">{TICKET_CONTENT}</span></p><p style=""><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p></div></div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID} Replies</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px; font-weight: bold;">Title: {TICKET_TITLE}</span><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="line-height: 18.5714px;">{TICKET_CONTENT}</span></p><p style=""><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p></div></div></div>', 0),
+(9, 'ticket_closed', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID}</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px;">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style="line-height: 18.5714px;">{USER_NAME}</span></p> <p style=""><br></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p>   </div>  </div> </div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID}</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px;">The Ticket #{TICKET_ID} has been closed by&nbsp;</span><span style="line-height: 18.5714px;">{USER_NAME}</span></p> <p style=""><br></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p>   </div>  </div> </div>', 0),
+(10, 'ticket_reopened', 'Ticket  #{TICKET_ID} - {TICKET_TITLE}', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID}</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px;">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style="line-height: 18.5714px;">{USER_NAME}</span></p><p style=""><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p>  </div> </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>Ticket #{TICKET_ID}</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px;">The Ticket #{TICKET_ID} has been reopened by&nbsp;</span><span style="line-height: 18.5714px;">{USER_NAME}</span></p><p style=""><br></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #00b393; padding: 10px 15px; color: #ffffff;" href="{TICKET_URL}" target="_blank">Show Ticket</a></span></p>  </div> </div></div>', 1),
+(11, 'general_notification', '{EVENT_TITLE}', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>{APP_TITLE}</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px;">{EVENT_TITLE}</span></p><p style=""><span style="line-height: 18.5714px;">{EVENT_DETAILS}</span></p><p style=""><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="line-height: 18.5714px;"></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #4f0158; padding: 10px 15px; color: #ffffff;" href="{NOTIFICATION_URL}" target="_blank">View Details</a></span></p>  </div> </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "><div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"><h1>{APP_TITLE}</h1></div><div style="padding: 20px; background-color: rgb(255, 255, 255);"><p style=""><span style="line-height: 18.5714px;">{EVENT_TITLE}</span></p><p style=""><span style="line-height: 18.5714px;">{EVENT_DETAILS}</span></p><p style=""><span style="line-height: 18.5714px;"><br></span></p><p style=""><span style="line-height: 18.5714px;"></span></p><p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #4f0158; padding: 10px 15px; color: #ffffff;" href="{NOTIFICATION_URL}" target="_blank">View Details</a></span></p>  </div> </div></div>', 1),
+(12, 'petty_cash', 'Petty Cash', '<div style="background-color: #eeeeef; padding: 50px 0; "> <div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;"> <img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style="padding: 20px; background-color: rgb(255, 255, 255);"> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=""> <span style="font-size: 14px; line-height: 20px;"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}. {PETTY_CASH_COMMENT}</span></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p> <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p> </div> </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "> <div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;"> <img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style="padding: 20px; background-color: rgb(255, 255, 255);"> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=""> <span style="font-size: 14px; line-height: 20px;"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}. {PETTY_CASH_COMMENT}</span></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p> <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p> </div> </div></div>', 0),
+(13, 'inventory_requisitions', 'Inventory Requisitions', '<div style="background-color: #eeeeef; padding: 50px 0; "> <div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;"> <img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style="padding: 20px; background-color: rgb(255, 255, 255);"> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=""> <span style="font-size: 14px; line-height: 20px;"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}. {INVENTORY_REQUISITIONS_COMMENT}</span></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p> <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p> </div> </div></div>', '<div style="background-color: #eeeeef; padding: 50px 0; "> <div style="max-width:640px; margin:0 auto; "> <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;"> <img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style="padding: 20px; background-color: rgb(255, 255, 255);"> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=""> <span style="font-size: 14px; line-height: 20px;"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}. {INVENTORY_REQUISITIONS_COMMENT}</span></p> <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><br></span></p> <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p> </div> </div></div>', 0),
+(14, 'legal_notification', 'Prokazi Cases', '<div style="background-color: #eeeeef; padding: 50px 0; ">\r\n    <div style="max-width:640px; margin:0 auto; ">\r\n        <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\r\n<img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style="padding: 20px; background-color: rgb(255, 255, 255);">\r\n            <p style=""><span style="line-height: 18.5714px;">Hi {USER_NAME} </span></p>\r\n            <p style=""><span style="line-height: 18.5714px;">You have been added to a legal case </span></p>\r\n            <p style=""><span style="line-height: 18.5714px;">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=""><span style="line-height: 18.5714px;"><br></span></p>\r\n            <p style=""><span style="line-height: 18.5714px;"></span></p>\r\n            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #4f0158; padding: 10px 15px; color: #ffffff;" href="{NOTIFICATION_URL}" target="_blank">View Details</a></span></p>\r\n            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', '<div style="background-color: #eeeeef; padding: 50px 0; ">\r\n    <div style="max-width:640px; margin:0 auto; ">\r\n        <div style="color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;">\r\n            <img src="http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png" alt="Pro-Kazi">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style="padding: 20px; background-color: rgb(255, 255, 255);">\r\n            <p style=""><span style="line-height: 18.5714px;">Hi {USER_NAME} </span></p>\r\n            <p style=""><span style="line-height: 18.5714px;">You have been added to a legal case </span></p>\r\n            <p style=""><span style="line-height: 18.5714px;">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=""><span style="line-height: 18.5714px;"><br></span></p>\r\n            <p style=""><span style="line-height: 18.5714px;"></span></p>\r\n            <p style=""><span style="color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;"><a style="background-color: #4f0158; padding: 10px 15px; color: #ffffff;" href="{NOTIFICATION_URL}" target="_blank">View Details</a></span></p>\r\n            <p style="color: rgb(85, 85, 85); font-size: 14px;">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', 0);
 
 -- --------------------------------------------------------
 
@@ -253,7 +295,9 @@ INSERT INTO `escalation_matrix` (`id`, `escalation_matrix`, `agent_name`, `escal
 (3, 'test', '114', '30', NULL, '2017-12-03 14:17:54', NULL, 0),
 (4, 'test', '5', '30', NULL, '2017-12-03 14:19:01', NULL, 0),
 (5, 'y', '5', '30', NULL, '2017-12-03 14:19:45', NULL, 0),
-(6, 'UberX', '115', '30', NULL, '2017-12-06 05:56:57', NULL, 0);
+(6, 'UberX', '115', '30', NULL, '2017-12-06 05:56:57', NULL, 0),
+(7, 'etdty', '136', '30', NULL, '2017-12-11 00:22:06', NULL, 0),
+(8, 'ict team', '115,113,135', '45', NULL, '2017-12-11 15:38:12', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -347,7 +391,7 @@ CREATE TABLE `estimate_requests` (
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
   `title` text COLLATE utf8_unicode_ci NOT NULL,
-  `description` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8_unicode_ci NOT NULL,
   `start_date` date NOT NULL,
   `end_date` date NOT NULL,
   `start_time` time DEFAULT NULL,
@@ -356,21 +400,69 @@ CREATE TABLE `events` (
   `location` mediumtext COLLATE utf8_unicode_ci,
   `share_with` mediumtext COLLATE utf8_unicode_ci,
   `deleted` int(1) NOT NULL DEFAULT '0',
-  `color` varchar(15) COLLATE utf8_unicode_ci NOT NULL
+  `color` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
+  `client_id` int(11) NOT NULL,
+  `prospector_id` int(11) NOT NULL,
+  `business_type` int(11) NOT NULL,
+  `call_type` int(11) NOT NULL,
+  `objective_type` int(11) NOT NULL,
+  `pipeline_stage` int(11) NOT NULL,
+  `files` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `events`
 --
 
-INSERT INTO `events` (`id`, `title`, `description`, `start_date`, `end_date`, `start_time`, `end_time`, `created_by`, `location`, `share_with`, `deleted`, `color`) VALUES
-(1, 'Team Buliding', 'Enashipai Resort', '2017-03-25', '2017-03-26', '12:00:00', '16:00:00', 6, 'Nakuru', 'all', 0, '#d43480'),
-(2, 'fhfghjg', 'vbcbc', '2017-04-15', '2017-04-15', '14:05:00', '19:15:00', 6, 'ujjgh', '', 0, '#83c340'),
-(3, 'test1', 'test1', '2017-03-27', '2017-03-27', '00:00:00', '00:00:00', 7, '', '', 0, '#83c340'),
-(4, 'tuesday event', 'tuesday event checking', '2017-04-18', '2017-04-19', '01:00:00', '13:00:00', 7, '', '', 0, '#83c340'),
-(5, 'Testing', 'Party', '2017-04-21', '2017-04-21', '13:00:00', '14:00:00', 6, '', 'all', 0, '#83c340'),
-(6, 'another one', 'sdf', '2017-04-21', '2017-04-21', '00:00:00', '00:00:00', 6, '', '', 0, '#83c340'),
-(7, 'erwrewr', 'Policy', '2017-12-12', '2017-12-22', NULL, NULL, 5, 'N/A', '113', 0, '#d43480');
+INSERT INTO `events` (`id`, `title`, `description`, `start_date`, `end_date`, `start_time`, `end_time`, `created_by`, `location`, `share_with`, `deleted`, `color`, `client_id`, `prospector_id`, `business_type`, `call_type`, `objective_type`, `pipeline_stage`, `files`) VALUES
+(22, 'demo', 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.', '2018-01-29', '2018-01-29', '01:00:00', '01:00:00', 5, 'Mogadishu', '', 0, '#83c340', 1, 0, 2, 2, 2, 3, 'a:0:{}');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_comments`
+--
+
+CREATE TABLE `event_comments` (
+  `id` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `description` mediumtext COLLATE utf8_unicode_ci NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `share_with` text COLLATE utf8_unicode_ci,
+  `files` longtext COLLATE utf8_unicode_ci,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `event_notes`
+--
+
+CREATE TABLE `event_notes` (
+  `id` int(11) NOT NULL,
+  `created_by` int(11) NOT NULL,
+  `created_at` datetime NOT NULL,
+  `title` text COLLATE utf8_unicode_ci NOT NULL,
+  `description` mediumtext COLLATE utf8_unicode_ci,
+  `event_id` int(11) NOT NULL DEFAULT '0',
+  `client_id` int(11) NOT NULL DEFAULT '0',
+  `user_id` int(11) NOT NULL DEFAULT '0',
+  `labels` text COLLATE utf8_unicode_ci,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `event_notes`
+--
+
+INSERT INTO `event_notes` (`id`, `created_by`, `created_at`, `title`, `description`, `event_id`, `client_id`, `user_id`, `labels`, `deleted`) VALUES
+(7, 5, '2018-01-29 07:46:10', 'demo', 'dxzv cx vcx vcx cx', 21, 0, 0, 'Important', 1),
+(8, 5, '2018-01-29 07:46:37', 'employees', 'v cxzvfdsbvfdxsb fd bfcxz', 21, 0, 0, 'Important', 1),
+(9, 5, '2018-01-29 13:37:32', 'demo', 'Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.', 22, 0, 0, 'Important', 0),
+(10, 5, '2018-01-29 13:37:50', 'Visit', 'Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.', 22, 0, 0, 'Important,high', 1),
+(11, 5, '2018-01-29 16:18:22', 'Visit', 'ewgefgfedvfedvfdvfdvfdvd', 22, 0, 0, 'Important', 1);
 
 -- --------------------------------------------------------
 
@@ -422,7 +514,7 @@ CREATE TABLE `inventory_requisitions` (
   `item_id` int(11) NOT NULL,
   `item_name` varchar(255) NOT NULL,
   `item_quantity` varchar(255) NOT NULL,
-  `available_quantity` varchar(255) DEFAULT NULL,
+  `StkItem_id` int(11) DEFAULT NULL,
   `item_cost` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -435,9 +527,12 @@ CREATE TABLE `inventory_requisitions` (
 -- Dumping data for table `inventory_requisitions`
 --
 
-INSERT INTO `inventory_requisitions` (`id`, `user_id`, `item_id`, `item_name`, `item_quantity`, `available_quantity`, `item_cost`, `created_at`, `updated_at`, `status`, `approver_id`, `deleted`) VALUES
-(22, 113, 2, 'Mouse', '2', '5', '500', '2017-12-07 06:01:51', '2017-12-07 06:01:51', 'Approved', 0, 0),
-(23, 113, 2, 'Mouse', '5', '5', '1250', '2017-12-06 21:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` (`id`, `user_id`, `item_id`, `item_name`, `item_quantity`, `StkItem_id`, `item_cost`, `created_at`, `updated_at`, `status`, `approver_id`, `deleted`) VALUES
+(24, 113, 2, 'Mouse', '20', 2, '750', '2017-12-07 18:53:28', '2017-12-07 18:53:28', 'Approved', 0, 0),
+(25, 113, 2, 'Mouse', '45', 2, '11250', '2017-12-13 15:06:44', '2017-12-13 15:06:44', 'Disapproved', 0, 0),
+(26, 113, 2, 'Mouse', '4', 2, '1000', '2017-12-13 15:08:47', '2017-12-13 15:08:47', 'Disapproved', 0, 0),
+(27, 5, 2, 'Mouse', '34', 2, '8500', '2017-12-13 16:21:12', '2017-12-13 16:21:12', 'Disapproved', 0, 0),
+(28, 5, 2, 'Mouse', '4', 2, '1000', '2017-12-15 07:07:44', '2017-12-15 07:07:44', 'Disapproved', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -568,11 +663,10 @@ CREATE TABLE `main_tasks` (
 --
 
 INSERT INTO `main_tasks` (`id`, `serial`, `title`, `description`, `project_id`, `deleted`) VALUES
-(3, 'PJG0000', 'main task one', '', 8, 0),
-(4, 'PJG0001', 'main task one', '', 10, 0),
-(6, 'PJG0002', 'y', '', 8, 0),
-(7, '', 'Ticket: employees', '', 11, 0),
-(8, '', 'Ticket: demo ticket 1', '', 11, 0);
+(9, 'SN0000', 'demo main task', 'gfy', 14, 0),
+(10, 'SN0001', 'employees', 'ugyu', 14, 0),
+(11, 'SN0002', 'demo project', 'fd', 15, 0),
+(12, 'SN0003', 'demo main 3', 'fd68', 14, 0);
 
 -- --------------------------------------------------------
 
@@ -704,8 +798,11 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `user_id`, `description`, `created_at`, `notify_to`, `read_by`, `event`, `project_id`, `task_id`, `project_comment_id`, `ticket_id`, `ticket_comment_id`, `project_file_id`, `leave_id`, `post_id`, `to_user_id`, `activity_log_id`, `client_id`, `invoice_payment_id`, `estimate_id`, `estimate_request_id`, `deleted`) VALUES
-(47, 5, '', '2017-12-04 09:41:28', '89', ',89', 'ticket_created', 0, 0, 0, 2, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-(48, 5, '', '2017-12-06 07:36:21', '113', ',113', 'ticket_created', 0, 0, 0, 4, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(50, 137, '', '2017-12-11 00:22:33', '', '', 'ticket_created', 0, 0, 0, 5, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(51, 113, '', '2017-12-11 07:17:02', '5', '', 'ticket_created', 0, 0, 0, 6, 25, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(52, 5, '', '2017-12-11 15:35:08', '115', '', 'ticket_created', 0, 0, 0, 7, 26, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(53, 5, '', '2017-12-13 16:32:07', '113', '', 'ticket_created', 0, 0, 0, 8, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(54, 5, '', '2017-12-15 07:09:23', '113', '', 'ticket_created', 0, 0, 0, 9, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -769,6 +866,30 @@ INSERT INTO `notification_settings` (`id`, `event`, `category`, `enable_email`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `objective_types`
+--
+
+CREATE TABLE `objective_types` (
+  `id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  `deleted` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `objective_types`
+--
+
+INSERT INTO `objective_types` (`id`, `title`, `created_at`, `updated_at`, `deleted`) VALUES
+(1, 'Debt Collection', '2018-01-22 07:51:46', NULL, 0),
+(2, 'Development', '2018-01-22 07:51:57', NULL, 0),
+(3, 'Maintenance', '2018-01-22 07:52:08', NULL, 0),
+(4, 'Acquisition', '2018-01-22 07:52:20', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `payment_methods`
 --
 
@@ -790,8 +911,8 @@ CREATE TABLE `payment_methods` (
 
 INSERT INTO `payment_methods` (`id`, `title`, `type`, `description`, `online_payable`, `available_on_invoice`, `minimum_payment_amount`, `settings`, `deleted`) VALUES
 (1, 'Cash', 'custom', 'Cash payments', 0, 0, 0, '', 0),
-(2, 'Stripe', 'stripe', 'Stripe online payments', 1, 0, 0, 'a:3:{s:15:\"pay_button_text\";s:6:\"Stripe\";s:10:\"secret_key\";s:6:\"\";s:15:\"publishable_key\";s:6:\"\";}', 0),
-(3, 'PayPal Payments Standard', 'paypal_payments_standard', 'PayPal Payments Standard Online Payments', 1, 0, 0, 'a:4:{s:15:\"pay_button_text\";s:6:\"PayPal\";s:5:\"email\";s:4:\"\";s:11:\"paypal_live\";s:1:\"0\";s:5:\"debug\";s:1:\"0\";}', 0);
+(2, 'Stripe', 'stripe', 'Stripe online payments', 1, 0, 0, 'a:3:{s:15:"pay_button_text";s:6:"Stripe";s:10:"secret_key";s:6:"";s:15:"publishable_key";s:6:"";}', 0),
+(3, 'PayPal Payments Standard', 'paypal_payments_standard', 'PayPal Payments Standard Online Payments', 1, 0, 0, 'a:4:{s:15:"pay_button_text";s:6:"PayPal";s:5:"email";s:4:"";s:11:"paypal_live";s:1:"0";s:5:"debug";s:1:"0";}', 0);
 
 -- --------------------------------------------------------
 
@@ -833,9 +954,12 @@ CREATE TABLE `petty_cash` (
 --
 
 INSERT INTO `petty_cash` (`id`, `user_id`, `type_id`, `petty_cash`, `description`, `amount`, `sage_project_id`, `sage_project`, `created_at`, `updated_at`, `status`, `deleted`) VALUES
-(10, 5, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-05 21:32:50', 'Disapproved', 0),
+(10, 113, 7, 'Transport', 'Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Donec sollicitudin molestie malesuada. Vestibulum ac diam sit amet quam vehicula elementum sed sit ', '1200', 21, '01 : Petty Cash', '2017-12-04', '2017-12-15 07:06:11', 'Approved', 0),
 (11, 113, 7, 'Transport', '232refew', '1243', 21, '01 : Petty Cash', '2017-12-04', '2017-12-06 08:31:45', 'Disapproved', 0),
-(12, 5, 7, 'Transport', 'fgdgfdgfdg', '12121', 22, '00056 : inventory', '2017-12-05', NULL, 'Pending', 0);
+(12, 113, 7, 'Transport', 'fgdgfdgfdg', '12121', 22, '00056 : inventory', '2017-12-05', '2017-12-13 16:36:22', 'Approved', 0),
+(13, 113, 5, 'demo', 'jhggfjgfj', '465', 12, 'PJG0008 : project one', '2017-12-13', '2017-12-13 17:09:11', 'Approved', 0),
+(14, 5, 5, 'demo', '434343', '4', 12, 'PJG0008 : project one', '2017-12-14', NULL, 'Pending', 0),
+(15, 5, 5, 'demo', 'vsfdvfds', '32', 16, 'PJG0010 : project two', '2017-12-15', NULL, 'Pending', 0);
 
 -- --------------------------------------------------------
 
@@ -862,7 +986,8 @@ INSERT INTO `petty_cash_types` (`id`, `name_type`, `admin_id`, `created_at`, `up
 (7, 'Transport', 5, '2017-12-03 21:00:00', '2017-12-04 17:32:18', 0),
 (8, 'phone bill', 5, '2017-12-03 21:00:00', '2017-12-04 17:32:19', 0),
 (9, ' vcbb', 5, '2017-12-03 21:00:00', '2017-12-04 17:32:24', 0),
-(10, '3432432', 5, '2017-12-04 21:00:00', NULL, 0);
+(10, '3432432', 5, '2017-12-04 21:00:00', NULL, 0),
+(11, 'demo petty', 5, '2017-12-14 21:00:00', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -880,6 +1005,14 @@ CREATE TABLE `posts` (
   `files` longtext COLLATE utf8_unicode_ci,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `posts`
+--
+
+INSERT INTO `posts` (`id`, `created_by`, `created_at`, `description`, `post_id`, `share_with`, `files`, `deleted`) VALUES
+(1, 5, '2018-01-29 07:21:54', 'gjhkmhgmgmhgmg', 0, '', 'a:0:{}', 0),
+(2, 5, '2018-01-29 07:21:58', 'ghmhgmnghmg', 1, '', 'a:0:{}', 0);
 
 -- --------------------------------------------------------
 
@@ -906,10 +1039,8 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `title`, `description`, `start_date`, `deadline`, `client_id`, `created_date`, `status`, `labels`, `price`, `deleted`) VALUES
-(8, 'project one', '', '2017-11-09', '2017-11-17', 30, '2017-11-09', 'open', '', 20000, 0),
-(9, 'project two', '', '2017-11-09', '2017-11-16', 30, '2017-11-09', 'open', '', 20000, 1),
-(10, 'project two', '', '2017-11-14', '2017-11-22', 30, '2017-11-14', 'open', '', 20000, 0),
-(11, 'project 3', 'fdgdgdsg', '2017-12-04', '2017-12-28', 30, '2017-12-04', 'open', 'rewrw', 5435, 0);
+(14, 'demo project one', 'demo', '2017-12-11', '2017-12-27', 30, '2017-12-10', 'open', 'high', 5435, 0),
+(15, 'demo project two', 'demo', '2017-12-11', '2017-12-27', 30, '2017-12-10', 'open', 'high', 5435, 0);
 
 -- --------------------------------------------------------
 
@@ -930,15 +1061,6 @@ CREATE TABLE `project_comments` (
   `files` longtext COLLATE utf8_unicode_ci,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `project_comments`
---
-
-INSERT INTO `project_comments` (`id`, `created_by`, `created_at`, `description`, `project_id`, `comment_id`, `task_id`, `file_id`, `customer_feedback_id`, `files`, `deleted`) VALUES
-(14, 30, '2017-10-28 15:51:23', 'come on now', 14, 0, 38, 0, 0, 'a:0:{}', 0),
-(15, 30, '2017-11-01 08:04:28', 'am 80% done', 14, 0, 0, 0, 14, 'a:0:{}', 0),
-(16, 5, '2017-11-01 08:05:31', 'Hi contractor', 14, 0, 0, 0, 0, 'a:0:{}', 0);
 
 -- --------------------------------------------------------
 
@@ -976,12 +1098,7 @@ CREATE TABLE `project_members` (
 --
 
 INSERT INTO `project_members` (`id`, `user_id`, `project_id`, `is_leader`, `deleted`) VALUES
-(35, 5, 8, 1, 0),
-(36, 5, 9, 1, 0),
-(37, 89, 8, 0, 0),
-(38, 5, 10, 1, 0),
-(39, 89, 10, 0, 0),
-(40, 5, 11, 1, 0);
+(41, 5, 14, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1017,16 +1134,16 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`id`, `title`, `permissions`, `deleted`) VALUES
-(1, 'Administrators', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0),
-(2, 'developer', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0),
-(3, 'HR', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0),
+(1, 'Administrators', 'a:24:{s:5:"leave";s:3:"all";s:14:"leave_specific";s:0:"";s:10:"attendance";s:3:"all";s:19:"attendance_specific";s:0:"";s:7:"invoice";s:3:"all";s:8:"estimate";s:3:"all";s:7:"expense";s:3:"all";s:6:"client";s:3:"all";s:6:"ticket";s:3:"all";s:12:"announcement";s:3:"all";s:19:"can_create_projects";s:1:"1";s:17:"can_edit_projects";s:1:"1";s:19:"can_delete_projects";s:1:"1";s:30:"can_add_remove_project_members";s:1:"1";s:16:"can_create_tasks";s:1:"1";s:14:"can_edit_tasks";s:1:"1";s:16:"can_delete_tasks";s:1:"1";s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";s:1:"1";s:19:"can_edit_milestones";s:1:"1";s:21:"can_delete_milestones";s:1:"1";s:16:"can_delete_files";s:1:"1";s:34:"can_view_team_members_contact_info";s:1:"1";s:34:"can_view_team_members_social_links";s:1:"1";}', 0),
+(2, 'developer', 'a:24:{s:5:"leave";s:3:"all";s:14:"leave_specific";s:0:"";s:10:"attendance";s:3:"all";s:19:"attendance_specific";s:0:"";s:7:"invoice";s:3:"all";s:8:"estimate";s:3:"all";s:7:"expense";s:3:"all";s:6:"client";s:3:"all";s:6:"ticket";s:3:"all";s:12:"announcement";s:3:"all";s:19:"can_create_projects";s:1:"1";s:17:"can_edit_projects";s:1:"1";s:19:"can_delete_projects";s:1:"1";s:30:"can_add_remove_project_members";s:1:"1";s:16:"can_create_tasks";s:1:"1";s:14:"can_edit_tasks";s:1:"1";s:16:"can_delete_tasks";s:1:"1";s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";s:1:"1";s:19:"can_edit_milestones";s:1:"1";s:21:"can_delete_milestones";s:1:"1";s:16:"can_delete_files";s:1:"1";s:34:"can_view_team_members_contact_info";s:1:"1";s:34:"can_view_team_members_social_links";s:1:"1";}', 0),
+(3, 'HR', 'a:24:{s:5:"leave";s:3:"all";s:14:"leave_specific";s:0:"";s:10:"attendance";s:3:"all";s:19:"attendance_specific";s:0:"";s:7:"invoice";s:3:"all";s:8:"estimate";s:3:"all";s:7:"expense";s:3:"all";s:6:"client";s:3:"all";s:6:"ticket";s:3:"all";s:12:"announcement";s:3:"all";s:19:"can_create_projects";s:1:"1";s:17:"can_edit_projects";s:1:"1";s:19:"can_delete_projects";s:1:"1";s:30:"can_add_remove_project_members";s:1:"1";s:16:"can_create_tasks";s:1:"1";s:14:"can_edit_tasks";s:1:"1";s:16:"can_delete_tasks";s:1:"1";s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";s:1:"1";s:19:"can_edit_milestones";s:1:"1";s:21:"can_delete_milestones";s:1:"1";s:16:"can_delete_files";s:1:"1";s:34:"can_view_team_members_contact_info";s:1:"1";s:34:"can_view_team_members_social_links";s:1:"1";}', 0),
 (4, 'Site Administrator', NULL, 0),
-(5, 'Supervisor ', 'a:24:{s:5:\"leave\";N;s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";N;s:8:\"estimate\";N;s:7:\"expense\";N;s:6:\"client\";N;s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";N;s:19:\"can_create_projects\";N;s:17:\"can_edit_projects\";N;s:19:\"can_delete_projects\";N;s:30:\"can_add_remove_project_members\";N;s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";N;s:34:\"can_view_team_members_social_links\";N;}', 0),
+(5, 'Supervisor ', 'a:24:{s:5:"leave";N;s:14:"leave_specific";s:0:"";s:10:"attendance";s:3:"all";s:19:"attendance_specific";s:0:"";s:7:"invoice";N;s:8:"estimate";N;s:7:"expense";N;s:6:"client";N;s:6:"ticket";s:3:"all";s:12:"announcement";N;s:19:"can_create_projects";N;s:17:"can_edit_projects";N;s:19:"can_delete_projects";N;s:30:"can_add_remove_project_members";N;s:16:"can_create_tasks";s:1:"1";s:14:"can_edit_tasks";s:1:"1";s:16:"can_delete_tasks";s:1:"1";s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";s:1:"1";s:19:"can_edit_milestones";s:1:"1";s:21:"can_delete_milestones";s:1:"1";s:16:"can_delete_files";s:1:"1";s:34:"can_view_team_members_contact_info";N;s:34:"can_view_team_members_social_links";N;}', 0),
 (6, 'Manual worker', NULL, 0),
-(7, 'Project Manager', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0),
-(8, 'Client', 'a:24:{s:5:\"leave\";N;s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";N;s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";N;s:8:\"estimate\";N;s:7:\"expense\";N;s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";N;s:17:\"can_edit_projects\";N;s:19:\"can_delete_projects\";N;s:30:\"can_add_remove_project_members\";N;s:16:\"can_create_tasks\";N;s:14:\"can_edit_tasks\";N;s:16:\"can_delete_tasks\";N;s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";N;s:19:\"can_edit_milestones\";N;s:21:\"can_delete_milestones\";N;s:16:\"can_delete_files\";N;s:34:\"can_view_team_members_contact_info\";N;s:34:\"can_view_team_members_social_links\";N;}', 0),
+(7, 'Project Manager', 'a:24:{s:5:"leave";s:3:"all";s:14:"leave_specific";s:0:"";s:10:"attendance";s:3:"all";s:19:"attendance_specific";s:0:"";s:7:"invoice";s:3:"all";s:8:"estimate";s:3:"all";s:7:"expense";s:3:"all";s:6:"client";s:3:"all";s:6:"ticket";s:3:"all";s:12:"announcement";s:3:"all";s:19:"can_create_projects";s:1:"1";s:17:"can_edit_projects";s:1:"1";s:19:"can_delete_projects";s:1:"1";s:30:"can_add_remove_project_members";s:1:"1";s:16:"can_create_tasks";s:1:"1";s:14:"can_edit_tasks";s:1:"1";s:16:"can_delete_tasks";s:1:"1";s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";s:1:"1";s:19:"can_edit_milestones";s:1:"1";s:21:"can_delete_milestones";s:1:"1";s:16:"can_delete_files";s:1:"1";s:34:"can_view_team_members_contact_info";s:1:"1";s:34:"can_view_team_members_social_links";s:1:"1";}', 0),
+(8, 'Client', 'a:24:{s:5:"leave";N;s:14:"leave_specific";s:0:"";s:10:"attendance";N;s:19:"attendance_specific";s:0:"";s:7:"invoice";N;s:8:"estimate";N;s:7:"expense";N;s:6:"client";s:3:"all";s:6:"ticket";s:3:"all";s:12:"announcement";s:3:"all";s:19:"can_create_projects";N;s:17:"can_edit_projects";N;s:19:"can_delete_projects";N;s:30:"can_add_remove_project_members";N;s:16:"can_create_tasks";N;s:14:"can_edit_tasks";N;s:16:"can_delete_tasks";N;s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";N;s:19:"can_edit_milestones";N;s:21:"can_delete_milestones";N;s:16:"can_delete_files";N;s:34:"can_view_team_members_contact_info";N;s:34:"can_view_team_members_social_links";N;}', 0),
 (9, 'Contractor', NULL, 0),
-(10, 'Normal Employees', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0);
+(10, 'Normal Employees', 'a:24:{s:5:"leave";s:3:"all";s:14:"leave_specific";s:0:"";s:10:"attendance";s:3:"all";s:19:"attendance_specific";s:0:"";s:7:"invoice";s:3:"all";s:8:"estimate";s:3:"all";s:7:"expense";s:3:"all";s:6:"client";s:3:"all";s:6:"ticket";s:3:"all";s:12:"announcement";s:3:"all";s:19:"can_create_projects";s:1:"1";s:17:"can_edit_projects";s:1:"1";s:19:"can_delete_projects";s:1:"1";s:30:"can_add_remove_project_members";s:1:"1";s:16:"can_create_tasks";s:1:"1";s:14:"can_edit_tasks";s:1:"1";s:16:"can_delete_tasks";s:1:"1";s:20:"can_comment_on_tasks";s:1:"1";s:21:"can_create_milestones";s:1:"1";s:19:"can_edit_milestones";s:1:"1";s:21:"can_delete_milestones";s:1:"1";s:16:"can_delete_files";s:1:"1";s:34:"can_view_team_members_contact_info";s:1:"1";s:34:"can_view_team_members_social_links";s:1:"1";}', 0);
 
 -- --------------------------------------------------------
 
@@ -1068,17 +1185,17 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('date_format', 'd/m/Y', 0),
 ('decimal_separator', '.', 0),
 ('default_currency', 'KES', 0),
-('disable_client_login', '', 0),
-('disable_client_signup', '', 0),
+('disable_client_login', '1', 0),
+('disable_client_signup', '1', 0),
 ('email_protocol', 'smtp', 0),
-('email_sent_from_address', 'm.wagura@wizag.biz', 0),
+('email_sent_from_address', 'wagura465@gmail.com', 0),
 ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0),
-('email_smtp_host', 'wizag.biz', 0),
-('email_smtp_pass', 'Qwerty123!', 0),
-('email_smtp_port', '587', 0),
-('email_smtp_security_type', 'tls', 0),
-('email_smtp_user', 't.development@wizag.biz', 0),
-('escalation_duration', '30', 0),
+('email_smtp_host', 'in.mailjet.com', 0),
+('email_smtp_pass', '8b49011a29bba60a1e89774b6aa01a95', 0),
+('email_smtp_port', '465', 0),
+('email_smtp_security_type', 'ssl', 0),
+('email_smtp_user', 'ac746108f48ffb16045549bb3fbab8d9', 0),
+('escalation_duration', '45', 0),
 ('escalation_via_email', '1', 0),
 ('escalation_via_sms', '1', 0),
 ('first_day_of_week', '0', 0),
@@ -1090,6 +1207,7 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('module_admin', '1', 0),
 ('module_announcement', '1', 0),
 ('module_attendance', '1', 0),
+('module_clients', '1', 0),
 ('module_escalation_matrix', '1', 0),
 ('module_estimate', '1', 0),
 ('module_estimate_request', '1', 0),
@@ -1175,20 +1293,6 @@ CREATE TABLE `tasks` (
   `priority` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`id`, `serial`, `title`, `description`, `project_id`, `parent_id`, `ticket_id`, `milestone_id`, `assigned_to`, `deadline`, `labels`, `max_hours`, `points`, `status`, `hesabu`, `start_date`, `collaborators`, `deleted`, `priority`, `created_at`) VALUES
-(3, 'PJG0000-8', 'sub task 0001', 'pen drive', 8, 3, NULL, 0, 5, '2017-11-21', '', 0, 1, 'to_do - 0%', 0, '2017-11-09', '', 0, 'Normal', '2017-11-09 07:06:00'),
-(4, 'PJG0000-8', 'trhgt', 'demo now', 8, 3, NULL, 0, 5, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 06:06:19'),
-(5, 'PJG0000-8', 'project task', '', 8, 3, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2017-11-13 06:31:51'),
-(6, 'PJG0001-10', 'project two sub task one', '', 10, 4, NULL, 0, 5, '2017-11-15', '', 0, 1, 'to_do - 0%', 0, '2017-11-14', '', 0, 'Normal', '2017-11-14 06:52:38'),
-(7, 'SN0014', 'demo', 'testing', 10, 4, NULL, 0, 5, '2012-12-12', 'desig, penart', 23, 1, 'to_do - 0%', 0, '2009-12-01', '5', 0, 'Normal', '2017-11-28 15:02:48'),
-(8, 'PJG0001-10', 'time', '', 10, 4, NULL, 0, 89, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '5', 0, 'Normal', '2017-11-30 06:07:19'),
-(9, '', 'demo bug', '', 11, 7, 3, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-06', '', 0, 'High', '2017-12-06 09:11:30'),
-(10, '', 'hgfghgfhgf', '', 11, 8, 4, 0, 113, '0000-00-00', 'Ticket,Bug', 0, 1, 'to_do - 0%', 0, '2017-12-07', '', 0, 'High', '2017-12-07 07:41:30');
 
 -- --------------------------------------------------------
 
@@ -1297,6 +1401,245 @@ INSERT INTO `tbl_case_type` (`id`, `name`, `deleted`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_checklists`
+--
+
+CREATE TABLE `tbl_checklists` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `deleted` int(11) NOT NULL,
+  `performed_on` int(11) NOT NULL,
+  `comment` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklists`
+--
+
+INSERT INTO `tbl_checklists` (`id`, `name`, `deleted`, `performed_on`, `comment`) VALUES
+(7, 'sddssd', 1, 1, 'sddssd'),
+(8, 'Check ICT router', 0, 1, 'The router should be good'),
+(9, 'new order here', 0, 2, 'ddfdf');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_checklist_performed_on`
+--
+
+CREATE TABLE `tbl_checklist_performed_on` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklist_performed_on`
+--
+
+INSERT INTO `tbl_checklist_performed_on` (`id`, `name`, `deleted`) VALUES
+(1, 'ICT', 0),
+(2, 'Maintenance', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_checklist_status`
+--
+
+CREATE TABLE `tbl_checklist_status` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL,
+  `deleted` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklist_status`
+--
+
+INSERT INTO `tbl_checklist_status` (`id`, `name`, `deleted`) VALUES
+(1, 'Submitted', 0),
+(2, 'Escalated', 0),
+(3, 'Closed', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_checklist_tasks`
+--
+
+CREATE TABLE `tbl_checklist_tasks` (
+  `id` int(11) NOT NULL,
+  `ref_no` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `performed_by` int(11) NOT NULL,
+  `performed_on` date NOT NULL,
+  `escalate_to` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklist_tasks`
+--
+
+INSERT INTO `tbl_checklist_tasks` (`id`, `ref_no`, `status`, `performed_by`, `performed_on`, `escalate_to`, `deleted`) VALUES
+(7, '1513304821', 2, 5, '2017-12-15', 114, 0),
+(8, '1513316522', 2, 5, '2017-12-15', 113, 0),
+(9, '1513318031', 1, 5, '2017-12-15', 0, 0),
+(10, '1513318081', 2, 5, '2017-12-15', 114, 0),
+(11, '1513318093', 1, 5, '2017-12-15', 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_checklist_task_checks`
+--
+
+CREATE TABLE `tbl_checklist_task_checks` (
+  `id` int(11) NOT NULL,
+  `check_item` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '1 passed 0 failed',
+  `comment` text,
+  `checklist_task` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklist_task_checks`
+--
+
+INSERT INTO `tbl_checklist_task_checks` (`id`, `check_item`, `status`, `comment`, `checklist_task`) VALUES
+(7, 8, 1, NULL, 7),
+(8, 9, 0, 'ksdkmsdk', 7),
+(9, 8, 1, '', 8),
+(10, 9, 0, '', 8),
+(11, 8, 1, '', 9),
+(12, 9, 1, '', 9),
+(13, 8, 1, '', 10),
+(14, 9, 0, '', 10),
+(15, 8, 1, '', 11),
+(16, 9, 1, '', 11);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_checklist_types`
+--
+
+CREATE TABLE `tbl_checklist_types` (
+  `id` int(11) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklist_types`
+--
+
+INSERT INTO `tbl_checklist_types` (`id`, `type`, `deleted`) VALUES
+(1, 'Daily', 0),
+(2, 'Weekly', 1),
+(3, 'Monthly', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_cust_supplier_checks`
+--
+
+CREATE TABLE `tbl_cust_supplier_checks` (
+  `id` int(11) NOT NULL,
+  `type` int(11) NOT NULL COMMENT '1 customer, 2 supplier',
+  `cust_supp_id` int(11) NOT NULL,
+  `checked_on` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 for subitted 1 for partially',
+  `checked_by` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_cust_supplier_checks`
+--
+
+INSERT INTO `tbl_cust_supplier_checks` (`id`, `type`, `cust_supp_id`, `checked_on`, `status`, `checked_by`, `deleted`) VALUES
+(33, 2, 1, 2017, 0, 5, 0),
+(34, 1, 16, 2017, 0, 5, 0),
+(35, 1, 17, 2017, 1, 5, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_cust_supplier_specific_checks`
+--
+
+CREATE TABLE `tbl_cust_supplier_specific_checks` (
+  `id` int(11) NOT NULL,
+  `check_item` int(11) NOT NULL,
+  `status` int(11) NOT NULL COMMENT '0 for subitted 1 for partially',
+  `comment` text,
+  `expiry_date` text,
+  `customer_id` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_cust_supplier_specific_checks`
+--
+
+INSERT INTO `tbl_cust_supplier_specific_checks` (`id`, `check_item`, `status`, `comment`, `expiry_date`, `customer_id`, `deleted`) VALUES
+(382, 24, 0, '', '', 32, 0),
+(404, 21, 1, '', '', 35, 0),
+(405, 22, 1, '', '', 35, 0),
+(407, 21, 0, '', '', 33, 0),
+(408, 22, 0, NULL, '', 33, 0),
+(409, 21, 0, 'New comment here', '2017-12-04', 34, 0),
+(410, 22, 0, '', '2017-12-11', 34, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_cust_supp_checkitems`
+--
+
+CREATE TABLE `tbl_cust_supp_checkitems` (
+  `id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT '0',
+  `performed_on` text NOT NULL COMMENT '1 customer and 2 suppliers'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_cust_supp_checkitems`
+--
+
+INSERT INTO `tbl_cust_supp_checkitems` (`id`, `name`, `deleted`, `performed_on`) VALUES
+(21, 'Kra Pin', 0, '1,2'),
+(22, 'Account opening form', 0, '1,2'),
+(23, 'New item', 1, '1,'),
+(24, 'National Identity', 1, '1,2'),
+(25, 'First item', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_cust_supp_status`
+--
+
+CREATE TABLE `tbl_cust_supp_status` (
+  `id` int(11) NOT NULL,
+  `status` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_cust_supp_status`
+--
+
+INSERT INTO `tbl_cust_supp_status` (`id`, `status`) VALUES
+(1, 'Submitted'),
+(2, 'Partially Submitted');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_doc_escalation_n_reminders`
 --
 
@@ -1316,7 +1659,8 @@ CREATE TABLE `tbl_doc_escalation_n_reminders` (
 --
 
 INSERT INTO `tbl_doc_escalation_n_reminders` (`id`, `name`, `doc_type`, `reminder_to`, `duration_before`, `reminder_every`, `reminder_for`, `deleted`) VALUES
-(1, 'test reminder', 3, 1, 3, 2, 3, 0);
+(1, 'test reminder', 3, 1, 3, 2, 3, 0),
+(2, 'Weekly reminder', 3, 2, 2, 2, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -1354,13 +1698,8 @@ CREATE TABLE `tbl_knowledge_base` (
 --
 
 INSERT INTO `tbl_knowledge_base` (`id`, `type_id`, `title`, `solution`, `created_by`, `created_at`, `updated_at`, `deleted`) VALUES
-(1, 4, 'demo ticket 1', 'zxc', 5, '2018-01-09 06:04:39', NULL, 0),
 (10, 1, 'demo ticket 1', 'trojan', 113, '2017-12-07 12:54:18', NULL, 0),
-(11, 2, 'dgfdgd', 'cxvcxvcxv', 5, '2017-12-07 13:21:33', NULL, 0),
-(12, 6, 'employees', 'solved chronologically', 5, '2018-01-10 05:15:34', NULL, 0),
-(13, 1, 'employees', 'dfg', 5, '2018-01-10 05:16:30', NULL, 0),
-(14, 4, 'employees', 'csdc', 5, '2018-01-10 05:18:25', NULL, 0),
-(15, 5, 'employees', 'fabulous', 5, '2018-01-10 05:18:41', NULL, 0);
+(11, 2, 'dgfdgd', 'cxvcxvcxv', 5, '2017-12-07 13:21:33', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1383,10 +1722,7 @@ CREATE TABLE `tbl_knowledge_base_ticket` (
 --
 
 INSERT INTO `tbl_knowledge_base_ticket` (`id`, `ticket_id`, `solution_id`, `created_by`, `created_at`, `updated_at`, `deleted`) VALUES
-(1, 2, 12, 5, '2018-01-10 05:15:34', NULL, 0),
-(9, 4, 10, 113, '2017-12-07 12:54:18', NULL, 0),
-(10, 2, 14, 5, '2018-01-10 05:18:25', NULL, 0),
-(11, 2, 15, 5, '2018-01-10 05:18:41', NULL, 0);
+(9, 4, 10, 113, '2017-12-07 12:54:18', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1408,9 +1744,7 @@ INSERT INTO `tbl_knowledge_base_types` (`id`, `name`, `deleted`) VALUES
 (1, 'bug', 0),
 (2, 'improvement', 0),
 (3, 'recomendation', 0),
-(4, 'development', 0),
-(5, 'System Type', 0),
-(6, 'Email Type', 0);
+(4, 'development', 0);
 
 -- --------------------------------------------------------
 
@@ -1462,7 +1796,9 @@ CREATE TABLE `tbl_legal_documents` (
 --
 
 INSERT INTO `tbl_legal_documents` (`id`, `name`, `document_type`, `file_document`, `user_responsible`, `status`, `covered_from`, `covered_to`, `deleted`, `reminder`, `reminder_sent`, `completed_escalations`, `created_at`, `updated_at`) VALUES
-(2, 'New s', 2, 'a:0:{}', 89, 1, '2017-12-05', '2017-12-13', 0, 0, 0, 0, '2017-12-05 07:09:31', '0000-00-00 00:00:00');
+(2, 'New s', 2, 'a:0:{}', 89, 1, '2017-12-05', '2017-12-13', 0, 0, 0, 0, '2017-12-05 07:09:31', '0000-00-00 00:00:00'),
+(3, 'terest', 2, 'a:0:{}', 115, 1, '2017-12-15', '2017-12-22', 0, 0, 0, 0, '2017-12-14 12:28:42', '0000-00-00 00:00:00'),
+(4, '4rteryt', 2, 'a:3:{i:0;a:2:{s:9:"file_name";s:72:"legal_file5a6608a5cd6e0-AberystwythSeafront_ROW10277565890_1920x1080.jpg";s:9:"file_size";s:6:"344318";}i:1;a:2:{s:9:"file_name";s:65:"legal_file5a6608a5cd931-BarHarborCave_ROW9345444229_1920x1080.jpg";s:9:"file_size";s:6:"323434";}i:2;a:2:{s:9:"file_name";b:0;s:9:"file_size";s:6:"323434";}}', 5, 1, '2018-01-23', '2018-01-31', 0, 0, 0, 0, '2018-01-22 15:52:05', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -1519,17 +1855,15 @@ CREATE TABLE `tbl_third_party` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted` tinyint(1) DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `tbl_third_party`
 --
 
 INSERT INTO `tbl_third_party` (`id`, `username`, `phone`, `email`, `created_at`, `updated_at`, `deleted`) VALUES
-(1, 'jeff', '06545434', 'jeff@yahoo.com', '2017-12-14 11:02:11', NULL, 0),
-(2, 'vick', '0644333223', 'vik@yahoo.com', '2017-12-14 11:04:09', NULL, 0),
-(3, 'jane', '06545555', 'jane@yahoo.com', '2017-12-14 11:34:22', NULL, 0),
-(4, 'james', '0745344', 'alvn@yahoo.com', '2018-01-09 17:59:04', NULL, 0);
+(4, 'demo', '0700000000', 'admin@teamkazi.com', '2017-12-15 07:12:46', NULL, 0),
+(5, 'montanabay39', '4131523', 'gfdgfd@gf.com', '2017-12-15 07:19:30', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1610,7 +1944,15 @@ INSERT INTO `team_member_job_info` (`id`, `user_id`, `date_of_hire`, `deleted`, 
 (26, 125, '0000-00-00', 0, 0, 0, 0, ''),
 (27, 126, '0000-00-00', 0, 0, 0, 0, ''),
 (28, 127, '0000-00-00', 0, 0, 0, 0, ''),
-(29, 128, '0000-00-00', 0, 0, 0, 0, '');
+(29, 128, '0000-00-00', 0, 0, 0, 0, ''),
+(30, 129, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
+(31, 130, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
+(32, 131, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
+(33, 132, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
+(34, 133, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
+(35, 134, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
+(36, 135, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
+(37, 136, '2014-07-16', 0, 0, 0, 0, 'Uknown');
 
 -- --------------------------------------------------------
 
@@ -1625,7 +1967,7 @@ CREATE TABLE `third_party_messages` (
   `sender_id` int(100) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `third_party_messages`
@@ -1635,13 +1977,9 @@ INSERT INTO `third_party_messages` (`id`, `message`, `third_p_id`, `sender_id`, 
 (1, 'efrr', 1, 5, '2017-12-14 14:19:44', NULL),
 (2, 'dsdsff', 1, 5, '2017-12-15 05:47:59', NULL),
 (3, 'fvf', 1, 5, '2017-12-15 06:00:09', NULL),
-(4, 'asdas', 1, 5, '2018-01-09 00:17:10', NULL),
-(5, 'fdfdfgg', 1, 5, '2018-01-09 01:24:55', NULL),
-(6, 'wdf', 1, 5, '2018-01-09 16:24:03', NULL),
-(7, 'great', 1, 5, '2018-01-09 16:27:07', NULL),
-(8, 'xx', 3, 5, '2018-01-09 16:35:54', NULL),
-(9, 'ssa', 2, 5, '2018-01-09 16:37:16', NULL),
-(10, 'marvelous', 1, 5, '2018-01-09 17:05:28', NULL);
+(4, 'fedgfdwfvds', 1, 5, '2017-12-15 07:11:39', NULL),
+(5, 'csfs ds da', 1, 5, '2017-12-15 07:19:42', NULL),
+(6, 'vxnvxn', 1, 5, '2017-12-15 07:21:44', NULL);
 
 -- --------------------------------------------------------
 
@@ -1670,9 +2008,11 @@ CREATE TABLE `tickets` (
 --
 
 INSERT INTO `tickets` (`id`, `project_id`, `external_reference`, `ticket_type_id`, `title`, `created_by`, `created_at`, `status`, `last_activity_at`, `assigned_to`, `escalation_matrix`, `labels`, `deleted`) VALUES
-(2, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'new', '2017-12-04 09:41:28', 5, 0, 'high', 0),
-(3, 11, '', 1, 'employees', 5, '2017-12-04 09:41:28', 'open', '2017-12-04 09:41:28', 113, 0, 'high', 0),
-(4, 11, '', 1, 'demo ticket 1', 5, '2017-12-06 07:36:20', 'open', '2017-12-07 06:39:26', 113, 0, '', 0);
+(5, 14, 'ufifuii', 1, 'ety', 137, '2017-12-11 00:22:33', 'new', '2017-12-11 00:22:33', 0, 2, NULL, 0),
+(6, 14, ' fdfd', 1, 'employees', 113, '2017-12-11 07:17:02', 'closed', '2017-12-11 07:17:02', 5, 7, '', 0),
+(7, 15, '', 2, 'trytery', 5, '2017-12-11 15:35:08', 'closed', '2017-12-11 15:40:26', 115, 6, 'hgfgfh', 0),
+(8, 14, '', 2, 'employees', 5, '2017-12-13 16:32:07', 'open', '2017-12-13 16:32:28', 113, 1, 'hgfgfh', 0),
+(9, 14, '', 1, 'ertgter', 5, '2017-12-15 07:09:22', 'new', '2017-12-15 07:09:22', 113, 0, '', 0);
 
 -- --------------------------------------------------------
 
@@ -1695,23 +2035,19 @@ CREATE TABLE `ticket_comments` (
 --
 
 INSERT INTO `ticket_comments` (`id`, `created_by`, `created_at`, `description`, `ticket_id`, `files`, `deleted`) VALUES
-(1, 5, '2018-01-08 23:28:14', 'trial', 4, 'a:0:{}', 0),
-(17, 5, '2018-01-08 23:04:36', 'awesome', 4, 'a:0:{}', 0),
 (18, 5, '2017-11-30 10:39:05', 'maintain-ace ', 15, 'a:0:{}', 0),
 (19, 5, '2017-11-30 14:58:49', 'klhcdsdgcysdgvcysdgcvsdy', 16, 'a:0:{}', 0),
 (20, 5, '2017-12-04 09:11:20', 'gsgfdgfdgfdsxg', 1, 'a:0:{}', 0),
 (21, 5, '2017-12-04 09:41:28', 'fd xcfd', 2, 'a:0:{}', 0),
 (22, 5, '2017-12-06 07:36:20', 'TRFHGFHGFHNGFJNHGFN', 4, 'a:0:{}', 0),
 (23, 113, '2017-12-07 06:39:26', 'bvvcbvcxbvcxbvcxbvcx', 4, 'a:0:{}', 0),
-(24, 5, '2018-01-08 23:31:16', 'fantastic', 2, 'a:0:{}', 0),
-(25, 5, '2018-01-08 23:36:29', 'fantastic', 2, 'a:0:{}', 0),
-(26, 5, '2018-01-08 23:37:02', 'keep comments coming', 2, 'a:0:{}', 0),
-(27, 5, '2018-01-08 23:39:59', 'abcd', 2, 'a:0:{}', 0),
-(28, 5, '2018-01-08 23:41:01', 'abcd', 2, 'a:0:{}', 0),
-(29, 5, '2018-01-08 23:41:12', 'zXcxz', 2, 'a:0:{}', 0),
-(30, 5, '2018-01-08 23:42:51', 'excellent', 2, 'a:0:{}', 0),
-(31, 5, '2018-01-08 23:42:59', 'excellent', 2, 'a:0:{}', 0),
-(32, 5, '2018-01-08 23:43:51', 'excellent', 2, 'a:0:{}', 0);
+(24, 137, '2017-12-11 00:22:33', 'fiy', 5, 'a:0:{}', 0),
+(25, 113, '2017-12-11 07:17:02', 'gfdsbsfd', 6, 'a:0:{}', 0),
+(26, 5, '2017-12-11 15:35:08', ' bvbmnghnghn', 7, 'a:0:{}', 0),
+(27, 5, '2017-12-11 15:40:26', 'm,ghm', 7, 'a:0:{}', 0),
+(28, 5, '2017-12-13 16:32:07', 'safgdagdsf', 8, 'a:0:{}', 0),
+(29, 5, '2017-12-13 16:32:28', '8itu0[u9o', 8, 'a:0:{}', 0),
+(30, 5, '2017-12-15 07:09:22', ' cxvcvcx vcx ', 9, 'a:0:{}', 0);
 
 -- --------------------------------------------------------
 
@@ -1732,7 +2068,17 @@ CREATE TABLE `ticket_types` (
 INSERT INTO `ticket_types` (`id`, `title`, `deleted`) VALUES
 (1, 'System', 0),
 (2, 'Email', 0),
-(3, 'Call', 0);
+(3, 'Call', 0),
+(5, 'gftrvr', 0),
+(6, 'Visit', 0),
+(7, 'Phone', 0),
+(8, 'Visit', 0),
+(9, 'demo', 0),
+(10, 'gfdsg', 0),
+(11, '54', 0),
+(12, 'hg', 0),
+(13, 'demo report', 0),
+(14, 'Visit', 0);
 
 -- --------------------------------------------------------
 
@@ -1779,14 +2125,12 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_type`, `is_admin`, `role_id`, `email`, `password`, `image`, `status`, `message_checked_at`, `client_id`, `notification_checked_at`, `is_primary_contact`, `job_title`, `disable_login`, `note`, `address`, `alternative_address`, `phone`, `alternative_phone`, `dob`, `ssn`, `gender`, `sticky_note`, `skype`, `enable_web_notification`, `enable_email_notification`, `landing_page`, `created_at`, `deleted`) VALUES
-(5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2018-01-09 20:34:09', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0),
-(89, 'John', 'Doe', 'staff', 0, 1, 'john@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-12-04 09:23:16', 0, '2017-12-04 09:43:40', 0, 'Developer', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-11-09 07:11:05', 0),
-(113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura465@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-06 07:40:26', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
-(114, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'constant@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
+(5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-13 16:31:14', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0),
+(113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-10 21:15:28', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
 (115, 'BETT', 'SAGE', 'staff', 0, 1, 'bethuel@tikone.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sage Expert', 0, NULL, '', NULL, '0720088045', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 12:44:52', 0),
-(126, 'ter', 'trre', 'staff', 0, 0, 'admin@teamkazi.co8', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'grtg', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 14:38:17', 0),
-(127, 'ttertert', 'tertert', 'staff', 0, 0, 'admin@teamkazi.coy', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'tertert', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 14:51:13', 0),
-(128, 'hd', 'gfdg', 'staff', 0, 0, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'dgfgfd', 0, NULL, '', NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 15:01:20', 0);
+(135, 'SILVESTER', 'GACHIGO', 'staff', 0, 1, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
+(136, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
+(137, 'info', 'tex', 'client', 0, 0, 'ict@infotex.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 30, '0000-00-00 00:00:00', 1, 'director', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, '', 1, 1, '/dashboard', '2017-12-11 00:13:41', 0);
 
 --
 -- Indexes for dumped tables
@@ -1812,6 +2156,18 @@ ALTER TABLE `attendance`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `user_id` (`user_id`) USING BTREE,
   ADD KEY `checked_by` (`checked_by`) USING BTREE;
+
+--
+-- Indexes for table `business_types`
+--
+ALTER TABLE `business_types`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `call_types`
+--
+ALTER TABLE `call_types`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `ci_sessions`
@@ -1880,6 +2236,18 @@ ALTER TABLE `estimate_requests`
 ALTER TABLE `events`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `created_by` (`created_by`) USING BTREE;
+
+--
+-- Indexes for table `event_comments`
+--
+ALTER TABLE `event_comments`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `event_notes`
+--
+ALTER TABLE `event_notes`
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `expenses`
@@ -1974,6 +2342,12 @@ ALTER TABLE `notifications`
 ALTER TABLE `notification_settings`
   ADD PRIMARY KEY (`id`) USING BTREE,
   ADD KEY `event` (`event`) USING BTREE;
+
+--
+-- Indexes for table `objective_types`
+--
+ALTER TABLE `objective_types`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `payment_methods`
@@ -2091,6 +2465,68 @@ ALTER TABLE `tbl_case_type`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `tbl_checklists`
+--
+ALTER TABLE `tbl_checklists`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_checklist_performed_on`
+--
+ALTER TABLE `tbl_checklist_performed_on`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_checklist_status`
+--
+ALTER TABLE `tbl_checklist_status`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_checklist_tasks`
+--
+ALTER TABLE `tbl_checklist_tasks`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_checklist_task_checks`
+--
+ALTER TABLE `tbl_checklist_task_checks`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_checklist_types`
+--
+ALTER TABLE `tbl_checklist_types`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_cust_supplier_checks`
+--
+ALTER TABLE `tbl_cust_supplier_checks`
+  ADD PRIMARY KEY (`id`) USING BTREE,
+  ADD KEY `status` (`status`) USING BTREE,
+  ADD KEY `cust_supp_id` (`cust_supp_id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_cust_supplier_specific_checks`
+--
+ALTER TABLE `tbl_cust_supplier_specific_checks`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_cust_supp_checkitems`
+--
+ALTER TABLE `tbl_cust_supp_checkitems`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `tbl_cust_supp_status`
+--
+ALTER TABLE `tbl_cust_supp_status`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
 -- Indexes for table `tbl_doc_escalation_n_reminders`
 --
 ALTER TABLE `tbl_doc_escalation_n_reminders`
@@ -2154,7 +2590,7 @@ ALTER TABLE `tbl_legal_document_types`
 -- Indexes for table `tbl_third_party`
 --
 ALTER TABLE `tbl_third_party`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `tbl_time_durations`
@@ -2179,7 +2615,7 @@ ALTER TABLE `team_member_job_info`
 -- Indexes for table `third_party_messages`
 --
 ALTER TABLE `third_party_messages`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
 -- Indexes for table `tickets`
@@ -2218,211 +2654,419 @@ ALTER TABLE `users`
 --
 ALTER TABLE `activity_logs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
 --
 -- AUTO_INCREMENT for table `announcements`
 --
 ALTER TABLE `announcements`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `attendance`
 --
 ALTER TABLE `attendance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+--
+-- AUTO_INCREMENT for table `business_types`
+--
+ALTER TABLE `business_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `call_types`
+--
+ALTER TABLE `call_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
-
 --
 -- AUTO_INCREMENT for table `custom_fields`
 --
 ALTER TABLE `custom_fields`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `custom_field_values`
 --
 ALTER TABLE `custom_field_values`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `escalation_matrix`
 --
 ALTER TABLE `escalation_matrix`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- AUTO_INCREMENT for table `estimates`
 --
 ALTER TABLE `estimates`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `estimate_forms`
 --
 ALTER TABLE `estimate_forms`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `estimate_items`
 --
 ALTER TABLE `estimate_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `estimate_requests`
 --
 ALTER TABLE `estimate_requests`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT for table `event_comments`
+--
+ALTER TABLE `event_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `event_notes`
+--
+ALTER TABLE `event_notes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `expenses`
 --
 ALTER TABLE `expenses`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `expense_categories`
 --
 ALTER TABLE `expense_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `inventory_requisitions`
 --
 ALTER TABLE `inventory_requisitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `invoice_items`
 --
 ALTER TABLE `invoice_items`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `invoice_payments`
 --
 ALTER TABLE `invoice_payments`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `leave_applications`
 --
 ALTER TABLE `leave_applications`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `leave_types`
 --
 ALTER TABLE `leave_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `main_tasks`
 --
 ALTER TABLE `main_tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
 --
 -- AUTO_INCREMENT for table `milestones`
 --
 ALTER TABLE `milestones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 --
 -- AUTO_INCREMENT for table `notification_settings`
 --
 ALTER TABLE `notification_settings`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
-
+--
+-- AUTO_INCREMENT for table `objective_types`
+--
+ALTER TABLE `objective_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `payment_methods`
 --
 ALTER TABLE `payment_methods`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
+--
+-- AUTO_INCREMENT for table `paypal_ipn`
+--
+ALTER TABLE `paypal_ipn`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `petty_cash`
+--
+ALTER TABLE `petty_cash`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `petty_cash_types`
+--
+ALTER TABLE `petty_cash_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `projects`
+--
+ALTER TABLE `projects`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+--
+-- AUTO_INCREMENT for table `project_comments`
+--
+ALTER TABLE `project_comments`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `project_files`
+--
+ALTER TABLE `project_files`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `project_members`
+--
+ALTER TABLE `project_members`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
+--
+-- AUTO_INCREMENT for table `project_time`
+--
+ALTER TABLE `project_time`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+--
+-- AUTO_INCREMENT for table `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `taxes`
+--
+ALTER TABLE `taxes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_cases`
+--
+ALTER TABLE `tbl_cases`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tbl_case_procedures`
+--
+ALTER TABLE `tbl_case_procedures`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_case_status`
+--
+ALTER TABLE `tbl_case_status`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_case_type`
+--
+ALTER TABLE `tbl_case_type`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_checklists`
+--
+ALTER TABLE `tbl_checklists`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+--
+-- AUTO_INCREMENT for table `tbl_checklist_performed_on`
+--
+ALTER TABLE `tbl_checklist_performed_on`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_checklist_status`
+--
+ALTER TABLE `tbl_checklist_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tbl_checklist_tasks`
+--
+ALTER TABLE `tbl_checklist_tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT for table `tbl_checklist_task_checks`
+--
+ALTER TABLE `tbl_checklist_task_checks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `tbl_checklist_types`
+--
+ALTER TABLE `tbl_checklist_types`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `tbl_cust_supplier_checks`
+--
+ALTER TABLE `tbl_cust_supplier_checks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+--
+-- AUTO_INCREMENT for table `tbl_cust_supplier_specific_checks`
+--
+ALTER TABLE `tbl_cust_supplier_specific_checks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=411;
+--
+-- AUTO_INCREMENT for table `tbl_cust_supp_checkitems`
+--
+ALTER TABLE `tbl_cust_supp_checkitems`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+--
+-- AUTO_INCREMENT for table `tbl_cust_supp_status`
+--
+ALTER TABLE `tbl_cust_supp_status`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_doc_escalation_n_reminders`
+--
+ALTER TABLE `tbl_doc_escalation_n_reminders`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `tbl_escalation_matrix`
+--
+ALTER TABLE `tbl_escalation_matrix`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_knowledge_base`
 --
 ALTER TABLE `tbl_knowledge_base`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `tbl_knowledge_base_ticket`
 --
 ALTER TABLE `tbl_knowledge_base_ticket`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tbl_knowledge_base_types`
 --
 ALTER TABLE `tbl_knowledge_base_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_legal_case_procedures`
+--
+ALTER TABLE `tbl_legal_case_procedures`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `tbl_legal_documents`
+--
+ALTER TABLE `tbl_legal_documents`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `tbl_legal_document_types`
+--
+ALTER TABLE `tbl_legal_document_types`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_third_party`
 --
 ALTER TABLE `tbl_third_party`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT for table `tbl_time_durations`
+--
+ALTER TABLE `tbl_time_durations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `team_member_job_info`
+--
+ALTER TABLE `team_member_job_info`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 --
 -- AUTO_INCREMENT for table `third_party_messages`
 --
 ALTER TABLE `third_party_messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `tickets`
+--
+ALTER TABLE `tickets`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `ticket_comments`
 --
 ALTER TABLE `ticket_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 --
 -- AUTO_INCREMENT for table `ticket_types`
 --
 ALTER TABLE `ticket_types`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-COMMIT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `escalation_matrix`
+--
+ALTER TABLE `escalation_matrix`
+  ADD CONSTRAINT `escalation_matrix_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `main_tasks`
+--
+ALTER TABLE `main_tasks`
+  ADD CONSTRAINT `PROJECTS_FK` FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `petty_cash`
+--
+ALTER TABLE `petty_cash`
+  ADD CONSTRAINT `petty_cash_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `petty_cash_types` (`id`);
+
+--
+-- Constraints for table `tbl_doc_escalation_n_reminders`
+--
+ALTER TABLE `tbl_doc_escalation_n_reminders`
+  ADD CONSTRAINT `fk_doc_esc_rem_type` FOREIGN KEY (`doc_type`) REFERENCES `tbl_legal_document_types` (`id`),
+  ADD CONSTRAINT `fk_esc_rem_duration_before` FOREIGN KEY (`duration_before`) REFERENCES `tbl_time_durations` (`id`),
+  ADD CONSTRAINT `fk_esc_rem_esc_to` FOREIGN KEY (`reminder_to`) REFERENCES `team` (`id`),
+  ADD CONSTRAINT `fk_esc_rem_rem_every` FOREIGN KEY (`reminder_every`) REFERENCES `tbl_time_durations` (`id`),
+  ADD CONSTRAINT `fk_esc_rem_reminder_for` FOREIGN KEY (`reminder_for`) REFERENCES `tbl_time_durations` (`id`);
+
+--
+-- Constraints for table `tbl_knowledge_base`
+--
+ALTER TABLE `tbl_knowledge_base`
+  ADD CONSTRAINT `tbl_knowledge_base_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tbl_knowledge_base_types` (`id`),
+  ADD CONSTRAINT `tbl_knowledge_base_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

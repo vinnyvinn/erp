@@ -7,6 +7,7 @@ class Cron_job extends CI_Controller {
     public function index() {
         // echo "<pre>";
         // print_r(json_decode($this->Projects(array("id"))));
+        $this->upcoming_events();
     }
 
     public function Projects($array = NULL) {
@@ -115,6 +116,59 @@ class Cron_job extends CI_Controller {
     public function sms_to($value) {
     	$query =$this->db->query("SELECT `phone` FROM `users` WHERE `id` =? AND `deleted` = ?", array($value, 0))->result();
     	return $query[0]->phone;
+    }
+
+    public function upcoming_events() {
+        // if event start_date is greter than now() with 12H
+        $query = $this->db->query("SELECT * FROM `events` WHERE start_date >= DATE_ADD(CURDATE(), INTERVAL 12 HOUR)")->result();
+        foreach ($query as $value) {
+            $this->event_notification($value->id, "have");
+        }
+    }
+
+    public function outgoing_events() {
+        // if event end_date is less than now()
+        $query = $this->db->query("SELECT * FROM `events` WHERE end_date < CURDATE()")->result();
+        foreach ($query as $value) {
+            $this->event_notification($value->id, "had");
+        }
+    }
+
+    public function event_notification($id, $status = NULL) {
+
+        $query = $this->db->get_where('events', array('id' => $id))->result();
+        $data = [];
+        foreach ($query as $value) {
+            $data[] = $value->title;
+            $data[] = $this->user_details($value->created_by, "first_name") . " " . $this->user_details($value->created_by, "last_name");
+            $data[] = $status;
+            $data[] = $value->start_date . " " . $value->start_time;;
+            $data[] = $value->end_date . " " . $value->end_time;;
+            $data[] = $this->user_details($value->created_by, "email");
+            $this->event_Mailler($data);
+        }
+       
+    }
+
+    public function user_details($id, $result) {
+
+        return $this->db->get_where('users', array('id' => $id))->result()[0]->$result;
+    }
+
+    public function event_Mailler($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("event_notification");
+
+        $parser_data["EVENT_TITLE"] = ucwords($data[0]);
+        $parser_data["USER_NAME"] = $data[1];
+        $parser_data["EVENT_STATUS"] = strtoupper($data[2]);
+        $parser_data["EVENT_START_DATE_TIME"] = date("dS M Y @ H:i A", strtotime($data[3]));
+        $parser_data["EVENT_END_DATE_TIME"] = date("H:i A dS M Y", strtotime($data[4]));
+        $parser_data["NOTIFICATION_URL"] = get_uri("events/index");
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data[5], $email_template->subject, $message);
     }
 
 }

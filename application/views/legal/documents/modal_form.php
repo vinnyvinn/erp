@@ -1,6 +1,4 @@
-<?php echo form_open(get_uri("legal/save"),
-    array("id" => "legaldocumentsform",
-        "class" => "general-form", "role" => "form")); ?>
+<?php echo form_open(get_uri("legal/save"), array("id" => "legaldocumentsform", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
     <input type="hidden" name="id" value="<?php echo $model_info->id; ?>"/>
     <div class="form-group">
@@ -109,8 +107,8 @@
 </div>
 
 
-<?php echo form_close(); ?>
-<?php
+<?php 
+echo form_close(); 
 echo '<script> var all_docs = ' . json_encode($all_docs_types) . ';</script>';
 echo '<script> var modelinfo = ' . json_encode($model_info) . ';</script>';
 ?>
@@ -155,10 +153,9 @@ echo '<script> var modelinfo = ' . json_encode($model_info) . ';</script>';
             }
         }
 
-
         setDatePicker("#covered_from, #covered_to");
-        $("#legaldocumentsform .select2").select2();
 
+        $("#legaldocumentsform .select2").select2();
 
         $("select#doc_type").change('change', function (event) {
             var idselected = event.added.id;
@@ -177,6 +174,7 @@ echo '<script> var modelinfo = ' . json_encode($model_info) . ';</script>';
             });
             console.log("opened", event.added.id);
         });
+
         $("#legaldocumentsform").appForm({
             onSuccess: function (result) {
                 setTimeout(function () {
@@ -184,6 +182,7 @@ echo '<script> var modelinfo = ' . json_encode($model_info) . ';</script>';
                 }, 100);
             }
         });
+
         $("#name").focus();
 
     });

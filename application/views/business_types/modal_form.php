@@ -1,16 +1,16 @@
-<?php echo form_open(get_uri("tickets/save_knowledge_type"), array("id" => "project-form", "class" => "general-form", "role" => "form")); ?>
-
+<?php echo form_open(get_uri("business_types/save"), array("id" => "business-type-form", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
-    
-       <div class="form-group">
-        <label for="petty cash type name" class=" col-md-3">Knowledge base type</label>
+    <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
+    <div class="form-group" style="min-height: 60px;">
+        <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
         <div class=" col-md-9">
             <?php
             echo form_input(array(
-                "id" => "name",
-                "name" => "name",
+                "id" => "title",
+                "name" => "title",
+                "value" => $model_info->title,
                 "class" => "form-control",
-                "placeholder" => "Enter knowledge base type",
+                "placeholder" => lang('title'),
                 "autofocus" => true,
                 "data-rule-required" => true,
                 "data-msg-required" => lang("field_required"),
@@ -18,11 +18,6 @@
             ?>
         </div>
     </div>
-
-   
-
-    
-
 </div>
 
 <div class="modal-footer">
@@ -32,17 +27,12 @@
 <?php echo form_close(); ?>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-        $("#project-form").appForm({
-            onSuccess: function (result) {
-                // $("#petty_cash-table").appTable({newData: result.data, dataId: result.id});
-                setTimeout(function () {
-                    window.location.reload();
-                }, 100);
+    $(document).ready(function() {
+        $("#business-type-form").appForm({
+            onSuccess: function(result) {
+                $("#business-type-table").appTable({newData: result.data, dataId: result.id});
             }
         });
-
-        $("#project-form .select2").select2();
-
+        $("#title").focus();
     });
 </script>

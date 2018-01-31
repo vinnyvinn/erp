@@ -1,24 +1,7 @@
 <?php echo form_open(get_uri("projects/save_main_task"), array("id" => "main-task-form", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
+    <input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />
     <input type="hidden" name="data-type" id="data-type">
-    <div class="form-group">
-    <label for="serial" class=" col-md-3"><?php echo lang('serial'); ?></label>
-    <div class=" col-md-9">
-        <?php
-        echo form_input(array(
-            "id" => "serial",
-            "name" => "serial",
-            "value" => $prefix.sprintf('%04d', $serial),
-            "class" => "form-control",
-            "placeholder" => lang('serial'),
-            "autofocus" => true,
-            "data-rule-required" => true,
-            "data-msg-required" => lang("field_required"),
-            "readonly" => "enabled"
-            ));
-        ?>
-        </div>
-    </div>
     <div class="form-group">
         <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
         <div class=" col-md-9">
@@ -35,24 +18,6 @@
             ?>
         </div>
     </div>
-<div class="form-group">
-<label for="project" class=" col-md-3"><?php echo lang('project'); ?></label>
-<div class="col-md-8">
-<?php
-
-echo form_dropdown("project_id", $projects_dropdown, "project_id", ['class' => 'select2', 'id' => 'project_id']);
-
-// echo form_dropdown("project_id", $projects_dropdown, "project_id", "id='project_id' class='select2 validate-hidden form-control' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
-?>
-</div>
-<div class="col-md-1">
-<?php
-if ($this->login_user->is_admin) {
-echo modal_anchor(get_uri("projects/modal_form"), "<i class='fa fa-plus-circle'></i>", array("class" => "btn btn-info btn-add", "title" => lang('add_project'), "data-is-popup" => '1', 'data-populate' => 'add_project'));
-}
-?>
-</div>
-</div>
     <div class="form-group">
         <label for="description" class=" col-md-12"><?php echo lang('description'); ?></label>
         <div class=" col-md-12">
@@ -81,10 +46,7 @@ echo modal_anchor(get_uri("projects/modal_form"), "<i class='fa fa-plus-circle'>
         $("#main-task-form").appForm({
             onSuccess: function (result) {
                 if (localStorage.getItem('isPopup') == 'true') {
-                    // postTask.updateListeners(JSON.parse(result.data));
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 100);
+                    postTask.updateListeners(JSON.parse(result.data));
                 }
             }
         });
@@ -92,7 +54,5 @@ echo modal_anchor(get_uri("projects/modal_form"), "<i class='fa fa-plus-circle'>
         $("#title").focus();
 
         $('[data-toggle="tooltip"]').tooltip();
-
-        $("#main-task-form .select2").select2();
     });
-</script>  
+</script>    
