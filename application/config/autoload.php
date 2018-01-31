@@ -208,5 +208,6 @@ $autoload['model'] = array(
     'Objective_types_model',
     'Business_types_model',
     'Events_comments_model',
-    'Event_notes_model'
-);
+    'Event_notes_model',
+    'TblLegalDocsItems'
+    );

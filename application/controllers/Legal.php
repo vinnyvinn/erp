@@ -65,7 +65,7 @@ class Legal extends Pre_loader
         return array(
            $key+1,
            // $docname,
-            $datas->name,
+            anchor(get_uri("legal/view/" . $datas->id), $datas->name),
             $doctype->name,
             ($datas->covered_from != 0 || $doctype_can_expire === '' )?date("Y-m-d",strtotime($datas->covered_from)):'N/A',
             ($datas->covered_to || $doctype_can_expire === '')?date("Y-m-d",strtotime($datas->covered_to)):'N/A',
@@ -80,12 +80,36 @@ class Legal extends Pre_loader
         }
         $model_info = $this->LegalDocumentsModel->getOne($id);
         if ($model_info) {
+
+            $items =
+
+            $result = [];
+            foreach ($list_data as $key=>$data) {
+                $result[] = $this->_make_reminders_row($data, $key);
+            }
+            $view_data['sage_data'] = $this->getSageItems();
             $view_data['model_info'] = $model_info;
             $this->template->rander("legal/documents/view", $view_data);
         } else {
             show_404();
         }
 
+    }
+
+
+
+    function get_sage_items_rowdata($datas, $key=0){
+        $optoins = "";
+
+        $optoins.=js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_project'), "class" => "delete", "data-id" => $datas->id,
+            "data-action-url" => get_uri("legal/delete_reminders"), "data-action" => "delete"));
+
+
+        return array(
+            $key+1,
+            $datas->name,
+            $optoins
+        );
     }
 
     function save(){

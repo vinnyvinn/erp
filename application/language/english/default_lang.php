@@ -209,17 +209,17 @@ $lang["start_date_to_end_date_format"] = "%s to %s";
 $lang["my_leave"] = "My leave";
 
 /* events */
-$lang["add_event"] = "Add event";
-$lang["edit_event"] = "Edit event";
-$lang["delete_event"] = "Delete event";
-$lang["events"] = "Events";
-$lang["event_calendar"] = "Event calendar";
+$lang["add_event"] = "Add call plan";
+$lang["edit_event"] = "Edit call plan";
+$lang["delete_event"] = "Delete call plan";
+$lang["events"] = "Call plans";
+$lang["event_calendar"] = "Call plan calendar";
 $lang["location"] = "Location";
-$lang["event_details"] = "Event details";
-$lang["event_deleted"] = "The event has been deleted.";
+$lang["event_details"] = "Call plan details";
+$lang["event_deleted"] = "The call plan has been deleted.";
 $lang["view_on_calendar"] = "View on calendar";
-$lang["no_event_found"] = "No event found!";
-$lang["events_today"] = "Events today";
+$lang["no_event_found"] = "No call plan found!";
+$lang["events_today"] = "Call plans today";
 
 /* announcement */
 $lang["add_announcement"] = "Add announcement";
