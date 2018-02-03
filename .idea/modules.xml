@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file:///var/www/html/templates/inspirythemes.biz/html-templates/knowledgebase-html/.idea/knowledgebase-html.iml" filepath="/var/www/html/templates/inspirythemes.biz/html-templates/knowledgebase-html/.idea/knowledgebase-html.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/prokazi.iml" filepath="$PROJECT_DIR$/.idea/prokazi.iml" />
       <module fileurl="file://$PROJECT_DIR$/../prowritfront/.idea/prowritfront.iml" filepath="$PROJECT_DIR$/../prowritfront/.idea/prowritfront.iml" />
     </modules>

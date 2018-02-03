@@ -9,7 +9,7 @@ class Knowledge_base extends Pre_loader {
     function index(){
         $viewdata = [];
         $viewdata['types'] = $this->TblKnowledgeBaseTypesModel->getall()->result();
-        $this->template->rander("knowledgebase/index",$viewdata);
+        $this->template->rander("knowledgebase/index2",$viewdata);
     }
     function list_data(){
         $list_data = $this->TblKnowledgeBaseModel->get_details()->result();
