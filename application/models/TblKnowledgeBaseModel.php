@@ -38,6 +38,19 @@ class TblKnowledgeBaseModel extends Crud_model {
         return $this->db->query($sql);
     }
 
+    function getTypeKNowledges($typeid){
+        $knowledgebase_table = $this->db->dbprefix('tbl_knowledge_base');
+        $sql = "SELECT $knowledgebase_table.*
+        FROM $knowledgebase_table
+        WHERE $knowledgebase_table.type_id=$typeid AND $knowledgebase_table.deleted=0 ";
+        return $this->db->query($sql);
+    }
+
+    function row_delete($id){
+        $knowledgebase_table = $this->db->dbprefix('tbl_knowledge_base');
+        return $this->db->query("DELETE FROM $knowledgebase_table WHERE id=$id");
+    }
+
     function getOne($id){
         $this->db->select('*');
         $this->db->from($this->table);

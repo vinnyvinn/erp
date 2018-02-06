@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <?php $this->load->view('includes/head'); ?>
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
     <body>
     <div>
         <?php $this->load->view('includes/topbar'); ?>

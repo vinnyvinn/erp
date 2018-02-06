@@ -54,6 +54,7 @@ class Posts_model extends Crud_model {
         return $data;
     }
 
+
     function count_new_posts() {
         $now = get_current_utc_time("Y-m-d");
         $posts_table = $this->db->dbprefix('posts');

@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file:///var/www/html/ckedit/.idea/ckedit.iml" filepath="/var/www/html/ckedit/.idea/ckedit.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/prokazi.iml" filepath="$PROJECT_DIR$/.idea/prokazi.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../prowritfront/.idea/prowritfront.iml" filepath="$PROJECT_DIR$/../prowritfront/.idea/prowritfront.iml" />
     </modules>
   </component>
 </project>
