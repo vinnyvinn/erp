@@ -81,13 +81,13 @@ class Legal extends Pre_loader
         $model_info = $this->LegalDocumentsModel->getOne($id);
         if ($model_info) {
 
-            $items =
+            $list_data = [];
 
             $result = [];
             foreach ($list_data as $key=>$data) {
                 $result[] = $this->_make_reminders_row($data, $key);
             }
-            $view_data['sage_data'] = $this->getSageItems();
+            $view_data['sage_data'] =[];// $this->getSageItems();
             $view_data['model_info'] = $model_info;
             $this->template->rander("legal/documents/view", $view_data);
         } else {

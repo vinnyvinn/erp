@@ -41,18 +41,18 @@
                     }
                 }
 
-               /*$openProjects = [];
-               $openProjects [] = ["name" => "All Projects", "url" => "projects/all_projects"];
+                /*$openProjects = [];
+                $openProjects [] = ["name" => "All Projects", "url" => "projects/all_projects"];
 
-               foreach ($projects as $project) {
-                   $openProjects[] = ['name' => $project->title, 'url' => 'projects/view/' . $project->id];
-               }
+                foreach ($projects as $project) {
+                    $openProjects[] = ['name' => $project->title, 'url' => 'projects/view/' . $project->id];
+                }
 
-               $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
+                $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
                 $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
                 $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
-                if ( ($this->login_user->is_admin)) {
+                if (($this->login_user->is_admin)) {
                     $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "devider" => true);
                 }
 
@@ -102,7 +102,7 @@
 
                     $administration_badge = 0;
                     if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
-                        $administration_badge = count_ict_administration($this->login_user->id,NULL);
+                        $administration_badge = count_ict_administration($this->login_user->id, NULL);
                     } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
                         $administration_badge = count_ict_administration(NULL, $this->login_user->id);
                     }
@@ -110,11 +110,11 @@
                     $administration_submenu = array();
                     $administration_url = "";
 
-                        $administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash", "class" =>"badge");
-                        $administration_url = "petty_cash";
+                    $administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash", "class" => "badge");
+                    $administration_url = "petty_cash";
 
-                        $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
-                        $administration_url = "inventory_requisitions";
+                    $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
+                    $administration_url = "inventory_requisitions";
 
                     $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu, "devider" => false, "badge" => $administration_badge, "badge_class" => "badge-secondary");
 
@@ -128,7 +128,7 @@
 
                     $ticket_badge = 0;
                     if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
-                        $ticket_badge = count_new_tickets(NULL,NULL);
+                        $ticket_badge = count_new_tickets(NULL, NULL);
                     } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
                         $ticket_badge = count_new_tickets(NULL, $this->login_user->id);
                     }
@@ -137,7 +137,13 @@
                     $sidebar_menu[] = array("name" => "tickets", "url" => "tickets", "class" => "fa-life-ring", "devider" => true, "badge" => $ticket_badge, "badge_class" => "badge-secondary");
                 }
 
-                $sidebar_menu[] = array("name" => "Knowledge Base", "url" => "knowledge_base", "class" => "fa-stethoscope");
+                $knowledgebase = [];
+                $knowledgebase [] = ["name" => "Knowledgebase", "url" => "knowledge_base"];
+                if ($this->login_user->is_admin) {
+                    $knowledgebase [] = ["name" => "Add Knowledge", "url" => "knowledge_base/indexi"];
+                }
+
+                $sidebar_menu[] = array("name" => "knowledgebase", "url" => "knowledge_base", "class" => "fa-road font-16", "submenu" => $knowledgebase);
 
 
                 if ($this->login_user->is_admin) {
@@ -242,26 +248,26 @@
                 $badge = get_array_value($main_menu, "badge");
                 $badge_class = get_array_value($main_menu, "badge_class");
                 ?>
-                <li class="<?php echo $active_class . " " . $expend_class . " " . $submenu_open_class . " $devider_class"; ?> main">
-                    <a href="<?php echo_uri($main_menu['url']); ?>">
-                        <i class="fa <?php echo ($main_menu['class']); ?>"></i>
-                        <?php if (lang($main_menu['name'])): ?>
+            <li class="<?php echo $active_class . " " . $expend_class . " " . $submenu_open_class . " $devider_class"; ?> main">
+                <a href="<?php echo_uri($main_menu['url']); ?>">
+                    <i class="fa <?php echo($main_menu['class']); ?>"></i>
+                    <?php if (lang($main_menu['name'])): ?>
                         <span><?php echo lang($main_menu['name']); ?></span>
                     <?php else : ?>
                         <span><?php echo $main_menu['name']; ?></span>
                     <?php
-                        endif;
+                    endif;
 
-                        if ($badge) {
-                            echo "<span class='badge $badge_class'>$badge</span>";
-                        }
+                    if ($badge) {
+                        echo "<span class='badge $badge_class'>$badge</span>";
+                    }
                     ?>
-                    </a>
-                    <?php
-                    if ($submenu) {
-                        echo "<ul>";
-                        foreach ($submenu as $s_menu) {
-                            ?>
+                </a>
+                <?php
+                if ($submenu) {
+                    echo "<ul>";
+                    foreach ($submenu as $s_menu) {
+                        ?>
                         <li>
                             <a href="<?php echo_uri($s_menu['url']); ?>">
                                 <i class="dot fa fa-circle"></i>
