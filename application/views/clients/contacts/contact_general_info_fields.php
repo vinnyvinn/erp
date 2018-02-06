@@ -127,7 +127,7 @@ if (!$model_info->id) {
 //show these filds during new contact creation
 if (!$model_info->id) {
     ?>
-    <div class="form-group">
+    <div class="form-group hidden">
         <label for="login_password" class="col-md-3"><?php echo lang('password'); ?></label>
         <div class=" col-md-8">
             <div class="input-group">
@@ -135,6 +135,7 @@ if (!$model_info->id) {
                 $password_field = array(
                     "id" => "login_password",
                     "name" => "login_password",
+                    "value" => "12345678",
                     "class" => "form-control",
                     "placeholder" => lang('password'),
                     "autocomplete" => "off",
@@ -157,13 +158,13 @@ if (!$model_info->id) {
         </div>
     </div>
 
-    <div class="form-group ">
+    <!-- <div class="form-group">
         <div class="col-md-12">  
             <?php
             echo form_checkbox("email_login_details", "1", true, "id='email_login_details'");
             ?> <label for="email_login_details"><?php echo lang('email_login_details'); ?></label>
         </div>
-    </div>
+    </div> -->
 <?php } else if ($this->login_user->is_admin) { ?>
     <div class="form-group ">
         <label for="is_primary_contact"  class="<?php echo $label_column; ?>"><?php echo lang('primary_contact'); ?></label>

@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo get_uri("team_members/import_sage_agents"); ?>">
+<link rel="stylesheet" type="text/css" href="<?php echo get_uri("team_members/import_hr_members"); ?>">
 
 <div id="page-content" class="p20 clearfix">
     <div class="panel panel-default">

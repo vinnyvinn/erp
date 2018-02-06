@@ -14,10 +14,6 @@ class Team_members extends Pre_loader
         $this->access_only_team_members();
     }
 
-    public function SAGE_DB() {
-        return $this->load->database('SAGE', TRUE);
-    }
-
     private function can_view_team_members_contact_info()
     {
         if ($this->login_user->user_type == "staff") {
@@ -82,7 +78,219 @@ class Team_members extends Pre_loader
         $view_data['model_info'] = $this->Users_model->get_details($options)->row();
         $this->load->view('team_members/modal_form', $view_data);
     }
-    
+
+    /* save new member */
+
+    function add_team_member()
+    {
+        $this->access_only_admin();
+
+        //check duplicate email address, if found then show an error message
+        if ($this->Users_model->is_email_exists($this->input->post('email'))) {
+            echo json_encode(array("success" => false, 'message' => lang('duplicate_email')));
+            exit();
+        }
+
+        validate_submitted_data(
+            array(
+                "email"      => "required|valid_email",
+                "first_name" => "required",
+                "last_name"  => "required",
+                "job_title"  => "required",
+                "role"       => "required"
+            ));
+
+        $user_data = array(
+            "email"      => $this->input->post('email'),
+            "password"   => md5($this->input->post('password')),
+            "first_name" => $this->input->post('first_name'),
+            "last_name"  => $this->input->post('last_name'),
+            "is_admin"   => $this->input->post('is_admin'),
+            "address"    => $this->input->post('address'),
+            "phone"      => $this->input->post('phone'),
+            "gender"     => $this->input->post('gender'),
+            "job_title"  => $this->input->post('job_title'),
+            "phone"      => $this->input->post('phone'),
+            "gender"     => $this->input->post('gender'),
+            "user_type"  => "staff",
+            "created_at" => get_current_utc_time()
+        );
+
+        //make role id or admin permission 
+        $role = $this->input->post('role');
+        $role_id = $role;
+
+        if ($role === "admin") {
+            $user_data["is_admin"] = 1;
+            $user_data["role_id"] = 0;
+        } else {
+            $user_data["is_admin"] = 0;
+            $user_data["role_id"] = $role_id;
+        }
+
+
+        //add a new team member
+        $user_id = $this->Users_model->save($user_data);
+        if ($user_id) {
+            //user added, now add the job info for the user
+            $job_data = array(
+                "user_id"      => $user_id,
+                "salary"       => $this->input->post('salary') ? $this->input->post('salary') : 0,
+                "salary_term"  => $this->input->post('salary_term'),
+                "working_hours"  => $this->input->post('working_hours'),
+                "hourly_rate"  => $this->input->post('salary') / $this->input->post('working_hours'),
+                "date_of_hire" => $this->input->post('date_of_hire')
+            );
+            $this->Users_model->save_job_info($job_data);
+
+            //send login details to user
+            if ($this->input->post('email_login_details')) {
+
+                //get the login details template
+                $email_template = $this->Email_templates_model->get_final_template("login_info");
+
+                $parser_data["SIGNATURE"] = $email_template->signature;
+                $parser_data["USER_FIRST_NAME"] = $user_data["first_name"];
+                $parser_data["USER_LAST_NAME"] = $user_data["last_name"];
+                $parser_data["USER_LOGIN_EMAIL"] = $user_data["email"];
+                $parser_data["USER_LOGIN_PASSWORD"] = $this->input->post('password');
+                $parser_data["DASHBOARD_URL"] = base_url();
+
+                $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+                send_app_mail($this->input->post('email'), $email_template->subject, $message);
+            }
+        }
+
+        if ($user_id) {
+            if ($this->input->post('data-type') == 'plain') {
+                echo json_encode([
+                    "success" => true,
+                    "data" => json_encode([
+                        'id' => $user_id,
+                        'title' => $user_data['first_name'] . ' ' . $user_data['last_name']
+                    ]),
+                    'id' => $user_id,
+                    'message' => lang('record_saved')
+                ]);
+            } else {
+                echo json_encode([
+                    "success" => true,
+                    "data" => $this->_row_data($user_id),
+                    'id' => $user_id,
+                    'message' => lang('record_saved')
+                ]);
+            }
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
+    }
+
+    public function HR_DB() {
+        return $this->load->database('HR', TRUE);
+    }
+
+    function import_hr_members() {
+
+       foreach ($this->HR_DB()->select("tblEmployee.Emp_Id, tblEmployee.Emp_First_Name, tblEmployee.Emp_Last_Name, tblEmployee.Emp_Gender, tblEmployee.Emp_Birth_Date, tblEmployee_Contact.Emp_WorkEmail, tblEmployee_Contact.Emp_WorkPhone, tblEmployee.Emp_Join_Date, tblEmployee.Is_Active, tblDepartment.Dept_Name + ' : ' + dbo.tblDesignation.Desig_Name AS Emp_Job_Title")->from('tblEmployee')->join('tblDesignation', 'tblEmployee.Emp_Desig_Id = tblDesignation.Desig_Id', 'inner')->join('tblEmployee_Contact', 'tblEmployee_Contact.Emp_Id = tblEmployee.Emp_Id', 'inner')->join('tblDepartment', 'tblEmployee.Cmp_Id = tblDepartment.Cmp_Id AND tblEmployee.Emp_Dept_Id = tblDepartment.Dept_Id', 'inner')->get()->result() as $value) {
+
+            /*if ($value->Emp_WorkEmail != NULL) {
+                $Emp_WorkEmail = $value->Emp_WorkEmail;
+            } else {
+                $Emp_WorkEmail = strtolower("{$value->Emp_First_Name}_{$value->Emp_Last_Name}". rand(99,9999) . "@teamkazi.com");
+            }*/
+
+            if ($value->Emp_Gender == 1) {
+                $Emp_Gender = "male";
+            } elseif ($value->Emp_Gender == 2) {
+                $Emp_Gender = "female";
+            }
+
+            if ($value->Is_Active == 1) {
+                $status = "active";
+            } else {
+                $status = "inactive";
+            }    
+
+            $user_data = array(
+                'first_name' => $value->Emp_First_Name,
+                'last_name'  => $value->Emp_Last_Name,
+                'user_type'  => 'staff',
+                'is_admin'   => 0,
+                'role_id'    => 2,
+                'email'      => $value->Emp_WorkEmail,
+                'password'   => '25d55ad283aa400af464c76d713c07ad',
+                'status'     => $status,
+                'job_title'  => $value->Emp_Job_Title,
+                'phone'      => $value->Emp_WorkPhone,
+                'dob'        => $value->Emp_Birth_Date,
+                'gender'     => $Emp_Gender,
+                'created_at' => date('Y-m-d')
+            );
+
+            if (!$this->Users_model->is_email_exists($value->Emp_WorkEmail)) {
+
+                // add a new team member
+                $user_id = $this->Users_model->save($user_data);
+
+                if ($user_id) {
+                    //user added, now add the job info for the user
+                    $job_data = array(
+                        "user_id"      => $user_id,
+                        "salary"       => 0,
+                        "salary_term"  => "Contract",
+                        "working_hours" => get_setting("working_hours"),
+                        "hourly_rate"  => 0 / get_setting("working_hours"), // salary / hourly_rate
+                        "date_of_hire" => (new DateTime($value->Emp_Join_Date))->format('Y-m-d')
+                    );
+
+                    $this->Team_member_model->save($job_data);
+                    
+                }
+            }            
+        }
+
+    }
+
+    /* open invitation modal */
+
+    function invitation_modal()
+    {
+        $this->access_only_admin();
+        $this->load->view('team_members/invitation_modal');
+    }
+
+    //send a team member invitation to an email address
+    function send_invitation()
+    {
+        $this->access_only_admin();
+
+        validate_submitted_data(
+            array(
+                "email" => "required|valid_email"
+            ));
+
+        $email = $this->input->post('email');
+
+        //get the send invitation template 
+        $email_template = $this->Email_templates_model->get_final_template("team_member_invitation");
+
+        $parser_data["INVITATION_SENT_BY"] = $this->login_user->first_name . " " . $this->login_user->last_name;
+        $parser_data["SIGNATURE"] = $email_template->signature;
+        $parser_data["SITE_URL"] = get_uri();
+
+        //make the invitation url with 24hrs validity
+        $key = encode_id($this->encrypt->encode('staff|' . $email . '|' . (time() + (24 * 60 * 60))), "signup");
+        $parser_data['INVITATION_URL'] = get_uri("signup/accept_invitation/" . $key);
+
+        //send invitation email
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        if (send_app_mail($email, $email_template->subject, $message)) {
+            echo json_encode(array('success' => true, 'message' => lang("invitation_sent")));
+        } else {
+            echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
+        }
+    }
+
     //prepere the data for members list
     function list_data()
     {
@@ -146,9 +354,14 @@ class Team_members extends Pre_loader
                 $show_attendance = false;
                 $show_leave = false;
 
-                $expense_access_info = $this->get_access_info("expense");
-                $view_data["show_expense_info"] = (get_setting(
-                        "module_expense") == "1" && $expense_access_info->access_type == "all") ? true : false;
+                // $expense_access_info = $this->get_access_info("expense");
+                // $view_data["show_expense_info"] = (get_setting("module_expense") == "1" && $expense_access_info->access_type == "all") ? true : false;
+
+                if ($this->login_user->is_admin || $this->login_user->id == $id) {
+                    $view_data["show_expense_info"] = true;
+                } else {
+                    $view_data["show_expense_info"] = false;
+                }
 
                 //admin can access all members attendance and leave
                 //none admin users can only access to his/her own information 
@@ -309,14 +522,6 @@ class Team_members extends Pre_loader
         );
 
         $user_info_updated = $this->Users_model->save($user_data, $user_id);
-
-        $name = $user_data['first_name'] . " " . $user_data['last_name'];
-
-
-        /*$SAGE_query = "UPDATE DEMO.dbo._rtblAgents SET cAgentName = '".$name."', cFirstName = '".$user_data['first_name']."', cLastName = '".$user_data['last_name']."', cDisplayName = '".$name."', cTelWork = '".$user_data['phone']."' WHERE id = '". $user_id ."'";
-
-        $this->SAGE_DB()->query($SAGE_query);*/
-
         if ($user_info_updated) {
             echo json_encode(array("success" => true, 'message' => lang('record_updated')));
         } else {
@@ -406,11 +611,6 @@ class Team_members extends Pre_loader
         $account_data = array(
             "email" => $this->input->post('email')
         );
-
-        $this->SAGE_DB()->set('cEmail', $account_data['email'])->where('cEmail', $this->Users_model->get_one($user_id)->email)->update('_rtblAgents');
-
-/*        $SAGE_query = "UPDATE DEMO.dbo._rtblAgents SET cEmail = '".$account_data['email']."' WHERE id = '". $user_id ."'";
-        $this->SAGE_DB()->query($SAGE_query);*/
 
         if ($this->login_user->is_admin && $this->login_user->id != $user_id) {
             //only admin user has permission to update team member's role
@@ -522,50 +722,6 @@ class Team_members extends Pre_loader
     {
         $view_data["user_id"] = $user_id;
         $this->load->view("team_members/expenses", $view_data);
-    }
-
-    function import_sage_agents() {
-
-       foreach ($this->SAGE_DB()->get_where('_rtblAgents', array('bSysAccount' => 0, 'cPassword !='=> '', 'cEmail !='=> ''))->result() as $value) {    
-
-            $user_data = array(
-                'first_name' => $value->cFirstName,
-                'last_name'  => $value->cLastName,
-                'user_type'  => 'staff',
-                'is_admin'   => 0,
-                'role_id'    => 1,
-                'email'      => $value->cEmail ? $value->cEmail : strtolower($value->cAgentName) . "@teamkazi.com",
-                'password'   => '25d55ad283aa400af464c76d713c07ad', // 12345678
-                'status'     => ($value->bAgentActive == 1) ? "active" : "inactive",
-                'job_title'  => $value->cDescription ? $value->cDescription : "Sage User",
-                'phone'      => $value->cTelWork ? $value->cTelWork : "0700000000",
-                'dob'        => "00-00-00",
-                'gender'     => "male",
-                'created_at' => date('Y-m-d')
-            );
-
-            if (!$this->Users_model->is_email_exists($value->cEmail)) {
-
-                // add a new team member
-                $user_id = $this->Users_model->save($user_data);
-
-                if ($user_id) {
-                    //user added, now add the job info for the user
-                    $job_data = array(
-                        "user_id"      => $user_id,
-                        "salary"       => 0,
-                        "salary_term"  => "Monthly",
-                        "working_hours" => get_setting("working_hours"),
-                        "hourly_rate"  => 0 / get_setting("working_hours"), // salary / hourly_rate
-                        "date_of_hire" => date('Y-m-d')
-                    );
-
-                    $this->Team_member_model->save($job_data);
-                    
-                }
-            }            
-        }
-
     }
 
 }

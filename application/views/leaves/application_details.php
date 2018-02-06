@@ -69,7 +69,7 @@
     <?php if ($leave_info->status === "pending" && $this->login_user->id === $leave_info->applicant_id) { ?>
         <button data-status="canceled" type="submit" class="btn btn-danger btn-sm update-leave-status"><span class="fa fa-times-circle-o"></span> <?php echo lang('cancel'); ?></button>
     <?php } ?>   
-    <?php if ($leave_info->status === "pending" && $show_approve_reject) { ?>
+    <?php if ($leave_info->status === "pending" && $show_approve_reject && $this->login_user->is_admin) { ?>
         <button data-status="rejected" type="submit" class="btn btn-danger btn-sm update-leave-status"><span class="fa fa-times-circle-o"></span> <?php echo lang('reject'); ?></button>
         <button data-status="approved" type="submit" class="btn btn-success btn-sm update-leave-status"><span class="fa fa-check-circle-o"></span> <?php echo lang('approve'); ?></button>
     <?php } ?>

@@ -73,7 +73,9 @@ class Clients extends Pre_loader {
             "phone" => $this->input->post('phone'),
             "website" => $this->input->post('website'),
             "vat_number" => $this->input->post('vat_number'),
-            "created_date" => get_current_utc_time()
+            "created_date" => get_current_utc_time(),
+            "created_by" => $this->login_user->id,
+            "description" => $this->input->post('description')
         );
 
         if ($this->login_user->is_admin) {
@@ -90,7 +92,7 @@ class Clients extends Pre_loader {
             $currency = 1;
         }
          
-        $SAGE_DB = $this->load->database('SAGE', TRUE);
+        /*$SAGE_DB = $this->load->database('SAGE', TRUE);
 
         $SADE_SQL = "SELECT DEMO.dbo.Client.id FROM DEMO.dbo.Client WHERE DEMO.dbo.Client.id = " . $save_id;
 
@@ -102,7 +104,7 @@ class Clients extends Pre_loader {
         } else {
             $query = "INSERT INTO DEMO.dbo.Client(Name, Physical1, Physical2, Physical3, Physical4, Physical5, Telephone, Tax_Number, cWebPage, iCurrencyID, Client_dCreatedDate, id) VALUES ('".$data['company_name']."', '".$data['address']."', '".$data['zip']."', '".$data['state']."', '".$data['city']."', '".$data['country']."', '".$data['phone']."', '".$data['vat_number']."', '".$data['website']."', '".$currency."', '".$data['created_date']."', ".$save_id.")";
             $SAGE_DB->query($query);
-        }
+        }*/
 
         if ($save_id) {
 
@@ -127,26 +129,26 @@ class Clients extends Pre_loader {
             "id" => "required|numeric"
         ));
 
-        $SAGE_DB = $this->load->database('SAGE', TRUE);
+        // $SAGE_DB = $this->load->database('SAGE', TRUE);
 
         $id = $this->input->post('id');
 
         if ($this->input->post('undo')) {
 
-            if ($this->Clients_model->delete($id, true)) {
-                echo json_encode(array("success" => true, "data" => $this->_row_data($id), "message" => lang('record_undone')));
+            if ($this->Clients_model->update_where(["status" => "Pending"], array("id" => $id, "deleted" => 0))) {
+                echo json_encode(array("success" => true, "data" => $this->_row_data($id), "message" => "record undone"));
             } else {
-                echo json_encode(array("success" => false, lang('error_occurred')));
+                echo json_encode(array("success" => false, "error occurred"));
             }
         } else {
 
-            $query = "DELETE FROM DEMO.dbo.Client WHERE id = " . $id;
-            $SAGE_DB->query($query);
+            // $query = "DELETE FROM DEMO.dbo.Client WHERE id = " . $id;
+            // $SAGE_DB->query($query);
             
-            if ($this->Clients_model->delete($id)) {
-                echo json_encode(array("success" => true, 'message' => lang('record_deleted')));
+            if ($this->Clients_model->update_where(["status" => "Disapproved"], array("id" => $id, "deleted" => 0))) {
+                echo json_encode(array("success" => true, 'message' => "record disapproved"));
             } else {
-                echo json_encode(array("success" => false, 'message' => lang('record_cannot_be_deleted')));
+                echo json_encode(array("success" => false, 'message' => "record cannot be disapproved"));
             }
         }
     }
@@ -176,15 +178,119 @@ class Clients extends Pre_loader {
     /* prepare a row of client list table */
 
     private function _make_row($data) {
+
+        if ($data->status == "Pending") {
+            $status = "<button type=\"button\" class=\"btn btn-info\"> $data->status </button>";
+        } elseif ($data->status == "Approved") {
+            $status = "<button type=\"button\" class=\"btn btn-success\"> $data->status </button>";
+        } elseif ($data->status == "Disapproved") {
+            $status = "<button type=\"button\" class=\"btn btn-danger\"> $data->status </button>";
+        }
+
         return array($data->id,
             anchor(get_uri("clients/view/" . $data->id), $data->company_name),
             $data->primary_contact,
-            to_decimal_format($data->total_projects),
-            to_currency($data->invoice_value, $data->currency_symbol),
-            to_currency($data->payment_received, $data->currency_symbol),
-            modal_anchor(get_uri("clients/modal_form"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('edit_client'), "data-post-id" => $data->id))
+            // to_decimal_format($data->total_projects),
+            // to_currency($data->invoice_value, $data->currency_symbol),
+            // to_currency($data->payment_received, $data->currency_symbol),
+            $data->description,
+            $status,
+            modal_anchor(get_uri("clients/to_sage_modal_form"), "<i class='fa fa-check'></i>", array("class" => "edit", "title" => "Approve lead", "data-post-id" => $data->id))
             . js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_client'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("clients/delete"), "data-action" => "delete"))
         );
+    }
+
+    public function to_sage_modal_form() {
+
+        $view_data['_id'] = $this->input->post('id'); 
+        $view_data['sage_agents_dropdown'] = $this->SAGE_DB()->where('cEmail !=', NULL)->get('_rtblAgents')->result();
+
+        $this->load->view("clients/to_sage_modal_form", $view_data);
+    }
+
+    public function SAGE_DB() {
+        return $this->load->database('SAGE', TRUE);
+    }
+
+    public function save_to_sage() {
+
+        $id = $this->input->post('_id');
+        $sage_agent = $this->input->post('sage_agent');
+        $description = $this->input->post('description');
+
+        $company_data_list = $this->Clients_model->get_details(array('id' => $id))->result()[0];
+
+        $_rtblPeople = array(
+            'cFirstName' => $this->Users_model->get_one_where(array('client_id' => $company_data_list->id))->first_name,
+            'cLastName' => $this->Users_model->get_one_where(array('client_id' => $company_data_list->id))->last_name,
+            'cTelWork' => $this->Users_model->get_one_where(array('client_id' => $company_data_list->id))->phone,
+            'cEmail' => $this->Users_model->get_one_where(array('client_id' => $company_data_list->id))->email
+        );
+
+        $this->SAGE_DB()->insert('_rtblPeople', $_rtblPeople);
+        $iPeopleID = $this->SAGE_DB()->select('idPeople')->order_by('idPeople','desc')->limit(1)->get('_rtblPeople')->row('idPeople');
+
+        $_rtblProspect = array(
+            'cCompanyName' => $company_data_list->company_name,
+            'cTelephone' => $this->Users_model->get_one_where(array('client_id' => $company_data_list->id))->phone,
+            'cPhysicalAddress1' => $company_data_list->address,
+            'cWebsite' => $company_data_list->website,
+            'cEmail' => $this->Users_model->get_one_where(array('client_id' => $company_data_list->id))->email,
+            'iAgentID' => $sage_agent
+        );
+
+        $this->SAGE_DB()->insert('_rtblProspect', $_rtblProspect);
+        $iProspectID = $this->SAGE_DB()->select('IDProspect')->order_by('IDProspect','desc')->limit(1)->get('_rtblProspect')->row('IDProspect');
+
+        $_rtblOpportunity = array(
+            "cOpportunityNumber" => $this->SAGE_DB()->select('cSFAOpportunityPrefix')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityPrefix') . str_pad($this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum'), $this->SAGE_DB()->select('iSFAOpportunityPadTo')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('iSFAOpportunityPadTo'), '0', STR_PAD_LEFT),
+            "iClientID" => 0,
+            "iProspectID" => $iProspectID,
+            "iPeopleID" => $iPeopleID,
+            "iAgentID" => $sage_agent,
+            "iOpportunityStageID" => 1,
+            "iOpportunityStatusID" => 1,
+            "iOpportunitySourceID" => 1,
+            "dDateStart" => date('Y-m-d'),
+            "dDateClose" => date('Y-m-d'),
+            "dDateActualClose" => date('Y-m-d'),
+            "fProbabilityPerc" => 10,
+            "bPublic" => 1
+        );
+
+        $this->SAGE_DB()->insert('_rtblOpportunity', $_rtblOpportunity);
+        $iOpportunityID = $this->SAGE_DB()->select('IDOpportunity')->order_by('IDOpportunity','desc')->limit(1)->get('_rtblOpportunity')->row('IDOpportunity');
+
+        $_rtblIncidents = array(
+            'dCreated' => date('Y-m-d'),
+            'dLastModified' => date('Y-m-d'),
+            'iClassID' => 1,
+            'iIncidentStatusID' => 1,
+            'bRequireAck' => 1,
+            'cOurRef' => $this->SAGE_DB()->select('vIncidentPrefix')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('vIncidentPrefix') . str_pad($this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum'), $this->SAGE_DB()->select('iIncidentPadLength')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('iIncidentPadLength'), '0', STR_PAD_LEFT),
+            'cOutline' => $description,
+            'iPriorityID' => 4,
+            'iCurrentAgentID' => $sage_agent,
+            'iIncidentTypeID' => 1,
+            'iProspectID' => $iProspectID,
+            'iOpportunityID' => $iOpportunityID
+        );
+
+        $this->SAGE_DB()->insert('_rtblIncidents', $_rtblIncidents);
+
+        /*$_rtblCMDefaults = array(
+            'cSFAOpportunityNextNum' => $this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum') + $this->SAGE_DB()->select('bSFAOpportunityAutoNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('bSFAOpportunityAutoNum')
+        );*/
+
+        $idCMDefaults = $this->SAGE_DB()->select('idCMDefaults')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('idCMDefaults');
+        $this->SAGE_DB()->where('idCMDefaults', $idCMDefaults);
+        $this->SAGE_DB()->update('_rtblCMDefaults', array('cSFAOpportunityNextNum' => $this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum') + $this->SAGE_DB()->select('bSFAOpportunityAutoNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('bSFAOpportunityAutoNum')));
+
+        if ($this->Clients_model->update_where(["status" => "Approved"], array("id" => $id, "deleted" => 0))) {
+            echo json_encode(array("success" => true, 'message' => "record approved"));
+        } else {
+            echo json_encode(array("success" => false, 'message' => "record cannot be approved"));
+        }
     }
 
     /* load client details view */
@@ -196,7 +302,7 @@ class Clients extends Pre_loader {
             $options = array("id" => $client_id);
             $client_info = $this->Clients_model->get_details($options)->row();
             if ($client_info) {
-
+ 
                 $access_info = $this->get_access_info("invoice");
                 $view_data["show_invoice_info"] = (get_setting("module_invoice") && $access_info->access_type == "all") ? true : false;
 
@@ -444,11 +550,11 @@ class Clients extends Pre_loader {
 
         $save_id = $this->Users_model->save($user_data, $contact_id);
 
-        $SAGE_DB = $this->load->database('SAGE', TRUE);
+        /*$SAGE_DB = $this->load->database('SAGE', TRUE);
         $Name = $user_data['first_name'] ." ". $user_data['last_name'];
         $SAGE_query = "UPDATE DEMO.dbo.Client SET Contact_Person = '".$Name."', Telephone2 = '".$user_data['phone']."', EMail = '".$user_data['email']."' WHERE Init = ".$client_id."";
 
-        $SAGE_DB->query($SAGE_query);
+        $SAGE_DB->query($SAGE_query);*/
 
         if ($save_id) {
 

@@ -177,7 +177,11 @@ class Leaves extends Pre_loader {
 
     // list of pending leave application. prepared for datatable
     function pending_approval_list_data() {
-        $options = array("status" => "pending", "access_type" => $this->access_type, "allowed_members" => $this->allowed_members);
+        if ($this->login_user->is_admin) {
+            $options = array("status" => "pending", "access_type" => $this->access_type, "allowed_members" => $this->allowed_members);
+        } else {
+            $options = array("status" => "pending", "access_type" => $this->access_type, "allowed_members" => $this->allowed_members, "applicant_id" => $this->login_user->id);
+        }
         $list_data = $this->Leave_applications_model->get_list($options)->result();
 
         $result = array();
@@ -199,7 +203,11 @@ class Leaves extends Pre_loader {
         $end_date = $this->input->post('end_date');
         $applicant_id = $this->input->post('applicant_id');
 
-        $options = array("start_date" => $start_date, "end_date" => $end_date, "applicant_id" => $applicant_id, "login_user_id" => $this->login_user->id, "access_type" => $this->access_type, "allowed_members" => $this->allowed_members);
+        if ($this->login_user->is_admin) {
+            $options = array("start_date" => $start_date, "end_date" => $end_date, "applicant_id" => $applicant_id, "login_user_id" => $this->login_user->id, "access_type" => $this->access_type, "allowed_members" => $this->allowed_members);
+        } else {
+            $options = array("start_date" => $start_date, "end_date" => $end_date, "applicant_id" => $this->login_user->id, "login_user_id" => $this->login_user->id, "access_type" => $this->access_type, "allowed_members" => $this->allowed_members);
+        }
         $list_data = $this->Leave_applications_model->get_list($options)->result();
         $result = array();
         foreach ($list_data as $data) {

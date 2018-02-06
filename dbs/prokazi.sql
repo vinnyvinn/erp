@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 31, 2018 at 10:35 AM
+-- Generation Time: Feb 05, 2018 at 07:15 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -416,7 +416,8 @@ CREATE TABLE `events` (
 
 INSERT INTO `events` (`id`, `title`, `description`, `start_date`, `end_date`, `start_time`, `end_time`, `created_by`, `location`, `share_with`, `deleted`, `color`, `client_id`, `prospector_id`, `business_type`, `call_type`, `objective_type`, `pipeline_stage`, `files`) VALUES
 (22, 'demo', 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.', '2018-01-29', '2018-01-29', '01:00:00', '01:00:00', 5, 'Mogadishu', '', 0, '#83c340', 1, 0, 2, 2, 2, 3, 'a:0:{}'),
-(23, 'Visit', 'Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', '2018-01-30', '2018-01-30', '01:00:00', '01:00:00', 5, 'Mogadishu', '', 0, '#e74c3c', 2, 0, 2, 2, 2, 6, 'a:2:{i:0;a:2:{s:9:"file_name";s:65:"event_file5a7158f4abd4b-BarHarborCave_ROW9345444229_1920x1080.jpg";s:9:"file_size";s:6:"323434";}i:1;a:2:{s:9:"file_name";s:30:"event_file5a7158f4ac040-fb.jpg";s:9:"file_size";s:5:"12801";}}');
+(23, 'Visit', 'Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', '2018-01-30', '2018-01-30', '01:00:00', '01:00:00', 5, 'Mogadishu', '', 0, '#e74c3c', 2, 0, 2, 2, 2, 6, 'a:2:{i:0;a:2:{s:9:"file_name";s:65:"event_file5a7158f4abd4b-BarHarborCave_ROW9345444229_1920x1080.jpg";s:9:"file_size";s:6:"323434";}i:1;a:2:{s:9:"file_name";s:30:"event_file5a7158f4ac040-fb.jpg";s:9:"file_size";s:5:"12801";}}'),
+(24, 'employees', 'fcdvfvfvf', '2018-01-31', '2018-01-31', '13:00:00', '01:05:00', 5, 'Mogadishu', '', 0, '#2d9cdb', 3, 0, 1, 2, 1, 6, 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -622,6 +623,13 @@ CREATE TABLE `leave_applications` (
   `checked_by` int(11) NOT NULL DEFAULT '0',
   `deleted` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `leave_applications`
+--
+
+INSERT INTO `leave_applications` (`id`, `leave_type_id`, `start_date`, `end_date`, `total_hours`, `total_days`, `applicant_id`, `reason`, `status`, `created_at`, `created_by`, `checked_at`, `checked_by`, `deleted`) VALUES
+(3, 1, '2018-02-14', '2018-03-02', '136.00', '17.00', 146, 'trvhtrvhtrvtr', 'pending', '2018-02-05 12:57:29', 0, '2018-02-05 13:01:07', 146, 0);
 
 -- --------------------------------------------------------
 
@@ -1167,7 +1175,7 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('', '', 0),
 ('accepted_file_formats', 'jpg,jpeg,doc,png,gif,pdf,docx', 0),
 ('add_projects_from_excel', 'YES', 0),
-('admin_costs', '', 0),
+('admin_costs', '436587', 0),
 ('allowed_ip_addresses', '', 0),
 ('app_title', 'PRO-KAZI', 0),
 ('client_can_add_project_files', '1', 0),
@@ -1178,11 +1186,11 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('client_can_view_project_files', '1', 0),
 ('client_can_view_tasks', '1', 0),
 ('client_message_users', '5,27,28', 0),
-('company_address', '', 0),
-('company_email', '', 0),
-('company_name', '', 0),
-('company_phone', '', 0),
-('company_website', '', 0),
+('company_address', '10100 Nyeri, KE.', 0),
+('company_email', 'wagura465@gmail.com', 0),
+('company_name', 'mhub', 0),
+('company_phone', '718837808', 0),
+('company_website', 'WaguraMaurice', 0),
 ('currency_symbol', 'Ksh', 0),
 ('date_format', 'd/m/Y', 0),
 ('decimal_separator', '.', 0),
@@ -1222,7 +1230,7 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('module_sage', '1', 0),
 ('module_ticket', '1', 0),
 ('module_timeline', '1', 0),
-('opening_hours', '', 0),
+('opening_hours', '1:00 AM', 0),
 ('order_project_tasks', 'title', 0),
 ('Payroll', 'on', 0),
 ('Payroll_sync', 'on', 0),
@@ -1241,7 +1249,7 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('site_logo', 'default-stie-logo.png', 0),
 ('time_format', 'capital', 0),
 ('timezone', 'Africa/Nairobi', 0),
-('working_hours', '', 0),
+('working_hours', '560', 0),
 ('xlsx_logo', 'excel_logo.png', 0);
 
 -- --------------------------------------------------------
@@ -1695,14 +1703,6 @@ CREATE TABLE `tbl_knowledge_base` (
   `deleted` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
---
--- Dumping data for table `tbl_knowledge_base`
---
-
-INSERT INTO `tbl_knowledge_base` (`id`, `type_id`, `title`, `solution`, `created_by`, `created_at`, `updated_at`, `deleted`) VALUES
-(10, 1, 'demo ticket 1', 'trojan', 113, '2017-12-07 12:54:18', NULL, 0),
-(11, 2, 'dgfdgd', 'cxvcxvcxv', 5, '2017-12-07 13:21:33', NULL, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -1952,28 +1952,40 @@ CREATE TABLE `team_member_job_info` (
 
 INSERT INTO `team_member_job_info` (`id`, `user_id`, `date_of_hire`, `deleted`, `salary`, `working_hours`, `hourly_rate`, `salary_term`) VALUES
 (4, 5, '2016-09-16', 0, 15000, 176, 85.227272727273, 'Monthly'),
-(9, 89, '2017-12-27', 0, 40000, 176, 227.27272727273, ''),
-(17, 113, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
-(18, 114, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
-(19, 115, '2014-06-10', 0, 0, 0, 0, ''),
-(20, 116, '0000-00-00', 0, 0, 0, 0, ''),
-(21, 117, '0000-00-00', 0, 0, 0, 0, ''),
-(22, 118, '0000-00-00', 0, 0, 0, 0, ''),
-(23, 121, '0000-00-00', 0, 0, 0, 0, ''),
-(24, 123, '0000-00-00', 0, 0, 0, 0, ''),
-(25, 124, '0000-00-00', 0, 0, 0, 0, ''),
-(26, 125, '0000-00-00', 0, 0, 0, 0, ''),
-(27, 126, '0000-00-00', 0, 0, 0, 0, ''),
-(28, 127, '0000-00-00', 0, 0, 0, 0, ''),
-(29, 128, '0000-00-00', 0, 0, 0, 0, ''),
-(30, 129, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
-(31, 130, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
-(32, 131, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
-(33, 132, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
-(34, 133, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
-(35, 134, '2014-07-16', 0, 0, 0, 0, 'Uknown'),
-(36, 135, '2014-06-19', 0, 0, 0, 0, 'Uknown'),
-(37, 136, '2014-07-16', 0, 0, 0, 0, 'Uknown');
+(38, 141, '2001-05-01', 0, 0, 560, 0, 'Contract'),
+(39, 142, '2007-04-01', 0, 0, 560, 0, 'Contract'),
+(40, 143, '2009-12-10', 0, 0, 560, 0, 'Contract'),
+(41, 144, '2010-05-24', 0, 0, 560, 0, 'Contract'),
+(42, 145, '2011-01-03', 0, 0, 560, 0, 'Contract'),
+(43, 146, '2011-11-01', 0, 0, 560, 0, 'Contract'),
+(44, 147, '2011-10-01', 0, 0, 560, 0, 'Contract'),
+(45, 148, '2011-04-04', 0, 0, 560, 0, 'Contract'),
+(46, 149, '2011-07-04', 0, 0, 560, 0, 'Contract'),
+(47, 150, '2011-12-19', 0, 0, 560, 0, 'Contract'),
+(48, 151, '2011-12-20', 0, 0, 560, 0, 'Contract'),
+(49, 152, '2011-12-29', 0, 0, 560, 0, 'Contract'),
+(50, 153, '2013-11-10', 0, 0, 560, 0, 'Contract'),
+(51, 154, '2014-10-07', 0, 0, 560, 0, 'Contract'),
+(52, 155, '2015-07-01', 0, 0, 560, 0, 'Contract'),
+(53, 156, '2015-08-05', 0, 0, 560, 0, 'Contract'),
+(54, 157, '2015-06-16', 0, 0, 560, 0, 'Contract'),
+(55, 158, '2014-08-17', 0, 0, 560, 0, 'Contract'),
+(56, 159, '2016-01-07', 0, 0, 560, 0, 'Contract'),
+(57, 160, '2016-01-10', 0, 0, 560, 0, 'Contract'),
+(58, 161, '2012-03-15', 0, 0, 560, 0, 'Contract'),
+(59, 162, '2016-02-16', 0, 0, 560, 0, 'Contract'),
+(60, 163, '2014-07-14', 0, 0, 560, 0, 'Contract'),
+(61, 164, '2015-11-09', 0, 0, 560, 0, 'Contract'),
+(62, 165, '2007-11-26', 0, 0, 560, 0, 'Contract'),
+(63, 166, '2017-01-26', 0, 0, 560, 0, 'Contract'),
+(64, 167, '2016-06-02', 0, 0, 560, 0, 'Contract'),
+(65, 168, '2012-06-04', 0, 0, 560, 0, 'Contract'),
+(66, 169, '2012-04-02', 0, 0, 560, 0, 'Contract'),
+(67, 170, '2015-01-02', 0, 0, 560, 0, 'Contract'),
+(68, 171, '2017-07-01', 0, 0, 560, 0, 'Contract'),
+(69, 172, '2017-08-14', 0, 0, 560, 0, 'Contract'),
+(70, 173, '2017-10-13', 0, 0, 560, 0, 'Contract'),
+(71, 174, '2017-11-20', 0, 0, 560, 0, 'Contract');
 
 -- --------------------------------------------------------
 
@@ -2147,11 +2159,40 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_type`, `is_admin`, `role_id`, `email`, `password`, `image`, `status`, `message_checked_at`, `client_id`, `notification_checked_at`, `is_primary_contact`, `job_title`, `disable_login`, `note`, `address`, `alternative_address`, `phone`, `alternative_phone`, `dob`, `ssn`, `gender`, `sticky_note`, `skype`, `enable_web_notification`, `enable_email_notification`, `landing_page`, `created_at`, `deleted`) VALUES
 (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-13 16:31:14', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0),
-(113, 'Maurice', 'Wagura', 'staff', 0, 1, 'wagura.maurice@hotmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2017-12-10 21:15:28', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
-(115, 'BETT', 'SAGE', 'staff', 0, 1, 'bethuel@tikone.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sage Expert', 0, NULL, '', NULL, '0720088045', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2017-12-05 12:44:52', 0),
-(135, 'SILVESTER', 'GACHIGO', 'staff', 0, 1, 'kazi@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'GENERAL CLERK', 0, NULL, NULL, NULL, '0710576348', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
-(136, 'CONSTANT', 'IMBOTIANI', 'staff', 0, 1, 'demo@email.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'M/ATT', 0, NULL, NULL, NULL, '0747967942', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '0000-00-00 00:00:00', 0),
-(137, 'info', 'tex', 'client', 0, 0, 'ict@infotex.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 30, '0000-00-00 00:00:00', 1, 'director', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, '', 1, 1, '/dashboard', '2017-12-11 00:13:41', 0);
+(141, 'SILVESTER', 'KUTUTA', 'staff', 0, 2, 'silvester@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : MD/CEO', 0, NULL, NULL, NULL, '', NULL, '1966-01-10', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(142, 'CATHERINE', 'LEWA', 'staff', 0, 2, 'catherine.lewa@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accountant Receivable', 0, NULL, NULL, NULL, '', NULL, '1980-07-06', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(143, 'MOURINE', 'MAGERO', 'staff', 0, 2, 'mourine.magero@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Administration Officer', 0, NULL, NULL, NULL, '', NULL, '1984-01-24', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(144, 'FRANCISCA', 'NZIOKA', 'staff', 0, 2, 'francisca@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR&Admin Officer', 0, NULL, NULL, NULL, '', NULL, '1974-04-16', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(145, 'WILLINGTONE', 'WARIO', 'staff', 0, 2, 'wario@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accounts Payables', 0, NULL, NULL, NULL, '', NULL, '1985-05-05', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(146, 'ALOICE', 'KUTUTA', 'staff', 0, 2, 'aloice@esl-eastfarica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Legal Manager', 0, NULL, NULL, NULL, '', NULL, '1981-01-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(147, 'MAUREEN', 'OPIYO', 'staff', 0, 2, 'maurine.atieno@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Country Operations Manager', 0, NULL, NULL, NULL, '', NULL, '1984-06-26', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(148, 'ISAAC', 'WATKINS', 'staff', 0, 2, 'watkins@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Manager', 0, NULL, NULL, NULL, '', NULL, '1961-08-16', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(149, 'CHRISPUS', 'KILEI', 'staff', 0, 2, 'chrispus.kilei@esl-east africa.co', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Supervisor', 0, NULL, NULL, NULL, '', NULL, '1970-04-24', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(150, 'EVANS', 'CHIBUNGU', 'staff', 0, 2, 'evans.ngala@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : ICT Manager', 0, NULL, NULL, NULL, '', NULL, '1985-09-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(151, 'LEONARD', 'BAYA', 'staff', 0, 2, 'bayamleonard@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Supervisor', 0, NULL, NULL, NULL, '', NULL, '1974-03-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(152, 'MARTIN', 'IKIARA', 'staff', 0, 2, 'martin.karani@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Group Chief Finance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-05', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(153, 'LENROD', 'MGENDI', 'staff', 0, 2, 'lenrod.mwamburi@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Audit, Risk and Compliance : Group Internal Audit Risk & Compliance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-13', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(154, 'JOHN', 'LAGAT', 'staff', 0, 2, 'it.support@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : ICT Assistant', 0, NULL, NULL, NULL, '', NULL, '1981-11-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(155, 'JOYLINAH', 'NJERI', 'staff', 0, 2, 'joylinah.nduta@esl-eastafica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Procurement Officer', 0, NULL, NULL, NULL, '', NULL, '1986-10-20', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(156, 'DANIEL', 'WANIKINA', 'staff', 0, 2, 'transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1988-06-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(157, 'STEPHEN', 'OMONDI', 'staff', 0, 2, 'stephen.okiki@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR Assistant', 0, NULL, NULL, NULL, '', NULL, '1988-03-20', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(158, 'PATRICK', 'MBUGUA', 'staff', 0, 2, 'patrick.mbugua.esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Credit Controller', 0, NULL, NULL, NULL, '', NULL, '1987-08-11', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(159, 'RAYMOND', 'WANGUNDA', 'staff', 0, 2, 'ops@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Boarding Clerk', 0, NULL, NULL, NULL, '', NULL, '1987-08-07', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(160, 'FLORENCE', 'TUEI', 'staff', 0, 2, 'florence.tuei@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Country Sales & Marketing Manager', 0, NULL, NULL, NULL, '', NULL, '1977-08-20', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(161, 'KENNEDY', 'KIVUVANI', 'staff', 0, 2, 'kennedy.kivuvani@freightwell.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Business Development Manager', 0, NULL, NULL, NULL, '', NULL, '1966-12-23', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(162, 'ERIC OLENSI', 'OSINYA', 'staff', 0, 2, 'erick.osinya@esl', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Transport Clerk', 0, NULL, NULL, NULL, '', NULL, '1994-03-12', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(163, 'CATHERINE', 'THUO', 'staff', 0, 2, 'catherine.thuo@freightwell.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Administration Officer', 0, NULL, NULL, NULL, '', NULL, '1976-01-11', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(164, 'GRACE', 'MPOYA', 'staff', 0, 2, 'grace.mpoya@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Customer Service Executive - Ops', 0, NULL, NULL, NULL, '', NULL, '1977-12-12', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(165, 'PATRICK', 'MAGIRI', 'staff', 0, 2, 'patrick.magiri@sovereignlog.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Business Development Manager', 0, NULL, NULL, NULL, '', NULL, '1977-12-01', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(166, 'ERIC', 'KYALO', 'staff', 0, 2, 'audit@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Audit, Risk and Compliance : Audit Assistant', 0, NULL, NULL, NULL, '', NULL, '1994-01-12', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(167, 'IRENE', 'OTIENO', 'staff', 0, 2, 'irene.atieno@esl-eastarica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accounts Payales', 0, NULL, NULL, NULL, '', NULL, '1987-05-28', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(168, 'MERCYLINE', 'MUTUA', 'staff', 0, 2, 'mercyline.mutua@freightwell.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accountant Payable', 0, NULL, NULL, NULL, '', NULL, '1987-12-14', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(169, 'ARSHUR', 'OWANE', 'staff', 0, 2, 'lomo.owane@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Sales Support Executive', 0, NULL, NULL, NULL, '', NULL, '1985-10-15', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(170, 'COLLINS', 'PAMBA', 'staff', 0, 2, 'collinspamba@freightwell.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accounts Receivables', 0, NULL, NULL, NULL, '', NULL, '1986-04-02', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(171, 'FRANCIS', 'OPALO', 'staff', 0, 2, 'francis.opalo@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Port Agency Manager', 0, NULL, NULL, NULL, '', NULL, '1972-06-12', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(172, 'PETER', 'MANGA', 'staff', 0, 2, 'peter.manga@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR Clerk', 0, NULL, NULL, NULL, '', NULL, '1994-10-30', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(173, 'LAWRENCE', 'AMENYA', 'staff', 0, 2, 'lawrence.amenya@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Officer', 0, NULL, NULL, NULL, '', NULL, '1991-02-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0),
+(174, 'MOUREEN', 'KIAMA', 'staff', 0, 2, 'mourine.kiama@esl-eastafrica', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Key Accounts Executive', 0, NULL, NULL, NULL, '', NULL, '1991-09-18', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-02-05 00:00:00', 0);
 
 --
 -- Indexes for dumped tables
@@ -2750,7 +2791,7 @@ ALTER TABLE `estimate_requests`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `event_comments`
 --
@@ -2795,7 +2836,7 @@ ALTER TABLE `invoice_payments`
 -- AUTO_INCREMENT for table `leave_applications`
 --
 ALTER TABLE `leave_applications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `leave_types`
 --
@@ -3035,7 +3076,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT for table `team_member_job_info`
 --
 ALTER TABLE `team_member_job_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
 --
 -- AUTO_INCREMENT for table `third_party_messages`
 --
@@ -3060,7 +3101,7 @@ ALTER TABLE `ticket_types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=138;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=175;
 --
 -- Constraints for dumped tables
 --

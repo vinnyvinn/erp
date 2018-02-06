@@ -4,7 +4,11 @@
             <h1><?php echo lang('leaves'); ?></h1>
             <div class="title-button-group">
                 <?php echo modal_anchor(get_uri("leaves/apply_leave_modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('apply_leave'), array("class" => "btn btn-default", "title" => lang('apply_leave'))); ?>
-                <?php echo modal_anchor(get_uri("leaves/assign_leave_modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('assign_leave'), array("class" => "btn btn-default", "title" => lang('assign_leave'))); ?>
+                <?php
+                if ($this->login_user->is_admin) {
+                    echo modal_anchor(get_uri("leaves/assign_leave_modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('assign_leave'), array("class" => "btn btn-default", "title" => lang('assign_leave')));
+                    }
+                ?>
             </div>
         </div>
         <ul data-toggle="ajax-tab" class="nav nav-tabs bg-white inner" role="tablist">
