@@ -271,22 +271,19 @@ class Clients extends Pre_loader {
             'cOutline' => $description,
             'iPriorityID' => 4,
             'iCurrentAgentID' => $sage_agent,
-            'iIncidentTypeID' => 1,
+            'iIncidentTypeID' => 5,
+            'iWorkflowID' => 3,
+            'iWorkflowStatusID' => 6,
             'iProspectID' => $iProspectID,
             'iOpportunityID' => $iOpportunityID
         );
 
         $this->SAGE_DB()->insert('_rtblIncidents', $_rtblIncidents);
 
-        /*$_rtblCMDefaults = array(
-            'cSFAOpportunityNextNum' => $this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum') + $this->SAGE_DB()->select('bSFAOpportunityAutoNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('bSFAOpportunityAutoNum')
-        );*/
-
-        $idCMDefaults = $this->SAGE_DB()->select('idCMDefaults')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('idCMDefaults');
-        $this->SAGE_DB()->where('idCMDefaults', $idCMDefaults);
+        $this->SAGE_DB()->where('idCMDefaults', $this->SAGE_DB()->select('idCMDefaults')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('idCMDefaults'));
         $this->SAGE_DB()->update('_rtblCMDefaults', array('cSFAOpportunityNextNum' => $this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum') + $this->SAGE_DB()->select('bSFAOpportunityAutoNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('bSFAOpportunityAutoNum')));
 
-        if ($this->Clients_model->update_where(["status" => "Approved"], array("id" => $id, "deleted" => 0))) {
+        if ($this->Clients_model->update_where(["status" => "Approved", "cOurRef" => $_rtblIncidents['cOurRef']], array("id" => $id, "deleted" => 0))) {
             echo json_encode(array("success" => true, 'message' => "record approved"));
         } else {
             echo json_encode(array("success" => false, 'message' => "record cannot be approved"));
