@@ -16,18 +16,12 @@ class TblLegalDocsItems extends Crud_model {
 
 
 
-    function get_doc_items($options = array()) {
+    function get_doc_items($id) {
         $table = $this->db->dbprefix($this->table);
-        $where = "";
-        $id = get_array_value($options, "legal_doc_id");
-
-        if ($id && $id != null) {
-            $where = " AND $table.id=$id";
-        }
 
         $sql = "SELECT $table.*
         FROM $table
-        WHERE $where";
+        WHERE $table.legal_doc_id = $id";
         return $this->db->query($sql)->result();
     }
 
