@@ -1,6 +1,20 @@
 <?php echo form_open(get_uri("inventory_requisitions/save"), array("id" => "project-form", "class" => "general-form", "role" => "form")); ?>
 
 <div class="modal-body clearfix">
+
+    <div class="form-group">
+        <label for="project" class=" col-md-3">Project</label>
+        <div class="col-md-9">
+           <select class="select2 validate-hidden" name="project" id="project" required>
+              <?php
+              foreach ($projects_dropdown as $value) {
+                  echo "<option value=". $value->ProjectLink . ">" . $value->ProjectCode . " : " . $value->ProjectName . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
     <div class="form-group">
         <label for="inventory" class=" col-md-3">Inventory (sage)</label>
         <div class="col-md-9">
@@ -35,7 +49,7 @@
 
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> <?php echo lang('close'); ?></button>
-    <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> <?php echo lang('save'); ?></button>
+    <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> Send Request</button>
 </div>
 <?php echo form_close(); ?>
 

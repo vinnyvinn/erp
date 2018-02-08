@@ -23,7 +23,7 @@
                 }
 
                 if (get_setting("module_event") == "1") {
-                    $sidebar_menu[] = array("name" => "Call Planner", "url" => "events", "class" => "fa-calendar");
+                    $sidebar_menu[] = array("name" => "Plans", "url" => "events", "class" => "fa-calendar");
                 }
 
                 if (get_setting("module_note") == "1") {
@@ -37,7 +37,7 @@
 
                 if (get_setting("module_clients") == "1") {
                     if ($this->login_user->is_admin || $access_client) {
-                        $sidebar_menu[] = array("name" => "Client Prospects", "url" => "clients", "class" => "fa-briefcase");
+                        $sidebar_menu[] = array("name" => "Client Leads", "url" => "clients", "class" => "fa-briefcase");
                     }
                 }
 

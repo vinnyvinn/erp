@@ -161,8 +161,8 @@
 <?php } ?>
 
 <div class="form-group">
-    <label for="address" class="col-sm-12"><?php echo lang('address'); ?></label>
-    <div class="col-sm-12">
+    <label for="address" class="<?php echo $label_column; ?>"><?php echo lang('address'); ?></label>
+    <div class="<?php echo $field_column; ?>">
         <?php
         echo form_textarea(array(
             "id" => "address",
@@ -177,8 +177,8 @@
 </div>
 
 <div class="form-group">
-    <label for="description" class="col-sm-12"><?php echo lang('description'); ?></label>
-    <div class="col-sm-12">
+    <label for="description" class="<?php echo $label_column; ?>"><?php echo lang('description'); ?></label>
+    <div class="<?php echo $field_column; ?>">
         <?php
         echo form_textarea(array(
             "id" => "description",
@@ -189,6 +189,15 @@
         ));
         ?>
 
+    </div>
+</div>
+
+<div class="form-group">
+    <label for="attend 1st meeting" class="col-md-3">Attend 1st meeting
+        <span class="help" data-container="body" data-toggle="tooltip" title="" data-original-title="Attend 1st meeting."><i class="fa fa-question-circle"></i></span>
+    </label>
+    <div class="col-md-9">
+        <input type="checkbox" name="attend_1st_meeting" value="1" id="attend_1st_meeting">        
     </div>
 </div>
 

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 07, 2018 at 09:00 AM
+-- Generation Time: Feb 07, 2018 at 01:50 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -539,7 +539,8 @@ INSERT INTO `inventory_requisitions` (`id`, `user_id`, `item_id`, `item_name`, `
 (25, 113, 2, 'Mouse', '45', 2, '11250', '2017-12-13 15:06:44', '2017-12-13 15:06:44', 'Disapproved', 0, 0),
 (26, 113, 2, 'Mouse', '4', 2, '1000', '2017-12-13 15:08:47', '2017-12-13 15:08:47', 'Disapproved', 0, 0),
 (27, 5, 2, 'Mouse', '34', 2, '8500', '2017-12-13 16:21:12', '2017-12-13 16:21:12', 'Disapproved', 0, 0),
-(28, 5, 2, 'Mouse', '4', 2, '1000', '2017-12-15 07:07:44', '2017-12-15 07:07:44', 'Disapproved', 0, 0);
+(28, 5, 2, 'Mouse', '4', 2, '1000', '2017-12-15 07:07:44', '2017-12-15 07:07:44', 'Disapproved', 0, 0),
+(29, 5, 2, 'Blue Ball Point Pen', '34', 2, '0', '2018-02-06 21:00:00', NULL, 'Pending', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -2831,7 +2832,7 @@ ALTER TABLE `expense_categories`
 -- AUTO_INCREMENT for table `inventory_requisitions`
 --
 ALTER TABLE `inventory_requisitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `invoices`
 --

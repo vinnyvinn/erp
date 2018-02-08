@@ -209,17 +209,17 @@ $lang["start_date_to_end_date_format"] = "%s to %s";
 $lang["my_leave"] = "My leave";
 
 /* events */
-$lang["add_event"] = "Add call plan";
-$lang["edit_event"] = "Edit call plan";
-$lang["delete_event"] = "Delete call plan";
-$lang["events"] = "Call plans";
-$lang["event_calendar"] = "Call plan calendar";
+$lang["add_event"] = "Add planner";
+$lang["edit_event"] = "Edit planner";
+$lang["delete_event"] = "Delete planner";
+$lang["events"] = "planners";
+$lang["event_calendar"] = "planner calendar";
 $lang["location"] = "Location";
-$lang["event_details"] = "Call plan details";
-$lang["event_deleted"] = "The call plan has been deleted.";
+$lang["event_details"] = "planner details";
+$lang["event_deleted"] = "The planner has been deleted.";
 $lang["view_on_calendar"] = "View on calendar";
-$lang["no_event_found"] = "No call plan found!";
-$lang["events_today"] = "Call plans today";
+$lang["no_event_found"] = "No planner found!";
+$lang["events_today"] = "planners today";
 
 /* announcement */
 $lang["add_announcement"] = "Add announcement";
@@ -313,12 +313,12 @@ $lang["me"] = "Me";
 $lang["select_a_message"] = "Select a message to view";
 
 /* clients */
-$lang["add_client"] = "Add prospecting client";
-$lang["edit_client"] = "Edit prospecting client";
-$lang["delete_client"] = "Delete prospecting client";
-$lang["client"] = "Prospecting client";
-$lang["clients"] = "Prospecting clients";
-$lang["client_details"] = "Prospecting client details";
+$lang["add_client"] = "Add prospecting lead";
+$lang["edit_client"] = "Edit prospecting lead";
+$lang["delete_client"] = "Delete prospecting lead";
+$lang["client"] = "Prospecting lead";
+$lang["clients"] = "Prospecting leads";
+$lang["client_details"] = "Prospecting lead details";
 $lang["due"] = "Due";
 
 $lang["add_contact"] = "Add contact";
