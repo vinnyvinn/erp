@@ -3,7 +3,7 @@
         <h4><?php echo lang('contacts'); ?></h4>
         <div class="title-button-group">
             <?php
-            echo modal_anchor(get_uri("clients/invitation_modal"), "<i class='fa fa-envelope-o'></i> " . lang('send_invitation'), array("class" => "btn btn-default", "title" => lang('send_invitation'), "data-post-client_id" => $client_id));
+            // echo modal_anchor(get_uri("clients/invitation_modal"), "<i class='fa fa-envelope-o'></i> " . lang('send_invitation'), array("class" => "btn btn-default", "title" => lang('send_invitation'), "data-post-client_id" => $client_id));
 
             echo modal_anchor(get_uri("clients/add_new_contact_modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_contact'), array("class" => "btn btn-default", "title" => lang('add_contact'), "data-post-client_id" => $client_id));
             ?>

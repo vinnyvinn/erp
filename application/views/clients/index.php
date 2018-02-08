@@ -3,7 +3,6 @@
         <div class="page-title clearfix">
             <h1><?php echo lang('clients'); ?></h1>
             <div class="title-button-group">
-                <h1>hello there!</h1>
                 <?php echo modal_anchor(get_uri("clients/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_client'), array("class" => "btn btn-default", "title" => lang('add_client'))); ?>
             </div>
         </div>
@@ -27,10 +26,16 @@
                 {title: "<?php echo lang("id") ?>", "class": "text-center w50"},
                 {title: "<?php echo lang("company_name") ?>"},
                 {title: "<?php echo lang("primary_contact") ?>"},
-                {title: "<?php echo lang("projects") ?>"},
+                 {title: "<?php echo lang("description") ?>"},
+                /*{title: "<?php echo lang("projects") ?>"},
                 {visible: showInvoiceInfo, searchable: false, title: "<?php echo lang("invoice_value") ?>"},
-                {visible: showInvoiceInfo, searchable: false, title: "<?php echo lang("payment_received") ?>"},
-                {title: '<i class="fa fa-bars"></i>', "class": "text-center option w100"}
+                {visible: showInvoiceInfo, searchable: false, title: "<?php echo lang("payment_received") ?>"},*/
+                {title: "Status"},
+                <?php
+                if ($this->login_user->is_admin) {
+                    echo "{title: '<i class=\"fa fa-bars\"></i>', \"class\": \"text-center option w100\"}";
+                }
+                ?>
             ],
             printColumns: [0, 1, 2, 3, 4, 5],
             xlsColumns: [0, 1, 2, 3, 4, 5]

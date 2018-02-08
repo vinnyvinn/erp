@@ -146,7 +146,7 @@
             ?>
         </div>
     </div>
-    <div class="form-group">
+    <!-- <div class="form-group">
         <label for="disable_online_payment" class="<?php echo $label_column; ?>"><?php echo lang('disable_online_payment'); ?>
             <span class="help" data-container="body" data-toggle="tooltip" title="<?php echo lang('disable_online_payment_description') ?>"><i class="fa fa-question-circle"></i></span>
         </label>
@@ -155,7 +155,7 @@
             echo form_checkbox("disable_online_payment", "1", $model_info->disable_online_payment ? true : false, "id='disable_online_payment'");
             ?>                       
         </div>
-    </div>
+    </div> -->
 
 
 <?php } ?>
@@ -176,6 +176,21 @@
     </div>
 </div>
 
+<div class="form-group">
+    <label for="description" class="col-sm-12"><?php echo lang('description'); ?></label>
+    <div class="col-sm-12">
+        <?php
+        echo form_textarea(array(
+            "id" => "description",
+            "name" => "description",
+            "value" => $model_info->description ? $model_info->description : "",
+            "class" => "form-control wysiwyg",
+            "placeholder" => lang('description')
+        ));
+        ?>
+
+    </div>
+</div>
 
 <script type="text/javascript">
     $(document).ready(function () {
