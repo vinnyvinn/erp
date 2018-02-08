@@ -74,6 +74,26 @@ class Legal extends Pre_loader
         );
     }
 
+    function modal_add_items($id){
+
+        $view_data['model_id']=$id;
+        $view_data['sage_data']=array_column($this->TblLegalDocsItems->getSageItems(), 'cAssetDesc');;
+
+        $this->load->view('legal/documents/modal_add_items',$view_data);
+
+    }
+
+    function save_modal_items(){
+        $data = array(
+            "legal_doc_id" => (int)$this->input->post('legal_doc_id'),
+            "issage" => (int)$this->input->post('issage'),
+            "sage_item_id" => (int)$this->input->post('sage_item_id'),
+            "premium" => (int)$this->input->post('premium'),
+        );
+       $saved = $this->TblLegalDocsItems->save($data);
+        echo json_encode(array("data" => $saved));
+    }
+
     function view($id){
         if (! $id) {
             return;
@@ -87,7 +107,7 @@ class Legal extends Pre_loader
             foreach ($list_data as $key=>$data) {
                 $result[] = $this->_make_reminders_row($data, $key);
             }
-            $view_data['sage_data'] =[];// $this->getSageItems();
+            $view_data['sage_data'] =$this->TblLegalDocsItems->getSageItems();
             $view_data['model_info'] = $model_info;
             $this->template->rander("legal/documents/view", $view_data);
         } else {
@@ -96,6 +116,33 @@ class Legal extends Pre_loader
 
     }
 
+    function sage_table_items($id){
+     //get items passed through sage
+        $sageitems = $this->TblLegalDocsItems->getSageItems();
+        $addeditems = $this->TblLegalDocsItems->get_doc_items($id);
+        $result = [];
+        foreach ($addeditems as $key=>$addeditem){
+            $addeditem->desc = $this->TblLegalDocsItems->getSageItem($addeditem->sage_item_id);
+            $result[] = $this->_make_sage_items_row($addeditem, $key);
+        }
+
+       echo json_encode(array("data" => $result));
+    }
+
+
+
+    private function _make_sage_items_row($datas, $key=0) {
+        $optoins = "";
+
+        return array(
+            $key+1,
+        $datas->desc->cAssetCode,
+        $datas->desc->cAssetDesc,
+        $datas->desc->fRevalueValue,
+        $datas->premium
+        ///    $datas->name,
+        );
+    }
 
 
     function get_sage_items_rowdata($datas, $key=0){
