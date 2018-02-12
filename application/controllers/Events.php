@@ -34,7 +34,7 @@ class Events extends Pre_loader {
         $view_data['time_format_24_hours'] = get_setting("time_format") == "24_hours" ? true : false;
 
         $view_data['client_contact_persons_dropdown'] = $this->SAGE_DB()->get('Client')->result();
-        $view_data['prospect_contact_persons_dropdown'] = $this->SAGE_DB()->get('_rtblProspect')->result();
+        $view_data['lead_contact_persons_dropdown'] = $this->SAGE_DB()->get('_rtblProspect')->result();
         $view_data['pipeline_stage_dropdown'] = $this->SAGE_DB()->get('_rtblOpportunityStage')->result();
         $view_data['business_type_dropdown'] = $this->Business_types_model->get_all_where(array("deleted" => 0))->result();
         $view_data['call_types_dropdown'] = $this->Call_types_model->get_all_where(array("deleted" => 0))->result();
@@ -45,6 +45,10 @@ class Events extends Pre_loader {
 
     //save an event
     function save() {
+
+        echo "<pre>";
+        print_r($_POST);
+        die();
 
         validate_submitted_data(array(
             "title" => "required",
@@ -87,7 +91,7 @@ class Events extends Pre_loader {
             "created_by" => $this->login_user->id,
             "share_with" => $share_with,
             "client_id" => $id ? $this->_current($id, "client_id") : $this->input->post('client_contact_persons'),
-            "prospector_id" => $id ? $this->_current($id, "prospector_id") : $this->input->post('prospect_contact_persons'),
+            "prospector_id" => $id ? $this->_current($id, "prospector_id") : $this->input->post('lead_contact_persons'),
             "business_type" => $id ? $this->_current($id, "business_type") : $this->input->post('business_type'),
             "call_type" => $id ? $this->_current($id, "call_type") : $this->input->post('call_type'),
             "objective_type" => $id ? $this->_current($id, "objective_type") : $this->input->post('objective'),
@@ -179,7 +183,7 @@ class Events extends Pre_loader {
             $view_data['model_info'] = $model_info;
             $view_data['event_icon'] = get_event_icon($model_info->share_with);
             $view_data['event_files'] = unserialize($model_info->files);
-            $view_data['event_notes'] = $this->Event_notes_model->get_details(array("event_id" => $event_id))->result();
+            $view_data['event_notes'] = $this->Event_notes_model->get_all_where(array("event_id" => $event_id))->result();
 
             $this->load->view('events/view', $view_data);
         } else {

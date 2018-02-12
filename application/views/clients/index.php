@@ -3,7 +3,7 @@
         <div class="page-title clearfix">
             <h1><?php echo lang('clients'); ?></h1>
             <div class="title-button-group">
-                <?php echo modal_anchor(get_uri("clients/"), "<i class='fa fa-plus-circle'></i> " . lang('add_client'), array("class" => "btn btn-default", "title" => lang('add_client'))); ?>
+                <?php echo modal_anchor(get_uri("clients/modal_form"), "<i class='fa fa-plus-circle'></i> " . lang('add_client'), array("class" => "btn btn-default", "title" => lang('add_client'))); ?>
             </div>
         </div>
         <div class="table-responsive">

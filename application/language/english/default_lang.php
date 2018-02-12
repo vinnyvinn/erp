@@ -313,12 +313,12 @@ $lang["me"] = "Me";
 $lang["select_a_message"] = "Select a message to view";
 
 /* clients */
-$lang["add_client"] = "Add prospecting lead";
-$lang["edit_client"] = "Edit prospecting lead";
-$lang["delete_client"] = "Delete prospecting lead";
-$lang["client"] = "Prospecting lead";
-$lang["clients"] = "Prospecting leads";
-$lang["client_details"] = "Prospecting lead details";
+$lang["add_client"] = "New Lead";
+$lang["edit_client"] = "Edit Lead";
+$lang["delete_client"] = "Delete Lead";
+$lang["client"] = "Lead";
+$lang["clients"] = "Leads";
+$lang["client_details"] = "Lead details";
 $lang["due"] = "Due";
 
 $lang["add_contact"] = "Add contact";

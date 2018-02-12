@@ -25,7 +25,7 @@
             <blockquote class="font-14 text-justify" style="<?php echo "border-color:" . $model_info->color; ?>"><?php echo nl2br($model_info->description); ?></blockquote>
         </div>
         <div class="col-md-12 pb10">
-            <div class="font-14"><span style="color: <?= $model_info->color; ?>" class="pull-left mr10"><i class="fa fa-sticky-note"></i></span> Notes <?php echo modal_anchor(get_uri("events/notes_modal_form"), "<i class='fa fa-plus-circle'></i>", array("data-post-event_id" => $event_id, "class" => "btn btn-info btn-add", "title" => lang('add_note'))); ?>
+            <div class="font-14"><span style="color: <?= $model_info->color; ?>" class="pull-left mr10"><i class="fa fa-sticky-note"></i></span> <?php echo modal_anchor(get_uri("events/notes_modal_form"), "Notes <i class='fa fa-plus-circle'></i>", array("data-post-event_id" => $event_id, "title" => lang('add_note'))); ?>
             </div>
         </div>
         <div class="col-md-12 pb10">

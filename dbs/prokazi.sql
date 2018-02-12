@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 07, 2018 at 01:50 PM
+-- Generation Time: Feb 12, 2018 at 02:08 PM
 -- Server version: 5.7.21-0ubuntu0.16.04.1
 -- PHP Version: 7.0.22-0ubuntu0.16.04.1
 
@@ -185,17 +185,19 @@ CREATE TABLE `clients` (
   `currency` varchar(3) COLLATE utf8_unicode_ci DEFAULT NULL,
   `disable_online_payment` tinyint(1) NOT NULL DEFAULT '0',
   `created_by` int(11) NOT NULL,
+  `attend_1st_meeting` int(11) NOT NULL DEFAULT '0',
   `status` enum('Pending','Approved','Disapproved','') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Pending',
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
-  `cOurRef` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+  `cOurRef` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `clients`
 --
 
-INSERT INTO `clients` (`id`, `company_name`, `address`, `city`, `state`, `zip`, `country`, `created_date`, `website`, `phone`, `currency_symbol`, `deleted`, `vat_number`, `currency`, `disable_online_payment`, `created_by`, `status`, `description`, `cOurRef`) VALUES
-(36, 'mhub', '10100 Nyeri, KE.', 'Nyeri', 'Central', '10100', 'Kenya', '2018-02-06', 'http://www.waguramaurice.cf/', '718837808', '', 0, '', '', 0, 5, 'Approved', 'Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Sed porttitor lectus nibh. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Pellentesque in ipsum id orci porta dapibus. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta.', 'IR000005');
+INSERT INTO `clients` (`id`, `company_name`, `address`, `city`, `state`, `zip`, `country`, `created_date`, `website`, `phone`, `currency_symbol`, `deleted`, `vat_number`, `currency`, `disable_online_payment`, `created_by`, `attend_1st_meeting`, `status`, `description`, `cOurRef`) VALUES
+(38, 'mhub', '10100 Nyeri, KE.', 'Nyeri', 'Central', '10100', 'Kenya', '2018-02-08', 'http://www.waguramaurice.cf/', '718837808', 'KES', 0, 'VAT69', 'KES', 0, 5, 1, 'Approved', 'Donec sollicitudin molestie malesuada. Vivamus suscipit tortor eget felis porttitor volutpat. Vivamus suscipit tortor eget felis porttitor volutpat. Donec sollicitudin molestie malesuada. Cras ultricies ligula sed magna dictum porta. Cras ultricies ligula sed magna dictum porta. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem.', 'IR000010'),
+(39, 'WaguraMaurice', '', 'Nyeri', 'Central', '10100', 'Kenya', '2018-02-12', '', '718837808', '', 0, '', '', 0, 5, 0, 'Pending', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -405,23 +407,14 @@ CREATE TABLE `events` (
   `share_with` mediumtext COLLATE utf8_unicode_ci,
   `deleted` int(1) NOT NULL DEFAULT '0',
   `color` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `client_id` int(11) NOT NULL,
-  `prospector_id` int(11) NOT NULL,
+  `client_id` int(11) DEFAULT NULL,
+  `prospector_id` int(11) DEFAULT NULL,
   `business_type` int(11) NOT NULL,
   `call_type` int(11) NOT NULL,
   `objective_type` int(11) NOT NULL,
   `pipeline_stage` int(11) NOT NULL,
   `files` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `events`
---
-
-INSERT INTO `events` (`id`, `title`, `description`, `start_date`, `end_date`, `start_time`, `end_time`, `created_by`, `location`, `share_with`, `deleted`, `color`, `client_id`, `prospector_id`, `business_type`, `call_type`, `objective_type`, `pipeline_stage`, `files`) VALUES
-(22, 'demo', 'Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Nulla quis lorem ut libero malesuada feugiat. Donec sollicitudin molestie malesuada. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Sed porttitor lectus nibh. Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Proin eget tortor risus. Curabitur aliquet quam id dui posuere blandit. Curabitur non nulla sit amet nisl tempus convallis quis ac lectus.', '2018-01-29', '2018-01-29', '01:00:00', '01:00:00', 5, 'Mogadishu', '', 0, '#83c340', 1, 0, 2, 2, 2, 3, 'a:0:{}'),
-(23, 'Visit', 'Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', '2018-01-30', '2018-01-30', '01:00:00', '01:00:00', 5, 'Mogadishu', '', 0, '#e74c3c', 2, 0, 2, 2, 2, 6, 'a:2:{i:0;a:2:{s:9:"file_name";s:65:"event_file5a7158f4abd4b-BarHarborCave_ROW9345444229_1920x1080.jpg";s:9:"file_size";s:6:"323434";}i:1;a:2:{s:9:"file_name";s:30:"event_file5a7158f4ac040-fb.jpg";s:9:"file_size";s:5:"12801";}}'),
-(24, 'employees', 'fcdvfvfvf', '2018-01-31', '2018-01-31', '13:00:00', '01:05:00', 5, 'Mogadishu', '', 0, '#2d9cdb', 3, 0, 1, 2, 1, 6, 'a:0:{}');
 
 -- --------------------------------------------------------
 
@@ -458,18 +451,6 @@ CREATE TABLE `event_notes` (
   `labels` text COLLATE utf8_unicode_ci,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
-
---
--- Dumping data for table `event_notes`
---
-
-INSERT INTO `event_notes` (`id`, `created_by`, `created_at`, `title`, `description`, `event_id`, `client_id`, `user_id`, `labels`, `deleted`) VALUES
-(7, 5, '2018-01-29 07:46:10', 'demo', 'dxzv cx vcx vcx cx', 21, 0, 0, 'Important', 1),
-(8, 5, '2018-01-29 07:46:37', 'employees', 'v cxzvfdsbvfdxsb fd bfcxz', 21, 0, 0, 'Important', 1),
-(9, 5, '2018-01-29 13:37:32', 'demo', 'Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.', 22, 0, 0, 'Important', 1),
-(10, 5, '2018-01-29 13:37:50', 'Visit', 'Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Sed porttitor lectus nibh. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Curabitur aliquet quam id dui posuere blandit. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Proin eget tortor risus.', 22, 0, 0, 'Important,high', 1),
-(11, 5, '2018-01-29 16:18:22', 'Visit', 'ewgefgfedvfedvfdvfdvfdvd', 22, 0, 0, 'Important', 1),
-(12, 5, '2018-01-31 05:50:16', 'Visit', 'Nulla porttitor accumsan tincidunt. Donec sollicitudin molestie malesuada. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam id dui posuere blandit. Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium ut lacinia in, elementum id enim.', 23, 0, 0, 'Important', 0);
 
 -- --------------------------------------------------------
 
@@ -522,7 +503,7 @@ CREATE TABLE `inventory_requisitions` (
   `item_name` varchar(255) NOT NULL,
   `item_quantity` varchar(255) NOT NULL,
   `StkItem_id` int(11) DEFAULT NULL,
-  `item_cost` varchar(255) NOT NULL,
+  `sage_project_id` int(11) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   `status` varchar(255) NOT NULL DEFAULT 'Pending',
@@ -534,13 +515,10 @@ CREATE TABLE `inventory_requisitions` (
 -- Dumping data for table `inventory_requisitions`
 --
 
-INSERT INTO `inventory_requisitions` (`id`, `user_id`, `item_id`, `item_name`, `item_quantity`, `StkItem_id`, `item_cost`, `created_at`, `updated_at`, `status`, `approver_id`, `deleted`) VALUES
-(24, 113, 2, 'Mouse', '20', 2, '750', '2017-12-07 18:53:28', '2017-12-07 18:53:28', 'Approved', 0, 0),
-(25, 113, 2, 'Mouse', '45', 2, '11250', '2017-12-13 15:06:44', '2017-12-13 15:06:44', 'Disapproved', 0, 0),
-(26, 113, 2, 'Mouse', '4', 2, '1000', '2017-12-13 15:08:47', '2017-12-13 15:08:47', 'Disapproved', 0, 0),
-(27, 5, 2, 'Mouse', '34', 2, '8500', '2017-12-13 16:21:12', '2017-12-13 16:21:12', 'Disapproved', 0, 0),
-(28, 5, 2, 'Mouse', '4', 2, '1000', '2017-12-15 07:07:44', '2017-12-15 07:07:44', 'Disapproved', 0, 0),
-(29, 5, 2, 'Blue Ball Point Pen', '34', 2, '0', '2018-02-06 21:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` (`id`, `user_id`, `item_id`, `item_name`, `item_quantity`, `StkItem_id`, `sage_project_id`, `created_at`, `updated_at`, `status`, `approver_id`, `deleted`) VALUES
+(33, 5, 2, 'Sugar', '5', 2, 2, '2018-02-08 12:56:17', '2018-02-08 12:56:17', 'Approved', 0, 0),
+(34, 5, 2, 'Sugar', '13', 2, 1, '2018-02-07 21:00:00', '2018-02-08 12:47:11', 'Pending', 0, 0),
+(35, 5, 2, 'Sugar', '3', 2, 2, '2018-02-11 21:00:00', NULL, 'Pending', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -561,6 +539,13 @@ CREATE TABLE `invoices` (
   `tax_id2` int(11) NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `invoices`
+--
+
+INSERT INTO `invoices` (`id`, `client_id`, `project_id`, `bill_date`, `due_date`, `note`, `last_email_sent_date`, `status`, `tax_id`, `tax_id2`, `deleted`) VALUES
+(1, 38, 0, '2018-02-08', '2018-02-14', 'k,nb nbh', NULL, 'draft', 0, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -585,7 +570,8 @@ CREATE TABLE `invoice_items` (
 --
 
 INSERT INTO `invoice_items` (`id`, `title`, `description`, `quantity`, `unit_type`, `rate`, `total`, `invoice_id`, `deleted`) VALUES
-(1, 'hdhjdj', '', 10, 'ets', 5000, 50000, 3, 0);
+(1, 'hdhjdj', '', 10, 'ets', 5000, 50000, 3, 0),
+(2, 'hdhjdj', 'nhjdttndd', 4, 'ets', 5000, 20000, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1793,16 +1779,12 @@ INSERT INTO `tbl_legal_case_procedures` (`id`, `legal_case`, `date`, `assigned`,
 
 CREATE TABLE `tbl_legal_docs_items` (
   `id` int(11) NOT NULL,
-  `sage_item_id` int(11) NOT NULL,
-  `legal_doc_id` int(11) NOT NULL
+  `sage_item_id` text NOT NULL,
+  `legal_doc_id` int(11) NOT NULL,
+  `premium` int(11) NOT NULL,
+  `issage` int(11) NOT NULL,
+  `deleted` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_legal_docs_items`
---
-
-INSERT INTO `tbl_legal_docs_items` (`id`, `sage_item_id`, `legal_doc_id`) VALUES
-(1, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -2762,7 +2744,7 @@ ALTER TABLE `call_types`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 --
 -- AUTO_INCREMENT for table `custom_fields`
 --
@@ -2807,7 +2789,7 @@ ALTER TABLE `estimate_requests`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `event_comments`
 --
@@ -2817,7 +2799,7 @@ ALTER TABLE `event_comments`
 -- AUTO_INCREMENT for table `event_notes`
 --
 ALTER TABLE `event_notes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `expenses`
 --
@@ -2832,17 +2814,17 @@ ALTER TABLE `expense_categories`
 -- AUTO_INCREMENT for table `inventory_requisitions`
 --
 ALTER TABLE `inventory_requisitions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `invoice_items`
 --
 ALTER TABLE `invoice_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `invoice_payments`
 --
@@ -3062,7 +3044,7 @@ ALTER TABLE `tbl_legal_case_procedures`
 -- AUTO_INCREMENT for table `tbl_legal_docs_items`
 --
 ALTER TABLE `tbl_legal_docs_items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `tbl_legal_documents`
 --

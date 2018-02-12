@@ -21,7 +21,7 @@
            <select class="select2 validate-hidden" name="item" id="item" required>
               <?php
               foreach ($stocks_dropdown as $value) {
-                  echo "<option value=". $value->StockLink . ">" . $value->StockItem . "</option>";
+                  echo "<option value=". $value->StockLink . ">" . $value->StockItem . " (" . $value->unit_of_measure . ") </option>";
               }
               ?>
             </select>

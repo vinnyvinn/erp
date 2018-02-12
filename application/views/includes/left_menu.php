@@ -37,7 +37,7 @@
 
                 if (get_setting("module_clients") == "1") {
                     if ($this->login_user->is_admin || $access_client) {
-                        $sidebar_menu[] = array("name" => "Client Leads", "url" => "clients", "class" => "fa-briefcase");
+                        $sidebar_menu[] = array("name" => "Leads", "url" => "clients", "class" => "fa-briefcase");
                     }
                 }
 

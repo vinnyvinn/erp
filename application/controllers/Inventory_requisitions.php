@@ -235,14 +235,14 @@ class Inventory_requisitions extends Pre_loader {
     function Stocks() {
 
         $query = $this->SAGE_DB()->get('StkItem');
-        // $row = $query->result();
 
         $data = array();
         foreach ($query->result() as $row) {
             $data[] = array(
                'StockLink' => $row->StockLink,
                'StockItem' => $row->Code . " : " . $row->Description_1,
-               'QuantityAvailable' => $row->Qty_On_Hand
+               'QuantityAvailable' => $row->Qty_On_Hand,
+               'unit_of_measure' => $this->SAGE_DB()->where('idUnits', ($row->iUOMStockingUnitID))->get('_etblUnits')->result()[0]->cUnitCode,
             );
         }
         return json_encode($data);
