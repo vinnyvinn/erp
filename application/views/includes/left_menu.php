@@ -23,16 +23,16 @@
                 }
 
                 if (get_setting("module_event") == "1") {
-                    $sidebar_menu[] = array("name" => "Plans", "url" => "events", "class" => "fa-calendar");
+                    $sidebar_menu[] = array("name" => "Planner", "url" => "events", "class" => "fa-calendar");
                 }
 
                 if (get_setting("module_note") == "1") {
                     $sidebar_menu[] = array("name" => "notes", "url" => "notes", "class" => "fa-book font-16");
                 }
 
-                if (get_setting("module_message") == "1") {
-                    $sidebar_menu[] = array("name" => "messages", "url" => "messages", "class" => "fa-envelope", "devider" => true, "badge" => count_unread_message(), "badge_class" => "badge-secondary");
-                }
+                // if (get_setting("module_message") == "1") {
+                //     $sidebar_menu[] = array("name" => "messages", "url" => "messages", "class" => "fa-envelope", "devider" => true, "badge" => count_unread_message(), "badge_class" => "badge-secondary");
+                // }
 
 
                 if (get_setting("module_clients") == "1") {
@@ -50,8 +50,8 @@
 
                 $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
-                $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
-                $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
+                /*$sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
+                $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);*/
                 if (($this->login_user->is_admin)) {
                     $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "devider" => true);
                 }
@@ -101,17 +101,17 @@
                 if ((get_setting("module_admin") == "1") && ($this->login_user->role_id)) {
 
                     $administration_badge = 0;
-                    if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
+                    if ($this->login_user->is_admin && $this->login_user->role_id == 2) {
                         $administration_badge = count_ict_administration($this->login_user->id, NULL);
-                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
                         $administration_badge = count_ict_administration(NULL, $this->login_user->id);
                     }
 
                     $administration_submenu = array();
                     $administration_url = "";
 
-                    $administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash", "class" => "badge");
-                    $administration_url = "petty_cash";
+                    /*$administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash", "class" => "badge");
+                    $administration_url = "petty_cash";*/
 
                     $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
                     $administration_url = "inventory_requisitions";
@@ -127,9 +127,9 @@
                 if (get_setting("module_ticket") == "1" && ($this->login_user->is_admin || $access_ticket)) {
 
                     $ticket_badge = 0;
-                    if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
+                    if ($this->login_user->is_admin && $this->login_user->role_id == 2) {
                         $ticket_badge = count_new_tickets(NULL, NULL);
-                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
                         $ticket_badge = count_new_tickets(NULL, $this->login_user->id);
                     }
                     // die();

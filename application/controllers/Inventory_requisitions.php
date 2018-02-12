@@ -17,9 +17,9 @@ class Inventory_requisitions extends Pre_loader {
 
 	function list_data() {
 
-        if ($this->login_user->is_admin) {
+        if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
             $list_data = $this->Inventory_requisitions_model->get_all_where(array("deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $list_data = $this->Inventory_requisitions_model->get_all_where(array("user_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
@@ -51,23 +51,53 @@ class Inventory_requisitions extends Pre_loader {
         if ($this->login_user->is_admin) {
             $optoins = NULL;
 
-            if ($data->status == "Pending") {
+            if ($data->status == "Pending" || $data->status == "Awaiting Stock") {
                 if ($data->item_quantity <= $data->available_quantity) {
                     $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
                     $optoins .= modal_anchor(get_uri("inventory_requisitions/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Inventory Requisitions Disapproval", "data-post-id" => $data->id));
                 }
-            } elseif ($data->status == "Approved") {
+
+                if ($this->login_user->is_admin) {
+                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
+                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
+                }
+            } else {
                  $optoins .= NULL;
-             }
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+                 if ($this->login_user->is_admin) {
+                    $quantities = $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure;
+                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+                    $quantities = $data->item_quantity . " " . $data->unit_of_measure;
+                }
+            }
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $optoins = NULL;
+            if ($data->status == "Pending" || $data->status == "Awaiting Stock") {
+                if ($data->item_quantity <= $data->available_quantity) {
+                    $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
+                    $optoins .= modal_anchor(get_uri("inventory_requisitions/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Inventory Requisitions Disapproval", "data-post-id" => $data->id));
+                }
+
+                if ($this->login_user->is_admin) {
+                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
+                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
+                }
+            } else {
+                 $optoins .= NULL;
+                 if ($this->login_user->is_admin) {
+                    $quantities = $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure;
+                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+                    $quantities = $data->item_quantity . " " . $data->unit_of_measure;
+                }
+            }
         }
 
-        if ($this->login_user->is_admin) {
-            $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
-            $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-        }
+        // if ($this->login_user->is_admin) {
+        //     $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
+        // } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+        //     $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
+        // }
 
         $sage_project = $this->SAGE_DB()->where('ProjectLink', $data->sage_project_id)->get('Project')->result()[0]->ProjectCode . " : " . $this->SAGE_DB()->where('ProjectLink', $data->sage_project_id)->get('Project')->result()[0]->ProjectName;
 
@@ -121,6 +151,8 @@ class Inventory_requisitions extends Pre_loader {
                     'iWarehouseID' => get_setting('sage_WarehouseID'),
                     'dTrDate' => date('Y-m-d'),
                     'iTrCodeID' => get_setting('sage_TrCode'),
+                    'cReference' => "Issued Stock",
+                    'cDescription' => $list_data[0]->description,
                     'fQtyOut' => $list_data[0]->item_quantity,
                     'fNewCost' => $this->SAGE_DB()->where('StockLink', $list_data[0]->item_id)->get('StkItem')->result()[0]->AveUCst,
                     'iProjectID' => $list_data[0]->sage_project_id
@@ -271,6 +303,7 @@ class Inventory_requisitions extends Pre_loader {
             "item_quantity" => $this->input->post('quantity'),
             "StkItem_id" => $fields->StockLink,
             "sage_project_id" => $this->input->post('project') ? $this->input->post('project') : $this->Inventory_requisitions_model->get_one($id)->sage_project_id,
+            "description" => $this->input->post('description') ? $this->input->post('description') : $this->Inventory_requisitions_model->get_one($id)->description,
             "created_at" => date('Y-m-d')
         );
 

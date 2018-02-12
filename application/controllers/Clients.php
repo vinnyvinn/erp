@@ -79,11 +79,11 @@ class Clients extends Pre_loader {
             "description" => $this->input->post('description')
         );
 
-        if ($this->login_user->is_admin) {
+        // if ($this->login_user->is_admin) {
             $data["currency_symbol"] = $this->input->post('currency_symbol') ? $this->input->post('currency_symbol') : "";
             $data["currency"] = $this->input->post('currency') ? $this->input->post('currency') : "";
             $data["disable_online_payment"] = $this->input->post('disable_online_payment') ? $this->input->post('disable_online_payment') : 0;
-        }
+        // }
 
         $save_id = $this->Clients_model->save($data, $client_id);
 

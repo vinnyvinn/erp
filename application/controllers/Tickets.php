@@ -41,7 +41,7 @@ class Tickets extends Pre_loader
                 foreach ($assigned_to_list as $key => $value) {
                     $assigned_to_dropdown[] = array("id" => $key, "text" => $value);
                 }
-            } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+            } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
                 $assigned_to_dropdown = array(array("id" => "", "text" => "- " . lang("assigned_to") . " -"));
 
                 $assigned_to_list = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("deleted" => 0, "user_type" => "staff", "id" => $this->login_user->id));
@@ -404,7 +404,7 @@ class Tickets extends Pre_loader
 
         if ($this->login_user->is_admin) {
             $assigned_to = $this->input->post("assigned_to");
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $assigned_to = $this->login_user->id;
         }
 

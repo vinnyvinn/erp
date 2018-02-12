@@ -39,15 +39,15 @@
                         ?>                       
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="module_message" class="col-md-2"><?php echo lang('message'); ?></label>
                     <div class="col-md-10">
                         <?php
                         echo form_checkbox("module_message", "1", get_setting("module_message") ? true : false, "id='module_message' class='ml15'");
                         ?>                       
                     </div>
-                </div>
-                <div class="form-group">
+                </div> -->
+                <!-- <div class="form-group">
                     <label for="module_invoice" class="col-md-2"><?php echo lang('invoice'); ?></label>
                     <div class="col-md-10">
                         <?php
@@ -94,7 +94,7 @@
                         echo form_checkbox("module_estimate_request", "1", get_setting("module_estimate_request") ? true : false, "id='module_estimate_request' class='ml15'");
                         ?>                       
                     </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                     <label for="module_ticket" class="col-md-2"><?php echo lang('ticket'); ?></label>
                     <div class="col-md-10">
@@ -103,7 +103,7 @@
                         ?>                       
                     </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <label for="module_announcement" class="col-md-2"><?php echo lang('announcement'); ?></label>
                     <div class="col-md-10">
                         <?php
@@ -119,7 +119,7 @@
                         echo form_checkbox("module_sage", "1", get_setting("module_sage") ? true : false, "id='module_sage' class='ml15'");
                         ?>                       
                     </div>
-                </div>
+                </div> -->
 
             </div>
             <div class="panel-footer">
