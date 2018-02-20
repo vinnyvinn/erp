@@ -25,13 +25,18 @@ class Inventory_requisitions extends Pre_loader {
 
         $result = [];
         foreach ($list_data as $data) {
-            $data->available_quantity = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand - $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->ReservedQty;
-            $data->unit_of_measure = $this->SAGE_DB()->where('idUnits', ($this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->iUOMStockingUnitID))->get('_etblUnits')->result()[0]->cUnitCode;
+        	// $data->Qty_On_Hand = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand;
+            $data->available_quantity = $this->SAGE_DB()->where('StockLink', $data->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand - $this->SAGE_DB()->where('StockLink', $data->StkItem_id)->get('StkItem')->result()[0]->ReservedQty;
+            $data->unit_of_measure = $this->SAGE_DB()->where('idUnits', ($this->SAGE_DB()->where('StockLink', $data->StkItem_id)->get('StkItem')->result()[0]->iUOMStockingUnitID))->get('_etblUnits')->result()[0]->cUnitCode;
             $data->status = $data->item_quantity <= $data->available_quantity ? $data->status : "Awaiting Stock";
             $result[] = $this->_make_row($data);
+            // $result[] = $data;
         }
 
         echo json_encode(array("data" => $result));
+
+        // echo "<pre>";
+        // print_r($result);
     }
 
     private function _make_row($data) {
@@ -55,49 +60,21 @@ class Inventory_requisitions extends Pre_loader {
                 if ($data->item_quantity <= $data->available_quantity) {
                     $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
                     $optoins .= modal_anchor(get_uri("inventory_requisitions/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Inventory Requisitions Disapproval", "data-post-id" => $data->id));
-                }
 
-                if ($this->login_user->is_admin) {
                     $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-                }
+                } 
             } else {
-                 $optoins .= NULL;
-                 if ($this->login_user->is_admin) {
-                    $quantities = $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure;
-                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-                    $quantities = $data->item_quantity . " " . $data->unit_of_measure;
-                }
+                $optoins .= NULL;
+                $quantities = $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure;
             }
         } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $optoins = NULL;
-            if ($data->status == "Pending" || $data->status == "Awaiting Stock") {
-                if ($data->item_quantity <= $data->available_quantity) {
-                    $optoins .= anchor(get_uri("inventory_requisitions/approve/" . $data->id), "<i class='fa fa-check'></i>");
-                    $optoins .= modal_anchor(get_uri("inventory_requisitions/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Inventory Requisitions Disapproval", "data-post-id" => $data->id));
-                }
-
-                if ($this->login_user->is_admin) {
-                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-                    $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-                }
+            if ($data->status == "Pending" || $data->status == "Awaiting Stock") {     
+                $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
             } else {
-                 $optoins .= NULL;
-                 if ($this->login_user->is_admin) {
-                    $quantities = $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure;
-                } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-                    $quantities = $data->item_quantity . " " . $data->unit_of_measure;
-                }
+                $quantities = $data->item_quantity . " " . $data->unit_of_measure;
             }
         }
-
-        // if ($this->login_user->is_admin) {
-        //     $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " / " . $data->available_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-        // } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-        //     $quantities = modal_anchor(get_uri("inventory_requisitions/modal_edit"), $data->item_quantity . " " . $data->unit_of_measure, array("class" => "edit", "title" => "Edit Inventory Requisition", "data-post-id" => $data->id));
-        // }
 
         $sage_project = $this->SAGE_DB()->where('ProjectLink', $data->sage_project_id)->get('Project')->result()[0]->ProjectCode . " : " . $this->SAGE_DB()->where('ProjectLink', $data->sage_project_id)->get('Project')->result()[0]->ProjectName;
 
@@ -161,7 +138,9 @@ class Inventory_requisitions extends Pre_loader {
                 $this->SAGE_DB()->insert('_etblInvJrBatchLines', $_etblInvJrBatchLines);
             // }
 
-            // $this->SAGE_DB()->update_where(array("Qty_On_Hand" => $this->SAGE_DB()->where('StockLink', $list_data[0]->item_id)->get('StkItem')->result()[0]->Qty_On_Hand; - $list_data[0]->item_quantity), array("StockLink" => $list_data[0]->item_id));
+            $stk_data = array('Qty_On_Hand' => $this->SAGE_DB()->where('StockLink', $list_data[0]->item_id)->get('StkItem')->result()[0]->Qty_On_Hand - $list_data[0]->item_quantity);
+
+            $this->SAGE_DB()->where('StockLink', $list_data[0]->item_id)->update('StkItem', $stk_data);
 
             $this->stock_arithmetics($id); // do some arithmetics on the stock item requested here
 
