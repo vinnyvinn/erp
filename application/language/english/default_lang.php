@@ -246,6 +246,7 @@ $lang["general"] = "General";
 $lang["general_settings"] = "General Settings";
 $lang["item_purchase_code"] = "Item Purchase Code";
 $lang["company"] = "Company";
+$lang["technical"] = "Technical";
 $lang["company_settings"] = "Company Settings";
 $lang["email_settings"] = "Email Settings";
 $lang["payment_methods"] = "Payment Methods";
@@ -931,3 +932,40 @@ $lang["law_suits_types"] = "LawSuit Types";
 
 //settings extra
 $lang["add_time_durations"] = "Add Time Duration";
+
+
+/* maintenance */
+
+$lang["maintenance"] = "Maintenance";
+$lang["preventive"] = "Preventive Maintenance";
+$lang["add_card"] = " Add Job Card";
+$lang["job_card"] = " Job Card";
+$lang["vehicle"] = " Vehicle Number";
+$lang["job_card"] = " Job Card";
+$lang["spare"] = " Spare";
+$lang["reactive"] = "Reactive Maintenance";
+$lang["job_service"] = "Job/Service";
+$lang["job_type"] = "Job Type";
+$lang["vehicle_no"] = "Vehicle/Chassis Number";
+$lang["completion_date"] = "Expected Completion Date";
+$lang["make_model"] = "Make & Model";
+$lang["time_in"] = "Time In";
+$lang["km_reading"] = "Current KM Reading";
+$lang["fuel_balance"] = "Fuel Balance";
+$lang["driver"] = "Driver";
+$lang["findings"] = "Mechanic's Findings";
+$lang["done_by"] = "Done By";
+$lang["inspection"] = "Inspection";
+$lang["operation_name"] = "Operation Name";
+$lang["service_type"] = "Service Type";
+$lang["service_types"] = "Service Types";
+$lang["import_from_sage"] = "Import From Sage";
+$lang["supplier"] = "Supplier";
+$lang["suppliers"] = "Suppliers";
+$lang["external_service_type"] = "External Service Type";
+$lang["approximate_cost"] = "Approximate Cost";
+$lang["make"] = "Make";
+$lang["model"] = "Model";
+$lang["external_services"] = "External Services";
+$lang["request_service"] = "Request new Service";
+$lang["new_requisition"] = "Create new Requisition";
