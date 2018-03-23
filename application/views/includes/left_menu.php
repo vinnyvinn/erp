@@ -183,6 +183,13 @@
 
                 if ($this->login_user->is_admin) {
                     $attendanceSubs = [];
+                    $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
+                    $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
+                  
+                    $sidebar_menu[] = array("name" => "technical", "url" => "attendance", "class" => "fa-subway font-16", "submenu" => $attendanceSubs);
+                }
+                if ($this->login_user->is_admin) {
+                    $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
                     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
                     $attendanceSubs [] = ["name" => "Customers & Suppliers", "url" => "cust_suppliers/index"];

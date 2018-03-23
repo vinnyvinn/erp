@@ -22,6 +22,8 @@
         "assets/css/style-0000001.css",
         "assets/css/custom-style.css",
         "assets/css/sweetalert2.min.css"
+
+
     ));
     load_js(array(
         "assets/js/jquery-1.11.3.min.js",
