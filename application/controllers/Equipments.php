@@ -34,7 +34,8 @@ class Equipments extends Pre_loader {
  		return[
            'code' => $parts['cAssetCode'],
            'asset_no' => $parts['cAssetCode'],
-           'description' => $parts['cAssetDesc']
+           'description' => $parts['cAssetDesc'],
+           'purchase_price' => $parts['fPurchaseValue']
           ];
  	},$querySage);
     $this->db->insert_batch('equipments',$querySage);
@@ -46,7 +47,7 @@ class Equipments extends Pre_loader {
            'code' => $this->input->post('code'),
            'asset_no' => $this->input->post('asset_no'),
            'description' => $this->input->post('description'),
-       
+            'purchase_price' => $this->input->post('purchase_price'),
             );
       
       $insert = $this->Equipments_model->add_equipment($data);
@@ -63,6 +64,7 @@ class Equipments extends Pre_loader {
            'code' => $this->input->post('code'),
            'asset_no' => $this->input->post('asset_no'),
            'description' => $this->input->post('description'),
+           'purchase_price' => $this->input->post('purchase_price'),
               );
          
     $this->Equipments_model->equipment_update(array('id' => $this->input->post('id')), $data);

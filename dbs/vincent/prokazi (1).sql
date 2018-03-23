@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 16, 2018 at 02:20 PM
+-- Generation Time: Mar 23, 2018 at 12:16 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -80,24 +80,25 @@ CREATE TABLE `assets` (
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `warranty` varchar(255) DEFAULT NULL,
   `next_time` timestamp NULL DEFAULT NULL,
-  `driver_id` int(100) DEFAULT NULL
+  `km_reading` float NOT NULL,
+  `driver_id` int(100) DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `assets`
 --
 
-INSERT INTO `assets` (`id`, `asset_no`, `code`, `description`, `location`, `purchased_date`, `deleted`, `created`, `warranty`, `next_time`, `driver_id`) VALUES
-(33, '426', 'ESL/MSA//MV/2712', 'CARTRACK GARGETS - GALOOLI', '0', '2012-11-07 08:00:00', 0, '2018-03-03 18:17:12', '2016-03-10', '2019-02-02 08:00:00', 60),
-(36, '427', 'KHMA 276C', 'CAT 938G WHEEL LOADER I', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-17', '2018-03-21 07:00:00', 47),
-(37, '428', 'KCA 001G', 'LAND ROVER VOGUE 3.6TDV 8', '0', '2014-02-09 08:00:00', 0, '2018-03-04 23:52:39', '2017-03-16', '2019-03-22 07:00:00', 52),
-(38, '429', 'KCB 363Y', 'TOYOTA HILUX DOUBLE CAB', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-21', '2018-03-31 07:00:00', 57),
-(39, '430', 'KCC 694T', 'TOYOTA SUCCEED', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-16', '2018-03-17 07:00:00', 65),
-(44, '456', 'hkp', 'range', 'nairobi', NULL, 0, '2018-03-07 18:09:07', '2018-03-19', '2019-04-27 07:00:00', 58),
-(45, '433', 'KHMA 812G', 'CAT 938G WHEELLOADER II', '0', '2018-01-22 08:00:00', 0, '2018-03-07 18:56:17', '2019-03-30', '2019-08-31 07:00:00', 53),
-(46, '7645', '3e34d', 'toyota', 'nai', NULL, 0, '2018-03-08 19:14:16', '2018-01-31', '2020-02-02 08:00:00', 51),
-(47, '431', 'KCC 168Z', 'TOYOTA FIELDER', '0', '2018-01-21 21:00:00', 0, '2018-03-15 15:04:47', NULL, NULL, NULL),
-(48, '432', 'KCC 169Z', 'TOYOTA VOXY', '0', '2018-01-21 21:00:00', 0, '2018-03-16 13:13:17', NULL, NULL, NULL);
+INSERT INTO `assets` (`id`, `asset_no`, `code`, `description`, `location`, `purchased_date`, `deleted`, `created`, `warranty`, `next_time`, `km_reading`, `driver_id`, `updated_at`) VALUES
+(33, '426', 'ESL/MSA//MV/2712', 'CARTRACK GARGETS - GALOOLI', '0', '2012-11-07 08:00:00', 0, '2018-03-03 18:17:12', '2016-03-10', '2018-03-29 21:00:00', 400, 6, '2018-03-23 02:53:13'),
+(36, '427', 'KHMA 276C', 'CAT 938G WHEEL LOADER I', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-17', '2018-03-31 21:00:00', 480, 6, '2018-03-19 11:00:44'),
+(37, '428', 'KCA 001G', 'LAND ROVER VOGUE 3.6TDV 8', '0', '2014-02-09 08:00:00', 0, '2018-03-04 23:52:39', '2017-06-16', '2018-03-30 21:00:00', 250, 8, '2018-03-19 10:58:03'),
+(38, '429', 'KCB 363Y', 'TOYOTA HILUX DOUBLE CAB', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-21', '2018-05-01 21:00:00', 500, 8, '2018-03-19 10:59:32'),
+(39, '430', 'KCC 694T', 'TOYOTA SUCCEED', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-08-16', '2017-12-31 21:00:00', 0, 10, '2018-03-19 08:16:34'),
+(46, '7645', '3e34d', 'toyota', 'nai', NULL, 0, '2018-03-08 19:14:16', '2018-01-31', '2018-04-30 21:00:00', 200, 7, '2018-03-19 10:59:58'),
+(47, '431', 'KCC 168Z', 'TOYOTA FIELDER', '0', '2018-01-21 21:00:00', 0, '2018-03-15 15:04:47', '2017-02-02', '2018-05-31 21:00:00', 390, 6, '2018-03-19 10:59:10'),
+(48, '432', 'KCC 169Z', 'TOYOTA VOXY', '0', '2018-01-21 21:00:00', 0, '2018-03-16 13:13:17', '2018-05-01', '2018-03-30 21:00:00', 300, 6, '2018-03-23 03:14:44'),
+(50, '433', 'KHMA 812G', 'CAT 938G WHEELLOADER II', '0', '2018-01-21 21:00:00', 0, '2018-03-19 07:05:05', '2018-01-31', '2018-03-30 21:00:00', 320, 7, '2018-03-23 02:54:06');
 
 -- --------------------------------------------------------
 
@@ -280,7 +281,8 @@ INSERT INTO `email_templates` (`id`, `template_name`, `email_subject`, `default_
 (11, 'general_notification', '{EVENT_TITLE}', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"><div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"><h1>{APP_TITLE}</h1></div><div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_TITLE}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\">{EVENT_DETAILS}</span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p><p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p><p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>  </div> </div></div>', 1),
 (12, 'petty_cash', 'Petty Cash', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}. {PETTY_CASH_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>PETTY CASH #{PETTY_CASH_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Petty Cash Refund Claim Amounting To {PETTY_CASH_AMOUNT}, For {PETTY_CASH_NAME} Requested On {PETTY_CASH_REQUEST_DATE} Has Been Received And {PETTY_CASH_STATUS}. {PETTY_CASH_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0),
 (13, 'inventory_requisitions', 'Inventory Requisitions', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}. {INVENTORY_REQUISITIONS_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>INVENTORY REQUISITIONS #{INVENTORY_REQUISITIONS_ID}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {CONTACT_FIRST_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Inventory Requisite For {INVENTORY_REQUISITIONS_QUANTITY} Out Of The Available {INVENTORY_REQUISITIONS_AVAILABLE} {INVENTORY_REQUISITIONS_NAME} Requested On {INVENTORY_REQUISITIONS_REQUEST_DATE} has been {INVENTORY_REQUISITIONS_STATUS}. {INVENTORY_REQUISITIONS_COMMENT}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0),
-(14, 'legal_notification', 'Prokazi Cases', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', 0);
+(14, 'legal_notification', 'Prokazi Cases', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n<img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \">\r\n    <div style=\"max-width:640px; margin:0 auto; \">\r\n        <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\">\r\n            <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\">\r\n            <h1>Pro Kazi Case: # {CASE_TITLE}</h1></div>\r\n        <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\">\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">Hi {USER_NAME} </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">You have been added to a legal case </span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\">The case is scheduled on  {CASE_DATE}</span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"><br></span></p>\r\n            <p style=\"\"><span style=\"line-height: 18.5714px;\"></span></p>\r\n            <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><a style=\"background-color: #4f0158; padding: 10px 15px; color: #ffffff;\" href=\"{NOTIFICATION_URL}\" target=\"_blank\">View Details</a></span></p>\r\n            <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div>\r\n        </div>\r\n    </div>\r\n</div>', 0),
+(15, 'next_maintenance_date', 'Technical ', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>VEHICLE #{VEHICLE_NO}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {TITLE} {USER_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Vehicle No.&nbsp; {VEHICLE_NO},&nbsp; next maintenance date will be {NEXT_DATE}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', '<div style=\"background-color: #eeeeef; padding: 50px 0; \"> <div style=\"max-width:640px; margin:0 auto; \"> <div style=\"color: #fff;text-align: center;background-color:#9ad4ea;padding: 30px;border-top-left-radius: 3px;border-top-right-radius: 3px;margin: 0;\"> <img src=\"http://173.212.247.73:8080/pro.teamkazi.com/files/system/default-stie-logo.png\" alt=\"Pro-Kazi\"> <h1>VEHICLE #{VEHICLE_NO}</h1> </div> <div style=\"padding: 20px; background-color: rgb(255, 255, 255);\"> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Hello {TITLE} {USER_NAME},</span><br></p> <p style=\"\"> <span style=\"font-size: 14px; line-height: 20px;\"> <!-- Thank you for your business cooperation. --> </span> <br> </p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\">Your Vehicle No.&nbsp; {VEHICLE_NO},&nbsp; next maintenance date will be {NEXT_DATE}</span></p> <p style=\"\"><span style=\"color: rgb(85, 85, 85); font-size: 14px; line-height: 20px;\"><br></span></p> <p style=\"color: rgb(85, 85, 85); font-size: 14px;\">{SIGNATURE}</p> </div> </div></div>', 0);
 
 -- --------------------------------------------------------
 
@@ -294,6 +296,7 @@ CREATE TABLE `employees` (
   `name` mediumtext,
   `title` mediumtext,
   `join_date` timestamp NULL DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -302,51 +305,12 @@ CREATE TABLE `employees` (
 -- Dumping data for table `employees`
 --
 
-INSERT INTO `employees` (`id`, `code_no`, `name`, `title`, `join_date`, `deleted`, `created`) VALUES
-(48, 'E00003', 'MOURINE ACHIENG MAGERO', 'Miss', '2009-12-10 08:00:00', 0, '2018-03-08 17:46:38'),
-(49, 'E00004', 'FRANCISCA MUENI NZIOKA', 'Miss', '2010-05-24 07:00:00', 0, '2018-03-08 17:46:38'),
-(50, 'E00005', 'WILLINGTONE MICHAEL WARIO', 'Mr', '2011-01-03 08:00:00', 0, '2018-03-08 17:46:38'),
-(51, 'E00006', 'ALOICE MUOKI KUTUTA', 'Mr', '2011-11-01 07:00:00', 0, '2018-03-08 17:46:38'),
-(52, 'E00007', 'MAUREEN ATIENO OPIYO', 'Miss', '2011-10-01 07:00:00', 0, '2018-03-08 17:46:38'),
-(53, 'E00008', 'ISAAC BABU WATKINS', 'Mr', '2011-04-04 07:00:00', 0, '2018-03-08 17:46:38'),
-(54, 'E00009', 'CHRISPUS MAINGI KILEI', 'Mr', '2011-07-04 07:00:00', 0, '2018-03-08 17:46:38'),
-(55, 'E00010', 'EVANS NGALA CHIBUNGU', 'Mr', '2011-12-19 08:00:00', 0, '2018-03-08 17:46:38'),
-(56, 'E00011', 'LEONARD MWARUWA BAYA', 'Mr', '2011-12-20 08:00:00', 0, '2018-03-08 17:46:38'),
-(58, 'E00013', 'LENROD MWAMBURI MGENDI', 'Mr', '2013-11-10 08:00:00', 0, '2018-03-08 17:46:38'),
-(60, 'E00015', 'JOYLINAH NDUTA NJERI', 'Miss', '2015-07-01 07:00:00', 0, '2018-03-08 17:46:38'),
-(61, 'E00016', 'DANIEL LUKORITO WANIKINA', 'Mr', '2015-08-05 07:00:00', 0, '2018-03-08 17:46:38'),
-(62, 'E00017', 'STEPHEN OKIKI OMONDI', 'Mr', '2015-06-16 07:00:00', 0, '2018-03-08 17:46:38'),
-(63, 'E00018', 'JUSTUS KALII MUTHEMBWA', 'Mr', '2015-09-01 07:00:00', 0, '2018-03-08 17:46:38'),
-(64, 'E00019', 'PATRICK MUKUNDI MBUGUA', 'Mr', '2014-08-17 07:00:00', 0, '2018-03-08 17:46:38'),
-(65, 'E00020', 'RAYMOND JUMA WANGUNDA', 'Mr', '2016-01-07 08:00:00', 0, '2018-03-08 17:46:38'),
-(66, 'E00021', 'FLORENCE CHEPNGETICH TUEI', 'Mr', '2016-01-10 08:00:00', 0, '2018-03-08 17:46:38'),
-(67, 'E00022', 'KENNEDY KIVUVANI', 'Mr', '2012-03-15 07:00:00', 0, '2018-03-08 17:46:38'),
-(68, 'E00023', 'ERIC OLENSI OLENSI OSINYA', 'Mr', '2016-02-16 08:00:00', 0, '2018-03-08 17:46:38'),
-(69, 'E00024', 'CATHERINE NYAMBURA THUO', 'Miss', '2014-07-14 07:00:00', 0, '2018-03-08 17:46:38'),
-(70, 'E00025', 'GRACE MPOYA', 'Miss', '2015-11-09 08:00:00', 0, '2018-03-08 17:46:38'),
-(71, 'E00026', 'PATRICK MURANGIRI MAGIRI', 'Mr', '2007-11-26 08:00:00', 0, '2018-03-08 17:46:38'),
-(72, 'E00027', 'ERIC MULWA KYALO', 'Mr', '2017-01-26 08:00:00', 0, '2018-03-08 17:46:38'),
-(73, 'E00028', 'IRENE ATIENO OTIENO', 'Miss', '2016-06-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(74, 'E00029', 'MERCYLINE MUTHEU MUTUA', 'Miss', '2012-06-04 07:00:00', 0, '2018-03-08 17:46:38'),
-(75, 'E00030', 'ARSHUR LOMO OWANE', 'Mr', '2012-04-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(76, 'E00031', 'COLLINS ONYANGO PAMBA', 'Mr', '2015-01-02 08:00:00', 0, '2018-03-08 17:46:38'),
-(77, 'E00032', 'GULJAN ABUBAKAR RAMADHAN', 'Miss', '2017-05-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(78, 'E00033', 'FRANCIS OUMA OPALO', 'Mr', '2017-07-01 07:00:00', 0, '2018-03-08 17:46:38'),
-(79, 'E00034', 'PETER HAVACY MANGA', 'Mr', '2017-08-14 07:00:00', 0, '2018-03-08 17:46:38'),
-(80, 'E00035', 'LAWRENCE ODHIAMBO AMENYA', 'Mr', '2017-10-13 07:00:00', 0, '2018-03-08 17:46:38'),
-(81, 'E00036', 'MOSES ELIAS MANGALE', 'Mr', '2017-10-13 07:00:00', 0, '2018-03-08 17:46:38'),
-(82, 'E00037', 'MOUREEN WAIRIMU KIAMA', 'Miss', '2017-11-20 08:00:00', 0, '2018-03-08 17:46:38'),
-(83, 'E00038', 'WAYNE DICKSON NDAKALA', 'Mr', '2017-09-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(84, 'E00039', 'GEORGE ABWAO OMORE', 'Mr', '2017-09-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(85, 'E00040', 'FREDRICK WAWALA', 'Mr', '2017-09-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(86, 'E00041', 'AHMED ABDULRAHMAN AHMED', 'Mr', '2017-09-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(87, 'E00042', 'PAUL NZISSI MUSYOKA', 'Mr', '2017-09-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(88, 'E00043', 'BILHA AMAGOVE OMUDI', 'Miss', '2017-09-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(89, 'E00044', 'ERICKSON MWANIKI NGELE', 'Mr', '2013-05-01 07:00:00', 0, '2018-03-08 17:46:38'),
-(90, 'E00045', 'JESINTA NJERI NJOROGE', 'Miss', '2017-10-02 07:00:00', 0, '2018-03-08 17:46:38'),
-(92, 'E00014', 'JOHN KIPCHUMBA LAGAT', 'Mr', '2014-10-07 07:00:00', 0, '2018-03-08 17:54:41'),
-(93, 'E00001', 'SILVESTER MUSOVYA KUTUTA', 'Mr', '2001-05-01 07:00:00', 0, '2018-03-08 17:58:25'),
-(94, 'E00002', 'CATHERINE ANZAZI LEWA', 'Miss', '2007-03-31 21:00:00', 0, '2018-03-16 13:05:39');
+INSERT INTO `employees` (`id`, `code_no`, `name`, `title`, `join_date`, `email`, `deleted`, `created`) VALUES
+(6, 'E00008', 'ISAAC BABU WATKINS', 'Mr', '2011-04-03 21:00:00', 'watkins@esl-eastafrica.com', 0, '2018-03-19 08:05:35'),
+(7, 'E00009', 'CHRISPUS MAINGI KILEI', 'Mr', '2011-07-03 21:00:00', 'chrispus.kilei@esl-east africa.co', 0, '2018-03-19 08:05:35'),
+(8, 'E00016', 'DANIEL LUKORITO WANIKINA', 'Mr', '2015-08-04 21:00:00', '3transport@esl-eastafrica.com', 0, '2018-03-19 08:05:35'),
+(9, 'E00018', 'JUSTUS KALII MUTHEMBWA', 'Mr', '2015-08-31 21:00:00', '2transport@esl-eastafrica.com', 0, '2018-03-19 08:05:35'),
+(10, 'E00044', 'ERICKSON MWANIKI NGELE', 'Mr', '2013-04-30 21:00:00', '1transport@esl-eastafrica.com', 0, '2018-03-19 08:05:35');
 
 -- --------------------------------------------------------
 
@@ -359,6 +323,7 @@ CREATE TABLE `equipments` (
   `code` varchar(255) NOT NULL,
   `asset_no` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `purchase_price` float DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -367,12 +332,12 @@ CREATE TABLE `equipments` (
 -- Dumping data for table `equipments`
 --
 
-INSERT INTO `equipments` (`id`, `code`, `asset_no`, `description`, `created`, `deleted`) VALUES
-(1, 'S008', '567', 'SPADE', '2018-03-15 06:13:03', 0),
-(2, 'J009', '900', 'tyre', '2018-03-15 06:16:52', 0),
-(3, 't008', '843', 'torch', '2018-03-15 06:17:08', 0),
-(4, 'e839', '111', 'engine', '2018-03-15 06:17:28', 0),
-(6, 'ESL/MSA/EQ/00116', 'ESL/MSA/EQ/00116', 'TRIMMER LIFTING SLINGS', '2018-03-15 15:03:27', 0);
+INSERT INTO `equipments` (`id`, `code`, `asset_no`, `description`, `purchase_price`, `created`, `deleted`) VALUES
+(1, 'S008', '567', 'SPADE', 32000, '2018-03-15 06:13:03', 0),
+(2, 'J009', '900', 'tyre', 20000, '2018-03-15 06:16:52', 0),
+(3, 't008', '843', 'torch', 21000, '2018-03-15 06:17:08', 0),
+(4, 'e839', '111', 'engine', 10000, '2018-03-15 06:17:28', 0),
+(8, 'ESL/MSA/EQ/00116', 'ESL/MSA/EQ/00116', 'TRIMMER LIFTING SLINGS', 534422, '2018-03-23 10:05:21', 0);
 
 -- --------------------------------------------------------
 
@@ -572,60 +537,55 @@ INSERT INTO `expense_categories` (`id`, `title`, `deleted`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `extended_services`
+--
+
+CREATE TABLE `extended_services` (
+  `id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `extended_services`
+--
+
+INSERT INTO `extended_services` (`id`, `name`, `created`, `deleted`) VALUES
+(1, 'External Parts Service', '2018-03-22 09:19:40', 0),
+(2, 'Fuel', '2018-03-22 09:19:49', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `external_services`
 --
 
 CREATE TABLE `external_services` (
   `id` int(100) NOT NULL,
   `job_card_id` varchar(255) NOT NULL,
-  `supplier_id` int(100) NOT NULL,
+  `supplier_id` int(100) DEFAULT NULL,
   `service_type` varchar(255) NOT NULL,
-  `rate` float NOT NULL,
-  `hours` double NOT NULL,
-  `total_service` double NOT NULL,
-  `description` varchar(255) NOT NULL,
+  `start_date` varchar(255) DEFAULT '0000-00-00 00:00:00',
+  `end_date` varchar(255) DEFAULT '0000-00-00 00:00:00',
+  `total_service` double DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+  `deleted` tinyint(1) NOT NULL DEFAULT '0',
+  `amount` float DEFAULT NULL,
+  `quantity` int(100) DEFAULT NULL,
+  `total_fuel` float DEFAULT NULL,
+  `service_no` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `external_services`
 --
 
-INSERT INTO `external_services` (`id`, `job_card_id`, `supplier_id`, `service_type`, `rate`, `hours`, `total_service`, `description`, `created`, `deleted`) VALUES
-(1, '9', 2, 'service', 200, 3, 600, 'great', '2018-03-16 05:17:02', 0),
-(2, '7', 6, 'service', 300, 2, 600, 'cool', '2018-03-16 06:09:30', 0),
-(3, '8', 8, 'service', 150, 8, 1200, 'to be continued', '2018-03-16 06:11:38', 0),
-(4, '7', 245, 'service', 900, 4, 3600, 'awesome', '2018-03-16 06:12:55', 0);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `fuel_services`
---
-
-CREATE TABLE `fuel_services` (
-  `id` int(100) NOT NULL,
-  `job_card_id` varchar(255) NOT NULL,
-  `supplier_id` int(100) NOT NULL,
-  `hours` decimal(10,0) NOT NULL,
-  `rate` decimal(10,0) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `amount` double NOT NULL,
-  `quantity` decimal(10,0) NOT NULL,
-  `service_type` varchar(255) NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `deleted` tinyint(1) NOT NULL DEFAULT '0',
-  `total_fuel` double NOT NULL,
-  `total_service` double NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `fuel_services`
---
-
-INSERT INTO `fuel_services` (`id`, `job_card_id`, `supplier_id`, `hours`, `rate`, `description`, `amount`, `quantity`, `service_type`, `created`, `deleted`, `total_fuel`, `total_service`) VALUES
-(1, '8', 1, '5', '200', 'good good', 400, '10', 'fuel', '2018-03-16 05:15:25', 0, 4000, 1000);
+INSERT INTO `external_services` (`id`, `job_card_id`, `supplier_id`, `service_type`, `start_date`, `end_date`, `total_service`, `created`, `deleted`, `amount`, `quantity`, `total_fuel`, `service_no`, `description`) VALUES
+(2, '5', NULL, 'fuel', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '2018-03-23 08:12:28', 0, 800, 90, 72000, 'ES-002', NULL),
+(3, '5', 10, 'service', '03/28/2018', '03/31/2018', 2400, '2018-03-23 08:24:22', 0, NULL, NULL, NULL, 'ES-003', NULL),
+(4, '7', 0, 'service', '03/28/2018', '03/30/2018', 1600, '2018-03-23 09:25:12', 0, NULL, NULL, NULL, 'ES-004', NULL);
 
 -- --------------------------------------------------------
 
@@ -729,11 +689,11 @@ CREATE TABLE `jobs` (
   `vehicle_no` int(100) DEFAULT NULL,
   `completion_date` timestamp NULL DEFAULT NULL,
   `time_in` time DEFAULT NULL,
-  `km_reading` double NOT NULL,
-  `fuel_balance` double NOT NULL,
-  `inspection_id` varchar(255) NOT NULL,
-  `done_by` varchar(255) NOT NULL,
-  `status_id` varchar(255) NOT NULL,
+  `km_reading` double DEFAULT NULL,
+  `fuel_balance` double DEFAULT NULL,
+  `inspection_id` varchar(255) DEFAULT NULL,
+  `done_by` varchar(255) DEFAULT NULL,
+  `status_id` varchar(255) DEFAULT NULL,
   `card_no` varchar(255) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -745,10 +705,9 @@ CREATE TABLE `jobs` (
 --
 
 INSERT INTO `jobs` (`id`, `job_service_id`, `job_type_id`, `description`, `vehicle_no`, `completion_date`, `time_in`, `km_reading`, `fuel_balance`, `inspection_id`, `done_by`, `status_id`, `card_no`, `created_at`, `updated_at`, `deleted`) VALUES
-(7, 1, 2, 'xczxcd', 37, '2018-03-20 21:00:00', '01:59:00', 800, 55, '3', '52', '2', 'ESL-007', '2018-03-12 11:40:47', NULL, 0),
-(8, 1, 2, 'text info', 39, '2018-03-13 21:00:00', '01:59:00', 200, 30, '3', '54', '1', 'ESL-008', '2018-03-12 11:44:25', NULL, 0),
-(9, 1, 11, 'trying it out', 38, '2018-03-22 21:00:00', '01:59:00', 500, 150, '3', '53', '2', 'ESL-631', '2018-03-12 11:56:59', NULL, 0),
-(10, 1, 11, 'testing ...', 33, '2018-03-12 21:00:00', '04:43:00', 4000, 200, '3,4', '48,54', '2', 'ESL-268', '2018-03-16 12:47:24', NULL, 0);
+(5, 2, 1, 'testing...', 36, '2018-03-20 21:00:00', '01:59:00', 450, 540, '3', '8', '2', 'ESL-5-KHMA 276C', '2018-03-23 05:35:34', NULL, 0),
+(6, 1, 5, 'great is your reward', 38, '2018-03-12 21:00:00', '01:59:00', 780, 432, '4', '9', '1', 'ESL-6-KCB 363Y', '2018-03-23 05:36:33', NULL, 0),
+(7, 2, 4, 'testing2..', 37, '2018-03-27 21:00:00', '01:59:00', 500, 290, '2', '6', '1', 'ESL-7-KCA 001G', '2018-03-23 05:37:28', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -841,25 +800,9 @@ CREATE TABLE `job_tasks` (
 --
 
 INSERT INTO `job_tasks` (`id`, `service_type_id`, `assigned_to`, `tasks`, `start_date`, `job_time_in`, `jobs_type_id`, `created_at`, `updated_at`, `deleted`) VALUES
-(12, 1, 47, 'demo', '2018-03-09 23:14:22', '01:58:00', 3, '2018-02-27 17:13:27', NULL, 0),
-(13, 2, 48, 'text', '2018-03-09 23:14:26', '02:58:00', 4, '2018-02-27 17:15:39', NULL, 0),
-(14, 3, 49, 'info', '2018-03-09 23:14:30', '13:59:00', 5, '2018-02-27 17:16:17', NULL, 0),
-(15, 3, 50, 'to be done by today', '2018-03-09 23:14:33', '13:56:00', 6, '2018-02-27 21:59:17', NULL, 0),
-(16, 2, 51, 'lets work', '2018-03-09 23:14:39', '13:59:00', 7, '2018-02-27 22:36:27', NULL, 0),
-(17, 3, 49, 'furnishing', '2018-03-09 23:14:42', '13:59:00', 8, '2018-03-09 18:03:43', NULL, 0),
-(18, 3, 66, 'servicing engine', '2018-03-09 23:14:46', '13:59:00', 8, '2018-03-09 18:07:36', NULL, 0),
-(19, 1, 47, 'rotuyou', '2018-03-09 23:14:53', '01:59:00', 10, '2018-03-09 22:58:13', NULL, 0),
-(20, 1, 47, 'tototo', '2018-03-09 23:14:57', '13:59:00', 11, '2018-03-09 23:03:03', NULL, 0),
-(21, 1, 47, 'task10', '2018-03-09 23:15:03', '01:59:00', 15, '2018-03-09 23:06:21', NULL, 0),
-(22, 1, 47, 'glorious', '2018-03-21 07:00:00', '01:59:00', 2, '2018-03-09 23:10:20', NULL, 0),
-(23, 1, 47, 'repair  body', '2018-03-20 07:00:00', '01:59:00', 2, '2018-03-09 23:12:24', NULL, 0),
-(24, 3, 50, 'good', '2018-03-13 07:00:00', '01:59:00', 5, '2018-03-09 23:13:22', NULL, 0),
-(25, 1, 47, 'creating awareness', '2018-03-21 07:00:00', '01:59:00', 8, '2018-03-11 13:45:32', NULL, 0),
-(26, 3, 0, 'getting new tires', '2018-03-22 07:00:00', '01:59:00', 0, '2018-03-11 13:46:17', NULL, 0),
-(27, 2, 51, 'fine tune', '2018-03-21 07:00:00', '01:59:00', 2, '2018-03-11 13:47:31', NULL, 0),
-(28, 3, 47, 'my tasks', '2018-03-07 08:00:00', '13:00:00', 5, '2018-03-11 13:53:56', NULL, 0),
-(29, 1, 47, 'grinding', '2018-03-26 21:00:00', '04:45:00', 2, '2018-03-16 12:46:42', NULL, 0),
-(30, 1, 0, 'grinding', '2018-03-27 21:00:00', '04:46:00', 0, '2018-03-16 12:47:09', NULL, 0);
+(1, 2, 6, 'complete', '2018-03-27 21:00:00', '01:59:00', 5, '2018-03-23 04:05:37', NULL, 0),
+(2, 2, 9, 'great', '2018-03-20 21:00:00', '01:00:00', 6, '2018-03-23 04:05:58', NULL, 0),
+(3, 2, 8, 'great task', '2018-03-27 21:00:00', '01:00:00', 2, '2018-03-23 04:07:31', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -882,20 +825,13 @@ CREATE TABLE `job_types` (
 --
 
 INSERT INTO `job_types` (`id`, `job_type_name`, `service_type`, `job_id`, `created_at`, `updated_at`, `deleted`) VALUES
-(2, 'mechanical', 2, 1, '2018-02-21 22:37:29', NULL, 0),
-(3, 'serviceA', 1, 2, '2018-02-21 22:38:06', NULL, 0),
-(4, 'serviceB', 2, 2, '2018-02-21 22:38:06', NULL, 0),
-(5, 'Service C', 3, 2, '2018-02-28 01:01:17', NULL, 0),
-(6, 'Service C', 3, 2, '2018-02-28 01:02:08', NULL, 0),
-(7, 'general repairs', 1, 1, '2018-02-28 01:02:42', NULL, 0),
-(8, 'maintenace part', 1, 1, '2018-02-28 01:03:48', NULL, 0),
-(9, 'oiling work', 2, 2, '2018-02-28 01:08:31', NULL, 0),
-(10, 'oiling work', 2, 2, '2018-02-28 01:08:31', NULL, 0),
-(11, 'wheels replacement', 1, 1, '2018-02-28 01:09:53', NULL, 0),
-(12, 'wheels replacement', 1, 1, '2018-02-28 01:09:53', NULL, 0),
-(13, 'acquiring parts', 1, 1, '2018-02-28 01:20:18', NULL, 0),
-(14, 'acquiring parts', 1, 1, '2018-02-28 01:20:18', NULL, 0),
-(15, 'demo', 1, 1, '2018-02-28 01:21:54', NULL, 0);
+(1, 'oiling', 1, 2, '2018-03-23 04:00:28', NULL, 0),
+(2, 'replacing tyre', 1, 2, '2018-03-23 04:00:59', NULL, 0),
+(3, 'servicing', 2, 2, '2018-03-23 04:01:46', NULL, 0),
+(4, 'pooling', 3, 2, '2018-03-23 04:02:05', NULL, 0),
+(5, 'washing', 3, 1, '2018-03-23 04:02:32', NULL, 0),
+(6, 'cleaning', 2, 1, '2018-03-23 04:02:53', NULL, 0),
+(7, 'trenching', 2, 1, '2018-03-23 04:03:05', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1867,6 +1803,27 @@ CREATE TABLE `project_time` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rates_perhour`
+--
+
+CREATE TABLE `rates_perhour` (
+  `id` int(100) NOT NULL,
+  `amount` float DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rates_perhour`
+--
+
+INSERT INTO `rates_perhour` (`id`, `amount`, `description`, `created`, `deleted`) VALUES
+(1, 800, 'Flat Rate', '2018-03-22 12:15:45', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `roles`
 --
 
@@ -1895,6 +1852,7 @@ CREATE TABLE `service_types` (
   `id` int(100) NOT NULL,
   `name` varchar(255) NOT NULL,
   `description` varchar(255) NOT NULL,
+  `km_range` varchar(255) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
@@ -1904,10 +1862,10 @@ CREATE TABLE `service_types` (
 -- Dumping data for table `service_types`
 --
 
-INSERT INTO `service_types` (`id`, `name`, `description`, `created_at`, `updated_at`, `deleted`) VALUES
-(1, 'Service A', 'Service A Operations', '2018-02-23 19:09:32', '0000-00-00 00:00:00', 0),
-(2, 'Service B', 'Service B Operations', '2018-02-23 19:09:32', NULL, 0),
-(3, 'Service C', 'Service C Operations', '2018-02-23 19:09:43', NULL, 0);
+INSERT INTO `service_types` (`id`, `name`, `description`, `km_range`, `created_at`, `updated_at`, `deleted`) VALUES
+(1, 'Service A', 'Service A Operations', '0 to 5000', '2018-02-23 19:09:32', '0000-00-00 00:00:00', 0),
+(2, 'Service B', 'Service B Operations', '5000-15000', '2018-02-23 19:09:32', NULL, 0),
+(3, 'Service C', 'Service C Operations', 'Above 15000', '2018-02-23 19:09:43', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1952,13 +1910,13 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('disable_client_login', '1', 0),
 ('disable_client_signup', '1', 0),
 ('email_protocol', 'smtp', 0),
-('email_sent_from_address', 'wagura465@gmail.com', 0),
+('email_sent_from_address', 't.develoment@wizag.biz', 0),
 ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0),
-('email_smtp_host', 'in.mailjet.com', 0),
-('email_smtp_pass', '8b49011a29bba60a1e89774b6aa01a95', 0),
+('email_smtp_host', 'smtp.mailtrap.io', 0),
+('email_smtp_pass', '2176180c5483c4', 0),
 ('email_smtp_port', '465', 0),
-('email_smtp_security_type', 'ssl', 0),
-('email_smtp_user', 'ac746108f48ffb16045549bb3fbab8d9', 0),
+('email_smtp_security_type', 'tls', 0),
+('email_smtp_user', 'e84a71a5ca5cc0', 0),
 ('escalation_duration', '45', 0),
 ('escalation_via_email', '1', 0),
 ('escalation_via_sms', '1', 0),
@@ -2037,13 +1995,13 @@ CREATE TABLE `social_links` (
 
 CREATE TABLE `spares` (
   `id` int(100) NOT NULL,
-  `job_card_id` int(100) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `spare_id` int(100) NOT NULL,
-  `amount` double NOT NULL,
-  `quantity` int(100) NOT NULL,
-  `total` int(100) NOT NULL,
-  `requisition_no` varchar(255) NOT NULL,
+  `job_card_id` int(100) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `spare_id` int(100) DEFAULT NULL,
+  `amount` double DEFAULT NULL,
+  `quantity` int(100) DEFAULT NULL,
+  `total` int(100) DEFAULT NULL,
+  `requisition_no` varchar(255) DEFAULT NULL,
   `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -2053,11 +2011,11 @@ CREATE TABLE `spares` (
 --
 
 INSERT INTO `spares` (`id`, `job_card_id`, `description`, `spare_id`, `amount`, `quantity`, `total`, `requisition_no`, `created`, `deleted`) VALUES
-(4, 8, 'fine tuned', 4, 10000, 2, 20000, 'RQ-938', '2018-03-15 07:48:48', 0),
-(5, 7, 'in good condition', 1, 150, 3, 450, 'RQ-580', '2018-03-15 07:50:15', 0),
-(6, 9, 'super', 2, 500, 2, 1000, 'RQ-995', '2018-03-15 07:50:50', 0),
-(7, 8, 'ewrewr', 2, 500, 1, 500, 'RQ-600', '2018-03-16 12:32:37', 0),
-(8, 9, 'findings', 6, 450, 5, 2250, 'RQ-974', '2018-03-16 12:40:29', 0);
+(10, 5, 'great', 3, 450, 3, 1350, 'RQ-010', '2018-03-23 06:35:41', 0),
+(11, 6, 'goodie', 1, 450, 2, 900, 'RQ-011', '2018-03-23 06:36:31', 0),
+(12, 6, NULL, 3, NULL, 3, 63000, 'RQ-012', '2018-03-23 10:55:00', 0),
+(13, 6, NULL, 4, 10000, 4, 40000, 'RQ-013', '2018-03-23 10:59:19', 0),
+(14, 7, 'testing2..', 1, 32000, 5, 160000, 'RQ-014', '2018-03-23 11:02:14', 0);
 
 -- --------------------------------------------------------
 
@@ -3009,15 +2967,15 @@ ALTER TABLE `expense_categories`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
--- Indexes for table `external_services`
+-- Indexes for table `extended_services`
 --
-ALTER TABLE `external_services`
+ALTER TABLE `extended_services`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `fuel_services`
+-- Indexes for table `external_services`
 --
-ALTER TABLE `fuel_services`
+ALTER TABLE `external_services`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3210,6 +3168,12 @@ ALTER TABLE `project_members`
 --
 ALTER TABLE `project_time`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `rates_perhour`
+--
+ALTER TABLE `rates_perhour`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `roles`
@@ -3488,7 +3452,7 @@ ALTER TABLE `announcements`
 -- AUTO_INCREMENT for table `assets`
 --
 ALTER TABLE `assets`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 --
 -- AUTO_INCREMENT for table `attendance`
 --
@@ -3523,17 +3487,17 @@ ALTER TABLE `custom_field_values`
 -- AUTO_INCREMENT for table `email_templates`
 --
 ALTER TABLE `email_templates`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 --
 -- AUTO_INCREMENT for table `equipments`
 --
 ALTER TABLE `equipments`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `escalation_matrix`
 --
@@ -3585,15 +3549,15 @@ ALTER TABLE `expenses`
 ALTER TABLE `expense_categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
+-- AUTO_INCREMENT for table `extended_services`
+--
+ALTER TABLE `extended_services`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `external_services`
 --
 ALTER TABLE `external_services`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT for table `fuel_services`
---
-ALTER TABLE `fuel_services`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `inventory_requisitions`
 --
@@ -3618,7 +3582,7 @@ ALTER TABLE `invoice_payments`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `jobs_status`
 --
@@ -3638,12 +3602,12 @@ ALTER TABLE `job_services`
 -- AUTO_INCREMENT for table `job_tasks`
 --
 ALTER TABLE `job_tasks`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `job_types`
 --
 ALTER TABLE `job_types`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT for table `leave_applications`
 --
@@ -3745,6 +3709,11 @@ ALTER TABLE `project_members`
 ALTER TABLE `project_time`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `rates_perhour`
+--
+ALTER TABLE `rates_perhour`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
@@ -3758,7 +3727,7 @@ ALTER TABLE `service_types`
 -- AUTO_INCREMENT for table `spares`
 --
 ALTER TABLE `spares`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `tasks`
 --

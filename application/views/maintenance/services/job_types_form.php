@@ -21,7 +21,7 @@
         <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Job Type</th>
+                    <th>Category</th>
                     <th>Service Type</th>
                     <th style="width:125px;">Action
           </p></th>
@@ -53,7 +53,7 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Job Type</th>
+          <th>Category</th>
           <th>Service Type</th>
           <th>Action</th>
         </tr>
@@ -185,8 +185,9 @@
                 <input name="job_type_name" placeholder="Name" class="form-control" type="text">
               </div>
             </div>
+            
             <div class="form-group">
-              <label class="control-label col-md-3">Job Type</label>
+              <label class="control-label col-md-3">Category</label>
               <div class="col-md-9">
                 <select class="form-control" name=" job_id" id="job_id" placeholder="job type" required>
                  <?php

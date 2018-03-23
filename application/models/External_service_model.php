@@ -16,6 +16,13 @@ class External_service_model extends Crud_model {
   	return $this->db->query($query)->result_array();
    } 
 
+   function get_detail($id){
+    $query="SELECT external_services.*,jobs.card_no,assets.code FROM external_services 
+    LEFT JOIN jobs ON jobs.id=external_services.job_card_id
+    LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE external_services.id=$id";
+    return $this->db->query($query)->result_array();
+   } 
+
    public function get_services($id){
     $query="SELECT external_services.*,spares.requisition_no,jobs.card_no,
     parts_suppliers.name as supplier,assets.code as vehicle,assets.description as make FROM external_services

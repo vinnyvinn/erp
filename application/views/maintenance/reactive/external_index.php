@@ -16,6 +16,7 @@
          <th>No.</th>
          <th>Card #</th>
          <th>Vehicle</th>
+         <th>Category</th>
           <th>Requested On</th>
          </tr>
      </thead> 
@@ -25,6 +26,9 @@
          <td><?php echo $service['id']?></td>
           <td><?php echo $service['card_no']?></td>
          <td><?php echo $service['code']?></td>
+         <td>
+          <a href="<?php echo base_url('reactive/view_external/'.$service['id']) ?>"><?php echo ucfirst($service['service_type'])?></a>
+        </td>
             <td><?php echo $service['created']?></td>
        </tr>
        <?php }?>

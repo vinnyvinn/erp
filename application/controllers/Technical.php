@@ -34,6 +34,7 @@ class Technical extends Pre_loader {
     {
       $data = array(
           'name' => $this->input->post('name'),
+          'km_range' => $this->input->post('km_range'),
           'description' => $this->input->post('description'),
              );
       $insert = $this->Service_types_model->add_service($data);
@@ -48,6 +49,7 @@ class Technical extends Pre_loader {
   {
     $data = array(
         'name' => $this->input->post('name'),
+        'km_range' => $this->input->post('km_range'),
         'description' => $this->input->post('description'),
         
       );

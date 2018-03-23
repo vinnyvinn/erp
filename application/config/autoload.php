@@ -225,4 +225,6 @@ $autoload['model'] = array(
     'Equipments_model',
     'Parts_suppliers_model',
     'External_service_model',
+    'Extended_service_model',
+    'Rates_model',
     );

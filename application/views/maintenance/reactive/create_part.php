@@ -8,7 +8,8 @@
   <div class="col-sm-6">
     <div class="form-group vehicle_sel">
     <label for="job_card" class="col-sm-10"><b><?php echo lang('job_card'); ?></b></label>
-   <select class="form-control" name="job_card_id" id="job_card">
+      <select class="form-control" name="job_card_id" id="job_card">
+         <option value=""></option>
                <?php
               foreach ($jobs_card_dropdown as $card) {
                   echo "<option value=". $card->id . ">" . ucfirst($card->card_no) . "</option>";
@@ -25,18 +26,9 @@
 </div>
 <div class="col-sm-6">
 <div class="form-group">
-    <label for="description"><b><?php echo lang('findings'); ?></b></label>
-    
-        <?php
-        echo form_textarea(array(
-            "id" => "description",
-            "name" => "description",
-            "class" => "form-control",
-            "cols" => "10",
-            "rows" => "5",
-           
-        ));
-        ?>
+    <label for="description"><b><?php echo lang('description'); ?></b></label>
+    <textarea name="description" id="details" cols="10" rows="5" class="form-control" disabled></textarea>
+        
     </div>
   </div>
 <div class="col-sm-3">
@@ -53,21 +45,6 @@
     </div>
 </div>
 
-<div class="col-sm-3">
-<div class="form-group">
-    <label for="amount"><b><?php echo lang('amount'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "amount",
-            "name" => "amount",
-            "class" => "form-control",
-            "type" => "number",
-            "required" => "required",
-             ));
-        ?>
-    </div>
-</div>
 <div class="col-sm-3">
 <div class="form-group">
     <label for="quantity"><b><?php echo lang('quantity'); ?></b></label>
@@ -89,7 +66,7 @@
 <div class="col-sm-3">
 <div class="form-group">
   <br>
-  <button type="submit" class="btn btn-success" id="saved_data">Process Request</button>
+  <button type="submit" class="btn btn-success" id="saved_data">Update</button>
 </div>
 </div>
 </div>
@@ -127,24 +104,44 @@
 <script type="text/javascript">
   $('#saved_data').on('click',function(){
             var job_card = $('#job_card').val();
-            var description = $('#description').val();
+            var description = $('#details').val();
             var part = $('#part').val();
-            var amount = $('#amount').val();
-            var quantity       = $('#quantity').val();
+            console.log('sp no:' + part);
+             var quantity       = $('#quantity').val();
               $.ajax({
                 type : "POST",
                 url  : "<?php echo site_url('reactive/save_part')?>",
                 dataType : "JSON",
-                data : {job_card_id:job_card, description:description, spare_id:part,amount:amount,quantity:quantity},
+                data : {job_card_id:job_card, description:description, spare_id:part,quantity:quantity},
                 success: function(data){
                     $('[name="job_card_id"]').val("");
                     $('[name="description"]').val("");
                     $('[name="spare_id"]').val("");
-                    $('[name="amount"]').val("");
                     $('[name="quantity"]').val("");
                     window.location = "<?php echo site_url('reactive')?>";
                 }
             });
             return false;
+        });
+</script>
+<script type="text/javascript">   
+             $(document).ready(function() {
+             $('select[name="job_card_id"]').on('change', function() {
+              var ds_id=$(this).val();
+              console.log('id='+ ds_id);
+               var path="<?php echo site_url('reactive/description')?>/" + ds_id;
+                $.ajax({
+                type  : 'ajax',
+                url   : path,
+                async : false,
+                dataType : 'json',
+                success : function(data){
+                  console.log('check' + data)
+                    var html =data;
+                   $('#details').html(html);
+                }
+ 
+            });
+        });
         });
 </script>

@@ -20,6 +20,7 @@
         <tr>
                     <th>ID</th>
                     <th>Name</th>
+                    <th>KM Range</th>
                     <th>Description</th>
                      <th style="width:125px;">Action
           </p></th>
@@ -30,7 +31,9 @@
                      <tr>
                          <td><?php echo $service['id'];?></td>
                          <td><?php echo $service['name'];?></td>
+                         <td><?php echo $service['km_range'];?></td>
                            <td><?php echo $service['description'];?></td>
+                           
                                 
                                 <td>
                            <button class="btn btn-warning" onclick="edit_service(<?php echo $service['id'];?>)" style="font-size: 10px"><i class="glyphicon glyphicon-pencil"></i></button>
@@ -49,6 +52,7 @@
         <tr>
           <th>ID</th>
           <th>Name</th>
+          <th>KM Range</th>
           <th>Description</th>
           <th>Action</th>
         </tr>
@@ -90,6 +94,7 @@
 
             $('[name="id"]').val(data.id);
             $('[name="name"]').val(data.name);
+            $('[name="km_range"]').val(data.km_range);
             $('[name="description"]').val(data.description);
            
 
@@ -178,6 +183,12 @@
               <label class="control-label col-md-3">Name</label>
               <div class="col-md-9">
                 <input name="name" placeholder="Name" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">KM Range</label>
+              <div class="col-md-9">
+                <input name="km_range" placeholder="KM Range" class="form-control" type="text">
               </div>
             </div>
             <div class="form-group">

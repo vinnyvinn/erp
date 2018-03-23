@@ -21,13 +21,12 @@
       <thead>
         <tr>
                     <th>ID</th>
-                    <th>Vehicle No.</th>
-                    <th>Code</th>
+                    <th>Asset Code</th>
                     <th>Description</th>
-                    <th>Driver</th>
-                    <th>Warranty</th>
+                    <th>Assigned To</th>
+                    <th>Warranty Expiry</th>
                     <th>Location</th>
-                    <th>Next Time</th>
+                    <th>Next Maintenance Date</th>
                     <th style="width:125px;">Action
           </th>
         </tr>
@@ -36,7 +35,6 @@
                 <?php foreach($assets as $asset){?>
                      <tr>
                            <td><?php echo $asset['id'];?></td>
-                           <td><?php echo $asset['asset_no'];?></td>
                            <td><?php echo $asset['code'];?></td>
                            <td><?php echo $asset['description'];?></td>
                            <td><?php echo $asset['name'];?></td>
@@ -60,11 +58,10 @@
       <tfoot>
         <tr>
          <th>ID</th>
-         <th>Vehicle No.</th>
-         <th>Code</th>
+         <th>Asset Code</th>
          <th>Description</th>
-         <th>Driver</th>
-         <th>Warranty</th>
+         <th>Assigned To</th>
+         <th>Warranty Expiry</th>
          <th>Location</th>
          <th>Next Time</th>
          <th>Action</th>
@@ -106,13 +103,13 @@
         {
 
             $('[name="id"]').val(data.id);
-            $('[name="asset_no"]').val(data.asset_no);
             $('[name="code"]').val(data.code);
             $('[name="description"]').val(data.description);
             $('[name="driver_id"]').val(data.driver_id);
             $('[name="warranty"]').val(data.warranty);
             $('[name="next_time"]').val(data.next_time);
-            $('[name="location"]').val(data.location);       
+            $('[name="location"]').val(data.location); 
+             $('[name="km_reading"]').val(data.km_reading);       
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Asset'); // Set title to Bootstrap modal title
 
@@ -194,14 +191,9 @@
         <form action="#" id="form" class="form-horizontal">
           <input type="hidden" value="" name="id"/>
           <div class="form-body">
+            
             <div class="form-group">
-              <label class="control-label col-md-3">Vehicle No</label>
-              <div class="col-md-9">
-                <input name="asset_no" placeholder="Vehicle no" class="form-control" type="text">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Code</label>
+              <label class="control-label col-md-3">Asset Code</label>
               <div class="col-md-9">
                 <input name="code" placeholder="Code" class="form-control" type="text">
               </div>
@@ -212,10 +204,16 @@
                 <input name="description" placeholder="Description" class="form-control" type="text">
               </div>
             </div>
-             <div class="form-group">
-              <label class="control-label col-md-3">Driver</label>
+            <div class="form-group">
+              <label class="control-label col-md-3">Current KM Readings</label>
               <div class="col-md-9">
-            <select class="form-control" name="driver_id" id="driver_id" placeholder="Driver" required>
+                <input name="km_reading" placeholder="Current KM Readings" class="form-control" type="text">
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="control-label col-md-3">Assigned To</label>
+              <div class="col-md-9">
+            <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" required>
                  <?php
               foreach ($drivers_dropdown as $driver) {
                   echo "<option value=". $driver->id . ">" . ucfirst($driver->name) . "</option>";
@@ -225,7 +223,7 @@
           </div>
         </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Warranty</label>
+              <label class="control-label col-md-3">Warranty Expiry</label>
               <div class="col-md-9">
                 <input name="warranty" placeholder="Warranty" class="form-control" type="date">
               </div>
@@ -237,7 +235,7 @@
               </div>
             </div>
               <div class="form-group">
-              <label class="control-label col-md-3">Next Time</label>
+              <label class="control-label col-md-3">Next Maintenance Date</label>
               <div class="col-md-9">
                 <input name="next_time" placeholder="Next visit time" class="form-control" type="date">
               </div>

@@ -56,7 +56,7 @@
             </select>
     
 </div>
-<br>
+
 <div class="form-group">
     <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
     
@@ -70,7 +70,7 @@
         ?>
     </div>
    <div class="form-group">
-    <label for="driver" class="col-sm-3"><b><?php echo lang('driver'); ?></b></label>
+    <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
     <p id="driver"></p>
     </div> 
 </div>
@@ -96,19 +96,34 @@
         ?>
    
 </div>
-<div class="form-group input-group-sm">
-    <label for="km_reading" class="col-sm-10"><b><?php echo lang('km_reading'); ?></b></label>
+<div class="col-sm-6">
+<div class="form-group">
+    <label for="previous_km_reading"><b><?php echo lang('previous_km_reading'); ?></b></label>
+      <p id="previous_km_reading">
+        </p>
+    </div>
+</div>
+
+<div class="col-sm-6">
+<div class="form-group">
+    <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
     
         <?php
         echo form_input(array(
             "id" => "km_reading",
             "name" => "km_reading",
             "class" => "form-control",
-           
+
         ));
         ?>
     </div>
+</div>
 
+<div class="form-group input-group-sm">
+    <label for="actual_km_reading"><b><?php echo lang('actual_km_reading'); ?></b></label>
+    <p id="km_id"></p>
+        
+    </div>
 <div class="form-group">
     <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
     
@@ -127,51 +142,47 @@
 
 <div class="row">
     <div class="col-sm-12">
-<table class="table table-striped">
+<table class="table table-striped" id="items_table">
     <thead>
       <tr>
         
         <th><?php echo lang('inspection'); ?></th>
         <th><?php echo lang('done_by'); ?></th>
         <th><?php echo lang('status'); ?></th>
+        <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
        
       </tr>
     </thead>
     <tbody>
       <tr>
-        <div class="col-sm-4">
-        <td> <select  name="inspection_id[]" id="inspection_id" class="form-control" multiple>
+      <td>
+        <select  name="inspection_id" id="inspection_id" class="form-control">
               <?php
-              foreach ($inspections_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->type) . "</option>";
-              }
-              ?>
-           </select></td>
-         </div>
-         <div class="row">
-         <div class="col-sm-4">
-        <td>
-        <select name="done_by[]" id="done_by" class="form-control" multiple>
-              <?php
-              foreach ($sage_staff_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->name) . "</option>";
+              foreach ($inspections_dropdown as $insp) {
+                  echo "<option value=". $insp->id . ">" . ucfirst($insp->type) . "</option>";
               }
               ?>
            </select>
-        </td>
-      </div>
-    </div>
-      <div class="col-sm-4">
-        <td> 
-        <select class="form-control" name="status_id[]" id="status" multiple>
+      </td>
+      <td>
+             <select name="done_by" id="done_by" class="form-control">
               <?php
-              foreach ($jobs_status_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->name) . "</option>";
+              foreach ($sage_staff_dropdown as $sage) {
+                  echo "<option value=". $sage->id . ">" . ucfirst($sage->name) . "</option>";
               }
               ?>
            </select>
-       </td>
-     </div>
+         </td>
+      <td>
+        <select class="form-control" name="status_id" id="status">
+              <?php
+              foreach ($jobs_status_dropdown as $status) {
+                  echo "<option value=". $status->id . ">" . ucfirst($status->name) . "</option>";
+              }
+              ?>
+           </select>
+      </td>
+      <td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td>
       </tr>
       </tbody>
   </table>
@@ -283,7 +294,7 @@
             <th>Allocated To</th>
             <th>Start Date</th>
             <th>Start Time</th>
-            
+                       
             </tr>
             </thead>
            <tbody id="show_data">
@@ -297,7 +308,7 @@
 </div>
 <br>
 <div class="form-group">
-  <button type="submit" class="btn btn-success" id="saved_data"><span class="fa fa-check-circle"></span>Process</button>
+  <button type="submit" class="btn btn-success" id="gohome"><span class="fa fa-check-circle"></span>Process</button>
   <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
 </div>
 <?php echo form_close(); ?>
@@ -338,7 +349,7 @@
         $("#job_type").select2();
         $("#vehicle_no").select2();
         $("#done_by").select2();
-        $("#status").select2();
+        $("#status_id").select2();
         $("#inspection_id").select2();
         $("#service_type").select2();
         $("#assigned_to").select2();
@@ -350,7 +361,7 @@
 <script type="text/javascript">
              $(document).ready(function() {
              $('select[name="job_type_name"]').on('change', function() {
-               var check_id = $(this).val();
+           var check_id = $(this).val();
            console.log(check_id);
            var path="<?php echo site_url('preventive/DisplayServiceType')?>/" + check_id;
            console.log(path);
@@ -392,6 +403,27 @@
                 success : function(data){
                    var html ='<p>'+data+'</p>';
                    $('#model').html(html);
+
+                }
+ 
+            });
+        });
+        });
+</script>
+<script type="text/javascript">
+             $(document).ready(function() {
+             $('select[name="vehicle_no"]').on('change', function() {
+            var km_id = $(this).val();
+              var path="<?php echo site_url('preventive/km_reading')?>/" + km_id;
+                $.ajax({
+                type  : 'ajax',
+                url   : path,
+                async : false,
+                dataType : 'json',
+                success : function(data){
+                  localStorage.setItem('km_r', data);
+                  var html ='<p>'+data+'</p>';
+                   $('#previous_km_reading').html(html);
 
                 }
  
@@ -448,44 +480,43 @@
         });
  
 </script>
-<script type="text/javascript">
-        $('#saved_data').on('click',function(){
+    <script type="text/javascript">
+           $('#gohome').on('click',function(){
             var job_service_id = $('#service_type_id').val();
-            var job_type_id = $('#job_typo').val();
+            var job_typo = $('#job_typo').val();
             var vehicle_no = $('#vehicle_no').val();
             var time_in = $('#time_in').val();
-            var km_reading       = $('#km_reading').val();
-            var description = $('#description').val();
+            var km_reading      = $('#km_reading').val();
+            var description       = $('#description').val();
             var completion_date = $('#completion_date').val();
-            var fuel_balance = $('#fuel_balance').val();
-            var inspection_id = $('#inspection_id').val();
-            var done_by       = $('#done_by').val();
-            var status_id     = $('#status').val();
-            var mechanic_findings = $('#findings').val();
-            $.ajax({
-                type : "POST",
+            var status      = $('#status').val();
+            var inspection       = $('#inspection_id').val();
+            var fuel_balance       = $('#fuel_balance').val();
+            var who = $('#done_by').val();
+                $.ajax({
+                type : "post",
                 url  : "<?php echo site_url('preventive/save')?>",
-                dataType : "JSON",
-                data : {job_service_id:job_service_id, job_type_id:job_type_id, vehicle_no:vehicle_no,time_in:time_in,km_reading:km_reading,
-                  description:description,completion_date:completion_date,fuel_balance:fuel_balance,inspection_id:inspection_id,done_by:done_by,status_id:status_id,mechanic_findings:mechanic_findings},
-                success: function(data){
+                dataType : "json",
+                 data:{job_service_id:job_service_id, job_type_name:job_typo, vehicle_no:vehicle_no,km_reading:km_reading,time_in:time_in,description:description,completion_date:completion_date,
+                    status_id:status,inspection_id:inspection,done_by:who,fuel_balance:fuel_balance},
+                    success: function(data){
+                      console.log(data);
                     $('[name="job_service_id"]').val("");
-                    $('[name="job_type_id"]').val("");
+                    $('[name="job_type_name"]').val("");
                     $('[name="vehicle_no"]').val("");
-                    $('[name="time_in"]').val("");
                     $('[name="km_reading"]').val("");
+                    $('[name="time_in"]').val("");
                     $('[name="description"]').val("");
                     $('[name="completion_date"]').val("");
-                    $('[name="fuel_balance"]').val("");
+                    $('[name="status_id"]').val("");
                     $('[name="inspection_id"]').val("");
                     $('[name="done_by"]').val("");
-                    $('[name="status_id"]').val("");
-                    $('[name="mechanic_findings"]').val("");
-                    window.location = "<?php echo site_url('preventive')?>";
+                    $('[name="fuel_balance"]').val("");
+                    window.location.href="<?php echo site_url('preventive')?>";
                 }
             });
             return false;
-        });  
+        });
 </script>
 <script type="text/javascript">
              $(document).ready(function() {
@@ -513,4 +544,58 @@
         });
         });
 </script>
-    
+   <script type="text/javascript">
+  $('#km_reading').on('keyup',function(){
+ var km = $(this).val();
+ var km_rd=localStorage.getItem("km_r");
+ $("#km_id").html(km-km_rd);
+  });
+  </script>
+  <script type="text/javascript">
+    $(document).on('click', '.add', function(){
+  var status_data="<?php echo site_url('preventive/status_data')?>";
+    $.ajax({
+    type: "GET",
+    url: status_data,
+    dataType: "json",
+    success: function (status_data) {
+     
+   var value = status_data;
+   
+  var html = '';
+  html += '<tr>';
+  html += '<td>'+ '<select name="inspection_id[]" class="form-control">';
+  $.each(status_data['inspect'], function(value,ins)
+        {
+  html += '<option value="'+ ins['id'] +'">'+ ins['type'] +'</option>' ;
+       }); 
+  html +=  '</select></td>';
+  html += '<td>'+ '<select name="done_by[]" class="form-control">';
+   $.each(status_data['emp'], function(value,empl)
+        {
+       
+      html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
+       }); 
+  html +=  '</select></td>';
+  html += '<td>'+ '<select name="status_id[]" class="form-control">';
+      $.each(status_data['status'], function(value,item)
+        {
+        
+      html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
+       });
+       
+  html +=  '</select></td>'; 
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+  $('#items_table').append(html);
+        
+  }
+ });
+ });
+ 
+ $(document).on('click', '.remove', function(){
+  $(this).closest('tr').remove();
+ });
+
+ 
+   
+   </script>

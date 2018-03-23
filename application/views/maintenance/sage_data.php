@@ -35,6 +35,12 @@
                  <div class="title-button-group">
                     <?php echo anchor(get_uri("partsSuppliers"), "<i class='fa fa-certificate'></i> " . 'Suppliers', array("class" => "btn btn-default", "title" => 'Suppliers')); ?>
                 </div>
+                 <div class="title-button-group">
+                    <?php echo anchor(get_uri("extended_services"), "<i class='fa fa-certificate'></i> " . 'External Services', array("class" => "btn btn-info", "title" => 'External Services')); ?>
+                </div>
+                 <div class="title-button-group">
+                    <?php echo anchor(get_uri("rates"), "<i class='fa fa-certificate'></i> " . 'Rates Per Hour', array("class" => "btn btn-default", "title" => 'Rates Per Hour')); ?>
+                </div>
               </div>
                 
             </div>
