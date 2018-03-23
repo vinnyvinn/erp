@@ -19,7 +19,7 @@ class Petty_cash extends Pre_loader {
 
         if ($this->login_user->is_admin) {
             $list_data = $this->Petty_cash_model->get_all_where(array("deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $list_data = $this->Petty_cash_model->get_all_where(array("user_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
@@ -48,7 +48,7 @@ class Petty_cash extends Pre_loader {
             $optoins .= anchor(get_uri("petty_cash/approve/" . $data->id), "<i class='fa fa-check'></i>");
             $optoins .= modal_anchor(get_uri("petty_cash/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Petty Cash Disapproval", "data-post-id" => $data->id));
             // $optoins .= anchor(get_uri("petty_cash/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $optoins = NULL;
         }
 

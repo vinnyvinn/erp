@@ -30,7 +30,7 @@ class Sage extends Pre_loader {
 
   function btblJrBatches() {
         
-        $SADE_SQL = "SELECT * FROM DEMO.dbo._btblJrBatches";
+        $SADE_SQL = "SELECT * FROM _btblJrBatches";
         $stmt   = $this->SAGE_DB()->query($SADE_SQL);
 
         $arr = array();
@@ -46,7 +46,7 @@ class Sage extends Pre_loader {
 
     function Accounts() {
         
-        $SADE_SQL = "SELECT AccountLink, (Master_Sub_Account + ' : ' + Description) AS Master_Sub_Account_Description FROM  DEMO.dbo.Accounts ORDER BY AccountLink " . $_GET['Order'];
+        $SADE_SQL = "SELECT AccountLink, (Master_Sub_Account + ' : ' + Description) AS Master_Sub_Account_Description FROM  Accounts ORDER BY AccountLink " . $_GET['Order'];
         $stmt   = $this->SAGE_DB()->query($SADE_SQL);
 
         $arr = array();
@@ -62,7 +62,7 @@ class Sage extends Pre_loader {
 
     function Projects() {
         
-        $SADE_SQL = "SELECT ProjectLink, (ProjectCode + ' : ' + ProjectName) AS PROJECT FROM DEMO.dbo.Project";
+        $SADE_SQL = "SELECT ProjectLink, (ProjectCode + ' : ' + ProjectName) AS PROJECT FROM Project";
         $stmt   = $this->SAGE_DB()->query($SADE_SQL);
 
         $arr = array();
@@ -95,7 +95,7 @@ class Sage extends Pre_loader {
 
     function save_sage_sync() {
         
-        $id_stmt = "SELECT id FROM DEMO.dbo.Project WHERE ProjectLink = " . $_POST['projects'];
+        $id_stmt = "SELECT id FROM Project WHERE ProjectLink = " . $_POST['projects'];
         $id_query = $this->SAGE_DB()->query($id_stmt);
         $row = $id_query->row();
         $ProjectID = $row->id;
@@ -124,10 +124,10 @@ class Sage extends Pre_loader {
             $cReference .= $value . ", ";
         }
 
-        $SAGE_query = "INSERT INTO DEMO.dbo._btblJrBatchLines(iBatchesID, dTxDate, iAccountID, cDescription, cReference, fDebit, fCredit, iProjectID) VALUES (".$_POST['_btblJrBatches'].", '".date('Y-m-d')."', '".$_POST['debit']."', '$cDescription' ,'$cReference', '$Total', '', '".$_POST['projects']."')";
+        $SAGE_query = "INSERT INTO _btblJrBatchLines(iBatchesID, dTxDate, iAccountID, cDescription, cReference, fDebit, fCredit, iProjectID) VALUES (".$_POST['_btblJrBatches'].", '".date('Y-m-d')."', '".$_POST['debit']."', '$cDescription' ,'$cReference', '$Total', '', '".$_POST['projects']."')";
         $this->SAGE_DB()->query($SAGE_query);
         
-        $SAGE_query = "INSERT INTO DEMO.dbo._btblJrBatchLines(iBatchesID, dTxDate, iAccountID, cDescription, cReference, fDebit, fCredit, iProjectID) VALUES (".$_POST['_btblJrBatches'].", '".date('Y-m-d')."', '".$_POST['credit']."', '$cDescription' ,'$cReference', '', '$Total', '".$_POST['projects']."')";
+        $SAGE_query = "INSERT INTO _btblJrBatchLines(iBatchesID, dTxDate, iAccountID, cDescription, cReference, fDebit, fCredit, iProjectID) VALUES (".$_POST['_btblJrBatches'].", '".date('Y-m-d')."', '".$_POST['credit']."', '$cDescription' ,'$cReference', '', '$Total', '".$_POST['projects']."')";
         $this->SAGE_DB()->query($SAGE_query);
         
         $this->index();

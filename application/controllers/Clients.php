@@ -75,14 +75,15 @@ class Clients extends Pre_loader {
             "vat_number" => $this->input->post('vat_number'),
             "created_date" => get_current_utc_time(),
             "created_by" => $this->login_user->id,
+            "attend_1st_meeting" => $this->input->post('attend_1st_meeting') ? $this->input->post('attend_1st_meeting') : 0,
             "description" => $this->input->post('description')
         );
 
-        if ($this->login_user->is_admin) {
+        // if ($this->login_user->is_admin) {
             $data["currency_symbol"] = $this->input->post('currency_symbol') ? $this->input->post('currency_symbol') : "";
             $data["currency"] = $this->input->post('currency') ? $this->input->post('currency') : "";
             $data["disable_online_payment"] = $this->input->post('disable_online_payment') ? $this->input->post('disable_online_payment') : 0;
-        }
+        // }
 
         $save_id = $this->Clients_model->save($data, $client_id);
 
@@ -162,6 +163,7 @@ class Clients extends Pre_loader {
         $list_data = $this->Clients_model->get_details()->result();
         $result = array();
         foreach ($list_data as $data) {
+            $data->status = $this->SAGE_DB()->where('cOurRef', $data->cOurRef)->get('_rtblIncidents')->result()[0]->bHasBeenRejected == 1 ? "Task Declined" : $data->status;
             $result[] = $this->_make_row($data);
         }
         echo json_encode(array("data" => $result));
@@ -179,12 +181,19 @@ class Clients extends Pre_loader {
 
     private function _make_row($data) {
 
+        $options = modal_anchor(get_uri("clients/to_sage_modal_form"), "<i class='fa fa-check'></i>", array("class" => "edit", "title" => "Approve lead", "data-post-id" => $data->id))
+            . js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_client'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("clients/delete"), "data-action" => "delete"));
+
         if ($data->status == "Pending") {
             $status = "<button type=\"button\" class=\"btn btn-info\"> $data->status </button>";
         } elseif ($data->status == "Approved") {
             $status = "<button type=\"button\" class=\"btn btn-success\"> $data->status </button>";
+            $options = "";
         } elseif ($data->status == "Disapproved") {
             $status = "<button type=\"button\" class=\"btn btn-danger\"> $data->status </button>";
+            $options = "";
+        } elseif ($data->status == "Task Declined") {
+            $status = "<button type=\"button\" class=\"btn btn-warning\"> $data->status </button>";
         }
 
         return array($data->id,
@@ -195,14 +204,14 @@ class Clients extends Pre_loader {
             // to_currency($data->payment_received, $data->currency_symbol),
             $data->description,
             $status,
-            modal_anchor(get_uri("clients/to_sage_modal_form"), "<i class='fa fa-check'></i>", array("class" => "edit", "title" => "Approve lead", "data-post-id" => $data->id))
-            . js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_client'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("clients/delete"), "data-action" => "delete"))
+            $options
         );
     }
 
     public function to_sage_modal_form() {
 
-        $view_data['_id'] = $this->input->post('id'); 
+        $view_data['_id'] = $this->input->post('id');
+        $view_data['sage_agents_grp_dropdown'] = $this->SAGE_DB()->get_where('_rtblAgentGroups', array('bSysGroup' => 0))->result();
         $view_data['sage_agents_dropdown'] = $this->SAGE_DB()->where('cEmail !=', NULL)->get('_rtblAgents')->result();
 
         $this->load->view("clients/to_sage_modal_form", $view_data);
@@ -216,6 +225,7 @@ class Clients extends Pre_loader {
 
         $id = $this->input->post('_id');
         $sage_agent = $this->input->post('sage_agent');
+        $sage_agent_grp = $this->input->post('sage_agent_grp');
         $description = $this->input->post('description');
 
         $company_data_list = $this->Clients_model->get_details(array('id' => $id))->result()[0];
@@ -270,6 +280,7 @@ class Clients extends Pre_loader {
             'cOurRef' => $this->SAGE_DB()->select('vIncidentPrefix')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('vIncidentPrefix') . str_pad($this->SAGE_DB()->select('cSFAOpportunityNextNum')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('cSFAOpportunityNextNum'), $this->SAGE_DB()->select('iIncidentPadLength')->order_by('idCMDefaults','desc')->limit(1)->get('_rtblCMDefaults')->row('iIncidentPadLength'), '0', STR_PAD_LEFT),
             'cOutline' => $description,
             'iPriorityID' => 4,
+            'iAgentGroupId' => $sage_agent_grp,
             'iCurrentAgentID' => $sage_agent,
             'iIncidentTypeID' => 5,
             'iWorkflowID' => 3,

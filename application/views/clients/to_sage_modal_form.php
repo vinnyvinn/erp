@@ -36,6 +36,19 @@
     </div>
 </div>
 
+<div class="form-group">
+    <label for="assign agent group" class=" col-md-3">Assign Agent Group</label>
+    <div class="col-md-9">
+      <select class="select2 validate-hidden" name="sage_agent_grp" id="sage_agent_grp" required>
+          <?php
+          foreach ($sage_agents_grp_dropdown as $value) {
+              echo "<option value=". $value->idAgentGroups . ">" . ucfirst($value->cGroupName) . "</option>";
+          }
+          ?>
+        </select>
+    </div>
+</div>
+
 <div class="modal-footer">
     <button type="button" class="btn btn-default" data-dismiss="modal"><span class="fa fa-close"></span> <?php echo lang('close'); ?></button>
     <button type="submit" class="btn btn-primary"><span class="fa fa-check-circle"></span> <?php echo lang('save'); ?></button>

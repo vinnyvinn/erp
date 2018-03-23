@@ -4,7 +4,7 @@
             <h1>Inventory Requisitions</h1>
             <div class="title-button-group">
                 <?php
-                    echo modal_anchor(get_uri("inventory_requisitions/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Add Inventory Requisitions", array("class" => "btn btn-default", "title" => "Add Inventory Requisitions"));
+                    echo modal_anchor(get_uri("inventory_requisitions/modal_form"), "<i class='fa fa-plus-circle'></i> " . "Request", array("class" => "btn btn-default", "title" => "Request Inventory"));
                 ?>
             </div>
         </div>
@@ -31,6 +31,7 @@
                     }
                 ?>', "class": "w20p"},
                 {title: 'Cost Amount', "class": "w20p"},
+                {title: 'Project', "class": "w20p"},
                 {title: 'Requested On', "class": "w20p"},
                 {title: 'Status', "class": "w20p"},
                 <?php

@@ -16,6 +16,12 @@ h1,h2, h3 {
 h5{
     font-weight: bold;  
 }
+.rq{
+    margin-top:-6px;
+}
+.select2-choices{
+    background-color: blanchedalmond !important;
+}
 blockquote{
     background: rgba(242, 242, 242, 0.42);
     font-size: 100%; 
@@ -26,9 +32,32 @@ pre{
     border-radius: 0;
     margin: 0;
 }
-
+.smovinn{
+        float: right;
+        margin-top: -26px;
+        margin-right: 100px;
+}
+.select2-container .select2-choice{
+    width: 100% !important;
+}
+.select2-container .select2-choice > .select2-chosen{
+    width: 200px !important;
+}
+.form-control{
+    font-size: 12px !important;
+    
+}
 .invisible{
     visibility: hidden;
+}
+.vehicle_sel > .select2-container > .select2-chosen{
+    border: 1px solid #ccc !important;
+    background-color: white !important;
+    border-bottom: 1px solid #ccc !important;
+   
+}
+#select2-chosen-1{
+ width: 100% !important; 
 }
 .navbar-default {
     background-color: #fff;
@@ -118,6 +147,9 @@ a.dark:hover{
 }
 .page-title .btn {
     margin: 10px 5px;
+}
+.vinn{
+    margin-top: -10px !important; 
 }
 .page-title .title-button-group {
     float: right;

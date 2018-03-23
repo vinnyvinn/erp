@@ -209,17 +209,17 @@ $lang["start_date_to_end_date_format"] = "%s to %s";
 $lang["my_leave"] = "My leave";
 
 /* events */
-$lang["add_event"] = "Add call plan";
-$lang["edit_event"] = "Edit call plan";
-$lang["delete_event"] = "Delete call plan";
-$lang["events"] = "Call plans";
-$lang["event_calendar"] = "Call plan calendar";
+$lang["add_event"] = "Add planner";
+$lang["edit_event"] = "Edit planner";
+$lang["delete_event"] = "Delete planner";
+$lang["events"] = "planners";
+$lang["event_calendar"] = "planner calendar";
 $lang["location"] = "Location";
-$lang["event_details"] = "Call plan details";
-$lang["event_deleted"] = "The call plan has been deleted.";
+$lang["event_details"] = "planner details";
+$lang["event_deleted"] = "The planner has been deleted.";
 $lang["view_on_calendar"] = "View on calendar";
-$lang["no_event_found"] = "No call plan found!";
-$lang["events_today"] = "Call plans today";
+$lang["no_event_found"] = "No planner found!";
+$lang["events_today"] = "planners today";
 
 /* announcement */
 $lang["add_announcement"] = "Add announcement";
@@ -246,6 +246,7 @@ $lang["general"] = "General";
 $lang["general_settings"] = "General Settings";
 $lang["item_purchase_code"] = "Item Purchase Code";
 $lang["company"] = "Company";
+$lang["technical"] = "Technical";
 $lang["company_settings"] = "Company Settings";
 $lang["email_settings"] = "Email Settings";
 $lang["payment_methods"] = "Payment Methods";
@@ -313,12 +314,12 @@ $lang["me"] = "Me";
 $lang["select_a_message"] = "Select a message to view";
 
 /* clients */
-$lang["add_client"] = "Add prospecting client";
-$lang["edit_client"] = "Edit prospecting client";
-$lang["delete_client"] = "Delete prospecting client";
-$lang["client"] = "Prospecting client";
-$lang["clients"] = "Prospecting clients";
-$lang["client_details"] = "Prospecting client details";
+$lang["add_client"] = "New Lead";
+$lang["edit_client"] = "Edit Lead";
+$lang["delete_client"] = "Delete Lead";
+$lang["client"] = "Lead";
+$lang["clients"] = "Leads";
+$lang["client_details"] = "Lead details";
 $lang["due"] = "Due";
 
 $lang["add_contact"] = "Add contact";
@@ -931,3 +932,40 @@ $lang["law_suits_types"] = "LawSuit Types";
 
 //settings extra
 $lang["add_time_durations"] = "Add Time Duration";
+
+
+/* maintenance */
+
+$lang["maintenance"] = "Maintenance";
+$lang["preventive"] = "Preventive Maintenance";
+$lang["add_card"] = " Add Job Card";
+$lang["job_card"] = " Job Card";
+$lang["vehicle"] = " Vehicle Number";
+$lang["job_card"] = " Job Card";
+$lang["spare"] = " Spare";
+$lang["reactive"] = "Reactive Maintenance";
+$lang["job_service"] = "Job/Service";
+$lang["job_type"] = "Job Type";
+$lang["vehicle_no"] = "Vehicle/Chassis Number";
+$lang["completion_date"] = "Expected Completion Date";
+$lang["make_model"] = "Make & Model";
+$lang["time_in"] = "Time In";
+$lang["km_reading"] = "Current KM Reading";
+$lang["fuel_balance"] = "Fuel Balance";
+$lang["driver"] = "Driver";
+$lang["findings"] = "Mechanic's Findings";
+$lang["done_by"] = "Done By";
+$lang["inspection"] = "Inspection";
+$lang["operation_name"] = "Operation Name";
+$lang["service_type"] = "Service Type";
+$lang["service_types"] = "Service Types";
+$lang["import_from_sage"] = "Import From Sage";
+$lang["supplier"] = "Supplier";
+$lang["suppliers"] = "Suppliers";
+$lang["external_service_type"] = "External Service Type";
+$lang["approximate_cost"] = "Approximate Cost";
+$lang["make"] = "Make";
+$lang["model"] = "Model";
+$lang["external_services"] = "External Services";
+$lang["request_service"] = "Request new Service";
+$lang["new_requisition"] = "Create new Requisition";

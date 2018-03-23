@@ -24,14 +24,14 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li class="hidden-xs">
-                <div class="form-group" id="projectJump">
+                <!-- <div class="form-group" id="projectJump">
                     <select data-placeholder="Jump To Project" name="projectsJumpLink" id="projectsJumpLink" class="form-control select2 input-sm">
                         <option selected>Jump To Project (F4)</option>
                         <?php foreach ($projects as $project) : ?>
                             <option value="/projects/view/<?= $project->id; ?>"><?= $project->title; ?></option>
                         <?php endforeach; ?>
                     </select>
-                </div>
+                </div> -->
                 <div class="dropdown-menu aside-xl m0 p0 font-100p" style="width: 400px;" >
                     <div class="dropdown-details panel bg-white m0">
                         <div class="list-group">
@@ -58,7 +58,7 @@
                 </div>
             </li>
 
-            <?php if (get_setting("module_message")) { ?>
+            <!-- <?php if (get_setting("module_message")) { ?>
                 <li class="hidden-xs <?php echo ($this->login_user->user_type === "client" && !get_setting("client_message_users")) ? "hide" : ""; ?>">
                     <?php echo js_anchor("<i class='fa fa-envelope-o'></i>", array("id" => "message-notification-icon", "class" => "dropdown-toggle", "data-toggle" => "dropdown")); ?>
                     <div class="dropdown-menu aside-xl m0 p0 w300 font-100p">
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </li>
-            <?php } ?>
+            <?php } ?> -->
 
             <li class="dropdown pr15 dropdown-user">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

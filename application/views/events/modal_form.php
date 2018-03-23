@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group clients">
         <label for="client : contact person" class=" col-md-3">Clients</label>
         <div class="col-md-9">
           <select class="select2 validate-hidden" name="client_contact_persons" id="client_contact_persons" required>
@@ -33,13 +33,13 @@
         </div>
     </div>
 
-    <div class="form-group">
-        <label for="prospect : contact person" class=" col-md-3">Prospecting Clients</label>
+    <div class="form-group leads">
+        <label for="prospect : contact person" class=" col-md-3"> Leads</label>
         <div class="col-md-9">
-          <select class="select2 validate-hidden" name="prospect_contact_persons" id="prospect_contact_persons" required>
+          <select class="select2 validate-hidden" name="lead_contact_persons" id="lead_contact_persons" required>
           <option value="0" selected> None</option>
               <?php
-              foreach ($prospect_contact_persons_dropdown as $value) {
+              foreach ($lead_contact_persons_dropdown as $value) {
                   echo "<option value=". $value->IDProspect . ">" . ucfirst($value->cCompanyName) . "</option>";
               }
               ?>
@@ -330,6 +330,14 @@
                 $(".specific_dropdown").hide().find("input").removeClass("validate-hidden");
             }
         }
+
+        $('#client_contact_persons').change(function(){ 
+            $('.leads').remove()
+        });
+
+        $('#lead_contact_persons').change(function(){ 
+            $('.clients').remove()
+        });
 
     });
 </script>
