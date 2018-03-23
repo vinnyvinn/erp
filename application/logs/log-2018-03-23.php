@@ -12891,3 +12891,510 @@ ERROR - 2018-03-23 12:17:08 --> Language file contains no data: language/english
 ERROR - 2018-03-23 12:17:08 --> Language file contains no data: language/english/custom_lang.php
 ERROR - 2018-03-23 12:17:08 --> Language file contains no data: language/english/custom_lang.php
 ERROR - 2018-03-23 12:17:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:32:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:32:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:32:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:32:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:33:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:33:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:33:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:33:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:34:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:34:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:34:46 --> Query error: Table 'prokazi.users' doesn't exist - Invalid query: SELECT users.id, users.landing_page, users.user_type, users.is_admin, users.role_id, users.email,
+            users.first_name, users.last_name, users.image, users.message_checked_at, users.notification_checked_at, users.client_id, 
+            users.is_primary_contact, users.sticky_note,
+            roles.title as role_title, roles.permissions,
+            (SELECT GROUP_CONCAT(id) team_ids FROM team WHERE FIND_IN_SET('5', `members`)) as team_ids
+        FROM users
+        LEFT JOIN roles ON roles.id = users.role_id AND roles.deleted = 0
+        WHERE users.deleted=0 AND users.id=5
+ERROR - 2018-03-23 12:34:46 --> Query error: Table 'prokazi.users' doesn't exist - Invalid query: SELECT users.id, users.landing_page, users.user_type, users.is_admin, users.role_id, users.email,
+            users.first_name, users.last_name, users.image, users.message_checked_at, users.notification_checked_at, users.client_id, 
+            users.is_primary_contact, users.sticky_note,
+            roles.title as role_title, roles.permissions,
+            (SELECT GROUP_CONCAT(id) team_ids FROM team WHERE FIND_IN_SET('5', `members`)) as team_ids
+        FROM users
+        LEFT JOIN roles ON roles.id = users.role_id AND roles.deleted = 0
+        WHERE users.deleted=0 AND users.id=5
+ERROR - 2018-03-23 12:46:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:46:49 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:46:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:46:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:47:28 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:48:39 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:48:40 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:48:40 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:48:40 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:48:40 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:48:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:56 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:48:57 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:48:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:48:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:49:12 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:49:13 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:49:21 --> Severity: Notice --> Undefined index: serial C:\xampp\htdocs\pro-kazi\application\controllers\Projects.php 1595
+ERROR - 2018-03-23 12:50:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:50:10 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:50:11 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:50:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:14 --> Severity: Error --> Call to undefined method Projects::main_serial() C:\xampp\htdocs\pro-kazi\application\controllers\Projects.php 1583
+ERROR - 2018-03-23 12:50:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:50:42 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:50:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:47 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:50:47 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:50:47 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:50:47 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:50:47 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:50:47 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:50:48 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:50:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:50:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:51:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:51:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:51:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:51:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:52:09 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:52:10 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:52:10 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:52:10 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:52:10 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:52:10 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:52:10 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:52:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:52:14 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:52:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:52:20 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:52:21 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:52:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:52:27 --> Severity: Notice --> Undefined variable: project_id C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\main_task_modal_form.php 3
+ERROR - 2018-03-23 12:53:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:53:52 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:53:53 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:53:53 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:53:53 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:53:53 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:53:53 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:53:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:53:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:54:26 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:54:27 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:54:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:45 --> Query error: Column 'parent_id' cannot be null - Invalid query: INSERT INTO `tasks` (`parent_id`, `serial`, `priority`, `title`, `description`, `project_id`, `milestone_id`, `points`, `status`, `hesabu`, `labels`, `max_hours`, `start_date`, `deadline`, `assigned_to`, `collaborators`) VALUES (NULL, NULL, 'Normal', 'Other', '', '1', '0', '1', 'to_do - 0%', 0, '', '', '0000-00-00', '0000-00-00', '241', '219')
+ERROR - 2018-03-23 12:54:52 --> 404 Page Not Found: Assets/js
+ERROR - 2018-03-23 12:54:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:54:58 --> Query error: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'GROUP BY project_members.user_id' at line 5 - Invalid query: SELECT project_members.user_id, CONCAT(users.first_name, ' ',users.last_name) AS member_name
+        FROM project_members
+        LEFT JOIN users ON users.id= project_members.user_id
+        WHERE project_members.deleted=0  AND project_members.project_id= 
+        GROUP BY project_members.user_id
+ERROR - 2018-03-23 12:55:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:55:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:55:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:55:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:56:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:56:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:56:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:56:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:57:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:57:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:57:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:57:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:57:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:57:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:58:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:58:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:58:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:58:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:58:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:58:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Planner"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Leads"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "All Projects"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Your Tasks"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Checklists"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Administration"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-03-23 12:59:51 --> Could not find the language line "knowledgebase"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Team"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Team Members"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Preventive"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Reactive"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Documents"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-03-23 12:59:52 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-03-23 12:59:53 --> 404 Page Not Found: Assets/js
+ERROR - 2018-03-23 12:59:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 12:59:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:27 --> Query error: Column 'parent_id' cannot be null - Invalid query: INSERT INTO `tasks` (`parent_id`, `serial`, `priority`, `title`, `description`, `project_id`, `milestone_id`, `points`, `status`, `labels`, `max_hours`, `start_date`, `deadline`, `assigned_to`, `collaborators`) VALUES (NULL, NULL, 'Normal', 'domestic Insurance', '', '1', '0', '3', 'in_progress - 50%', '', '', '2018-03-23', '2018-04-07', '5', '')
+ERROR - 2018-03-23 13:00:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:00:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:01:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:01:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:01:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:01:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:02:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:02:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:02:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:02:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:02:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:02:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:04 --> Severity: Notice --> Trying to get property of non-object C:\xampp\htdocs\pro-kazi\application\models\Email_templates_model.php 38
+ERROR - 2018-03-23 13:03:04 --> Severity: Notice --> Trying to get property of non-object C:\xampp\htdocs\pro-kazi\application\models\Email_templates_model.php 39
+ERROR - 2018-03-23 13:03:04 --> Severity: Notice --> Trying to get property of non-object C:\xampp\htdocs\pro-kazi\application\models\Email_templates_model.php 39
+ERROR - 2018-03-23 13:03:04 --> Severity: Notice --> Trying to get property of non-object C:\xampp\htdocs\pro-kazi\application\models\Email_templates_model.php 40
+ERROR - 2018-03-23 13:03:04 --> Severity: Notice --> Trying to get property of non-object C:\xampp\htdocs\pro-kazi\application\models\Email_templates_model.php 40
+ERROR - 2018-03-23 13:03:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:03:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:04:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:04:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:04:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-03-23 13:04:55 --> Language file contains no data: language/english/custom_lang.php

@@ -31,7 +31,7 @@
             columns: [
                 {title: '<?php echo lang("id") ?>', "class": "w50"},
                 {title: '<?php echo lang("title") ?>'},
-                {title: '<?php echo lang("client") ?>', "class": "w10p"},
+                {title: '<?php echo lang("client") ?>', "class": "w15p"},
                 {visible: optionVisibility, title: '<?php echo lang("price") ?>', "class": "w10p"},
                 {visible: false, searchable: false},
                 {title: '<?php echo lang("start_date") ?>', "class": "w10p", "iDataSort": 4},

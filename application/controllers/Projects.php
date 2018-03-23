@@ -1580,20 +1580,20 @@ class Projects extends Pre_loader {
             }
         }
 
-        $view_data['main_serial'] = $this->main_serial($project_id); // serial from main_tasks
-        $view_data['sub_serial']  = $view_data['main_serial'] . "-" . $project_id; // serial from main_tasks
+        // $view_data['main_serial'] = $this->main_serial($project_id); // serial from main_tasks
+        // $view_data['sub_serial']  = $view_data['main_serial'] . "-" . $project_id; // serial from main_tasks
 
         $this->load->view('projects/tasks/modal_form', $view_data);
     }
 
-    function main_serial($project_id) {
+    /*function main_serial($project_id) {
         $object = $this->Projects_model->A("SELECT `serial` FROM `main_tasks` WHERE `project_id` = '$project_id'");
         $data   = array();;
         foreach ($object as $key => $value) {
             $data['serial'] = $value->serial;
         }
         return $data['serial'];
-    }
+    }*/
 
     function task_import_modal_form() {
 
@@ -1683,6 +1683,10 @@ class Projects extends Pre_loader {
 
     function save_task() {
 
+        // echo "<pre>";
+        // print_r($_POST);
+        // die();
+
         $project_id = $this->input->post('project_id');
         $id = $this->input->post('id');
 
@@ -1705,7 +1709,7 @@ class Projects extends Pre_loader {
 
         $data = array(
             'parent_id' => $this->input->post('parent_id'),
-            'serial' => $this->input->post('serial'),
+            // 'serial' => $this->input->post('serial'),
             'priority' => $this->input->post('priority'),
             "title" => $this->input->post('title'),
             "description" => $this->input->post('description'),
@@ -1713,7 +1717,7 @@ class Projects extends Pre_loader {
             "milestone_id" => $this->input->post('milestone_id'),
             "points" => $this->input->post('points'),
             "status" => $this->input->post('status'),
-            "hesabu" => $this->Percentages($this->input->post('status')),
+            // "hesabu" => $this->Percentages($this->input->post('status')),
             "labels" => $this->input->post('labels'),
             "max_hours" => $this->input->post('max_hours'),
             "start_date" => $this->input->post('start_date') ? $this->input->post('start_date') : "0000-00-00",
