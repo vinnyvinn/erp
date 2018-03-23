@@ -77,7 +77,11 @@ class Legal extends Pre_loader
     function modal_add_items($id){
 
         $view_data['model_id']=$id;
-        $view_data['sage_data']=array_column($this->TblLegalDocsItems->getSageItems(), 'cAssetDesc');;
+
+        $view_data['sage_data']= array_map(function($element) {
+            return $element['cAssetDesc'];
+        }, $this->TblLegalDocsItems->getSageItems());
+        //$view_data['sage_data']=array_column($this->TblLegalDocsItems->getSageItems(), 'cAssetDesc');;
 
         $this->load->view('legal/documents/modal_add_items',$view_data);
 
