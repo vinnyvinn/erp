@@ -30,9 +30,9 @@
                     $sidebar_menu[] = array("name" => "notes", "url" => "notes", "class" => "fa-book font-16");
                 }
 
-                // if (get_setting("module_message") == "1") {
-                //     $sidebar_menu[] = array("name" => "messages", "url" => "messages", "class" => "fa-envelope", "devider" => true, "badge" => count_unread_message(), "badge_class" => "badge-secondary");
-                // }
+                if (get_setting("module_message") == "1") {
+                    $sidebar_menu[] = array("name" => "messages", "url" => "messages", "class" => "fa-envelope", "devider" => true, "badge" => count_unread_message(), "badge_class" => "badge-secondary");
+                }
 
 
                 if (get_setting("module_clients") == "1") {
@@ -50,8 +50,8 @@
 
                 $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
-                /*$sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
-                $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);*/
+                $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
+                $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
                 if (($this->login_user->is_admin)) {
                     $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "devider" => true);
                 }

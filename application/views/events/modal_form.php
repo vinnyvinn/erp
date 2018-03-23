@@ -19,7 +19,7 @@
         </div>
     </div>
 
-    <div class="form-group clients">
+<!--     <div class="form-group clients">
         <label for="client : contact person" class=" col-md-3">Clients</label>
         <div class="col-md-9">
           <select class="select2 validate-hidden" name="client_contact_persons" id="client_contact_persons" required>
@@ -41,6 +41,19 @@
               <?php
               foreach ($lead_contact_persons_dropdown as $value) {
                   echo "<option value=". $value->IDProspect . ">" . ucfirst($value->cCompanyName) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div> -->
+
+    <div class="form-group">
+        <label for="opportunity" class=" col-md-3">Opportunity</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="opportunity" id="opportunity" required>
+              <?php
+              foreach ($opportunity_dropdown as $value) {
+                  echo "<option value=". $value->IDOpportunity . ">" . (($value->iClientID !== 0) ? $value->Name . " : " . $value->cOpportunityNumber . " - " . $value->cOpportunityDescription . " ( Client)" : $value->cCompanyName . " : " . $value->cOpportunityNumber . " - " . $value->cOpportunityDescription . "( Lead)") . "</option>";
               }
               ?>
             </select>
@@ -93,6 +106,19 @@
               <?php
               foreach ($pipeline_stage_dropdown as $value) {
                   echo "<option value=". $value->IDOpportunityStage . ">" . ucfirst($value->cStageName) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="opportunity status" class=" col-md-3">Opportunity Status</label>
+        <div class="col-md-9">
+          <select class="select2 validate-hidden" name="opportunity_status" id="opportunity_status" required>
+              <?php
+              foreach ($opportunity_status_dropdown as $value) {
+                  echo "<option value=". $value->IDOpportunityStatus . ">" . ucfirst($value->cStatusName) . "</option>";
               }
               ?>
             </select>
