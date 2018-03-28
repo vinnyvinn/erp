@@ -1,8 +1,8 @@
 <?php echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?>
   <div class="modal-body clearfix">
      <div class="panel panel-default">
-    <div class="panel-heading">Job Card #<?php echo $jobs['card_no']?>
-         <a href="<?php echo base_url('preventive/print_job/'.$jobs['id']);?>" class="bt btn-success pull-right">Print Page</a>
+    <div class="panel-heading">Job Card #<?php echo $jobs[0]['data']['card_no']?>
+         <a href="<?php echo base_url('preventive/print_job/'.$jobs[0]['data']['id']);?>" class="bt btn-success pull-right">Print Page</a>
        </div>
     <div class="panel-body">
      <div class="row">
@@ -10,7 +10,7 @@
     <div class="form-group vehicle_sel">
     <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
    <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled>
-              <option value=""><?php echo $jobs['code'];?></option>
+              <option value=""><?php echo $jobs[0]['data']['code'];?></option>
               <?php
               foreach ($vehicles_dropdown as $value) {
                   echo "<option value=". $value->id . ">" . ucfirst($value->code) . "</option>";
@@ -24,7 +24,7 @@
 
     <label for="job_service" class="col-sm-3"><b><?php echo lang('job_service'); ?></b></label>
              <select class="form-control" name="job_service_id" id="service_type_id" required disabled>
-             <option value=""><?php echo $jobs['service_name']?></option>
+             <option value=""><?php echo $jobs[0]['data']['service_name']?></option>
               <?php
               foreach ($service_types_dropdown as $value) {
                   echo "<option value=". $value->id . ">" . ucfirst($value->service_name) . "</option>";
@@ -40,7 +40,7 @@
         echo form_textarea(array(
             "id" => "description",
             "name" => "description",
-            "value" => $jobs['explanation'],
+            "value" => $jobs[0]['data']['explanation'],
             "class" => "form-control",
             'rows' => '5',
             'cols' => '40',
@@ -55,7 +55,7 @@
 <div class="form-group">
     <label for="job_type" class="col-sm-10"><b>Job Type</b></label>
     <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-            <option value=""><?php echo $jobs['job_type']?></option>     
+            <option value=""><?php echo $jobs[0]['data']['job_type']?></option>     
             </select>
     
 </div>
@@ -67,7 +67,7 @@
         echo form_input(array(
             "id" => "completion_date",
             "name" => "completion_date",
-            "value" => $jobs['completion_date'],
+            "value" => $jobs[0]['data']['completion_date'],
             "class" => "form-control",
             "disabled" => "disabled",
            
@@ -76,7 +76,7 @@
     </div>
    <div class="form-group">
     <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-    <p id="driver"><?php echo $jobs['driver'];?></p>
+    <p id="driver"><?php echo $jobs[0]['data']['driver'];?></p>
     </div> 
 </div>
 
@@ -84,7 +84,7 @@
   <div class="form-group">
     <b><?php echo lang('make_model'); ?></b>
     <br>
-     <p id="model"><?php echo $jobs['code'];?></p>      
+     <p id="model"><?php echo $jobs[0]['data']['code'];?></p>      
 </div>
 <br><br>
 <div class="form-group">
@@ -94,7 +94,7 @@
         echo form_input(array(
             "id" => "time_in",
             "name" => "time_in",
-            "value" => $jobs['time_in'],
+            "value" => $jobs[0]['data']['time_in'],
             "class" => "form-control",
             "type"  => "time",
             "disabled" => "disabled",
@@ -111,7 +111,7 @@
         echo form_input(array(
             "id" => "km_reading",
             "name" => "km_reading",
-            "value" => $jobs['km_reading'],
+            "value" => $jobs[0]['data']['km_reading'],
             "class" => "form-control",
             "disabled" => "disabled",
 
@@ -126,7 +126,7 @@
         echo form_input(array(
             "id" => "fuel_balance",
             "name" => "fuel_balance",
-            "value" => $jobs['fuel_balance'],
+            "value" => $jobs[0]['data']['fuel_balance'],
             "class" => "form-control",
             "disabled" => "disabled",
            
@@ -135,6 +135,7 @@
    </div>
 </div>
 </div>
+
 <hr>
 
 <div class="row">
@@ -150,44 +151,54 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-      <td>
-        <select  name="inspection_id" id="inspection_id" class="form-control" disabled>
-          <option value=""><?php foreach ($inspection as $inpect) {
-            echo implode(',',array($inpect['type']));
-          }?></option>
-              <?php
-              foreach ($inspections_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->type) . "</option>";
-              }
-              ?>
-           </select>
+        
+    <tr>
+      <td> 
+        <?php
+
+      foreach ($inspections['inspect'] as $key => $value) { ?>
+        <select  name="inspection_id" class="form-control" disabled="true">
+        
+    
+          <option value="">
+          <?php  echo $value[0]->type; ?>
+          </option>
+        </select>
+        <?php
+          }
+        ?>
       </td>
+
       <td>
-           <select name="done_by" id="done_by" class="form-control" disabled>
-            <option value=""><?php foreach ($drivers as $drive) {
-            echo implode(',',array($drive['name']));
-          };?></option>
-              <?php
-              foreach ($sage_staff_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->name) . "</option>";
-              }
-              ?>
-           </select>
+                <?php
+      foreach ($inspections['emp'] as $key => $value) { ?>
+        <select  name="inspection_id" class="form-control" disabled="true">
+        
+
+          <option value="">
+          <?php  echo $value[0]->employee; ?>
+          </option>
+        </select>
+        <?php
+          }
+        ?>
          </td>
       <td>
-        <select class="form-control" name="status_id" id="status" disabled>
-          <option value=""><?php foreach ($status as $state) {
-            echo implode(',',array($state['name']));
-          };?></option>
               <?php
-              foreach ($jobs_status_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->name) . "</option>";
-              }
-              ?>
-           </select>
+      foreach ($inspections['status'] as $key => $value) { ?>
+        <select  name="inspection_id" class="form-control" disabled="true">
+        
+
+          <option value="">
+          <?php  echo $value[0]->name; ?>
+          </option>
+        </select>
+        <?php
+          }
+        ?>
       </td>
-        </tr>
+    </tr>
+ 
       </tbody>
   </table>
 </div>
