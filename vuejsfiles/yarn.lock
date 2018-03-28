@@ -4462,11 +4462,21 @@ vue-toastr@^2.0.11:
   version "2.0.11"
   resolved "https://registry.yarnpkg.com/vue-toastr/-/vue-toastr-2.0.11.tgz#173d5648f8dd518a4964576acec1e553cf362d48"
 
+vue2-datepicker@^1.9.2:
+  version "1.9.2"
+  resolved "https://registry.yarnpkg.com/vue2-datepicker/-/vue2-datepicker-1.9.2.tgz#d8ea5956e57155bbb79b3ae40cfd1077b4f15019"
+  dependencies:
+    vue "^2.2.1"
+
 vue2-dropzone@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vue2-dropzone/-/vue2-dropzone-3.0.1.tgz#7f17725a75cb2620a930b73df8c0ec5ad5119a72"
   dependencies:
     dropzone "^5.2.0"
+
+vue@^2.2.1:
+  version "2.5.16"
+  resolved "https://registry.yarnpkg.com/vue/-/vue-2.5.16.tgz#07edb75e8412aaeed871ebafa99f4672584a0085"
 
 vue@^2.4.2, vue@^2.4.4:
   version "2.5.9"

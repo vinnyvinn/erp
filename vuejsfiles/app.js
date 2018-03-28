@@ -5,6 +5,7 @@ import appdetails from './helpers/appdetails';
 import VueResource from 'vue-resource';
 import VModal from 'vue-js-modal'
 import VeeValidate from 'vee-validate';
+import Reports from './components/reports/Reports.vue'
 
 import VuejsDialog from "vuejs-dialog"
 
@@ -24,6 +25,7 @@ Vue.use(VeeValidate, config);
 const app = new Vue({
     el: '#vuejs_prokazi_app_id_dont_change_or_reuse_this',
     components:{
-        CustomerSuppliers,Checklists
+        CustomerSuppliers,Checklists,
+        Reports
     }
 });
