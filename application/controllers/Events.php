@@ -347,4 +347,3 @@ class Events extends Pre_loader {
 }
 
 /* End of file events.php */
-    /* Location: ./application/controllers/events.php */

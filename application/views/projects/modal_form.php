@@ -1,3 +1,4 @@
+
 <?php echo form_open(get_uri("projects/save"), array("id" => "project-form", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
     <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
@@ -148,4 +149,3 @@
             tags: <?php echo json_encode($label_suggestions); ?>
         });
     });
-</script>    
