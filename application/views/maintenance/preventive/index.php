@@ -19,6 +19,7 @@
          <th>Driver Name</th>
          <th>Job Type</th>
          <th>Description</th>
+         <th>Actions</th>
          
          </tr>
      </thead> 
@@ -32,6 +33,8 @@
              <td><?php echo $asset['driver']?></td>
              <td><?php echo $asset['job_type']?></td>
             <td><?php echo $asset['description']?></td>
+            <td>
+            </td>
       
        </tr>
        <?php }?>

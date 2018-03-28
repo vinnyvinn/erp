@@ -29,6 +29,7 @@ class Email_templates extends Pre_loader {
             "event_notification" => array("EVENT_TITLE", "USER_NAME", "EVENT_STATUS", "EVENT_START_DATE_TIME", "EVENT_END_DATE_TIME", "NOTIFICATION_URL", "SIGNATURE"),
             "ticket_done" => array("TICKET_ID", "CREATED_AT", "CREATED_BY", "SIGNATURE"),
             "third_party" => array("TICKET_ID", "CREATED_AT", "CREATED_BY","THIRD_PARTY_NAME" ,"SIGNATURE"),
+            "next_maintenance_date" => array("VEHICLE_NO", "USER_NAME", "NEXT_DATE", "TITLE"),
             "signature" => array()
         );
     }

@@ -36,7 +36,6 @@ class Assets_types extends Pre_loader {
       
     $fromSage = array_map(function ($item) {
       return [
-        "asset_no" =>$item['idAssetNo'],
         "code" => $item['cAssetCode'],
         "description" => $item['cAssetDesc'],
         "location" => $item['iLocationNo'],
@@ -56,14 +55,13 @@ class Assets_types extends Pre_loader {
   public function add_asset()
     {
       $data = array(
-           'asset_no' => $this->input->post('asset_no'),
            'code' => $this->input->post('code'),
            'description' => $this->input->post('description'),
            'driver_id' => $this->input->post('driver_id'),
            'warranty' => $this->input->post('warranty'),
            'next_time' => $this->input->post('next_time'),
            'location' => $this->input->post('location'),
-
+           'km_reading' => $this->input->post('km_reading'),
            );
       
       $insert = $this->Assets_model->add_assets($data);
@@ -77,18 +75,38 @@ class Assets_types extends Pre_loader {
     public function asset_update()
   {
     $data = array(
-           'asset_no' => $this->input->post('asset_no'),
            'code' => $this->input->post('code'),
            'description' => $this->input->post('description'),
            'driver_id' => $this->input->post('driver_id'),
            'warranty' => $this->input->post('warranty'),
            'next_time' => $this->input->post('next_time'),
-           'location' => $this->input->post('location'),
+         'location' => $this->input->post('location'),
+         'km_reading' => $this->input->post('km_reading'),
+         'updated_at' => date("Y-m-d H:i:s"),
                 
       );
-    $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
-    echo json_encode(array("status" => TRUE));
+       $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
+       $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
+       $result = $query->row()->id; 
+       $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM Assets
+        LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
+        echo json_encode(array("status" => TRUE));
+        $this->tech_mail($variables);
+    
   }
+  
+  public function tech_mail($variables) {
+
+        $email_template = $this->Email_templates_model->get_final_template("next_maintenance_date");
+        $parser_data["VEHICLE_NO"] =$variables[0]['code'];
+        $parser_data["USER_NAME"] = $variables[0]['name'];
+        $parser_data["NEXT_DATE"] = $variables[0]['next_time'];
+        $parser_data["TITLE"] = $variables[0]['title'];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($variables[0]['email'], $email_template->subject, $message);
+    }
   public function asset_delete($id)
   {
     $this->Assets_model->delete_asset($id);

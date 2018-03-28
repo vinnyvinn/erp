@@ -32,7 +32,7 @@ class Job_types extends Pre_loader {
            'job_type_name' => $this->input->post('job_type_name'),
            'service_type' => $this->input->post('service_type'),
            'job_id' => $this->input->post('job_id'),
-           );
+               );
       
       $insert = $this->Job_types_model->add_jobs($data);
       echo json_encode(array("status" => TRUE));
@@ -48,6 +48,7 @@ class Job_types extends Pre_loader {
         'job_type_name' => $this->input->post('job_type_name'),
         'service_type' => $this->input->post('service_type'),
         'job_id' => $this->input->post('job_id'),
+        
                 
       );
     $this->Job_types_model->jobs_update(array('id' => $this->input->post('id')), $data);

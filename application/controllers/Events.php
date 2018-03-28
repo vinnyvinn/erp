@@ -35,7 +35,9 @@ class Events extends Pre_loader {
 
         $view_data['client_contact_persons_dropdown'] = $this->SAGE_DB()->get('Client')->result();
         $view_data['lead_contact_persons_dropdown'] = $this->SAGE_DB()->get('_rtblProspect')->result();
+        $view_data['opportunity_dropdown'] = $this->SAGE_DB()->select('*')->from('_rtblOpportunity')->join('_rtblProspect', '_rtblOpportunity.iProspectID = _rtblProspect.IDProspect', 'left')->join('Client', '_rtblOpportunity.iClientID = Client.DCLink', 'left')->get()->result(); // $this->SAGE_DB()->get('_rtblOpportunity')->result();
         $view_data['pipeline_stage_dropdown'] = $this->SAGE_DB()->get('_rtblOpportunityStage')->result();
+        $view_data['opportunity_status_dropdown'] = $this->SAGE_DB()->get('_rtblOpportunityStatus')->result();
         $view_data['business_type_dropdown'] = $this->Business_types_model->get_all_where(array("deleted" => 0))->result();
         $view_data['call_types_dropdown'] = $this->Call_types_model->get_all_where(array("deleted" => 0))->result();
         $view_data['objectives_dropdown'] = $this->Business_types_model->get_all_where(array("deleted" => 0))->result();
@@ -45,10 +47,6 @@ class Events extends Pre_loader {
 
     //save an event
     function save() {
-
-        echo "<pre>";
-        print_r($_POST);
-        die();
 
         validate_submitted_data(array(
             "title" => "required",
@@ -79,6 +77,8 @@ class Events extends Pre_loader {
         $target_path = get_setting("timeline_file_path");
         $files_data = move_files_from_temp_dir_to_permanent_dir($target_path, "event");
 
+        $IDOpportunity = $id ? $this->_current($id, "IDOpportunity") : $this->input->post('opportunity');
+
         $data = array(
             "title" => $this->input->post('title'),
             "description" => $this->input->post('description'),
@@ -90,16 +90,17 @@ class Events extends Pre_loader {
             "color" => $id ? $this->_current($id, "color") : "#2d9cdb",
             "created_by" => $this->login_user->id,
             "share_with" => $share_with,
-            "client_id" => $id ? $this->_current($id, "client_id") : $this->input->post('client_contact_persons'),
-            "prospector_id" => $id ? $this->_current($id, "prospector_id") : $this->input->post('lead_contact_persons'),
+            "client_id" => $id ? $this->_current($id, "client_id") : $this->get_one_where_sage('_rtblOpportunity', $where = array('IDOpportunity' => $IDOpportunity))->iClientID,
+            "prospector_id" => $id ? $this->_current($id, "prospector_id") : $this->get_one_where_sage('_rtblOpportunity', $where = array('IDOpportunity' => $IDOpportunity))->iProspectID,
             "business_type" => $id ? $this->_current($id, "business_type") : $this->input->post('business_type'),
             "call_type" => $id ? $this->_current($id, "call_type") : $this->input->post('call_type'),
             "objective_type" => $id ? $this->_current($id, "objective_type") : $this->input->post('objective'),
+            "IDOpportunity" => $IDOpportunity,
             "pipeline_stage" => $id ? $this->_current($id, "pipeline_stage") : $this->input->post('pipeline_stage'),
+            "IDOpportunityStatus" => $id ? $this->_current($id, "IDOpportunityStatus") : $this->input->post('opportunity_status'),
             "files" => $files_data ? $files_data : NULL
 
         );
-
 
         //only admin can edit other team members events
         //non-admin team members can edit only their own events
@@ -209,9 +210,13 @@ class Events extends Pre_loader {
 
         if ($this->input->post('color') === "#e74c3c") {
             // push incident to sage
-            $data = ['dCreated' => date('Y-m-d H:i:s'), 'dLastModified' => date('Y-m-d H:i:s'), 'iClassID' => 1,'iIncidentStatusID' => 1,'iDebtorID' => $this->Events_model->get_one($id)->client_id,'cOutline' => "Client Visit",'iPriorityID' => 4,'iCurrentAgentID' => $this->get_one_sage($this->Users_model->get_one($this->Events_model->get_one($id)->created_by)->email, "_rtblAgents")->idAgents];
+            $incident_data = ['dCreated' => date('Y-m-d H:i:s'), 'dLastModified' => date('Y-m-d H:i:s'), 'iClassID' => 1,'iIncidentStatusID' => 1,'iDebtorID' => $this->Events_model->get_one($id)->client_id,'cOutline' => "Client Visit",'iPriorityID' => 4,'iCurrentAgentID' => $this->get_one_sage($this->Users_model->get_one($this->Events_model->get_one($id)->created_by)->email, "_rtblAgents")->idAgents];
 
-            $this->SAGE_DB()->insert('_rtblIncidents', $data);
+            $this->SAGE_DB()->insert('_rtblIncidents', $incident_data);
+        } else {
+            // "IDOpportunity" => $this->Events_model->get_one($id)->IDOpportunity
+            $opportunity_data = ["iOpportunityStageID" => $this->Events_model->get_one($id)->pipeline_stage, "iOpportunityStatusID" => $this->Events_model->get_one($id)->IDOpportunityStatus];
+            $this->SAGE_DB()->where('IDOpportunity', $this->Events_model->get_one($id)->IDOpportunity)->update('_rtblOpportunity', $opportunity_data);
         }
 
         $data = ["color" => $this->input->post('color') ? $this->input->post('color') : $this->_current($id, "color")];

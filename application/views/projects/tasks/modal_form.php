@@ -3,7 +3,7 @@
     <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
     <?php if($project_id) : ?>
         <input type="hidden" name="project_id" value="<?php echo $project_id; ?>" />
-        <div class="form-group">
+        <div class="form-group" hidden>
             <label for="title" class=" col-md-3">Main Task <small>(Optional)</small></label>
             <div class=" col-md-8">
                 <select name="parent_id" id="parent_id" class="form-control select2">

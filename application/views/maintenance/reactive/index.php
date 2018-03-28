@@ -14,6 +14,7 @@
     <table class="table table-striped table-bordered" id="spares" style="width: 100%">
      <thead>
        <tr>
+
          <th>No.</th>
          <th>Requisition #</th>
          <th>Card #</th>
@@ -21,9 +22,10 @@
          <th>Total Amount</th>
          <th>Requested On</th>
          </tr>
-     </thead> 
+         </thead> 
      <tbody>
       <?php foreach ($spares as $spare) {?>
+
          <tr>
          <td><?php echo $spare['spID']?></td>
          <td><a href="<?php echo base_url('reactive/show_form/'.$spare['spID'])?>"><?php echo $spare['requisition_no']?></a>

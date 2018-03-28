@@ -2,8 +2,7 @@
   <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading">Job Card #<?php echo $jobs['card_no']?>
-         <a href="<?php echo base_url('preventive/print_job/'.$jobs['id']);?>" class="bt btn-success pull-right">Print Page</a>
-       </div>
+               </div>
     <div class="panel-body">
      <div class="row">
   <div class="col-sm-4">
@@ -617,5 +616,7 @@
  $(document).on('click', '.remove', function(){
   $(this).closest('tr').remove();
  });
- 
-   </script>
+ </script>
+ <script type="text/javascript">
+   window.print();
+ </script>

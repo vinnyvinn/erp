@@ -278,10 +278,45 @@ class Projects extends Pre_loader {
 
     /* load project  add/edit modal */
 
+    function get_sage_projects_dropdown_list($option_fields = array(), $key = "ProjectLink") {
+        $list_data = $this->SAGE_DB()->get('Project')->result();
+        $result = array();
+        foreach ($list_data as $data) {
+            $text = "";
+            foreach ($option_fields as $option) {
+                $text.=$data->$option . " ";
+            }
+            $result[$data->$key] = $text;
+        }
+        return $result;
+    }
+
+    function get_sage_project_data($id, $return) {
+        return $this->SAGE_DB()->get_where('Project', array('ProjectLink' => $id))->result()[0]->$return;
+    }
+
+    function get_sage_client_data($id, $return) {
+        return $this->SAGE_DB()->get_where('Client', array('DCLink' => $id))->result()[0]->$return;
+    }
+
+    function get_sage_clients_dropdown_list($option_fields = array(), $key = "DCLink") {
+        $list_data = $this->SAGE_DB()->get('Client')->result();
+        $result = array();
+        foreach ($list_data as $data) {
+            $text = "";
+            foreach ($option_fields as $option) {
+                $text.=$data->$option . " ";
+            }
+            $result[$data->$key] = $text;
+        }
+        return $result;
+    }
+
     function modal_form() {
 
         $project_id = $this->input->post('id');
         $client_id = $this->input->post('client_id');
+        $sage_project_id = $this->input->post('sage_project_id');
 
         if ($project_id) {
             if (!$this->can_edit_projects()) {
@@ -297,9 +332,14 @@ class Projects extends Pre_loader {
         if ($client_id) {
             $view_data['model_info']->client_id = $client_id;
         }
+        if ($sage_project_id) {
+            $view_data['model_info']->sage_project_id = $sage_project_id;
+        }
 
 
-        $view_data['clients_dropdown'] = $this->Clients_model->get_dropdown_list(array("company_name"));
+        // $view_data['clients_dropdown'] = $this->Clients_model->get_dropdown_list(array("company_name"));
+        $view_data['clients_dropdown'] = $this->get_sage_clients_dropdown_list(array("Account", "Name"));
+        $view_data['sage_projects_dropdown'] = $this->get_sage_projects_dropdown_list(array("ProjectCode", "ProjectName"));
 
         $labels = explode(",", $this->Projects_model->get_label_suggestions());
         $label_suggestions = array();
@@ -315,6 +355,7 @@ class Projects extends Pre_loader {
 
 
         $this->load->view('projects/modal_form', $view_data);
+
     }
 
     /* insert or update a project */
@@ -423,16 +464,18 @@ class Projects extends Pre_loader {
             }
         }
 
-        validate_submitted_data(array(
-            "title" => "required"
-            ));
+        // validate_submitted_data(array(
+        //     "title" => "required"
+        //     ));
 
         $now = get_current_utc_time();
 
         $data = array(
-            "title" => $this->input->post('title'),
+            "title" => $this->get_sage_project_data($this->input->post('sage_project_id'), "ProjectCode") . " : " . $this->get_sage_project_data($this->input->post('sage_project_id'), "ProjectName"),
             "description" => $this->input->post('description'),
             "client_id" => $this->input->post('client_id'),
+            "sage_client_id" => $this->input->post('client_id'), //$this->input->post('sage_client_id'),
+            "sage_project_id" => $this->input->post('sage_project_id'),
             "start_date" => $this->input->post('start_date') * 1 ? $this->input->post('start_date') : "0000-00-00",
             "deadline" => $this->input->post('deadline') * 1 ? $this->input->post('deadline') : "0000-00-00",
             "price" => unformat_currency($this->input->post('price')),
@@ -441,22 +484,10 @@ class Projects extends Pre_loader {
             "status" => $this->input->post('status') ? $this->input->post('status') : "open",
             );
 
-        // print_r($data);
+        /*echo "<pre>";
+        print_r($data);*/
 
         $save_id = $this->Projects_model->save($data, $id);
-
-        $SAGE_DB = $this->load->database('SAGE', TRUE);
-
-        $SADE_SQL = "SELECT DEMO.dbo.Project.id FROM dbo.Project WHERE dbo.Project.id = " . $save_id;
-        $sql   = $SAGE_DB->query($SADE_SQL);
-
-        if ($sql->num_rows() != 0) {
-            $query = "UPDATE DEMO.dbo.Project SET ProjectCode = '".get_setting("serial_prefix").sprintf('%04d', $save_id)."', ProjectName = '".$data['title']."', ProjectDescription = '".$data['description']."' WHERE dbo.Project.id = " . $save_id;
-             $SAGE_DB->query($query);
-        } else {
-            $SAGE_query = "INSERT INTO DEMO.dbo.Project(ProjectCode, ProjectName, ActiveProject, ProjectDescription, id) VALUES ('" . get_setting("serial_prefix").sprintf('%04d', $save_id) . "', '" . $data['title'] . "', 1, '" .$data['description'] . "', '" . $save_id . "')";
-            $SAGE_DB->query($SAGE_query);
-        }
 
         if ($save_id) {
             if (!$id) {
@@ -630,19 +661,13 @@ class Projects extends Pre_loader {
 
         $id = $this->input->post('id');
 
-        $SAGE_DB = $this->load->database('SAGE', TRUE);
-
         if ($this->input->post('undo')) {
-            $query = "UPDATE DEMO.dbo.Project SET ActiveProject = 1 WHERE dbo.Project.id = " . $id;
-            $SAGE_DB->query($query);
             if ($this->Projects_model->delete($id, true)) {
                 echo json_encode(array("success" => true, "data" => $this->_row_data($id), "message" => lang('record_undone')));
             } else {
                 echo json_encode(array("success" => false, lang('error_occurred')));
             }
         } else {
-            $query = "UPDATE DEMO.dbo.Project SET ActiveProject = 0 WHERE dbo.Project.id = " . $id;
-            $SAGE_DB->query($query);
             if ($this->Projects_model->delete($id)) {
 
                 log_notification("project_deleted", array("project_id" => $id));
@@ -784,7 +809,8 @@ class Projects extends Pre_loader {
         return array(
             anchor(get_uri("projects/view/" . $data->id), $data->id),
             $title,
-            anchor(get_uri("clients/view/" . $data->client_id), $data->company_name),
+            // anchor(get_uri("clients/view/" . $data->client_id), $data->company_name),
+            $this->get_sage_client_data($data->client_id, "Account") . " : " . $this->get_sage_client_data($data->client_id, "Name"),
             $price,
             $data->start_date,
             $start_date,
@@ -1554,20 +1580,20 @@ class Projects extends Pre_loader {
             }
         }
 
-        $view_data['main_serial'] = $this->main_serial($project_id); // serial from main_tasks
-        $view_data['sub_serial']  = $view_data['main_serial'] . "-" . $project_id; // serial from main_tasks
+        // $view_data['main_serial'] = $this->main_serial($project_id); // serial from main_tasks
+        // $view_data['sub_serial']  = $view_data['main_serial'] . "-" . $project_id; // serial from main_tasks
 
         $this->load->view('projects/tasks/modal_form', $view_data);
     }
 
-    function main_serial($project_id) {
+    /*function main_serial($project_id) {
         $object = $this->Projects_model->A("SELECT `serial` FROM `main_tasks` WHERE `project_id` = '$project_id'");
         $data   = array();;
         foreach ($object as $key => $value) {
             $data['serial'] = $value->serial;
         }
         return $data['serial'];
-    }
+    }*/
 
     function task_import_modal_form() {
 
@@ -1657,6 +1683,10 @@ class Projects extends Pre_loader {
 
     function save_task() {
 
+        // echo "<pre>";
+        // print_r($_POST);
+        // die();
+
         $project_id = $this->input->post('project_id');
         $id = $this->input->post('id');
 
@@ -1679,7 +1709,7 @@ class Projects extends Pre_loader {
 
         $data = array(
             'parent_id' => $this->input->post('parent_id'),
-            'serial' => $this->input->post('serial'),
+            // 'serial' => $this->input->post('serial'),
             'priority' => $this->input->post('priority'),
             "title" => $this->input->post('title'),
             "description" => $this->input->post('description'),
@@ -1687,7 +1717,7 @@ class Projects extends Pre_loader {
             "milestone_id" => $this->input->post('milestone_id'),
             "points" => $this->input->post('points'),
             "status" => $this->input->post('status'),
-            "hesabu" => $this->Percentages($this->input->post('status')),
+            // "hesabu" => $this->Percentages($this->input->post('status')),
             "labels" => $this->input->post('labels'),
             "max_hours" => $this->input->post('max_hours'),
             "start_date" => $this->input->post('start_date') ? $this->input->post('start_date') : "0000-00-00",
@@ -2640,6 +2670,10 @@ class Projects extends Pre_loader {
         if (count($users)) {
             $this->Project_members_model->bulkInsert($project_id, $users);
         }
+    }
+
+    public function SAGE_DB() {
+        return $this->load->database('SAGE', TRUE);
     }
 }
 

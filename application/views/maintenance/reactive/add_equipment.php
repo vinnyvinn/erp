@@ -24,6 +24,7 @@
                     <th>Code</th>
                     <th>Asset No.</th>
                     <th>Description</th>
+                    <th>Price</th>
                      <th style="width:125px;">Action
                      </th>
         </tr>
@@ -35,6 +36,7 @@
                            <td><?php echo $equipment['code'];?></td>
                            <td><?php echo $equipment['asset_no'];?></td>
                            <td><?php echo $equipment['description'];?></td>
+                           <td><?php echo $equipment['purchase_price'];?></td>
                            <td>
                            <button class="btn btn-warning" onclick="edit_equipment(<?php echo $equipment['id'];?>)" style="font-size: 10px"><i class="glyphicon glyphicon-pencil"></i></button>
                                     <button class="btn btn-danger" onclick="delete_equipment(<?php echo $equipment['id'];?>)" style="font-size: 10px"><i class="glyphicon glyphicon-remove"></i></button>
@@ -54,6 +56,7 @@
           <th>Code</th>
           <th>Asset No.</th>
           <th>Description</th>
+          <th>Price</th>
           <th>Action</th>
         </tr>
       </tfoot>
@@ -96,7 +99,7 @@
             $('[name="code"]').val(data.code);
             $('[name="asset_no"]').val(data.asset_no);
             $('[name="description"]').val(data.description);
-            
+            $('[name="purchase_price"]').val(data.purchase_price);
 
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Equipment'); // Set title to Bootstrap modal title
@@ -195,6 +198,12 @@
               <label class="control-label col-md-3">Description</label>
               <div class="col-md-9">
                 <input name="description" placeholder="Description" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Price</label>
+              <div class="col-md-9">
+                <input name="purchase_price" placeholder="Price" class="form-control" type="text">
               </div>
             </div>
                         

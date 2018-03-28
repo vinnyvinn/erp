@@ -30,9 +30,9 @@
                     $sidebar_menu[] = array("name" => "notes", "url" => "notes", "class" => "fa-book font-16");
                 }
 
-                // if (get_setting("module_message") == "1") {
-                //     $sidebar_menu[] = array("name" => "messages", "url" => "messages", "class" => "fa-envelope", "devider" => true, "badge" => count_unread_message(), "badge_class" => "badge-secondary");
-                // }
+                if (get_setting("module_message") == "1") {
+                    $sidebar_menu[] = array("name" => "messages", "url" => "messages", "class" => "fa-envelope", "devider" => true, "badge" => count_unread_message(), "badge_class" => "badge-secondary");
+                }
 
 
                 if (get_setting("module_clients") == "1") {
@@ -53,6 +53,7 @@
                 /*$sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
                 $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);*/
                 $checklists [] = ["name" => "Ict Checklists", "url" => "checklists"];
+                $checklists [] = ["name" => "Ict Reports", "url" => "reports"];
 
                 if (($this->login_user->is_admin)) {
 
@@ -63,9 +64,6 @@
                     );
 
                 }
-
-
-
 
                 if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
 

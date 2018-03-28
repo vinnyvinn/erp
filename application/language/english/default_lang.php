@@ -694,6 +694,7 @@ $lang["ticket_commented"] = "Ticket commented";
 $lang["ticket_closed"] = "Ticket closed";
 $lang["ticket_reopened"] = "Ticket reopened";
 $lang["leave"] = "Leave";
+$lang["next_maintenance_date"] = "Next maintenance date";
 
 $lang["client_primary_contact"] = "Primary contact of client";
 $lang["client_all_contacts"] = "All contacts of client";
@@ -951,6 +952,8 @@ $lang["completion_date"] = "Expected Completion Date";
 $lang["make_model"] = "Make & Model";
 $lang["time_in"] = "Time In";
 $lang["km_reading"] = "Current KM Reading";
+$lang["previous_km_reading"] = "Previous KM Reading";
+$lang["actual_km_reading"] = "Actual KM Reading";
 $lang["fuel_balance"] = "Fuel Balance";
 $lang["driver"] = "Driver";
 $lang["findings"] = "Mechanic's Findings";

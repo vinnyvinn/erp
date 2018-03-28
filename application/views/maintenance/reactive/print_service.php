@@ -2,14 +2,17 @@
 
 <div class="modal-body clearfix">
      <div class="panel panel-default">
-    <div class="panel-heading">New External Service</div>
+    <div class="panel-heading">External Service #<?php echo $services[0]['service_no'];?>
+    <span style="margin-left: 300px">Requested On: <?php $date= $services[0]['created']; $d = new DateTime($date); echo $d->format('Y-m-d');?></span>
+      </div>
+
     <div class="panel-body">
      <div class="row">
   <div class="col-sm-3">
     <div class="form-group">
-    <label for="job_card" class="col-sm-10"><b><?php echo lang('job_card'); ?></b></label>
-   <select class="form-control" name="job_card_id" id="job_card">
-    <option></option>
+     <label for="job_card" class="col-sm-10"><b><?php echo lang('job_card'); ?></b></label>
+   <select class="form-control" name="job_card_id" id="job_card" disabled>
+    <option value="<?php echo $services[0]['jID'];?>"><?php echo $services[0]['card_no'];?></option>
              <?php
               foreach ($jobs_card_dropdown as $card) {
                   echo "<option value=". $card->id . ">" . ucfirst($card->card_no) . "</option>";
@@ -21,8 +24,8 @@
     <br>
     <div class="form-group">
     <label for="name"><b><?php echo lang('external_service_type'); ?></b></label>
-     <select class="form-control" name="service_type" id="partselected">
-     <option>-- Choose Service --</option>
+     <select class="form-control" name="service_type" id="partselected" disabled>
+     <option value="<?php echo $services[0]['id'];?>"><?php echo $services[0]['service_type'];?></option>
     <option value="service">External Parts Service</option>
     <option value="fuel">Fuel</option>
     </select>
@@ -31,8 +34,8 @@
    <div class="form-group">
    <br>
     <label for="vehicle"><b>Vehicle #</b>
-
-    <p id="vehicle_spare">  </p>  
+     
+    <p id="vehicle_spare"><?php echo $services[0]['vehicle'];?>  </p>  
     </label>
                              
       </div>
@@ -41,7 +44,7 @@
       <div class="form-group">
    <br>
     <label for="make"><b><?php echo lang('make_model'); ?></b>
-    <p id="make"></p>   
+    <p id="make"> <?php echo $services[0]['make'];?></p>   
     </label>
                             
 </div>
@@ -49,9 +52,10 @@
 </div>
 <div id="service" class="col-sm-3 parts service">
     <div class="form-group">
+
     <label for="supplier" class="col-sm-10"><b><?php echo lang('supplier'); ?></b></label>
-   <select class="form-control" name="supplier_id" id="supplier">
-       <option></option>
+   <select class="form-control" name="supplier_id" id="supplier" disabled>
+        <option value="<?php echo $services[0]['sID'];?>"><?php echo $services[0]['supplier'];?></option>
               <?php
               foreach ($suppliers_dropdown as $supplier) {
                   echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
@@ -65,28 +69,49 @@
     <div class="col-sm-6">
     <div class="form-group">
     <label for="rate"><b><?php echo lang('start_date');?></b></label>
-    <input type="text" id="txtFromDate" class="form-control" required/>
-            
+     <?php
+        echo form_input(array(
+            "id" => "rate",
+            "name" => "rate",
+            "class" => "form-control",
+            "value" => $services[0]['start_date'],
+            "disabled" => "disabled",
+            "type" => "text",
+            "required" => "required",
+             ));
+        ?>
+       
     </div>
    </div>
    <div class="col-sm-6">
     <div class="form-group">
-    <label for="hours"><b><?php echo lang('end_date')?></b></label>
-    <input type="text" name="hours" id="txtToDate" class="form-control">
-        
+    <label for="hours"><b><?php echo lang('end_date');?></b></label>
+    <input type="text" name="hours" id="hours" class="form-control" value="<?php echo $services[0]['end_date']?>"
+    disabled>
+            
+    </div>
+    <div class="form-group">
+    <label for="rate"><b>Total Charges</b></label>
+    Ksh.<?php echo number_format($services[0]['total_service'],2)?>
     </div>
    </div>
-   <br>
-   <div class="form-group">
-  <br>
-  <button type="submit" class="btn btn-info" id="saved_service" style="margin-left: 100%">Update</button>
-</div> 
-</div>
- <div class="col-sm-6">
+  </div>
+<div class="col-sm-6">
 <div class="form-group">
     <label for="description"><b><?php echo lang('description'); ?></b></label>
-    <textarea name="description" cols="10" rows="4" class="form-control" id="details" value="" disabled></textarea>
-          
+    
+        <?php
+        echo form_textarea(array(
+            "id" => "description",
+            "name" => "description",
+            "value" => $services[0]['description'],
+            "class" => "form-control",
+            "cols" => "10",
+            "rows" => "5",
+            "disabled" => "disabled",
+           
+        ));
+        ?>
     </div>
   </div>
 </div>
@@ -102,6 +127,8 @@
             "name" => "amount",
             "class" => "form-control",
             "type" => "number",
+            "value" => number_format($services[0]['amount'],2),
+            "disabled" => "disabled",
             "required" => "required",
              ));
         ?>
@@ -115,6 +142,8 @@
         echo form_input(array(
             "id" => "quantity",
             "name" => "quantity",
+            "value" => $services[0]['quantity'],
+            "disabled" => "disabled",
             "class" => "form-control",
             "type" => "number",
             "required" => "required",
@@ -126,10 +155,8 @@
 </div>
 
 <div class="col-sm-4">
-<div class="form-group">
-  <br>
-  <button type="submit" class="btn btn-success" id="saved_fuel">Add To Fuel</button>
-</div>
+  <label for="total"><b><?php echo lang('total'); ?> </b></label>
+  <p>Ksh.<?php echo number_format($services[0]['amount'],2);?></p>
 </div>
 </div>
 
@@ -139,9 +166,6 @@
 
 <?php echo form_close(); ?>
 
-<script src="<?php echo base_url('assets/js/jquery-1.9.1.js');?>"></script>
-<script src="<?php echo base_url('assets/js/jquery-theme.js');?>"></script>
-<link href="<?php echo base_url('assets/js/jquery-theme.css');?>" rel="Stylesheet" type="text/css"/>
 <script type="text/javascript">
   $("#job_card").select2();
    $("#part").select2();
@@ -168,27 +192,7 @@
         });
         });
 </script>
-<script type="text/javascript">   
-             $(document).ready(function() {
-             $('select[name="job_card_id"]').on('change', function() {
-              var ds_id=$(this).val();
-              console.log('id='+ ds_id);
-               var path="<?php echo site_url('reactive/description')?>/" + ds_id;
-                $.ajax({
-                type  : 'ajax',
-                url   : path,
-                async : false,
-                dataType : 'json',
-                success : function(data){
-                  console.log('check' + data)
-                    var html =data;
-                   $('#details').html(html);
-                }
- 
-            });
-        });
-        });
-</script>
+
 <script type="text/javascript">   
              $(document).ready(function() {
 
@@ -213,22 +217,26 @@
 <script type="text/javascript">
   $('#saved_fuel').on('click',function(){
             var job_card = $('#job_card').val();
+            var supplier = $('#supplier').val();
+            var rate = $('#rate').val();
             var quantity       = $('#quantity').val();
+            var hours = $('#hours').val();
             var amount = $('#amount').val();
-            var description = $('#description').val();
             var partselected = $('#partselected').val();
           
               $.ajax({
                 type : "POST",
                 url  : "<?php echo site_url('reactive/save_fuel_service')?>",
                 dataType : "JSON",
-                data : {job_card_id:job_card,description:description,
-                  amount:amount,quantity:quantity,service_type:partselected},
+                data : {job_card_id:job_card,supplier_id:supplier,
+                  amount:amount,quantity:quantity,rate:rate,hours:hours,service_type:partselected},
                 success: function(data){
                     $('[name="job_card_id"]').val("");
+                    $('[name="supplier"]').val("");
+                    $('[name="rate"]').val("");
                     $('[name="quantity"]').val("");
                     $('[name="amount"]').val("");
-                    $('[name="description"]').val("");
+                    $('[name="hours"]').val("");
                     $('[name="service_type"]').val("");
                     window.location = "<?php echo site_url('reactive/external_service')?>";
                 }
@@ -241,8 +249,8 @@
             var job_card = $('#job_card').val();
             var description = $('#description').val();
             var supplier = $('#supplier').val();
-            var start_date = $('#txtFromDate').val();
-            var end_date = $('#txtToDate').val();
+            var rate = $('#rate').val();
+            var hours = $('#hours').val();
             var partselected = $('#partselected').val();
           
               $.ajax({
@@ -250,14 +258,13 @@
                 url  : "<?php echo site_url('reactive/save_external_service')?>",
                 dataType : "JSON",
                 data : {job_card_id:job_card, description:description, supplier_id:supplier,
-                  start_date:start_date,end_date:end_date,service_type:partselected},
+                  rate:rate,hours:hours,service_type:partselected},
                 success: function(data){
-                  console.log(data);
                     $('[name="job_card_id"]').val("");
                     $('[name="description"]').val("");
                     $('[name="supplier_id"]').val("");
-                    $('[name="end_date"]').val("");
-                    $('[name="start_date"]').val("");
+                    $('[name="rate"]').val("");
+                    $('[name="hours"]').val("");
                     $('[name="service_type"]').val("");
                     window.location = "<?php echo site_url('reactive/external_service')?>";
                 }
@@ -274,25 +281,7 @@
 });
 </script>
 <script type="text/javascript">
-  $(document).ready(function(){
-    $("#txtFromDate").datepicker({
-        minDate: 0,
-        maxDate: "+60D",
-        numberOfMonths: 2,
-        onSelect: function(selected) {
-          $("#txtToDate").datepicker("option","minDate", selected)
-        }
-    });
-    $("#txtToDate").datepicker({ 
-        minDate: 0,
-        maxDate:"+60D",
-        numberOfMonths: 2,
-        onSelect: function(selected) {
-           $("#txtFromDate").datepicker("option","maxDate", selected)
-        }
-    });  
-});
+ 
+  window.print();
 
 </script>
-
-

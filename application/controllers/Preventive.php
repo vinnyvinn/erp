@@ -39,6 +39,12 @@ class Preventive extends Pre_loader {
       LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->name;
       echo json_encode($driver);
   }
+  public function km_reading($id){
+     $km=$this->db->query("SELECT assets.km_reading FROM assets 
+      LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->km_reading;
+      $this->session->set_userdata('k_r',$km);
+      echo json_encode($km);
+  }
   public function warrantyCheck($id){
     $date_now = date("Y-m-d");
     $query=$this->db->query("SELECT * FROM assets WHERE id=$id")->row()->warranty;
@@ -77,7 +83,7 @@ class Preventive extends Pre_loader {
         $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
         $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
         $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
         $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
         $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
         $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
@@ -85,6 +91,36 @@ class Preventive extends Pre_loader {
         $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
         $this->template->rander('maintenance/preventive/jobs_form', $view_data);
     }
+     public function status_data(){
+      $data_status=[];
+        $status=$this->db->query("SELECT jobs_status.*,jobs_status.id as s_ID FROM jobs_status")->result_array();
+      foreach ($status as $st) {
+        $data_status[]=$st;
+      }
+      $data_inspections=[];
+      $inspection=$this->db->query("SELECT job_inspections.* ,job_inspections.id as in_ID 
+        FROM job_inspections")->result_array();
+      foreach ($inspection as $insp) {
+         $data_inspections[]=$insp;
+      }
+       $data_employees=[];
+       $employees=$this->db->query("SELECT employees.* ,employees.id as emp_ID FROM employees")->result_array();
+       foreach ($employees as $employee) {
+           $data_employees[]=$employee;
+          }   
+      $all_data=array_merge(['inspect'=>$data_inspections,'emp'=>$data_employees,'status'=>$data_status]);;
+      
+      echo json_encode($all_data);
+     }
+     public function assigned_data(){
+
+       $done_by= $this->Employees_model->get_all_where(array("deleted" => 0));
+       $data=[];
+       foreach ($done_by->result() as $value) {
+         $data[]=$value;
+       }
+       echo json_encode($data);
+     }
 
       public function save_task(){
 
@@ -102,41 +138,46 @@ class Preventive extends Pre_loader {
       }
 
     public function save(){
-         $info=[];
-         $inspect=$this->input->post('inspection_id');
-          foreach ($inspect as $inspection) {
-         array_push( $info,$inspection);
-          }
-         $status=[];
-         $stat=$this->input->post('status_id');
-          foreach ($stat as $stato) {
-         array_push($status,$stato);
-          }  
-          $done_by=[];
-         $done=$this->input->post('done_by');
-          foreach ($done as $who) {
-         array_push($done_by,$who);
-          }                    
+        // var_dump($this->input->post('inspection_id'));
+        // die();
+        //  $info=[];
+        //  $inspect=$this->input->post('inspection_id');
+        //   foreach ($inspect as $inspection) {
+        //  array_push( $info,$inspection);
+        //   }
+
+        //   $status=[];
+        //  $stat=$this->input->post('status_id');
+        //   foreach ($stat as $stato) {
+        //  array_push($status,$stato);
+        //   }  
+        //   $done_by=[];
+        //  $done=$this->input->post('done_by');
+        //   foreach ($done as $who) {
+        //  array_push($done_by,$who);
+        //   }                    
             $data = array(
             "job_service_id" => $this->input->post('job_service_id'),
-            "job_type_id" => $this->input->post('job_type_id'),
+            "job_type_id" => $this->input->post('job_type_name'),
             "vehicle_no" => $this->input->post('vehicle_no'),
             "time_in" => $this->input->post('time_in'),
             "km_reading" => $this->input->post('km_reading'),
             "description" => $this->input->post('description'),
             "completion_date" => $this->input->post('completion_date'),
             "fuel_balance" => $this->input->post('fuel_balance'),
-            "inspection_id" =>implode(",",$info),
-            "done_by" =>implode(",",$done_by),
-            "status_id" =>implode(",",$status),
-            );
-
+            "inspection_id" => $this->input->post('inspection_id'),
+            "status_id" => $this->input->post('status_id'),
+            "done_by" => $this->input->post('done_by'),
+             );
+         
          $data=$this->db->insert('jobs',$data);
          $last_id=$this->db->insert_id();
-         $rand_no=rand(100,999);
-         $card=array("card_no"  =>substr('ESL-'.$rand_no,0,7));
+         $model=$this->db->query("SELECT assets.code FROM jobs
+         LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row()->code;
+         $card=array("card_no"  =>substr('ESL-'.$last_id.'-'.$model,0,20));
          $this->db->where('id',$last_id)->update('jobs',$card);
           echo json_encode($data);
+
         }
    
     public function job_type_modal(){
@@ -159,7 +200,16 @@ class Preventive extends Pre_loader {
     }
 
   public function show_job($id){
-       $job_type_id=$this->Jobs_model->fetchId($id)['j_ID'];
+   $job_id = $this->input->post('id');
+        $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
+        $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
+        $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
+     $job_type_id=$this->Jobs_model->fetchId($id)['j_ID'];
        $query="SELECT job_tasks.*,job_tasks.tasks as work,employees.name as employee,
        service_types.description FROM job_tasks 
        LEFT JOIN job_types ON job_types.id=job_tasks.jobs_type_id
@@ -203,12 +253,40 @@ class Preventive extends Pre_loader {
     $this->db->insert_batch('assets', $fromSage); 
     return redirect(base_url().'/preventive');
  }
+ public function print_job($id){
+   $job_id = $this->input->post('id');
+        $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
+        $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
+        $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
+     $job_type_id=$this->Jobs_model->fetchId($id)['j_ID'];
+       $query="SELECT job_tasks.*,job_tasks.tasks as work,employees.name as employee,
+       service_types.description FROM job_tasks 
+       LEFT JOIN job_types ON job_types.id=job_tasks.jobs_type_id
+       LEFT JOIN service_types ON service_types.id=job_tasks.service_type_id
+       LEFT JOIN employees ON employees.id=job_tasks.assigned_to WHERE job_types.id=$job_type_id";
+       $view_data['tasks']=$this->db->query($query)->result(); 
+       $view_data['jobs']=$this->Jobs_model->fetchId($id);
+       $view_data['drivers']=$this->Jobs_model->driver($id);
+       $view_data['inspection']=$this->Jobs_model->inspection($id);
+      $view_data['status']=$this->Jobs_model->status($id);
+     $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+      $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+       $view_data ['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+  $this->template->rander('maintenance/preventive/print_job',$view_data);
+ }
   
   public function employee(){
 
-  	$query = $this->HR_DB()->get('tblEmployee');
+  	
+    $query=$this->HR_DB()->get_where('tblEmployee',array(''));
      $res=$query->result_array();
-   	 echo json_encode($res);
+     echo "<pre>";
+   	var_dump($res);
     
   }
   public function supplier(){

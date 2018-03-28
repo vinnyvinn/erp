@@ -30,14 +30,16 @@ class Employees_types extends Pre_loader {
     }, $existing);
 
     
-   $HRQuery = "SELECT * FROM tblEmployee WHERE Emp_Code NOT IN ( '" . implode( "', '" , $existing ) . "' )";
+   $HRQuery = "SELECT tblEmployee.*,tblEmployee_Contact.Emp_WorkEmail FROM tblEmployee
+   LEFT JOIN  tblEmployee_Contact ON tblEmployee_Contact.Emp_Id=tblEmployee.Emp_Id 
+   WHERE tblEmployee.Emp_dept_id=4 AND tblEmployee.Emp_Code NOT IN ( '" . implode( "', '" , $existing ) . "' )";
     $fromHr = $query=$this->HR_DB()
       ->query($HRQuery)
       ->result_array();
-       
        $fromHr = array_map(function ($item) {
        return [
          "name" =>$item['Emp_Name'],
+         "email" =>$item['Emp_WorkEmail'],
          "title" => $item['Emp_Title'],
          "code_no" => $item['Emp_Code'],
          "join_date" => $item['Emp_Join_Date'],
@@ -58,6 +60,7 @@ class Employees_types extends Pre_loader {
     {
       $data = array(
            'name' => $this->input->post('name'),
+           'email' => $this->input->post('email'),
            'title' => $this->input->post('title'),
            'code_no' => $this->input->post('code_no'),
            'join_date' => $this->input->post('join_date'),
@@ -75,6 +78,7 @@ class Employees_types extends Pre_loader {
   {
     $data = array(
            'name' => $this->input->post('name'),
+           'email' => $this->input->post('email'),
            'title' => $this->input->post('title'),
            'code_no' => $this->input->post('code_no'),
            'join_date' => $this->input->post('join_date'),
