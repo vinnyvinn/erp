@@ -304,29 +304,60 @@ class Preventive extends Pre_loader
 
 public function print_job($id)
 {
-    $job_id = $this->input->post('id');
-    $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
-    $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
-    $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
-    $job_type_id = $this->Jobs_model->fetchId($id)['j_ID'];
-    $query = "SELECT job_tasks.*,job_tasks.tasks as work,employees.name as employee,
-    service_types.description FROM job_tasks 
-    LEFT JOIN job_types ON job_types.id=job_tasks.jobs_type_id
-    LEFT JOIN service_types ON service_types.id=job_tasks.service_type_id
-    LEFT JOIN employees ON employees.id=job_tasks.assigned_to WHERE job_types.id=$job_type_id";
-    $view_data['tasks'] = $this->db->query($query)->result();
-    $view_data['jobs'] = $this->Jobs_model->fetchId($id);
-    $view_data['drivers'] = $this->Jobs_model->driver($id);
-    $view_data['inspection'] = $this->Jobs_model->inspection($id);
-    $view_data['status'] = $this->Jobs_model->status($id);
-    $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
-    $view_data ['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+   $job_id = $this->input->post('id');
+        $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
+        $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
+        $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
+
+        $job_type_id = $this->Jobs_model->fetchId($id)[0]['data']['j_ID'];
+
+        $query = "SELECT job_tasks.*,job_tasks.tasks as work,employees.name as employee,
+        service_types.description FROM job_tasks 
+        LEFT JOIN job_types ON job_types.id=job_tasks.jobs_type_id
+        LEFT JOIN service_types ON service_types.id=job_tasks.service_type_id
+        LEFT JOIN employees ON employees.id=job_tasks.assigned_to WHERE job_types.id=$job_type_id";
+
+        $mydata=$this->Jobs_model->fetchId($id)[0]['data']['application_data'];
+        $f_data=json_decode($mydata);
+        $user_info=[];
+        $inspection_info=[];
+        $status_info=[];
+        $all_data=[];
+        foreach ($f_data as $key => $employee) {
+           $user_id=$employee->items->user;
+           $user=$this->db->query("SELECT employees.*,employees.name as employee FROM employees WHERE find_in_set(id,$user_id)")->result();
+           $user_info[]=$user;
+           
+       }
+       foreach ($f_data as $key => $inspect) {
+           $ins_id=$inspect->items->inspection_id;
+           $inspection=$this->db->query("SELECT * FROM job_inspections WHERE find_in_set(id,$ins_id)")->result();
+           $inspection_info[]=$inspection;
+           
+       }
+       foreach ($f_data as $key => $status) {
+           $status_id=$status->items->satus;
+           $st_data=$this->db->query("SELECT jobs_status.*,jobs_status.name as status FROM jobs_status WHERE find_in_set(id,$status_id)")->result();
+           $status_info[]=$st_data;
+           
+       }
+
+       $all_data=array_merge(['inspect' => $inspection_info, 'emp' => $user_info, 'status' => $status_info]);
+
+       $view_data['tasks'] = $this->db->query($query)->result();
+       $view_data['jobs'] = $this->Jobs_model->fetchId($id);
+       $view_data['drivers'] = $this->Jobs_model->driver($id);
+       $view_data['inspections'] = $all_data;
+       $view_data['status'] = $this->Jobs_model->status($id);
+       $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+       $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+       $view_data ['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+       $this->template->rander('maintenance/preventive/edit_form', $view_data);
     $this->template->rander('maintenance/preventive/print_job', $view_data);
 }
 

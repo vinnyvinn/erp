@@ -176,7 +176,7 @@
         
 
           <option value="">
-          <?php  echo $value[0]->employee; ?>
+          <?php  echo $value[0]->employee;?>
           </option>
         </select>
         <?php
