@@ -2,7 +2,7 @@
   "name": "vuejscodeigniter",
   "description": "Vuejs codeigniter Prokazi",
   "version": "1.0.0",
-  "author": "Geoffrey Mwangi",
+  "author": "Wagura Maurice",
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack --progress --colors",

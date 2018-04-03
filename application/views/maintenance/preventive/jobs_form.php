@@ -1,4 +1,5 @@
-<?php echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?>
+   <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
+  <form method="POST" action="<?php echo base_url('preventive/save') ?>">
   <input type="hidden" name="id" value="<?php echo $job_info->id; ?>" />
 <div class="modal-body clearfix">
      <div class="panel panel-default">
@@ -154,42 +155,15 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-      <td>
-        <select  name="inspection_id" id="inspection_id" class="form-control">
-              <?php
-              foreach ($inspections_dropdown as $insp) {
-                  echo "<option value=". $insp->id . ">" . ucfirst($insp->type) . "</option>";
-              }
-              ?>
-           </select>
-      </td>
-      <td>
-             <select name="done_by" id="done_by" class="form-control">
-              <?php
-              foreach ($sage_staff_dropdown as $sage) {
-                  echo "<option value=". $sage->id . ">" . ucfirst($sage->name) . "</option>";
-              }
-              ?>
-           </select>
-         </td>
-      <td>
-        <select class="form-control" name="status_id" id="status">
-              <?php
-              foreach ($jobs_status_dropdown as $status) {
-                  echo "<option value=". $status->id . ">" . ucfirst($status->name) . "</option>";
-              }
-              ?>
-           </select>
-      </td>
-      <td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td>
-      </tr>
+      
       </tbody>
   </table>
 </div>
 
 </div>
-<?php echo form_close();?>
+  <button type="submit" class="btn btn-success" id="gohome" name="submit"><span class="fa fa-check-circle"></span>Process</button>
+</form>
+<!-- <?php //echo form_close();?> -->
 <hr>
 <?php echo form_open('"id" = "jobs-forms" "class" = "tasks-form" "role" = "form"'); ?>
 <div class="row">
@@ -308,7 +282,6 @@
 </div>
 <br>
 <div class="form-group">
-  <button type="submit" class="btn btn-success" id="gohome"><span class="fa fa-check-circle"></span>Process</button>
   <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
 </div>
 <?php echo form_close(); ?>
@@ -460,7 +433,7 @@
             var assigned_to = $('#assigned_to').val();
             var job_time_in = $('#job_time_in').val();
             var tasks       = $('#tasks').val();
-            var activity       = $('#activity').val();
+            var activity    = $('#activity').val();
             $.ajax({
                 type : "POST",
                 url  : "<?php echo site_url('preventive/save_task')?>",
@@ -481,42 +454,79 @@
  
 </script>
     <script type="text/javascript">
-           $('#gohome').on('click',function(){
-            var job_service_id = $('#service_type_id').val();
-            var job_typo = $('#job_typo').val();
-            var vehicle_no = $('#vehicle_no').val();
-            var time_in = $('#time_in').val();
-            var km_reading      = $('#km_reading').val();
-            var description       = $('#description').val();
-            var completion_date = $('#completion_date').val();
-            var status      = $('#status').val();
-            var inspection       = $('#inspection_id').val();
-            var fuel_balance       = $('#fuel_balance').val();
-            var who = $('#done_by').val();
-                $.ajax({
-                type : "post",
-                url  : "<?php echo site_url('preventive/save')?>",
-                dataType : "json",
-                 data:{job_service_id:job_service_id, job_type_name:job_typo, vehicle_no:vehicle_no,km_reading:km_reading,time_in:time_in,description:description,completion_date:completion_date,
-                    status_id:status,inspection_id:inspection,done_by:who,fuel_balance:fuel_balance},
-                    success: function(data){
-                      console.log(data);
-                    $('[name="job_service_id"]').val("");
-                    $('[name="job_type_name"]').val("");
-                    $('[name="vehicle_no"]').val("");
-                    $('[name="km_reading"]').val("");
-                    $('[name="time_in"]').val("");
-                    $('[name="description"]').val("");
-                    $('[name="completion_date"]').val("");
-                    $('[name="status_id"]').val("");
-                    $('[name="inspection_id"]').val("");
-                    $('[name="done_by"]').val("");
-                    $('[name="fuel_balance"]').val("");
-                    window.location.href="<?php echo site_url('preventive')?>";
-                }
-            });
-            return false;
-        });
+    var inputid=0;
+   $(document).on('click', '.add', function(){
+    inputid ++;
+  var status_data="<?php echo site_url('preventive/status_data')?>";
+    $.ajax({
+    type: "GET",
+    url: status_data,
+    dataType: "json",
+    success: function (status_data) {
+    var value = status_data;
+   
+  var html = '';
+  html += '<tr>';
+  html += '<td>'+ '<select name="inspection_id['+inputid+'][]" class="form-control" id="inspection_id" onchange="myFunction()">';
+  $.each(status_data['inspect'], function(value,ins)
+        {
+  html += '<option value="'+ ins['id'] +'">'+ ins['type'] +'</option>' ;
+       }); 
+  html +=  '</select></td>';
+  html += '<td>'+ '<select name="done_by['+inputid+'][]" class="form-control" id="done_by">';
+   $.each(status_data['emp'], function(value,empl)
+        {
+       
+      html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
+       }); 
+  html +=  '</select></td>';
+  html += '<td>'+ '<select name="status_id['+inputid+'][]" class="form-control" id="status_id">';
+      $.each(status_data['status'], function(value,item)
+        {
+        
+      html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
+       });
+       
+  html +=  '</select></td>'; 
+  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+  $('#items_table').append(html);
+        
+  }
+ });
+ });
+ 
+ $(document).on('click', '.remove', function(){
+  $(this).closest('tr').remove();
+ });
+
+   $('#gohome').on('submit',function(){
+  var inspection= $('#inspection_id').val();
+  console.log(inspection);
+
+  var  who= $('#done_by').val();
+  console.log('abcd');
+  var status= $('#status_id').val();
+ //                $.ajax({
+ //                type : "post",
+ //                url  : "<?php echo site_url('preventive/save')?>",
+ //                dataType : "json",
+ //                 data:{inspection_id:inspection,done_by:who,status_id:status},
+ //                    success: function(data){
+ //                      console.log('thank  you'+data);
+                     
+ //   }
+  
+ // });
+ });
+
+</script>
+<script>
+function myFunction() {
+  $('#inspection_id').each(function(){
+     console.log($(this).val());
+  }
+);
+}
 </script>
 <script type="text/javascript">
              $(document).ready(function() {
@@ -551,51 +561,4 @@
  $("#km_id").html(km-km_rd);
   });
   </script>
-  <script type="text/javascript">
-    $(document).on('click', '.add', function(){
-  var status_data="<?php echo site_url('preventive/status_data')?>";
-    $.ajax({
-    type: "GET",
-    url: status_data,
-    dataType: "json",
-    success: function (status_data) {
-     
-   var value = status_data;
-   
-  var html = '';
-  html += '<tr>';
-  html += '<td>'+ '<select name="inspection_id[]" class="form-control">';
-  $.each(status_data['inspect'], function(value,ins)
-        {
-  html += '<option value="'+ ins['id'] +'">'+ ins['type'] +'</option>' ;
-       }); 
-  html +=  '</select></td>';
-  html += '<td>'+ '<select name="done_by[]" class="form-control">';
-   $.each(status_data['emp'], function(value,empl)
-        {
-       
-      html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
-       }); 
-  html +=  '</select></td>';
-  html += '<td>'+ '<select name="status_id[]" class="form-control">';
-      $.each(status_data['status'], function(value,item)
-        {
-        
-      html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
-       });
-       
-  html +=  '</select></td>'; 
-  html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
-  $('#items_table').append(html);
-        
-  }
- });
- });
- 
- $(document).on('click', '.remove', function(){
-  $(this).closest('tr').remove();
- });
-
- 
-   
-   </script>
+  

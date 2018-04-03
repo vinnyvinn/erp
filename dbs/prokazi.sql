@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 23/03/2018 15:05:10
+ Date: 03/04/2018 14:01:54
 */
 
 SET NAMES utf8mb4;
@@ -306,7 +306,7 @@ CREATE TABLE `equipments`  (
   `created` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of equipments
@@ -539,7 +539,7 @@ CREATE TABLE `external_services`  (
   `service_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of external_services
@@ -547,6 +547,8 @@ CREATE TABLE `external_services`  (
 INSERT INTO `external_services` VALUES (2, '5', NULL, 'fuel', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '2018-03-23 11:12:28', 0, 800, 90, 72000, 'ES-002', NULL);
 INSERT INTO `external_services` VALUES (3, '5', 10, 'service', '03/28/2018', '03/31/2018', 2400, '2018-03-23 11:24:22', 0, NULL, NULL, NULL, 'ES-003', NULL);
 INSERT INTO `external_services` VALUES (4, '7', 0, 'service', '03/28/2018', '03/30/2018', 1600, '2018-03-23 12:25:12', 0, NULL, NULL, NULL, 'ES-004', NULL);
+INSERT INTO `external_services` VALUES (5, '6', 2, 'service', '03/23/2018', '04/16/2018', 19166.666666669, '2018-03-23 18:54:58', 0, NULL, NULL, NULL, 'ES-005', NULL);
+INSERT INTO `external_services` VALUES (6, '6', NULL, 'fuel', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '2018-03-23 18:55:33', 0, 104, 50, 5200, 'ES-006', NULL);
 
 -- ----------------------------
 -- Table structure for inventory_requisitions
@@ -567,14 +569,7 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 46 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
-
--- ----------------------------
--- Records of inventory_requisitions
--- ----------------------------
-INSERT INTO `inventory_requisitions` VALUES (43, 5, 4, 'Askari Boots', '23', 4, 1, 'gerwgvberberberbgerververgv', '2018-02-15 02:08:18', '2018-02-15 02:08:18', 'Approved', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (44, 5, 2, 'Sugar', '5', 2, 1, 'Test Desc', '2018-02-14 11:00:00', NULL, 'Pending', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (45, 5, 4, 'Askari Boots', '4', 4, 1, 'second test', '2018-02-15 02:41:57', '2018-02-15 02:41:57', 'Approved', 0, 0);
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -688,7 +683,7 @@ CREATE TABLE `job_tasks`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of job_tasks
@@ -696,6 +691,8 @@ CREATE TABLE `job_tasks`  (
 INSERT INTO `job_tasks` VALUES (1, 2, 6, 'complete', '2018-03-28 00:00:00', '01:59:00', 5, '2018-03-23 07:05:37', NULL, 0);
 INSERT INTO `job_tasks` VALUES (2, 2, 9, 'great', '2018-03-21 00:00:00', '01:00:00', 6, '2018-03-23 07:05:58', NULL, 0);
 INSERT INTO `job_tasks` VALUES (3, 2, 8, 'great task', '2018-03-28 00:00:00', '01:00:00', 2, '2018-03-23 07:07:31', NULL, 0);
+INSERT INTO `job_tasks` VALUES (4, 1, 6, 'test 1', '0000-00-00 00:00:00', '00:00:00', 1, '2018-03-23 18:29:05', NULL, 0);
+INSERT INTO `job_tasks` VALUES (5, 2, 0, 'test 1', '2018-03-21 00:00:00', '09:00:00', 0, '2018-03-23 18:30:07', NULL, 0);
 
 -- ----------------------------
 -- Table structure for job_types
@@ -710,7 +707,7 @@ CREATE TABLE `job_types`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 9 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of job_types
@@ -722,6 +719,7 @@ INSERT INTO `job_types` VALUES (4, 'pooling', 3, 2, '2018-03-23 07:02:05', NULL,
 INSERT INTO `job_types` VALUES (5, 'washing', 3, 1, '2018-03-23 07:02:32', NULL, 0);
 INSERT INTO `job_types` VALUES (6, 'cleaning', 2, 1, '2018-03-23 07:02:53', NULL, 0);
 INSERT INTO `job_types` VALUES (7, 'trenching', 2, 1, '2018-03-23 07:03:05', NULL, 0);
+INSERT INTO `job_types` VALUES (8, 'Wheel Balance', 2, 2, '2018-03-23 17:43:21', NULL, 0);
 
 -- ----------------------------
 -- Table structure for jobs
@@ -737,22 +735,18 @@ CREATE TABLE `jobs`  (
   `time_in` time(0) NULL DEFAULT NULL,
   `km_reading` double NULL DEFAULT NULL,
   `fuel_balance` double NULL DEFAULT NULL,
-  `inspection_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `done_by` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
-  `status_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `card_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `application_data` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of jobs
 -- ----------------------------
-INSERT INTO `jobs` VALUES (5, 2, 1, 'testing...', 36, '2018-03-21 00:00:00', '01:59:00', 450, 540, '3', '8', '2', 'ESL-5-KHMA 276C', '2018-03-23 08:35:34', NULL, 0);
-INSERT INTO `jobs` VALUES (6, 1, 5, 'great is your reward', 38, '2018-03-13 00:00:00', '01:59:00', 780, 432, '4', '9', '1', 'ESL-6-KCB 363Y', '2018-03-23 08:36:33', NULL, 0);
-INSERT INTO `jobs` VALUES (7, 2, 4, 'testing2..', 37, '2018-03-28 00:00:00', '01:59:00', 500, 290, '2', '6', '1', 'ESL-7-KCA 001G', '2018-03-23 08:37:28', NULL, 0);
+INSERT INTO `jobs` VALUES (1, 2, 2, 'desct', 37, '2018-03-21 00:00:00', '01:00:00', 7890, 700, 'ESL-1-KCA 001G', '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"4\",\"user\":\"8\",\"satus\":\"2\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"9\",\"satus\":\"3\"}},{\"items\":{\"inspection_id\":\"6\",\"user\":\"10\",\"satus\":\"2\"}},{\"items\":{\"inspection_id\":\"2\",\"user\":\"7\",\"satus\":\"1\"}}]', '2018-03-27 09:09:12', NULL, 0);
 
 -- ----------------------------
 -- Table structure for jobs_status
@@ -1732,7 +1726,7 @@ CREATE TABLE `projects`  (
   `price` double NOT NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for rates_perhour
@@ -1924,7 +1918,7 @@ CREATE TABLE `spares`  (
   `created` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 15 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of spares
@@ -1934,6 +1928,7 @@ INSERT INTO `spares` VALUES (11, 6, 'goodie', 1, 450, 2, 900, 'RQ-011', '2018-03
 INSERT INTO `spares` VALUES (12, 6, NULL, 3, NULL, 3, 63000, 'RQ-012', '2018-03-23 13:55:00', 0);
 INSERT INTO `spares` VALUES (13, 6, NULL, 4, 10000, 4, 40000, 'RQ-013', '2018-03-23 13:59:19', 0);
 INSERT INTO `spares` VALUES (14, 7, 'testing2..', 1, 32000, 5, 160000, 'RQ-014', '2018-03-23 14:02:14', 0);
+INSERT INTO `spares` VALUES (15, 7, 'testing2..', 2, 20000, 2, 40000, 'RQ-015', '2018-03-23 18:49:53', 0);
 
 -- ----------------------------
 -- Table structure for tasks
@@ -1961,7 +1956,7 @@ CREATE TABLE `tasks`  (
   `priority` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Table structure for taxes
@@ -2465,12 +2460,15 @@ CREATE TABLE `team_member_job_info`  (
   `salary_term` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 148 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 84 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of team_member_job_info
 -- ----------------------------
 INSERT INTO `team_member_job_info` VALUES (4, 5, '2016-09-16', 0, 15000, 176, 85.227272727273, 'Monthly');
+INSERT INTO `team_member_job_info` VALUES (81, 82, '2018-01-01', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (82, 83, '2018-01-01', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (83, 84, '2018-03-01', 0, 0, 560, 0, 'Contract');
 
 -- ----------------------------
 -- Table structure for third_party_messages
@@ -2582,12 +2580,15 @@ CREATE TABLE `users`  (
   INDEX `email`(`email`) USING BTREE,
   INDEX `client_id`(`client_id`) USING BTREE,
   INDEX `deleted`(`deleted`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 256 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 85 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
 INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-13 16:31:14', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
+INSERT INTO `users` VALUES (82, 'Pato', 'Mark', 'staff', 0, 2, 'karukurobert@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '0727869468', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0);
+INSERT INTO `users` VALUES (83, 'Rob', 'Kim', 'staff', 0, 2, 'bscnrb128917@spu.ac.ke', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0);
+INSERT INTO `users` VALUES (84, 'caro', 'kim', 'staff', 0, 2, 'r.karuku@wizag.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '0727869468', NULL, '1998-03-10', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0);
 
 -- ----------------------------
 -- Table structure for vehicle_details
