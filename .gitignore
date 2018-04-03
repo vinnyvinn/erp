@@ -1,6 +1,6 @@
 application/config/database.php
 vuejsfiles/node_modules
-.settings/
-.idea/
-.buildpath
-.project
+/.settings/
+/.idea/
+/.buildpath
+/.project
