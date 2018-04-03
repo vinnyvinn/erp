@@ -1,21 +1,21 @@
 <?php
 
 if (!defined('BASEPATH'))
-	exit('No direct script access allowed');
+    exit('No direct script access allowed');
 require_once("Pre_loader.php");
 
 class Inventory_requisitions extends Pre_loader {
 
-	public function __construct() {
-		parent::__construct();
-		$this->load->helper(array('form', 'url'));
-	}
+    public function __construct() {
+        parent::__construct();
+        $this->load->helper(array('form', 'url'));
+    }
 
-	function index() {
-		$this->template->rander("inventory_requisitions/index");
-	}
+    function index() {
+        $this->template->rander("inventory_requisitions/index");
+    }
 
-	function list_data() {
+    function list_data() {
 
         if ($this->login_user->is_admin && $this->login_user->role_id == 1) {
             $list_data = $this->Inventory_requisitions_model->get_all_where(array("deleted" => 0))->result();
@@ -25,7 +25,7 @@ class Inventory_requisitions extends Pre_loader {
 
         $result = [];
         foreach ($list_data as $data) {
-        	// $data->Qty_On_Hand = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand;
+            // $data->Qty_On_Hand = $this->SAGE_DB()->where('StockLink', $list_data[0]->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand;
             $data->available_quantity = $this->SAGE_DB()->where('StockLink', $data->StkItem_id)->get('StkItem')->result()[0]->Qty_On_Hand - $this->SAGE_DB()->where('StockLink', $data->StkItem_id)->get('StkItem')->result()[0]->ReservedQty;
             $data->unit_of_measure = $this->SAGE_DB()->where('idUnits', ($this->SAGE_DB()->where('StockLink', $data->StkItem_id)->get('StkItem')->result()[0]->iUOMStockingUnitID))->get('_etblUnits')->result()[0]->cUnitCode;
             $data->status = $data->item_quantity <= $data->available_quantity ? $data->status : "Awaiting Stock";
@@ -35,11 +35,13 @@ class Inventory_requisitions extends Pre_loader {
 
         echo json_encode(array("data" => $result));
 
-        // echo "<pre>";
-        // print_r($result);
     }
 
     private function _make_row($data) {
+
+        // echo "<pre>";
+        // print_r($data);
+        // die();
 
         $title = modal_anchor(get_uri("inventory_requisitions/view_modal"), ucwords($data->item_name), array("class" => "edit", "title" => "Inventory requisitions Details", "data-post-id" => $data->id));
 
@@ -55,6 +57,7 @@ class Inventory_requisitions extends Pre_loader {
 
         if ($this->login_user->is_admin) {
             $optoins = NULL;
+            $quantities = NULL;
 
             if ($data->status == "Pending" || $data->status == "Awaiting Stock") {
                 if ($data->item_quantity <= $data->available_quantity) {
@@ -272,11 +275,11 @@ class Inventory_requisitions extends Pre_loader {
         $item_id = $this->input->post('item') ? $this->input->post('item') : $this->Inventory_requisitions_model->get_one($id)->item_id;
         $fields = new stdClass();
         foreach (($this->SAGE_DB()->query("SELECT StockLink, Description_1, AveUCst FROM StkItem WHERE StockLink = " . $item_id)->result()) as $value) {
-        	$fields = $value;
+            $fields = $value;
         }
 
         $data = array(
-        	"user_id" => $this->login_user->id,
+            "user_id" => $this->login_user->id,
             "item_id" => $item_id,
             "item_name" => $fields->Description_1,
             "item_quantity" => $this->input->post('quantity'),
@@ -289,14 +292,14 @@ class Inventory_requisitions extends Pre_loader {
         $save_id = $this->Inventory_requisitions_model->save($data, $id);
 
         if ($save_id) {
-        	echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+            echo json_encode(array("success" => true, 'message' => lang('record_saved')));
         } else {
-        	echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
         }
     }
 
     public function SAGE_DB() {
-    	return $this->load->database('SAGE', TRUE);
+        return $this->load->database('SAGE', TRUE);
     }
 
     public function fields($object) {

@@ -99,10 +99,10 @@ $db['default'] = array(
 
 $db['SAGE'] = array(
   'dsn' => '',
-  'hostname' => 'brickwall.wizag.biz',
+  'hostname' => '5.189.187.134',
   'username' => 'sa',
-  'password' => 'W1z@gP@$$w0rd',
-  'database' => 'ESL',
+  'password' => 'Qwerty123!',
+  'database' => 'ESL_LTD',
   'dbdriver' => 'sqlsrv',
   'dbprefix' => '',
   'pconnect' => FALSE,
@@ -121,10 +121,10 @@ $db['SAGE'] = array(
 
 $db['HR'] = array(
   'dsn' => '',
-  'hostname' => '173.212.247.73',
+  'hostname' => '5.189.187.134',
   'username' => 'sa',
   'password' => 'Qwerty123!',
-  'database' => 'esl',
+  'database' => 'hr',
   'dbdriver' => 'sqlsrv',
   'dbprefix' => '',
   'pconnect' => FALSE,
