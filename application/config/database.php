@@ -21,9 +21,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | ['username'] The username used to connect to the database
   | ['password'] The password used to connect to the database
   | ['database'] The name of the database you want to connect to
-  | ['dbdriver'] The database driver. e.g.: mysqli.
+  | ['dbdriver'] The database driver. e.g.: mysqlii.
   |     Currently supported:
-  |        cubrid, ibase, mssql, mysql, mysqli, oci8,
+  |        cubrid, ibase, mssql, mysqli, mysqlii, oci8,
   |        odbc, pdo, postgre, sqlite, sqlite3, sqlsrv
   | ['dbprefix'] You can add an optional prefix, which will be added
   |        to the table name when using the  Query Builder class
@@ -33,27 +33,27 @@ defined('BASEPATH') OR exit('No direct script access allowed');
   | ['cachedir'] The path to the folder where cache files should be stored
   | ['char_set'] The character set used in communicating with the database
   | ['dbcollat'] The character collation used in communicating with the database
-  |        NOTE: For MySQL and MySQLi databases, this setting is only used
-  |          as a backup if your server is running PHP < 5.2.3 or MySQL < 5.0.7
+  |        NOTE: For mysqli and mysqlii databases, this setting is only used
+  |          as a backup if your server is running PHP < 5.2.3 or mysqli < 5.0.7
   |        (and in table creation queries made with DB Forge).
-  |          There is an incompatibility in PHP with mysql_real_escape_string() which
+  |          There is an incompatibility in PHP with mysqli_real_escape_string() which
   |          can make your site vulnerable to SQL injection if you are using a
   |          multi-byte character set and are running versions lower than these.
   |          Sites using Latin-1 or UTF-8 database character set and collation are unaffected.
   | ['swap_pre'] A default table prefix that should be swapped with the dbprefix
   | ['encrypt']  Whether or not to use an encrypted connection.
   |
-  |     'mysql' (deprecated), 'sqlsrv' and 'pdo/sqlsrv' drivers accept TRUE/FALSE
-  |     'mysqli' and 'pdo/mysql' drivers accept an array with the following options:
+  |     'mysqli' (deprecated), 'sqlsrv' and 'pdo/sqlsrv' drivers accept TRUE/FALSE
+  |     'mysqlii' and 'pdo/mysqli' drivers accept an array with the following options:
   |
   |       'ssl_key'    - Path to the private key file
   |       'ssl_cert'   - Path to the public key certificate file
   |       'ssl_ca'     - Path to the certificate authority file
   |       'ssl_capath' - Path to a directory containing trusted CA certificats in PEM format
   |       'ssl_cipher' - List of *allowed* ciphers to be used for the encryption, separated by colons (':')
-  |       'ssl_verify' - TRUE/FALSE; Whether verify the server certificate or not ('mysqli' only)
+  |       'ssl_verify' - TRUE/FALSE; Whether verify the server certificate or not ('mysqlii' only)
   |
-  | ['compress'] Whether or not to use client compression (MySQL only)
+  | ['compress'] Whether or not to use client compression (mysqli only)
   | ['stricton'] TRUE/FALSE - forces 'Strict Mode' connections
   |             - good for ensuring strict SQL while developing
   | ['ssl_options'] Used to set various SSL options that can be used when making SSL connections.
@@ -79,8 +79,8 @@ $db['default'] = array(
     'dsn' => '',
     'hostname' => 'localhost',
     'username' => 'root',
-    'password' => '',
-    'database' => 'prokazi', // getDatabasae(),
+    'password' => '53785378',
+    'database' => 'esl', // getDatabasae(),
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => FALSE, //set it FALSE if your site has a huge trafic and/or you are saving session data in database
@@ -99,11 +99,10 @@ $db['default'] = array(
 
 $db['SAGE'] = array(
   'dsn' => '',
-  'hostname' => '5.189.187.134',
-  'username' => 'sa',
-  'password' => 'Qwerty123!',
-  'database' => 'ESL_LTD',
-  'dbdriver' => 'sqlsrv',
+  'hostname' => 'localhost',
+  'username' => 'root',
+  'password' => '53785378!',
+  'database' => 'esl',
   'dbprefix' => '',
   'pconnect' => FALSE,
   'db_debug' => (ENVIRONMENT !== 'production'),
@@ -121,11 +120,10 @@ $db['SAGE'] = array(
 
 $db['HR'] = array(
   'dsn' => '',
-  'hostname' => '173.212.247.73',
-  'username' => 'sa',
-  'password' => 'Qwerty123!',
+  'hostname' => '127.0.0.1',
+  'username' => 'root',
+  'password' => '53785378',
   'database' => 'esl',
-  'dbdriver' => 'sqlsrv',
   'dbprefix' => '',
   'pconnect' => FALSE,
   'db_debug' => (ENVIRONMENT !== 'production'),

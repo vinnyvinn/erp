@@ -1,26 +1,5 @@
-/*
- Navicat Premium Data Transfer
-
- Source Server         : Local MySQL
- Source Server Type    : MySQL
- Source Server Version : 100125
- Source Host           : localhost:3306
- Source Schema         : prokazi
-
- Target Server Type    : MySQL
- Target Server Version : 100125
- File Encoding         : 65001
-
- Date: 03/04/2018 14:01:54
-*/
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for activity_logs
--- ----------------------------
 DROP TABLE IF EXISTS `activity_logs`;
+
 CREATE TABLE `activity_logs`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `created_at` datetime(0) NOT NULL,
