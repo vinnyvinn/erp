@@ -5,7 +5,7 @@
         <label for="title" class=" col-md-3">Sage Project</label>
         <div class=" col-md-9">
             <?php
-            echo form_dropdown("sage_project_id", $sage_projects_dropdown, array($model_info->sage_project_id), "id='sage_project_id' class='select2 validate-hidden' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
+            echo form_dropdown("sage_project_id", $sage_projects_dropdown, "id='sage_project_id' class='select2 validate-hidden' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
             ?>
         </div>
     </div>

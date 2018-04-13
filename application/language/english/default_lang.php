@@ -972,3 +972,4 @@ $lang["model"] = "Model";
 $lang["external_services"] = "External Services";
 $lang["request_service"] = "Request new Service";
 $lang["new_requisition"] = "Create new Requisition";
+$lang["service_provider"] = "Service Provider";

@@ -36,7 +36,7 @@ class Assets_model extends Crud_model {
 		$this->db->update($this->table, $data, $where);
 		return $this->db->affected_rows();
 		}
- 
+      
 		public function delete_asset($id)
 		{
 		$this->db->where('id', $id);

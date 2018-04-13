@@ -1,13 +1,12 @@
-   <div id="page-content" class="p20 row">
+
+ <div id="page-content" class="p20 row">
     <div class="col-sm-3 col-lg-2">
         <?php
         $tab_view['active_tab'] = "technical";
         $this->load->view("settings/tabs", $tab_view);
         ?>
     </div>
-
-  <div class="col-sm-9 col-lg-10">
-
+ <div class="col-sm-9 col-lg-10">
 <div class="panel-default">
 	<div class="panel-heading">
 	<div class="panel-title">Assets</div>
@@ -17,6 +16,7 @@
 <div class="panel-body">   
     <br />
     <br />
+
     <table id="jobs_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
       <thead>
         <tr>
@@ -25,7 +25,7 @@
                     <th>Description</th>
                     <th>Assigned To</th>
                     <th>Warranty Expiry</th>
-                    <th>Location</th>
+                    <th>Service Type</th>
                     <th>Next Maintenance Date</th>
                     <th style="width:125px;">Action
           </th>
@@ -39,13 +39,15 @@
                            <td><?php echo $asset['description'];?></td>
                            <td><?php echo $asset['name'];?></td>
                            <td><?php echo $asset['warranty'];?></td>
-                           <td><?php echo $asset['location'];?></td>
+                           <td><?php echo $asset['service_type'];?></td>
                           <td><?php echo $asset['next_time'];?></td>                            
                             <td>
-                           <button class="btn btn-warning" onclick="edit_asset(<?php echo $asset['asset_ID'];?>)" style="font-size: 10px"><i class="glyphicon glyphicon-pencil"></i></button>
-
+                           <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
+<button class="btn btn-warning edito" onclick="edit_asset(<?php echo $asset['asset_ID'];?>)" style="font-size: 10px;margin-left: -24px !important;"><i class="glyphicon glyphicon-pencil"></i></button>
+                             </div>
+                              <div class="col-xs-6">                   
                            <button class="btn btn-danger" onclick="delete_asset(<?php echo $asset['asset_ID'];?>)" style="font-size: 10px"><i class="glyphicon glyphicon-remove"></i></button>
-
+                           </div>
 
                                 </td>
                       </tr>
@@ -62,7 +64,7 @@
          <th>Description</th>
          <th>Assigned To</th>
          <th>Warranty Expiry</th>
-         <th>Location</th>
+         <th>Service Type</th>
          <th>Next Time</th>
          <th>Action</th>
         </tr>
@@ -71,8 +73,12 @@
 
   </div>
  </div>
+</div>
+</div>
+</div>
 <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/js/datatable/css/dataTables.bootstrap.min.css">
+
    <script type="text/javascript">
   $(document).ready( function () {
       $('#jobs_table').DataTable();
@@ -104,12 +110,16 @@
 
             $('[name="id"]').val(data.id);
             $('[name="code"]').val(data.code);
+            $('[name="chasis_no"]').val(data.chasis_no);
+            $('[name="year_of_make"]').val(data.year_of_make);
+            $('[name="year_of_reg"]').val(data.year_of_reg);
+            $('[name="engine_no"]').val(data.engine_no);
             $('[name="description"]').val(data.description);
             $('[name="driver_id"]').val(data.driver_id);
             $('[name="warranty"]').val(data.warranty);
             $('[name="next_time"]').val(data.next_time);
             $('[name="location"]').val(data.location); 
-             $('[name="km_reading"]').val(data.km_reading);       
+            $('[name="km_reading"]').val(data.km_reading);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Asset'); // Set title to Bootstrap modal title
 
@@ -180,6 +190,7 @@
   </script>
 
   <!-- Bootstrap modal -->
+
   <div class="modal fade" id="modal_form" role="dialog">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -191,29 +202,66 @@
         <form action="#" id="form" class="form-horizontal">
           <input type="hidden" value="" name="id"/>
           <div class="form-body">
+            <div class="row">
+              <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Asset Code</label>
+              <input name="code" placeholder="Code" class="form-control" type="text" style="width: 90%;margin-left: 8px;">
+             
+            </div>
             
+          </div>
+
+          <div class="col-md-6" style="width: 45%;">
             <div class="form-group">
-              <label class="control-label col-md-3">Asset Code</label>
-              <div class="col-md-9">
-                <input name="code" placeholder="Code" class="form-control" type="text">
+              <label class="control-label">Description</label>
+               <input name="description" placeholder="Description" class="form-control" type="text">
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Chasis No.</label>
+                    <input name="chasis_no" placeholder="Chasis No." class="form-control" type="text" style="width: 90%;margin-left: 8px;">
+              
+            </div>
+          </div>
+          <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label">Engine No.</label>
+              <input name="engine_no" placeholder="Engine No." class="form-control" type="text">
+              </div>
+          </div>
+        </div>
+          <div class="row">
+            <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Year of Make</label>
+               <input name="year_of_make" placeholder="Year of Make" class="form-control" type="date" style="width: 90%;margin-left: 8px;">
               </div>
             </div>
+            <div class="col-md-6" style="width: 45%;">
             <div class="form-group">
-              <label class="control-label col-md-3">Description</label>
-              <div class="col-md-9">
-                <input name="description" placeholder="Description" class="form-control" type="text">
+              <label class="control-label">Year of Registration</label>
+              <input name="year_of_reg" placeholder="Registration year" class="form-control" type="date">
+              </div>
+          </div>
+        </div>
+        <div class="row"> 
+          <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Current KM Readings</label>
+              <input name="km_reading" placeholder="Current KM Readings" class="form-control" onmouseleave="kmReading()" 
+              type="text" style="width: 90%;margin-left: 8px;">
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Current KM Readings</label>
-              <div class="col-md-9">
-                <input name="km_reading" placeholder="Current KM Readings" class="form-control" type="text">
-              </div>
-            </div>
+
+          <div class="col-md-6" style="width: 45%;">
              <div class="form-group">
-              <label class="control-label col-md-3">Assigned To</label>
-              <div class="col-md-9">
-            <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" required>
+              <label class="control-label" style="background-color: white;">Assigned To</label>
+              <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" required">
                  <?php
               foreach ($drivers_dropdown as $driver) {
                   echo "<option value=". $driver->id . ">" . ucfirst($driver->name) . "</option>";
@@ -222,25 +270,32 @@
             </select>
           </div>
         </div>
+      </div>
+
+           <div class="row">
+            <div class="col-md-6" style="width: 45%">
             <div class="form-group">
-              <label class="control-label col-md-3">Warranty Expiry</label>
-              <div class="col-md-9">
-                <input name="warranty" placeholder="Warranty" class="form-control" type="date">
+              <label class="control-label" style="margin-left: 10px;">Warranty Expiry</label>
+              <input name="warranty" placeholder="Warranty" class="form-control" type="date" style="width: 90%;margin-left: 8px;">
               </div>
             </div>
+            <div class="col-md-6" style="width: 45%">
             <div class="form-group">
-              <label class="control-label col-md-3">Location</label>
-              <div class="col-md-9">
-                <input name="location" placeholder="Location" class="form-control" type="text">
+              <label class="control-label">Location</label>
+               <input name="location" placeholder="Location" class="form-control" type="text">
               </div>
             </div>
+          </div>
+
+          <div class="row">
+          <div class="col-md-12">
               <div class="form-group">
-              <label class="control-label col-md-3">Next Maintenance Date</label>
-              <div class="col-md-9">
-                <input name="next_time" placeholder="Next visit time" class="form-control" type="date">
+              <label class="control-label" style="margin-left: 10px;">Next Maintenance Date</label>
+              <input name="next_time" placeholder="Next visit time" class="form-control" type="date" style="width: 90%;margin-left: 8px;">
               </div>
             </div>
-                                              
+             
+            </div>                           
           
         </form>
           </div>
@@ -254,3 +309,10 @@
   <!-- End Bootstrap modal -->
 
   </body>
+<script type="text/javascript">
+ $("#driver_id").select2();
+ function kmReading(){
+    console.log('km Readings')
+  }
+</script>
+

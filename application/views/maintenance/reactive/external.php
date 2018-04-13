@@ -23,8 +23,8 @@
     <label for="name"><b><?php echo lang('external_service_type'); ?></b></label>
      <select class="form-control" name="service_type" id="partselected">
      <option>-- Choose Service --</option>
-    <option value="service">External Parts Service</option>
-    <option value="fuel">Fuel</option>
+    <option value="labour">Labour</option>
+    <option value="parts">Parts</option>
     </select>
      </div>
     <div class="col-sm-6">
@@ -47,14 +47,14 @@
 </div>
 </div>
 </div>
-<div id="service" class="col-sm-3 parts service">
+<div id="labour" class="col-sm-3 services labour">
     <div class="form-group">
-    <label for="supplier" class="col-sm-10"><b><?php echo lang('supplier'); ?></b></label>
-   <select class="form-control" name="supplier_id" id="supplier">
+    <label for="supplier" class="col-sm-10"><b>Service Provider</b></label>
+   <select class="form-control" name="service_provider_id" id="provider">
        <option></option>
               <?php
-              foreach ($suppliers_dropdown as $supplier) {
-                  echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
+              foreach ($service_providers_dropdown as $provider) {
+                  echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
               }
               ?>
            </select>
@@ -79,7 +79,7 @@
    <br>
    <div class="form-group">
   <br>
-  <button type="submit" class="btn btn-info" id="saved_service" style="margin-left: 100%">Update</button>
+  <button type="submit" class="btn btn-info" id="saved_labour" style="margin-left: 100%">Update</button>
 </div> 
 </div>
  <div class="col-sm-6">
@@ -91,10 +91,25 @@
   </div>
 </div>
 <br><br><br><br>
-<div id="fuel" class="row parts fuel">
-<div class="col-sm-4">
+<div id="parts" class="row services parts">
+  <div class="col-sm-3">
+  <div class="form-group">
+    <label for="supplier" class="col-sm-10"><b><?php echo lang('supplier'); ?></b></label>
+   <select class="form-control" name="supplier_id" id="supp">
+       <option></option>
+              <?php
+              foreach ($suppliers_dropdown as $supplier) {
+                  echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
+              }
+              ?>
+           </select>
+           
+      
+    </div>
+  </div>
+<div class="col-sm-3">
 <div class="form-group">
-    <label for="amount"><b>Price</b></label>
+    <label for="amount"><b>Cost</b></label>
     
         <?php
         echo form_input(array(
@@ -102,14 +117,14 @@
             "name" => "amount",
             "class" => "form-control",
             "type" => "number",
-            "required" => "required",
+            "required" =>"required",
              ));
         ?>
     </div>
 </div>
-<div class="col-sm-4">
+<div class="col-sm-3">
 <div class="form-group">
-    <label for="quantity"><b><?php echo lang('quantity'); ?>(in Ltrs)</b></label>
+    <label for="quantity"><b><?php echo lang('quantity'); ?></b></label>
     
         <?php
         echo form_input(array(
@@ -125,10 +140,10 @@
     </div>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-3">
 <div class="form-group">
   <br>
-  <button type="submit" class="btn btn-success" id="saved_fuel">Add To Fuel</button>
+  <button type="submit" class="btn btn-success" id="saved_parts">Update Parts</button>
 </div>
 </div>
 </div>
@@ -142,11 +157,6 @@
 <script src="<?php echo base_url('assets/js/jquery-1.9.1.js');?>"></script>
 <script src="<?php echo base_url('assets/js/jquery-theme.js');?>"></script>
 <link href="<?php echo base_url('assets/js/jquery-theme.css');?>" rel="Stylesheet" type="text/css"/>
-<script type="text/javascript">
-  $("#job_card").select2();
-   $("#part").select2();
-   $("#supplier").select2();
-</script>
  <script type="text/javascript">   
              $(document).ready(function() {
 
@@ -211,19 +221,20 @@
         });
 </script>
 <script type="text/javascript">
-  $('#saved_fuel').on('click',function(){
+  $('#saved_parts').on('click',function(){
             var job_card = $('#job_card').val();
             var quantity       = $('#quantity').val();
             var amount = $('#amount').val();
+            var supplier = $('#supp').val();
             var description = $('#description').val();
             var partselected = $('#partselected').val();
           
               $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('reactive/save_fuel_service')?>",
+                url  : "<?php echo site_url('reactive/save_parts_service')?>",
                 dataType : "JSON",
                 data : {job_card_id:job_card,description:description,
-                  amount:amount,quantity:quantity,service_type:partselected},
+                  amount:amount,quantity:quantity,service_type:partselected,supplier_id:supplier},
                 success: function(data){
                     $('[name="job_card_id"]').val("");
                     $('[name="quantity"]').val("");
@@ -237,25 +248,25 @@
         });
 </script>
 <script type="text/javascript">
-  $('#saved_service').on('click',function(){
+ $('#saved_labour').on('click',function(){
             var job_card = $('#job_card').val();
             var description = $('#description').val();
-            var supplier = $('#supplier').val();
+            var provider = $('#provider').val();
             var start_date = $('#txtFromDate').val();
             var end_date = $('#txtToDate').val();
             var partselected = $('#partselected').val();
           
               $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('reactive/save_external_service')?>",
+                url  : "<?php echo site_url('reactive/save_labour_service')?>",
                 dataType : "JSON",
-                data : {job_card_id:job_card, description:description, supplier_id:supplier,
+                data : {job_card_id:job_card, description:description, service_provider_id:provider,
                   start_date:start_date,end_date:end_date,service_type:partselected},
                 success: function(data){
                   console.log(data);
                     $('[name="job_card_id"]').val("");
                     $('[name="description"]').val("");
-                    $('[name="supplier_id"]').val("");
+                    $('[name="service_provider_id"]').val("");
                     $('[name="end_date"]').val("");
                     $('[name="start_date"]').val("");
                     $('[name="service_type"]').val("");
@@ -268,7 +279,7 @@
 <script type="text/javascript">
   $(function() {
   $('#partselected').change(function(){
-    $('.parts').hide();
+    $('.services').hide();
     $('#' + $(this).val()).show();
   });
 });
@@ -295,4 +306,7 @@
 
 </script>
 
+<script type="text/javascript">
+  $('#supp').select2();
+</script>
 

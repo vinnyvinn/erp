@@ -53,10 +53,12 @@
                 $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
                 $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
                 if (($this->login_user->is_admin)) {
-                    $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "devider" => true);
+                    $checklistsSubs = [];
+                    $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
+                    $checklistsSubs [] = ["name" => "ICT Reports", "url" => "ict_reports"];
+                    $sidebar_menu[] = array("name" => "ICT", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
                 }
-
-                if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
+               if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
 
                     $sidebar_menu[] = array("name" => "estimates", "url" => "estimates", "class" => "fa-file",
                         "submenu" => array(
@@ -185,7 +187,10 @@
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
                     $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
-                  
+                    $attendanceSubs [] = ["name" => "Warranty Parts", "url" => "warranty_parts"];
+                    $attendanceSubs [] = ["name" => "Fueling", "url" => "fuel"];
+                    $attendanceSubs [] = ["name" => "Hiring Assets", "url" => "hire_assets"];
+                    $attendanceSubs [] = ["name" => "Reports", "url" => "fuel_reports"];
                     $sidebar_menu[] = array("name" => "technical", "url" => "attendance", "class" => "fa-subway font-16", "submenu" => $attendanceSubs);
                 }
                 if ($this->login_user->is_admin) {
@@ -255,43 +260,43 @@
                 $badge = get_array_value($main_menu, "badge");
                 $badge_class = get_array_value($main_menu, "badge_class");
                 ?>
-            <li class="<?php echo $active_class . " " . $expend_class . " " . $submenu_open_class . " $devider_class"; ?> main">
-                <a href="<?php echo_uri($main_menu['url']); ?>">
-                    <i class="fa <?php echo($main_menu['class']); ?>"></i>
-                    <?php if (lang($main_menu['name'])): ?>
-                        <span><?php echo lang($main_menu['name']); ?></span>
-                    <?php else : ?>
-                        <span><?php echo $main_menu['name']; ?></span>
-                    <?php
-                    endif;
+                <li class="<?php echo $active_class . " " . $expend_class . " " . $submenu_open_class . " $devider_class"; ?> main">
+                    <a href="<?php echo_uri($main_menu['url']); ?>">
+                        <i class="fa <?php echo($main_menu['class']); ?>"></i>
+                        <?php if (lang($main_menu['name'])): ?>
+                            <span><?php echo lang($main_menu['name']); ?></span>
+                        <?php else : ?>
+                            <span><?php echo $main_menu['name']; ?></span>
+                            <?php
+                        endif;
 
-                    if ($badge) {
-                        echo "<span class='badge $badge_class'>$badge</span>";
+                        if ($badge) {
+                            echo "<span class='badge $badge_class'>$badge</span>";
+                        }
+                        ?>
+                    </a>
+                    <?php
+                    if ($submenu) {
+                        echo "<ul>";
+                        foreach ($submenu as $s_menu) {
+                            ?>
+                            <li>
+                                <a href="<?php echo_uri($s_menu['url']); ?>">
+                                    <i class="dot fa fa-circle"></i>
+                                    <?php if (lang($s_menu['name'])): ?>
+                                        <span><?php echo lang($s_menu['name']); ?></span>
+                                    <?php else : ?>
+                                        <span><?php echo $s_menu['name']; ?></span>
+                                    <?php endif; ?>
+                                </a>
+                            </li>
+                            <?php
+                        }
+                        echo "</ul>";
                     }
                     ?>
-                </a>
-                <?php
-                if ($submenu) {
-                    echo "<ul>";
-                    foreach ($submenu as $s_menu) {
-                        ?>
-                        <li>
-                            <a href="<?php echo_uri($s_menu['url']); ?>">
-                                <i class="dot fa fa-circle"></i>
-                                <?php if (lang($s_menu['name'])): ?>
-                                    <span><?php echo lang($s_menu['name']); ?></span>
-                                <?php else : ?>
-                                    <span><?php echo $s_menu['name']; ?></span>
-                                <?php endif; ?>
-                            </a>
-                        </li>
-                        <?php
-                    }
-                    echo "</ul>";
-                }
-                ?>
                 </li>
-            <?php } ?>
-        </ul>
-    </div>
-</div><!-- sidebar menu end -->
+                <?php } ?>
+            </ul>
+        </div>
+    </div><!-- sidebar menu end -->

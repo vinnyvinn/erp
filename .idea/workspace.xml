@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fcc9b4ff-bdea-4533-9a1a-8f80e437c9f4" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/application/logs/log-2018-04-11.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prokazi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prokazi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/database.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/database.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/vuejs/app.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/vuejs/app.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dbs/prokazi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/dbs/prokazi.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js" beforeDir="false" afterPath="$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vuejsfiles/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vuejsfiles/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/checklists/Checklists.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuejsfiles/components/checklists/Checklists.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vuejsfiles/components/checklists/layout/SideBar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vuejsfiles/components/checklists/layout/SideBar.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,77 +14,48 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index2.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/index2.php">
+    <leaf>
+      <file leaf-file-name="database.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/database.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="30" column="22" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+            <state relative-caret-position="165">
+              <caret line="104" column="20" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Knowledge_base.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Knowledge_base.php">
+      <file leaf-file-name="View.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/components/checklistitems/View.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="53" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="53" />
+            <state relative-caret-position="165">
+              <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="searchresult.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/searchresult.php">
+      <file leaf-file-name="Checklists.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/Checklists.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="48" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+            <state relative-caret-position="255">
+              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Legal.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/Legal.php">
+      <file leaf-file-name="ChecklistReports.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/components/ChecklistReports.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="571">
-              <caret line="89" column="32" selection-start-line="89" selection-start-column="32" selection-end-line="89" selection-end-column="32" />
+            <state relative-caret-position="15">
+              <caret line="1" column="53" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vuejsfiles/app.js">
+      <file leaf-file-name="SideBar.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/layout/SideBar.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="appdetails.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewknowledge.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/viewknowledge.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="15" selection-start-line="12" selection-start-column="15" selection-end-line="18" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TblKnowledgeBaseModel.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/TblKnowledgeBaseModel.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="70" selection-start-line="41" selection-start-column="52" selection-end-line="41" selection-end-column="70" />
+            <state relative-caret-position="60">
+              <caret line="4" column="103" selection-start-line="4" selection-start-column="103" selection-end-line="4" selection-end-column="103" />
             </state>
           </provider>
         </entry>
@@ -136,6 +102,9 @@
         <option value="$PROJECT_DIR$/application/views/knowledgebase/searchresult.php" />
         <option value="$PROJECT_DIR$/application/controllers/Legal.php" />
         <option value="$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/checklists/layout/SideBar.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/checklists/Checklists.vue" />
+        <option value="$PROJECT_DIR$/vuejsfiles/components/checklists/components/ChecklistReports.vue" />
       </list>
     </option>
   </component>
@@ -167,7 +136,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,12 +152,36 @@
               <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
               <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="helpers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="checklists" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="checklists" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="prokazi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="prokazi" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="vuejsfiles" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="checklists" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="layout" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -227,24 +219,26 @@
       <option name="presentableId" value="Default" />
       <updated>1517923014443</updated>
       <workItem from="1517923015845" duration="13547000" />
-      <workItem from="1523456199115" duration="268000" />
+      <workItem from="1523456199115" duration="1107000" />
+      <workItem from="1523524951130" duration="744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13815000" />
+    <option name="totallyTimeSpent" value="15398000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1535" height="904" extended-state="6" />
+    <frame x="64" y="-11" width="1537" height="912" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="2" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32988358" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25386167" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.32988358" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2572196" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -263,20 +257,20 @@
       <window_info anchor="bottom" id="Docker" order="3" show_stripe_button="false" />
       <window_info id="npm" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Run" order="6" />
-      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="2" visible="true" weight="0.2495114" />
       <window_info id="Structure" order="3" weight="0.25" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Find" order="5" />
+      <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info anchor="bottom" id="Terminal" order="2" />
       <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
-      <window_info anchor="bottom" id="Message" order="4" />
+      <window_info anchor="bottom" id="Find" order="5" />
       <window_info id="Favorites" order="1" side_tool="true" />
     </layout-to-restore>
   </component>
@@ -345,9 +339,6 @@
       </provider>
     </entry>
     <entry file="file:///var/www/html/templates/knowledgebase/single-article.html" />
-    <entry file="file://$PROJECT_DIR$/application/models/Knowledge_base_model.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/view.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
@@ -378,9 +369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/files/knowledgebase.1517931666.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/knowledgebase/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -408,9 +396,6 @@
           <caret line="9" column="14" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/includes/dropzone_preview.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/layout/index.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -476,18 +461,47 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#21#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/vuejsfiles/helpers/appdetails.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/database.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="104" column="20" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/components/checklistitems/View.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="78" column="18" selection-start-line="78" selection-start-column="18" selection-end-line="78" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/layout/SideBar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="103" selection-start-line="4" selection-start-column="103" selection-end-line="4" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/Checklists.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vuejsfiles/components/checklists/components/ChecklistReports.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="53" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="53" />
         </state>
       </provider>
     </entry>

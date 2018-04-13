@@ -317,9 +317,10 @@ class Projects extends Pre_loader {
         $project_id = $this->input->post('id');
         $client_id = $this->input->post('client_id');
         $sage_project_id = $this->input->post('sage_project_id');
+              
 
         if ($project_id) {
-            if (!$this->can_edit_projects()) {
+            if (!$rrthis->can_edit_projects()) {
                 redirect("forbidden");
             }
         } else {

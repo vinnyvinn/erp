@@ -211,7 +211,6 @@ $autoload['model'] = array(
     'Event_notes_model',
     'TblLegalDocsItems',
     'Jobs_model',
-    'Jobs_model',
     'Job_services_model',
     'Job_types_model',
     'Job_tasks_model',
@@ -227,4 +226,11 @@ $autoload['model'] = array(
     'External_service_model',
     'Extended_service_model',
     'Rates_model',
+    'Warranty_model',
+    'Service_providers_model',
+    'Fuel_suppliers_model',
+    'Fuel_model',
+    'Sage_clients_model',
+    'Hire_assets_model',
+    'Other_expenses_model'
     );

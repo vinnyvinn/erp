@@ -35,6 +35,10 @@
                         this.loadedcmp = DailyTasks;
                         break;
                     };
+                    case 2:{
+                        this.loadedcmp = DailyTasks;
+                        break;
+                    };
 
                     default:{
                         this.loadedcmp = ChecklistsItems;

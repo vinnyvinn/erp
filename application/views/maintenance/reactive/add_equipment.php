@@ -24,7 +24,7 @@
                     <th>Code</th>
                     <th>Asset No.</th>
                     <th>Description</th>
-                    <th>Price</th>
+                    <th>Rate</th>
                      <th style="width:125px;">Action
                      </th>
         </tr>
@@ -201,9 +201,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="control-label col-md-3">Price</label>
+              <label class="control-label col-md-3">Rate</label>
               <div class="col-md-9">
-                <input name="purchase_price" placeholder="Price" class="form-control" type="text">
+                <input name="purchase_price" placeholder="Rate" class="form-control" type="text">
               </div>
             </div>
                         

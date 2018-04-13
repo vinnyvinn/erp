@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 12, 2018 at 09:01 AM
+-- Generation Time: Apr 13, 2018 at 07:44 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -49,7 +49,23 @@ CREATE TABLE `activity_logs` (
 --
 
 INSERT INTO `activity_logs` (`id`, `created_at`, `created_by`, `action`, `log_type`, `log_type_title`, `log_type_id`, `changes`, `log_for`, `log_for_id`, `log_for2`, `log_for_id2`, `deleted`) VALUES
-(1, '2018-03-23 12:03:03', 5, 'created', 'task', 'Other', 1, NULL, 'project', 1, '', 0, 0);
+(1, '2018-03-23 12:03:03', 5, 'created', 'task', 'Other', 1, NULL, 'project', 1, '', 0, 0),
+(2, '2018-04-12 08:01:46', 5, 'created', 'milestone', 'Fencing Complete', 1, NULL, 'project', 1, '', 0, 0),
+(3, '2018-04-12 08:01:50', 5, 'created', 'task', 'Purchase of fencing materials', 1, NULL, 'project', 1, '', 0, 0),
+(4, '2018-04-12 08:06:15', 5, 'created', 'task', 'FEncing', 2, NULL, 'project', 1, '', 0, 0),
+(5, '2018-04-12 08:08:23', 94, 'updated', 'task', 'FEncing', 2, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 25%\";s:2:\"to\";s:17:\"in_progress - 50%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:50;}}', 'project', 1, '', 0, 0),
+(6, '2018-04-12 08:14:22', 100, 'created', 'task_comment', 'Fencing complete as of now', 1, NULL, 'project', 1, 'task', 1, 0),
+(7, '2018-04-12 08:14:42', 100, 'updated', 'task', 'Purchase of fencing materials', 1, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:10:\"to_do - 0%\";s:2:\"to\";s:17:\"in_progress - 50%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:1:\"0\";s:2:\"to\";i:50;}}', 'project', 1, '', 0, 0),
+(8, '2018-04-12 08:24:58', 5, 'created', 'project_comment', 'Test Comment', 2, NULL, 'project', 1, '', 0, 0),
+(9, '2018-04-12 08:28:48', 100, 'created', 'task_comment', 'all materials supplied', 3, NULL, 'project', 1, 'task', 1, 0),
+(10, '2018-04-12 08:29:33', 5, 'created', 'task_comment', 'thanks', 4, NULL, 'project', 1, 'task', 1, 0),
+(11, '2018-04-12 08:33:07', 100, 'updated', 'task', 'Purchase of fencing materials', 1, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"50\";s:2:\"to\";i:100;}}', 'project', 1, '', 0, 0),
+(12, '2018-04-12 08:38:58', 5, 'updated', 'task', 'Purchase of fencing materials', 1, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:10:\"to_do - 0%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:0;}}', 'project', 1, '', 0, 0),
+(13, '2018-04-12 08:46:59', 5, 'created', 'project_comment', 'AR', 5, NULL, 'project', 1, '', 0, 0),
+(14, '2018-04-12 11:59:44', 5, 'created', 'task', 'demo task', 3, NULL, 'project', 2, '', 0, 0),
+(15, '2018-04-12 12:09:58', 5, 'created', 'task', 'demo 3', 4, NULL, 'project', 2, '', 0, 0),
+(16, '2018-04-12 13:49:26', 100, 'updated', 'task', 'FEncing', 2, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"50\";s:2:\"to\";i:100;}}', 'project', 1, '', 0, 0),
+(17, '2018-04-13 12:17:14', 5, 'updated', 'task', 'FEncing', 2, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:10:\"to_do - 0%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:0;}}', 'project', 2, '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -89,23 +105,28 @@ CREATE TABLE `assets` (
   `next_time` timestamp NULL DEFAULT NULL,
   `km_reading` float NOT NULL,
   `driver_id` int(100) DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `year_of_make` varchar(255) DEFAULT NULL,
+  `engine_no` varchar(255) DEFAULT NULL,
+  `year_of_reg` varchar(255) DEFAULT NULL,
+  `chasis_no` varchar(255) DEFAULT NULL,
+  `service_type` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
 -- Dumping data for table `assets`
 --
 
-INSERT INTO `assets` (`id`, `asset_no`, `code`, `description`, `location`, `purchased_date`, `deleted`, `created`, `warranty`, `next_time`, `km_reading`, `driver_id`, `updated_at`) VALUES
-(33, '426', 'ESL/MSA//MV/2712', 'CARTRACK GARGETS - GALOOLI', '0', '2012-11-07 08:00:00', 0, '2018-03-03 18:17:12', '2016-03-10', '2018-03-29 21:00:00', 400, 6, '2018-03-23 02:53:13'),
-(36, '427', 'KHMA 276C', 'CAT 938G WHEEL LOADER I', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-17', '2018-03-31 21:00:00', 480, 6, '2018-03-19 11:00:44'),
-(37, '428', 'KCA 001G', 'LAND ROVER VOGUE 3.6TDV 8', '0', '2014-02-09 08:00:00', 0, '2018-03-04 23:52:39', '2017-06-16', '2018-03-30 21:00:00', 250, 8, '2018-03-19 10:58:03'),
-(38, '429', 'KCB 363Y', 'TOYOTA HILUX DOUBLE CAB', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-21', '2018-05-01 21:00:00', 500, 8, '2018-03-19 10:59:32'),
-(39, '430', 'KCC 694T', 'TOYOTA SUCCEED', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-08-16', '2017-12-31 21:00:00', 0, 10, '2018-03-19 08:16:34'),
-(46, '7645', '3e34d', 'toyota', 'nai', NULL, 0, '2018-03-08 19:14:16', '2018-01-31', '2018-04-30 21:00:00', 200, 7, '2018-03-19 10:59:58'),
-(47, '431', 'KCC 168Z', 'TOYOTA FIELDER', '0', '2018-01-21 21:00:00', 0, '2018-03-15 15:04:47', '2017-02-02', '2018-05-31 21:00:00', 390, 6, '2018-03-19 10:59:10'),
-(48, '432', 'KCC 169Z', 'TOYOTA VOXY', '0', '2018-01-21 21:00:00', 0, '2018-03-16 13:13:17', '2018-05-01', '2018-03-30 21:00:00', 300, 6, '2018-03-23 03:14:44'),
-(50, '433', 'KHMA 812G', 'CAT 938G WHEELLOADER II', '0', '2018-01-21 21:00:00', 0, '2018-03-19 07:05:05', '2018-01-31', '2018-03-30 21:00:00', 320, 7, '2018-03-23 02:54:06');
+INSERT INTO `assets` (`id`, `asset_no`, `code`, `description`, `location`, `purchased_date`, `deleted`, `created`, `warranty`, `next_time`, `km_reading`, `driver_id`, `updated_at`, `year_of_make`, `engine_no`, `year_of_reg`, `chasis_no`, `service_type`) VALUES
+(33, '426', 'ESL/MSA//MV/2712', 'CARTRACK GARGETS - GALOOLI', 'mombasa', '2012-11-07 08:00:00', 0, '2018-03-03 18:17:12', '2016-03-10', '2018-04-18 21:00:00', 10000, 9, '2018-04-09 10:16:01', '2018-04-21', '78904', '2018-04-26', '45324213', 'Service B'),
+(36, '427', 'KHMA 276C', 'CAT 938G WHEEL LOADER I', 'outside', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-17', '2018-11-15 21:00:00', 4560, 10, '2018-04-09 10:23:14', '2018-04-14', '65432', '2018-04-20', '53454', 'Service A'),
+(37, '428', 'KCA 001G', 'LAND ROVER VOGUE 3.6TDV 8', '0', '2014-02-09 08:00:00', 0, '2018-03-04 23:52:39', '2017-06-16', '2018-09-20 21:00:00', 4000, 8, '2018-04-09 10:25:39', '2018-04-22', '66666', '2018-04-18', '54136', 'Service A'),
+(38, '429', 'KCB 363Y', 'TOYOTA HILUX DOUBLE CAB', 'inside', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-03-21', '2019-02-20 21:00:00', 10000, 8, '2018-04-09 10:26:02', '2018-04-20', '678990', '2018-04-12', '23435', 'Service B'),
+(39, '430', 'KCC 694T', 'TOYOTA SUCCEED', '0', '2018-01-22 08:00:00', 0, '2018-03-04 23:52:39', '2018-08-16', '2018-06-19 21:00:00', 1000000, 10, '2018-04-09 10:26:28', '2018-04-16', '4534', '2018-04-11', '5432323', 'Service C'),
+(46, '7645', '3e34d', 'toyota', 'nai', NULL, 0, '2018-03-08 19:14:16', '2018-01-31', '2018-08-16 21:00:00', 4000000, 7, '2018-04-09 10:26:56', '2018-04-12', '', '', '', 'Service C'),
+(47, '431', 'KCC 168Z', 'TOYOTA FIELDER', '0', '2018-01-21 21:00:00', 0, '2018-03-15 15:04:47', '2017-02-02', '2019-08-29 21:00:00', 7000, 6, '2018-04-09 10:27:47', '', 're44323', '2018-04-02', '324123', 'Service B'),
+(48, '432', 'KCC 169Z', 'TOYOTA VOXY', '0', '2018-01-21 21:00:00', 0, '2018-03-16 13:13:17', '2018-05-01', '2018-09-24 21:00:00', 30000, 6, '2018-04-09 10:28:08', '2018-04-17', '6543', '2018-04-19', '345234', 'Service C'),
+(50, '433', 'KHMA 812G', 'CAT 938G WHEELLOADER II', '0', '2018-01-21 21:00:00', 0, '2018-03-19 07:05:05', '2018-01-31', '2018-04-10 21:00:00', 1000, 8, '2018-04-09 10:29:07', '2016-12-13', '34838', '2018-04-26', '43324123', 'Service A');
 
 -- --------------------------------------------------------
 
@@ -214,6 +235,13 @@ CREATE TABLE `clients` (
   `description` longtext COLLATE utf8_unicode_ci NOT NULL,
   `cOurRef` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `clients`
+--
+
+INSERT INTO `clients` (`id`, `company_name`, `address`, `city`, `state`, `zip`, `country`, `created_date`, `website`, `phone`, `currency_symbol`, `deleted`, `vat_number`, `currency`, `disable_online_payment`, `created_by`, `attend_1st_meeting`, `status`, `description`, `cOurRef`) VALUES
+(19, 'bett', '', '', '', '', '', '2018-04-12', '', '', '', 0, '', '', 0, 5, 0, 'Pending', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -599,6 +627,101 @@ INSERT INTO `external_services` (`id`, `job_card_id`, `supplier_id`, `service_ty
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `fuels`
+--
+
+CREATE TABLE `fuels` (
+  `id` int(100) NOT NULL,
+  `litres` mediumtext,
+  `price` mediumtext,
+  `total` mediumtext,
+  `supplier_id` int(100) DEFAULT NULL,
+  `staff_id` int(100) DEFAULT NULL,
+  `invoice_no` varchar(255) DEFAULT NULL,
+  `expense_id` double DEFAULT NULL,
+  `expense_cost` double DEFAULT NULL,
+  `km_reading` int(100) DEFAULT NULL,
+  `vehicle_id` int(100) DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fuels`
+--
+
+INSERT INTO `fuels` (`id`, `litres`, `price`, `total`, `supplier_id`, `staff_id`, `invoice_no`, `expense_id`, `expense_cost`, `km_reading`, `vehicle_id`, `created`, `updated_at`, `deleted`) VALUES
+(1, '5000', '200', '1000000', 1, 6, '565655', 3, 400, 9000, 33, '2018-04-12 10:13:01', NULL, 0),
+(2, '800', '110', '88000', 3, 6, '787878', 0, 0, 5000, 36, '2018-04-12 10:13:29', NULL, 0),
+(3, '3000', '200', '600000', 1, 6, '33333', 0, 0, 200000, 37, '2018-04-12 10:13:55', NULL, 0),
+(4, '5000', '110', '550000', 3, 8, '12121212', 4, 4000, 300000, 38, '2018-04-12 10:14:25', NULL, 0),
+(5, '40000', '200', '8000000', 1, 10, '454545', 0, 0, 120000, 39, '2018-04-12 10:14:53', NULL, 0),
+(6, '34000', '200', '6800000', 1, 8, '676768', 1, 5000, 43000, 46, '2018-04-12 10:15:18', NULL, 0),
+(7, '32000', '200', '6400000', 1, 6, '232323', 0, 0, 23000, 47, '2018-04-12 10:15:42', NULL, 0),
+(8, '457890', '200', '91578000', 1, 7, '232312212', 3, 400, 34900, 48, '2018-04-12 10:16:12', NULL, 0),
+(9, '4500', '110', '495000', 3, 6, '324567', 0, 0, 123450, 50, '2018-04-12 10:16:44', NULL, 0),
+(10, '123456', '200', '24691200', 1, 9, '2121234433', 0, 0, 21000, 33, '2018-04-12 10:17:11', NULL, 0),
+(11, '56000', '110', '6160000', 3, 10, '343434', 3, 400, 789876, 36, '2018-04-12 10:17:36', NULL, 0),
+(12, '2590', '110', '284900', 3, 9, '67896', 0, 0, 89045, 38, '2018-04-12 10:18:06', NULL, 0),
+(14, '34000', '200', '6800000', 1, 9, '3234545', 4, 4000, 467000, 39, '2018-04-12 14:08:45', NULL, 0),
+(15, '34', '200', '6800', 1, 6, '234343', 0, 0, 43256, 39, '2018-04-12 14:11:09', NULL, 0),
+(16, '3290', '110', '361900', 3, 6, '123456', 1, 5000, 432156, 37, '2018-04-12 14:11:49', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `fuel_suppliers`
+--
+
+CREATE TABLE `fuel_suppliers` (
+  `id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `phone_no` varchar(255) NOT NULL,
+  `price` mediumint(9) NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `fuel_suppliers`
+--
+
+INSERT INTO `fuel_suppliers` (`id`, `name`, `code`, `phone_no`, `price`, `created`, `deleted`) VALUES
+(1, 'Totals', 'T007', '098325435', 200, '2018-04-10 05:43:32', 0),
+(3, 'KenGen', 'K9090', '08923543', 110, '2018-04-10 05:46:34', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hire_assets`
+--
+
+CREATE TABLE `hire_assets` (
+  `id` int(100) NOT NULL,
+  `asset` varchar(255) NOT NULL,
+  `staff_id` int(100) DEFAULT NULL,
+  `client_id` int(100) DEFAULT NULL,
+  `rate` double NOT NULL,
+  `tonnes` mediumtext NOT NULL,
+  `total` double NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `hire_assets`
+--
+
+INSERT INTO `hire_assets` (`id`, `asset`, `staff_id`, `client_id`, `rate`, `tonnes`, `total`, `created`, `updated_at`, `deleted`) VALUES
+(1, '8', 6, 2, 60, '2', 120, '2018-04-10 13:04:46', NULL, 0),
+(3, '3', 8, 701, 21000, '100', 2100000, '2018-04-10 13:11:14', '2018-04-13 10:39:41', 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `inventory_requisitions`
 --
 
@@ -700,6 +823,8 @@ CREATE TABLE `jobs` (
   `km_reading` double DEFAULT NULL,
   `fuel_balance` double DEFAULT NULL,
   `card_no` varchar(255) DEFAULT NULL,
+  `supplier_id` int(100) DEFAULT NULL,
+  `service_type_id` int(100) DEFAULT NULL,
   `application_data` longtext,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NULL DEFAULT NULL,
@@ -710,8 +835,9 @@ CREATE TABLE `jobs` (
 -- Dumping data for table `jobs`
 --
 
-INSERT INTO `jobs` (`id`, `job_service_id`, `job_type_id`, `description`, `vehicle_no`, `completion_date`, `time_in`, `km_reading`, `fuel_balance`, `card_no`, `application_data`, `created_at`, `updated_at`, `deleted`) VALUES
-(1, 2, 2, 'desct', 37, '2018-03-20 21:00:00', '01:00:00', 7890, 700, 'ESL-1-KCA 001G', '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"4\",\"user\":\"8\",\"satus\":\"2\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"9\",\"satus\":\"3\"}},{\"items\":{\"inspection_id\":\"6\",\"user\":\"10\",\"satus\":\"2\"}},{\"items\":{\"inspection_id\":\"2\",\"user\":\"7\",\"satus\":\"1\"}}]', '2018-03-27 06:09:12', NULL, 0);
+INSERT INTO `jobs` (`id`, `job_service_id`, `job_type_id`, `description`, `vehicle_no`, `completion_date`, `time_in`, `km_reading`, `fuel_balance`, `card_no`, `supplier_id`, `service_type_id`, `application_data`, `created_at`, `updated_at`, `deleted`) VALUES
+(2, 2, 1, 'to be finished', 36, '2018-04-17 21:00:00', '12:00:00', 30000, 2000, 'ESL-2-KHMA 276C', NULL, NULL, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"8\",\"satus\":\"3\"}},{\"items\":{\"inspection_id\":\"2\",\"user\":\"10\",\"satus\":\"1\"}}]', '2018-04-11 06:05:30', NULL, 0),
+(3, 2, 1, 'check out', 36, '2018-04-13 21:00:00', '01:00:00', 50000, 3000, 'ESL-3-KHMA 276C', NULL, 1, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"7\",\"satus\":\"3\"}},{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"10\",\"satus\":\"3\"}}]', '2018-04-12 03:53:18', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -934,6 +1060,13 @@ CREATE TABLE `milestones` (
   `deleted` tinyint(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
 
+--
+-- Dumping data for table `milestones`
+--
+
+INSERT INTO `milestones` (`id`, `title`, `project_id`, `due_date`, `deleted`) VALUES
+(1, 'Fencing Complete', 1, '2018-04-13', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -989,7 +1122,24 @@ CREATE TABLE `notifications` (
 --
 
 INSERT INTO `notifications` (`id`, `user_id`, `description`, `created_at`, `notify_to`, `read_by`, `event`, `project_id`, `task_id`, `project_comment_id`, `ticket_id`, `ticket_comment_id`, `project_file_id`, `leave_id`, `post_id`, `to_user_id`, `activity_log_id`, `client_id`, `invoice_payment_id`, `estimate_id`, `estimate_request_id`, `deleted`) VALUES
-(1, 5, '', '2018-03-23 12:03:03', '219,241', '', 'project_task_created', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(1, 5, '', '2018-03-23 12:03:03', '219,241', '', 'project_task_created', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 5, '', '2018-04-12 08:01:51', '', '', 'project_task_created', 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(3, 5, '', '2018-04-12 08:06:16', '94,100', ',100', 'project_task_created', 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 94, '', '2018-04-12 08:08:23', '', '', 'project_task_updated', 1, 2, 0, 0, 0, 0, 0, 0, 0, 5, 0, 0, 0, 0, 0),
+(5, 100, '', '2018-04-12 08:11:04', '94', ',94', 'project_task_updated', 1, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 100, '', '2018-04-12 08:14:22', '5', '', 'project_task_commented', 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 100, '', '2018-04-12 08:14:42', '5', ',5', 'project_task_updated', 1, 1, 0, 0, 0, 0, 0, 0, 0, 7, 0, 0, 0, 0, 0),
+(8, 5, '', '2018-04-12 08:24:58', '94,100', '', 'project_comment_added', 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(9, 100, '', '2018-04-12 08:28:48', '5', ',5', 'project_task_commented', 1, 1, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(10, 5, '', '2018-04-12 08:29:34', '', '', 'project_task_commented', 1, 1, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(11, 100, '', '2018-04-12 08:33:08', '5', ',5', 'project_task_updated', 1, 1, 0, 0, 0, 0, 0, 0, 0, 11, 0, 0, 0, 0, 0),
+(12, 5, '', '2018-04-12 08:38:59', '', '', 'project_task_updated', 1, 1, 0, 0, 0, 0, 0, 0, 0, 12, 0, 0, 0, 0, 0),
+(13, 5, '', '2018-04-12 08:46:59', '94,100', '', 'project_comment_added', 1, 0, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(14, 5, '', '2018-04-12 11:59:44', '94', '', 'project_task_created', 2, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(15, 94, '', '2018-04-12 12:03:39', '5,82', '', 'project_member_added', 2, 0, 0, 0, 0, 0, 0, 0, 82, 0, 0, 0, 0, 0, 0),
+(16, 5, '', '2018-04-12 12:09:58', '82,83,94', '', 'project_task_created', 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+(17, 100, '', '2018-04-12 13:49:26', '94', '', 'project_task_updated', 1, 2, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0),
+(18, 5, '', '2018-04-13 12:17:14', '94', '', 'project_task_updated', 2, 2, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1073,6 +1223,30 @@ INSERT INTO `objective_types` (`id`, `title`, `created_at`, `updated_at`, `delet
 (2, 'Development', '2018-01-22 18:51:57', NULL, 0),
 (3, 'Maintenance', '2018-01-22 18:52:08', NULL, 0),
 (4, 'Acquisition', '2018-01-22 18:52:20', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `other_expenses`
+--
+
+CREATE TABLE `other_expenses` (
+  `id` int(100) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `cost` double NOT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `other_expenses`
+--
+
+INSERT INTO `other_expenses` (`id`, `name`, `description`, `cost`, `created`, `deleted`) VALUES
+(1, 'car wash', 'done weekly', 5000, '2018-04-12 06:30:13', 0),
+(3, 'Lubricating', 'To be done frequently', 400, '2018-04-12 06:40:01', 0),
+(4, 'fine', 'reckless driving', 4000, '2018-04-12 06:40:47', 0);
 
 -- --------------------------------------------------------
 
@@ -1741,13 +1915,23 @@ CREATE TABLE `projects` (
   `deadline` date NOT NULL,
   `client_id` int(11) NOT NULL,
   `sage_client_id` int(11) DEFAULT NULL,
-  `sage_project_id` int(11) DEFAULT NULL,
+  `sage_depertment_id` int(11) DEFAULT NULL,
   `created_date` date NOT NULL,
   `status` enum('open','completed','canceled') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'open',
   `labels` text COLLATE utf8_unicode_ci,
   `price` double NOT NULL DEFAULT '0',
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `title`, `description`, `start_date`, `deadline`, `client_id`, `sage_client_id`, `sage_depertment_id`, `created_date`, `status`, `labels`, `price`, `deleted`) VALUES
+(1, 'AGENCY : AGENCY', 'Development of Land in Mazeras', '2018-04-12', '2018-11-14', 1, 1, 2, '2018-04-12', 'completed', '', 5000000, 0),
+(2, 'AGENCY : AGENCY', 'dferrcvercercerc', '2018-04-12', '2018-04-26', 1, 1, 2, '2018-04-12', 'open', 'php', 10000, 0),
+(3, 'managu', '', '2018-04-12', '0000-00-00', 6, 6, NULL, '2018-04-12', 'open', '', 0, 0),
+(4, 'demo task', '', '2018-04-12', '0000-00-00', 1, 1, 1, '2018-04-12', 'open', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -1768,6 +1952,17 @@ CREATE TABLE `project_comments` (
   `files` longtext COLLATE utf8_unicode_ci,
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `project_comments`
+--
+
+INSERT INTO `project_comments` (`id`, `created_by`, `created_at`, `description`, `project_id`, `comment_id`, `task_id`, `file_id`, `customer_feedback_id`, `files`, `deleted`) VALUES
+(1, 100, '2018-04-12 08:14:22', 'Fencing complete as of now', 1, 0, 1, 0, 0, 'a:0:{}', 0),
+(2, 5, '2018-04-12 08:24:58', 'Test Comment', 1, 0, 0, 0, 0, 'a:0:{}', 0),
+(3, 100, '2018-04-12 08:28:48', 'all materials supplied', 1, 0, 1, 0, 0, 'a:0:{}', 0),
+(4, 5, '2018-04-12 08:29:33', 'thanks', 1, 0, 1, 0, 0, 'a:0:{}', 0),
+(5, 5, '2018-04-12 08:46:59', 'AR', 1, 0, 0, 0, 0, 'a:1:{i:0;a:2:{s:9:\"file_name\";s:70:\"project_comment_file5acf1d034b024-Accounts-Receivable-Transactions.pdf\";s:9:\"file_size\";s:6:\"103563\";}}', 0);
 
 -- --------------------------------------------------------
 
@@ -1807,7 +2002,15 @@ CREATE TABLE `project_members` (
 INSERT INTO `project_members` (`id`, `user_id`, `project_id`, `is_leader`, `deleted`) VALUES
 (1, 5, 1, 1, 0),
 (2, 241, 1, 0, 0),
-(3, 219, 1, 0, 0);
+(3, 219, 1, 0, 0),
+(4, 94, 1, 0, 0),
+(5, 100, 1, 0, 0),
+(6, 5, 2, 1, 0),
+(7, 94, 2, 0, 0),
+(8, 82, 2, 0, 0),
+(9, 83, 2, 0, 0),
+(10, 5, 3, 1, 0),
+(11, 5, 4, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -1824,6 +2027,39 @@ CREATE TABLE `project_time` (
   `status` enum('open','logged','approved') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'logged',
   `deleted` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `project_time`
+--
+
+INSERT INTO `project_time` (`id`, `project_id`, `user_id`, `start_time`, `end_time`, `status`, `deleted`) VALUES
+(1, 1, 100, '2018-04-12 08:32:30', NULL, 'open', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `providers`
+--
+
+CREATE TABLE `providers` (
+  `id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `telephone_no` mediumint(9) DEFAULT NULL,
+  `tax` varchar(255) DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `providers`
+--
+
+INSERT INTO `providers` (`id`, `name`, `code`, `telephone_no`, `tax`, `created`, `deleted`) VALUES
+(2, 'Safaricom', 'All in one', 8388607, '10', '2018-04-09 05:52:55', 0),
+(3, 'Airtel', 'cheap material', 934234, '12', '2018-04-09 05:56:02', 0),
+(5, 'Tikone', 'The place to be', 8388607, '20', '2018-04-09 06:22:22', 0),
+(6, 'Cyto', 'c0009', 8388607, '12', '2018-04-10 04:32:34', 0);
 
 -- --------------------------------------------------------
 
@@ -1866,6 +2102,730 @@ CREATE TABLE `roles` (
 INSERT INTO `roles` (`id`, `title`, `permissions`, `deleted`) VALUES
 (1, 'Administrators', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0),
 (2, 'General Staff', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sage_clients`
+--
+
+CREATE TABLE `sage_clients` (
+  `id` int(100) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `code` varchar(255) DEFAULT NULL,
+  `contact_person` varchar(255) DEFAULT NULL,
+  `telephone` varchar(255) DEFAULT NULL,
+  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sage_clients`
+--
+
+INSERT INTO `sage_clients` (`id`, `name`, `code`, `contact_person`, `telephone`, `created`, `updated_at`, `deleted`) VALUES
+(2, 'safcomm', 's3456', 'Ann', '0782353456', '2018-04-10 10:52:56', '2018-04-10 10:01:56', 0),
+(3, 'Cash Customer', 'CASH', NULL, NULL, '2018-04-10 11:00:08', NULL, 0),
+(4, '24Vision Chartering Solution', '2001', 'Jonathan Scheers', '+971 52 934 9491', '2018-04-10 11:00:08', NULL, 0),
+(5, '30 South Maritime', '3001', 'FRANS DAVIDTZ ', '+27 0 716754774', '2018-04-10 11:00:08', NULL, 0),
+(6, 'ARM Cement  Limited', 'A001', 'Manish Mehta', '+254 20 3744617/20/22/25', '2018-04-10 11:00:08', NULL, 0),
+(7, 'EBB - Abe Trans Logistics Ltd', 'A087', 'Buffy', '+972 3 7958888', '2018-04-10 11:00:08', NULL, 0),
+(8, 'Avtelco Kenya Limited', 'A090', 'GEOFF KHITOME', '+254 20 3001785', '2018-04-10 11:00:08', NULL, 0),
+(10, 'AM Nomikos & Son (UK) Ltd ', 'A099', 'Nicholas Fuller ', '+ 44  0  20 7591 1800', '2018-04-10 11:00:08', NULL, 0),
+(11, 'Aeromarine Logistics (K)Ltd', 'A100', 'Moses Muriuki ', '4362', '2018-04-10 11:00:08', NULL, 0),
+(12, 'Abyssinia Iron and Steel Ltd', 'A105', 'Nelson', '720030471', '2018-04-10 11:00:08', NULL, 0),
+(13, 'A M Nomikos & Sons (UK) Ltd ', 'A107', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(14, 'Arch Shipping FZ-LLC', 'A108', 'Gaurav Sharma ', '+91 141 239 8830', '2018-04-10 11:00:08', NULL, 0),
+(15, 'A.M.Nomikos Aquirius Inc C/O DA Desk', 'A113', '', '9.71144E+11', '2018-04-10 11:00:08', NULL, 0),
+(16, 'Africa Navigation B.V.', 'A118', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(17, 'Ariston Navigation Corp', 'A120', 'Spiros Bouloukos ', '+30 210 4293250', '2018-04-10 11:00:08', NULL, 0),
+(18, 'Alpha Shipping Co. Hamburg', 'A126', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(19, 'A.M. Nomikos Transworld Maritime Agencies S.A', 'A128', '', '+30 210 6155 200', '2018-04-10 11:00:08', NULL, 0),
+(20, 'AB MARITIME INC.', 'A133', 'PANAGIOTIS PAPPAS', '3.0211E+11', '2018-04-10 11:00:08', NULL, 0),
+(21, 'ATLANTIC MARITIME COA INC,', 'A134', 'C. MINIC  ', '+1  450  678-7676', '2018-04-10 11:00:08', NULL, 0),
+(22, 'Australian High Commission', 'A135', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(23, 'Aegeus Shipping', 'A137', 'Capt. Viliosis', '3.02108E+11', '2018-04-10 11:00:08', NULL, 0),
+(24, 'AAL Shipping', 'A138', 'Ole Boysen', '+65 9654 7213', '2018-04-10 11:00:08', NULL, 0),
+(25, 'Alster Int\'l Shipping Services Inc', 'A139', 'Ms Myla Cabuyao', '+63 2 8876010 to 12', '2018-04-10 11:00:08', NULL, 0),
+(26, 'A-One Plastics Limited ', 'A140', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(27, 'AS Klaveness Chartering ', 'A141', 'Elmo Adelwis Kagaoan', '4722526825', '2018-04-10 11:00:08', NULL, 0),
+(28, 'Amnav Limited', 'A143', 'Navraj Dhillon', '4362', '2018-04-10 11:00:08', NULL, 0),
+(29, 'Atmus Enterprises Ltd', 'A144', 'Mustafa', '+254710 111 110', '2018-04-10 11:00:08', NULL, 0),
+(30, 'Allseas Marine S.A', 'A145', 'Costas J. Nomikos', '+30 6972866869', '2018-04-10 11:00:08', NULL, 0),
+(31, 'Asante Capital EPZ Ltd', 'A146', 'Evans', '703996577', '2018-04-10 11:00:08', NULL, 0),
+(32, 'Bamburi Cement Limited', 'B068', 'Catherine Theuri', '020 2710487/8/9', '2018-04-10 11:00:08', NULL, 0),
+(33, 'Baypamar Fishing SA', 'B069', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(34, 'IFA - Bati Nakliyat Ve Ticaret', 'B072', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(35, 'Bannie and Archer Co.Ltd', 'B073', 'NASREEN', '25423749792', '2018-04-10 11:00:08', NULL, 0),
+(36, 'Blue Fleet Athens', 'B074', '', '+30 2109571595', '2018-04-10 11:00:08', NULL, 0),
+(37, 'Bernhard Schulte Shipmanagement(Singapore)Pte Ltd', 'B075', 'Kin Lin (Ms)', '4362', '2018-04-10 11:00:08', NULL, 0),
+(38, 'Burundi Cement Company', 'B076', 'AMELIE FIAT', '25722276549', '2018-04-10 11:00:08', NULL, 0),
+(39, 'Blessing Bulk Carriers Europe Athens Co', 'B077', 'Stasinos Sotiris', '+30 210 8055 370', '2018-04-10 11:00:08', NULL, 0),
+(40, 'BTG Pactual Commodities (Switzerland) SA', 'B080', 'Adeline Binoche', ' +41  0  22 747 75', '2018-04-10 11:00:08', NULL, 0),
+(41, 'Black Pearl Maritime Security Management Ltd ', 'B081', 'Noam Nafusi', '+44 7700017748', '2018-04-10 11:00:08', NULL, 0),
+(42, 'Braville Agencies  Limited.', 'B082', 'BIPIN PARMAR', '+254  729  403 672', '2018-04-10 11:00:08', NULL, 0),
+(43, 'Byzantine Maritime Corp', 'B083', 'Seti Kontouzoglou', '+30 210 6281115', '2018-04-10 11:00:08', NULL, 0),
+(44, 'Bonfide C & F Company Ltd', 'B084', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(45, 'BRV  Shipping & Chartering', 'B085', 'Hos', '+44 20 32 39 60 60  UK ', '2018-04-10 11:00:08', NULL, 0),
+(46, 'Buzeki Group Ltd', 'B086', 'Mr. Bundotich Kiprop', '4362', '2018-04-10 11:00:08', NULL, 0),
+(47, 'BK Shipping Co., Ltd', 'B087', 'Ms Jane', '-8140', '2018-04-10 11:00:08', NULL, 0),
+(48, 'Bibby Line Limited (As agents for Owners)', 'B089', 'Gill Birchall (Miss)', '4362', '2018-04-10 11:00:08', NULL, 0),
+(49, 'Baliwag Navigation Inc.', 'B090', 'Capt. Vicmar C. Calibjo', '60.00526122', '2018-04-10 11:00:08', NULL, 0),
+(50, 'Bollore Logistics', 'B092', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(51, 'Bulk Marine Limited', 'B093', 'Anadi Seth', '+9 124 406 7202', '2018-04-10 11:00:08', NULL, 0),
+(52, 'Bulker Chartering & Management SA', 'B094', 'Stefano Magnelli', '41919107800', '2018-04-10 11:00:08', NULL, 0),
+(53, 'Bernhard Schulte Shipmanagement (Cyprus) Ltd', 'B095', 'Marina Evripidou ', '35725846623', '2018-04-10 11:00:08', NULL, 0),
+(54, 'BPI Shipping ', 'B096', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(55, 'Blueseas Shipping S.A', 'B097', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(56, 'Bulk-Chart', 'B098', 'Mohan Nair', '+91 80 41144964', '2018-04-10 11:00:08', NULL, 0),
+(57, 'Biolite Uganda Ltd', 'B099', 'Felipe Spath Botero', '4362', '2018-04-10 11:00:08', NULL, 0),
+(58, 'Biolite Holdings (K) Ltd', 'B100', 'Felipe Spath Botero', '412229784', '2018-04-10 11:00:08', NULL, 0),
+(59, 'Biolite Holdings (K) Ltd', 'B101', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(60, 'Bioafriq Energy Ltd', 'B102', 'James Nyama', '721739494', '2018-04-10 11:00:08', NULL, 0),
+(61, 'Cargill International S.A', 'C009', 'Stephane jaton', '41227032696', '2018-04-10 11:00:08', NULL, 0),
+(62, 'Commodity Trading Co', 'C022', 'Gnanam', '4362', '2018-04-10 11:00:08', NULL, 0),
+(63, 'Cement Traders Inc', 'C048', 'Lima Goussous', '96265685115', '2018-04-10 11:00:08', NULL, 0),
+(64, 'Chinpo Shipping Co', 'C049', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(65, 'C.E.G. Bulk Chartering', 'C051', '', '00049  0  40 317858 30', '2018-04-10 11:00:08', NULL, 0),
+(66, 'Cargill Ocean Transportation (Singapore) Pte Ltd', 'C057', 'Lee Lijing Belle', 'Tel: +65-6393 8349', '2018-04-10 11:00:08', NULL, 0),
+(67, 'Crescent Imports and Exports- USD', 'C058', 'Faiza', '+61 3 9363 7545', '2018-04-10 11:00:08', NULL, 0),
+(68, 'Clipper Bulk USA', 'C061', 'Gary Lawrence', '4362', '2018-04-10 11:00:08', NULL, 0),
+(69, 'Crown Berger Kenya Ltd (Usd)', 'C062', 'Nyalwal Philip', '2.54202E+12', '2018-04-10 11:00:08', NULL, 0),
+(70, 'Cemco Cement Trading S.L.', 'C063', 'Alvaro Bonello', '4362', '2018-04-10 11:00:08', NULL, 0),
+(71, 'Citic Ship Management Ltd', 'C064', 'Eric wang', '13601007962', '2018-04-10 11:00:08', NULL, 0),
+(72, 'Canmarine Shipbrokers', 'C065', 'Hazal Ercin', '+90 216 4501566', '2018-04-10 11:00:08', NULL, 0),
+(73, 'Coastal International Shipping Line Ltd', 'C066', 'Abdulla O Issa', '+255 777 844755', '2018-04-10 11:00:08', NULL, 0),
+(74, 'Castleton Commodities Shipping Co. Pte. Ltd.', 'C067', 'Christopher Wilson', '+65 6692 0354', '2018-04-10 11:00:08', NULL, 0),
+(75, 'Castor Vali Maritime Ltd', 'C068', 'Clemence Leedham', '+44  0  207 368 1648', '2018-04-10 11:00:08', NULL, 0),
+(76, 'Corrugated Sheets Limited', 'C069', 'RAI NYONDO', '2.54712E+11', '2018-04-10 11:00:08', NULL, 0),
+(77, 'C Marine Transport Company', 'C070', 'Tassos Raissis', '+30 210 4584817', '2018-04-10 11:00:08', NULL, 0),
+(78, 'Cargill Energy, Transportation and Metals', 'C071', 'Kristina Yaneva', '+359 2 809 9158', '2018-04-10 11:00:08', NULL, 0),
+(79, 'Castle Royal Hotel', 'C073', 'Maureen Omondi', '+254 734161197', '2018-04-10 11:00:08', NULL, 0),
+(80, 'Columbus Maritime Corp.', 'C074', 'Sergiy Sitovskyy', '+380 951 757 075', '2018-04-10 11:00:08', NULL, 0),
+(81, 'Cem Asia Trading JLT', 'C075', 'Syed Mujeebuddin', ' +97144 522 833', '2018-04-10 11:00:08', NULL, 0),
+(82, 'Citadel Maritime Ltd', 'C076', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(83, 'Continental Logistics Network Ltd', 'C078', 'Wachira', '2.54721E+11', '2018-04-10 11:00:08', NULL, 0),
+(84, 'CMA CGM Kenya Ltd.', 'C079', 'STEPHEN  MWAREMA', '4362', '2018-04-10 11:00:08', NULL, 0),
+(85, 'Copenship MPP A/S', 'C080', 'Christian Christensen', 'ianik Bross Shipping Corp', '2018-04-10 11:00:08', NULL, 0),
+(86, 'CHINA-AFRICA TOTAL LOGISTICS ', 'C081', ' +30 210 4110357 ', '', '2018-04-10 11:00:08', NULL, 0),
+(87, 'Diamond Shipping Services Ltd', 'D061', '', '254  41  2228810', '2018-04-10 11:00:08', NULL, 0),
+(88, 'Devji Meghji & Bros Ltd', 'D062', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(89, 'DBC Shipping L.L.C', 'D063', 'Jahufar Fuad', '+97155 5921090', '2018-04-10 11:00:08', NULL, 0),
+(90, 'Dry Chart Interocean', 'D064', 'ANKIT DHAWAN', '4362', '2018-04-10 11:00:08', NULL, 0),
+(91, 'Diaplous Maritime Services', 'D066', '', 'Tel:+30 210 4131222', '2018-04-10 11:00:08', NULL, 0),
+(92, ' Dynacom Tankers Management Limited', 'D067', '', ' +30 210 891 77 00', '2018-04-10 11:00:08', NULL, 0),
+(93, 'Dromon Maritime Agency', 'D068', 'Richard Kersey', '+44 20 7628 0477', '2018-04-10 11:00:08', NULL, 0),
+(94, 'DND Management Inc', 'D069', 'Alexis Doucas', '3.02109E+11', '2018-04-10 11:00:08', NULL, 0),
+(95, 'Dcc Bulk Inc', 'D070', 'Capt.Ioannis Malichoutsakis', '3.02104E+11', '2018-04-10 11:00:08', NULL, 0),
+(96, 'Doshi Enterprises Ltd', 'D071', '', '+254 2224414, ', '2018-04-10 11:00:08', NULL, 0),
+(97, 'DNA MARITIME INC.', 'D072', 'Apostolis Peppes', 'TEL:+30 210 9689600 ', '2018-04-10 11:00:08', NULL, 0),
+(98, 'Decor Hardware (USD)', 'D073', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(99, 'Decor Hardware ', 'D074', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(100, 'Densan Shipping Co.Inc.', 'D075', 'Melik Okumus', '+90 212 2456810    ', '2018-04-10 11:00:08', NULL, 0),
+(101, 'Dasin Shipping Pte Ltd', 'D076', 'Xu Shaoxue', '+86 411 83780200', '2018-04-10 11:00:08', NULL, 0),
+(102, 'Densay Shipping and Trading DMCC ', 'D077', 'VOLKAN BALITATn', '2.55689E+11', '2018-04-10 11:00:08', NULL, 0),
+(103, 'Dianik Ship Management LLC', 'D078', 'Violetta088', '', '2018-04-10 11:00:08', NULL, 0),
+(104, 'Dragon Citi', 'D082', '', '89', '2018-04-10 11:00:08', NULL, 0),
+(105, 'East African Portland Cement Company', 'E090', 'Ngala Oloitiptip', '-1518', '2018-04-10 11:00:08', NULL, 0),
+(106, 'East African Commercial &Shipping Co. Ltd', 'E093', 'George Gachanja ', '+ 254   722 429 225', '2018-04-10 11:00:08', NULL, 0),
+(107, 'Emarat Maritime', 'E094', 'Ashwin Philip', '+971  4  3599955 ', '2018-04-10 11:00:08', NULL, 0),
+(108, 'Eagle Ship Management LLC', 'E095', 'Paula Stancu Giordani', '212 785 3335', '2018-04-10 11:00:08', NULL, 0),
+(109, 'ESC Global Security Ltd', 'E096', 'Ms Liisabell Naarits', '+372 5146 119', '2018-04-10 11:00:08', NULL, 0),
+(110, 'Eagle Management Consultancy PTE Ltd', 'E097', 'Lorilyn Reylana', '+65 6508 6881', '2018-04-10 11:00:08', NULL, 0),
+(111, 'EAGLE BULK PTE LTD SINGAPORE', 'E098', 'SIMON(SUNGMIN)KIM', '+65 9106 3990', '2018-04-10 11:00:08', NULL, 0),
+(112, 'Eagle Shipping International (USA) LLC', 'E099', 'Vijay Prasad', '4362', '2018-04-10 11:00:08', NULL, 0),
+(113, 'ED & F MAN SHIPPING', 'E100', 'Struan Ridgwell', '+65 6922 6716', '2018-04-10 11:00:08', NULL, 0),
+(114, 'Evalend Shipping Company S.A', 'E102', 'Katerina Yfantouda', '4362', '2018-04-10 11:00:08', NULL, 0),
+(115, 'Ecolab EA Kenya Limited', 'E103', 'Daniel   O. Apat', '020 3540625', '2018-04-10 11:00:08', NULL, 0),
+(116, 'Export Trading Co Ltd ( Uganda)', 'E105', 'Mr Mustan', '4362', '2018-04-10 11:00:08', NULL, 0),
+(117, 'Export Trading Group', 'E106', 'Siddique al rashid', 'Ph: +971 4 386 4551 | Ext', '2018-04-10 11:00:08', NULL, 0),
+(118, 'Electrical & General Appliances Ltd', 'E107', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(119, 'Eastern Mediterranean Maritime Ltd', 'E108', 'Theofilos Haldezos', '3.0211E+11', '2018-04-10 11:00:08', NULL, 0),
+(120, 'Export Trading Co Ltd', 'E109', 'Export Trading Co', '254 20 266880', '2018-04-10 11:00:08', NULL, 0),
+(121, 'ESL Uganda Limited', 'E110', 'Merreck Getugi', '+256 200 988811', '2018-04-10 11:00:08', NULL, 0),
+(122, 'Excelzor Logistis Ltd', 'E111', 'Royden Ferreira', '9.12265E+11', '2018-04-10 11:00:08', NULL, 0),
+(123, 'Fairseas International Trade & Logistics {Pty} Ltd', 'F039', 'Liam McKenzie', '27 21 4108819', '2018-04-10 11:00:08', NULL, 0),
+(124, 'Freightwell Express Ltd- Usd', 'F040', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(125, 'Freightwell Express Limited', 'F041', 'Washington Mwamburi', '4362', '2018-04-10 11:00:08', NULL, 0),
+(126, 'International Exports', 'F042', 'Sheen', '+91 22 4236 9911  Direct ', '2018-04-10 11:00:08', NULL, 0),
+(127, 'Fleet Management Ltd', 'F048', 'Arun', '+852 22988342', '2018-04-10 11:00:08', NULL, 0),
+(128, 'Freight  Forwarders Kenya Limited', 'F049', 'ABDUL BARADIA', '+254  041  2227575', '2018-04-10 11:00:08', NULL, 0),
+(129, 'Fortuna- Seaside Chartering ', 'F056', 'Philip Heymans ', '4539161200', '2018-04-10 11:00:08', NULL, 0),
+(130, 'FACTOR 8 SHIPPING', 'F057', 'SIMON F. TROWENN', '+375 931 061 06', '2018-04-10 11:00:08', NULL, 0),
+(131, 'FORTIS BULKERS INC.', 'F058', 'CAPT. SAKIS MASALAS', '+3ranch) ', '2018-04-10 11:00:08', NULL, 0),
+(132, 'Fortune Global Shipping & Logistics Ltd', 'F059', 'Kingsley Ekweariri ', '+353 899 G028', '2018-04-10 11:00:08', NULL, 0),
+(133, 'FOSROC Kenya Limited-USD', 'F060', 'Lilian Kariba', '2.5470 210 8986160 ', '2018-04-10 11:00:08', NULL, 0),
+(134, 'Gourdomichalis Maritime.A', 'G030', '', '+30 210 4290880', '2018-04-10 11:00:08', NULL, 0),
+(135, 'Government Clearing Agency', 'G031', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(136, 'Greenroad Int\'l Logistics Co., LTD', 'G032', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(137, 'Greenspark (K) Ltd', 'G033', '', '+254 701997668', '2018-04-10 11:00:08', NULL, 0),
+(138, 'Gearbulk Manila', 'G034', 'Sandy Gonzales', '+63 2 917 8948', '2018-04-10 11:00:08', NULL, 0),
+(139, 'Hanse International (Kenya) Limited', 'H001', 'RITA BOCHERE', ' +254-2080-69370', '2018-04-10 11:00:08', NULL, 0),
+(140, 'Heidelberg East Africa', 'H002', 'HENRY FWAYA', '734333222', '2018-04-10 11:00:08', NULL, 0),
+(141, 'Hyundai Glovis Co.Ltd', 'H003', 'Ms. S.E. Kim/STAFF', '82-2-2054-7611', '2018-04-10 11:00:08', NULL, 0),
+(142, 'HC Trading Malta Limited', 'H004', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(143, 'Hermes Maritime Services Pvt.Ltd.', 'H005', 'ATTN. TANUJA', '4362', '2018-04-10 11:00:08', NULL, 0),
+(144, 'Handymax Freight Trader,Cargill ETM ', 'H006', 'Willem Olde Kalter', '-14473', '2018-04-10 11:00:08', NULL, 0),
+(145, 'Hanbyul Merchant Marine Co Ltd', 'H007', 'Andrew Lim ', '-3405', '2018-04-10 11:00:08', NULL, 0),
+(146, 'Handymax Chartering', 'H009', 'Hardik Sanghvi', '+91 22 28329187', '2018-04-10 11:00:08', NULL, 0),
+(147, 'HBC Asia Pte. Ltd', 'H010', 'Christopher Wilson', '+65-6303 9111', '2018-04-10 11:00:08', NULL, 0),
+(148, 'Hyundai Merchant Marine Co.,Ltd. (HMM)', 'H011', 'Ryan Kim', '82-2-3706-5679', '2018-04-10 11:00:08', NULL, 0),
+(149, 'HC-Chartering GmbH  & Co. KG        ', 'H013', '', '+49  0 4102 8033 -185', '2018-04-10 11:00:08', NULL, 0),
+(150, 'HC Trading', 'H014', 'Ajith Kumar', '+00 971 4 204 55 23', '2018-04-10 11:00:08', NULL, 0),
+(151, 'Harbour Agency Limited', 'H016', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(152, 'HMS Bergbau AG', 'H017', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(153, 'Hydroturf East Africa Ltd', 'H018', 'Philip Ochola', '742961657', '2018-04-10 11:00:08', NULL, 0),
+(154, 'Hellas Confidence Shipmanagement S.A', 'H019', 'Maria Tsilika', '0030 210 9859384', '2018-04-10 11:00:08', NULL, 0),
+(155, 'Henok Fashion Ltd', 'H020', 'Eric', '254 715 435 810', '2018-04-10 11:00:08', NULL, 0),
+(156, 'Hydroturf East Africa Ltd', 'H021', 'Philip Ochola', '742961657', '2018-04-10 11:00:08', NULL, 0),
+(157, 'ISK Shipping Limited', 'I040', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(158, 'Island View Shipping (Singapore)', 'I041', 'Stuart Frost', '+65 6632 1316', '2018-04-10 11:00:08', NULL, 0),
+(159, 'Institute of Chartered Ship Brokers (E.A) ', 'I042', 'Mercy', '-2224609', '2018-04-10 11:00:08', NULL, 0),
+(160, 'International Shipping and Logistics FZE ', 'I043', 'Partha S Pal', '+971 4 4508953  Ext 115 ', '2018-04-10 11:00:08', NULL, 0),
+(161, 'IVK Manuport Logistics LLC', 'I044', '', '+971 4 2594884', '2018-04-10 11:00:08', NULL, 0),
+(162, 'I. Messina (K) Ltd. ', 'I046', 'Peter Kwinga', '041-2319640/1/2, 020-2434', '2018-04-10 11:00:08', NULL, 0),
+(163, 'IHB Shipping Co. Ltd', 'I047', 'Georgi Sivkov', '+359 52 912 968', '2018-04-10 11:00:08', NULL, 0),
+(164, 'Inspectorate (E.A) Ltd', 'I048', 'Kyalo Ilunga', '2.54722E+11', '2018-04-10 11:00:08', NULL, 0),
+(165, 'Interchart Shipping Co Ltd.', 'I049', 'Michael Taliotis', '+357 25 381560', '2018-04-10 11:00:08', NULL, 0),
+(166, 'IDC Denizcilik Sanayi Ve Tic. A.S.', 'I050', 'Ersan Erdogan', ' +90  232  441 50 50', '2018-04-10 11:00:08', NULL, 0),
+(167, 'Inchcape Shipping Services ', 'I052', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(168, 'Intercities Freight & Shipping Ltd', 'I053', 'Jacob K. Theuri', '2.54723E+11', '2018-04-10 11:00:08', NULL, 0),
+(169, 'IHB Shipping Chartering', 'I054', 'K.Gunchev', '4362', '2018-04-10 11:00:08', NULL, 0),
+(170, 'Intermarine Shipping DMCC', 'I055', '', '+971 4 4366500', '2018-04-10 11:00:08', NULL, 0),
+(171, 'Interagro (K) Limited', 'I056', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(172, 'IMC Shipping Co Pte Ltd', 'I057', '', '-6246', '2018-04-10 11:00:08', NULL, 0),
+(173, 'Insight Maritime DMCC Dubai', 'I058', 'Mr. Binu', '+97 144430305', '2018-04-10 11:00:08', NULL, 0),
+(174, 'ISL Dubai ', 'I059', 'Partha S Pal', '4362', '2018-04-10 11:00:08', NULL, 0),
+(175, 'IMT International Mining & Trading AG', 'I060', 'Gritt Burger', '+41 55 220 2000', '2018-04-10 11:00:08', NULL, 0),
+(176, 'IS-BIR Shipping & Trading Co.', 'I061', 'Aysel CETIN', '+90216 442 3373', '2018-04-10 11:00:08', NULL, 0),
+(177, 'Island View Shipping Singapore', 'I062', 'Stuart Frost', '+65 6632 1316', '2018-04-10 11:00:08', NULL, 0),
+(178, 'Indoors East Africa Ltd', 'I064', 'Mr Omar', '733746810', '2018-04-10 11:00:08', NULL, 0),
+(179, 'Inlaco Japan Co Ltd', 'I065', 'Xuan Ha (Mr)', '8.18013E+11', '2018-04-10 11:00:08', NULL, 0),
+(180, 'Iskenderum Ship Management', 'I066', 'Berk Bulgan', '0090 543 395 54 04', '2018-04-10 11:00:08', NULL, 0),
+(181, 'Inmar Shipping & Logistics Pvt Ltd', 'I067', 'Balraj', '+91 44 65515055', '2018-04-10 11:00:08', NULL, 0),
+(182, 'Icare International Ltd', 'I068', 'Augustine', '717193863', '2018-04-10 11:00:08', NULL, 0),
+(183, 'International Materials MEIO', 'I069', 'Ibraheem Salahudeen', '+971 4 2314181', '2018-04-10 11:00:08', NULL, 0),
+(184, 'Joru Laboratory Supplies', 'J029', 'John ', 'P.O Box 14296', '2018-04-10 11:00:08', NULL, 0),
+(185, 'Jamii Telecommunications Limited', 'J032', 'Japheth Tirop /Jackson ', 'P.O Box 47419-00100  Nbi', '2018-04-10 11:00:08', NULL, 0),
+(186, 'Jacky Line Shipping Ltd', 'J053', 'Yuri Rivkin', '+ 972 0 3-568-1738', '2018-04-10 11:00:08', NULL, 0),
+(187, 'Jubilee Jumbo Hardware Ltd', 'J054', 'MAUREEN ', '254 57 2021162', '2018-04-10 11:00:08', NULL, 0),
+(188, 'Jewisache General Supply Co. Ltd', 'J055', 'JESSICA SAMUEL', '+255 786845586', '2018-04-10 11:00:08', NULL, 0),
+(189, 'Just Essentials Ltd', 'J059', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(190, 'Joru Laboratory Limited', 'J060', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(191, 'Jiangsu Far East Shipping Co. Ltd ', 'J062', 'ALEX LEE', '86 25 84787553/84787530', '2018-04-10 11:00:08', NULL, 0),
+(192, 'Jenlor International LLC', 'J063', 'Daniel  Uzcategui', '-9574', '2018-04-10 11:00:08', NULL, 0),
+(193, 'J. Lauritzen Singapore Pte. Ltd.', 'J064', 'Rasmus Christoffer Hansen', '+65 6572 9170', '2018-04-10 11:00:08', NULL, 0),
+(194, 'Johann M.K.  Blumenthal  GMBH & CO. KG', 'J065', 'Anastasios Karagiannis ', '+49 40 80 90 60 5-90 ', '2018-04-10 11:00:08', NULL, 0),
+(195, 'Jaldhi Overseas Pte Ltd', 'J066', 'Murali', '+65 6223 8929', '2018-04-10 11:00:08', NULL, 0),
+(196, 'Jaldhi Overseas Singapore Pte Ltd', 'J067', 'Nur Azan', '+ 65 6223 8929', '2018-04-10 11:00:08', NULL, 0),
+(197, 'Janchart Shipping A/S ', 'J068', '', '+45 7554 0099', '2018-04-10 11:00:08', NULL, 0),
+(198, 'Jiangsu Steamship Company Ltd', 'J069', 'Blair Chen', '-56360237', '2018-04-10 11:00:08', NULL, 0),
+(199, 'Jua Letu Renewables Ltd', 'J070', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(200, 'Jindal Saw Limited', 'J071', 'CJ Singh', '91-9610077200', '2018-04-10 11:00:08', NULL, 0),
+(201, 'K.B Saghani ', 'K028', 'Babu Sanghani', '020 537663', '2018-04-10 11:00:08', NULL, 0),
+(202, 'Korea Shipping Limited', 'K039', 'Mr K.C Kim', '4362', '2018-04-10 11:00:08', NULL, 0),
+(203, 'Kopak Shipping Limited', 'K053', '', '9.23123E+11', '2018-04-10 11:00:08', NULL, 0),
+(204, 'Larus S.A', 'K054', 'G. Livanios', '2104287315', '2018-04-10 11:00:08', NULL, 0),
+(205, 'Kalee Limited', 'K068', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(206, 'Komsol Limited', 'K069', 'PETER MAINA', '4362', '2018-04-10 11:00:08', NULL, 0),
+(207, 'Kephis', 'K070', 'LEWIS BOR', '+254 20 3597201/2/3', '2018-04-10 11:00:08', NULL, 0),
+(208, 'Kenya Electricity Transmission Company Limited', 'K071', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(209, 'Ken-Spore Limited', 'K077', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(210, 'Karlog Shipping ', 'K078', 'GEORGE SIMBOURAS', '4362', '2018-04-10 11:00:08', NULL, 0),
+(211, 'Kenya Marine Contractors EPZ', 'K079', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(212, 'KON-QUEST PIRAEUS ', 'K081', 'A.SIROPOULOS', '+210 4182025 ', '2018-04-10 11:00:08', NULL, 0),
+(213, 'Kaf Marine Chartering', 'K082', 'DENIZ ALTINGUL', '+ 90 324 2390234/23826', '2018-04-10 11:00:08', NULL, 0),
+(214, 'Kenya General Industries ', 'K083', 'Mr.Patel ', '2.54722E+11', '2018-04-10 11:00:08', NULL, 0),
+(215, 'Kensalt Limited', 'K084', '', '041-3433004', '2018-04-10 11:00:08', NULL, 0),
+(216, 'Khetshi Dharamshi & Company Ltd', 'K085', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(217, 'KB Sanghani and Sons ', 'K086', 'Nunu Sanghani', '+254 73 519 444', '2018-04-10 11:00:08', NULL, 0),
+(218, 'Karsan Ramji & Sons Ltd', 'K088', 'Kisor Warsani ', '+254-750872953.', '2018-04-10 11:00:08', NULL, 0),
+(219, 'Kingstar Shipping Limited ', 'K089', 'Shuring Chan ', '+(852) 2576 2611', '2018-04-10 11:00:08', NULL, 0),
+(220, 'Kalyan Shipping Ltd', 'K090', 'Jestine Joseph', '97144313501', '2018-04-10 11:00:08', NULL, 0),
+(221, 'KANSA MARITIME LLP', 'K091', '', 'Imran Bachoo', '2018-04-10 11:00:08', NULL, 0),
+(222, 'Louis Dreyfus Commodities Services ', 'L078', 'Attn Accounting dept', '4362', '2018-04-10 11:00:08', NULL, 0),
+(223, 'Lauritzen Bulkers', 'L081', '', '+ 45 3396 8336 ', '2018-04-10 11:00:08', NULL, 0),
+(224, 'Laskaridis Shipping Co. Ltd.', 'L082', '', '+30 210 6284 204', '2018-04-10 11:00:08', NULL, 0),
+(225, 'LarfageHolcim Trading Ltd', 'L083', 'Jean Jose Pedreira', '+41 442 25 62 86', '2018-04-10 11:00:08', NULL, 0),
+(226, 'LBH Mozambique (Nacala)', 'L084', 'Antonie Briel', ' +258 26 526 797 ', '2018-04-10 11:00:08', NULL, 0),
+(227, 'Loxera Advisory Services Ltd', 'L085', 'Sammy Kiriru', '4362', '2018-04-10 11:00:08', NULL, 0),
+(228, 'Larus Piraeus PH', 'L087', '', '+30 210 4287316', '2018-04-10 11:00:08', NULL, 0),
+(229, 'Mombasa Cement Limited', 'M023', 'Jitendra Shah', '020 202420/3862', '2018-04-10 11:00:08', NULL, 0),
+(230, 'Tata Chemicals Magadi', 'M037', '', '254  20  6999000', '2018-04-10 11:00:08', NULL, 0),
+(231, 'Ocean Maritime', 'M040', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(232, 'Midwest Ventures Limited', 'M043', '', '256 41 4232763', '2018-04-10 11:00:08', NULL, 0),
+(233, 'Manuchar Kampalaala Cement', 'M045', 'Subu ', '-404117', '2018-04-10 11:00:08', NULL, 0),
+(234, 'Marimed Agencies', 'M055', 'G. Subudhi', '97165263312', '2018-04-10 11:00:08', NULL, 0),
+(235, 'Manuchar Steel NV', 'M077', '', '', '2018-04-10 11:00:08', NULL, 0),
+(236, 'MUR Shipping', 'M080', 'Arzan', '+971 4 341 5701', '2018-04-10 11:00:08', NULL, 0),
+(237, 'ijing ', 'M082', 'Xu Bin (??)', ' 86 -10-85276986 ', '2018-04-10 11:00:08', NULL, 0),
+(238, 'Marlow Navigations Co. Ltd', 'M083', 'Nicoletta Constantinou', '+357 25 882274', '2018-04-10 11:00:08', NULL, 0),
+(239, 'Mebs International Usd', 'M085', 'NICK REIFF', '', '2018-04-10 11:00:08', NULL, 0),
+(240, 'Muranga Forwarders Ltd', 'M121', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(241, 'Maritime Asset Security and Training (MAST) Ltd', 'M122', 'Derek Roberts', '+253 77671253', '2018-04-10 11:00:08', NULL, 0),
+(242, 'Marimed Shipping (India) Pvt. Ltd. ', 'M129', 'Dattaram Walvankar ', ' +91-98677 60636 ', '2018-04-10 11:00:08', NULL, 0),
+(243, 'Mediship Limited', 'M131', 'Mr. Wang Jiawei', '-84585806', '2018-04-10 11:00:08', NULL, 0),
+(244, 'Meridian Global Consulting LLC', 'M132', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(245, 'Mahmut Resit Ustun ', 'M133', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(246, 'Multiple Solutions Ltd A/C Kampala Cement, Uganda', 'M135', 'Kennedy Elazia ', '4362', '2018-04-10 11:00:08', NULL, 0),
+(247, 'Multiple ICD Kenya Limited.', 'M136', '', '+254 715 546022 ', '2018-04-10 11:00:08', NULL, 0),
+(248, 'Maritime Freight Co Ltd', 'M146', '', '254 41 2220075 ', '2018-04-10 11:00:08', NULL, 0),
+(249, 'Misuga Kaiun (HK) Limited', 'M148', 'Ajay Naik', '+ 852  34202340', '2018-04-10 11:00:08', NULL, 0),
+(250, 'MID-SHIP Group LLC ', 'M149', '', '+351.291.098.242 ', '2018-04-10 11:00:08', NULL, 0),
+(251, 'MEDIBULK SA-PIRAEUS', 'M150', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(252, 'MEADWAY SHIPPING & TRADING INC.', 'M151', '', ' +30211 5007100 ', '2018-04-10 11:00:08', NULL, 0),
+(253, 'Mirage Shipping SA ', 'M152', '', '+41 22 509 1783 ', '2018-04-10 11:00:08', NULL, 0),
+(254, 'Mandarine Ocean Limited', 'M153', 'Marco Zhou', '+862 168415818', '2018-04-10 11:00:08', NULL, 0),
+(255, 'Marbrokers Chartering', 'M156', 'Charles Dixey ', '30 210 6090 744', '2018-04-10 11:00:08', NULL, 0),
+(256, 'Modion Maritime Management S.A. ', 'M158', 'Cpt. Athanasiadis Dimitris', '4362', '2018-04-10 11:00:08', NULL, 0),
+(257, 'Multiple Solutions Ltd  a/c BUCECO', 'M163', 'Kennedy Elazia', '4362', '2018-04-10 11:00:08', NULL, 0),
+(258, 'Mehta Electricals Limited-USD', 'M165', 'Nishma B. Mehta', '2.54721E+11', '2018-04-10 11:00:08', NULL, 0),
+(259, 'Mehta Electricals Ltd-KES', 'M166', 'Nishma B. Mehta', '4362', '2018-04-10 11:00:08', NULL, 0),
+(260, 'Mercurius Shipping GmbH', 'M170', 'Jonas Zukauskas', '+49  30  65 66 81 -81', '2018-04-10 11:00:08', NULL, 0),
+(261, 'Multiship International Ltd', 'M174', 'Captain Singh', '2.54412E+11', '2018-04-10 11:00:08', NULL, 0),
+(262, 'Macor Shipping Sdn Bhd', 'M176', 'Jacky', '+603 6201 0139/0187', '2018-04-10 11:00:08', NULL, 0),
+(263, 'Multiple Solutions Ltd - KES', 'M179', 'Kennedy Elazia', '4362', '2018-04-10 11:00:08', NULL, 0),
+(264, 'Marfin Management S.A.M', 'M180', 'Simon Trowel', '+377 93 106 106', '2018-04-10 11:00:08', NULL, 0),
+(265, 'Menengai Oil Refineries Ltd', 'M181', '', '512212356', '2018-04-10 11:00:08', NULL, 0),
+(266, 'Mo Shipping Norway', 'M186', 'Marco Zhou', '+86 13918201528', '2018-04-10 11:00:08', NULL, 0),
+(267, 'Muthaiga Golf Club', 'M187', 'Michael', '722168720', '2018-04-10 11:00:08', NULL, 0),
+(268, 'Maisha Mabati Mills Ltd', 'M188', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(269, 'Maisha Packaging Company Ltd', 'M189', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(270, 'Multiple ICD (K) Limited', 'M190', 'Gideon C. Koech', '2.54727E+11', '2018-04-10 11:00:08', NULL, 0),
+(271, 'National Cement Co Ltd-USD', 'N005', 'Mr Lokesh', '254  20  25 29 553/4/5/6', '2018-04-10 11:00:08', NULL, 0),
+(272, 'Northern Uganda Auricul Centre', 'N078', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(273, 'Newport Chartering Ltd', 'N080', 'Nikos', '+30-210 4111192 ', '2018-04-10 11:00:08', NULL, 0),
+(274, 'Nordic Bulk Carriers A/S', 'N081', 'HENRIK HOLLESEN', '+45 3910 0811', '2018-04-10 11:00:08', NULL, 0),
+(275, 'National Cement Company Ltd', 'N082', 'Mr.Chandresh Jagad, F.D', '+254  0  733 777 002', '2018-04-10 11:00:08', NULL, 0),
+(276, 'NYK Global Bulk Corporation', 'N083', 'Tatsuya Kitani ', '81-90-7251-1360', '2018-04-10 11:00:08', NULL, 0),
+(277, 'Nirav Agencies ', 'N084', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(278, 'NORDEN Shipping (Singapore) Pte. Ltd              ', 'N085', 'BingZong , Aw', '+65 6395 4462', '2018-04-10 11:00:08', NULL, 0),
+(279, 'Norvic Shipping North America Inc.', 'N087', '', '+91 120-482-0200', '2018-04-10 11:00:08', NULL, 0),
+(280, 'Noble Group Limited - Geneva', 'N088', 'VASSILIS XANTHIS', '+41 21/331 0890', '2018-04-10 11:00:08', NULL, 0),
+(281, 'NIOVIS SHIPPING CO. S.A.', 'N089', 'Giannis Theodorou', '+30 210 4285 831', '2018-04-10 11:00:08', NULL, 0),
+(282, 'Navig8 Bulk Asia Pte Ltd', 'N090', 'CK HAN', '+65  6622 0089', '2018-04-10 11:00:08', NULL, 0),
+(283, 'Natural Operation', 'N091', 'BUHARI  KACAN', ':+90 216 380 3700', '2018-04-10 11:00:08', NULL, 0),
+(284, 'Norden India, Handymax Chartering', 'N092', 'Hardik Sanghvi', '+91 22 28329189', '2018-04-10 11:00:08', NULL, 0),
+(285, 'Norden Shipping (Shanghai) Representative Office', 'N093', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(286, 'Navigation Maritime Bulgare', 'N094', 'Boris Shabarkov', '+359 52 683 284', '2018-04-10 11:00:08', NULL, 0),
+(287, 'Nordica International Ltd', 'N095', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(288, 'NG Shipping & Trading Ltd', 'N096', '', '+90 216 416 50 38', '2018-04-10 11:00:08', NULL, 0),
+(289, 'Navision Chartering ', 'N097', 'Mads Martedal Poulsen', '+45 3977 1193', '2018-04-10 11:00:08', NULL, 0),
+(290, 'Norden Tankers & Bulkers ', 'N099', 'Peter Koch Hansen', '+9 22 2832 9188', '2018-04-10 11:00:08', NULL, 0),
+(291, 'Norvic Shipping India Private Ltd', 'N100', 'Shailesh  Dewan', '+91 120 482 0200', '2018-04-10 11:00:08', NULL, 0),
+(292, 'Navina Maritime S.A', 'N101', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(293, 'Ocean Bulk Shipping LLC', 'O080', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(294, 'Ocean Marine Shipping', 'O082', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(295, 'Orion Bulkers gmbh & Co. ', 'O083', 'Dirk Hartje', '4362', '2018-04-10 11:00:08', NULL, 0),
+(296, 'Occidental Insurance Co. Ltd', 'O084', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(297, 'Oras Denizcilik ve Ticaret Ltd (Sti)', 'O087', 'Faruk', '+90 216 327 44 75', '2018-04-10 11:00:08', NULL, 0),
+(298, 'Oldendorff Luebeck,Port d/a department', 'O088', 'Patrick Eggers', '+49 451 15 00 0', '2018-04-10 11:00:08', NULL, 0),
+(299, 'Ocean Breeze Chartering S.A', 'O090', 'Stelios Kamvas - Dry Cargo Cha', '+ 30 6944 334032 ', '2018-04-10 11:00:08', NULL, 0),
+(300, 'Orion Shipmanagement Trading Ltd. Istanbul', 'O091', 'Capt. Colakel', '+90 532 7010650', '2018-04-10 11:00:08', NULL, 0),
+(301, 'OVERSEAS MARINE ENT. INC. ', 'O093', 'Panayiotis', '+30 210 9681322 ', '2018-04-10 11:00:08', NULL, 0),
+(302, 'Orient shipping Rotterdam B.V', 'O094', 'P.W Soet', '+31 104116338', '2018-04-10 11:00:08', NULL, 0),
+(303, 'Orb Energy Private Ltd', 'O095', 'Daniel Njoroge', '+254 722 924 954', '2018-04-10 11:00:08', NULL, 0),
+(304, 'One Acre Fund ', 'O096', 'JULIA FRANKLIN', '4362', '2018-04-10 11:00:08', NULL, 0),
+(305, 'One Acre Fund', 'O097', 'Naomi', '2.54722E+11', '2018-04-10 11:00:08', NULL, 0),
+(306, 'Pendulum Ship management Inc', 'P057', 'Capt. A. paburas', '4362', '2018-04-10 11:00:08', NULL, 0),
+(307, 'Protex Epz (K) Limited-KES', 'P074', 'Lawrence', '045 6622345', '2018-04-10 11:00:08', NULL, 0),
+(308, 'Parbat Siyani Construction Ltd', 'P075', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(309, 'PoolShop EA Limited', 'P076', 'Joseph', '721233079', '2018-04-10 11:00:08', NULL, 0),
+(310, 'Parbat Siyani Construction Limited-Kes', 'P080', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(311, 'PETRASCO', 'P081', 'Rhonda Reekie ', '+ 44  1224  337736 ', '2018-04-10 11:00:08', NULL, 0),
+(312, 'Pan Afica Chemicals Ltd', 'P082', 'VISHAL DAWDA', '-726740920', '2018-04-10 11:00:08', NULL, 0),
+(313, 'Pancoast Trading (Singapore) PTE Ltd', 'P085', 'Anders Johannsen', '6564115658', '2018-04-10 11:00:08', NULL, 0),
+(314, 'Pan African Syndicate Limited', 'P088', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(315, 'Prime Transport Ltd', 'P089', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(316, 'Packaging Industries', 'P090', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(317, 'PACMAR SINGAPORE', 'P092', 'Nejdet', '6562483115', '2018-04-10 11:00:08', NULL, 0),
+(318, 'Planfreight International ', 'P093', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(319, 'Phaethon International Limited', 'P094', 'YEGOR ROGOVENKO', '-799.1369863', '2018-04-10 11:00:08', NULL, 0),
+(320, 'P.N Mashru Ltd', 'P095', 'Francis Mulilli', '-291483.7143', '2018-04-10 11:00:08', NULL, 0),
+(321, 'Poolshop EA Limited ', 'P096', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(322, 'Pak Mumtaz Uganda Ltd', 'P097', '', '256 772 923277', '2018-04-10 11:00:08', NULL, 0),
+(323, 'P.K.KAKOULIDIS SHIPPING Co. LTD.', 'P098', 'THANOS', '+ 30-210 4290610 ', '2018-04-10 11:00:08', NULL, 0),
+(324, 'Pacific Basin Shipping (South Africa) (Pty) Ltd', 'P099', 'Chris Martin', ' +27  31  764 2670 ', '2018-04-10 11:00:08', NULL, 0),
+(325, 'Pollen Limited', 'P100', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(326, 'Pearl k Shipping Company Ltd', 'P101', 'Roumen Boyadjiev', '+359 888 576784', '2018-04-10 11:00:08', NULL, 0),
+(327, 'PACMAR - SINGAPORE   ', 'P102', 'Nejdet', '+65 6248 3115', '2018-04-10 11:00:08', NULL, 0),
+(328, 'Peter Doehle Schiffahrts - KG', 'P103', 'Christian Kotter', '49 40 38 108 768', '2018-04-10 11:00:08', NULL, 0),
+(329, 'Precious Shipping Public Company Limited ', 'P104', 'Capt. Nopphong Ratanachaiphorn', '-6968748', '2018-04-10 11:00:08', NULL, 0),
+(330, 'Prote.A.S. Maritime', 'P106', 'Iro Karavasili', '+30 210 9689977', '2018-04-10 11:00:08', NULL, 0),
+(331, 'Pacific Basin Shipping Middle East DMCC ', 'P107', 'Mukesh Kumar', '4362', '2018-04-10 11:00:08', NULL, 0),
+(332, 'Peakward Enterprises (Holdings) Ltd', 'P108', 'Okan BAYER', '+90 532 581 9339 ', '2018-04-10 11:00:08', NULL, 0),
+(333, 'Pacific World Shipping Pte Ltd', 'P109', 'Fahad Shamim', '97144356964', '2018-04-10 11:00:08', NULL, 0),
+(334, 'Polimax Services Limited', 'P110', 'MR FARAJ ', '0727 618869', '2018-04-10 11:00:08', NULL, 0),
+(335, 'Prime Steel Mills Ltd', 'P111', 'Mr. Chandresh Jagad', '+254 700 331 175', '2018-04-10 11:00:08', NULL, 0),
+(336, 'Pacific Ship Managers Malaysia SDN BHD', 'P112', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(337, 'Pan Ocean Company Ltd', 'P113', '', '+82.2.316.5395 ', '2018-04-10 11:00:08', NULL, 0),
+(338, 'Pro Shipping Inc c/o Portline Bulk International S', 'P114', 'MARIO SILVA', '+351 21 839 18 28', '2018-04-10 11:00:08', NULL, 0),
+(339, 'Primebulk Shipmanagement Ltd', 'P115', 'Capt. George', '+ 30 210 6202849', '2018-04-10 11:00:08', NULL, 0),
+(340, 'Pan Ocean Co. Ltd', 'P117', 'J.H. Kim', '8223165362', '2018-04-10 11:00:08', NULL, 0),
+(341, 'Probulk Shipping & Trading ', 'P118', 'Ioakim Xydas', '3.0213E+11', '2018-04-10 11:00:08', NULL, 0),
+(342, 'Pan Ocean Co., Ltd', 'P119', 'Mr. Sarang Jung', '8223165398', '2018-04-10 11:00:08', NULL, 0),
+(343, 'Portobello Shipping & Trading', 'P120', 'Geir Laupsa', '+27 83 2878737', '2018-04-10 11:00:08', NULL, 0),
+(344, 'Parbat Siyani Interiors Ltd-KES', 'P121', '', '2.54203E+11', '2018-04-10 11:00:08', NULL, 0),
+(345, 'Parbat Siyani Interiors Ltd-USD', 'P122', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(346, 'Polaris Shipping Co Ltd', 'P125', 'Wayne Park ', '+82 2 2003 10554', '2018-04-10 11:00:08', NULL, 0),
+(347, 'Pola Maris NV', 'P126', 'Stefan Nys', '+30 4758 50923', '2018-04-10 11:00:08', NULL, 0),
+(348, 'Quest Works Limited', 'Q001', 'Anne Muregi', '0728-623102', '2018-04-10 11:00:08', NULL, 0),
+(349, 'Quest Works Limited', 'Q002', 'Anne Muregi', '0728-623102', '2018-04-10 11:00:08', NULL, 0),
+(350, 'Quynh Le Do', 'Q003', 'Quynh Le Do', '4362', '2018-04-10 11:00:08', NULL, 0),
+(351, 'Riftcot Limited', 'R008', 'Vishal Khagram', '+ 254 20 445 2270', '2018-04-10 11:00:08', NULL, 0),
+(352, 'Ryce Southern Sudan Ltd', 'R009', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(353, 'Red Four Group', 'R010', 'Dave', '4362', '2018-04-10 11:00:08', NULL, 0),
+(354, 'Ryce Southern Sudan Ltd', 'R011', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(355, 'Rubber Products Ltd', 'R013', '', '020 557173/2229982', '2018-04-10 11:00:08', NULL, 0),
+(356, 'Evergreen-Round The World Logistics Corp (M)SDNBHD', 'R016', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(357, 'Revital Healthcare (EPZ) Ltd', 'R017', 'Francisca', '4362', '2018-04-10 11:00:08', NULL, 0),
+(358, 'Roofing Ltd', 'R018', 'Krishna Das', '4362', '2018-04-10 11:00:08', NULL, 0),
+(359, 'Ruman Shipcontractors Limited', 'R019', 'Mohammed Mansoor ', '+722 251 598', '2018-04-10 11:00:08', NULL, 0),
+(360, 'Reem Maritime Ltd', 'R020', 'MOHAMAD ESMAEIL', '+963 43 215562/3', '2018-04-10 11:00:08', NULL, 0),
+(361, 'R K Sanghani ', 'R021', 'NUNU SANGHANI', '4362', '2018-04-10 11:00:08', NULL, 0),
+(362, 'Ripe Freight Services Ltd', 'R022', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(363, 'Reliable Freight Services', 'R023', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(364, 'Rapid Kate Services Ltd', 'R024', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(365, 'Regal Freighters ', 'R025', 'Issa Odhowa Aden', '+254 721 217 655', '2018-04-10 11:00:08', NULL, 0),
+(366, 'Richstone Hellas Limited', 'R026', 'Dimitris Meletis', '+30 210 4280343 ', '2018-04-10 11:00:08', NULL, 0),
+(367, 'Ruman Shipcontractors Ltd (Ksh)', 'R027', 'Mr. Mansoor', '4362', '2018-04-10 11:00:08', NULL, 0),
+(368, 'Rana Shipping', 'R028', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(369, 'Roche Transport & Logistics Ltd', 'R029', 'ALi Hussein Shire', '4362', '2018-04-10 11:00:08', NULL, 0),
+(370, 'Rai Cement Limited', 'R030', 'RAKESH WATS', '4362', '2018-04-10 11:00:08', NULL, 0),
+(371, 'Reederei Gebr Winter GmbH & Co KG', 'R031', 'Malgorzata Mackiewicz-Beker', '4362', '2018-04-10 11:00:08', NULL, 0),
+(372, 'Royal Yatch Services', 'R032', 'C/O Captain Mohammed', '4362', '2018-04-10 11:00:08', NULL, 0),
+(373, 'Remi Maritime Corp', 'R033', 'Remi', '+30 2104283622', '2018-04-10 11:00:08', NULL, 0),
+(374, 'Bollore Africa Logistics Kenya LTD', 'S003', '', '254 41 34 33 821', '2018-04-10 11:00:08', NULL, 0),
+(375, 'Osman Shipping LLC', 'S019', 'Salma A.K', '97165559911', '2018-04-10 11:00:08', NULL, 0),
+(376, 'Setaf Saget ', 'S031', 'Hilbert Gregory', '4362', '2018-04-10 11:00:08', NULL, 0),
+(377, 'Solym Carriers Limited', 'S046', 'Mr Mike Papalis', '3.06937E+11', '2018-04-10 11:00:08', NULL, 0),
+(378, 'Sea Trade Agencies limited', 'S060', 'Gharib', '722871208', '2018-04-10 11:00:08', NULL, 0),
+(379, 'Seaforth Shipping Services', 'S061', 'Patrick Mwamisi', '733633520', '2018-04-10 11:00:08', NULL, 0),
+(380, 'Seven Seas Shipping', 'S062', 'Jalal', '4362', '2018-04-10 11:00:08', NULL, 0),
+(381, 'SLH Venus Shipping S.A', 'S063', 'Silvia Bertamini', '3.02E+11', '2018-04-10 11:00:08', NULL, 0),
+(382, 'Skywards International Freight', 'S081', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(383, 'Solym Carriers Ltd', 'S083', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(384, 'Synresins Limited', 'S084', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(385, 'Sea Trek Trans PTE Ltd', 'S085', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(386, 'Sekur Holding Inc', 'S086', 'Donald Halilaj', ' +30  2104594100', '2018-04-10 11:00:08', NULL, 0),
+(387, 'Sanghani Ltd ', 'S087', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(388, 'Sea Globe Management & Trading', 'S088', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(389, 'Steelwool (Africa) Ltd', 'S089', '020-2017719/20', '020-2017719', '2018-04-10 11:00:08', NULL, 0),
+(390, 'Stile Logistics', 'S090', 'Tom ', '516-374-7400', '2018-04-10 11:00:08', NULL, 0),
+(391, 'Shreeji Transporters ', 'S092', 'Mr Vimal', '4362', '2018-04-10 11:00:08', NULL, 0),
+(392, 'Sturrock Shipping (Kenya) Ltd', 'S093', 'Mercy Chomba', '4362', '2018-04-10 11:00:08', NULL, 0),
+(393, 'Star Bulk', 'S099', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(394, 'Strategic Bulk Carriers', 'S102', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(395, 'STX Pan Ocean (America)Inc', 'S103', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(396, 'Sovereign Logistics Ltd-KES', 'S104', 'Pauline Karwirwa', '4362', '2018-04-10 11:00:08', NULL, 0),
+(397, ' Sovereign Logistics Ltd-USD', 'S105', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(398, 'Steel Rolling Mills Ltd ', 'S106', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(399, 'Seateam Management PTE Ltd', 'S107', 'Capt. Maniego', '6.39089E+11', '2018-04-10 11:00:08', NULL, 0),
+(400, 'Signode Packaging Ltd', 'S109', 'LUCIA KAVATA', '5022487', '2018-04-10 11:00:08', NULL, 0),
+(401, 'SESAC SAS', 'S110', 'Adeline Binoche (Ms) ', '+33 155491600', '2018-04-10 11:00:08', NULL, 0),
+(402, 'Shurie Trucks Ltd', 'S112', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(403, 'Silk Road Shipping & Trading Co. Ltd', 'S113', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(404, 'Shun Shing Dubai Group ', 'S115', 'Siddiq Ahmed', '+97150 5688108', '2018-04-10 11:00:08', NULL, 0),
+(405, 'Stan Consulting Group Ltd', 'S117', 'Ibrahim', '4362', '2018-04-10 11:00:08', NULL, 0),
+(406, 'Savannah Cement  Limited', 'S118', 'Samson Shivina', '4362', '2018-04-10 11:00:08', NULL, 0),
+(407, 'Savannah Cement (EPZ) Ltd ', 'S119', 'Ibrahim', '4362', '2018-04-10 11:00:08', NULL, 0),
+(408, 'Shreeji Forwarders Ltd', 'S120', 'WILLIAM ', '+254 786 330 602', '2018-04-10 11:00:08', NULL, 0),
+(409, 'Sireen Shipping & Trading Co.Ltd', 'S121', 'ISM Department', '9616217020', '2018-04-10 11:00:08', NULL, 0),
+(410, 'Seven Seas(Chartering) Ltd - London', 'S122', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(411, 'LSS Ltd', 'S123', 'Nora Salama', 'Tel: +30 210 3313155', '2018-04-10 11:00:08', NULL, 0),
+(412, 'SKYDIVE LOGISTICS', 'S124', 'Laban N.', '4362', '2018-04-10 11:00:08', NULL, 0),
+(413, 'Skydive Logistics', 'S125', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(414, 'Silk Road Shipping & Trading Co Ltd ', 'S126', 'Ayham Abu Issa', '00962 6 5605228', '2018-04-10 11:00:08', NULL, 0),
+(415, 'SEATRANS MANAGEMENT ENTERPRISES INC.', 'S127', 'P.PISSIAS', '-4264410', '2018-04-10 11:00:08', NULL, 0),
+(416, 'SEACAPE LOGISTICS & MANAGEMENT SERVICES INC.', 'S128', 'DAVID PEREIRA', '786-797-6190', '2018-04-10 11:00:08', NULL, 0),
+(417, 'Seacape Shipping & Trading,C/O Seacape Logistics A', 'S129', 'C/O SEACAPE LOGISTICS AND MANA', '-6201', '2018-04-10 11:00:08', NULL, 0),
+(418, 'Seabridge Chartering, LLC', 'S130', 'Peter A. Thanasoulis', '+212.742.0077', '2018-04-10 11:00:08', NULL, 0),
+(419, 'Superfoam Limited', 'S157', 'Mr. Mike Fischer', '', '2018-04-10 11:00:08', NULL, 0),
+(420, 'SuperFoam Limited- usd', 'S158', 'Mr. Mike Fischer', '0202041346/7/8', '2018-04-10 11:00:08', NULL, 0),
+(421, 'Sealestial Navigation Co.', 'S160', 'Cpt.A.Papadakis', '3.0211E+11', '2018-04-10 11:00:08', NULL, 0),
+(422, 'Savannah Cement Limited', 'S161', 'Samson Shivina', '', '2018-04-10 11:00:08', NULL, 0),
+(423, 'Swire Bulk ', 'S163', 'Kevin Lisboa', '+65 6632 9292', '2018-04-10 11:00:08', NULL, 0),
+(424, 'Saj Ceramics Ltd', 'S164', 'Atul Parmar', '+254 721 206 671', '2018-04-10 11:00:08', NULL, 0),
+(425, 'SMT Shipping', 'S165', 'John Egan', '+203 599 1530', '2018-04-10 11:00:08', NULL, 0),
+(426, 'Sanergy Limited', 'S166', 'Barrack Onyango', '+254 20 6005011', '2018-04-10 11:00:08', NULL, 0),
+(427, 'Schenker LLC', 'S167', 'Peter Lwanga', 'Tel  +971 4 8879292  ext.', '2018-04-10 11:00:08', NULL, 0),
+(428, 'Stam Shipping S.A ', 'S168', 'Nikos Vlachos', '+30 210 4295091', '2018-04-10 11:00:08', NULL, 0),
+(429, 'Sea commercial Shipping Services S.A', 'S169', 'Kostas Bessas', '+30 2118889000', '2018-04-10 11:00:08', NULL, 0),
+(430, 'Segal Shipping Services PVT Ltd', 'S170', 'Hardik Paun', '+91 2836 220999', '2018-04-10 11:00:08', NULL, 0),
+(431, ' Royal Court Affairs', 'S171', 'Zakariya Sulaiman Abdullah ', '+00968 24736801', '2018-04-10 11:00:08', NULL, 0),
+(432, 'Sam Shipping Management S.A', 'S172', 'Kristianna Kolitsida', '+30 6986400201', '2018-04-10 11:00:08', NULL, 0),
+(433, 'Seawind Far East Ltd', 'S173', 'Mathias Rottstegge', '00852 2385 5397', '2018-04-10 11:00:08', NULL, 0),
+(434, 'Samos Steamship Co. (As Agents Only)', 'S174', 'Capt K. Vougioukas', '-9466080', '2018-04-10 11:00:08', NULL, 0),
+(435, 'Tororo Cement Limited', 'T015', 'Jitendra Shah', '0414-260184', '2018-04-10 11:00:08', NULL, 0),
+(436, 'TBS Shipping Services', 'T044', 'Ruchir Seth', '+1 914 216 3271', '2018-04-10 11:00:08', NULL, 0),
+(437, 'Thorco Shipping', 'T064', 'Hasanah Hardi', '6563248660', '2018-04-10 11:00:08', NULL, 0),
+(438, 'Todwill Kenya ', 'T065', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(439, 'Tata Africa Holding', 'T066', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(440, 'Trade & Transport Consortium  Ltd S.A.', 'T067', 'Ayman El Said', '27797601634', '2018-04-10 11:00:08', NULL, 0),
+(441, 'IFA-TQ Express Limited', 'T068', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(442, 'Todwil Kenya', 'T069', 'JOHNNY LIMB', '733339000', '2018-04-10 11:00:08', NULL, 0),
+(443, 'Techpak Industries Ltd', 'T070', '', '020-551625', '2018-04-10 11:00:08', NULL, 0),
+(444, 'Thoresen & Co.', 'T071', 'Hilo Fujimoto', '+66 0  2254-8437', '2018-04-10 11:00:08', NULL, 0),
+(445, 'TYL Limited', 'T072', 'ANNASTASIA GIKUNDA', '0203751985/6', '2018-04-10 11:00:08', NULL, 0),
+(446, 'Two Diamond Enterprises', 'T074', '', '718766014', '2018-04-10 11:00:08', NULL, 0),
+(447, 'Transatlantic Maritime', 'T075', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(448, 'Translink (U) Ltd', 'T076', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(449, 'Transporte Multimodal S.A DE C.V', 'T077', 'Juan Carlos', '4362', '2018-04-10 11:00:08', NULL, 0),
+(450, 'Trendbulk Chartering and Trading Ltd. ', 'T078', 'Yigit Sakir', '+ 90 216 688 27 77', '2018-04-10 11:00:08', NULL, 0),
+(451, 'Trade Magnate ', 'T079', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(452, 'Tamani Construction Company Limited', 'T080', 'DANIEL MBURU', '+254020 272 4852', '2018-04-10 11:00:08', NULL, 0),
+(453, 'Tristar Management Ltd ', 'T081', '', '+ 30 210 4599111', '2018-04-10 11:00:08', NULL, 0),
+(454, 'Tania Holdings Limited', 'T082', 'Jessica Kesi', '4362', '2018-04-10 11:00:08', NULL, 0),
+(455, ' Master and Owners Mv JS Danube ', 'T083', 'C/O V Ships Asia Group Pte Ltd', '4362', '2018-04-10 11:00:08', NULL, 0),
+(456, 'Target Marine S.A', 'T085', 'MICHAEL KARRAS', '4362', '2018-04-10 11:00:08', NULL, 0),
+(457, 'TOPSHEEN SHIPPING GROUP LIMITED', 'T086', 'Crystal (Gu Xin)', '+86 010 84519089', '2018-04-10 11:00:08', NULL, 0),
+(458, 'TRANSGRAIN SHIPPING B.V', 'T088', 'Peter Heezen', '+31 10 4301516', '2018-04-10 11:00:08', NULL, 0),
+(459, 'Tata Africa Holdings (Kenya) Ltd', 'T089', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(460, 'TKB Chartering ', 'T090', 'Anders Svarrer', '+45 3946 3642', '2018-04-10 11:00:08', NULL, 0),
+(461, 'Thoresen Shipping Singapore (Pte) Ltd', 'T091', 'Katerina Kanellopoulou', '6597778132', '2018-04-10 11:00:08', NULL, 0),
+(462, 'Transfreight Logistics Ltd', 'T094', 'J. Mbuvi', '2.54724E+11', '2018-04-10 11:00:08', NULL, 0),
+(463, 'Triaena Maritime Security Ltd', 'T095', 'Vasilis Tzanis', '4362', '2018-04-10 11:00:08', NULL, 0),
+(464, 'TRANSBULK SHIPPING CORPORATION LIMITED  ', 'T096', 'JAY CHEN', '-50872017', '2018-04-10 11:00:08', NULL, 0),
+(465, 'Turquoise Trading & Agency', 'T097', 'Hasmet ', '4362', '2018-04-10 11:00:08', NULL, 0),
+(466, 'Twyford Ceramics Company Limited', 'T098', 'Kevin Ren', '4362', '2018-04-10 11:00:08', NULL, 0),
+(467, 'Totadex Kenya Ltd', 'T099', 'Emmanuel M.', '+254 700 000 192', '2018-04-10 11:00:08', NULL, 0),
+(468, 'Trans Power Co Ltd', 'T100', 'Oliver Ren', '86 592 238 7660', '2018-04-10 11:00:08', NULL, 0),
+(469, 'Technomar Shipping Inc ', 'T101', 'Sophia Pagali', '+30210 6233670', '2018-04-10 11:00:08', NULL, 0),
+(470, 'Thalkat Shipping S.A ', 'T102', 'Aristotelis Ypsilantis', '3.02109E+11', '2018-04-10 11:00:08', NULL, 0),
+(471, 'Trident Plumbers Ltd', 'T103', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(472, 'THOME SHIP MANAGEMENT PTE LTD', 'T104', 'MARLYN C. FRANCISCO', '6.39209E+13', '2018-04-10 11:00:08', NULL, 0),
+(473, 'Techbuilding Group Ltd', 'T105', 'Wolgang Manfred', '25639201400', '2018-04-10 11:00:08', NULL, 0),
+(474, 'Tsavo Lite Ltd', 'T106', 'Peter Kibe', '722387469', '2018-04-10 11:00:08', NULL, 0),
+(475, 'The Paint Depo', 'T107', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(476, 'Tsavo Litearthick Kannappan', 'T108', '', '', '2018-04-10 11:00:08', NULL, 0),
+(477, 'Triton Navigation B.V.', 'T109', 'Toshiyuki Abe', '+31-205752650', '2018-04-10 11:00:08', NULL, 0),
+(478, 'Tropical Healthcare Ltd', 'T110', 'James Nyamweya', '+44  0  1268286646', '2018-04-10 11:00:08', NULL, 0),
+(479, 'United Aryan EPZ Limited', 'U021', '', '614-491-0001', '2018-04-10 11:00:08', NULL, 0),
+(480, 'Unique Air Express', 'U022', 'Ravi More', '+91 206720000', '2018-04-10 11:00:08', NULL, 0),
+(481, 'Unilever(K) Ltd', 'U024', 'Mr David Dickie', '+254 71 5061262', '2018-04-10 11:00:08', NULL, 0),
+(482, 'United Marine Security', 'U025', 'Jose Ojeda ', '+1201-3 Ltd', '2018-04-10 11:00:08', NULL, 0),
+(483, 'USL Shipping  DMC EST ', 'U026', 'Krishnan', '97142667253', '2018-04-10 11:00:08', NULL, 0),
+(484, 'Ultrabulk Shipholding PL', 'U027', 'William Blunck', '+65 63763693', '2018-04-10 11:00:08', NULL, 0),
+(485, 'United Ocean Ship Management (PVT) Ltd', 'U028', '', '', '2018-04-10 11:00:08', NULL, 0),
+(486, 'United Ocean Ship Management Pte Ltd ', 'U029', 'Hasan Iftekhar', '-68545516', '2018-04-10 11:00:08', NULL, 0),
+(487, 'Union Marine Management Services PTE Ltd', 'U030', 'Sameer Mahashur', '+65 6922 0031', '2018-04-10 11:00:08', NULL, 0),
+(488, 'Univan Man', 'U031', '254(0)713371197 ', '', '2018-04-10 11:00:08', NULL, 0),
+(489, 'W. Bockstiegel Maritime Service GmbH & Co. KG ', 'W039', 'Johann Prahm', '4362', '2018-04-10 11:00:08', NULL, 0),
+(490, 'Worldwide Auctioneers (WWA)', 'W040', 'Digamber Naswa', '+971 4 881 6142 ', '2018-04-10 11:00:08', NULL, 0),
+(491, 'White Sea Navigation S.A', 'W041', 'WHITE SEA NAVIGATION S.A.', 'WHITE SEA NAVIGATION S.A.', '2018-04-10 11:00:08', NULL, 0),
+(492, 'Wasan Shipping ', 'W042', '', '4362', '2018-04-10 11:00:08', NULL, 0);
+INSERT INTO `sage_clients` (`id`, `name`, `code`, `contact_person`, `telephone`, `created`, `updated_at`, `deleted`) VALUES
+(493, 'Wm. Miller\'s Nachfolger (GmbH & Co.) KG', 'W043', '', 'Tel: +49  0 40 / 36 01 ', '2018-04-10 11:00:08', NULL, 0),
+(494, 'Wilhemsen Procurement Services', 'W044', 'Girish', '91 98195998', '2018-04-10 11:00:08', NULL, 0),
+(495, 'Wilhelmsen Ships Services PTE Ltd', 'W045', 'Alvin Ong', '+65 63954545', '2018-04-10 11:00:08', NULL, 0),
+(496, 'Weco Bulk A/S', 'W046', 'Joakim G. Larsen', '4362', '2018-04-10 11:00:08', NULL, 0),
+(497, 'Western Bulk Chartering, Singapore ', 'W047', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(498, 'Wadi Degla Investment (K) Ltd', 'W048', 'Joseph', '0792 888 888', '2018-04-10 11:00:08', NULL, 0),
+(499, 'West Kenya Sugar Company Ltd', 'W049', '', '-6553.733333', '2018-04-10 11:00:08', NULL, 0),
+(500, 'Western Steel Mills Ltd', 'W050', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(501, 'Xianglong Shipping Co. Ltd', 'X002', 'Mr Vito Guo', '+86 185 6110 3527', '2018-04-10 11:00:08', NULL, 0),
+(502, 'Yentek Shipping Co. Ltd', 'Y001', 'Gokhan Soytekin', '4362', '2018-04-10 11:00:08', NULL, 0),
+(503, 'Yayla Shipping , Istanbul', 'Y002', 'Capt.Ertugrul Caglayan', '+90 212 283 98 55', '2018-04-10 11:00:08', NULL, 0),
+(504, 'Yara Ltd', 'Y003', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(505, 'Zelmar Shipping', 'Z001', 'Sezen Gurbuz(Ms)', '9.02123E+11', '2018-04-10 11:00:08', NULL, 0),
+(506, 'Zodiac Maritime Agencies Ltd', 'Z002', 'VICTOR SORESCU', '+44-207 333 2361', '2018-04-10 11:00:08', NULL, 0),
+(507, 'Zahra Maritime Services Co.', 'Z003', 'Captain Asib', '+963 43 316778 / 213495', '2018-04-10 11:00:08', NULL, 0),
+(508, 'D/S NORDEN A/S   ', 'D060', 'Jesper Rosenlund', '+45  3095 7070', '2018-04-10 11:00:08', NULL, 0),
+(509, 'Elgon Kenya Limited ', 'E089', 'Mr. Ashok Reddy', '4362', '2018-04-10 11:00:08', NULL, 0),
+(510, 'GRECOMAR SHIPPING AGENCY LTD', 'G029', '', '+30 210 8986160 ', '2018-04-10 11:00:08', NULL, 0),
+(511, 'Amer Abdalla', 'ise Dreyfus C/o Baba', '', '', '2018-04-10 11:00:08', NULL, 0),
+(512, 'Lighthouse Navigation PTE Ltd', 'L076', 'Amar Deep', '6626543100', '2018-04-10 11:00:08', NULL, 0),
+(513, 'Logistics Three Sixty Five Limited ', 'L077', 'Imran Bachoo', '+254  0 20 261 6211', '2018-04-10 11:00:08', NULL, 0),
+(514, 'Mitchell Cotts Freight Kenya Limited', 'M107', '', '254   041  2316826;', '2018-04-10 11:00:08', NULL, 0),
+(515, 'Mer Union NV - Antwerp', 'M113', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(516, 'Marine Transport', 'M114', 'Tassos Raissis', '+30 210 4584817', '2018-04-10 11:00:08', NULL, 0),
+(517, 'Spedag Interfreight K Limited', 'S131', 'GODFREY YENGO', '2.5473E+11', '2018-04-10 11:00:08', NULL, 0),
+(518, 'Spear Logistics Kenya Ltd', 'S133', 'Robina', '+254 720 450 447', '2018-04-10 11:00:08', NULL, 0),
+(519, 'SIVA Bulk ', 'S134', 'Satheesh. J', '9.12268E+11', '2018-04-10 11:00:08', NULL, 0),
+(520, 'SEATREK TRANS PTE LTD.', 'S135', 'BH SEO', '+65 6692 0089 ', '2018-04-10 11:00:08', NULL, 0),
+(521, 'Seabulk Shipping Services Ltd', 'S136', 'Capt. Abubakar ', '254 723786261', '2018-04-10 11:00:08', NULL, 0),
+(522, 'Starbulk S.A.', 'S137', 'Capt. Nikolaos Thomatos', '+30 210 61 78 400', '2018-04-10 11:00:08', NULL, 0),
+(523, 'Si32 9292', 'S138', '', '', '2018-04-10 11:00:08', NULL, 0),
+(524, 'Soni Plant Agencies ', 'S139', 'John Soni', '', '2018-04-10 11:00:08', NULL, 0),
+(525, 'SeaStar Chartering', 'S140', 'Andreas Chamakiotis', '', '2018-04-10 11:00:08', NULL, 0),
+(526, 'Smit Salvage B.V', 'S141', 'Mr J.J Schreurs', '', '2018-04-10 11:00:08', NULL, 0),
+(527, 'Saacke Energy Systems (SHANGHAI) Co. Ltd', 'S142', 'Vicky Yang??', '+86  0 21 6495 1529 ', '2018-04-10 11:00:08', NULL, 0),
+(528, 'Sanghi Industries Ltd', 'S143', 'AKASH SHAH', '', '2018-04-10 11:00:08', NULL, 0),
+(529, 'SAN VALENCIA LIMITED', 'S144', '', '0412312399', '2018-04-10 11:00:08', NULL, 0),
+(530, 'Swiss Marine Services S.A', 'S151', 'SSD', '', '2018-04-10 11:00:08', NULL, 0),
+(531, 'Venturi Fleet Management S.A', 'V076', 'Ms Anna Reshetnikova', '+30 694201-4846', '2018-04-10 11:00:08', NULL, 0),
+(532, 'Wilhemsen Ships Services', 'W016', 'Daniel Majiba', ' +254  41 222 7964 ', '2018-04-10 11:00:08', NULL, 0),
+(533, 'Worldwide Energy Logistics', 'W036', 'Jamie Burt', '+44  0 2088670330', '2018-04-10 11:00:08', NULL, 0),
+(534, 'W.E Tilley (Muthaiga) Ltd', 'W037', 'MAUREEN', '722649018', '2018-04-10 11:00:08', NULL, 0),
+(535, 'WCO DTE (Kenya) ', 'W038', 'SSgt Grant McFall ', '254 0 713371197 ', '2018-04-10 11:00:08', NULL, 0),
+(536, 'Export Trading Co. Ltd', 'E087', 'Danny Chng', ' +65 6536 8400 ', '2018-04-10 11:00:08', NULL, 0),
+(537, 'Equinox Maritime Ltd', 'E088', 'GEORGE XIROS', '210-6240400', '2018-04-10 11:00:08', NULL, 0),
+(538, 'Golden Ocean Management Asia PTE. LTD. ', 'G027', 'Alex Ku ', '6592248188', '2018-04-10 11:00:08', NULL, 0),
+(539, 'General Cargo Services Ltd', 'G028', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(540, 'LBH Global Quality Desk ', 'L073', 'Eric \'t  Hart', '+31 0 10 50 65 038', '2018-04-10 11:00:08', NULL, 0),
+(541, 'Liebherr-Werk Nenzing GmbH', 'L074', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(542, 'Louise Dreyfus C/o Baba Shipping Services Ltd', 'L075', 'Amer Abdalla', '+254 722 897 006', '2018-04-10 11:00:08', NULL, 0),
+(543, 'Multiple Hauliers (EA) Limited', 'M103', 'Shreyesh Dave,General Manager', '+254 20 39 44 000', '2018-04-10 11:00:08', NULL, 0),
+(544, 'Manuchar NV Beijing ', 'M106', 'Xu Bin (??)', ' 86 -10-85276986 ', '2018-04-10 11:00:08', NULL, 0),
+(545, 'V. Ships (Ukraine)', 'V069', 'Ruslan Tsybin', ' +380 48  7340340 ext ', '2018-04-10 11:00:08', NULL, 0),
+(546, 'Vitol Services Ltd', 'V070', 'Capt Rishab Bahl', '+ 65 6839 4835', '2018-04-10 11:00:08', NULL, 0),
+(547, 'VISION CHARTERING S.A.', 'V071', '', '+30 210 41 36 685 ', '2018-04-10 11:00:08', NULL, 0),
+(548, 'VARAMAR LTD', 'V072', '', '4362', '2018-04-10 11:00:08', NULL, 0),
+(549, 'VICTORY SHIPPING PTE. LTD.', 'V073', 'Amit Daga', '+65 6341 7767', '2018-04-10 11:00:08', NULL, 0),
+(550, 'V.Ships Asia Group Pte. Ltd.', 'V074', 'JOCEV CHONG', '4362', '2018-04-10 11:00:08', NULL, 0),
+(551, 'Victoria Steamship Co. Ltd', 'V075', 'Ioanna Liagou', '+44 207 977 1710', '2018-04-10 11:00:08', NULL, 0),
+(552, 'Name', 'Account', 'Contact_Person', 'Telephone', '2018-04-10 11:00:08', NULL, 0),
+(553, 'V.Ships Asia Group Pte. Ltd.', 'V074', 'JOCEV CHONG', '4362', '2018-04-10 11:00:08', NULL, 0),
+(554, 'Victoria Steamship Co. Ltd', 'V075', 'Ioanna Liagou', '+44 207 977 1710', '2018-04-10 11:00:08', NULL, 0),
+(555, 'Cargill Ocean Transportation Singapore Pte Ltd', 'C082', 'Sachin Matpal', '', '2018-04-10 11:00:08', NULL, 0),
+(556, 'CALTREK FREIGHT', 'C083', 'DIMITRIS SPERTOS', '', '2018-04-10 11:00:08', NULL, 0),
+(557, 'COSMOTRANS NAVIGATION S.A. - PIRAEUS/GREECE', 'C084', '', '', '2018-04-10 11:00:08', NULL, 0),
+(558, 'CIMERWA LTD', 'C085', 'Sahinkuye Uwizeyimana Déo', '', '2018-04-10 11:00:08', NULL, 0),
+(559, 'Cube Movers Ltd', 'C096', 'Davis Muhavi', '', '2018-04-10 11:00:08', NULL, 0),
+(560, 'Cube Movers Ltd', 'C097', 'Davis Muhavi', '', '2018-04-10 11:00:08', NULL, 0),
+(561, 'Centuries Global Consulting ', 'C100', 'Anne WAnjiku Muregi', '', '2018-04-10 11:00:08', NULL, 0),
+(562, 'Charterbulk Shipping LLC', 'C101', 'Miss Richelle G. Fernando', '', '2018-04-10 11:00:08', NULL, 0),
+(563, 'Dava International', 'D050', 'Emma', '', '2018-04-10 11:00:08', NULL, 0),
+(564, 'Del-Ray Cargo Services Ltd', 'D051', 'Mohamed Ramadhan', '', '2018-04-10 11:00:08', NULL, 0),
+(565, 'Dodhia Packaging Ltd', 'D052', 'GRACE', '', '2018-04-10 11:00:08', NULL, 0),
+(566, 'Dune Packaging Ltd', 'D053', 'DIMPLE', '', '2018-04-10 11:00:08', NULL, 0),
+(567, 'EBB - Darka Group of Companies', 'D054', 'Mohamed A.M. Osman ', '', '2018-04-10 11:00:08', NULL, 0),
+(568, 'DAC Aviation East Africa Ltd', 'D056', '', '', '2018-04-10 11:00:08', NULL, 0),
+(569, 'D Amico Dry Limited, DA-Desk. ', 'D058', '', '', '2018-04-10 11:00:08', NULL, 0),
+(570, 'Dianik Bross Shipping Corp. S.A.', 'D059', 'Violetta Samona', '', '2018-04-10 11:00:08', NULL, 0),
+(571, 'Diamond Shipbrokers Ltd', 'D084', 'Alexandros K. Gkogkas', '', '2018-04-10 11:00:08', NULL, 0),
+(572, 'D.G.M Shipping & Chartering', 'D087', 'Bhusan Bhattacharjee', '', '2018-04-10 11:00:08', NULL, 0),
+(573, 'Dunhill Impex & Trading Company Ltd', 'D090', 'Mahesh Panchani', '', '2018-04-10 11:00:08', NULL, 0),
+(574, 'Digital Packaging Innovations Holdings Ltd', 'D091', 'Meeraj Shah', '', '2018-04-10 11:00:08', NULL, 0),
+(575, 'Export Trading Co Inputs Kenya Ltd', 'E006', 'Mr Kalpesh Patel Mr Ganesh', '', '2018-04-10 11:00:08', NULL, 0),
+(576, 'Expolanka Freight K Limited', 'E027', 'Pinus Mokaya', '', '2018-04-10 11:00:08', NULL, 0),
+(577, 'Oerssleffs Eftf A/S', 'E056', 'Benn Moreno', '', '2018-04-10 11:00:08', NULL, 0),
+(578, 'Expolanka Freight Limited', 'E072', 'Pinus Mokaya', '', '2018-04-10 11:00:08', NULL, 0),
+(579, 'Energy Shipping spa ', 'E073', '', '', '2018-04-10 11:00:08', NULL, 0),
+(580, 'Empower Installation Contractors Ltd', 'E078', '', '', '2018-04-10 11:00:08', NULL, 0),
+(581, 'Elegant Packaging Ltd', 'E081', 'AYUB VARWANI', '', '2018-04-10 11:00:08', NULL, 0),
+(582, 'Elegance Packaging Limited', 'E082', '', '', '2018-04-10 11:00:08', NULL, 0),
+(583, 'Eastern Bulk Carriers AS – Norway', 'E083', '', '', '2018-04-10 11:00:08', NULL, 0),
+(584, 'ELB Logistics Gmbh', 'E084', 'Sören Möller', '', '2018-04-10 11:00:08', NULL, 0),
+(585, 'Express Chartering & Shipping Ltd ', 'E085', 'Aston', '', '2018-04-10 11:00:08', NULL, 0),
+(586, 'Falcon Maritime A/S Copenhagen', 'F061', 'Claus Bjarnested', '', '2018-04-10 11:00:08', NULL, 0),
+(587, 'Fresh Life Initiative Ltd', 'F062', '', '', '2018-04-10 11:00:08', NULL, 0),
+(588, 'Fairwind International Shipping Company', 'F063', 'Vicky Wang', '', '2018-04-10 11:00:08', NULL, 0),
+(589, 'Fresh Life Initiative Ltd', 'F064', '', '', '2018-04-10 11:00:08', NULL, 0),
+(590, 'Global text Africa Ltd', 'G013', 'Mr. Kioko', '', '2018-04-10 11:00:08', NULL, 0),
+(591, 'Global Paper Product Limited', 'G014', 'MUSTAFA M ESMAILJI', '', '2018-04-10 11:00:08', NULL, 0),
+(592, 'G Bulk Corp', 'G015', '', '', '2018-04-10 11:00:08', NULL, 0),
+(593, 'Guardian Bank Ltd a/c Eagle Retread Limited', 'G016', '', '', '2018-04-10 11:00:08', NULL, 0),
+(594, 'Gimbco Freight Limited', 'G017', 'Mr.Gitonga', '', '2018-04-10 11:00:08', NULL, 0),
+(595, 'Gedenlines', 'G018', 'Sai', '', '2018-04-10 11:00:08', NULL, 0),
+(596, 'Goodearth Maritime Ltd ', 'G019', '', '', '2018-04-10 11:00:08', NULL, 0),
+(597, 'Gemini Chartering & Trading Ltd - Turkey ', 'G020', 'CAN', '', '2018-04-10 11:00:08', NULL, 0),
+(598, 'Gulf of Aden Group Transits LTD', 'G021', 'Kevin  Cerullo', '', '2018-04-10 11:00:08', NULL, 0),
+(599, 'G. D’ALESIO s.a.s.', 'G022', 'Capt. Giuseppe Pasciuto', '', '2018-04-10 11:00:08', NULL, 0),
+(600, 'GAC Global Hub Services (DMCC Branch) ', 'G026', 'Xavier Vikram ', '', '2018-04-10 11:00:08', NULL, 0),
+(601, 'Kardeniz & Mardeniz Shipping Managemnet', 'K092', 'Ercan Kibar', '', '2018-04-10 11:00:08', NULL, 0),
+(602, 'KOG Transport PVT LTD,', 'K093', 'Tabrez Bharde', '', '2018-04-10 11:00:08', NULL, 0),
+(603, 'Koch Carbon Wichita', 'K095', 'Dodd Carpenter', '', '2018-04-10 11:00:08', NULL, 0),
+(604, 'Kitengela Glass Research & Training Trust', 'K096', '', '', '2018-04-10 11:00:08', NULL, 0),
+(605, 'Kimanthi Ndwiga Muriuki c/o The Paint Depo', 'K097', 'Juster', '', '2018-04-10 11:00:08', NULL, 0),
+(606, 'Kansa Maritime LLP', 'K098', 'Sasi Kumar J', '', '2018-04-10 11:00:08', NULL, 0),
+(607, 'Leadarrow S.A', 'L065', '', '', '2018-04-10 11:00:08', NULL, 0),
+(608, 'La Griglia Ltd', 'L066', '', '', '2018-04-10 11:00:08', NULL, 0),
+(609, 'Latek Group', 'L067', 'Özcan ÇINAR', '', '2018-04-10 11:00:08', NULL, 0),
+(610, 'Labulux Supplies Ltd', 'L068', '', '', '2018-04-10 11:00:08', NULL, 0),
+(611, 'LaGriglia Limited', 'L069', '', '', '2018-04-10 11:00:08', NULL, 0),
+(612, 'L.A.D.M', 'L070', 'JENNY BARON', '', '2018-04-10 11:00:08', NULL, 0),
+(613, 'LPL  Shipping S.A.', 'L071', 'Cpt John Alexiadis', '', '2018-04-10 11:00:08', NULL, 0),
+(614, 'Lonestar Consultants EA Ltd', 'L072', 'PAUL MWAKISHA', '', '2018-04-10 11:00:08', NULL, 0),
+(615, 'Marimed Shipping (Vietnam) Rep. Office', 'M087', 'VAN DANG', '', '2018-04-10 11:00:08', NULL, 0),
+(616, 'Meadway Shipping & Trading Inc. - Athens', 'M088', '', '', '2018-04-10 11:00:08', NULL, 0),
+(617, 'Mebs International', 'M089', 'Ann George', '', '2018-04-10 11:00:08', NULL, 0),
+(618, 'Mansel Ltd  c/o Vitol SA ', 'M090', 'Agnès Bourdet', '', '2018-04-10 11:00:08', NULL, 0),
+(619, 'Manuchar Kenya Limited', 'M091', 'Michael Ndenga', '', '2018-04-10 11:00:08', NULL, 0),
+(620, 'Manuchar Steel N.V Ksh', 'M092', '', '', '2018-04-10 11:00:08', NULL, 0),
+(621, 'Millenium GR Ltd', 'M093', 'Cpt Chloros Paris', '', '2018-04-10 11:00:08', NULL, 0),
+(622, 'MLB Manfred Lauterjung Befrachtung GmbH & Co. KG', 'M094', 'Anika Samus', '', '2018-04-10 11:00:08', NULL, 0),
+(623, 'Meadway Shipping Singapore Pte Ltd', 'M096', 'CAPT. NK', '', '2018-04-10 11:00:08', NULL, 0),
+(624, 'Med Star S R L', 'M099', '', '', '2018-04-10 11:00:08', NULL, 0),
+(625, 'Med Brokerage & Managemet Corp.', 'M101', '', '', '2018-04-10 11:00:08', NULL, 0),
+(626, 'Multiple Solutions Ltd A/C Kampala Cement', 'M102', 'Subu ', '', '2018-04-10 11:00:08', NULL, 0),
+(627, 'Sea Vision Shipping Inc.', 'S152', 'Fotis Varthalis', '', '2018-04-10 11:00:08', NULL, 0),
+(628, 'Sucres & Denrées', 'S153', '', '', '2018-04-10 11:00:08', NULL, 0),
+(629, 'Stealth Maritime Corporation S.A. ', 'S154', 'Capt.Giorgos Trachalakis', '', '2018-04-10 11:00:08', NULL, 0),
+(630, 'Samsun Logix Corporation/ Shipping Business Team ', 'S155', '', '', '2018-04-10 11:00:08', NULL, 0),
+(631, 'Sanergy Limited', 'S156', 'Barrack Onyango', '', '2018-04-10 11:00:08', NULL, 0),
+(632, 'United Group Limited', 'U032', 'Mr Shani', '', '2018-04-10 11:00:08', NULL, 0),
+(633, 'Ultrabulk (Germany) GmbH', 'U033', '', '', '2018-04-10 11:00:08', NULL, 0),
+(634, 'Vision Africa & Mabadiliko care', 'V065', '', '', '2018-04-10 11:00:08', NULL, 0),
+(635, 'Vitol SA ', 'V066', 'Agnès Bourdet', '', '2018-04-10 11:00:08', NULL, 0),
+(636, 'V.Ships (Chennai) Private Limited', 'V067', 'Karthick Kannappan', '', '2018-04-10 11:00:08', NULL, 0),
+(637, 'Peter Wachira Irungu', 'P123', '', '', '2018-04-10 11:00:08', NULL, 0),
+(638, 'Aspida Maritime Security Corp.', 'A123', '', '', '2018-04-10 11:00:08', NULL, 0),
+(639, 'M184', 'M184', '', '', '2018-04-10 11:00:08', NULL, 0),
+(640, 'M185', 'M185', '', '', '2018-04-10 11:00:08', NULL, 0),
+(641, 'B079', 'B079', '', '', '2018-04-10 11:00:08', NULL, 0),
+(642, 'D092', 'D092', '', '', '2018-04-10 11:00:08', NULL, 0),
+(643, 'M159', 'M159', '', '', '2018-04-10 11:00:08', NULL, 0),
+(644, 'M160', 'M160', '', '', '2018-04-10 11:00:08', NULL, 0),
+(645, 'Jihan Freighters Ltd', 'J072', '', '', '2018-04-10 11:00:08', NULL, 0),
+(646, 'Ms. Cara Spencer', 'M191', '', '', '2018-04-10 11:00:08', NULL, 0),
+(647, 'United (EA) Warehouses Ltd', 'U034', '', '', '2018-04-10 11:00:08', NULL, 0),
+(648, 'SILVESTER MUSOVYA KUTUTA', '1', '', '', '2018-04-10 11:00:08', NULL, 0),
+(649, 'CATHERINE ANZAZI LEWA', '17', '', '', '2018-04-10 11:00:08', NULL, 0),
+(650, 'MOURINE ACHIENG MAGERO', '34', '', '', '2018-04-10 11:00:08', NULL, 0),
+(651, 'FRANCISCA MUENI NZIOKA', '40', '', '', '2018-04-10 11:00:08', NULL, 0),
+(652, 'WILLINGTONE MICHAEL WARIO', '43', '', '', '2018-04-10 11:00:08', NULL, 0),
+(653, 'ALOICE MUOKI KUTUTA', '47', '', '', '2018-04-10 11:00:08', NULL, 0),
+(654, 'MAUREEN ATIENO OPIYO', '48', '', '', '2018-04-10 11:00:08', NULL, 0),
+(655, 'ISAAC BABU WATKINS', '49', '', '', '2018-04-10 11:00:08', NULL, 0),
+(656, 'CHRISPUS MAINGI KILEI', '51', '', '', '2018-04-10 11:00:08', NULL, 0),
+(657, 'EVANS NGALA CHIBUNGU', '55', '', '', '2018-04-10 11:00:08', NULL, 0),
+(658, 'LEONARD MWARUWA BAYA', '56', '', '', '2018-04-10 11:00:08', NULL, 0),
+(659, 'MARTIN KARANI IKIARA', '57', '', '', '2018-04-10 11:00:08', NULL, 0),
+(660, 'LENROD MWAMBURI MGENDI', '65', '', '', '2018-04-10 11:00:08', NULL, 0),
+(661, 'JOHN KIPCHUMBA LAGAT', '69', '', '', '2018-04-10 11:00:08', NULL, 0),
+(662, 'JOYLINAH NDUTA NJERI', '73', '', '', '2018-04-10 11:00:08', NULL, 0),
+(663, 'DANIEL LUKORITO WANIKINA', '76', '', '', '2018-04-10 11:00:08', NULL, 0),
+(664, 'STEPHEN OKIKI OMONDI', '77', '', '', '2018-04-10 11:00:08', NULL, 0),
+(665, 'JUSTUS KALII MUTHEMBWA', '78', '', '', '2018-04-10 11:00:08', NULL, 0),
+(666, 'PATRICK MUKUNDI MBUGUA', '79', '', '', '2018-04-10 11:00:08', NULL, 0),
+(667, 'RAYMOND JUMA WANGUNDA', '80', '', '', '2018-04-10 11:00:08', NULL, 0),
+(668, 'FLORENCE CHEPNGETICH TUEI', '81', '', '', '2018-04-10 11:00:08', NULL, 0),
+(669, 'KENNEDY KIVUVANI', '82', '', '', '2018-04-10 11:00:08', NULL, 0),
+(670, 'ERIC OLENSI OLENSI OSINYA', '86', '', '', '2018-04-10 11:00:08', NULL, 0),
+(671, 'CATHERINE NYAMBURA THUO', '87', '', '', '2018-04-10 11:00:08', NULL, 0),
+(672, 'GRACE MPOYA', '88', '', '', '2018-04-10 11:00:08', NULL, 0),
+(673, 'PATRICK MURANGIRI MAGIRI', '84', '', '', '2018-04-10 11:00:08', NULL, 0),
+(674, 'ERIC MULWA KYALO', '89', '', '', '2018-04-10 11:00:08', NULL, 0),
+(675, 'IRENE ATIENO OTIENO', '91', '', '', '2018-04-10 11:00:08', NULL, 0),
+(676, 'MERCYLINE MUTHEU MUTUA', '92', '', '', '2018-04-10 11:00:08', NULL, 0),
+(677, 'ARSHUR LOMO OWANE', '90', '', '', '2018-04-10 11:00:08', NULL, 0),
+(678, 'COLLINS ONYANGO PAMBA', '93', '', '', '2018-04-10 11:00:08', NULL, 0),
+(679, 'GULJAN ABUBAKAR RAMADHAN', '94', '', '', '2018-04-10 11:00:08', NULL, 0),
+(680, 'FRANCIS OUMA OPALO', '95', '', '', '2018-04-10 11:00:08', NULL, 0),
+(681, 'PETER HAVACY MANGA', '97', '', '', '2018-04-10 11:00:08', NULL, 0),
+(682, 'LAWRENCE ODHIAMBO AMENYA', '98', '', '', '2018-04-10 11:00:08', NULL, 0),
+(683, 'MOSES ELIAS MANGALE', '99', '', '', '2018-04-10 11:00:08', NULL, 0),
+(684, 'MOUREEN WAIRIMU KIAMA', '100', '', '', '2018-04-10 11:00:08', NULL, 0),
+(685, 'WAYNE DICKSON NDAKALA', 'T020', '', '', '2018-04-10 11:00:08', NULL, 0),
+(686, 'GEORGE ABWAO OMORE', 'T022', '', '', '2018-04-10 11:00:08', NULL, 0),
+(687, 'FREDRICK WAWALA', 'T023', '', '', '2018-04-10 11:00:08', NULL, 0),
+(688, 'AHMED ABDULRAHMAN AHMED', 'T025', '', '', '2018-04-10 11:00:08', NULL, 0),
+(689, 'PAUL NZISSI MUSYOKA', 'T026', '', '', '2018-04-10 11:00:08', NULL, 0),
+(690, 'BILHA AMAGOVE OMUDI', 'T027', '', '', '2018-04-10 11:00:08', NULL, 0),
+(691, 'ERICKSON MWANIKI NGELE', '63', '', '', '2018-04-10 11:00:08', NULL, 0),
+(692, 'JESINTA NJERI NJOROGE', 'T028', '', '', '2018-04-10 11:00:08', NULL, 0),
+(693, '', '', '', '', '2018-04-10 11:00:08', NULL, 0),
+(694, 'Devki Steel Mills Ltd', 'D093', '', '', '2018-04-10 11:00:08', NULL, 0),
+(695, 'Jotun Kenya Ltd', 'J073', 'Sreejith', '+254720204181', '2018-04-10 11:00:08', NULL, 0),
+(696, 'Jotun Kenya Ltd', 'J074', '', '', '2018-04-10 11:00:08', NULL, 0),
+(697, 'Jane Muthoni Chege', 'J075', 'Jane', '254725849476', '2018-04-10 11:00:08', NULL, 0),
+(698, 'Marine Security International ', 'M192', 'Cdr Sakes', '', '2018-04-10 11:00:08', NULL, 0),
+(699, ' Master & Owners Mv Doric Spirit', 'M194', 'Master', '', '2018-04-10 11:00:08', NULL, 0),
+(700, 'Two Dots Business Systems Ltd', 'T111', 'Daniel Muhoro Githii', '0723 938 719 ', '2018-04-10 11:00:08', NULL, 0),
+(701, 'Asheric Company Ltd', 'A150', '', '', '2018-04-10 11:00:08', NULL, 0),
+(702, 'ARM Cement Limited - Ksh', 'A096', 'Manish  Mehta', '+254 20 3744617/20/22/25', '2018-04-10 11:01:36', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -1934,14 +2894,14 @@ INSERT INTO `settings` (`setting_name`, `setting_value`, `deleted`) VALUES
 ('default_currency', 'KES', 0),
 ('disable_client_login', '1', 0),
 ('disable_client_signup', '1', 0),
-('email_protocol', 'smtp', 0),
+('email_protocol', '', 0),
 ('email_sent_from_address', 't.develoment@wizag.biz', 0),
 ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0),
-('email_smtp_host', 'smtp.mailtrap.io', 0),
-('email_smtp_pass', '2176180c5483c4', 0),
-('email_smtp_port', '465', 0),
+('email_smtp_host', '', 0),
+('email_smtp_pass', '', 0),
+('email_smtp_port', '', 0),
 ('email_smtp_security_type', 'tls', 0),
-('email_smtp_user', 'e84a71a5ca5cc0', 0),
+('email_smtp_user', '', 0),
 ('escalation_duration', '45', 0),
 ('escalation_via_email', '1', 0),
 ('escalation_via_sms', '1', 0),
@@ -2069,8 +3029,18 @@ CREATE TABLE `tasks` (
   `collaborators` text COLLATE utf8_unicode_ci NOT NULL,
   `deleted` tinyint(11) NOT NULL DEFAULT '0',
   `priority` varchar(100) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created_at` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `serial`, `title`, `description`, `project_id`, `parent_id`, `ticket_id`, `milestone_id`, `assigned_to`, `deadline`, `labels`, `max_hours`, `points`, `status`, `hesabu`, `start_date`, `collaborators`, `deleted`, `priority`, `created_at`) VALUES
+(1, '', 'Purchase of fencing materials', 'refwfwefw', 2, 0, NULL, 1, 5, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2018-04-12'),
+(2, '', 'FEncing', 'Fencing To be done ASAP', 2, 0, NULL, 1, 94, '2018-05-05', '', 40, 1, 'to_do - 0%', 0, '2018-04-27', '100', 0, 'Normal', '2018-04-09'),
+(3, '', 'demo task', '', 2, 0, NULL, 0, 94, '0000-00-00', '', 25, 1, 'in_progress - 25%', 0, '0000-00-00', '', 0, 'Normal', '2018-04-12'),
+(4, '', 'demo 3', '', 2, 0, NULL, 0, 83, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2018-04-12');
 
 -- --------------------------------------------------------
 
@@ -2182,6 +3152,14 @@ CREATE TABLE `tbl_checklists` (
   `comment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
+--
+-- Dumping data for table `tbl_checklists`
+--
+
+INSERT INTO `tbl_checklists` (`id`, `name`, `deleted`, `performed_on`, `comment`) VALUES
+(1, 'demo', 0, 1, 'to be done'),
+(2, 'Comp', 0, 2, 'spoilt battery');
+
 -- --------------------------------------------------------
 
 --
@@ -2239,6 +3217,16 @@ CREATE TABLE `tbl_checklist_tasks` (
   `deleted` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
+--
+-- Dumping data for table `tbl_checklist_tasks`
+--
+
+INSERT INTO `tbl_checklist_tasks` (`id`, `ref_no`, `status`, `performed_by`, `performed_on`, `escalate_to`, `deleted`) VALUES
+(1, '1523546027', 1, 5, '2018-04-12', 0, 0),
+(2, '1523598375', 1, 5, '2018-04-13', 0, 0),
+(3, '1523598900', 2, 5, '2018-04-13', 106, 0),
+(4, '1523623486', 1, 5, '2018-04-13', 0, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -2252,6 +3240,15 @@ CREATE TABLE `tbl_checklist_task_checks` (
   `comment` text,
   `checklist_task` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `tbl_checklist_task_checks`
+--
+
+INSERT INTO `tbl_checklist_task_checks` (`id`, `check_item`, `status`, `comment`, `checklist_task`) VALUES
+(1, 1, 0, 'check out', 3),
+(2, 1, 1, NULL, 4),
+(3, 2, 1, 'comment', 4);
 
 -- --------------------------------------------------------
 
@@ -2658,7 +3655,11 @@ INSERT INTO `team_member_job_info` (`id`, `user_id`, `date_of_hire`, `deleted`, 
 (116, 117, '2017-08-14', 0, 0, 560, 0, 'Contract'),
 (117, 118, '2017-10-13', 0, 0, 560, 0, 'Contract'),
 (118, 119, '2017-10-13', 0, 0, 560, 0, 'Contract'),
-(119, 120, '2017-11-20', 0, 0, 560, 0, 'Contract');
+(119, 120, '2017-11-20', 0, 0, 560, 0, 'Contract'),
+(120, 121, '2018-03-15', 0, 0, 560, 0, 'Contract'),
+(121, 122, '2018-03-01', 0, 0, 560, 0, 'Contract'),
+(122, 123, '2010-05-24', 0, 0, 560, 0, 'Contract'),
+(123, 124, '2015-08-05', 0, 0, 560, 0, 'Contract');
 
 -- --------------------------------------------------------
 
@@ -2780,7 +3781,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_type`, `is_admin`, `role_id`, `email`, `password`, `image`, `status`, `message_checked_at`, `client_id`, `notification_checked_at`, `is_primary_contact`, `job_title`, `disable_login`, `note`, `address`, `alternative_address`, `phone`, `alternative_phone`, `dob`, `ssn`, `gender`, `sticky_note`, `skype`, `enable_web_notification`, `enable_email_notification`, `landing_page`, `created_at`, `deleted`) VALUES
-(5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2017-12-13 16:31:14', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0),
+(5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2018-04-12 14:27:01', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0),
 (82, 'Pato', 'Mark', 'staff', 0, 2, 'karukurobert@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '0727869468', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0),
 (83, 'Rob', 'Kim', 'staff', 0, 2, 'bscnrb128917@spu.ac.ke', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0),
 (84, 'caro', 'kim', 'staff', 0, 2, 'r.karuku@wizag.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '0727869468', NULL, '1998-03-10', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0),
@@ -2793,13 +3794,13 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_type`, `is_admin`, `
 (91, 'MAUREEN', 'OPIYO', 'staff', 0, 2, 'maurine.atieno@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Country Operations Manager', 0, NULL, NULL, NULL, '', NULL, '1984-06-26', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (92, 'ISAAC', 'WATKINS', 'staff', 0, 2, 'watkins@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Manager', 0, NULL, NULL, NULL, '', NULL, '1961-08-16', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (93, 'CHRISPUS', 'KILEI', 'staff', 0, 2, 'chrispus.kilei@esl-east africa.co', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Supervisor', 0, NULL, NULL, NULL, '', NULL, '1970-04-24', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
-(94, 'EVANS', 'CHIBUNGU', 'staff', 0, 2, 'evans.ngala@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : ICT Manager', 0, NULL, NULL, NULL, '', NULL, '1985-09-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
+(94, 'EVANS', 'CHIBUNGU', 'staff', 0, 2, 'evans.ngala@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2018-04-12 12:00:27', 0, 'Corporate Support : ICT Manager', 0, NULL, NULL, NULL, '', NULL, '1985-09-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (95, 'LEONARD', 'BAYA', 'staff', 0, 2, 'bayamleonard@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Supervisor', 0, NULL, NULL, NULL, '', NULL, '1974-03-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (96, 'MARTIN', 'IKIARA', 'staff', 0, 2, 'martin.karani@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Group Chief Finance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-05', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (97, 'DANIEL', 'WANIKINA', 'staff', 0, 2, '3transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1988-06-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (98, 'ERICKSON', 'NGELE', 'staff', 0, 2, '1transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1979-03-02', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (99, 'LENROD', 'MGENDI', 'staff', 0, 2, 'lenrod.mwamburi@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Audit, Risk and Compliance : Group Internal Audit Risk & Compliance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-13', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
-(100, 'JOHN', 'LAGAT', 'staff', 0, 2, 'it.support@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : ICT Assistant', 0, NULL, NULL, NULL, '', NULL, '1981-11-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
+(100, 'JOHN', 'LAGAT', 'staff', 0, 2, 'it.support@esl-eastafrica.com', 'e10adc3949ba59abbe56e057f20f883e', '_file5acf61ea82a24-avatar.png', 'active', '0000-00-00 00:00:00', 0, '2018-04-12 08:47:23', 0, 'Corporate Support : ICT Assistant', 0, NULL, NULL, NULL, '', NULL, '1981-11-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (101, 'JOYLINAH', 'NJERI', 'staff', 0, 2, 'joylinah.nduta@esl-eastafica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Procurement Officer', 0, NULL, NULL, NULL, '', NULL, '1986-10-20', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (102, 'STEPHEN', 'OMONDI', 'staff', 0, 2, 'stephen.okiki@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR Assistant', 0, NULL, NULL, NULL, '', NULL, '1988-03-20', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (103, 'JUSTUS', 'MUTHEMBWA', 'staff', 0, 2, '2transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Transport Clerk', 0, NULL, NULL, NULL, '', NULL, '1975-10-11', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
@@ -2819,7 +3820,11 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `user_type`, `is_admin`, `
 (117, 'PETER', 'MANGA', 'staff', 0, 2, 'peter.manga@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR Clerk', 0, NULL, NULL, NULL, '', NULL, '1994-10-30', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (118, 'LAWRENCE', 'AMENYA', 'staff', 0, 2, 'lawrence.amenya@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Officer', 0, NULL, NULL, NULL, '', NULL, '1991-02-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
 (119, 'MOSES', 'MANGALE', 'staff', 0, 2, '1kennedy.kivuvani@freightwell.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Officer', 0, NULL, NULL, NULL, '', NULL, '1986-01-01', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
-(120, 'MOUREEN', 'KIAMA', 'staff', 0, 2, 'mourine.kiama@esl-eastafrica', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Key Accounts Executive', 0, NULL, NULL, NULL, '', NULL, '1991-09-18', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
+(120, 'MOUREEN', 'KIAMA', 'staff', 0, 2, 'mourine.kiama@esl-eastafrica', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Key Accounts Executive', 0, NULL, NULL, NULL, '', NULL, '1991-09-18', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
+(121, 'Benson', 'Ireri', 'staff', 0, 2, 'agency@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Officer', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
+(122, 'FANUEL', 'ONYANGO', 'staff', 0, 2, 'fanuel.onyango@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Key Accounts Executive', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0),
+(123, 'FRANCISCA', 'NZIOKA', 'staff', 0, 2, 'francisca@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR & Admin Manager', 0, NULL, NULL, NULL, '', NULL, '1974-04-16', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-13 00:00:00', 0),
+(124, 'DANIEL', 'WANIKINA', 'staff', 0, 2, 'transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1988-06-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-13 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -2844,6 +3849,30 @@ CREATE TABLE `vehicle_details` (
 INSERT INTO `vehicle_details` (`id`, `name`, `vehicle_number`, `description`, `created_at`, `updated_at`, `deleted`) VALUES
 (1, 'NISSAN', 'KVW 567Y', 'brand new', '2018-02-22 01:36:30', NULL, 0),
 (2, 'PRADO', 'KCA 679P', 'MODERN', '2018-02-22 01:36:30', NULL, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `warranties`
+--
+
+CREATE TABLE `warranties` (
+  `id` int(100) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `part_no` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `warranty_period` varchar(255) NOT NULL,
+  `asset` varchar(255) NOT NULL,
+  `created` varchar(255) NOT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `warranties`
+--
+
+INSERT INTO `warranties` (`id`, `name`, `part_no`, `description`, `warranty_period`, `asset`, `created`, `deleted`) VALUES
+(1, 'trimmers', '567890', 'deadasd', '2018-04-20', '37', '2018-04-06 10:20:48', 0);
 
 --
 -- Indexes for dumped tables
@@ -3007,6 +4036,24 @@ ALTER TABLE `external_services`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `fuels`
+--
+ALTER TABLE `fuels`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `fuel_suppliers`
+--
+ALTER TABLE `fuel_suppliers`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hire_assets`
+--
+ALTER TABLE `hire_assets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `inventory_requisitions`
 --
 ALTER TABLE `inventory_requisitions`
@@ -3131,6 +4178,12 @@ ALTER TABLE `objective_types`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `other_expenses`
+--
+ALTER TABLE `other_expenses`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `parts_suppliers`
 --
 ALTER TABLE `parts_suppliers`
@@ -3198,6 +4251,12 @@ ALTER TABLE `project_time`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `providers`
+--
+ALTER TABLE `providers`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rates_perhour`
 --
 ALTER TABLE `rates_perhour`
@@ -3208,6 +4267,12 @@ ALTER TABLE `rates_perhour`
 --
 ALTER TABLE `roles`
   ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Indexes for table `sage_clients`
+--
+ALTER TABLE `sage_clients`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `service_types`
@@ -3463,6 +4528,12 @@ ALTER TABLE `vehicle_details`
   ADD PRIMARY KEY (`id`) USING BTREE;
 
 --
+-- Indexes for table `warranties`
+--
+ALTER TABLE `warranties`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -3470,7 +4541,7 @@ ALTER TABLE `vehicle_details`
 -- AUTO_INCREMENT for table `activity_logs`
 --
 ALTER TABLE `activity_logs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT for table `announcements`
 --
@@ -3500,7 +4571,7 @@ ALTER TABLE `call_types`
 -- AUTO_INCREMENT for table `clients`
 --
 ALTER TABLE `clients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `custom_fields`
 --
@@ -3587,6 +4658,21 @@ ALTER TABLE `extended_services`
 ALTER TABLE `external_services`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
+-- AUTO_INCREMENT for table `fuels`
+--
+ALTER TABLE `fuels`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT for table `fuel_suppliers`
+--
+ALTER TABLE `fuel_suppliers`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT for table `hire_assets`
+--
+ALTER TABLE `hire_assets`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
 -- AUTO_INCREMENT for table `inventory_requisitions`
 --
 ALTER TABLE `inventory_requisitions`
@@ -3610,7 +4696,7 @@ ALTER TABLE `invoice_payments`
 -- AUTO_INCREMENT for table `jobs`
 --
 ALTER TABLE `jobs`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `jobs_status`
 --
@@ -3660,7 +4746,7 @@ ALTER TABLE `messages`
 -- AUTO_INCREMENT for table `milestones`
 --
 ALTER TABLE `milestones`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `notes`
 --
@@ -3670,7 +4756,7 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 --
 -- AUTO_INCREMENT for table `notification_settings`
 --
@@ -3681,6 +4767,11 @@ ALTER TABLE `notification_settings`
 --
 ALTER TABLE `objective_types`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `other_expenses`
+--
+ALTER TABLE `other_expenses`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `parts_suppliers`
 --
@@ -3715,12 +4806,12 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `project_comments`
 --
 ALTER TABLE `project_comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `project_files`
 --
@@ -3730,12 +4821,17 @@ ALTER TABLE `project_files`
 -- AUTO_INCREMENT for table `project_members`
 --
 ALTER TABLE `project_members`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 --
 -- AUTO_INCREMENT for table `project_time`
 --
 ALTER TABLE `project_time`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `providers`
+--
+ALTER TABLE `providers`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `rates_perhour`
 --
@@ -3746,6 +4842,11 @@ ALTER TABLE `rates_perhour`
 --
 ALTER TABLE `roles`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `sage_clients`
+--
+ALTER TABLE `sage_clients`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=703;
 --
 -- AUTO_INCREMENT for table `service_types`
 --
@@ -3760,7 +4861,7 @@ ALTER TABLE `spares`
 -- AUTO_INCREMENT for table `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `taxes`
 --
@@ -3790,7 +4891,7 @@ ALTER TABLE `tbl_case_type`
 -- AUTO_INCREMENT for table `tbl_checklists`
 --
 ALTER TABLE `tbl_checklists`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `tbl_checklist_performed_on`
 --
@@ -3805,12 +4906,12 @@ ALTER TABLE `tbl_checklist_status`
 -- AUTO_INCREMENT for table `tbl_checklist_tasks`
 --
 ALTER TABLE `tbl_checklist_tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `tbl_checklist_task_checks`
 --
 ALTER TABLE `tbl_checklist_task_checks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `tbl_checklist_types`
 --
@@ -3900,7 +5001,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT for table `team_member_job_info`
 --
 ALTER TABLE `team_member_job_info`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=120;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 --
 -- AUTO_INCREMENT for table `third_party_messages`
 --
@@ -3925,12 +5026,17 @@ ALTER TABLE `ticket_types`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 --
 -- AUTO_INCREMENT for table `vehicle_details`
 --
 ALTER TABLE `vehicle_details`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT for table `warranties`
+--
+ALTER TABLE `warranties`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- Constraints for dumped tables
 --
