@@ -1,9 +1,11 @@
+<div class="container">
+  <p style="text-align: center;">JOB CARD</p>
+  <br><br>
 <?php echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?>
   <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading">Job Card #<?php echo $jobs[0]['data']['card_no']?>
-         <a href="<?php echo base_url('preventive/print_job/'.$jobs[0]['data']['id']);?>" class="bt btn-success pull-right">Print Page</a>
-       </div>
+            </div>
     <div class="panel-body">
      <div class="row">
   <div class="col-sm-4">
@@ -11,12 +13,7 @@
     <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
    <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled>
               <option value=""><?php echo $jobs[0]['data']['code'];?></option>
-              <?php
-              foreach ($vehicles_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->code) . "</option>";
-              }
-              ?>
-           </select>
+                   </select>
       
     </div>
     <br>
@@ -25,12 +22,7 @@
     <label for="job_service" class="col-sm-3"><b><?php echo lang('job_service'); ?></b></label>
              <select class="form-control" name="job_service_id" id="service_type_id" required disabled>
              <option value=""><?php echo $jobs[0]['data']['service_name']?></option>
-              <?php
-              foreach ($service_types_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->service_name) . "</option>";
-              }
-              ?>
-            </select>
+              </select>
                     
 </div>
 
@@ -59,80 +51,44 @@
             </select>
     
 </div>
-
 <div class="form-group">
-    <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "completion_date",
-            "name" => "completion_date",
-            "value" => $jobs[0]['data']['completion_date'],
-            "class" => "form-control",
-            "disabled" => "disabled",
-           
-        ));
-        ?>
-    </div>
+    <label for="completion_date"><b><?php echo lang('completion_date'); ?></b>
+         <?php echo $jobs[0]['data']['completion_date']?>
+    </label>
+     </div>
    <div class="form-group">
-    <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-    <p id="driver"><?php echo $jobs[0]['data']['driver'];?></p>
+    <label for="driver"><b><?php echo lang('assigned_to'); ?></b>
+        <?php echo $jobs[0]['data']['driver'];?>
+    </label>
+  
     </div> 
 </div>
 
 <div class="col-sm-4">
   <div class="form-group">
     <b><?php echo lang('make_model'); ?></b>
-    <br>
-     <p id="model"><?php echo $jobs[0]['data']['code'];?></p>      
+          <?php echo $jobs[0]['data']['code'];?>      
 </div>
 <br><br>
 <div class="form-group">
-    <label for="time_in" class="col-sm-3"><b><?php echo lang('time_in'); ?></b></label>
- 
-        <?php
-        echo form_input(array(
-            "id" => "time_in",
-            "name" => "time_in",
-            "value" => $jobs[0]['data']['time_in'],
-            "class" => "form-control",
-            "type"  => "time",
-            "disabled" => "disabled",
-           
-        ));
-        ?>
-   
-</div>
+    <label for="time_in" class="col-sm-3"><b><?php echo lang('time_in'); ?></b>
+       <?php echo $jobs[0]['data']['time_in']?>
+    </label>
+
+  </div>
 
 <div class="form-group">
-    <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
+    <label for="km_reading"><b><?php echo lang('km_reading'); ?></b>
+      <?php echo  $jobs[0]['data']['km_reading'];?>
+  </label>
     
-        <?php
-        echo form_input(array(
-            "id" => "km_reading",
-            "name" => "km_reading",
-            "value" => $jobs[0]['data']['km_reading'],
-            "class" => "form-control",
-            "disabled" => "disabled",
-
-        ));
-        ?>
     </div>
 
 <div class="form-group">
-    <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "fuel_balance",
-            "name" => "fuel_balance",
-            "value" => $jobs[0]['data']['fuel_balance'],
-            "class" => "form-control",
-            "disabled" => "disabled",
-           
-        ));
-        ?>
-   </div>
+    <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b>
+       <?php echo $jobs[0]['data']['fuel_balance'];?>
+    </label>
+        </div>
 </div>
 </div>
 
@@ -157,14 +113,8 @@
         <?php
 
       foreach ($inspections['inspect'] as $key => $value) { ?>
-        <select  name="inspection_id" class="form-control" disabled="true">
-        
-    
-          <option value="">
-          <?php  echo $value[0]->type; ?>
-          </option>
-        </select>
-        <?php
+       <p><?php  echo $value[0]->type; ?></p>
+         <?php
           }
         ?>
       </td>
@@ -172,28 +122,16 @@
       <td>
                 <?php
       foreach ($inspections['emp'] as $key => $value) { ?>
-        <select  name="inspection_id" class="form-control" disabled="true">
-        
-
-          <option value="">
-          <?php  echo $value[0]->employee;?>
-          </option>
-        </select>
-        <?php
+          <p> <?php  echo $value[0]->employee;?></p>
+            <?php
           }
         ?>
          </td>
       <td>
               <?php
       foreach ($inspections['status'] as $key => $value) { ?>
-        <select  name="inspection_id" class="form-control" disabled="true">
-        
-
-          <option value="">
-          <?php  echo $value[0]->name; ?>
-          </option>
-        </select>
-        <?php
+        <p><?php  echo $value[0]->name; ?></p>
+                 <?php
           }
         ?>
       </td>
@@ -202,101 +140,7 @@
       </tbody>
   </table>
 </div>
-
-</div>
-<?php echo form_close();?>
 <hr>
-<?php echo form_open('"id" = "jobs-forms" "class" = "tasks-form" "role" = "form"'); ?>
-<div class="row">
-    <div class="col-sm-5">
-<div class="form-group">
-    <label for="service_type_id" class="col-sm-6"><b><?php echo lang('operation_name'); ?></b></label>
-          <select class="form-control" name="service_type_id" id="service_types"  required>
-              <?php
-              foreach ($services_dropdown as $service_type) {
-                  echo "<option value=". $service_type->id . ">" . ucfirst($service_type->description) . "</option>";
-              }
-              ?>
-           </select>
-         </div>
-         <div class="col-sm-6">
-         <div class="form-group">
-    <label for="assigned_to" class="col-sm-10"><b><?php echo lang('assigned_to'); ?></b></label>
-    
-     <select class="form-control" name="assigned_to" id="assigned_to" required>
-              <?php
-              foreach ($sage_staff_dropdown as $staff) {
-                  echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
-              }
-              ?>
-           </select>
-          </div>
-        </div>
-          <div class="col-sm-6">
-          <div class="form-group">
-    <label for="jobs_type_id" class="col-sm-8"><b>Job Type</b></label>
-    
-     <select class="form-control" name="jobs_type_id" id="activity" required>
-              <?php
-              foreach ($job_types_dropdown as $job_type) {
-                  echo "<option value=". $job_type->id . ">" . ucfirst($job_type->job_type_name) . "</option>";
-              }
-              ?>
-           </select>
-         </div>
-          </div>
-</div>
-<div class="col-sm-5">
-<div class="form-group">
-    <label for="tasks" class="col-sm-6"><b><?php echo lang('tasks'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "tasks",
-            "name" => "tasks",
-            "class" => "form-control",
-            
-        ));
-        ?>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-    <label for="start_date " class="col-sm-10"><b><?php echo lang('start_date'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "start_date",
-            "name" => "start_date",
-            "class" => "form-control",
-            
-        ));
-        ?>
-    </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-    <label for="time_in " class="col-sm-6"><b><?php echo lang('time_in'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "job_time_in",
-            "name" => "job_time_in",
-            "class" => "form-control",
-            "type"  => "time",
-          
-        ));
-        ?>
-        
-    </div>
-    </div>
-</div>
-<br><br><br>
-<div class="col-sm-2">
-<button type="submit" class="btn btn-success btn-block" id="submit_btn">Add Task</button>
-</div>  
-</div>
-  
-<?php echo form_close();?>
 <div class="row">
  <div class="col-sm-12">
     <table class="table table-striped">
@@ -340,12 +184,8 @@
 </div>
 </div>
 <br>
-<div class="form-group">
-  <button type="submit" class="btn btn-success" id="gohome"><span class="fa fa-check-circle"></span>Process</button>
-  <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
-</div>
 <?php echo form_close(); ?>
-
+</div></div></div></div></div>
 
 <script type="text/javascript">
    $(document).ready(function() {
@@ -629,7 +469,4 @@
   $(this).closest('tr').remove();
  });
  
-   </script>
-   <script type="text/javascript">
-     window.print()
    </script>

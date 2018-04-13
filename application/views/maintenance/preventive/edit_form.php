@@ -1,3 +1,4 @@
+<div class="container">
 <?php echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?>
   <div class="modal-body clearfix">
      <div class="panel panel-default">
@@ -203,100 +204,6 @@
   </table>
 </div>
 
-</div>
-<?php echo form_close();?>
-<hr>
-<?php echo form_open('"id" = "jobs-forms" "class" = "tasks-form" "role" = "form"'); ?>
-<div class="row">
-    <div class="col-sm-5">
-<div class="form-group">
-    <label for="service_type_id" class="col-sm-6"><b><?php echo lang('operation_name'); ?></b></label>
-          <select class="form-control" name="service_type_id" id="service_types"  required>
-              <?php
-              foreach ($services_dropdown as $service_type) {
-                  echo "<option value=". $service_type->id . ">" . ucfirst($service_type->description) . "</option>";
-              }
-              ?>
-           </select>
-         </div>
-         <div class="col-sm-6">
-         <div class="form-group">
-    <label for="assigned_to" class="col-sm-10"><b><?php echo lang('assigned_to'); ?></b></label>
-    
-     <select class="form-control" name="assigned_to" id="assigned_to" required>
-              <?php
-              foreach ($sage_staff_dropdown as $staff) {
-                  echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
-              }
-              ?>
-           </select>
-          </div>
-        </div>
-          <div class="col-sm-6">
-          <div class="form-group">
-    <label for="jobs_type_id" class="col-sm-8"><b>Job Type</b></label>
-    
-     <select class="form-control" name="jobs_type_id" id="activity" required>
-              <?php
-              foreach ($job_types_dropdown as $job_type) {
-                  echo "<option value=". $job_type->id . ">" . ucfirst($job_type->job_type_name) . "</option>";
-              }
-              ?>
-           </select>
-         </div>
-          </div>
-</div>
-<div class="col-sm-5">
-<div class="form-group">
-    <label for="tasks" class="col-sm-6"><b><?php echo lang('tasks'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "tasks",
-            "name" => "tasks",
-            "class" => "form-control",
-            
-        ));
-        ?>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-    <label for="start_date " class="col-sm-10"><b><?php echo lang('start_date'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "start_date",
-            "name" => "start_date",
-            "class" => "form-control",
-            
-        ));
-        ?>
-    </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-    <label for="time_in " class="col-sm-6"><b><?php echo lang('time_in'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "job_time_in",
-            "name" => "job_time_in",
-            "class" => "form-control",
-            "type"  => "time",
-          
-        ));
-        ?>
-        
-    </div>
-    </div>
-</div>
-<br><br><br>
-<div class="col-sm-2">
-<button type="submit" class="btn btn-success btn-block" id="submit_btn">Add Task</button>
-</div>  
-</div>
-  
-<?php echo form_close();?>
 <div class="row">
  <div class="col-sm-12">
     <table class="table table-striped">
@@ -345,7 +252,7 @@
   <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
 </div>
 <?php echo form_close(); ?>
-
+</div></div></div></div></div>
 
 <script type="text/javascript">
    $(document).ready(function() {

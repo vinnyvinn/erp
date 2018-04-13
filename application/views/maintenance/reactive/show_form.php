@@ -3,7 +3,7 @@
 <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading">Requisition #<?php echo $services[0]['requisition_no']?>
-      <button  class="btn btn-info fa fa-print pull-right" onclick="printPage()"> Print Page</button>
+     <a href="<?php echo base_url('reactive/print_external/'.$services[0]['id']);?>" class="bt btn-success pull-right">Print Page</a>
     </div>
     <div class="panel-body">
      <div class="row">
@@ -78,7 +78,7 @@
 </div>
 <div class="col-sm-3">
 <div class="form-group">
-    <label for="quantity"><b><?php echo lang('quantity'); ?>(in Ltrs)</b></label>
+    <label for="quantity"><b><?php echo lang('quantity'); ?></b></label>
     
         <?php
         echo form_input(array(
@@ -159,9 +159,4 @@
             });
             return false;
         });
-</script>
-<script type="text/javascript">
-  function printPage() {
-    window.print();
-}
 </script>

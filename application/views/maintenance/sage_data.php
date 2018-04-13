@@ -41,6 +41,18 @@
                  <div class="title-button-group">
                     <?php echo anchor(get_uri("rates"), "<i class='fa fa-certificate'></i> " . 'Rates Per Hour', array("class" => "btn btn-default", "title" => 'Rates Per Hour')); ?>
                 </div>
+                 <div class="title-button-group">
+                    <?php echo anchor(get_uri("service_providers"), "<i class='fa fa-certiClientsficate'></i> " . 'Service Providers', array("class" => "btn btn-warning", "title" => 'Service Providers')); ?>
+                </div>
+                 <div class="title-button-group">
+                    <?php echo anchor(get_uri("fuel_suppliers"), "<i class='fa fa-certificate'></i> " . 'Fuel Suppliers', array("class" => "btn btn-info", "title" => 'Fuel Suppliers')); ?>
+                </div>
+                <div class="title-button-group">
+                    <?php echo anchor(get_uri("sage_clients"), "<i class='fa fa-certificate'></i> " . 'Clients ', array("class" => "btn btn-default", "title" => 'Clients')); ?>
+                </div>
+                 <div class="title-button-group">
+                    <?php echo anchor(get_uri("other_expenses"), "<i class='fa fa-certificate'></i> " . 'Expenses ', array("class" => "btn btn-warning", "title" => 'Expenses')); ?>
+                </div>
               </div>
                 
             </div>

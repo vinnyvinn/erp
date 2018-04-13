@@ -22,7 +22,7 @@
     <br>
    <div class="form-group">
 
-    <label for="job_service" class="col-sm-3"><b><?php echo lang('job_service'); ?></b></label>
+    <label for="job_service" class="col-sm-10"><b>Job Category</b></label>
              <select class="form-control" name="job_service_id" id="service_type_id" required>
              <option value="">--- Select Job/Service ---</option>
               <?php
@@ -33,21 +33,28 @@
             </select>
                     
 </div>
+ <div class="form-group">
 
+    <label for="job_service" class="col-sm-10"><b>Service Type</b></label>
+             <select class="form-control" name="service_type_id" id="s_type_id">
+             </select>
+                    
+</div>
+<br>
 <div class="form-group">
-    <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
-          <?php
-        echo form_textarea(array(
-            "id" => "description",
-            "name" => "description",
-            "class" => "form-control",
-            'rows' => '5',
-            'cols' => '40',
 
+    <label for="job_service" class="col-sm-10"><b><?php echo lang('service_provider'); ?></b></label>
+             <select class="form-control" name="supplier_id" id="supplier_id" required>
+              <?php
+              foreach ($providers_dropdown as $provider) {
+                  echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
+              }
+              ?>
+            </select>
+                    
+</div>
+<br>
 
-        ));
-        ?>
- </div>
 </div>
 <div class="col-sm-4">
 <div class="form-group">
@@ -73,7 +80,21 @@
    <div class="form-group">
     <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
     <p id="driver"></p>
-    </div> 
+    </div>
+    <div class="form-group">
+    <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
+          <?php
+        echo form_textarea(array(
+            "id" => "description",
+            "name" => "description",
+            "class" => "form-control",
+            'rows' => '5',
+            'cols' => '40',
+
+
+        ));
+        ?>
+ </div> 
 </div>
 
 <div class="col-sm-4">
@@ -121,7 +142,7 @@
 </div>
 
 <div class="form-group input-group-sm">
-    <label for="actual_km_reading"><b><?php echo lang('actual_km_reading'); ?></b></label>
+    <label for="actual_km_reading"><b>Actual KM Covered</b></label>
     <p id="km_id"></p>
         
     </div>
@@ -161,100 +182,15 @@
 </div>
 
 </div>
+<br>
+<div class="form-group">
   <button type="submit" class="btn btn-success" id="gohome" name="submit"><span class="fa fa-check-circle"></span>Process</button>
+
+  <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
+</div>
 </form>
 <!-- <?php //echo form_close();?> -->
 <hr>
-<?php echo form_open('"id" = "jobs-forms" "class" = "tasks-form" "role" = "form"'); ?>
-<div class="row">
-    <div class="col-sm-5">
-<div class="form-group">
-    <label for="service_type_id" class="col-sm-6"><b><?php echo lang('operation_name'); ?></b></label>
-          <select class="form-control" name="service_type_id" id="service_types"  required>
-              <?php
-              foreach ($services_dropdown as $service_type) {
-                  echo "<option value=". $service_type->id . ">" . ucfirst($service_type->description) . "</option>";
-              }
-              ?>
-           </select>
-         </div>
-         <div class="col-sm-6">
-         <div class="form-group">
-    <label for="assigned_to" class="col-sm-10"><b><?php echo lang('assigned_to'); ?></b></label>
-    
-     <select class="form-control" name="assigned_to" id="assigned_to" required>
-              <?php
-              foreach ($sage_staff_dropdown as $staff) {
-                  echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
-              }
-              ?>
-           </select>
-          </div>
-        </div>
-          <div class="col-sm-6">
-          <div class="form-group">
-    <label for="jobs_type_id" class="col-sm-8"><b>Job Type</b></label>
-    
-     <select class="form-control" name="jobs_type_id" id="activity" required>
-              <?php
-              foreach ($job_types_dropdown as $job_type) {
-                  echo "<option value=". $job_type->id . ">" . ucfirst($job_type->job_type_name) . "</option>";
-              }
-              ?>
-           </select>
-         </div>
-          </div>
-</div>
-<div class="col-sm-5">
-<div class="form-group">
-    <label for="tasks" class="col-sm-6"><b><?php echo lang('tasks'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "tasks",
-            "name" => "tasks",
-            "class" => "form-control",
-            
-        ));
-        ?>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-    <label for="start_date " class="col-sm-10"><b><?php echo lang('start_date'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "start_date",
-            "name" => "start_date",
-            "class" => "form-control",
-            
-        ));
-        ?>
-    </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-    <label for="time_in " class="col-sm-6"><b><?php echo lang('time_in'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "job_time_in",
-            "name" => "job_time_in",
-            "class" => "form-control",
-            "type"  => "time",
-          
-        ));
-        ?>
-        
-    </div>
-    </div>
-</div>
-<br><br><br>
-<div class="col-sm-2">
-<button type="submit" class="btn btn-success btn-block" id="submit_btn">Add Task</button>
-</div>  
-</div>
-  
 <?php echo form_close();?>
 <div class="row">
  <div class="col-sm-12">
@@ -280,10 +216,7 @@
        </table>
 </div>
 </div>
-<br>
-<div class="form-group">
-  <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
-</div>
+
 <?php echo form_close(); ?>
 
 
@@ -317,6 +250,7 @@
  
 </script>
 
+
 <script type="text/javascript">
         $("#service_type").select2();
         $("#job_type").select2();
@@ -327,6 +261,8 @@
         $("#service_type").select2();
         $("#assigned_to").select2();
         $("#activity").select2();
+         $("#supplier_id").select2();
+        
         setDatePicker("#completion_date,#start_date");
 
    
@@ -416,8 +352,7 @@
                 async : false,
                 dataType : 'json',
                 success : function(data){
-                   console.log(data);
-                   var html ='<p>'+data+'</p>';
+                 var html ='<p>'+data+'</p>';
                    $('#driver').html(html);
                 }
  
@@ -437,7 +372,7 @@
             $.ajax({
                 type : "POST",
                 url  : "<?php echo site_url('preventive/save_task')?>",
-                dataType : "JSON",
+                dataType : "json",
                 data : {service_type_id:operation_name, start_date:start_date, assigned_to:assigned_to,job_time_in:job_time_in,tasks:tasks,jobs_type_id:activity},
                 success: function(data){
                     $('[name="service_type_id"]').val("");
@@ -532,15 +467,14 @@ function myFunction() {
              $(document).ready(function() {
              $('select[name="vehicle_no"]').on('change', function() {
             var warranty_id = $(this).val();
-            console.log(warranty_id)
-           var path="<?php echo site_url('preventive/warrantyCheck')?>/" + warranty_id;
+                  var path="<?php echo site_url('preventive/warrantyCheck')?>/" + warranty_id;
                 $.ajax({
                 type  : 'ajax',
                 url   : path,
                 async : false,
                 dataType : 'json',
                 success : function(data){
-                  console.log(data)
+              
                if (!data.length){ 
                alert('sorry,this vehicle is still under warranty');
                window.location.replace('jobs_form');
@@ -561,4 +495,32 @@ function myFunction() {
  $("#km_id").html(km-km_rd);
   });
   </script>
-  
+
+  <script type="text/javascript">
+   $(document).ready(function() {
+        $('select[name="vehicle_no"]').on('change', function() {
+            var id = $(this).val();
+            var path = "<?php echo site_url('preventive/selectedService')?>/" + id;
+            console.log(path)
+                     if(id) {
+                $.ajax({
+                    url: path,
+                    type: "GET",
+                    dataType: "json",
+                    success:function(data) {
+                      // $('select[name="job_type_name"]').empty();
+                        $.each(data, function(key, value) {
+                          console.log(value.name);
+                          $('select[name="service_type_id"]').append('<option value="'+ value.id +'">'+ value.name +'</option>');
+                        });
+                         
+                    
+                  }
+                });
+            }else{
+                $('select[name="service_type_id"]').empty();
+            }
+        });
+    });
+ 
+</script>
