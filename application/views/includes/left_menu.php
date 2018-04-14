@@ -56,8 +56,6 @@
                     $checklistsSubs = [];
                     $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
                     $checklistsSubs [] = ["name" => "ICT Reports", "url" => "ict_reports"];
-                    $sidebar_menu[] = array("name" => "ICT", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
-                    $checklistsSubs [] = ["name" => "ICT Reports", "url" => "ict_reports"];
                     $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
                 }
                if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
