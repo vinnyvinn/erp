@@ -50,8 +50,22 @@
 
                 $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
+                if (get_setting("module_parcel") && ($this->login_user->is_admin || $access_estimate)) {
+
+                    $sidebar_menu[] = array("name" => "Parcels", "url" => "parcels", "class" => "fa-bitbucket",
+                        "submenu" => array(
+                            array("name" => "Mails & Parcels", "url" => "parcels"),
+                            array("name" => "My Mailing List", "url" => "parcels/parcels_mailing_list")
+                        )
+                    );
+                } /*else if (get_setting("module_parcel") && ($this->login_user->is_admin || $access_estimate)) {
+                    $sidebar_menu[] = array("name" => "parcels", "url" => "parcels", "class" => "fa-bitbucket");
+                }*/
+
                 $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
+
                 $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
+
                 if (($this->login_user->is_admin)) {
                     $checklistsSubs = [];
                     $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
