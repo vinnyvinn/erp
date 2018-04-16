@@ -50,18 +50,7 @@
 
                 $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
-                if (get_setting("module_parcel") && ($this->login_user->is_admin || $access_estimate)) {
-
-                    $sidebar_menu[] = array("name" => "Mails & Parcels", "url" => "parcels", "class" => "fa-bitbucket",
-                        "submenu" => array(
-                            array("name" => "Inwards", "url" => "parcels/inwards"),
-                            array("name" => "Outwards", "url" => "parcels/outwards"),
-                            array("name" => "Mailing List", "url" => "parcels/parcels_mailing_list")
-                        )
-                    );
-                } /*else if (get_setting("module_parcel") && ($this->login_user->is_admin || $access_estimate)) {
-                    $sidebar_menu[] = array("name" => "parcels", "url" => "parcels", "class" => "fa-bitbucket");
-                }*/
+                
 
                 $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
 
@@ -133,9 +122,19 @@
                     $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
                     $administration_url = "inventory_requisitions";
 
+                    $administration_submenu[] = array("name" => "Mails & Parcels : Inwards", "url" => "parcels/inwards");
+                    $administration_url = "parcels/inwards";
+
+                    $administration_submenu[] = array("name" => "Mails & Parcels : Outwards", "url" => "parcels/outwards");
+                    $administration_url = "parcels/outwards";
+
+                    $administration_submenu[] = array("name" => "Mailing List", "url" => "parcels/parcels_mailing_list");
+                    $administration_url = "parcels/parcels_mailing_list";
+
                     $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu, "devider" => false, "badge" => $administration_badge, "badge_class" => "badge-secondary");
 
                 }
+
 
                 if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin)) {
                     $sidebar_menu[] = array("name" => "Escalation Matrix", "url" => "escalation_matrix", "class" => "fa-stack-overflow");

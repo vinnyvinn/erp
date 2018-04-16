@@ -4,7 +4,9 @@
             <h1>My Mailing List </h1>
             <div class="title-button-group">
                 <?php
+                if ($this->login_user->is_admin) {
                     echo modal_anchor(get_uri("parcels/modal_form_mailing_list"), "<i class='fa fa-plus-circle'></i> " . "Mailing List", array("class" => "btn btn-default", "title" => "Add Mailing List"));
+                }
                 ?>
             </div>
         </div>

@@ -124,9 +124,9 @@ class Parcels extends Pre_loader {
 
         $activity = ucwords($this->Mailing_activity_model->get_one($data->activity_id)->title);
 
-        $sender = $data->sender_id ? ucwords($this->Mailing_list_model->get_one($data->sender_id)->title) : "NOT SET";
+        $receiver = $data->receiver_id ? ucwords($this->Mailing_list_model->get_one($data->receiver_id)->title) : "NOT SET";
 
-        $receiver = ucwords($this->Users_model->get_one($data->receiver_id)->first_name . " " . $this->Users_model->get_one($data->receiver_id)->last_name);
+        $sender = ucwords($this->Users_model->get_one($data->sender_id)->first_name . " " . $this->Users_model->get_one($data->sender_id)->last_name);
 
         return array(
             $data->id,
@@ -197,11 +197,8 @@ class Parcels extends Pre_loader {
     }
 
     function mailing_list_data () {
-    	if ($this->login_user->is_admin) {
-            $list_data = $this->Mailing_list_model->get_all_where(array("deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-            $list_data = $this->Mailing_list_model->get_all_where(array("user_id" => $this->login_user->id, "deleted" => 0))->result();
-        }
+
+        $list_data = $this->Mailing_list_model->get_all_where(array("deleted" => 0))->result();
 
         
         $result = array();

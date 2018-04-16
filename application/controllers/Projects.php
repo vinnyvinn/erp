@@ -338,7 +338,8 @@ class Projects extends Pre_loader {
 
 
         // $view_data['clients_dropdown'] = $this->Clients_model->get_dropdown_list(array("company_name"));
-        $view_data['clients_dropdown'] = $this->get_sage_clients_dropdown_list(array("Account", "Name"));
+        // $view_data['clients_dropdown'] = array("" => "-") + $this->Clients_model->get_dropdown_list(array("company_name"));
+        $view_data['clients_dropdown'] = array("0" => "-") + $this->get_sage_clients_dropdown_list(array("Account", "Name"));
         $view_data['sage_depertments_dropdown'] = $this->get_sage_departments_dropdown_list(array("dep_code", "name"));
 
         $labels = explode(",", $this->Projects_model->get_label_suggestions());
@@ -810,8 +811,7 @@ class Projects extends Pre_loader {
         return array(
             anchor(get_uri("projects/view/" . $data->id), $data->id),
             $title,
-            // anchor(get_uri("clients/view/" . $data->client_id), $data->company_name),
-            $this->get_sage_client_data($data->client_id, "Account") . " : " . $this->get_sage_client_data($data->client_id, "Name"),
+            $data->client_id == 0 ? '' : $this->get_sage_client_data($data->client_id, "Account") . " : " . $this->get_sage_client_data($data->client_id, "Name"),
             $price,
             $data->start_date,
             $start_date,
