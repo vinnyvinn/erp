@@ -123,7 +123,7 @@ class Clients extends Pre_loader {
 
     /* delete or undo a client */
 
-    function delete() {
+    public function delete() {
         $this->access_only_allowed_members();
 
         validate_submitted_data(array(
@@ -136,17 +136,14 @@ class Clients extends Pre_loader {
 
         if ($this->input->post('undo')) {
 
-            if ($this->Clients_model->update_where(["status" => "Pending"], array("id" => $id, "deleted" => 0))) {
+            if ($this->Clients_model->update_where(array("status" => "Pending", "deleted" => "0"), array("id" => $id))) {
                 echo json_encode(array("success" => true, "data" => $this->_row_data($id), "message" => "record undone"));
             } else {
                 echo json_encode(array("success" => false, "error occurred"));
             }
         } else {
-
-            // $query = "DELETE FROM DEMO.dbo.Client WHERE id = " . $id;
-            // $SAGE_DB->query($query);
             
-            if ($this->Clients_model->update_where(["status" => "Disapproved"], array("id" => $id, "deleted" => 0))) {
+            if ($this->Clients_model->update_where(array("deleted" => "1"), array("id" => $id))) {
                 echo json_encode(array("success" => true, 'message' => "record disapproved"));
             } else {
                 echo json_encode(array("success" => false, 'message' => "record cannot be disapproved"));
@@ -156,14 +153,14 @@ class Clients extends Pre_loader {
 
     /* list of clients, prepared for datatable  */
 
-    function list_data() {
+    public function list_data() {
 
         $this->access_only_allowed_members();
 
         $list_data = $this->Clients_model->get_details()->result();
         $result = array();
         foreach ($list_data as $data) {
-            $data->status = $this->SAGE_DB()->where('cOurRef', $data->cOurRef)->get('_rtblIncidents')->result()[0]->bHasBeenRejected == 1 ? "Task Declined" : $data->status;
+            $data->status = $data->cOurRef ? ($this->SAGE_DB()->where('cOurRef', $data->cOurRef)->get('_rtblIncidents')->result()[0]->bHasBeenRejected == 1 ? "Lead Declined" : $data->status) : "Lead Declined";
             $result[] = $this->_make_row($data);
         }
         echo json_encode(array("data" => $result));
@@ -192,7 +189,7 @@ class Clients extends Pre_loader {
         } elseif ($data->status == "Disapproved") {
             $status = "<button type=\"button\" class=\"btn btn-danger\"> $data->status </button>";
             $options = "";
-        } elseif ($data->status == "Task Declined") {
+        } elseif ($data->status == "Lead Declined") {
             $status = "<button type=\"button\" class=\"btn btn-warning\"> $data->status </button>";
         }
 

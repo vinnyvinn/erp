@@ -43,7 +43,7 @@
         <?php endif; ?>
 
         <div class="p10">
-            <?php echo lang("client"); ?>: <span class="pull-right"><?php echo anchor(get_uri("clients/view/" . $project_info->client_id), $project_info->company_name); ?></span>
+            <?php echo lang("client"); ?>: <span class="pull-right"><?php echo ($sage_client); //echo anchor(get_uri("clients/view/" . $project_info->client_id), $project_info->company_name); ?></span>
         </div>
     <?php } ?>
 </div>

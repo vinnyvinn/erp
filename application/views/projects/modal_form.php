@@ -2,10 +2,27 @@
 <div class="modal-body clearfix">
     <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
     <div class="form-group">
-        <label for="title" class=" col-md-3">Sage Project</label>
+        <label for="sage_depertment_id" class=" col-md-3">Sage Depertment</label>
         <div class=" col-md-9">
             <?php
-            echo form_dropdown("sage_project_id", $sage_projects_dropdown, "id='sage_project_id' class='select2 validate-hidden' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
+            echo form_dropdown("sage_depertment_id", $sage_depertments_dropdown, array($model_info->sage_depertment_id), "id='sage_depertment_id' class='select2 validate-hidden' data-rule-required='true', data-msg-required='" . lang('field_required') . "'");
+            ?>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
+        <div class=" col-md-9">
+            <?php
+            echo form_input(array(
+                "id" => "title",
+                "name" => "title",
+                "value" => $model_info->title,
+                "class" => "form-control",
+                "placeholder" => lang('title'),
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required"),
+            ));
             ?>
         </div>
     </div>

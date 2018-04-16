@@ -278,8 +278,8 @@ class Projects extends Pre_loader {
 
     /* load project  add/edit modal */
 
-    function get_sage_projects_dropdown_list($option_fields = array(), $key = "ProjectLink") {
-        $list_data = $this->SAGE_DB()->get('Project')->result();
+    function get_sage_departments_dropdown_list($option_fields = array(), $key = "dep_code") {
+        $list_data = $this->SAGE_DB()->get('departments')->result();
         $result = array();
         foreach ($list_data as $data) {
             $text = "";
@@ -316,11 +316,10 @@ class Projects extends Pre_loader {
 
         $project_id = $this->input->post('id');
         $client_id = $this->input->post('client_id');
-        $sage_project_id = $this->input->post('sage_project_id');
-              
+        $sage_depertment_id = $this->input->post('sage_depertment_id');
 
         if ($project_id) {
-            if (!$rrthis->can_edit_projects()) {
+            if (!$this->can_edit_projects()) {
                 redirect("forbidden");
             }
         } else {
@@ -333,14 +332,14 @@ class Projects extends Pre_loader {
         if ($client_id) {
             $view_data['model_info']->client_id = $client_id;
         }
-        if ($sage_project_id) {
-            $view_data['model_info']->sage_project_id = $sage_project_id;
+        if ($sage_depertment_id) {
+            $view_data['model_info']->sage_depertment_id = $sage_depertment_id;
         }
 
 
         // $view_data['clients_dropdown'] = $this->Clients_model->get_dropdown_list(array("company_name"));
         $view_data['clients_dropdown'] = $this->get_sage_clients_dropdown_list(array("Account", "Name"));
-        $view_data['sage_projects_dropdown'] = $this->get_sage_projects_dropdown_list(array("ProjectCode", "ProjectName"));
+        $view_data['sage_depertments_dropdown'] = $this->get_sage_departments_dropdown_list(array("dep_code", "name"));
 
         $labels = explode(",", $this->Projects_model->get_label_suggestions());
         $label_suggestions = array();
@@ -465,18 +464,19 @@ class Projects extends Pre_loader {
             }
         }
 
-        // validate_submitted_data(array(
-        //     "title" => "required"
-        //     ));
+        validate_submitted_data(array(
+            "title" => "required"
+            ));
 
         $now = get_current_utc_time();
 
         $data = array(
-            "title" => $this->get_sage_project_data($this->input->post('sage_project_id'), "ProjectCode") . " : " . $this->get_sage_project_data($this->input->post('sage_project_id'), "ProjectName"),
+            // "title" => $this->get_sage_project_data($this->input->post('sage_project_id'), "ProjectCode") . " : " . $this->get_sage_project_data($this->input->post('sage_project_id'), "ProjectName"),
+            "title" => $this->input->post('title'),
             "description" => $this->input->post('description'),
             "client_id" => $this->input->post('client_id'),
             "sage_client_id" => $this->input->post('client_id'), //$this->input->post('sage_client_id'),
-            "sage_project_id" => $this->input->post('sage_project_id'),
+            "sage_depertment_id" => $this->input->post('sage_depertment_id'),
             "start_date" => $this->input->post('start_date') * 1 ? $this->input->post('start_date') : "0000-00-00",
             "deadline" => $this->input->post('deadline') * 1 ? $this->input->post('deadline') : "0000-00-00",
             "price" => unformat_currency($this->input->post('price')),
@@ -885,6 +885,7 @@ class Projects extends Pre_loader {
             $view_data['totalCost'] = $view_data['resourceCost'] + $view_data['expenses'];
             $view_data['costVariance'] = $project_info->price - $view_data['totalCost'];
             $view_data['estimateCost'] = count($estimatedCost) > 0 ? $estimatedCost[0]->estimate : 0;
+            $view_data['sage_client'] = $this->get_sage_client_data($project_info->client_id, "Account") . " : " . $this->get_sage_client_data($project_info->client_id, "Name");
 
 
             $timer = $this->Timesheets_model->get_timer_info($project_id, $this->login_user->id)->row();
@@ -1416,6 +1417,7 @@ class Projects extends Pre_loader {
 
         $view_data['milestone_dropdown'] = $this->_get_milestones_dropdown_list($project_id);
         $view_data['assigned_to_dropdown'] = $this->_get_project_members_dropdown_list();
+        $view_data['dates_dropdown'] = $this->_get_task_dates_dropdown_list($project_id);
 
         $this->load->view("projects/tasks/index", $view_data);
     }
@@ -1437,6 +1439,38 @@ class Projects extends Pre_loader {
             $assigned_to_dropdown[] = array("id" => $key, "text" => $value);
         }
         return json_encode($assigned_to_dropdown);
+    }
+
+    private function uniqueAssocArray($array, $uniqueKey) {
+        if (!is_array($array)) {
+            return array();
+        }
+        $uniqueKeys = array();
+        foreach ($array as $key => $item) {
+            $groupBy=$item[$uniqueKey];
+            if (isset( $uniqueKeys[$groupBy]))
+            {
+                //compare $item with $uniqueKeys[$groupBy] and decide if you 
+                //want to use the new item
+                $replace= 0; 
+            }
+            else
+            {
+                $replace=true;
+            }
+            if ($replace) $uniqueKeys[$groupBy] = $item;   
+        }
+        return $uniqueKeys;
+    }
+
+    private function _get_task_dates_dropdown_list($project_id = 0) {
+        $dates = $this->Tasks_model->get_all_where(array("project_id" => $project_id, "deleted" => 0))->result_array();
+        $date_dropdown = array(array("id" => "", "text" => "- " . "Date Created" . " -"));
+
+        foreach ($this->uniqueAssocArray($dates, "created_at") as $dates) {
+            $date_dropdown[] = array("id" => $dates['created_at'], "text" => date("dS M Y",strtotime($dates['created_at'])));
+        }
+        return json_encode($date_dropdown);
     }
 
     function all_tasks() {
@@ -1857,7 +1891,9 @@ class Projects extends Pre_loader {
 
         $status = $this->input->post('status') ? implode(",", $this->input->post('status')) : "";
         $milestone_id = $this->input->post('milestone_id');
-        $options = array("project_id" => $project_id, "assigned_to" => $this->input->post('assigned_to'), "status" => $status, "milestone_id" => $milestone_id);
+        $assigned_to = $this->input->post('assigned_to');
+        $task_date = $this->input->post('task_date');
+        $options = array("project_id" => $project_id, "assigned_to" => $assigned_to, "status" => $status, "milestone_id" => $milestone_id, "task_date" => $task_date);
         $list_data = $this->Tasks_model->get_details($options)->result();
         $result = array();
         foreach ($list_data as $data) {
