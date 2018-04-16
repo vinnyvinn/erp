@@ -52,10 +52,11 @@
 
                 if (get_setting("module_parcel") && ($this->login_user->is_admin || $access_estimate)) {
 
-                    $sidebar_menu[] = array("name" => "Parcels", "url" => "parcels", "class" => "fa-bitbucket",
+                    $sidebar_menu[] = array("name" => "Mails & Parcels", "url" => "parcels", "class" => "fa-bitbucket",
                         "submenu" => array(
-                            array("name" => "Mails & Parcels", "url" => "parcels"),
-                            array("name" => "My Mailing List", "url" => "parcels/parcels_mailing_list")
+                            array("name" => "Inwards", "url" => "parcels/inwards"),
+                            array("name" => "Outwards", "url" => "parcels/outwards"),
+                            array("name" => "Mailing List", "url" => "parcels/parcels_mailing_list")
                         )
                     );
                 } /*else if (get_setting("module_parcel") && ($this->login_user->is_admin || $access_estimate)) {

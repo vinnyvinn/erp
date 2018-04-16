@@ -12,60 +12,135 @@ class Parcels extends Pre_loader {
 	}
 
 	function index() {
-		$this->template->rander("parcels/index");
+		// $this->template->rander("parcels/index");
+        redirect("forbidden");
 	}
 
-	function list_data() {
+    function inwards() {
+        $this->template->rander("parcels/inwards");
+    }
+
+    function outwards() {
+        $this->template->rander("parcels/outwards");
+    }
+
+	function inwards_list_data() {
 
         if ($this->login_user->is_admin) {
-            $list_data = $this->Mailing_parcel_model->get_all_where(array("deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
-            $list_data = $this->Mailing_parcel_model->get_all_where(array("user_id" => $this->login_user->id, "deleted" => 0))->result();
+            $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 3, "deleted" => 0))->result();
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+            $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 3, "receiver_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
         
         $result = array();
         foreach ($list_data as $data) {
-            $result[] = $this->_make_row($data);
+            $result[] = $this->inwards_make_row($data);
         }
         echo json_encode(array("data" => $result));
     }
 
-    private function _make_row($data) {
+    private function inwards_make_row($data) {
 
         $title = modal_anchor(get_uri("parcels/view_modal"), ucwords($data->title), array("class" => "edit", "title" => "Mail / Parcel Details", "data-post-id" => $data->id));
 
         if ($data->status == 0) {
-            $status = $this->login_user->is_admin ? "<button type=\"button\" class=\"btn btn-info\">Process</button>" : "<button type=\"button\" class=\"btn btn-info\">Processing</button>";
+            $status = $this->login_user->is_admin ? "<button type=\"button\" class=\"btn btn-info\">Processing</button>" : "<button type=\"button\" class=\"btn btn-info\">Process</button>";
         } elseif ($data->status == 1) {
-            $status = "<button type=\"button\" class=\"btn btn-success\">Processed</button>";
+            $status = "<button type=\"button\" class=\"btn btn-success\">Accepted</button>";
         } elseif ($data->status == 2) {
             $status = "<button type=\"button\" class=\"btn btn-danger\">Rejected</button>";
         }
 
+        $optoins = NULL;
         if ($this->login_user->is_admin) {
-            $optoins = NULL;
             if ($data->status == 0) {
-                $optoins .= anchor(get_uri("parcels/approve/" . $data->id), "<i class='fa fa-check'></i>");
-                // $optoins .= modal_anchor(get_uri("parcels/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Reject", "data-post-id" => $data->id));
-                $optoins .= anchor(get_uri("parcels/disapprove/" . $data->id), "<i class='fa fa-trash'></i>");
+                $optoins .= anchor(get_uri("parcels/delete/" . $data->id), "<i class='fa fa-trash'></i>");
             }
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
-            $optoins = NULL;
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+            if ($data->status == 0) {
+                $optoins .= anchor(get_uri("parcels/accept/" . $data->id), "<i class='fa fa-check'></i>");
+                $optoins .= anchor(get_uri("parcels/reject/" . $data->id), "<i class='fa fa-trash'></i>");
+            }
         }
 
         $activity = ucwords($this->Mailing_activity_model->get_one($data->activity_id)->title);
 
-        if ($this->login_user->is_admin) {
-            $receiver = $data->receiver_id ? ucwords($this->Mailing_list_model->get_one($data->receiver_id)->title) : "NOT SET";
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
-            $receiver = $data->receiver_id ? ucwords($this->Mailing_list_model->get_one_where(array("receiver_id" => $data->receiver_id, "created_by" => $this->login_user->id))->title) : "NOT SET";
-        }
+        $sender = $data->sender_id ? ucwords($this->Mailing_list_model->get_one($data->sender_id)->title) : "NOT SET";
 
-        return array($data->id, $title, $activity, $receiver, date("dS M Y",strtotime($data->created_at)), $status, $optoins);
+        $receiver = ucwords($this->Users_model->get_one($data->receiver_id)->first_name . " " . $this->Users_model->get_one($data->receiver_id)->last_name);
+
+        return array(
+            $data->id,
+            $title,
+            // $activity,
+            $sender,
+            $receiver,
+            date("dS M Y",strtotime($data->created_at)),
+            $status,
+            $optoins
+        );
     }
 
-    public function approve($id = 0) {
+    function outwards_list_data() {
+
+        if ($this->login_user->is_admin) {
+            $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 4, "deleted" => 0))->result();
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+            $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 4, "sender_id" => $this->login_user->id, "deleted" => 0))->result();
+        }
+
+        
+        $result = array();
+        foreach ($list_data as $data) {
+            $result[] = $this->outwards_make_row($data);
+        }
+        echo json_encode(array("data" => $result));
+    }
+
+    private function outwards_make_row($data) {
+
+        $title = modal_anchor(get_uri("parcels/view_modal"), ucwords($data->title), array("class" => "edit", "title" => "Mail / Parcel Details", "data-post-id" => $data->id));
+
+        if ($data->status == 0) {
+            $status = $this->login_user->is_admin ? "<button type=\"button\" class=\"btn btn-info\">Processing</button>" : "<button type=\"button\" class=\"btn btn-info\">Process</button>";
+        } elseif ($data->status == 1) {
+            $status = "<button type=\"button\" class=\"btn btn-success\">Accepted</button>";
+        } elseif ($data->status == 2) {
+            $status = "<button type=\"button\" class=\"btn btn-danger\">Rejected</button>";
+        }
+
+        $optoins = NULL;
+        if (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+            if ($data->status == 0) {
+                $optoins .= anchor(get_uri("parcels/delete/" . $data->id), "<i class='fa fa-trash'></i>");
+            }
+        } elseif ($this->login_user->is_admin) {
+            if ($data->status == 0) {
+                $optoins .= anchor(get_uri("parcels/accept/" . $data->id), "<i class='fa fa-check'></i>");
+                $optoins .= anchor(get_uri("parcels/reject/" . $data->id), "<i class='fa fa-trash'></i>");
+            }
+        }
+
+        $activity = ucwords($this->Mailing_activity_model->get_one($data->activity_id)->title);
+
+        $sender = $data->sender_id ? ucwords($this->Mailing_list_model->get_one($data->sender_id)->title) : "NOT SET";
+
+        $receiver = ucwords($this->Users_model->get_one($data->receiver_id)->first_name . " " . $this->Users_model->get_one($data->receiver_id)->last_name);
+
+        return array(
+            $data->id,
+            $title,
+            // $activity,
+            $sender,
+            $receiver,
+            date("dS M Y",strtotime($data->created_at)),
+            $status,
+            $optoins
+        );
+    }
+
+    public function accept($id = 0) {
 
         if (!$id) {
             return;
@@ -75,14 +150,14 @@ class Parcels extends Pre_loader {
 
         if($this->Mailing_parcel_model->update_where($data, array("id" => $id, "deleted" => 0))) {
             // echo json_encode(array("success" => true, 'message' => lang('record_updated')));
-            redirect("parcels/index");
+            redirect("parcels/inwards");
         } else {
             // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
-            redirect("parcels/index");
+            redirect("parcels/inwards");
         }
     }
 
-    public function disapprove($id = 0) {
+    public function reject($id = 0) {
 
         if (!$id) {
             return;
@@ -92,10 +167,27 @@ class Parcels extends Pre_loader {
 
         if($this->Mailing_parcel_model->update_where($data, array("id" => $id, "deleted" => 0))) {
             // echo json_encode(array("success" => true, 'message' => lang('record_updated')));
-            redirect("parcels/index");
+            redirect("parcels/inwards");
         } else {
             // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
-            redirect("parcels/index");
+            redirect("parcels/inwards");
+        }
+    }
+
+    public function delete($id = 0) {
+
+        if (!$id) {
+            return;
+        }
+
+        $data = ["deleted" => 1];
+
+        if($this->Mailing_parcel_model->update_where($data, array("id" => $id))) {
+            // echo json_encode(array("success" => true, 'message' => lang('record_updated')));
+            redirect("parcels/inwards");
+        } else {
+            // echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+            redirect("parcels/inwards");
         }
     }
 
@@ -107,7 +199,7 @@ class Parcels extends Pre_loader {
     function mailing_list_data () {
     	if ($this->login_user->is_admin) {
             $list_data = $this->Mailing_list_model->get_all_where(array("deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $list_data = $this->Mailing_list_model->get_all_where(array("user_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
@@ -123,20 +215,10 @@ class Parcels extends Pre_loader {
 
         $title = modal_anchor(get_uri("parcels/view_modal"), ucwords($data->title), array("class" => "edit", "title" => "Mailing List Details", "data-post-id" => $data->id));
 
-        // if ($data->status == "Pending") {
-        //     $status = "<button type=\"button\" class=\"btn btn-info\"> $data->status </button>";
-        // } elseif ($data->status == "Approved") {
-        //     $status = "<button type=\"button\" class=\"btn btn-success\"> $data->status </button>";
-        // } elseif ($data->status == "Disapproved") {
-        //     $status = "<button type=\"button\" class=\"btn btn-danger\"> $data->status </button>";
-        // }
-
         if ($this->login_user->is_admin) {
             $optoins = NULL;
-            // $optoins .= anchor(get_uri("parcels/parcels_mailing_list/approve/" . $data->id), "<i class='fa fa-check'></i>");
-            // $optoins .= modal_anchor(get_uri("parcels/parcels_mailing_list/modal_disapprove"), "<i class='fa fa-trash'></i>", array("class" => "edit", "title" => "Reject", "data-post-id" => $data->id));
             $optoins .= anchor(get_uri("parcels/disapprove_parcels_mailing_list/" . $data->id), "<i class='fa fa-trash'></i>");
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 1) {
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $optoins = NULL;
         }
 
@@ -199,21 +281,31 @@ class Parcels extends Pre_loader {
         }
     }
 
-    function modal_form() {
+    function modal_form_inwards() {
 
-        $view_data['parcels_types_dropdown'] = $this->Mailing_activity_model->get_all_where(array("deleted" => 0))->result();
+        // $view_data['parcels_types_dropdown'] = $this->Mailing_activity_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['senders_dropdown'] = $this->Mailing_list_model->get_all_where(array("deleted" => 0))->result();
+        $view_data['receivers_dropdown'] = $this->Users_model->get_all_where(array("role_id" => 2, "deleted" => 0))->result();
+
+        $this->load->view('parcels/modal_form_inwards', $view_data);
+    }
+
+    function modal_form_outwards() {
+
+        $view_data['senders_dropdown'] = $this->Users_model->get_all_where(array("role_id" => 2, "deleted" => 0))->result();
         $view_data['receivers_dropdown'] = $this->Mailing_list_model->get_all_where(array("deleted" => 0))->result();
 
-        $this->load->view('parcels/modal_form', $view_data);
+        $this->load->view('parcels/modal_form_outwards', $view_data);
     }
 
     function save() {
 
         $data = array(
             "activity_id" => $this->input->post('activity_id'),
-			"user_id" => $this->input->post('user_id'),
+			"user_id" => $this->login_user->id,
+			"sender_id" => $this->input->post('sender_id'),
 			"receiver_id" => $this->input->post('receiver_id'),
-			"title" => $this->input->post('title'),
+            "title" => $this->input->post('title'),
 			"description" => $this->input->post('description')
         );
 

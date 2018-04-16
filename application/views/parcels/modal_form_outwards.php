@@ -1,13 +1,16 @@
 <?php echo form_open(get_uri("parcels/save"), array("id" => "project-form", "class" => "general-form", "role" => "form")); ?>
 
 <div class="modal-body clearfix">
+
+    <input type="hidden" name="activity_id" id="activity_id" value="4">
+
     <div class="form-group">
-        <label for="parcels type" class=" col-md-3">Mail / Parcel Type</label>
-        <div class="col-md-9">
-          <select class="select2 validate-hidden" name="activity_id" id="activity_id" required>
+        <label for="receiver" class=" col-md-3">From (sender)</label>
+        <div class="col-md-8">
+          <select class="select2 validate-hidden" name="sender_id" id="sender_id" required>
               <?php
-              foreach ($parcels_types_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->title) . "</option>";
+              foreach ($senders_dropdown as $value) {
+                    echo "<option value=". $value->id . ">" . ucfirst($value->first_name . " " . $value->last_name) . "</option>";
               }
               ?>
             </select>
@@ -15,8 +18,8 @@
     </div>
 
     <div class="form-group">
-        <label for="receiver" class=" col-md-3">Receiver (send to)</label>
-        <div class="col-md-9">
+        <label for="receiver" class=" col-md-3">Sent To (receiver)</label>
+        <div class="col-md-8">
           <select class="select2 validate-hidden" name="receiver_id" id="receiver_id" required>
               <?php
               foreach ($receivers_dropdown as $value) {
@@ -25,8 +28,10 @@
               ?>
             </select>
         </div>
+        <div class="col-md-1">
+            <?php echo modal_anchor(get_uri("parcels/modal_form_mailing_list"), "<i class='fa fa-plus-circle'></i>", array("data-is-popup" => '1', 'data-populate' => 'client_id', "class" => "btn btn-info btn-add", "title" => lang('add_client'))); ?>
+        </div>
     </div>
-
     <div class="form-group">
         <label for="title" class=" col-md-3">Title</label>
         <div class=" col-md-9">
@@ -44,7 +49,6 @@
             ?>
         </div>
     </div>
-
     <div class="form-group">
         <label for="description" class=" col-md-3">Description</label>
         <div class=" col-md-9">
