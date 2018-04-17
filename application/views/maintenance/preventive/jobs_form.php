@@ -1,5 +1,5 @@
    <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
-  <form method="POST" action="<?php echo base_url('preventive/save') ?>">
+  <form method="POST" action="<?php echo base_url('preventive/save') ?>" enctype="multipart/form-data">
   <input type="hidden" name="id" value="<?php echo $job_info->id; ?>" />
 <div class="modal-body clearfix">
      <div class="panel panel-default">
@@ -10,7 +10,7 @@
     <div class="form-group vehicle_sel">
     <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
    <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;">
-              <option>-- SESLECT VEHICLE --</option>
+              <option>-- SELECT VEHICLE --</option>
               <?php
               foreach ($vehicles_dropdown as $value) {
                   echo "<option value=". $value->id . ">" . ucfirst($value->code) . "</option>";
@@ -21,29 +21,7 @@
     </div>
     <br>
    <div class="form-group">
-
-    <label for="job_service" class="col-sm-10"><b>Job Category</b></label>
-             <select class="form-control" name="job_service_id" id="service_type_id" required>
-             <option value="">--- Select Job/Service ---</option>
-              <?php
-              foreach ($service_types_dropdown as $value) {
-                  echo "<option value=". $value->id . ">" . ucfirst($value->service_name) . "</option>";
-              }
-              ?>
-            </select>
-                    
-</div>
- <div class="form-group">
-
-    <label for="job_service" class="col-sm-10"><b>Service Type</b></label>
-             <select class="form-control" name="service_type_id" id="s_type_id">
-             </select>
-                    
-</div>
-<br>
-<div class="form-group">
-
-    <label for="job_service" class="col-sm-10"><b><?php echo lang('service_provider'); ?></b></label>
+ <label for="supplier_id" class="col-sm-10"><b><?php echo lang('service_provider'); ?></b></label>
              <select class="form-control" name="supplier_id" id="supplier_id" required>
               <?php
               foreach ($providers_dropdown as $provider) {
@@ -51,7 +29,23 @@
               }
               ?>
             </select>
+    
+</div>
+
+<br>
+ <div class="form-group">
+
+    <label for="job_service" class="col-sm-10"><b>Service Type</b></label>
+             <select class="form-control" name="service_type_id" id="s_type_id" disabled="disabled">
+             </select>
                     
+</div>
+<br>
+<div class="form-group">
+    <label for="client_id" style="color:#7988a2"><?php echo lang("upload_file"); ?>
+       <input type='file' name='picture' size='20' />
+    </label>
+   
 </div>
 <br>
 
@@ -59,9 +53,7 @@
 <div class="col-sm-4">
 <div class="form-group">
     <label for="job_type" class="col-sm-10"><b>Job Type</b></label>
-    <select class="form-control" name="job_type_name" id="job_typo" required>
-            <option value="">--- Select Job Service first ---</option>     
-            </select>
+    <input type="text" class="form-control" name="job_type_name" id="job_typo">
     
 </div>
 
@@ -146,17 +138,20 @@
     <p id="km_id"></p>
         
     </div>
+    <div class="form-group">
+    <label for="hours " class="col-sm-8"><b>Hours</b></label>
+       <input type="text"  class="form-control" name="hours" id="hours" >
+           </div>
+
 <div class="form-group">
     <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
-    
-        <?php
-        echo form_input(array(
-            "id" => "fuel_balance",
-            "name" => "fuel_balance",
-            "class" => "form-control",
-           
-        ));
-        ?>
+       <select class="form-control" name="fuel_balance" id="fuel_balance" required>
+              <?php
+              foreach ($fuel_dropdown as $fuel) {
+                  echo "<option value=". $fuel->id . ">" . ucfirst($fuel->description) . "</option>";
+              }
+              ?>
+            </select>
    </div>
 </div>
 </div>
@@ -194,7 +189,7 @@
 <?php echo form_close();?>
 <div class="row">
  <div class="col-sm-12">
-    <table class="table table-striped">
+    <table class="table table-striped" style="display: none;">
         <thead>
             <tr>
                 
@@ -524,3 +519,12 @@ function myFunction() {
     });
  
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        //check if its an update hence load the actual value in the area
+        var uploadUrl = "<?php echo get_uri("preventive/upload_file"); ?>";
+        var validationUrl = "<?php echo get_uri("preventive/validate_file"); ?>";
+
+        var dropzone = attachDropzoneWithForm("#ticket-comment-dropzone", uploadUrl, validationUrl);
+      </script>

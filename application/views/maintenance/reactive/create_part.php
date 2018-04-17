@@ -86,7 +86,7 @@
              $('select[name="job_card_id"]').on('change', function() {
             var spare_id = $(this).val();
             console.log(spare_id)
-            var path="<?php echo site_url('reactive/spare')?>/" + spare_id;
+            var path="<?php echo site_url('parts_requisition/spare')?>/" + spare_id;
                  $.ajax({
                 type  : 'ajax',
                 url   : path,
@@ -110,7 +110,7 @@
              var quantity       = $('#quantity').val();
               $.ajax({
                 type : "POST",
-                url  : "<?php echo site_url('reactive/save_part')?>",
+                url  : "<?php echo site_url('parts_requisition/save_part')?>",
                 dataType : "JSON",
                 data : {job_card_id:job_card, description:description, spare_id:part,quantity:quantity},
                 success: function(data){
@@ -118,7 +118,7 @@
                     $('[name="description"]').val("");
                     $('[name="spare_id"]').val("");
                     $('[name="quantity"]').val("");
-                    window.location = "<?php echo site_url('reactive')?>";
+                    window.location = "<?php echo site_url('parts_requisition')?>";
                 }
             });
             return false;
@@ -129,7 +129,7 @@
              $('select[name="job_card_id"]').on('change', function() {
               var ds_id=$(this).val();
               console.log('id='+ ds_id);
-               var path="<?php echo site_url('reactive/description')?>/" + ds_id;
+               var path="<?php echo site_url('parts_requisition/description')?>/" + ds_id;
                 $.ajax({
                 type  : 'ajax',
                 url   : path,

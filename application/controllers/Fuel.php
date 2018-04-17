@@ -18,14 +18,22 @@ class Fuel extends Pre_loader {
   }
 
   public function index(){
-    $view_data['suppliers_dropdown'] = $this->Fuel_suppliers_model->get_all_where(array("deleted" => 0))->result();  
+    $view_data['suppliers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result();  
     $view_data['staffs_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['expenses_dropdown'] = $this->Other_expenses_model->get_all_where(array("deleted" => 0))->result();   
-     $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();  
-    $view_data['fuels']=$this->db->query("SELECT fuels.*,employees.name as staff,fuel_suppliers.name as supplier FROM fuels
-      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id
-      LEFT JOIN employees ON employees.id=fuels.staff_id")->result_array();
+     $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result(); 
+      $view_data['fuels']=$this->db->query("SELECT fuels.*,employees.name as staff,parts_suppliers.name as supplier,
+        assets.code as vehicle FROM fuels
+      LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id
+      LEFT JOIN employees ON employees.id=fuels.staff_id
+      LEFT JOIN assets ON assets.id=fuels.vehicle_id")->result_array();
+
     $this->template->rander("maintenance/services/fuel_form",$view_data);
+  }
+ public function km_reading($id)
+   {
+    $query = $this->db->query("SELECT assets.km_reading FROM assets WHERE id=$id")->row()->km_reading;
+    echo json_encode($query);
   }
 
   public function add_fuel()

@@ -16,7 +16,8 @@
             <th>Asset</th>
             <th>Tonnes</th>
             <th>Issued By</th>
-            <th>Client</th>
+            <th>Hire From</th>
+            <th>Hire To</th>
             <th>Rate</th>
             <th>Total</th>
             <th style="width:125px;">Action
@@ -30,6 +31,7 @@
            <td><?php echo $hire['equipment'];?></td>
            <td><?php echo $hire['tonnes'];?></td>
            <td><?php echo $hire['staff'];?></td>
+           <td><?php echo $hire['supplier'];?></td>
            <td><?php echo $hire['client'];?></td>
            <td><?php echo $hire['rate'];?></td>
            <td><?php echo $hire['total'];?></td>
@@ -56,7 +58,8 @@
         <th>Asset</th>
         <th>Tonnes</th>
         <th>Issued By</th>
-        <th>Client</th>
+        <th>Hire From</th>
+         <th>Hire To</th>
         <th>Rate</th>
         <th>Total</th>
         <th>Action</th>
@@ -105,6 +108,7 @@
           $('[name="asset"]').val(data.asset);
           $('[name="staff_id"]').val(data.staff_id);
           $('[name="client_id"]').val(data.client_id);
+          $('[name="supplier_id"]').val(data.supplier_id);
           $('[name="tonnes"]').val(data.tonnes);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Hired Asset'); // Set title to Bootstrap modal title
@@ -222,12 +226,25 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3">Client</label>
+            <label class="control-label col-md-3">Hire From</label>
+            <div class="col-md-9">
+              <select class="form-control" name="supplier_id" placeholder="supplier" id="supplier_id" required>
+
+               <?php
+               foreach ($providers_dropdown as $provider) {
+                echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
+              }
+              ?>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-3">Hire To</label>
             <div class="col-md-9">
               <select class="form-control" name="client_id" placeholder="Client" id="client_id" required>
 
                <?php
-               foreach ($clients_dropdown as $client) {
+               foreach ($providers_dropdown as $client) {
                 echo "<option value=". $client->id . ">" . ucfirst($client->name) . "</option>";
               }
               ?>

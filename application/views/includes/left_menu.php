@@ -54,8 +54,9 @@
                 $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
                 if (($this->login_user->is_admin)) {
                     $checklistsSubs = [];
+                    $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
                     $checklistsSubs [] = ["name" => "ICT Reports", "url" => "ict_reports"];
-                    $sidebar_menu[] = array("name" => "Checklists", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
+                    $sidebar_menu[] = array("name" => "ICT", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
                 }
                if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
 
@@ -186,6 +187,7 @@
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
                     $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
+                    $attendanceSubs [] = ["name" => "Requisitions", "url" => "parts_requisition"];
                     $attendanceSubs [] = ["name" => "Warranty Parts", "url" => "warranty_parts"];
                     $attendanceSubs [] = ["name" => "Fueling", "url" => "fuel"];
                     $attendanceSubs [] = ["name" => "Hiring Assets", "url" => "hire_assets"];

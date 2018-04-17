@@ -14,6 +14,7 @@
           <tr>
             <th>ID</th>
             <th>Supplier</th>
+            <th>Vehicle</th>
             <th>Driver</th>
             <th>Litres</th>
             <th>Pump Price</th>
@@ -27,6 +28,7 @@
           <tr>
            <td><?php echo $fuel['id'];?></td>
            <td><?php echo $fuel['supplier'];?></td>
+           <td><?php echo $fuel['vehicle'];?></td>
            <td><?php echo $fuel['staff'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
@@ -52,6 +54,7 @@
       <tr>
        <th>ID</th>
        <th>Supplier</th>
+       <th>Vehicle</th>
        <th>Driver</th>
        <th>Litres</th>
        <th>Pump Price</th>
@@ -199,12 +202,7 @@
                   <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text">
                 </div>
               </div>
-              <div class="form-group">
-                <label class="control-label col-md-3">KM Readings</label>
-                <div class="col-md-9">
-                  <input name="km_reading" placeholder="KM Readings" class="form-control" type="text">
-                </div>
-                </div>
+              
                 <div class="form-group">
                   <label class="control-label col-md-3">Vehicle</label>
                   <div class="col-md-9">
@@ -218,6 +216,18 @@
                   </select>
                 </div>
               </div>
+              <div class="form-group">
+                <label class="control-label col-md-3">Previous KM</label>
+                <div class="col-md-9">
+                 <p id="prevoius_km_reading"></p>
+                </div>
+                </div>
+              <div class="form-group">
+                <label class="control-label col-md-3">Current KM Readings</label>
+                <div class="col-md-9">
+                  <input name="km_reading" placeholder="KM Readings" class="form-control" id="km_reading" type="text">
+                </div>
+                </div>
                 <div class="form-group">
                   <label class="control-label col-md-3">Supplier</label>
                   <div class="col-md-9">
@@ -275,4 +285,24 @@
   $('#staff').select2();
   $('#expense').select2();
   $('#vehicle_id').select2();
+</script>
+<script type="text/javascript">
+             $(document).ready(function() {
+             $('select[name="vehicle_id"]').on('change', function() {
+            var km_id = $(this).val();
+                   var path="<?php echo site_url('fuel/km_reading')?>/" + km_id;
+                $.ajax({
+                type  : 'ajax',
+                url   : path,
+                async : false,
+                dataType : 'json',
+                success : function(data){
+                   var html ='<p>'+data+'</p>';
+                   $('#prevoius_km_reading').html(html);
+
+                }
+ 
+            });
+        });
+        });
 </script>

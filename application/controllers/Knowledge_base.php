@@ -13,10 +13,11 @@ class Knowledge_base extends Pre_loader
         $types = $this->TblKnowledgeBaseTypesModel->getall()->result();
         foreach ($types as $type) {
             $type->knowledges = $this->TblKnowledgeBaseModel->getTypeKNowledges($type->id)->result();
+                
         }
-
+        
         $viewdata['types'] = $types;
-        $this->template->rander("knowledgebase/index2", $viewdata);
+       $this->template->rander("knowledgebase/index2", $viewdata);
     }
 
 

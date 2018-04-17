@@ -5944,3 +5944,3661 @@ ERROR - 2018-04-13 10:44:14 --> Language file contains no data: language/english
 ERROR - 2018-04-13 10:44:14 --> Language file contains no data: language/english/custom_lang.php
 ERROR - 2018-04-13 10:44:14 --> Language file contains no data: language/english/custom_lang.php
 ERROR - 2018-04-13 10:44:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:45:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:46:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:47:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Team"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 10:48:44 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 10:48:45 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 10:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Team"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 10:48:52 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 10:48:53 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 10:48:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:48:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:49:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:50:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:51:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:52:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:53:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:54:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:55:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:56:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:57:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 10:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:03:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:03:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:04:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:05:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:06:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:07:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:08:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:09:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:10:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:11:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:12:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:13:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:14:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:15:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:16:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:17:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:18:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:19:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:20:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:21:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:22:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:23:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:24:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:25:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:26:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:27:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:28:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:28:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:28:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:28:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:28:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:29:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:30:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:31:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 11:40:42 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Team"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 11:40:43 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 11:40:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 11:40:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 11:40:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 11:40:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 11:40:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 11:40:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 11:40:44 --> Could not find the language line "Team"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 11:40:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Team"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 11:40:45 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 11:40:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:40:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:42:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Team"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 11:43:40 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 11:43:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:43:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:44:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:55:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 11:56:23 --> Severity: Error --> Maximum execution time of 30 seconds exceeded C:\xampp\htdocs\pro-kazi\system\core\Log.php 222
+ERROR - 2018-04-13 11:56:23 --> Severity: Error --> Maximum execution time of 30 seconds exceeded C:\xampp\htdocs\pro-kazi\system\core\Log.php 179
+ERROR - 2018-04-13 12:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:01:01 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:01:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:01:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:02:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:02:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:02:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:02:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:03:35 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:03:40 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:03:41 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:03:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:45 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:03:45 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:03:45 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:03:45 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:03:45 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:03:46 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:03:46 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 12:03:46 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 12:03:46 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 12:03:47 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 12:03:47 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 12:03:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:03:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:04:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:05:38 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:05:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:05:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:05:43 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:05:43 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:05:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:44 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:05:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:05:50 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:05:50 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:50 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:05:55 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:05:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:05:59 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:05:59 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:05:59 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:05:59 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:05:59 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:05:59 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:06:00 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:06:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:06:04 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:06:04 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:05 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:06:10 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:06:10 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:11 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:06:13 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:06:14 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:06:14 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:14 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:06:48 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:06:48 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:49 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:51 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:06:52 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:06:52 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:52 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:06:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:06:57 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:07:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:07:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "checklists"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:08:40 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:08:40 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:08:40 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:08:40 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "checklists"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:08:44 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:08:44 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:08:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "checklists"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:08:54 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:08:54 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:08:54 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:08:54 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:08:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "checklists"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:08:58 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:08:58 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:08:58 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:08:58 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:08:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "checklists"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:08:59 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:08:59 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:09:02 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:09:02 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:09:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "checklists"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:09:04 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:09:04 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:09:14 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:09:14 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:09:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:09:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:10:00 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:10:00 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:10:03 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:10:03 --> 404 Page Not Found: Assets/vuejs
+ERROR - 2018-04-13 12:10:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:10:07 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:10:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:10:08 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:10:13 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:10:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:10:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:11:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:12:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:13:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:14:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:15:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:16:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:17:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:18:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:19:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:20:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:21:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:22:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:23:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:24:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:25:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:26:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:27:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:28:24 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:28:49 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:28:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:28:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:29:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:30:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:31:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:32:17 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:32:18 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:32:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:32:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:32:22 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:32:23 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:32:23 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:32:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:25 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:32:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Team"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 12:32:35 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 12:32:36 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 12:32:36 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 12:32:36 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 12:32:36 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 12:32:36 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 12:32:37 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 12:32:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:32:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:33:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:34:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:35:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:36:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:37:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:38:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:39:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:40:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:41:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:42:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:43:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 12:44:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:05:25 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:05:26 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:05:26 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 13:05:26 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 13:05:26 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 13:05:26 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 13:05:26 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 13:05:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:05:28 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:05:28 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 13:05:28 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 13:05:28 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 13:05:28 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 13:05:28 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 13:05:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:40 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:05:40 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:05:40 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:05:40 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:05:41 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:05:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:05:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:06:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:06:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:06:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:06:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:07:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:07:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:07:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:07:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:08:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:08:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:08:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:08:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:09:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:09:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:09:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:09:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:10:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:10:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:10:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:10:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:11:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:11:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:11:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:11:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:12:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:12:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:12:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:12:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:13:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:13:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:13:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:13:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:14:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:14:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:14:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:14:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:15:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:15:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:15:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:15:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:16:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:16:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:16:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:16:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:17:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:17:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:17:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:17:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:18:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:18:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:18:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:18:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:19:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:19:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:19:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:19:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:20:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:20:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:20:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:20:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:21:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:21:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:21:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:21:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:22:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:22:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:22:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:22:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:23:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:23:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:23:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:23:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:24:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:24:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:24:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:24:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:25:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:25:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:25:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:25:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:26:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:26:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:26:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:26:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:27:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:27:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:27:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:27:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:28:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:28:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:28:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:28:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:30:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:30:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:30:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:30:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:31:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:31:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:31:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:31:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:33:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:33:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:33:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:33:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:34:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:34:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:34:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:34:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:35:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:35:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:35:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:35:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:36:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:36:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:36:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:36:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:37:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:37:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:37:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:37:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:38:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:38:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:38:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:38:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:39:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:39:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:39:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:39:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:40:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:40:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:40:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:40:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:41:49 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:41:54 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:41:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:41:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:42:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:42:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:42:00 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:42:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:42:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:42:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:42:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:43:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:43:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:43:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:43:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:44:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:44:02 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:44:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:44:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:45:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:45:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:45:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:45:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Team"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 13:46:18 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 13:46:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:46:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:47:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:47:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:47:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:47:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:48:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:48:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:48:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:48:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:49:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:49:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:49:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 13:49:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Team"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 14:31:44 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 14:31:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 14:31:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 14:31:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 14:31:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 14:31:44 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 14:31:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Team"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 14:31:45 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 14:31:45 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 14:31:45 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 14:31:45 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 14:31:45 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 14:31:45 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 14:31:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Team"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 14:31:56 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 14:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:21 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 14:32:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:32:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Team"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 14:33:20 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 14:33:24 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 14:33:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:33:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:00 --> Severity: Error --> Maximum execution time of 30 seconds exceeded C:\xampp\htdocs\pro-kazi\system\database\drivers\sqlsrv\sqlsrv_driver.php 193
+ERROR - 2018-04-13 14:34:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 14:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Team"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 14:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 14:34:24 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 14:34:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:30 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 14:34:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:34:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:35:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:35:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:35:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:35:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:35:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Team"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 14:36:15 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 14:36:19 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 14:36:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:36:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:37:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:37:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:37:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:37:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:38:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:38:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:38:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:38:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:39:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:39:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:39:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:39:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:40:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:40:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:40:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:40:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:41:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:41:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:41:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:41:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:42:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:42:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:42:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:42:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:43:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:43:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:43:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:43:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:44:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:44:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:44:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:44:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:45:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:45:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:45:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:45:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:46:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:46:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:46:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:46:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:48:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:48:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:48:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:48:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:49:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:49:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:49:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:49:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:50:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:50:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:50:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:50:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:51:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:51:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:51:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:51:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:52:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:52:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:52:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:52:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:53:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:53:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:53:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:53:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:54:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:54:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:54:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:54:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:55:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:55:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:55:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:55:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:56:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:56:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:56:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:56:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:57:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:57:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:57:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:57:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:58:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:58:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:58:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:58:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:59:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:59:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:59:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 14:59:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:00:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:00:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:00:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:00:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:01:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:01:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:01:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:01:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:02:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:02:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:02:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:02:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:03:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:03:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:03:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:03:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:04:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:04:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:04:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:04:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:05:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:05:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:05:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:05:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:06:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:07:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:07:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:07:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:07:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:08:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:08:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:08:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:08:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:09:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:09:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:09:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:09:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:10:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:10:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:10:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:10:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:11:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:11:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:11:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:11:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:12:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:12:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:12:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:12:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:13:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:13:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:13:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:13:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:14:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:14:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:14:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:14:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:15:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:15:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:15:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:15:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:16:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:16:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:16:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:16:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:18:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:18:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:18:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:18:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:20:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:20:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:20:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:20:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:21:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:21:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:21:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:21:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:22:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:22:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:22:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:22:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:23:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:23:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:23:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:23:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:24:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:24:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:24:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:24:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:25:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:25:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:25:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:25:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:26:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:26:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:26:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:26:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:27:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:27:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:27:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:27:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:28:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:28:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:28:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:28:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:29:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:29:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:29:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:29:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:30:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:30:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:30:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:30:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:31:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:31:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:31:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:31:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:32:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:32:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:32:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:32:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:33:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:33:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:33:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:33:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:34:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:34:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:34:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:34:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:35:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:35:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:35:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:35:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:36:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:36:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:36:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:36:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:37:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:37:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:37:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:37:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:38:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:38:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:38:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:38:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:39:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:39:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:39:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:39:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:40:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:40:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:40:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:40:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:41:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:41:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:41:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:41:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:42:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:42:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:42:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:42:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:43:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:43:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:43:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:43:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:44:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:44:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:44:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:44:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:45:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:45:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:45:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:45:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:46:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:46:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:46:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:46:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:48:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:48:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:48:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:48:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:49:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:49:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:49:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:49:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:50:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:50:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:50:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:50:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:51:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:51:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:51:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:51:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:52:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:52:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:52:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:52:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:53:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:53:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:53:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:53:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:54:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:54:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:54:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:54:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:55:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:55:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:55:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:55:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:56:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:56:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:56:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:56:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:57:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:57:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:57:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:57:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:58:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:58:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:58:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:58:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:59:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:59:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:59:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 15:59:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:00:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:00:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:00:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:00:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:01:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:01:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:01:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:01:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:02:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:02:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:02:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:02:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:03:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:03:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:03:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:03:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:04:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:04:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:04:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:04:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:05:34 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:05:34 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 16:05:34 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 16:05:34 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 16:05:34 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 16:05:34 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 16:05:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:05:35 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:05:36 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:05:36 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:05:36 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:05:36 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 16:05:36 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 16:05:36 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 16:05:36 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 16:05:36 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 16:05:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:05:50 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:05:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:06:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:07:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:08:34 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:08:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:08:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:09:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:10:04 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:10:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:10:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:11:36 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:11:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:11:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:12:59 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:13:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:13:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:14:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:15:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:16:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:17:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:18:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:18:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:18:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:18:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:19:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:20:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:01 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:21:02 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:22:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:22:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:22:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:22:03 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:23:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:23:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:23:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:23:04 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:24:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:24:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:24:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:24:05 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:25:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:25:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:25:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:25:06 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:26:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:26:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:26:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:26:07 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:27:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:27:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:27:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:27:08 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:28:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:28:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:28:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:28:09 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:29:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:29:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:29:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:29:10 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:30:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:30:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:30:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:30:11 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:31:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:31:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:31:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:31:12 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:32:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:32:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:32:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:32:13 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:33:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:33:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:33:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:33:14 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:34:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:34:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:34:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:34:15 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:35:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:35:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:35:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:35:16 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:36:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:36:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:36:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:36:17 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:37:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:37:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:37:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:37:18 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:38:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:38:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:38:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:38:19 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:39:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:39:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:39:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:39:20 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:40:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:40:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:40:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:40:21 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:41:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:41:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:41:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:41:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:42:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:42:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:42:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:42:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:43:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:43:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:43:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:43:24 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:44:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:44:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:44:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:44:25 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:45:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:45:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:45:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:45:26 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:46:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:46:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:46:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:46:27 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:28 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:47:29 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 16:47:29 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 16:47:29 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 16:47:29 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 16:47:29 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 16:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:47:29 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:47:30 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:47:30 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 16:47:30 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 16:47:30 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 16:47:30 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 16:47:30 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 16:47:30 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 16:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:39 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:47:40 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:47:40 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 13
+ERROR - 2018-04-13 16:47:40 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 14
+ERROR - 2018-04-13 16:47:40 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 15
+ERROR - 2018-04-13 16:47:40 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 16
+ERROR - 2018-04-13 16:47:40 --> Severity: Notice --> Undefined variable: taskStatus C:\xampp\htdocs\pro-kazi\application\views\projects\tasks\my_task_status_widget.php 17
+ERROR - 2018-04-13 16:47:40 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 16:47:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:47:51 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:47:54 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 16:47:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:47:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:22 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:48:22 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:48:23 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 16:48:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:23 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:29 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Planner"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Leads"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "All Projects"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Your Tasks"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "ICT"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Checklists"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "ICT Reports"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Administration"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Inventory / Requisitions"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Escalation Matrix"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "knowledgebase"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Knowledgebase"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Add Knowledge"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Team"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Team Members"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Preventive"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Reactive"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Warranty Parts"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Fueling"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Hiring Assets"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Reports"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Documents"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Cases & Lawsuits"
+ERROR - 2018-04-13 16:48:44 --> Could not find the language line "Customers & Suppliers"
+ERROR - 2018-04-13 16:48:45 --> 404 Page Not Found: Assets/js
+ERROR - 2018-04-13 16:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:48:45 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:30 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:49:46 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:31 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:50:47 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:32 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:51:48 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:33 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:52:49 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:34 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:53:50 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:54:51 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:55:52 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:56:53 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:57:54 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:58:55 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 16:59:56 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:00:57 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:01:58 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:43 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:02:59 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:03:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:03:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:03:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:03:44 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:04:00 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-13 17:04:00 --> Language file contains no data: language/english/custom_lang.php

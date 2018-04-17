@@ -3,9 +3,11 @@
 <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading" style="margin-top: -8px">Parts Requisitions
-  <?php echo anchor(get_uri("reactive/external_service"), "<i class='fa fa-asterisk'></i> " . lang('external_services'), array("class" => "btn btn-info pull-right rq", "title" => lang('external_services'))); ?>
+      <?php echo anchor(get_uri("reactive/external_service"), "<i class='fa fa-asterisk'></i> " . lang('external_services'), array("class" => "btn btn-info pull-right rq", "title" => lang('external_services'))); ?>
    
   <?php echo anchor(get_uri("reactive/createPart"), "<i class='fa fa-plus-circle'></i> " . lang('new_requisition'), array("class" => "btn btn-default pull-right rq", "title" => lang('new_requisition'))); ?>
+
+   <?php echo anchor(get_uri("reactive/index_job"), "<i class='fa fa-plus-circle></i> " . lang('job_card'), array("class" => "btn btn-info pull-right rq", "title" => lang('job_card'))); ?>
             </div>
     </div>
     <div class="panel-body">
