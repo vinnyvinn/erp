@@ -16,9 +16,9 @@
                     $status_class = "";
                     if ($model_info->status === "to_do - 0%") {
                         $status_class = "label-warning";
-                    } else if (strpos($new_status, "in_progress") != false) {
+                    } /*else if (strpos($new_status, "in_progress") != false) {
                         $status_class = "label-primary";
-                    } else {
+                    }*/ else {
                         $status_class = "label-success";
                     }
                     ?>

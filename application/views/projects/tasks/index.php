@@ -77,7 +77,7 @@
             $("#task-table").appTable({
                 source: '<?php echo_uri("projects/tasks_list_data/" . $project_id) ?>',
                 order: [[0, "desc"]],
-                filterDropdown: [{name: "milestone_id", class: "w200", options: <?php echo $milestone_dropdown; ?>}, {name: "assigned_to", class: "w200", options: <?php echo $assigned_to_dropdown; ?>}],
+                filterDropdown: [{name: "milestone_id", class: "w200", options: <?php echo $milestone_dropdown; ?>}, {name: "assigned_to", class: "w200", options: <?php echo $assigned_to_dropdown; ?>}, {name: "task_date", class: "w200", options: <?php echo $dates_dropdown; ?>}],
                 checkBoxes: [
                     {text: 'ToDo', name: "status", value: "to_do - 0%", isChecked: true},
                     {text: '25%', name: "status", value: "in_progress - 25%", isChecked: true},

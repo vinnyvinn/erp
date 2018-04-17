@@ -4,3 +4,4 @@ vuejsfiles/node_modules
 /.idea/
 /.buildpath
 /.project
+application/logs

@@ -15178,3 +15178,33 @@ ERROR - 2018-04-17 17:02:35 --> Language file contains no data: language/english
 ERROR - 2018-04-17 17:02:35 --> Language file contains no data: language/english/custom_lang.php
 ERROR - 2018-04-17 17:02:35 --> 404 Page Not Found: Assets/js
 ERROR - 2018-04-17 17:02:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:03:35 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:03:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:03:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:03:36 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:04:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:04:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:04:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:04:37 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:05:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:05:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:05:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:05:38 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:06:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:06:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:06:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:06:39 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:07:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:07:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:07:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:07:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:08:40 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:08:41 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:09:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:09:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:09:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:09:42 --> Language file contains no data: language/english/custom_lang.php
+ERROR - 2018-04-17 17:10:42 --> Severity: Parsing Error --> syntax error, unexpected '<<' (T_SL), expecting ')' C:\xampp\htdocs\pro-kazi\application\config\autoload.php 236
+ERROR - 2018-04-17 17:10:42 --> Severity: Parsing Error --> syntax error, unexpected '<<' (T_SL), expecting ')' C:\xampp\htdocs\pro-kazi\application\config\autoload.php 236
