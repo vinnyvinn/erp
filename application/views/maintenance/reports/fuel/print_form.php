@@ -26,18 +26,12 @@
                 <label><b>Driver : <?php echo $data['user']['name']; ?>
                 </label>
                 <br>
-                <b>Vehicle :
-                    <?php foreach ($data['vehicle'] as $key => $value) {?>
-                    <label><?php echo $value['code'];?> </label> 
-
-                    <?php }?>
-                </b>
-            </div>
+                </div>
            
-            <table>
+            <table style="width: 100%">
                 <thead>
                  <tr>
-                     <th>No.</th>
+                     <th>Vehicle</th>
                      <th>Date</th>
                      <th>Invoice No.</th>
                      <th>Litres</th>
@@ -51,8 +45,8 @@
              <tbody>
                <?php foreach ($data['details'] as $report) {?>
                <tr>
-                 <td><?php echo $report['id']?></td>
-                 <td width="60%"><?php $pubdate= $report['created'];
+                 <td><?php echo $report['vehicle']?></td>
+                 <td><?php $pubdate= $report['created'];
                  $da = strtotime($pubdate);
                  echo date('Y-m-d', $da);?>
              </td>
@@ -60,7 +54,7 @@
              <td><?php echo $report['litres']?></td>
              <td><?php echo $report['price']?></td>
              <td><?php echo $report['total']?></td>
-             <td><?php echo $report['km_reading']?></td>
+             <td><?php echo number_format($report['km_reading'],2)?></td>
              <td><?php echo $report['expenses']?></td>
              <td><?php echo $report['expense_cost']?></td>
 
@@ -75,10 +69,10 @@
            <td></td>
            <td></td>
            <td></td>
-           <td><</td>
+           <td><?php echo $data['totalvalue'];?><</td>
            <td></td>
            <td></td>
-           <td></td>
+           <td><?php echo $data['totalexpense'];?></td>
        </tr>
    </tfoot>
 </table>

@@ -19,6 +19,7 @@
             <th>Litres</th>
             <th>Pump Price</th>
             <th>Cost</th>
+            <th>Date</th>
             <th style="width:125px;">Action
             </th>
           </tr>
@@ -33,6 +34,7 @@
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
            <td><?php echo $fuel['total'];?></td>
+           <td><?php echo $fuel['done_on'];?></td>
 
            <td>
              <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
@@ -59,6 +61,7 @@
        <th>Litres</th>
        <th>Pump Price</th>
        <th>Cost</th>
+       <th>Date</th>
        <th>Action</th>
      </tr>
    </tfoot>
@@ -107,7 +110,8 @@
           $('[name="staff_id"]').val(data.staff_id);
           $('[name="expense_id"]').val(data.expense_id);
           $('[name="invoice_no"]').val(data.invoice_no);
-          $('[name="km_reading"]').val(data.km_reading);          
+          $('[name="km_reading"]').val(data.km_reading);  
+          $('[name="done_on"]').val(data.done_on);        
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Fuel'); // Set title to Bootstrap modal title
 
@@ -267,7 +271,12 @@
               </select>
             </div>
           </div>
-
+             <div class="form-group">
+                <label class="control-label col-md-3">Date</label>
+                <div class="col-md-9">
+                  <input name="done_on" placeholder="Fueled On" class="form-control" id="done_on" type="text">
+                </div>
+                </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -285,6 +294,7 @@
   $('#staff').select2();
   $('#expense').select2();
   $('#vehicle_id').select2();
+  setDatePicker('#done_on');
 </script>
 <script type="text/javascript">
              $(document).ready(function() {

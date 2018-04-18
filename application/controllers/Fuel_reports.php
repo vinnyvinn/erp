@@ -28,16 +28,26 @@ class Fuel_reports extends Pre_loader
       foreach ($users as $key => $user) {
         $id=$user['id'];
         $data['user']= $user;
-        $data['vehicle']=$this->db->query("SELECT * FROM assets WHERE driver_id=$id")->result_array();
-        $data['details']=$this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,fuel_suppliers.name as supplier,
-          other_expenses.name as expenses FROM fuels
+        //$data['vehicle']=$this->db->query("SELECT * FROM assets WHERE driver_id=$id")->result_array();
+        $data['details']=$this->db->query("SELECT fuels.*,parts_suppliers.name as supplier,
+          other_expenses.name as expenses,assets.code as vehicle FROM fuels
           LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
-          LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
+          LEFT JOIN assets ON assets.id=fuels.vehicle_id
+          LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
           GROUP BY fuels.total")->result_array();
+        $total=$this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,parts_suppliers.name as supplier,
+          other_expenses.name as expenses,assets.code as vehicle,SUM(fuels.expense_cost) as totalexpense FROM fuels
+          LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
+          LEFT JOIN assets ON assets.id=fuels.vehicle_id
+          LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
+          GROUP BY fuels.staff_id")->row();
+        $data['totalvalue']=$total->totalcost;
+        $data['totalexpense']=$total->totalexpense;
         array_push($arrayData,$data);
         
       }
-      
+     
+     
       $view_data['all_data']=$arrayData;
       $this->template->rander("maintenance/reports/fuel/index", $view_data);
     }
@@ -48,12 +58,21 @@ class Fuel_reports extends Pre_loader
      foreach ($users as $key => $user) {
       $id=$user['id'];
       $data['user']= $user;
-      $data['vehicle']=$this->db->query("SELECT * FROM assets WHERE driver_id=$id")->result_array();
-      $data['details']=$this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,fuel_suppliers.name as supplier,
-        other_expenses.name as expenses FROM fuels
-        LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
-        LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
-        GROUP BY fuels.total")->result_array();
+       $data['details']=$this->db->query("SELECT fuels.*,parts_suppliers.name as supplier,
+          other_expenses.name as expenses,assets.code as vehicle FROM fuels
+          LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
+          LEFT JOIN assets ON assets.id=fuels.vehicle_id
+          LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
+          GROUP BY fuels.total")->result_array();
+        $total=$this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,parts_suppliers.name as supplier,
+          other_expenses.name as expenses,assets.code as vehicle,SUM(fuels.expense_cost) as totalexpense FROM fuels
+          LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
+          LEFT JOIN assets ON assets.id=fuels.vehicle_id
+          LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
+          GROUP BY fuels.staff_id")->row();
+        $data['totalvalue']=$total->totalcost;
+        $data['totalexpense']=$total->totalexpense;
+        
       array_push($arrayData,$data);
       
     }

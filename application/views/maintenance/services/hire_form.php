@@ -59,7 +59,7 @@
         <th>Tonnes</th>
         <th>Issued By</th>
         <th>Hire From</th>
-         <th>Hire To</th>
+        <th>Hire To</th>
         <th>Rate</th>
         <th>Total</th>
         <th>Action</th>
@@ -239,26 +239,26 @@
           </div>
         </div>
         <div class="form-group">
-            <label class="control-label col-md-3">Hire To</label>
-            <div class="col-md-9">
-              <select class="form-control" name="client_id" placeholder="Client" id="client_id" required>
+          <label class="control-label col-md-3">Hire To</label>
+          <div class="col-md-9">
+            <select class="form-control" name="client_id" placeholder="Client" id="client_id" required>
 
-               <?php
-               foreach ($providers_dropdown as $client) {
-                echo "<option value=". $client->id . ">" . ucfirst($client->name) . "</option>";
-              }
-              ?>
-            </select>
-          </div>
+             <?php
+             foreach ($providers_dropdown as $client) {
+              echo "<option value=". $client->id . ">" . ucfirst($client->name) . "</option>";
+            }
+            ?>
+          </select>
         </div>
+      </div>
 
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-    </div>
-  </div><!-- /.modal-content -->
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+  </div>
+</div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
@@ -268,4 +268,5 @@
   $('#supplier').select2();
   $('#staff').select2();
   $('#client_id').select2();
+  $('#supplier_id').select2();
 </script>
