@@ -292,7 +292,7 @@ class Projects extends Pre_loader {
     }
 
     function get_sage_project_data($id, $return) {
-        return $this->SAGE_DB()->get_where('Project', array('ProjectLink' => $id))->result()[0]->$return;
+        return $this->SAGE_DB()->get_where('Proj`ect', array('ProjectLink' => $id))->result()[0]->$return;
     }
 
     function get_sage_client_data($id, $return) {
@@ -885,7 +885,7 @@ class Projects extends Pre_loader {
             $view_data['totalCost'] = $view_data['resourceCost'] + $view_data['expenses'];
             $view_data['costVariance'] = $project_info->price - $view_data['totalCost'];
             $view_data['estimateCost'] = count($estimatedCost) > 0 ? $estimatedCost[0]->estimate : 0;
-            $view_data['sage_client'] = $this->get_sage_client_data($project_info->client_id, "Account") . " : " . $this->get_sage_client_data($project_info->client_id, "Name");
+            $view_data['sage_client'] = $project_info->client_id == 0 ? 'Anonymous Client' : $this->get_sage_client_data($project_info->client_id, "Account") . " : " . $this->get_sage_client_data($project_info->client_id, "Name");
 
 
             $timer = $this->Timesheets_model->get_timer_info($project_id, $this->login_user->id)->row();
