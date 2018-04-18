@@ -36,7 +36,6 @@ class Checklists extends Pre_loader
         echo json_encode($data);
     }
 
-
     function make_links($results, $current_page, $per_page = 10)
     {
         return array("pagination" => [

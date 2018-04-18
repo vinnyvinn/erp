@@ -20,12 +20,14 @@ class Hire_assets extends Pre_loader {
   public function index(){
     $view_data['equipments_dropdown'] = $this->Equipments_model->get_all_where(array("deleted" => 0))->result();  
     $view_data['staffs_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+    $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['clients_dropdown'] = $this->Sage_clients_model->get_all_where(array("deleted" => 0))->result();     
-    $view_data['hires']=$this->db->query("SELECT hire_assets.*,employees.name as staff,
+    $view_data['hires']=$this->db->query("SELECT hire_assets.*,employees.name as staff,parts_suppliers.name as supplier,
       sage_clients.name as client,equipments.description as equipment FROM hire_assets
       LEFT JOIN employees ON employees.id=hire_assets.staff_id
       LEFT JOIN sage_clients ON sage_clients.id=hire_assets.client_id
-      LEFT JOIN equipments ON equipments.id=hire_assets.asset")->result_array();
+      LEFT JOIN equipments ON equipments.id=hire_assets.asset
+      LEFT JOIN parts_suppliers ON parts_suppliers.id=hire_assets.supplier_id")->result_array();
     $this->template->rander("maintenance/services/hire_form",$view_data);
   }
 
@@ -35,7 +37,8 @@ class Hire_assets extends Pre_loader {
      'asset' => $this->input->post('asset'),
      'tonnes' => $this->input->post('tonnes'),
      'staff_id' => $this->input->post('staff_id'),
-     'client_id' => $this->input->post('client_id')
+     'client_id' => $this->input->post('client_id'),
+     'supplier_id' => $this->input->post('supplier_id')
 
    );
     $insert = $this->Hire_assets_model->hire_assets_add($data);
@@ -59,6 +62,7 @@ class Hire_assets extends Pre_loader {
      'tonnes' => $this->input->post('tonnes'),
      'staff_id' => $this->input->post('staff_id'),
      'client_id' => $this->input->post('client_id'),
+     'supplier_id' => $this->input->post('supplier_id'),
      'updated_at' => date('Y-m-d H:i:s'),
    );
     $this->Hire_assets_model->hire_assets_update(array('id' => $this->input->post('id')), $data);

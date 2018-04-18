@@ -136,7 +136,7 @@ class Tickets extends Pre_loader
             $label_suggestions = array("0" => "");
         }
         $view_data['label_suggestions'] = $label_suggestions;
-
+       $view_data['staffs_dropdown'] = $this->HR_DB()->query("SELECT Emp_Name FROM tblEmployee")->result();
 
         $this->load->view('tickets/modal_form', $view_data);
     }
@@ -757,6 +757,16 @@ class Tickets extends Pre_loader
         return $this->_make_row($this->Tickets_model->get_details([
             'id' => $id
         ])->row());
+    }
+
+     public function hr_staff(){
+
+        $qn=$this->HR_DB()->query("SELECT * FROM tblEmployee")->result_array();
+          echo "<pre>";
+       var_dump($qn);
+     }
+    public function HR_DB(){
+       return  $this->load->database('HR',TRUE);
     }
 }
 

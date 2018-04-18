@@ -14,10 +14,9 @@
        <tr>
          <th>No.</th>
         <th>Card #</th>
-         <th>Type</th>
-         <th>Vehicle</th>
+        <th>Job Type</th>
+        <th>Vehicle</th>
          <th>Driver Name</th>
-         <th>Job Type</th>
          <th>Description</th>
          <th>Actions</th>
          
@@ -28,11 +27,10 @@
          <tr>
          <td><?php echo $asset['id']?></td>
          <td><a href="<?php echo base_url('preventive/show_job/'.$asset['id'])?>"><?php echo $asset['card_no']?></a></td>
-            <td><?php echo $asset['service_name']?></td>
-             <td><?php echo $asset['code']?></td>
+            <td><?php echo $asset['job_type_id']?></td>
+            <td><?php echo $asset['code']?></td>
              <td><?php echo $asset['driver']?></td>
-             <td><?php echo $asset['job_type']?></td>
-            <td><?php echo $asset['description']?></td>
+              <td><?php echo $asset['description']?></td>
             <td>
             </td>
       

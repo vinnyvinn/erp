@@ -59,7 +59,7 @@ $autoload['packages'] = array();
   |
   |	$autoload['libraries'] = array('user_agent' => 'ua');
  */
-$autoload['libraries'] = array('database', 'session', 'form_validation', 'encrypt', 'template', 'finediff', 'parser');
+$autoload['libraries'] = array('database', 'session', 'form_validation', 'encrypt', 'template', 'finediff', 'parser','upload');
 
 /*
   | -------------------------------------------------------------------
@@ -233,7 +233,10 @@ $autoload['model'] = array(
     'Sage_clients_model',
     'Hire_assets_model',
     'Other_expenses_model',
-    'Mailing_list_model',
+    'System_support_model',
+    'Fuel_balances_model',
+   'Mailing_list_model',
     'Mailing_activity_model',
     'Mailing_parcel_model'
 );
+
