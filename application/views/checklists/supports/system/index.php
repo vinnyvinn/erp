@@ -4,14 +4,14 @@
      <div class="panel-heading">
        <div class="panel-title">System Supports</div>
        <div class="row">
-       <div class="col-md-6" style="width: 50%">
-       <button class="btn btn-default pull-right" onclick="add_support()" style="margin-top: -24px"><i class="fa fa-plus-circle"></i> Assign Staff</button> 
-     </div>
-  <div class="col-md-6" style="width: 40%">
-       <button class="btn btn-default pull-right" onclick="add_support()" style="margin-top: -24px;"><i class="fa fa-plus-circle"></i> Add support </button>
-       </div>
+
+         <button class="btn btn-default pull-right" onclick="add_support()" style="margin-top: -24px;padding-left: 10px;margin-right: 5%"><i class="fa fa-tasks"></i> Assign Staff</button> 
+
+
+         <button class="btn btn-default pull-right" onclick="add_support()" style="margin-top: -24px;padding-left: 10px;margin-right: 5%"><i class="fa fa-plus-circle"></i> Add support </button>
+
        </div> 
-    
+
      </div>
      <div class="panel-body">   
       <br />
@@ -24,7 +24,7 @@
             <th>Support No.</th>
             <th>Description</th>
             <th>Createn on</th>
-             <th style="width:125px;">Action
+            <th style="width:125px;">Action
             </th>
           </tr>
         </thead>
@@ -35,7 +35,7 @@
            <td><?php echo $support['support_no'];?></td>
            <td><?php echo $support['description'];?></td>
            <td><?php echo $support['created'];?></td>
-             <td>
+           <td>
              <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
               <button class="btn btn-warning edito" onclick="edit_support(<?php echo $support['id'];?>)" style="font-size: 10px;margin-left: -24px !important;"><i class="glyphicon glyphicon-pencil"></i></button>
             </div>
@@ -55,8 +55,8 @@
       <tr>
         <th>ID</th>
         <th>Support No.</th>
-            <th>Description</th>
-            <th>Createn on</th>
+        <th>Description</th>
+        <th>Createn on</th>
         <th>Action</th>
       </tr>
     </tfoot>
@@ -85,9 +85,9 @@
       $('#modal_form').modal('show'); // show bootstrap modal
     //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
   }
- function assign_staff()
-    {
-      save_method = 'add';
+  function assign_staff()
+  {
+    save_method = 'add';
       $('#form')[0].reset(); // reset form on modals
       $('#assign_modal_form').modal('show'); // show bootstrap modal
     //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
@@ -151,10 +151,10 @@
           });
      }
 
-      function save_user()
-    {
+     function save_user()
+     {
       var url = "<?php echo site_url('system_support/add_support')?>";
-     
+
 
        // ajax adding data to database
        $.ajax({
@@ -165,7 +165,7 @@
         success: function(data)
         {
                //if success close modal and reload ajax table
-              $('#assign_modal_form').modal('hide');
+               $('#assign_modal_form').modal('hide');
               location.reload();// for reload a page
             },
             error: function (jqXHR, textStatus, errorThrown)
@@ -213,55 +213,60 @@
             <input type="hidden" value="" name="id"/>
             <div class="form-body">
 
-                    <div class="form-group">
-              <label class="control-label col-md-3">Description</label>
-              <div class="col-md-9">
-                <textarea name="description" placeholder="Description" class="form-control" cols="3" rows="4"></textarea>
+              <div class="form-group">
+                <label class="control-label col-md-3">Description</label>
+                <div class="col-md-9">
+                  <textarea name="description" placeholder="Description" class="form-control" cols="3" rows="4"></textarea>
+                </div>
               </div>
+
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+    <!-- End Bootstrap modal -->
+
+    <!-- Bootstrap modal -->
+    <div class="modal fade" id="assign_modal_form" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h3 class="modal-title">Assign Staff Form</h3>
+          </div>
+          <div class="modal-body form">
+            <form action="#" id="form" class="form-horizontal">
+              <input type="hidden" value="" name="id"/>
+              <div class="form-body">
+
+                <div class="form-group">
+                  <label class="control-label col-md-3">Staff</label>
+                  <div class="col-md-9">
+                    <select name="staff_id" type="text" placeholder="Staff" class="form-control">
+                      <?php foreach($staff_dropdown as $staff){
+                      echo " <option value=".$staff->id . ">" . $staff->name ."</option>";
+                      }?>
+                      </select>
+                    </select> 
+                  </div>
+                </div>
+
+              </form>
             </div>
-
-                  </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-    </div>
-  </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- End Bootstrap modal -->
-
-<!-- Bootstrap modal -->
-  <div class="modal fade" id="assign_modal_form" role="dialog">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title">System Supports Form</h3>
-        </div>
-        <div class="modal-body form">
-          <form action="#" id="form" class="form-horizontal">
-            <input type="hidden" value="" name="id"/>
-            <div class="form-body">
-
-                    <div class="form-group">
-              <label class="control-label col-md-3">Description</label>
-              <div class="col-md-9">
-                <textarea name="description" placeholder="Description" class="form-control" cols="3" rows="4"></textarea>
-              </div>
+            <div class="modal-footer">
+              <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
             </div>
+          </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+      <!-- End Bootstrap modal -->
 
-                  </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-    </div>
-  </div><!-- /.modal-content -->
-</div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
-<!-- End Bootstrap modal -->
-
-</body>
-<script type="text/javascript">
-</script>
+    </body>
+    <script type="text/javascript">
+    </script>

@@ -124,7 +124,7 @@
         echo form_input(array(
           "id" => "km_reading",
           "name" => "km_reading",
-          "value" => number_format(($jobs[0]['data']['km_reading'])/1.60934,2),
+          "value" => number_format(($jobs[0]['data']['miles']),2),
           "class" => "form-control",
           "disabled" => "disabled",
 

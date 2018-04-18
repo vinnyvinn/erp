@@ -196,6 +196,7 @@ public function save(){
     "service_type_id" => $this->input->post('service_type_id'),
     "supplier_id" => $this->input->post('supplier_id'),
     'hours' => $this->input->post('hours'),
+    'miles' => $this->input->post('miles'),
     "picture" => $picture,
     "reactive" => 1,
     "application_data" => json_encode($tosave),

@@ -207,6 +207,7 @@ class Preventive extends Pre_loader
    "supplier_id" => $this->input->post('supplier_id'),
    "job_type_id" => $this->input->post('job_type_name'),
    "hours" => $this->input->post('hours'),
+   "miles" => $this->input->post('miles'),
    "picture" => $picture,
    "application_data" => json_encode($tosave),
  );
@@ -424,7 +425,9 @@ public function asset()
   die();
         //echo json_encode($result);
 }
-
+public function ss(){
+  var_dump($this->HR_DB()->query("SELECT * FROM tblEmployee")->result_array());
+}
 public function SAGE_DB()
 {
   return $this->load->database('SAGE', TRUE);

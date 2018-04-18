@@ -143,6 +143,11 @@
        <input type="text"  class="form-control" name="hours" id="hours" >
            </div>
 
+      <div class="form-group">
+    <label for="hours " class="col-sm-8"><b>Miles</b></label>
+       <input type="text"  class="form-control" name="miles" id="miles" >
+           </div>
+
 <div class="form-group">
     <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
        <select class="form-control" name="fuel_balance" id="fuel_balance" required>

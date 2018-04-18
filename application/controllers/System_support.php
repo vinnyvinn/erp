@@ -17,20 +17,25 @@ class System_support extends Pre_loader {
   }
 
   public function index(){
+
+    
+    $view_data['staff_dropdown'] = $this->HR_DB()->query("SELECT Emp_Name FROM tblEmployee")->result();
     $view_data['supports']=$this->db->query("SELECT * FROM system_supports")->result_array();
     $this->template->rander("checklists/supports/system/index",$view_data);
   }
+  public function assign_staff(){
 
-  public function add_support()
+  }
+
+   public function add_support()
   {
     $data = array(
-     'description' => $this->input->post('description'),
-     
-   );
+    'description' => $this->input->post('description'),
+    );
     $insert = $this->System_support_model->system_supports($data);
     $spp=$this->db->query("SELECT * FROM system_supports WHERE id=$insert")->row()->id;
      $support=substr('SS-00'.$spp, 0,7);
-    $updated = array('support_no' => $support,);
+    $updated = array('support_no' => $support);
     $this->System_support_model->system_supports_update(array('id' => $insert), $updated);
     echo json_encode(array("status" => TRUE));
   }
@@ -58,6 +63,9 @@ class System_support extends Pre_loader {
   {
     $this->System_support_model->delete_system_supports($id);
     echo json_encode(array("status" => TRUE));
+  }
+  public function HR_DB(){
+    return $this->load->database('HR',TRUE);
   }
 
 }
