@@ -24,10 +24,10 @@
             }
             ?>
             <div class="pull-right">
-                <a href="https://facebook.com/wizag" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
-                <a href="https://twitter.com/_wizag" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
-                <a href="https://www.linkedin.com/company/wizag" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
-                <a href="wizag.biz" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+                <a href="http://www.facebook.com/ESLEALTD/?ref=bookmarks" target="_blank"><i class="fa fa-facebook-square fa-2x"></i></a>
+                <a href="http://twitter.com/express_KE" target="_blank"><i class="fa fa-twitter-square fa-2x"></i></a>
+                <a href="http://www.linkedin.com/company/5209578/" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+                <a href="http://www.esl-eastafrica.com/" tae="_blank"><i class="fa fa-globe fa-2x"></i></a>
             </div>
         </div>
     </body>

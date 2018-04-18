@@ -242,7 +242,7 @@ class Lawsuits extends Pre_loader
         return array(
             (int)$key + 1,
             $assigned_user->first_name." ".$assigned_user->last_name,
-            $procedure->name,
+            ($procedure)?$procedure->name:'',
             $datas->date,
             $optoins
         );
