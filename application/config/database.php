@@ -99,9 +99,9 @@ $db['default'] = array(
 
 $db['SAGE'] = array(
   'dsn' => '',
-  'hostname' => '5.189.187.134',
+  'hostname' => '127.0.0.1',
   'username' => 'sa',
-  'password' => 'Qwerty123!',
+  'password' => 'toor',
   'database' => 'ESL_LTD',
   'dbdriver' => 'sqlsrv',
   'dbprefix' => '',
@@ -121,9 +121,9 @@ $db['SAGE'] = array(
 
 $db['HR'] = array(
   'dsn' => '',
-  'hostname' => '5.189.187.134',
+  'hostname' => '127.0.0.1',
   'username' => 'sa',
-  'password' => 'Qwerty123!',
+  'password' => 'toor',
   'database' => 'ESL',
   'dbdriver' => 'sqlsrv',
   'dbprefix' => '',
