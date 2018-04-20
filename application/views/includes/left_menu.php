@@ -128,8 +128,8 @@
                     $administration_submenu[] = array("name" => "Mails & Parcels : Outwards", "url" => "parcels/outwards");
                     $administration_url = "parcels/outwards";
 
-                    $administration_submenu[] = array("name" => "Cheques : Outwards", "url" => "parcels/cheques_outwards");
-                    $administration_url = "parcels/cheques_outwards";
+                    $administration_submenu[] = array("name" => "Cheques : Outwards", "url" => "cheques/outwards");
+                    $administration_url = "parcels/cheques/outwards";
 
                     $administration_submenu[] = array("name" => "Mailing List", "url" => "parcels/parcels_mailing_list");
                     $administration_url = "parcels/parcels_mailing_list";
