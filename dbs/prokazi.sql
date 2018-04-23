@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 16/04/2018 09:16:41
+ Date: 20/04/2018 10:21:43
 */
 
 SET NAMES utf8mb4;
@@ -36,7 +36,7 @@ CREATE TABLE `activity_logs`  (
   `log_for_id2` int(11) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 18 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of activity_logs
@@ -58,6 +58,7 @@ INSERT INTO `activity_logs` VALUES (14, '2018-04-12 11:59:44', 5, 'created', 'ta
 INSERT INTO `activity_logs` VALUES (15, '2018-04-12 12:09:58', 5, 'created', 'task', 'demo 3', 4, NULL, 'project', 2, '', 0, 0);
 INSERT INTO `activity_logs` VALUES (16, '2018-04-12 13:49:26', 100, 'updated', 'task', 'FEncing', 2, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:17:\"in_progress - 50%\";s:2:\"to\";s:11:\"done - 100%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:2:\"50\";s:2:\"to\";i:100;}}', 'project', 1, '', 0, 0);
 INSERT INTO `activity_logs` VALUES (17, '2018-04-13 12:17:14', 5, 'updated', 'task', 'FEncing', 2, 'a:2:{s:6:\"status\";a:2:{s:4:\"from\";s:11:\"done - 100%\";s:2:\"to\";s:10:\"to_do - 0%\";}s:6:\"hesabu\";a:2:{s:4:\"from\";s:3:\"100\";s:2:\"to\";i:0;}}', 'project', 2, '', 0, 0);
+INSERT INTO `activity_logs` VALUES (18, '2018-04-19 13:06:56', 5, 'created', 'task', 'Valuation', 5, NULL, 'project', 9, '', 0, 0);
 
 -- ----------------------------
 -- Table structure for announcements
@@ -109,8 +110,8 @@ CREATE TABLE `assets`  (
 -- Records of assets
 -- ----------------------------
 INSERT INTO `assets` VALUES (33, '426', 'ESL/MSA//MV/2712', 'CARTRACK GARGETS - GALOOLI', 'mombasa', '2012-11-07 11:00:00', 0, '2018-03-03 21:17:12', '2016-03-10', '2018-04-19 00:00:00', 10000, 9, '2018-04-09 13:16:01', '2018-04-21', '78904', '2018-04-26', '45324213', 'Service B');
-INSERT INTO `assets` VALUES (36, '427', 'KHMA 276C', 'CAT 938G WHEEL LOADER I', 'outside', '2018-01-22 11:00:00', 0, '2018-03-05 02:52:39', '2018-03-17', '2018-11-16 00:00:00', 4560, 10, '2018-04-09 13:23:14', '2018-04-14', '65432', '2018-04-20', '53454', 'Service A');
-INSERT INTO `assets` VALUES (37, '428', 'KCA 001G', 'LAND ROVER VOGUE 3.6TDV 8', '0', '2014-02-09 11:00:00', 0, '2018-03-05 02:52:39', '2017-06-16', '2018-09-21 00:00:00', 4000, 8, '2018-04-09 13:25:39', '2018-04-22', '66666', '2018-04-18', '54136', 'Service A');
+INSERT INTO `assets` VALUES (36, '427', 'KHMA 276C', 'CAT 938G WHEEL LOADER I', 'outside', '2018-01-22 11:00:00', 0, '2018-03-05 02:52:39', '2018-03-17', '2018-11-16 00:00:00', 6000, 10, '2018-04-09 13:23:14', '2018-04-14', '65432', '2018-04-20', '53454', 'Service A');
+INSERT INTO `assets` VALUES (37, '428', 'KCA 001G', 'LAND ROVER VOGUE 3.6TDV 8', '0', '2014-02-09 11:00:00', 0, '2018-03-05 02:52:39', '2017-06-16', '2018-09-21 00:00:00', 10000, 8, '2018-04-09 13:25:39', '2018-04-22', '66666', '2018-04-18', '54136', 'Service A');
 INSERT INTO `assets` VALUES (38, '429', 'KCB 363Y', 'TOYOTA HILUX DOUBLE CAB', 'inside', '2018-01-22 11:00:00', 0, '2018-03-05 02:52:39', '2018-03-21', '2019-02-21 00:00:00', 10000, 8, '2018-04-09 13:26:02', '2018-04-20', '678990', '2018-04-12', '23435', 'Service B');
 INSERT INTO `assets` VALUES (39, '430', 'KCC 694T', 'TOYOTA SUCCEED', '0', '2018-01-22 11:00:00', 0, '2018-03-05 02:52:39', '2018-08-16', '2018-06-20 00:00:00', 1000000, 10, '2018-04-09 13:26:28', '2018-04-16', '4534', '2018-04-11', '5432323', 'Service C');
 INSERT INTO `assets` VALUES (46, '7645', '3e34d', 'toyota', 'nai', NULL, 0, '2018-03-08 22:14:16', '2018-01-31', '2018-08-17 00:00:00', 4000000, 7, '2018-04-09 13:26:56', '2018-04-12', '', '', '', 'Service C');
@@ -180,6 +181,33 @@ INSERT INTO `call_types` VALUES (2, 'Phone Call', '2018-01-22 21:38:56', NULL, 0
 INSERT INTO `call_types` VALUES (3, 'Email', '2018-01-22 21:39:02', NULL, 0);
 
 -- ----------------------------
+-- Table structure for cheques
+-- ----------------------------
+DROP TABLE IF EXISTS `cheques`;
+CREATE TABLE `cheques`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `activity_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `sender_id` int(11) NULL DEFAULT NULL,
+  `receiver_id` int(11) NOT NULL,
+  `title` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `cheque_amount` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `expiry_date` date NOT NULL,
+  `date_collected` datetime(0) NULL DEFAULT NULL,
+  `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+  `status` int(11) NOT NULL,
+  `created_at` timestamp(0) NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of cheques
+-- ----------------------------
+INSERT INTO `cheques` VALUES (13, 4, 5, 82, 3, 'demo task', '12400', '2018-04-20', '2018-04-19 09:02:36', 'tdtdtufdyudftdtydtyyuhnuinuihui', 1, '2018-04-19 10:01:55', '2018-04-19 10:02:36', 0);
+
+-- ----------------------------
 -- Table structure for ci_sessions
 -- ----------------------------
 DROP TABLE IF EXISTS `ci_sessions`;
@@ -217,12 +245,13 @@ CREATE TABLE `clients`  (
   `description` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `cOurRef` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 20 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of clients
 -- ----------------------------
 INSERT INTO `clients` VALUES (19, 'bett', '', '', '', '', '', '2018-04-12', '', '', '', 0, '', '', 0, 5, 0, 'Pending', '', NULL);
+INSERT INTO `clients` VALUES (20, 'BETT', '', 'Nairobi', '', '', '', '2018-04-19', '', '', '', 0, '', '', 0, 5, 0, 'Pending', 'sand', NULL);
 
 -- ----------------------------
 -- Table structure for custom_field_values
@@ -491,7 +520,12 @@ CREATE TABLE `events`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of events
+-- ----------------------------
+INSERT INTO `events` VALUES (1, 'NRB OFFICE MOU-ESL& FWE', 'Legal', '2018-04-28', '2018-04-28', NULL, NULL, 126, 'N/A', '5', 0, '#d43480', NULL, NULL, 0, 0, 0, 0, NULL);
 
 -- ----------------------------
 -- Table structure for expense_categories
@@ -565,16 +599,29 @@ CREATE TABLE `external_services`  (
   `service_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
--- Records of external_services
+-- Table structure for fuel_balances
 -- ----------------------------
-INSERT INTO `external_services` VALUES (2, '5', NULL, 'fuel', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '2018-03-23 11:12:28', 0, 800, 90, 72000, 'ES-002', NULL);
-INSERT INTO `external_services` VALUES (3, '5', 10, 'service', '03/28/2018', '03/31/2018', 2400, '2018-03-23 11:24:22', 0, NULL, NULL, NULL, 'ES-003', NULL);
-INSERT INTO `external_services` VALUES (4, '7', 0, 'service', '03/28/2018', '03/30/2018', 1600, '2018-03-23 12:25:12', 0, NULL, NULL, NULL, 'ES-004', NULL);
-INSERT INTO `external_services` VALUES (5, '6', 2, 'service', '03/23/2018', '04/16/2018', 19166.666666669, '2018-03-23 18:54:58', 0, NULL, NULL, NULL, 'ES-005', NULL);
-INSERT INTO `external_services` VALUES (6, '6', NULL, 'fuel', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '2018-03-23 18:55:33', 0, 104, 50, 5200, 'ES-006', NULL);
+DROP TABLE IF EXISTS `fuel_balances`;
+CREATE TABLE `fuel_balances`  (
+  `id` int(100) NOT NULL AUTO_INCREMENT,
+  `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
+  `created` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL,
+  `deleted` tinyint(1) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of fuel_balances
+-- ----------------------------
+INSERT INTO `fuel_balances` VALUES (1, 'full', '2018-04-17 12:19:58', NULL, 0);
+INSERT INTO `fuel_balances` VALUES (2, '3/4', '2018-04-17 12:19:58', NULL, 0);
+INSERT INTO `fuel_balances` VALUES (3, '1/2', '2018-04-17 12:20:17', NULL, 0);
+INSERT INTO `fuel_balances` VALUES (4, '1/4', '2018-04-17 12:20:17', NULL, 0);
+INSERT INTO `fuel_balances` VALUES (5, 'close to empty', '2018-04-17 12:20:38', NULL, 0);
 
 -- ----------------------------
 -- Table structure for fuel_suppliers
@@ -613,30 +660,25 @@ CREATE TABLE `fuels`  (
   `expense_cost` double NULL DEFAULT NULL,
   `km_reading` int(100) NULL DEFAULT NULL,
   `vehicle_id` int(100) NULL DEFAULT NULL,
+  `done_on` timestamp(0) NULL DEFAULT NULL,
   `created` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 17 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of fuels
 -- ----------------------------
-INSERT INTO `fuels` VALUES (1, '5000', '200', '1000000', 1, 6, '565655', 3, 400, 9000, 33, '2018-04-12 13:13:01', NULL, 0);
-INSERT INTO `fuels` VALUES (2, '800', '110', '88000', 3, 6, '787878', 0, 0, 5000, 36, '2018-04-12 13:13:29', NULL, 0);
-INSERT INTO `fuels` VALUES (3, '3000', '200', '600000', 1, 6, '33333', 0, 0, 200000, 37, '2018-04-12 13:13:55', NULL, 0);
-INSERT INTO `fuels` VALUES (4, '5000', '110', '550000', 3, 8, '12121212', 4, 4000, 300000, 38, '2018-04-12 13:14:25', NULL, 0);
-INSERT INTO `fuels` VALUES (5, '40000', '200', '8000000', 1, 10, '454545', 0, 0, 120000, 39, '2018-04-12 13:14:53', NULL, 0);
-INSERT INTO `fuels` VALUES (6, '34000', '200', '6800000', 1, 8, '676768', 1, 5000, 43000, 46, '2018-04-12 13:15:18', NULL, 0);
-INSERT INTO `fuels` VALUES (7, '32000', '200', '6400000', 1, 6, '232323', 0, 0, 23000, 47, '2018-04-12 13:15:42', NULL, 0);
-INSERT INTO `fuels` VALUES (8, '457890', '200', '91578000', 1, 7, '232312212', 3, 400, 34900, 48, '2018-04-12 13:16:12', NULL, 0);
-INSERT INTO `fuels` VALUES (9, '4500', '110', '495000', 3, 6, '324567', 0, 0, 123450, 50, '2018-04-12 13:16:44', NULL, 0);
-INSERT INTO `fuels` VALUES (10, '123456', '200', '24691200', 1, 9, '2121234433', 0, 0, 21000, 33, '2018-04-12 13:17:11', NULL, 0);
-INSERT INTO `fuels` VALUES (11, '56000', '110', '6160000', 3, 10, '343434', 3, 400, 789876, 36, '2018-04-12 13:17:36', NULL, 0);
-INSERT INTO `fuels` VALUES (12, '2590', '110', '284900', 3, 9, '67896', 0, 0, 89045, 38, '2018-04-12 13:18:06', NULL, 0);
-INSERT INTO `fuels` VALUES (14, '34000', '200', '6800000', 1, 9, '3234545', 4, 4000, 467000, 39, '2018-04-12 17:08:45', NULL, 0);
-INSERT INTO `fuels` VALUES (15, '34', '200', '6800', 1, 6, '234343', 0, 0, 43256, 39, '2018-04-12 17:11:09', NULL, 0);
-INSERT INTO `fuels` VALUES (16, '3290', '110', '361900', 3, 6, '123456', 1, 5000, 432156, 37, '2018-04-12 17:11:49', NULL, 0);
+INSERT INTO `fuels` VALUES (1, '4000', '85', '340000', 7, 9, '646456456', 3, 400, 2000, 37, '2018-04-11 00:00:00', '2018-04-18 03:42:58', '2018-04-18 03:17:01', 0);
+INSERT INTO `fuels` VALUES (3, '544', '85', '46240', 6, 8, 'wer344534453', 4, 4000, 5500, 38, '2018-04-25 00:00:00', '2018-04-18 04:15:20', NULL, 0);
+INSERT INTO `fuels` VALUES (4, '80', '85', '6800', 4, 8, '47848efegf', 1, 5000, 7777777, 38, '2018-04-12 00:00:00', '2018-04-18 06:35:30', '2018-04-18 05:37:23', 0);
+INSERT INTO `fuels` VALUES (5, '24324', '85', '2067540', 5, 10, 'ut4324234', 4, 4000, 5344, 39, '2018-04-11 00:00:00', '2018-04-18 06:37:02', NULL, 0);
+INSERT INTO `fuels` VALUES (6, '4233', '85', '359805', 5, 10, 'erwrewr32123', 0, 0, 433332232, 39, '2018-04-12 00:00:00', '2018-04-18 06:38:23', NULL, 0);
+INSERT INTO `fuels` VALUES (7, '4321', '85', '367285', 6, 6, '234234234', 0, 0, 8000, 47, '2018-04-14 00:00:00', '2018-04-18 06:42:42', NULL, 0);
+INSERT INTO `fuels` VALUES (8, '2333243', '85', '198325655', 262, 7, '344321333', NULL, 0, 77909090, 33, '2018-04-21 00:00:00', '2018-04-18 06:43:57', '2018-04-18 05:44:37', 0);
+INSERT INTO `fuels` VALUES (9, '', NULL, NULL, 1, 6, '', 0, NULL, 5000, 37, '0000-00-00 00:00:00', '2018-04-18 14:06:33', NULL, 0);
+INSERT INTO `fuels` VALUES (10, '', NULL, NULL, 1, 6, '', 0, NULL, 5000, 37, '0000-00-00 00:00:00', '2018-04-18 14:06:35', NULL, 0);
 
 -- ----------------------------
 -- Table structure for hire_assets
@@ -647,6 +689,7 @@ CREATE TABLE `hire_assets`  (
   `asset` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `staff_id` int(100) NULL DEFAULT NULL,
   `client_id` int(100) NULL DEFAULT NULL,
+  `supplier_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `rate` double NOT NULL,
   `tonnes` mediumtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `total` double NOT NULL,
@@ -659,8 +702,8 @@ CREATE TABLE `hire_assets`  (
 -- ----------------------------
 -- Records of hire_assets
 -- ----------------------------
-INSERT INTO `hire_assets` VALUES (1, '8', 6, 2, 60, '2', 120, '2018-04-10 16:04:46', NULL, 0);
-INSERT INTO `hire_assets` VALUES (3, '3', 8, 701, 21000, '100', 2100000, '2018-04-10 16:11:14', '2018-04-13 13:39:41', 0);
+INSERT INTO `hire_assets` VALUES (1, '8', 6, 5, '4', 534422, '2', 1068844, '2018-04-10 16:04:46', '2018-04-18 09:25:07', 0);
+INSERT INTO `hire_assets` VALUES (3, '3', 8, 357, '6', 21000, '100', 2100000, '2018-04-10 16:11:14', '2018-04-18 09:25:24', 0);
 
 -- ----------------------------
 -- Table structure for inventory_requisitions
@@ -681,13 +724,12 @@ CREATE TABLE `inventory_requisitions`  (
   `approver_id` int(11) NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of inventory_requisitions
 -- ----------------------------
-INSERT INTO `inventory_requisitions` VALUES (1, 5, 135, 'A3 Envelope', '12', 135, 2, 'dss', '2018-04-12 00:00:00', NULL, 'Pending', 0, 0);
-INSERT INTO `inventory_requisitions` VALUES (2, 94, 139, 'Envelope letter', '12', 139, 5, 'dhuigeyvcecvu', '2018-04-12 00:00:00', NULL, 'Pending', 0, 0);
+INSERT INTO `inventory_requisitions` VALUES (5, 5, 140, 'Pens ', '3', 140, 2, 'Urgent', '2018-04-19 00:00:00', NULL, 'Pending', 0, 0);
 
 -- ----------------------------
 -- Table structure for invoice_items
@@ -845,8 +887,7 @@ INSERT INTO `job_types` VALUES (8, 'Wheel Balance', 2, 2, '2018-03-23 17:43:21',
 DROP TABLE IF EXISTS `jobs`;
 CREATE TABLE `jobs`  (
   `id` int(100) NOT NULL AUTO_INCREMENT,
-  `job_service_id` int(100) NULL DEFAULT NULL,
-  `job_type_id` int(100) NULL DEFAULT NULL,
+  `job_type_id` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `description` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `vehicle_no` int(100) NULL DEFAULT NULL,
   `completion_date` timestamp(0) NULL DEFAULT NULL,
@@ -856,18 +897,25 @@ CREATE TABLE `jobs`  (
   `card_no` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `supplier_id` int(100) NULL DEFAULT NULL,
   `service_type_id` int(100) NULL DEFAULT NULL,
+  `job_service_id` int(100) NULL DEFAULT NULL,
   `application_data` longtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `picture` mediumtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `reactive` tinyint(1) NOT NULL DEFAULT 0,
+  `hours` mediumtext CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
+  `miles` double NULL DEFAULT NULL,
   `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp(0) NULL DEFAULT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of jobs
 -- ----------------------------
-INSERT INTO `jobs` VALUES (2, 2, 1, 'to be finished', 36, '2018-04-18 00:00:00', '12:00:00', 30000, 2000, 'ESL-2-KHMA 276C', NULL, NULL, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"8\",\"satus\":\"3\"}},{\"items\":{\"inspection_id\":\"2\",\"user\":\"10\",\"satus\":\"1\"}}]', '2018-04-11 09:05:30', NULL, 0);
-INSERT INTO `jobs` VALUES (3, 2, 1, 'check out', 36, '2018-04-14 00:00:00', '01:00:00', 50000, 3000, 'ESL-3-KHMA 276C', NULL, 1, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"7\",\"satus\":\"3\"}},{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}},{\"items\":{\"inspection_id\":\"3\",\"user\":\"10\",\"satus\":\"3\"}}]', '2018-04-12 06:53:18', NULL, 0);
+INSERT INTO `jobs` VALUES (15, '', '', 36, '0000-00-00 00:00:00', '00:00:00', 6000, 1, 'ESL-15-KHMA 276C', 1, NULL, NULL, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}}]', '', 0, '', 0, '2018-04-18 13:56:31', NULL, 0);
+INSERT INTO `jobs` VALUES (16, 'test2', 'test2', 37, '2018-04-20 00:00:00', '01:00:00', 9000, 4, 'ESL-16-KCA 001G', 6, NULL, NULL, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"8\",\"satus\":\"1\"}}]', '', 0, '7000', 8998, '2018-04-18 14:07:08', NULL, 0);
+INSERT INTO `jobs` VALUES (17, '8yuy', 'yufuy', 37, '2018-04-26 00:00:00', '00:00:00', 10000, 1, 'ESL-17-KCA 001G', 1, NULL, NULL, '[{\"items\":{\"inspection_id\":\"2\",\"user\":\"6\",\"satus\":\"1\"}}]', '', 0, '879878', 87687, '2018-04-18 15:20:13', NULL, 0);
+INSERT INTO `jobs` VALUES (18, '', '', 0, '0000-00-00 00:00:00', '00:00:00', 0, 1, 'ESL-18-', 1, NULL, NULL, '[]', '', 0, '', 0, '2018-04-19 10:32:40', NULL, 0);
 
 -- ----------------------------
 -- Table structure for jobs_status
@@ -964,7 +1012,7 @@ CREATE TABLE `mailing_list`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of mailing_list
@@ -972,7 +1020,8 @@ CREATE TABLE `mailing_list`  (
 INSERT INTO `mailing_list` VALUES (1, 'demo', '1234', 5, '2018-04-14 05:42:29', '2018-04-14 10:24:38', 1);
 INSERT INTO `mailing_list` VALUES (2, 'amolo', 'ergervwer', 0, '2018-04-14 10:18:15', '2018-04-14 10:23:42', 1);
 INSERT INTO `mailing_list` VALUES (3, 'demo 1', 'iohgfggy', 0, '2018-04-14 10:26:10', NULL, 0);
-INSERT INTO `mailing_list` VALUES (4, 'ok', 'guig', 0, '2018-04-16 01:43:59', NULL, 0);
+INSERT INTO `mailing_list` VALUES (4, 'ok', 'guig', 0, '2018-04-16 01:43:59', '2018-04-16 10:24:47', 1);
+INSERT INTO `mailing_list` VALUES (5, 'Bett', 'Kasarani', 0, '2018-04-17 08:56:26', NULL, 0);
 
 -- ----------------------------
 -- Table structure for mailing_parcel
@@ -991,7 +1040,7 @@ CREATE TABLE `mailing_parcel`  (
   `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 11 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 14 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of mailing_parcel
@@ -999,7 +1048,10 @@ CREATE TABLE `mailing_parcel`  (
 INSERT INTO `mailing_parcel` VALUES (6, 3, 5, 4, 82, 'domestic Insurance', 'ukirfufyufyuf', 2, '2018-04-16 02:18:05', '2018-04-16 02:46:46', 0);
 INSERT INTO `mailing_parcel` VALUES (7, 3, 5, 3, 86, 'Other', 'lityudtcdygfu', 0, '2018-04-16 02:40:25', '2018-04-16 02:42:32', 0);
 INSERT INTO `mailing_parcel` VALUES (8, 3, 5, 3, 82, 'rtryrtyrtyrt', 'lhlkgkufykjdjydjtdtuj', 1, '2018-04-16 02:41:29', '2018-04-16 02:46:54', 0);
-INSERT INTO `mailing_parcel` VALUES (10, 4, 5, 82, 3, 'kjgy', 'iphuogo', 0, '2018-04-16 03:15:28', NULL, 0);
+INSERT INTO `mailing_parcel` VALUES (10, 4, 5, 82, 3, 'kjgy', 'iphuogo', 0, '2018-04-16 03:15:28', '2018-04-16 10:12:46', 1);
+INSERT INTO `mailing_parcel` VALUES (11, 3, 5, 5, 94, 'Bett', 'New parcel', 0, '2018-04-17 08:57:44', NULL, 0);
+INSERT INTO `mailing_parcel` VALUES (12, 3, 5, 5, 90, 'TEST MAIL', 'Test mail', 2, '2018-04-17 09:00:28', '2018-04-17 09:01:29', 0);
+INSERT INTO `mailing_parcel` VALUES (13, 4, 5, 87, 5, 'ioio', 'm', 0, '2018-04-17 09:05:38', NULL, 0);
 
 -- ----------------------------
 -- Table structure for main_tasks
@@ -1036,7 +1088,13 @@ CREATE TABLE `messages`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `message_from`(`from_user_id`) USING BTREE,
   INDEX `message_to`(`to_user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of messages
+-- ----------------------------
+INSERT INTO `messages` VALUES (1, 'insuarance/demo', 'hi Aloice, kindly check on the insuarance', '2018-04-17 12:37:16', 5, 126, 'read', 0, 0, 'a:0:{}', '');
+INSERT INTO `messages` VALUES (2, '', 'ok well noted', '2018-04-17 12:38:02', 126, 5, 'read', 1, 0, 'a:0:{}', '');
 
 -- ----------------------------
 -- Table structure for milestones
@@ -1160,7 +1218,7 @@ CREATE TABLE `notifications`  (
   `deleted` int(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of notifications
@@ -1183,6 +1241,8 @@ INSERT INTO `notifications` VALUES (15, 94, '', '2018-04-12 12:03:39', '5,82', '
 INSERT INTO `notifications` VALUES (16, 5, '', '2018-04-12 12:09:58', '82,83,94', '', 'project_task_created', 2, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 INSERT INTO `notifications` VALUES (17, 100, '', '2018-04-12 13:49:26', '94', '', 'project_task_updated', 1, 2, 0, 0, 0, 0, 0, 0, 0, 16, 0, 0, 0, 0, 0);
 INSERT INTO `notifications` VALUES (18, 5, '', '2018-04-13 12:17:14', '94', '', 'project_task_updated', 2, 2, 0, 0, 0, 0, 0, 0, 0, 17, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (19, 5, '', '2018-04-19 12:58:47', '94', '', 'ticket_created', 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+INSERT INTO `notifications` VALUES (20, 5, '', '2018-04-19 13:06:57', '94,113', '', 'project_task_created', 9, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- ----------------------------
 -- Table structure for objective_types
@@ -1926,7 +1986,7 @@ CREATE TABLE `project_members`  (
   `is_leader` tinyint(1) NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 19 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of project_members
@@ -1942,6 +2002,13 @@ INSERT INTO `project_members` VALUES (8, 82, 2, 0, 0);
 INSERT INTO `project_members` VALUES (9, 83, 2, 0, 0);
 INSERT INTO `project_members` VALUES (10, 5, 3, 1, 0);
 INSERT INTO `project_members` VALUES (11, 5, 4, 1, 0);
+INSERT INTO `project_members` VALUES (12, 5, 5, 1, 0);
+INSERT INTO `project_members` VALUES (13, 5, 6, 1, 0);
+INSERT INTO `project_members` VALUES (14, 5, 7, 1, 0);
+INSERT INTO `project_members` VALUES (15, 92, 8, 1, 0);
+INSERT INTO `project_members` VALUES (16, 5, 9, 1, 0);
+INSERT INTO `project_members` VALUES (17, 94, 9, 0, 0);
+INSERT INTO `project_members` VALUES (18, 113, 9, 0, 0);
 
 -- ----------------------------
 -- Table structure for project_time
@@ -1982,15 +2049,15 @@ CREATE TABLE `projects`  (
   `price` double NOT NULL DEFAULT 0,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 10 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of projects
 -- ----------------------------
-INSERT INTO `projects` VALUES (1, 'AGENCY : AGENCY', 'Development of Land in Mazeras', '2018-04-12', '2018-11-14', 1, 1, 2, '2018-04-12', 'completed', '', 5000000, 0);
-INSERT INTO `projects` VALUES (2, 'AGENCY : AGENCY', 'dferrcvercercerc', '2018-04-12', '2018-04-26', 1, 1, 2, '2018-04-12', 'open', 'php', 10000, 0);
-INSERT INTO `projects` VALUES (3, 'managu', '', '2018-04-12', '0000-00-00', 6, 6, NULL, '2018-04-12', 'open', '', 0, 0);
-INSERT INTO `projects` VALUES (4, 'demo task', '', '2018-04-12', '0000-00-00', 1, 1, 1, '2018-04-12', 'open', '', 0, 0);
+INSERT INTO `projects` VALUES (6, 'demo', '', '2018-04-16', '2018-04-26', 0, 0, 1, '2018-04-16', 'open', '', 0, 0);
+INSERT INTO `projects` VALUES (7, 'gcfg', '', '2018-04-16', '2018-04-27', 3, 3, 1, '2018-04-16', 'open', '', 0, 0);
+INSERT INTO `projects` VALUES (8, 'Mazeras logistics center', '', '2018-04-16', '2018-04-20', 0, 0, 6, '2018-04-16', 'open', '', 100000000, 0);
+INSERT INTO `projects` VALUES (9, 'MINUTES', 'MOVING ASSETS TO KAMPALA', '2018-04-20', '2018-04-26', 0, 0, 3, '2018-04-19', 'open', '', 0, 0);
 
 -- ----------------------------
 -- Table structure for providers
@@ -2043,13 +2110,14 @@ CREATE TABLE `roles`  (
   `permissions` mediumtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of roles
 -- ----------------------------
 INSERT INTO `roles` VALUES (1, 'Administrators', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0);
 INSERT INTO `roles` VALUES (2, 'General Staff', 'a:24:{s:5:\"leave\";s:3:\"all\";s:14:\"leave_specific\";s:0:\"\";s:10:\"attendance\";s:3:\"all\";s:19:\"attendance_specific\";s:0:\"\";s:7:\"invoice\";s:3:\"all\";s:8:\"estimate\";s:3:\"all\";s:7:\"expense\";s:3:\"all\";s:6:\"client\";s:3:\"all\";s:6:\"ticket\";s:3:\"all\";s:12:\"announcement\";s:3:\"all\";s:19:\"can_create_projects\";s:1:\"1\";s:17:\"can_edit_projects\";s:1:\"1\";s:19:\"can_delete_projects\";s:1:\"1\";s:30:\"can_add_remove_project_members\";s:1:\"1\";s:16:\"can_create_tasks\";s:1:\"1\";s:14:\"can_edit_tasks\";s:1:\"1\";s:16:\"can_delete_tasks\";s:1:\"1\";s:20:\"can_comment_on_tasks\";s:1:\"1\";s:21:\"can_create_milestones\";s:1:\"1\";s:19:\"can_edit_milestones\";s:1:\"1\";s:21:\"can_delete_milestones\";s:1:\"1\";s:16:\"can_delete_files\";s:1:\"1\";s:34:\"can_view_team_members_contact_info\";s:1:\"1\";s:34:\"can_view_team_members_social_links\";s:1:\"1\";}', 0);
+INSERT INTO `roles` VALUES (3, 'Legal Staff', NULL, 0);
 
 -- ----------------------------
 -- Table structure for sage_clients
@@ -2821,25 +2889,25 @@ INSERT INTO `settings` VALUES ('client_can_edit_tasks', '1', 0);
 INSERT INTO `settings` VALUES ('client_can_view_project_files', '1', 0);
 INSERT INTO `settings` VALUES ('client_can_view_tasks', '1', 0);
 INSERT INTO `settings` VALUES ('client_message_users', '5,27,28', 0);
-INSERT INTO `settings` VALUES ('company_address', '10100 Nyeri, KE.', 0);
-INSERT INTO `settings` VALUES ('company_email', 'wagura465@gmail.com', 0);
-INSERT INTO `settings` VALUES ('company_name', 'mhub', 0);
-INSERT INTO `settings` VALUES ('company_phone', '718837808', 0);
-INSERT INTO `settings` VALUES ('company_website', 'WaguraMaurice', 0);
+INSERT INTO `settings` VALUES ('company_address', 'Express Shipping & Logistics (EA) Ltd\nMoi Avenue, Cannon Towers II – 6th Floor.\nP. O. Box 1922 – 80100, \nMombasa Kenya.', 0);
+INSERT INTO `settings` VALUES ('company_email', 'agency@esl-eastafrica.com', 0);
+INSERT INTO `settings` VALUES ('company_name', 'Express Shipping & Logistics (EA) Ltd', 0);
+INSERT INTO `settings` VALUES ('company_phone', '+254-41-2229784', 0);
+INSERT INTO `settings` VALUES ('company_website', 'http://www.esl-eastafrica.com/', 0);
 INSERT INTO `settings` VALUES ('currency_symbol', 'Ksh', 0);
 INSERT INTO `settings` VALUES ('date_format', 'd/m/Y', 0);
 INSERT INTO `settings` VALUES ('decimal_separator', '.', 0);
 INSERT INTO `settings` VALUES ('default_currency', 'KES', 0);
 INSERT INTO `settings` VALUES ('disable_client_login', '1', 0);
 INSERT INTO `settings` VALUES ('disable_client_signup', '1', 0);
-INSERT INTO `settings` VALUES ('email_protocol', '', 0);
-INSERT INTO `settings` VALUES ('email_sent_from_address', 't.develoment@wizag.biz', 0);
-INSERT INTO `settings` VALUES ('email_sent_from_name', 'Wise & Agile Solutions Limited', 0);
-INSERT INTO `settings` VALUES ('email_smtp_host', '', 0);
-INSERT INTO `settings` VALUES ('email_smtp_pass', '', 0);
-INSERT INTO `settings` VALUES ('email_smtp_port', '', 0);
+INSERT INTO `settings` VALUES ('email_protocol', 'smtp', 0);
+INSERT INTO `settings` VALUES ('email_sent_from_address', 'no-reply@esl-eastafrica.com', 0);
+INSERT INTO `settings` VALUES ('email_sent_from_name', 'Pro-Kazi', 0);
+INSERT INTO `settings` VALUES ('email_smtp_host', 'wizag.biz', 0);
+INSERT INTO `settings` VALUES ('email_smtp_pass', 'Qwerty123!', 0);
+INSERT INTO `settings` VALUES ('email_smtp_port', '587', 0);
 INSERT INTO `settings` VALUES ('email_smtp_security_type', 'tls', 0);
-INSERT INTO `settings` VALUES ('email_smtp_user', '', 0);
+INSERT INTO `settings` VALUES ('email_smtp_user', 't.development@wizag.biz', 0);
 INSERT INTO `settings` VALUES ('escalation_duration', '45', 0);
 INSERT INTO `settings` VALUES ('escalation_via_email', '1', 0);
 INSERT INTO `settings` VALUES ('escalation_via_sms', '1', 0);
@@ -2858,7 +2926,7 @@ INSERT INTO `settings` VALUES ('module_estimate', '', 0);
 INSERT INTO `settings` VALUES ('module_estimate_request', '', 0);
 INSERT INTO `settings` VALUES ('module_event', '1', 0);
 INSERT INTO `settings` VALUES ('module_expense', '', 0);
-INSERT INTO `settings` VALUES ('module_invoice', '', 0);
+INSERT INTO `settings` VALUES ('module_invoice', '1', 0);
 INSERT INTO `settings` VALUES ('module_leave', '', 0);
 INSERT INTO `settings` VALUES ('module_message', '1', 0);
 INSERT INTO `settings` VALUES ('module_note', '1', 0);
@@ -2926,17 +2994,13 @@ CREATE TABLE `spares`  (
   `created` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 16 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 21 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of spares
 -- ----------------------------
-INSERT INTO `spares` VALUES (10, 5, 'great', 3, 450, 3, 1350, 'RQ-010', '2018-03-23 09:35:41', 0);
-INSERT INTO `spares` VALUES (11, 6, 'goodie', 1, 450, 2, 900, 'RQ-011', '2018-03-23 09:36:31', 0);
-INSERT INTO `spares` VALUES (12, 6, NULL, 3, NULL, 3, 63000, 'RQ-012', '2018-03-23 13:55:00', 0);
-INSERT INTO `spares` VALUES (13, 6, NULL, 4, 10000, 4, 40000, 'RQ-013', '2018-03-23 13:59:19', 0);
-INSERT INTO `spares` VALUES (14, 7, 'testing2..', 1, 32000, 5, 160000, 'RQ-014', '2018-03-23 14:02:14', 0);
-INSERT INTO `spares` VALUES (15, 7, 'testing2..', 2, 20000, 2, 40000, 'RQ-015', '2018-03-23 18:49:53', 0);
+INSERT INTO `spares` VALUES (19, 6, 'washing task', 8, 534422, 34544, 2147483647, 'RQ-019', '2018-04-18 10:17:43', 0);
+INSERT INTO `spares` VALUES (20, 6, 'washing task', 2, 20000, 1, 20000, 'RQ-020', '2018-04-18 13:43:06', 0);
 
 -- ----------------------------
 -- Table structure for tasks
@@ -2964,7 +3028,7 @@ CREATE TABLE `tasks`  (
   `priority` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL DEFAULT 'Normal',
   `created_at` date NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tasks
@@ -2973,6 +3037,7 @@ INSERT INTO `tasks` VALUES (1, '', 'Purchase of fencing materials', 'refwfwefw',
 INSERT INTO `tasks` VALUES (2, '', 'FEncing', 'Fencing To be done ASAP', 2, 0, NULL, 1, 94, '2018-05-05', '', 40, 1, 'to_do - 0%', 0, '2018-04-27', '100', 0, 'Normal', '2018-04-09');
 INSERT INTO `tasks` VALUES (3, '', 'demo task', '', 2, 0, NULL, 0, 94, '0000-00-00', '', 25, 1, 'in_progress - 25%', 0, '0000-00-00', '', 0, 'Normal', '2018-04-12');
 INSERT INTO `tasks` VALUES (4, '', 'demo 3', '', 2, 0, NULL, 0, 83, '0000-00-00', '', 0, 1, 'to_do - 0%', 0, '0000-00-00', '', 0, 'Normal', '2018-04-12');
+INSERT INTO `tasks` VALUES (5, '', 'Valuation', 'Valuation of assets', 9, 0, NULL, 0, 94, '2018-04-23', '', 16, 1, 'to_do - 0%', 0, '2018-04-20', '113', 0, 'Normal', '0000-00-00');
 
 -- ----------------------------
 -- Table structure for taxes
@@ -3000,13 +3065,14 @@ CREATE TABLE `tbl_case_procedures`  (
   `name` varchar(100) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_case_procedures
 -- ----------------------------
 INSERT INTO `tbl_case_procedures` VALUES (1, 'Hearing', 0);
 INSERT INTO `tbl_case_procedures` VALUES (2, 'Mentioning', 0);
+INSERT INTO `tbl_case_procedures` VALUES (3, 'Demand Notice', 0);
 
 -- ----------------------------
 -- Table structure for tbl_case_status
@@ -3055,7 +3121,16 @@ CREATE TABLE `tbl_cases`  (
   `case_type` int(11) NOT NULL DEFAULT 0,
   `comment` text CHARACTER SET utf8 COLLATE utf8_general_ci NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_cases
+-- ----------------------------
+INSERT INTO `tbl_cases` VALUES (1, 'ESL =VS= BUZEKI ENT. LTD', 0, 0, 1, 'This is a statutory demand notice for outstanding amount of Kshs. 15,867,406.00 for liner out services rendered on the account of EAPC.', 2, NULL);
+INSERT INTO `tbl_cases` VALUES (2, 'd', 0, 0, 2, 'sdafas', 1, NULL);
+INSERT INTO `tbl_cases` VALUES (3, 'Test', 0, 0, 3, 'go live test', 1, NULL);
+INSERT INTO `tbl_cases` VALUES (4, 'Test', 0, 0, 4, 'test', 1, NULL);
+INSERT INTO `tbl_cases` VALUES (5, 'BETT', 0, 0, 5, 'BETT', 1, NULL);
 
 -- ----------------------------
 -- Table structure for tbl_checklist_performed_on
@@ -3305,7 +3380,14 @@ CREATE TABLE `tbl_knowledge_base`  (
   INDEX `created_by`(`created_by`) USING BTREE,
   CONSTRAINT `tbl_knowledge_base_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `tbl_knowledge_base_types` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `tbl_knowledge_base_ibfk_3` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_knowledge_base
+-- ----------------------------
+INSERT INTO `tbl_knowledge_base` VALUES (1, 5, 'Replacing A Car Battery', 'Open The car', 5, '2018-04-18 17:33:42', NULL, 0, '');
+INSERT INTO `tbl_knowledge_base` VALUES (2, 3, 'How to Access Pro-Kazi', 'Type pro-kazi.com on your Browser.', 5, '2018-04-18 17:35:36', NULL, 0, '');
+INSERT INTO `tbl_knowledge_base` VALUES (3, 3, 'Fixing Phone Error', 'Buy a new one, simple', 5, '2018-04-18 17:38:30', NULL, 0, '1524065910.xlsx');
 
 -- ----------------------------
 -- Table structure for tbl_knowledge_base_ticket
@@ -3334,7 +3416,7 @@ CREATE TABLE `tbl_knowledge_base_types`  (
   `name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `deleted` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_knowledge_base_types
@@ -3343,6 +3425,7 @@ INSERT INTO `tbl_knowledge_base_types` VALUES (1, 'bug', 0);
 INSERT INTO `tbl_knowledge_base_types` VALUES (2, 'improvement', 0);
 INSERT INTO `tbl_knowledge_base_types` VALUES (3, 'recomendation', 0);
 INSERT INTO `tbl_knowledge_base_types` VALUES (4, 'development', 0);
+INSERT INTO `tbl_knowledge_base_types` VALUES (5, 'Mechanical', 0);
 
 -- ----------------------------
 -- Table structure for tbl_legal_case_procedures
@@ -3356,7 +3439,16 @@ CREATE TABLE `tbl_legal_case_procedures`  (
   `deleted` int(11) NOT NULL,
   `procedure_val` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_legal_case_procedures
+-- ----------------------------
+INSERT INTO `tbl_legal_case_procedures` VALUES (1, 1, '2018-04-17', 5, 0, 0);
+INSERT INTO `tbl_legal_case_procedures` VALUES (2, 2, '2018-04-18', 5, 0, 0);
+INSERT INTO `tbl_legal_case_procedures` VALUES (3, 3, '2018-04-24', 82, 0, 0);
+INSERT INTO `tbl_legal_case_procedures` VALUES (4, 4, '2018-04-24', 5, 0, 0);
+INSERT INTO `tbl_legal_case_procedures` VALUES (5, 5, '2018-04-17', 5, 0, 0);
 
 -- ----------------------------
 -- Table structure for tbl_legal_docs_items
@@ -3383,7 +3475,7 @@ CREATE TABLE `tbl_legal_document_types`  (
   `can_upload` int(11) NOT NULL DEFAULT 0,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_legal_document_types
@@ -3392,6 +3484,7 @@ INSERT INTO `tbl_legal_document_types` VALUES (1, 'Legal', 1, 0, 0);
 INSERT INTO `tbl_legal_document_types` VALUES (2, 'Gazzete Notices', 1, 0, 0);
 INSERT INTO `tbl_legal_document_types` VALUES (3, 'Insuarance', 1, 1, 0);
 INSERT INTO `tbl_legal_document_types` VALUES (4, 'Policy', 1, 0, 0);
+INSERT INTO `tbl_legal_document_types` VALUES (5, 'CONTRACTS', 1, 1, 0);
 
 -- ----------------------------
 -- Table structure for tbl_legal_documents
@@ -3415,7 +3508,12 @@ CREATE TABLE `tbl_legal_documents`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `fk_doc_type`(`document_type`) USING BTREE,
   INDEX `fk_status`(`status`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_general_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tbl_legal_documents
+-- ----------------------------
+INSERT INTO `tbl_legal_documents` VALUES (1, 'NRB OFFICE MOU-ESL& FWE', 1, 'a:1:{i:0;a:2:{s:9:\"file_name\";s:49:\"legal_file5ad5f489359e1-MOU-ESL-FWE-NR-OFFICE.pdf\";s:9:\"file_size\";s:6:\"323597\";}}', 5, 1, '2018-04-19', '2018-04-28', 0, 0, 0, 0, '2018-04-17 16:20:09', '0000-00-00 00:00:00');
 
 -- ----------------------------
 -- Table structure for tbl_migartions
@@ -3497,7 +3595,7 @@ CREATE TABLE `team_member_job_info`  (
   `salary_term` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL DEFAULT NULL,
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `user_id`(`user_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 124 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 145 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of team_member_job_info
@@ -3546,6 +3644,27 @@ INSERT INTO `team_member_job_info` VALUES (120, 121, '2018-03-15', 0, 0, 560, 0,
 INSERT INTO `team_member_job_info` VALUES (121, 122, '2018-03-01', 0, 0, 560, 0, 'Contract');
 INSERT INTO `team_member_job_info` VALUES (122, 123, '2010-05-24', 0, 0, 560, 0, 'Contract');
 INSERT INTO `team_member_job_info` VALUES (123, 124, '2015-08-05', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (124, 125, '2014-10-07', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (125, 126, '2011-11-01', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (126, 127, '2011-07-04', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (127, 128, '2011-12-20', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (128, 129, '2015-07-01', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (129, 130, '2015-08-05', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (130, 131, '2015-09-01', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (131, 132, '2014-08-17', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (132, 133, '2016-01-07', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (133, 134, '2012-03-15', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (134, 135, '2016-02-16', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (135, 136, '2014-07-14', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (136, 137, '2017-01-26', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (137, 138, '2016-06-02', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (138, 139, '2012-06-04', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (139, 140, '2015-01-02', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (140, 141, '2017-05-02', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (141, 142, '2017-10-13', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (142, 143, '2017-11-20', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (143, 144, '2013-05-01', 0, 0, 560, 0, 'Contract');
+INSERT INTO `team_member_job_info` VALUES (144, 145, '2018-03-15', 0, 0, 560, 0, 'Contract');
 
 -- ----------------------------
 -- Table structure for third_party_messages
@@ -3574,7 +3693,12 @@ CREATE TABLE `ticket_comments`  (
   `files` longtext CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of ticket_comments
+-- ----------------------------
+INSERT INTO `ticket_comments` VALUES (1, 5, '2018-04-19 12:58:47', 'Ticket Desc', 1, 'a:1:{i:0;a:2:{s:9:\"file_name\";s:34:\"ticket_file5ad89287b8e95-users.png\";s:9:\"file_size\";s:5:\"82093\";}}', 0);
 
 -- ----------------------------
 -- Table structure for ticket_types
@@ -3585,7 +3709,7 @@ CREATE TABLE `ticket_types`  (
   `title` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_types
@@ -3594,6 +3718,7 @@ INSERT INTO `ticket_types` VALUES (1, 'System', 0);
 INSERT INTO `ticket_types` VALUES (2, 'Email', 0);
 INSERT INTO `ticket_types` VALUES (3, 'Call', 0);
 INSERT INTO `ticket_types` VALUES (6, 'Visit', 0);
+INSERT INTO `ticket_types` VALUES (7, 'Slow Internet', 0);
 
 -- ----------------------------
 -- Table structure for tickets
@@ -3614,7 +3739,12 @@ CREATE TABLE `tickets`  (
   `labels` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of tickets
+-- ----------------------------
+INSERT INTO `tickets` VALUES (1, 6, '', 1, 'Network Slow', 5, '2018-04-19 12:58:47', 'new', '2018-04-19 12:58:47', 94, 0, '', 0);
 
 -- ----------------------------
 -- Table structure for users
@@ -3657,12 +3787,12 @@ CREATE TABLE `users`  (
   INDEX `email`(`email`) USING BTREE,
   INDEX `client_id`(`client_id`) USING BTREE,
   INDEX `deleted`(`deleted`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 125 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 146 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of users
 -- ----------------------------
-INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2018-04-12 14:27:01', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
+INSERT INTO `users` VALUES (5, 'Admin', 'User', 'staff', 1, 1, 'admin@teamkazi.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '2017-11-30 10:53:08', 0, '2018-04-18 14:19:29', 0, 'Developer', 0, NULL, '', '', '0700000000', '', '1900-12-21', '', 'male', NULL, '', 1, 1, '/dashboard', '2016-12-07 09:48:20', 0);
 INSERT INTO `users` VALUES (82, 'Pato', 'Mark', 'staff', 0, 2, 'karukurobert@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2018-04-15 21:54:59', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '0727869468', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0);
 INSERT INTO `users` VALUES (83, 'Rob', 'Kim', 'staff', 0, 2, 'bscnrb128917@spu.ac.ke', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0);
 INSERT INTO `users` VALUES (84, 'caro', 'kim', 'staff', 0, 2, 'r.karuku@wizag.biz', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'IT : Pragramming', 0, NULL, NULL, NULL, '0727869468', NULL, '1998-03-10', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-03-27 00:00:00', 0);
@@ -3671,16 +3801,16 @@ INSERT INTO `users` VALUES (86, 'CATHERINE', 'LEWA', 'staff', 0, 2, 'catherine.l
 INSERT INTO `users` VALUES (87, 'MOURINE', 'MAGERO', 'staff', 0, 2, 'mourine.magero@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Administration Officer', 0, NULL, NULL, NULL, '', NULL, '1984-01-24', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (88, 'CATHERINE', 'THUO', 'staff', 0, 2, 'catherine.thuo@freightwell.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Administration Officer', 0, NULL, NULL, NULL, '', NULL, '1976-01-11', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (89, 'WILLINGTONE', 'WARIO', 'staff', 0, 2, 'wario@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accounts Payables', 0, NULL, NULL, NULL, '', NULL, '1985-05-05', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
-INSERT INTO `users` VALUES (90, 'ALOICE', 'KUTUTA', 'staff', 0, 2, 'aloice@esl-eastfarica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Legal Manager', 0, NULL, NULL, NULL, '', NULL, '1981-01-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
+INSERT INTO `users` VALUES (90, 'ALOICE', 'KUTUTA', 'staff', 0, 2, 'aloice@esl-eastfarica.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Legal Manager', 0, NULL, NULL, NULL, '', NULL, '1981-01-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (91, 'MAUREEN', 'OPIYO', 'staff', 0, 2, 'maurine.atieno@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Country Operations Manager', 0, NULL, NULL, NULL, '', NULL, '1984-06-26', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
-INSERT INTO `users` VALUES (92, 'ISAAC', 'WATKINS', 'staff', 0, 2, 'watkins@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Manager', 0, NULL, NULL, NULL, '', NULL, '1961-08-16', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
+INSERT INTO `users` VALUES (92, 'ISAAC', 'WATKINS', 'staff', 1, 0, 'watkins@esl-eastafrica.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Manager', 0, NULL, NULL, NULL, '', NULL, '1961-08-16', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (93, 'CHRISPUS', 'KILEI', 'staff', 0, 2, 'chrispus.kilei@esl-east africa.co', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Supervisor', 0, NULL, NULL, NULL, '', NULL, '1970-04-24', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (94, 'EVANS', 'CHIBUNGU', 'staff', 0, 2, 'evans.ngala@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '2018-04-12 12:00:27', 0, 'Corporate Support : ICT Manager', 0, NULL, NULL, NULL, '', NULL, '1985-09-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (95, 'LEONARD', 'BAYA', 'staff', 0, 2, 'bayamleonard@gmail.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Supervisor', 0, NULL, NULL, NULL, '', NULL, '1974-03-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (96, 'MARTIN', 'IKIARA', 'staff', 0, 2, 'martin.karani@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Group Chief Finance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-05', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (97, 'DANIEL', 'WANIKINA', 'staff', 0, 2, '3transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1988-06-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (98, 'ERICKSON', 'NGELE', 'staff', 0, 2, '1transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1979-03-02', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
-INSERT INTO `users` VALUES (99, 'LENROD', 'MGENDI', 'staff', 0, 2, 'lenrod.mwamburi@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Audit, Risk and Compliance : Group Internal Audit Risk & Compliance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-13', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
+INSERT INTO `users` VALUES (99, 'LENROD', 'MGENDI', 'staff', 0, 2, 'lenrod.mwamburi@esl-eastafrica.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Audit, Risk and Compliance : Group Internal Audit Risk & Compliance Officer', 0, NULL, NULL, NULL, '', NULL, '1979-06-13', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (100, 'JOHN', 'LAGAT', 'staff', 0, 2, 'it.support@esl-eastafrica.com', 'e10adc3949ba59abbe56e057f20f883e', '_file5acf61ea82a24-avatar.png', 'active', '0000-00-00 00:00:00', 0, '2018-04-12 08:47:23', 0, 'Corporate Support : ICT Assistant', 0, NULL, NULL, NULL, '', NULL, '1981-11-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (101, 'JOYLINAH', 'NJERI', 'staff', 0, 2, 'joylinah.nduta@esl-eastafica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Procurement Officer', 0, NULL, NULL, NULL, '', NULL, '1986-10-20', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (102, 'STEPHEN', 'OMONDI', 'staff', 0, 2, 'stephen.okiki@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR Assistant', 0, NULL, NULL, NULL, '', NULL, '1988-03-20', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
@@ -3706,6 +3836,27 @@ INSERT INTO `users` VALUES (121, 'Benson', 'Ireri', 'staff', 0, 2, 'agency@esl-e
 INSERT INTO `users` VALUES (122, 'FANUEL', 'ONYANGO', 'staff', 0, 2, 'fanuel.onyango@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Key Accounts Executive', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-12 00:00:00', 0);
 INSERT INTO `users` VALUES (123, 'FRANCISCA', 'NZIOKA', 'staff', 0, 2, 'francisca@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : HR & Admin Manager', 0, NULL, NULL, NULL, '', NULL, '1974-04-16', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-13 00:00:00', 0);
 INSERT INTO `users` VALUES (124, 'DANIEL', 'WANIKINA', 'staff', 0, 2, 'transport@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1988-06-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-13 00:00:00', 0);
+INSERT INTO `users` VALUES (125, 'JOHN', 'LAGAT', 'staff', 0, 2, 'john.lagat@esl-eastafrica.com', 'd09212be54ca49542b2a98d4615d2ad1', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : ICT Assistant', 0, NULL, NULL, NULL, '', NULL, '1981-11-27', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-16 00:00:00', 0);
+INSERT INTO `users` VALUES (126, 'ALOICE', 'KUTUTA', 'staff', 1, 0, 'aloice@esl-eastafrica.com', 'e10adc3949ba59abbe56e057f20f883e', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Legal Manager', 0, NULL, NULL, NULL, '', NULL, '1981-01-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (127, 'CHRISPUS', 'KILEI', 'staff', 0, 2, 'chrispus.kilei@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Technical : Technical Supervisor', 0, NULL, NULL, NULL, '', NULL, '1970-04-24', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (128, 'LEONARD', 'BAYA', 'staff', 0, 2, 'leonard.baya@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Supervisor', 0, NULL, NULL, NULL, '', NULL, '1974-03-06', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (129, 'JOYLINAH', 'NJERI', 'staff', 0, 2, 'joylinah.nduta@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Procurement Officer', 0, NULL, NULL, NULL, '', NULL, '1986-10-20', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (130, 'DANIEL', 'WANIKINA', 'staff', 0, 2, 'daniel.lukorito@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1988-06-22', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (131, 'JUSTUS', 'MUTHEMBWA', 'staff', 0, 2, 'justus.muthembwa@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Transport Clerk', 0, NULL, NULL, NULL, '', NULL, '1975-10-11', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (132, 'PATRICK', 'MBUGUA', 'staff', 0, 2, 'patrick.mbugua@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Credit Controller', 0, NULL, NULL, NULL, '', NULL, '1987-08-11', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (133, 'RAYMOND', 'WANGUNDA', 'staff', 0, 2, 'raymond.wangunda@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Boarding Clerk', 0, NULL, NULL, NULL, '', NULL, '1987-08-07', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (134, 'KENNEDY', 'KIVUVANI', 'staff', 0, 2, 'kennedy.kivuvani@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Business Development Manager', 0, NULL, NULL, NULL, '', NULL, '1966-12-23', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (135, 'ERIC OLENSI', 'OSINYA', 'staff', 0, 2, 'erick.osinya@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Transport Clerk', 0, NULL, NULL, NULL, '', NULL, '1994-03-12', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (136, 'CATHERINE', 'THUO', 'staff', 0, 2, 'catherine.thuo@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Corporate Support : Administration Officer', 0, NULL, NULL, NULL, '', NULL, '1976-01-11', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (137, 'ERIC', 'KYALO', 'staff', 0, 2, 'eric.mulwa@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Audit, Risk and Compliance : Audit Assistant', 0, NULL, NULL, NULL, '', NULL, '1994-01-12', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (138, 'IRENE', 'OTIENO', 'staff', 0, 2, 'irene.atieno@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Assistant Accountant -  Receivable.', 0, NULL, NULL, NULL, '', NULL, '1987-05-28', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (139, 'MERCYLINE', 'MUTUA', 'staff', 0, 2, 'mercyline.mutua@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Accounts Manager - Payable', 0, NULL, NULL, NULL, '', NULL, '1987-12-14', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (140, 'COLLINS', 'PAMBA', 'staff', 0, 2, 'collins.pamba@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Finance : Assistant Accountant -  Receivable.', 0, NULL, NULL, NULL, '', NULL, '1986-04-02', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (141, 'GULJAN', 'RAMADHAN', 'staff', 0, 2, 'guljan.abubakar@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Customer Service Executive - Agency', 0, NULL, NULL, NULL, '', NULL, '1992-05-04', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (142, 'MOSES', 'MANGALE', 'staff', 0, 2, 'moses.mangale@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Officer', 0, NULL, NULL, NULL, '', NULL, '1986-01-01', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (143, 'MOUREEN', 'KIAMA', 'staff', 0, 2, 'wairimu.kiama@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Sales & Marketing : Key Accounts Executive', 0, NULL, NULL, NULL, '', NULL, '1991-09-18', NULL, 'female', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (144, 'ERICKSON', 'NGELE', 'staff', 0, 2, 'erickson.mwaniki@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Machine Operator', 0, NULL, NULL, NULL, '', NULL, '1979-03-02', NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
+INSERT INTO `users` VALUES (145, 'Benson', 'Ireri', 'staff', 0, 2, 'benson.ireri@esl-eastafrica.com', '25d55ad283aa400af464c76d713c07ad', NULL, 'active', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00', 0, 'Operations : Operations Officer', 0, NULL, NULL, NULL, '', NULL, NULL, NULL, 'male', NULL, NULL, 1, 1, '/dashboard', '2018-04-17 00:00:00', 0);
 
 -- ----------------------------
 -- Table structure for vehicle_details
@@ -3742,7 +3893,7 @@ CREATE TABLE `warranties`  (
   `created` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of warranties
