@@ -207,6 +207,7 @@
           <tr>
             <td> 
               <?php
+              if($inspections['inspect']){
               foreach ($inspections['inspect'] as $key => $value) { ?>
               <select  name="inspection_id" class="form-control" disabled="true">
 
@@ -216,7 +217,7 @@
                 </option>
               </select>
               <?php
-            }
+            } }
             ?>
           </td>
 

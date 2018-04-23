@@ -141,6 +141,7 @@ class Preventive extends Pre_loader
   $inspection_info=[];
   $status_info=[];
   $all_data=[];
+  if($f_data){
   foreach ($f_data as $key => $employee) {
    $user_id=$employee->items->user;
 
@@ -149,6 +150,8 @@ class Preventive extends Pre_loader
    $user_info[]=$user;
 
  }
+
+
  foreach ($f_data as $key => $inspect) {
    $ins_id=$inspect->items->inspection_id;
 
@@ -157,12 +160,16 @@ class Preventive extends Pre_loader
 
  }
 
+
+
  foreach ($f_data as $key => $status) {
    $status_id=$status->items->satus;
    $st_data=$this->db->query("SELECT jobs_status.*,jobs_status.name as status FROM jobs_status WHERE find_in_set(id,$status_id)")->result();
    $status_info[]=$st_data;
 
  }
+}
+
 
  $all_data=array_merge(['inspect' => $inspection_info, 'emp' => $user_info, 'status' => $status_info]);
     $view_data['inspections'] = $all_data;
