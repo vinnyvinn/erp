@@ -34,7 +34,7 @@ class System_support extends Pre_loader {
     );
     $insert = $this->System_support_model->system_supports($data);
     $spp=$this->db->query("SELECT * FROM system_supports WHERE id=$insert")->row()->id;
-     $support=substr('SS-00'.$spp, 0,7);
+    $support=substr('SS-00'.$spp, 0,7);
     $updated = array('support_no' => $support);
     $this->System_support_model->system_supports_update(array('id' => $insert), $updated);
     echo json_encode(array("status" => TRUE));

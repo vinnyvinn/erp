@@ -17,6 +17,9 @@
          <th>No.</th>
          <th>Requisition #</th>
          <th>Card #</th>
+         <th>Name</th>
+         <th>Code</th>
+         <th>Description</th>
          <th>Vehicle</th>
          <th>Total Amount</th>
          <th>Requested On</th>
@@ -30,6 +33,9 @@
          <td><a href="<?php echo base_url('parts_requisition/show_form/'.$spare['spID'])?>"><?php echo $spare['requisition_no']?></a>
           </td>
          <td><?php echo $spare['card_no']?></td>
+         <td><?php echo $spare['stock_name']?></td>
+         <td><?php echo $spare['code_id']?></td>
+         <td><?php echo $spare['description']?></td>
          <td><?php echo $spare['vehicle']?></td>
          <td><?php echo $spare['total']?></td>
          <td><?php echo $spare['created']?></td>

@@ -27,15 +27,16 @@ class Equipments extends Pre_loader {
       return $item['asset_no'];
  	},$existing);
  	
- 	$fromSage = "SELECT * FROM _btblFAAsset 
- 	WHERE cAssetDesc LIKE 'Trimm%' AND iAssetTypeNo = 1 AND idAssetNo NOT IN ( '" . implode( "', '" , $existing ) . "' )";
+ 	$fromSage = "SELECT cAssetCode,cAssetDesc, ubFAForHire,ulFAHireItemGroup,idAssetNo,fPurchaseValue FROM _btblFAAsset WHERE ulFAHireItemGroup=1";
   $querySage=$this->SAGE_DB()->query($fromSage)->result_array();
  	$querySage=array_map(function($parts){
  		return[
            'code' => $parts['cAssetCode'],
-           'asset_no' => $parts['cAssetCode'],
+           'asset_no' => $parts['idAssetNo'],
            'description' => $parts['cAssetDesc'],
-           'purchase_price' => $parts['fPurchaseValue']
+           'for_hire' => $parts['ubFAForHire'],
+           'purchase_price' => $parts['fPurchaseValue'],
+           'forhire_group' => $parts['ulFAHireItemGroup']
           ];
  	},$querySage);
     $this->db->insert_batch('equipments',$querySage);
@@ -48,6 +49,7 @@ class Equipments extends Pre_loader {
            'asset_no' => $this->input->post('asset_no'),
            'description' => $this->input->post('description'),
             'purchase_price' => $this->input->post('purchase_price'),
+            'source' => 'inhouse',
             );
       
       $insert = $this->Equipments_model->add_equipment($data);
@@ -65,7 +67,8 @@ class Equipments extends Pre_loader {
            'asset_no' => $this->input->post('asset_no'),
            'description' => $this->input->post('description'),
            'purchase_price' => $this->input->post('purchase_price'),
-              );
+           'source' => 'inhouse',
+            );
          
     $this->Equipments_model->equipment_update(array('id' => $this->input->post('id')), $data);
     echo json_encode(array("status" => TRUE));

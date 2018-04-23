@@ -18,6 +18,7 @@ class Assets_types extends Pre_loader {
   }
 
   public function index(){
+
     $query="SELECT assets.*,assets.id as asset_ID,employees.name FROM assets
     LEFT JOIN employees ON assets.driver_id=employees.id";
     $view_data['drivers_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();   
@@ -31,17 +32,27 @@ class Assets_types extends Pre_loader {
     return $item['asset_no'];
   }, $existing);
 
-   $SAGEQuery = 'SELECT * FROM _btblFAAsset WHERE iAssetTypeNo = 4 AND idAssetNo NOT IN (' . implode(',', $existing). ')';
-   $fromSage = $query=$this->SAGE_DB()
-   ->query($SAGEQuery)
-   ->result_array();
+   $SAGEQuery = 'SELECT * 
+   FROM _btblFAAsset WHERE iAssetTypeNo = 4 AND idAssetNo NOT IN (' . implode(',', $existing). ')';
+   
+   $fromSage = $this->SAGE_DB()
+   ->query("SELECT  a . idAssetNo , A . cAssetCode , a . cAssetDesc , A . ufFACurrentKMReading , A . ufFAMachineHours , A . ulFATrackBy , A . ucFAChasisnumber , A . ucFAEnginenumber , A . ucFAYearofmake , A . ucFARegyear , A . ucFAMake , A . ucFAModel , B . cAssetTypeCode from [dbo] . [_btblFAAsset] A Inner Join [dbo] . [_btblFAAssetType] B on A . iAssetTypeNo = b . idAssetTypeNo Where 
+    B . cAssetTypeCode IN ('MC') AND  idAssetNo NOT IN ( '" . implode( "', '" , $existing ) . "' )")->result_array();
    
    $fromSage = array_map(function ($item) {
     return [
       "code" => $item['cAssetCode'],
+      "asset_no" => $item['idAssetNo'],
       "description" => $item['cAssetDesc'],
-      "location" => $item['iLocationNo'],
-      "purchased_date" => $item['dPurchaseDate']  
+      "km_reading" => $item['ufFACurrentKMReading'],
+      "machine_hours" => $item['ufFAMachineHours'],
+      "track_by" => $item['ulFATrackBy'],
+      "chasis_no" => $item['ucFAChasisnumber'],
+      "engine_no" => $item['ucFAEnginenumber'],
+      "year_of_make" => $item['ucFAYearofmake'],
+      "year_of_reg" => $item['ucFARegyear'],
+      "make" => $item['ucFAMake'],
+      "code_type" => $item['cAssetTypeCode'],
     ];
   }, $fromSage);
 
@@ -66,15 +77,16 @@ public function add_asset()
    'driver_id' => $this->input->post('driver_id'),
    'warranty' => $this->input->post('warranty'),
    'next_time' => $this->input->post('next_time'),
-   'location' => $this->input->post('location'),
+   'make' => $this->input->post('make'),
    'km_reading' => $this->input->post('km_reading'),
+   'machine_hours' => $this->input->post('hours')
+   
  );
   
- $this->db->insert('assets',$data);
+  $this->db->insert('assets',$data);
 
-   echo json_encode(array("status" => TRUE));
-
-    
+  echo json_encode(array("status" => TRUE));
+  
 }
 
 public function asset_edit($id)
@@ -94,35 +106,19 @@ public function asset_update()
    'driver_id' => $this->input->post('driver_id'),
    'warranty' => $this->input->post('warranty'),
    'next_time' => $this->input->post('next_time'),
-   'location' => $this->input->post('location'),
+   'make' => $this->input->post('make'),
    'km_reading' => $this->input->post('km_reading'),
+   'machine_hours' => $this->input->post('hours'),
    'updated_at' => date("Y-m-d H:i:s"),
    
  );
   $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
   $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
   $result = $query->row()->id; 
-  $query=$this->db->query("SELECT * FROM assets WHERE assets.id=$result")->row()->km_reading;
-  $groups = array();
-  $groups['Service A'] = array('min'=>1,'max'=>5000);
-  $groups['Service B'] = array('min'=>5000,'max'=>15000);
-  $groups['Service C'] = array('min'=>15000,'max'=>999999999);
-  foreach($groups as $label => $group)
-  {
-    if($query >= $group['min'] && $query <= $group['max'])
-    {
-
-     $service_type_data=array('service_type' => $label);
-     $this->db->where('id',$result);
-     $this->db->update('assets',$service_type_data);
-     
-   }
- }
-
- $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM Assets
-  LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
- echo json_encode(array("status" => TRUE));
-        $this->tech_mail($variables);
+  $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM Assets
+    LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
+  echo json_encode(array("status" => TRUE));
+        //$this->tech_mail($variables);
 
 }
 

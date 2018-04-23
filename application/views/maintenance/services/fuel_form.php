@@ -15,6 +15,7 @@
             <th>ID</th>
             <th>Supplier</th>
             <th>Vehicle</th>
+            <th>Mileage</th>
             <th>Driver</th>
             <th>Litres</th>
             <th>Pump Price</th>
@@ -30,6 +31,7 @@
            <td><?php echo $fuel['id'];?></td>
            <td><?php echo $fuel['supplier'];?></td>
            <td><?php echo $fuel['vehicle'];?></td>
+           <td><?php echo $fuel['mileage'];?></td>
            <td><?php echo $fuel['staff'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>

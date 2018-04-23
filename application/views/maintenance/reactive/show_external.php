@@ -57,11 +57,7 @@
     <label for="supplier" class="col-sm-10"><b>Service Provider</b></label>
    <select class="form-control" name="supplier_id" id="supplier" disabled>
         <option value="<?php echo $services[0]['sID'];?>"><?php echo $services[0]['provider'];?></option>
-              <?php
-              foreach ($suppliers_dropdown as $supplier) {
-                  echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
-              }
-              ?>
+                          
            </select>
            
       
@@ -121,7 +117,7 @@
   <div class="col-sm-3">
   <div class="form-group">
 
-    <label for="supplier" class="col-sm-10"><b><?php echo lang('supplier'); ?></b></label>
+    <label for="supplier"><b><?php echo lang('supplier'); ?></b></label>
    <select class="form-control" name="supplier_id" id="supplier" disabled>
         <option value="<?php echo $services[0]['sID'];?>"><?php echo $services[0]['supplier'];?></option>
               <?php
@@ -134,7 +130,19 @@
       
     </div>
   </div>
-<div class="col-sm-3">
+  <div class="col-sm-3">
+  <div class="form-group">
+
+    <label for="supplier"><b>Item</b></label>
+   <select class="form-control" name="supplier_id" id="supplier" disabled>
+        <option value=""><?php echo $services[0]['item'];?></option>
+             
+           </select>
+           
+      
+    </div>
+  </div>
+<div class="col-sm-2">
 
 <div class="form-group">
     <label for="amount"><b>Price</b></label>
@@ -152,7 +160,7 @@
         ?>
     </div>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-2">
 <div class="form-group">
     <label for="quantity"><b><?php echo lang('quantity'); ?></b></label>
     
@@ -170,9 +178,9 @@
     </div>
 </div>
 
-<div class="col-sm-3">
+<div class="col-sm-2">
   <label for="total"><b><?php echo lang('total'); ?> </b></label>
-  <p>Ksh.<?php echo number_format($services[0]['amount'],2);?></p>
+  <p>Ksh.<?php echo number_format($services[0]['total_fuel'],2);?></p>
 </div>
 </div>
 

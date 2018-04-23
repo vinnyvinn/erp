@@ -18,8 +18,10 @@
             <th>Issued By</th>
             <th>Hire From</th>
             <th>Hire To</th>
+            <th>Measurement</th>
             <th>Rate</th>
-            <th>Total</th>
+            <th>Total(Tonnes)</th>
+            <th>Total(Hours)</th>
             <th style="width:125px;">Action
             </th>
           </tr>
@@ -33,8 +35,10 @@
            <td><?php echo $hire['staff'];?></td>
            <td><?php echo $hire['supplier'];?></td>
            <td><?php echo $hire['client'];?></td>
+           <td><?php echo $hire['measurement'];?></td>
            <td><?php echo $hire['rate'];?></td>
-           <td><?php echo $hire['total'];?></td>
+           <td><?php echo $hire['total_tonnage'];?></td>
+           <td><?php echo $hire['total_hours'];?></td>
 
            <td>
              <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
@@ -60,8 +64,9 @@
         <th>Issued By</th>
         <th>Hire From</th>
         <th>Hire To</th>
-        <th>Rate</th>
-        <th>Total</th>
+        <th>Measurement</th>
+        <th>Total(Tonnes)</th>
+        <th>Total(Hours)</th>
         <th>Action</th>
       </tr>
     </tfoot>
@@ -105,11 +110,17 @@
         {
 
           $('[name="id"]').val(data.id);
-          $('[name="asset"]').val(data.asset);
+          $('[name="asset_outsourced"]').val(data.asset_outsourced);
+          $('[name="asset_inhouse"]').val(data.asset_inhouse);
+          $('[name="source"]').val(data.source);
           $('[name="staff_id"]').val(data.staff_id);
           $('[name="client_id"]').val(data.client_id);
           $('[name="supplier_id"]').val(data.supplier_id);
           $('[name="tonnes"]').val(data.tonnes);
+          $('[name="hours"]').val(data.hours);
+          $('[name="rate"]').val(data.rate);
+          $('[name="currency"]').val(data.currency);
+          $('[name="measurement"]').val(data.measurement);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Hired Asset'); // Set title to Bootstrap modal title
 
@@ -192,72 +203,136 @@
             <input type="hidden" value="" name="id"/>
             <div class="form-body">
 
+
               <div class="form-group">
-                <label class="control-label col-md-3">Asset</label>
+                <label class="control-label col-md-3">Source</label>
                 <div class="col-md-9">
-                  <select class="form-control" name="asset" placeholder="Asset" id="asset" required>
+                  <select name="source" id="partsselected" class="form-control">
+                    <option value="">-- Select Source --</option>
+                    <option value="inhouse">In House</option> 
+                    <option value="outsourced">Out Sourced</option>
+                  </select> 
+
+                </div>
+              </div>
+
+              <div id="inhouse" class="sources inhouse">
+                <div class="form-group">
+                  <label class="control-label col-md-3">Asset(InHouse)</label>
+                  <div class="col-md-9">
+                    <select class="form-control" name="asset_inhouse" placeholder="Asset" id="asset_inhouse">
+
+                     <?php
+                     foreach ($equipments_dropdown as $equipment) {
+                      echo "<option value=". $equipment->id . ">" . ucfirst($equipment->description) . "</option>";
+                    }
+                    ?>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div id="outsourced" class="sources outsourced">
+              <div class="form-group">
+                <label class="control-label col-md-3">Asset(Outsourced)</label>
+                <div class="col-md-9">
+                  <select class="form-control" name="asset_outsourced" placeholder="Asset" id="asset_outsourced" required>
 
                    <?php
-                   foreach ($equipments_dropdown as $equipment) {
-                    echo "<option value=". $equipment->id . ">" . ucfirst($equipment->description) . "</option>";
+                   foreach ($outsource_dropdown as $outs) {
+                    echo "<option value=". $outs->id . ">" . ucfirst($outs->description) . "</option>";
                   }
                   ?>
                 </select>
               </div>
             </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3">Measurement</label>
+            <div class="col-md-9">
+              <select name="measurement" id="partselected" class="form-control">
+                <option value="">-- Select Measurement --</option>
+                <option value="tonnes">Tonnes</option> 
+                <option value="hours">Hours</option>
+              </select> 
+
+            </div>
+          </div>
+          <div id="tonnes" class="services tonnes">
             <div class="form-group">
-              <label class="control-label col-md-3">Tonnes</label>
+              <label class="control-label col-md-3">No of Tonnes</label>
               <div class="col-md-9">
-                <input name="tonnes" placeholder="Tonnes" class="form-control" type="text">
+                <input name="tonnes" placeholder="Tonnes" class="form-control" type="number">
               </div>
             </div>
-
+          </div>
+          <div id="hours" class="services hours">
             <div class="form-group">
-              <label class="control-label col-md-3">Issued By</label>
+              <label class="control-label col-md-3">Hours</label>
               <div class="col-md-9">
-                <select class="form-control" name="staff_id" placeholder="Staff" id="staff" required>
-
-                 <?php
-                 foreach ($staffs_dropdown as $staff) {
-                  echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
-                }
-                ?>
-              </select>
+                <input name="hours" placeholder="Hours" class="form-control" type="text">
+              </div>
             </div>
           </div>
           <div class="form-group">
-            <label class="control-label col-md-3">Hire From</label>
+            <label class="control-label col-md-3">Rate</label>
             <div class="col-md-9">
-              <select class="form-control" name="supplier_id" placeholder="supplier" id="supplier_id" required>
+              <input name="rate" placeholder="Rate" class="form-control" type="text">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-md-3">Currency</label>
+            <div class="col-md-9">
+              <input name="currency" placeholder="Currency" class="form-control" type="text">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3">Issued By</label>
+            <div class="col-md-9">
+              <select class="form-control" name="staff_id" placeholder="Staff" id="staff" required>
 
                <?php
-               foreach ($providers_dropdown as $provider) {
-                echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
+               foreach ($staffs_dropdown as $staff) {
+                echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
               }
               ?>
             </select>
           </div>
         </div>
         <div class="form-group">
-          <label class="control-label col-md-3">Hire To</label>
+          <label class="control-label col-md-3">Hire From</label>
           <div class="col-md-9">
-            <select class="form-control" name="client_id" placeholder="Client" id="client_id" required>
+            <select class="form-control" name="supplier_id" placeholder="supplier" id="supplier_id" required>
 
              <?php
-             foreach ($providers_dropdown as $client) {
-              echo "<option value=". $client->id . ">" . ucfirst($client->name) . "</option>";
+             foreach ($providers_dropdown as $provider) {
+              echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
             }
             ?>
           </select>
         </div>
       </div>
+      <div class="form-group">
+        <label class="control-label col-md-3">Hire To</label>
+        <div class="col-md-9">
+          <select class="form-control" name="client_id" placeholder="Client" id="client_id" required>
 
-    </form>
-  </div>
-  <div class="modal-footer">
-    <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-  </div>
+           <?php
+           foreach ($clients_dropdown as $client) {
+            echo "<option value=". $client->id . ">" . ucfirst($client->name) . "</option>";
+          }
+          ?>
+        </select>
+      </div>
+    </div>
+
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+</div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
@@ -269,4 +344,20 @@
   $('#staff').select2();
   $('#client_id').select2();
   $('#supplier_id').select2();
+</script>
+<script type="text/javascript">
+  $(function() {
+    $('#partselected').change(function(){
+      $('.services').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
+</script>
+<script type="text/javascript">
+  $(function() {
+    $('#partsselected').change(function(){
+      $('.sources').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
 </script>

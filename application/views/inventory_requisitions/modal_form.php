@@ -46,7 +46,7 @@
         </div>
     </div>
       <div class="form-group">
-        <label for="description" class=" col-md-12"><?php echo lang('description'); ?></label>
+        <label for="description" class=" col-md-12"><?php echo lang('description');?></label>
         <div class=" col-md-9">
             <?php
             echo form_textarea(array(
