@@ -15,13 +15,13 @@
             <th>ID</th>
             <th>Asset</th>
             <th>Tonnes</th>
+            <th>Hours</th>
             <th>Issued By</th>
             <th>Hire From</th>
             <th>Hire To</th>
             <th>Measurement</th>
             <th>Rate</th>
-            <th>Total(Tonnes)</th>
-            <th>Total(Hours)</th>
+            <th>Total</th>
             <th style="width:125px;">Action
             </th>
           </tr>
@@ -32,13 +32,14 @@
            <td><?php echo $hire['id'];?></td>
            <td><?php echo $hire['equipment'];?></td>
            <td><?php echo $hire['tonnes'];?></td>
+           <td><?php echo $hire['hours'];?></td>
            <td><?php echo $hire['staff'];?></td>
            <td><?php echo $hire['supplier'];?></td>
            <td><?php echo $hire['client'];?></td>
            <td><?php echo $hire['measurement'];?></td>
            <td><?php echo $hire['rate'];?></td>
-           <td><?php echo $hire['total_tonnage'];?></td>
-           <td><?php echo $hire['total_hours'];?></td>
+           <td><?php echo $hire['total'];?></td>
+         
 
            <td>
              <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
@@ -61,12 +62,13 @@
         <th>ID</th>
         <th>Asset</th>
         <th>Tonnes</th>
+        <th>Hours</th>
         <th>Issued By</th>
         <th>Hire From</th>
         <th>Hire To</th>
         <th>Measurement</th>
-        <th>Total(Tonnes)</th>
-        <th>Total(Hours)</th>
+        <th>Rate</th>
+        <th>Total</th>
         <th>Action</th>
       </tr>
     </tfoot>
@@ -110,8 +112,7 @@
         {
 
           $('[name="id"]').val(data.id);
-          $('[name="asset_outsourced"]').val(data.asset_outsourced);
-          $('[name="asset_inhouse"]').val(data.asset_inhouse);
+          $('[name="asset"]').val(data.asset);
           $('[name="source"]').val(data.source);
           $('[name="staff_id"]').val(data.staff_id);
           $('[name="client_id"]').val(data.client_id);
@@ -216,15 +217,15 @@
                 </div>
               </div>
 
-              <div id="inhouse" class="sources inhouse">
+              <div id="inhouse" class="sources inhouse" style="display: none;">
                 <div class="form-group">
-                  <label class="control-label col-md-3">Asset(InHouse)</label>
+                  <label class="control-label col-md-3">Asset</label>
                   <div class="col-md-9">
                     <select class="form-control" name="asset_inhouse" placeholder="Asset" id="asset_inhouse">
 
                      <?php
-                     foreach ($equipments_dropdown as $equipment) {
-                      echo "<option value=". $equipment->id . ">" . ucfirst($equipment->description) . "</option>";
+                     foreach ($hires_dropdown as $hire) {
+                      echo "<option value=". $hire->idAssetNo . ">" . ucfirst($hire->cAssetDesc) . "</option>";
                     }
                     ?>
                   </select>
@@ -233,7 +234,7 @@
             </div>
             <div id="outsourced" class="sources outsourced">
               <div class="form-group">
-                <label class="control-label col-md-3">Asset(Outsourced)</label>
+                <label class="control-label col-md-3">Asset</label>
                 <div class="col-md-9">
                   <select class="form-control" name="asset_outsourced" placeholder="Asset" id="asset_outsourced" required>
 
@@ -258,7 +259,7 @@
 
             </div>
           </div>
-          <div id="tonnes" class="services tonnes">
+          <div id="tonnes" class="services tonnes" style="display: none;">
             <div class="form-group">
               <label class="control-label col-md-3">No of Tonnes</label>
               <div class="col-md-9">
@@ -284,8 +285,12 @@
           <div class="form-group">
             <label class="control-label col-md-3">Currency</label>
             <div class="col-md-9">
-              <input name="currency" placeholder="Currency" class="form-control" type="text">
-            </div>
+              <select name="currency" class="form-control" id="currency">
+                <option value="">--Select Curreny--</option>
+                <option value="USD">USD</option>
+                <option value="KSH">KSH</option>
+              </select>
+              </div>
           </div>
           <div class="form-group">
             <label class="control-label col-md-3">Issued By</label>
@@ -344,6 +349,7 @@
   $('#staff').select2();
   $('#client_id').select2();
   $('#supplier_id').select2();
+  $('#asset_inhouse').select2();
 </script>
 <script type="text/javascript">
   $(function() {

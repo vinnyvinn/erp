@@ -22,6 +22,7 @@ class Parts_requisition extends Pre_loader {
       assets.code as vehicle,jobs.card_no FROM spares
       LEFT JOIN jobs ON jobs.id=spares.job_card_id 
       LEFT JOIN assets ON assets.id=jobs.vehicle_no")->result_array();
+     
 
     $this->template->rander('maintenance/reactive/index_requisition',$view_data);
   }

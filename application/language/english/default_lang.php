@@ -202,6 +202,7 @@ $lang["day"] = "Day";
 $lang["days"] = "Days";
 $lang["hour"] = "Hour";
 $lang["hours"] = "Hours";
+$lang["tonnes"] = "Tonnes";
 $lang["application_details"] = "Application details";
 $lang["rejected_by"] = "Rejected by";
 $lang["approved_by"] = "Approved by";

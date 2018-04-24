@@ -8,7 +8,7 @@
        <div class="row">
         <div class="col-sm-4">
           <div class="form-group vehicle_sel">
-            <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
+            <label for="vehicle_no"><b><?php echo lang('vehicle_no'); ?></b></label>
             <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;">
               <option>-- SELECT VEHICLE --</option>
               <?php
@@ -21,7 +21,7 @@
           </div>
           <br>
           <div class="form-group">
-           <label for="supplier_id" class="col-sm-10"><b>Track By</b></label>
+           <label for="supplier_id"><b>Track By</b></label>
            <select class="form-control" name="track_by" id="partselected" required>
             <option value="">--Select type--</option>
             <option value="hours">Hours</option>
@@ -29,9 +29,20 @@
           </select>
           
         </div>
+
         <div class="form-group">
-         <label for="supplier_id" class="col-sm-10"><b><?php echo lang('service_provider'); ?></b></label>
-         <select class="form-control" name="supplier_id" id="supplier_id" required>
+         <label for="supplier_id"><b>Service Provider Type</b></label>
+         <select class="form-control" name="provider" id="providerselected" required>
+          <option value="">--Select Provider Type--</option>
+         <option value="internal">Internal</option>
+         <option value="external">External</option>
+        </select>
+        
+      </div>
+    <div id="internal" class="providers internal" style="display: none;">
+      <div class="form-group">
+         <label for="supplier_id"><b><?php echo lang('service_provider'); ?></b></label>
+         <select class="form-control" name="internal_provider" id="internal_provider" required>
           <?php
           foreach ($providers_dropdown as $provider) {
             echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
@@ -40,11 +51,40 @@
         </select>
         
       </div>
+    </div>
+    <div id="external" class="providers external">
+      <div class="form-group">
+         <label for="supplier_id"><b><?php echo lang('service_provider'); ?></b></label>
+        <input type="text" name="external_provider" class="form-control" placeholder="Name">
+        
+      </div>
+      <div class="col-sm-4">
+      <div class="form-group">
+         <label for="part_id"><b>Part Name</b></label>
+        <input type="text" name="part_name" class="form-control" placeholder="Part Name">
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+         <label for="quantity"><b>Quantity</b></label>
+        <input type="number" name="quantity" class="form-control" placeholder="Quantity">
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+         <label for="cost"><b>Cost</b></label>
+        <input type="number" name="cost" class="form-control" placeholder="Cost">
+        
+      </div>
+    </div>
+  </div>
 
       <br>
       <div class="form-group">
 
-        <label for="job_service" class="col-sm-10"><b>Service Type</b></label>
+        <label for="job_service"><b>Service Type</b></label>
         <select class="form-control" name="service_type_id" id="s_type">
           
           <?php
@@ -63,7 +103,7 @@
    </div>
    <div class="col-sm-4">
     <div class="form-group">
-      <label for="job_type" class="col-sm-10"><b>Job Type</b></label>
+      <label for="job_type"><b>Job Type</b></label>
       <input type="text" class="form-control" name="job_type_name" id="job_typo">
       
     </div>
@@ -101,7 +141,7 @@
       <p id="driver"></p>
     </div>
     <div class="form-group">
-      <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
+      <label for="description"><b><?php echo lang('description'); ?></b></label>
       <?php
       echo form_textarea(array(
         "id" => "description",
@@ -206,7 +246,7 @@
     </div>
    </div>
     <div class="form-group">
-      <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
+      <label for="fuel_balance"><b><?php echo lang('fuel_balance'); ?></b></label>
       <select class="form-control" name="fuel_balance" id="fuel_balance" required>
         <?php
         foreach ($fuel_dropdown as $fuel) {
@@ -598,4 +638,12 @@
     $('#' + $(this).val()).show();
   });
 });
-</script>s
+</script>
+<script type="text/javascript">
+  $(function() {
+  $('#providerselected').change(function(){
+    $('.providers').hide();
+    $('#' + $(this).val()).show();
+  });
+});
+</script>
