@@ -35,14 +35,15 @@ class Fuel_reports extends Pre_loader
           LEFT JOIN assets ON assets.id=fuels.vehicle_id
           LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
           GROUP BY fuels.total")->result_array();
-        $total=$this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,parts_suppliers.name as supplier,
+        $total = $this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,parts_suppliers.name as supplier,
           other_expenses.name as expenses,assets.code as vehicle,SUM(fuels.expense_cost) as totalexpense FROM fuels
           LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
           LEFT JOIN assets ON assets.id=fuels.vehicle_id
           LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
-          GROUP BY fuels.staff_id")->row();
-        $data['totalvalue']=$total->totalcost;
-        $data['totalexpense']=$total->totalexpense;
+          GROUP BY fuels.staff_id")->row_array();
+           
+        $data['totalvalue']=$total['totalcost'];
+        $data['totalexpense']=$total['totalexpense'];
         array_push($arrayData,$data);
         
       }
