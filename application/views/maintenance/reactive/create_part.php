@@ -7,6 +7,7 @@
      <div class="row">
   <div class="col-sm-6">
     <div class="form-group vehicle_sel">
+      
     <label for="job_card" class="col-sm-10"><b><?php echo lang('job_card'); ?></b></label>
       <select class="form-control" name="job_card_id" id="job_card">
          <option value=""></option>

@@ -18,6 +18,7 @@
         <th>Vehicle</th>
          <th>Driver Name</th>
          <th>Description</th>
+          <th>Spare part</th>
          <th>Actions</th>
          
          </tr>
@@ -37,6 +38,15 @@
             <td><?php echo $asset['code']?></td>
              <td><?php echo $asset['driver']?></td>
               <td><?php echo $asset['description']?></td>
+              <td><?php if($asset['stock']) {
+                echo $asset['stock'];
+              }
+              elseif($asset['part_name']){
+                echo $asset['part_name'];
+              }
+              ?>
+                
+              </td>
             <td>
             </td>
       

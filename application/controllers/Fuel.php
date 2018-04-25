@@ -46,7 +46,8 @@ class Fuel extends Pre_loader {
      'invoice_no' => $this->input->post('invoice_no'),
      'km_reading' => $this->input->post('km_reading'),
      'done_on' => $this->input->post('done_on'),
-     'vehicle_id' => $this->input->post('vehicle_id')
+     'vehicle_id' => $this->input->post('vehicle_id'),
+     'currency' => $this->input->post('currency'),
 
    );
 
@@ -85,6 +86,7 @@ class Fuel extends Pre_loader {
       'invoice_no' => $this->input->post('invoice_no'),
       'km_reading' => $this->input->post('km_reading'),
       'vehicle_id' => $this->input->post('vehicle_id'),
+      'currency' => $this->input->post('currency'),
       'done_on' => $this->input->post('done_on'),
       'updated_at' => date('Y-m-d H:i:s')
     );

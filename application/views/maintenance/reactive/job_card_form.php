@@ -8,7 +8,7 @@
        <div class="row">
         <div class="col-sm-4">
           <div class="form-group vehicle_sel">
-            <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
+            <label for="vehicle_no"><b><?php echo lang('vehicle_no'); ?></b></label>
             <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;">
               <option>-- SELECT VEHICLE --</option>
               <?php
@@ -21,7 +21,7 @@
           </div>
           <br>
           <div class="form-group">
-           <label for="supplier_id" class="col-sm-10"><b>Track By</b></label>
+           <label for="supplier_id"><b>Track By</b></label>
            <select class="form-control" name="track_by" id="partselected" required>
             <option value="">--Select type--</option>
             <option value="hours">Hours</option>
@@ -29,9 +29,20 @@
           </select>
           
         </div>
+
         <div class="form-group">
-         <label for="supplier_id" class="col-sm-10"><b><?php echo lang('service_provider'); ?></b></label>
-         <select class="form-control" name="supplier_id" id="supplier_id" required>
+         <label for="supplier_id"><b>Service Provider Type</b></label>
+         <select class="form-control" name="provider" id="providerselected" required>
+          <option value="">--Select Provider Type--</option>
+         <option value="internal">Internal</option>
+         <option value="external">External</option>
+        </select>
+        
+      </div>
+    <div id="internal" class="providers internal" style="display: none;">
+      <div class="form-group">
+         <label for="supplier_id"><b><?php echo lang('service_provider'); ?></b></label>
+         <select class="form-control" name="internal_provider" id="internal_provider" required>
           <?php
           foreach ($providers_dropdown as $provider) {
             echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
@@ -40,11 +51,40 @@
         </select>
         
       </div>
+    </div>
+    <div id="external" class="providers external">
+      <div class="form-group">
+         <label for="supplier_id"><b><?php echo lang('service_provider'); ?></b></label>
+        <input type="text" name="external_provider" class="form-control" placeholder="Name">
+        
+      </div>
+      <div class="col-sm-4">
+      <div class="form-group">
+         <label for="part_id"><b>Part Name</b></label>
+        <input type="text" name="part_name" class="form-control" placeholder="Part Name">
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+         <label for="quantity"><b>Quantity</b></label>
+        <input type="number" name="quantity" class="form-control" placeholder="Quantity">
+        
+      </div>
+    </div>
+    <div class="col-sm-4">
+      <div class="form-group">
+         <label for="cost"><b>Cost</b></label>
+        <input type="number" name="cost" class="form-control" placeholder="Cost">
+        
+      </div>
+    </div>
+  </div>
 
       <br>
       <div class="form-group">
 
-        <label for="job_service" class="col-sm-10"><b>Service Type</b></label>
+        <label for="job_service"><b>Service Type</b></label>
         <select class="form-control" name="service_type_id" id="s_type">
           
           <?php
@@ -58,164 +98,164 @@
       </div>
       <br>
       
-      <br>
+     <br>
 
-    </div>
-    <div class="col-sm-4">
-      <div class="form-group">
-        <label for="job_type" class="col-sm-10"><b>Job Type</b></label>
-        <input type="text" class="form-control" name="job_type_name" id="job_typo">
-        
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="actual_date"><b>Actual Date</b></label>
-          
-          <?php
-          echo form_input(array(
-            "id" => "actual_date",
-            "name" => "actual_date",
-            "class" => "form-control",
-            
-          ));
-          ?>
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
-          
-          <?php
-          echo form_input(array(
-            "id" => "completion_date",
-            "name" => "completion_date",
-            "class" => "form-control",
-            
-          ));
-          ?>
-        </div>
-      </div>
+   </div>
+   <div class="col-sm-4">
+    <div class="form-group">
+      <label for="job_type"><b>Job Type</b></label>
+      <input type="text" class="form-control" name="job_type_name" id="job_typo">
       
-      <div class="form-group">
-        <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-        <p id="driver"></p>
-      </div>
-      <div class="form-group">
-        <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
-        <?php
-        echo form_textarea(array(
-          "id" => "description",
-          "name" => "description",
-          "class" => "form-control",
-          'rows' => '5',
-          'cols' => '40',
+    </div>
+    <div class="col-sm-6">
+    <div class="form-group">
+      <label for="actual_date"><b>Actual Date</b></label>
+      
+      <?php
+      echo form_input(array(
+        "id" => "actual_date",
+        "name" => "actual_date",
+        "class" => "form-control",
+        
+      ));
+      ?>
+    </div>
+  </div>
+<div class="col-sm-6">
+    <div class="form-group">
+      <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
+      
+      <?php
+      echo form_input(array(
+        "id" => "completion_date",
+        "name" => "completion_date",
+        "class" => "form-control",
+        
+      ));
+      ?>
+    </div>
+  </div>
+  
+    <div class="form-group">
+      <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
+      <p id="driver"></p>
+    </div>
+    <div class="form-group">
+      <label for="description"><b><?php echo lang('description'); ?></b></label>
+      <?php
+      echo form_textarea(array(
+        "id" => "description",
+        "name" => "description",
+        "class" => "form-control",
+        'rows' => '5',
+        'cols' => '40',
 
+
+      ));
+      ?>
+    </div> 
+  </div>
+
+  <div class="col-sm-4">
+    <div class="form-group">
+      <b><?php echo lang('make_model'); ?></b>
+      <br>
+      <p id="model"></p>      
+    </div>
+    <br><br>
+    <div class="col-sm-6">
+    <div class="form-group">
+      <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
+      
+      <?php
+      echo form_input(array(
+        "id" => "time_in",
+        "name" => "time_in",
+        "class" => "form-control",
+        "type"  => "time",
+        
+      ));
+      ?>
+      
+    </div>
+  </div>
+  <div class="col-sm-6">
+    <div class="form-group">
+      <label for="time_in"><b>Time Out</b></label>
+      
+      <?php
+      echo form_input(array(
+        "id" => "time_out",
+        "name" => "time_out",
+        "class" => "form-control",
+        "type"  => "time",
+        
+      ));
+      ?>
+      
+    </div>
+  </div>
+    <div id="kilometer" class="services kilometer">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="previous_km_reading"><b><?php echo lang('previous_km_reading'); ?></b></label>
+        <p id="previous_km_reading">
+        </p>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
+        
+        <?php
+        echo form_input(array(
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "class" => "form-control",
 
         ));
         ?>
-      </div> 
-    </div>
-
-    <div class="col-sm-4">
-      <div class="form-group">
-        <b><?php echo lang('make_model'); ?></b>
-        <br>
-        <p id="model"></p>      
-      </div>
-      <br><br>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
-          
-          <?php
-          echo form_input(array(
-            "id" => "time_in",
-            "name" => "time_in",
-            "class" => "form-control",
-            "type"  => "time",
-            
-          ));
-          ?>
-          
-        </div>
-      </div>
-      <div class="col-sm-6">
-        <div class="form-group">
-          <label for="time_in"><b>Time Out</b></label>
-          
-          <?php
-          echo form_input(array(
-            "id" => "time_out",
-            "name" => "time_out",
-            "class" => "form-control",
-            "type"  => "time",
-            
-          ));
-          ?>
-          
-        </div>
-      </div>
-      <div id="kilometer" class="services kilometer">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="previous_km_reading"><b><?php echo lang('previous_km_reading'); ?></b></label>
-            <p id="previous_km_reading">
-            </p>
-          </div>
-        </div>
-
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
-            
-            <?php
-            echo form_input(array(
-              "id" => "km_reading",
-              "name" => "km_reading",
-              "class" => "form-control",
-
-            ));
-            ?>
-          </div>
-        </div>
-
-        <div class="form-group input-group-sm">
-          <label for="actual_km_reading"><b>Actual KM Covered</b></label>
-          <p id="km_id"></p>
-          
-        </div>
-      </div>
-      <br>
-      <div id="hours" class="services hours">
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="hours"><b>Previous Hours</b>
-              <p id="prev_hrs"></p>
-            </label>
-          </div>
-        </div>
-        
-        <div class="col-sm-6">
-          <div class="form-group">
-            <label for="hours"><b>Hours</b></label>
-            <input type="text"  class="form-control" name="hours" id="hours_id" >
-          </div>
-          <label for="actual_hours"><b>Actual Hours Used</b></label>
-          <p id="actual_hours"></p>
-          
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
-        <select class="form-control" name="fuel_balance" id="fuel_balance" required>
-          <?php
-          foreach ($fuel_dropdown as $fuel) {
-            echo "<option value=". $fuel->id . ">" . ucfirst($fuel->description) . "</option>";
-          }
-          ?>
-        </select>
       </div>
     </div>
+
+    <div class="form-group input-group-sm">
+      <label for="actual_km_reading"><b>Actual KM Covered</b></label>
+      <p id="km_id"></p>
+      
+    </div>
+  </div>
+    <br>
+    <div id="hours" class="services hours">
+    <div class="col-sm-6">
+    <div class="form-group">
+      <label for="hours"><b>Previous Hours</b>
+      <p id="prev_hrs"></p>
+      </label>
+      </div>
+    </div>
+   
+    <div class="col-sm-6">
+    <div class="form-group">
+      <label for="hours"><b>Hours</b></label>
+      <input type="text"  class="form-control" name="hours" id="hours_id" >
+    </div>
+       <label for="actual_hours"><b>Actual Hours Used</b></label>
+      <p id="actual_hours"></p>
+ 
+    </div>
+   </div>
+    <div class="form-group">
+      <label for="fuel_balance"><b><?php echo lang('fuel_balance'); ?></b></label>
+      <select class="form-control" name="fuel_balance" id="fuel_balance" required>
+        <?php
+        foreach ($fuel_dropdown as $fuel) {
+          echo "<option value=". $fuel->id . ">" . ucfirst($fuel->description) . "</option>";
+        }
+        ?>
+      </select>
+    </div>
+  </div>
 
   </div>
 </div>
@@ -224,7 +264,7 @@
 <div class="form-group">
   <button type="submit" class="btn btn-success" id="gohome" name="submit"><span class="fa fa-check-circle"></span>Process</button>
 
-  <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
+  <a href="<?php echo base_url();?>reactive" class="btn btn-danger" role="button">back</a>
 </div>
 </form>
 <!-- <?php //echo form_close();?> -->
@@ -593,9 +633,17 @@
 
 <script type="text/javascript">
   $(function() {
-    $('#partselected').change(function(){
-      $('.services').hide();
-      $('#' + $(this).val()).show();
-    });
+  $('#partselected').change(function(){
+    $('.services').hide();
+    $('#' + $(this).val()).show();
   });
-</script>s
+});
+</script>
+<script type="text/javascript">
+  $(function() {
+  $('#providerselected').change(function(){
+    $('.providers').hide();
+    $('#' + $(this).val()).show();
+  });
+});
+</script>

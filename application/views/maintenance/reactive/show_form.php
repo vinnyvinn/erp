@@ -3,7 +3,7 @@
 <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading">Requisition #<?php echo $services[0]['requisition_no']?>
-     <a href="<?php echo base_url('reactive/print_external/'.$services[0]['id']);?>" class="btn btn-success pull-right">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>>
+     <a href="<?php echo base_url('reactive/print_external/'.$services[0]['id']);?>" class="btn btn-success pull-right">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>
     </div>
     <div class="panel-body">
      <div class="row">

@@ -23,8 +23,7 @@ class Parts_requisition extends Pre_loader {
       LEFT JOIN jobs ON jobs.id=spares.job_card_id 
       LEFT JOIN assets ON assets.id=jobs.vehicle_no")->result_array();
 
-
-    $this->template->rander('maintenance/reactive/index_requisition',$view_data);
+   $this->template->rander('maintenance/reactive/index_requisition',$view_data);
   }
   public function spare($id){
     $spare=$this->db->query("SELECT assets.code as vehicle FROM assets 
@@ -70,7 +69,7 @@ FROM WhseStk INNER JOIN
 WhseMst ON WhseStk . WHWhseID = WhseMst . WhseLink INNER JOIN
 StkItem ON WhseStk . WHStockLink = StkItem . StockLink
 WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkItem . StockLink = $stock_id)")->result_array();
-  
+ 
  $data=array(
    'job_card_id' => $this->input->post('job_card_id'),
    'qnty_out' => $this->input->post('qnty_out'),

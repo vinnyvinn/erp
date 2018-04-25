@@ -113,7 +113,8 @@
           $('[name="expense_id"]').val(data.expense_id);
           $('[name="invoice_no"]').val(data.invoice_no);
           $('[name="km_reading"]').val(data.km_reading);  
-          $('[name="done_on"]').val(data.done_on);        
+          $('[name="done_on"]').val(data.done_on);   
+           $('[name="currency"]').val(data.currency);       
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Fuel'); // Set title to Bootstrap modal title
 
@@ -208,12 +209,22 @@
                   <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text">
                 </div>
               </div>
-              
+              <div class="form-group">
+                  <label class="control-label col-md-3">Currency</label>
+                  <div class="col-md-9">
+                    <select class="form-control" name="currency" placeholder="Currency">
+                  <option value="">--Choose Currency--</option>
+                  <option value="USD">USD</option>
+                  <option value="KSH">KSH</option>
+                     
+                  </select>
+                </div>
+              </div>
                 <div class="form-group">
                   <label class="control-label col-md-3">Vehicle</label>
                   <div class="col-md-9">
                     <select class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicle_id" required>
-
+                      <option value="">--Choose Vehicle--</option>
                      <?php
                      foreach ($vehicles_dropdown as $vehicle) {
                       echo "<option value=". $vehicle->id . ">" . ucfirst($vehicle->code) . "</option>";

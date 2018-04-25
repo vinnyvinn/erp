@@ -287,7 +287,7 @@
             <label class="control-label col-md-3">Currency</label>
             <div class="col-md-9">
               <select name="currency" class="form-control" id="currency">
-                <option value="">--Select Curreny--</option>
+                <option value="">--Select Currency--</option>
                 <option value="USD">USD</option>
                 <option value="KSH">KSH</option>
               </select>
