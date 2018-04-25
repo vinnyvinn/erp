@@ -173,7 +173,7 @@ public function index_job(){
  $this->template->rander("maintenance/reactive/job_card_index", $view_data);
 }
 public function job_card(){
-  $job_id = $this->input->post('id');
+    $job_id = $this->input->post('id');
     $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
     $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
     $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
@@ -190,39 +190,54 @@ public function job_card(){
 public function save(){
    $km_reading='';
   $hours='';
+  $internal_provider='';
+  $external_provider='';
   if($this->input->post('km_reading')){
    $km_reading = $this->input->post('km_reading');
-  }
-  if($this->input->post('hours')){
-    $hours = $this->input->post('hours');
-  }
-  $data = array(
-   "vehicle_no" => $this->input->post('vehicle_no'),
-   "time_in" => $this->input->post('time_in'),
-   "km_reading" => $km_reading ,
-   "description" => $this->input->post('description'),
-   "completion_date" => $this->input->post('completion_date'),
-   "fuel_balance" => $this->input->post('fuel_balance'),
-   "fuel_balance" => $this->input->post('fuel_balance'),
-   "supplier_id" => $this->input->post('supplier_id'),
-   "job_type_id" => $this->input->post('job_type_name'),
-   "hours" => $hours,
-   "reactive" => 1,
-   "time_out" => $this->input->post('time_out'),
-   "actual_date" => $this->input->post('actual_date'),
-   "track_by" => $this->input->post('track_by'),
-   "service_type_id" => $this->input->post('service_type_id'),
+ }
+ if($this->input->post('hours')){
+  $hours = $this->input->post('hours');
+}
+if($this->input->post('internal_provider')){
+ $internal_provider= $this->input->post('internal_provider');
+}
+if($this->input->post('external_provider')){
+ $external_provider= $this->input->post('external_provider');
+}
+$total_cost=$this->input->post('quantity')*$this->input->post('cost');
+$data = array(
+ "vehicle_no" => $this->input->post('vehicle_no'),
+ "time_in" => $this->input->post('time_in'),
+ "km_reading" => $km_reading ,
+ "description" => $this->input->post('description'),
+ "completion_date" => $this->input->post('completion_date'),
+ "fuel_balance" => $this->input->post('fuel_balance'),
+ "fuel_balance" => $this->input->post('fuel_balance'),
+ "supplier_id" => $this->input->post('supplier_id'),
+ "job_type_id" => $this->input->post('job_type_name'),
+ "hours" => $hours,
+ "time_out" => $this->input->post('time_out'),
+ "actual_date" => $this->input->post('actual_date'),
+ "track_by" => $this->input->post('track_by'),
+ "service_type_id" => $this->input->post('service_type_id'),
+ "provider" => $this->input->post('provider'),
+ "part_name" => $this->input->post('part_name'),
+ "total" => $total_cost,
+ "quantity" => $this->input->post('quantity'),
+ "cost" => $this->input->post('cost'),
+ "internal_provider" => $internal_provider,
+ "external_provider" => $external_provider,
+ "reactive" => 1,
+);
 
-    );
-
-  $data = $this->db->insert('jobs', $data);
-  $last_id = $this->db->insert_id();
-  $model = $this->db->query("SELECT assets.code,jobs.* FROM jobs
-   LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row();
-  $card = array("card_no" => substr('ESL-' . $last_id . '-' . $model->code, 0, 20));
-  $km_r=array("km_reading" => $model->km_reading);
-  $this->db->where('id', $last_id)->update('jobs', $card);
-  $this->db->where('id', $model->vehicle_no)->update('assets', $km_r);
+$data = $this->db->insert('jobs', $data);
+$last_id = $this->db->insert_id();
+$model = $this->db->query("SELECT assets.code,jobs.* FROM jobs
+ LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row();
+$card = array("card_no" => substr('ESL-' . $last_id . '-' . $model->code, 0, 20));
+$km_r=array("km_reading" => $model->km_reading);
+$this->db->where('id', $last_id)->update('jobs', $card);
+$this->db->where('id', $model->vehicle_no)->update('assets', $km_r);
   return redirect(base_url('reactive'));
 }
 public function update_checklist(){

@@ -17,7 +17,8 @@
          <th>No.</th>
          <th>Requisition #</th>
          <th>Card #</th>
-         <th>Name</th>
+         <th>Spare part</th>
+         <th>Quantity</th>
          <th>Code</th>
          <th>Description</th>
          <th>Vehicle</th>
@@ -34,6 +35,7 @@
           </td>
          <td><?php echo $spare['card_no']?></td>
          <td><?php echo $spare['stock_name']?></td>
+         <td><?php echo $spare['qnty_out']?></td>
          <td><?php echo $spare['code_id']?></td>
          <td><?php echo $spare['description']?></td>
          <td><?php echo $spare['vehicle']?></td>

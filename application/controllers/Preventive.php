@@ -23,7 +23,8 @@ class Preventive extends Pre_loader
 
     public function index()
     {
-      $view_data['all_details'] = $this->Jobs_model->get_details();
+     
+     $view_data['all_details'] = $this->Jobs_model->get_details();
       $this->template->rander("maintenance/preventive/index", $view_data);
     }
 

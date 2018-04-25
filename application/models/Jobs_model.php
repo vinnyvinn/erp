@@ -11,22 +11,25 @@ class Jobs_model extends Crud_model {
 
   function get_details() {
     $query="SELECT jobs.*,job_services.*,jobs.id as id ,assets.code,employees.name as driver,
-    job_types.job_type_name job_type FROM jobs 
+    job_types.job_type_name job_type,spares.stock_name as stock FROM jobs 
     LEFT JOIN job_services ON job_services.id=jobs.job_service_id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no
     LEFT JOIN employees ON employees.id=assets.driver_id
     LEFT JOIN job_types ON job_types.id=jobs.job_type_id
+    LEFT JOIN spares ON spares.job_card_id=jobs.id
     WHERE jobs.reactive=0";
+    
     return $this->db->query($query)->result_array();
 
   }
   function get_reactive_details() {
     $query="SELECT jobs.*,job_services.*,jobs.id as id ,assets.code,employees.name as driver,
-    job_types.job_type_name job_type FROM jobs 
+    job_types.job_type_name job_type,spares.stock_name as stock FROM jobs 
     LEFT JOIN job_services ON job_services.id=jobs.job_service_id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no
     LEFT JOIN employees ON employees.id=assets.driver_id
     LEFT JOIN job_types ON job_types.id=jobs.job_type_id
+    LEFT JOIN spares ON spares.job_card_id=jobs.id
     WHERE jobs.reactive=1";
     return $this->db->query($query)->result_array();
   }
@@ -98,6 +101,10 @@ return $ins_data;
 $query="SELECT * FROM jobs
 LEFT JOIN job_inspections ON find_in_set(job_inspections.id,$ins_data) WHERE jobs.id=$id";
 return $this->db->query($query)->result_array();
+}
+   
+public function SAGE_DB(){
+  return $this->load->database('SAGE',TRUE);
 }
      // public function status($id){
      //   $data=$this->db->query("SELECT * FROM jobs WHERE id=$id")->row_array();

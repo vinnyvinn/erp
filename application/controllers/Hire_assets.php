@@ -577,7 +577,7 @@ function download_pdf($invoice_id = 0) {
         $hours='';
         $tonnes='';
         if($data->rate){
-          $tonnes=to_decimal_format($data->tonnes);
+          $tonnes=$data->tonnes;
         }
         if($data->hours){
           $hours=$data->hours;
