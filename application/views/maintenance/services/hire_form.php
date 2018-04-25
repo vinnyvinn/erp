@@ -34,7 +34,8 @@
            <td><?php echo $hire['tonnes'];?></td>
            <td><?php echo $hire['hours'];?></td>
            <td><?php echo $hire['staff'];?></td>
-           <td><?php echo $hire['supplier'];?></td>
+           <td><a href="<?php echo base_url('hire_assets/view_invoice/'.$hire['id'])?>"><?php echo $hire['supplier']?></a>
+           </td>
            <td><?php echo $hire['client'];?></td>
            <td><?php echo $hire['measurement'];?></td>
            <td><?php echo $hire['rate'];?></td>
