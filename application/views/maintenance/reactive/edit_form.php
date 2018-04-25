@@ -49,6 +49,10 @@
         ?>
       </div>
       <div class="form-group">
+      <a href="<?php echo base_url().'uploads/images/1_January_Job_Cards_2017.xlsx'; ?>" class="fa fa-download fa-2x">Download File</a>
+     
+     </div>
+      <div class="form-group">
         <label for="client_id" style="color:#7988a2"><?php echo lang("upload_file"); ?>
          <input type='file' name='picture' size='20' />
        </label>

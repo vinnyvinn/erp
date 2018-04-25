@@ -41,7 +41,7 @@ class Fuel_reports extends Pre_loader
           LEFT JOIN assets ON assets.id=fuels.vehicle_id
           LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id WHERE fuels.staff_id=$id
           GROUP BY fuels.staff_id")->row_array();
-           
+          
         $data['totalvalue']=$total['totalcost'];
         $data['totalexpense']=$total['totalexpense'];
         array_push($arrayData,$data);
