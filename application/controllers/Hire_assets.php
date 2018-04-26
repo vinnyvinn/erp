@@ -18,15 +18,13 @@ class Hire_assets extends Pre_loader {
   }
 
   public function index(){
-     
-  
-   $view_data['equipments_dropdown'] = $this->Equipments_model->get_all_where(array("deleted" => 0,"forhire_group" => 1))->result();  
+   
+    $view_data['equipments_dropdown'] = $this->Equipments_model->get_all_where(array("deleted" => 0,"forhire_group" => 1))->result();  
     $view_data['staffs_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
     $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['clients_dropdown'] = $this->Sage_clients_model->get_all_where(array("deleted" => 0))->result();
     $view_data['outsource_dropdown'] = $this->Equipments_model->get_all_where(array("deleted" => 0))->result();
     $view_data['hires_dropdown']=$this->SAGE_DB()->query("SELECT cAssetCode,cAssetDesc, ubFAForHire,ulFAHireItemGroup,idAssetNo,fPurchaseValue FROM _btblFAAsset")->result();
-
     $view_data['hires']=$this->db->query("SELECT hire_assets.*,employees.name as staff,parts_suppliers.name as supplier,
       sage_clients.name as client,equipments.description as equipment FROM hire_assets
       LEFT JOIN employees ON employees.id=hire_assets.staff_id
@@ -255,7 +253,8 @@ class Hire_assets extends Pre_loader {
 //            'imgOrderSignature'
     );
 $this->SAGE_DB()->insert('invnum',$client_details);
-$invoice_details=array(
+$inv_id=$this->SAGE_DB()->query("SELECT * FROM invnum ORDER BY OrderDate DESC")->row_array();
+    $invoice_details=array(
 //            '_btblInvoiceLines_Checksum',
 //            '_btblInvoiceLines_dCreatedDate',
 //            '_btblInvoiceLines_dModifiedDate',
@@ -383,7 +382,7 @@ $invoice_details=array(
 //            'iDeliveryMethodID',
 //            'iDeliveryStatus',
 //            'iGrvLineID',
-                'iInvoiceID' => $query->id,
+                'iInvoiceID' =>$inv_id['AutoIndex'],
 //            'iJobID',
 //            'iLedgerAccountID',
 //            'iLineDiscountReasonID',
