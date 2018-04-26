@@ -23,165 +23,165 @@ class Preventive extends Pre_loader
 
     public function index()
     {
-     
+
      $view_data['all_details'] = $this->Jobs_model->get_details();
-      $this->template->rander("maintenance/preventive/index", $view_data);
-    }
-
-    public function serviceTypesAjax($id)
-    {
-      $result = $this->db->get_where('job_types', array('job_id' => $id))->result_array();
-      echo json_encode($result);
-    }
-    public function selectedService($id){
-     $services=$this->db->query("SELECT * FROM assets INNER JOIN service_types ON assets.service_type=service_types.name WHERE assets.id='$id'")->result_array();
-
-     echo json_encode($services);
-
+     $this->template->rander("maintenance/preventive/index", $view_data);
    }
-   public function model($id)
+
+   public function serviceTypesAjax($id)
    {
-    $query = $this->db->query("SELECT assets.description,employees.name FROM assets 
-     LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->description;
-    echo json_encode($query);
+    $result = $this->db->get_where('job_types', array('job_id' => $id))->result_array();
+    echo json_encode($result);
+  }
+  public function selectedService($id){
+   $services=$this->db->query("SELECT * FROM assets INNER JOIN service_types ON assets.service_type=service_types.name WHERE assets.id='$id'")->result_array();
+
+   echo json_encode($services);
+
+ }
+ public function model($id)
+ {
+  $query = $this->db->query("SELECT assets.description,employees.name FROM assets 
+   LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->description;
+  echo json_encode($query);
+}
+
+public function driver($id)
+{
+  $driver = $this->db->query("SELECT assets.description,employees.name FROM assets 
+    LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->name;
+  echo json_encode($driver);
+}
+
+public function km_reading($id)
+{
+  $km = $this->db->query("SELECT assets.km_reading FROM assets 
+    LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->km_reading;
+  $this->session->set_userdata('k_r', $km);
+  echo json_encode($km);
+}
+public function machine_hours($id)
+{
+  $hrs = $this->db->query("SELECT assets.machine_hours FROM assets 
+    LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->machine_hours;
+  echo json_encode($hrs);
+}
+
+public function warrantyCheck($id)
+{
+  $date_now = date("Y-m-d");
+  $query = $this->db->query("SELECT * FROM assets WHERE id=$id")->row()->warranty;
+  $datediff = strtotime($query) / (60 * 60 * 24)-strtotime($date_now) / (60 * 60 * 24);
+  $queryWarranty = $this->db->query("SELECT * FROM assets WHERE id=$id AND  $datediff >= 0")->result_array();
+  echo json_encode($queryWarranty);
+}
+
+public function DisplayServiceType($id)
+{
+  $query = "SELECT job_types.*,job_tasks.*,job_tasks.id as taskID,service_types.description as explanation,employees.name as employee FROM job_tasks
+  LEFT JOIN employees ON employees.id=job_tasks.assigned_to 
+  LEFT JOIN job_types ON job_types.id=job_tasks.jobs_type_id 
+  LEFT JOIN service_types ON service_types.id=job_tasks.service_type_id WHERE job_types.id=$id";
+  $all_data = $this->db->query($query)->result_array();
+
+  echo json_encode($all_data);
+
+}
+
+public function DisplayTasksData()
+{
+
+  $query = "SELECT * FROM job_tasks";
+  $result = $this->db->query($query);
+  $all_data = [];
+  foreach ($result->result_array() as $value) {
+    $match = $value['assigned_to'];
+    $sql = "SELECT  tblEmployee.Emp_Name,tblEmployee.Emp_Id FROM tblEmployee WHERE tblEmployee.Emp_Id=$match";
+    $res = $this->HR_DB()->query($sql);
+    $results = $res->result_array();
+    array_push($all_data, ['details' => $value, 'results' => $results]);
+
   }
 
-  public function driver($id)
-  {
-    $driver = $this->db->query("SELECT assets.description,employees.name FROM assets 
-      LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->name;
-    echo json_encode($driver);
-  }
+  echo json_encode($all_data);
+}
 
-  public function km_reading($id)
-  {
-    $km = $this->db->query("SELECT assets.km_reading FROM assets 
-      LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->km_reading;
-    $this->session->set_userdata('k_r', $km);
-    echo json_encode($km);
-  }
-  public function machine_hours($id)
-  {
-    $hrs = $this->db->query("SELECT assets.machine_hours FROM assets 
-      LEFT JOIN  employees ON employees.id=assets.driver_id WHERE assets.id=$id")->row()->machine_hours;
-    echo json_encode($hrs);
-  }
+public function jobs_form()
+{
+  $job_id = $this->input->post('id');
+  $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
+  $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
+  $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
+  $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
 
-  public function warrantyCheck($id)
-  {
-    $date_now = date("Y-m-d");
-    $query = $this->db->query("SELECT * FROM assets WHERE id=$id")->row()->warranty;
-    $datediff = strtotime($query) / (60 * 60 * 24)-strtotime($date_now) / (60 * 60 * 24);
-    $queryWarranty = $this->db->query("SELECT * FROM assets WHERE id=$id AND  $datediff >= 0")->result_array();
-    echo json_encode($queryWarranty);
-  }
+  $this->template->rander('maintenance/preventive/jobs_form', $view_data);
+}
+public function process_form($id){
+  $job_id = $this->input->post('id');
+  $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
+  $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
+  $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
+  $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
 
-  public function DisplayServiceType($id)
-  {
-    $query = "SELECT job_types.*,job_tasks.*,job_tasks.id as taskID,service_types.description as explanation,employees.name as employee FROM job_tasks
-    LEFT JOIN employees ON employees.id=job_tasks.assigned_to 
-    LEFT JOIN job_types ON job_types.id=job_tasks.jobs_type_id 
-    LEFT JOIN service_types ON service_types.id=job_tasks.service_type_id WHERE job_types.id=$id";
-    $all_data = $this->db->query($query)->result_array();
+  $mydata=$this->Jobs_model->data_info($id)[0]['data']['application_data'];
+  $f_data=json_decode($mydata);
+  $user_info=[];
+  $inspection_info=[];
+  $status_info=[];
+  $all_data=[];
+  if($f_data){
+    foreach ($f_data as $key => $employee) {
+     $user_id=$employee->items->user;
 
-    echo json_encode($all_data);
+     $user=$this->db->query("SELECT employees.*,employees.name as employee FROM employees WHERE find_in_set(id,$user_id)")->result_array();
 
-  }
+     $user_info[]=$user;
 
-  public function DisplayTasksData()
-  {
-
-    $query = "SELECT * FROM job_tasks";
-    $result = $this->db->query($query);
-    $all_data = [];
-    foreach ($result->result_array() as $value) {
-      $match = $value['assigned_to'];
-      $sql = "SELECT  tblEmployee.Emp_Name,tblEmployee.Emp_Id FROM tblEmployee WHERE tblEmployee.Emp_Id=$match";
-      $res = $this->HR_DB()->query($sql);
-      $results = $res->result_array();
-      array_push($all_data, ['details' => $value, 'results' => $results]);
-
-    }
-
-    echo json_encode($all_data);
-  }
-
-  public function jobs_form()
-  {
-    $job_id = $this->input->post('id');
-    $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
-    $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
-    $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
-    $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
-
-    $this->template->rander('maintenance/preventive/jobs_form', $view_data);
-  }
-  public function process_form($id){
-    $job_id = $this->input->post('id');
-    $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
-    $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
-    $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
-    $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
-
-    $mydata=$this->Jobs_model->data_info($id)[0]['data']['application_data'];
-    $f_data=json_decode($mydata);
-    $user_info=[];
-    $inspection_info=[];
-    $status_info=[];
-    $all_data=[];
-    if($f_data){
-      foreach ($f_data as $key => $employee) {
-       $user_id=$employee->items->user;
-
-       $user=$this->db->query("SELECT employees.*,employees.name as employee FROM employees WHERE find_in_set(id,$user_id)")->result_array();
-
-       $user_info[]=$user;
-
-     }
-
-
-     foreach ($f_data as $key => $inspect) {
-       $ins_id=$inspect->items->inspection_id;
-
-       $inspection=$this->db->query("SELECT * FROM job_inspections WHERE find_in_set(id,$ins_id)")->result();
-       $inspection_info[]=$inspection;
-
-     }
-
-
-
-     foreach ($f_data as $key => $status) {
-       $status_id=$status->items->satus;
-       $st_data=$this->db->query("SELECT jobs_status.*,jobs_status.name as status FROM jobs_status WHERE find_in_set(id,$status_id)")->result();
-       $status_info[]=$st_data;
-
-     }
    }
 
 
-   $all_data=array_merge(['inspect' => $inspection_info, 'emp' => $user_info, 'status' => $status_info]);
-   $view_data['inspections'] = $all_data;
-   $view_data['jobs'] = $this->Jobs_model->fetchId($id);
+   foreach ($f_data as $key => $inspect) {
+     $ins_id=$inspect->items->inspection_id;
 
-   $this->template->rander('maintenance/preventive/jobs_process', $view_data);
+     $inspection=$this->db->query("SELECT * FROM job_inspections WHERE find_in_set(id,$ins_id)")->result();
+     $inspection_info[]=$inspection;
+
+   }
+
+
+
+   foreach ($f_data as $key => $status) {
+     $status_id=$status->items->satus;
+     $st_data=$this->db->query("SELECT jobs_status.*,jobs_status.name as status FROM jobs_status WHERE find_in_set(id,$status_id)")->result();
+     $status_info[]=$st_data;
+
+   }
  }
 
- public function status_data()
- {
+
+ $all_data=array_merge(['inspect' => $inspection_info, 'emp' => $user_info, 'status' => $status_info]);
+ $view_data['inspections'] = $all_data;
+ $view_data['jobs'] = $this->Jobs_model->fetchId($id);
+
+ $this->template->rander('maintenance/preventive/jobs_process', $view_data);
+}
+
+public function status_data()
+{
   $data_status = [];
   $status = $this->db->query("SELECT jobs_status.*,jobs_status.id as s_ID FROM jobs_status")->result_array();
   foreach ($status as $st) {
@@ -388,57 +388,20 @@ public function import_assets_from_sage()
 
 public function print_job($id)
 {
-  $job_id = $this->input->post('id');
-  $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
-  $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
-  $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
-  $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
-  $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
 
-  $mydata=$this->Jobs_model->data_info($id)[0]['data']['application_data'];
-  $f_data=json_decode($mydata);
-  $user_info=[];
-  $inspection_info=[];
-  $status_info=[];
-  $all_data=[];
-  foreach ($f_data as $key => $employee) {
-   $user_id=$employee->items->user;
-
-   $user=$this->db->query("SELECT employees.*,employees.name as employee FROM employees WHERE find_in_set(id,$user_id)")->result_array();
-
-   $user_info[]=$user;
-
- }
- foreach ($f_data as $key => $inspect) {
-   $ins_id=$inspect->items->inspection_id;
-
-   $inspection=$this->db->query("SELECT * FROM job_inspections WHERE find_in_set(id,$ins_id)")->result();
-   $inspection_info[]=$inspection;
-
- }
-
- foreach ($f_data as $key => $status) {
-   $status_id=$status->items->satus;
-   $st_data=$this->db->query("SELECT jobs_status.*,jobs_status.name as status FROM jobs_status WHERE find_in_set(id,$status_id)")->result();
-   $status_info[]=$st_data;
-
- }
-
- $all_data=array_merge(['inspect' => $inspection_info, 'emp' => $user_info, 'status' => $status_info]);
- $view_data['inspections'] = $all_data;
- $view_data['jobs'] = $this->Jobs_model->fetchId($id);
- $this->load->library('pdf2');
+  $view_data['reports_data']=$this->db->query("SELECT jobs.*,spares.*,assets.code as reg,assets.description as make,employees.name as employee,
+    jobs.description as description,assets.km_reading as km_reading,assets.next_time,jobs.created_at as created,parts_suppliers.name as supplier FROM jobs
+    LEFT JOIN spares ON spares.job_card_id=jobs.id
+    LEFT JOIN assets ON assets.id=jobs.vehicle_no 
+    LEFT JOIN employees ON employees.id=assets.driver_id
+    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.external_provider
+    WHERE jobs.id=$id" )->result_array();
+  $this->load->library('pdf2');
+  $this->pdf2->load_view('maintenance/preventive/print_job', $view_data);
+  $this->pdf2->render();
+  $this->pdf2->stream('jobcard.pdf');
 
 
- $this->pdf2->load_view('maintenance/preventive/print_job', $view_data);
- $this->pdf2->render();
- $this->pdf2->stream("service.pdf");
 
 }
 
@@ -464,7 +427,7 @@ public function supplier()
 
 public function asset()
 {
-  
+
   $sql = "SELECT * FROM invnum";
   $query = $this->SAGE_DB()->query($sql)->result_array();
         // $query=$this->SAGE_DB()->get_where('_btblFAAsset',array('iAssetTypeNo' => 1));
@@ -494,6 +457,6 @@ public function HR_DB()
   return $this->load->database('HR', TRUE);
 }
 
- 
+
 }
 

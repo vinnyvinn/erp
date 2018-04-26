@@ -48,6 +48,11 @@
         ));
         ?>
       </div>
+      <div>
+        <label for="job_service"><b>Spare Part</b>
+          <p><?php echo $jobs[0]['stock_name'] ? $jobs[0]['stock_name'] : $jobs[0]['part_name'] ;?></p>
+        </label>
+         </div>
       <div class="form-group">
       <a href="<?php echo base_url().'uploads/images/1_January_Job_Cards_2017.xlsx'; ?>" class="fa fa-download fa-2x">Download File</a>
      
@@ -63,7 +68,7 @@
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
         <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-          <option value=""><?php echo $jobs[0]['provider']?></option>     
+          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
         </select>
 
       </div>

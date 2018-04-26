@@ -26,40 +26,46 @@
 
           <label for="job_service" class="col-sm-3"><b><?php echo lang('job_type'); ?></b></label>
           <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['job_type_id'];?>" disabled>
-           
-     </div>
-     <div class="form-group">
+
+        </div>
+        <div class="form-group">
 
           <label for="job_service"><b><?php echo lang('service_type'); ?></b></label>
           <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['service'];?>" disabled>
-           
-     </div>
+
+        </div>
+
+        <div class="form-group">
+          <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
+          <?php
+          echo form_textarea(array(
+            "id" => "description",
+            "name" => "description",
+            "value" => $jobs[0]['explanation'],
+            "class" => "form-control",
+            'rows' => '5',
+            'cols' => '40',
+            "disabled" => "disabled",
+          ));
+          ?>
+        </div>
+        <div>
+        <label for="job_service"><b>Spare Part</b>
+          <p><?php echo $jobs[0]['stock_name'] ? $jobs[0]['stock_name'] : $jobs[0]['part_name'] ;?></p>
+        </label>
+         </div>
 
       <div class="form-group">
-        <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
-        <?php
-        echo form_textarea(array(
-          "id" => "description",
-          "name" => "description",
-          "value" => $jobs[0]['explanation'],
-          "class" => "form-control",
-          'rows' => '5',
-          'cols' => '40',
-          "disabled" => "disabled",
-        ));
-        ?>
-      </div>
-        <div class="form-group">
         <?php if(!empty($jobs[0]['picture'])){?>
-      <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download File</a>
-      <?php }?>
-     </div>
+        <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download File</a>
+        <?php }?>
+      </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
         <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-          <option value=""><?php echo $jobs[0]['provider']?></option>     
+          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
         </select>
 
       </div>
@@ -106,24 +112,24 @@
       </div>
       <br><br>
       <div class="col-sm-6">
-      <div class="form-group">
-        <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
+        <div class="form-group">
+          <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
 
-        <?php
-        echo form_input(array(
-          "id" => "time_in",
-          "name" => "time_in",
-          "value" => $jobs[0]['time_in'],
-          "class" => "form-control",
-          "type"  => "time",
-          "disabled" => "disabled",
+          <?php
+          echo form_input(array(
+            "id" => "time_in",
+            "name" => "time_in",
+            "value" => $jobs[0]['time_in'],
+            "class" => "form-control",
+            "type"  => "time",
+            "disabled" => "disabled",
 
-        ));
-        ?>
+          ));
+          ?>
 
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6">
+      <div class="col-sm-6">
        <div class="form-group">
         <label for="time_out"><b>Time Out</b></label>
 
@@ -141,73 +147,73 @@
 
       </div>
     </div>
-      
-      <div class="form-group">
-        <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
 
-        <?php
-        echo form_input(array(
-          "id" => "km_reading",
-          "name" => "km_reading",
-          "value" => number_format($jobs[0]['km_reading'],2),
-          "class" => "form-control",
-          "disabled" => "disabled",
+    <div class="form-group">
+      <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
 
-        ));
-        ?>
-      </div>
-      <div class="form-group">
-        <label for="km_reading"><b>Hours</b></label>
+      <?php
+      echo form_input(array(
+        "id" => "km_reading",
+        "name" => "km_reading",
+        "value" => number_format($jobs[0]['km_reading'],2),
+        "class" => "form-control",
+        "disabled" => "disabled",
 
-        <?php
-        echo form_input(array(
-          "id" => "km_reading",
-          "name" => "km_reading",
-          "value" => $jobs[0]['hours'],
-          "class" => "form-control",
-          "disabled" => "disabled",
+      ));
+      ?>
+    </div>
+    <div class="form-group">
+      <label for="km_reading"><b>Hours</b></label>
 
-        ));
-        ?>
-      </div>
+      <?php
+      echo form_input(array(
+        "id" => "km_reading",
+        "name" => "km_reading",
+        "value" => $jobs[0]['hours'],
+        "class" => "form-control",
+        "disabled" => "disabled",
+
+      ));
+      ?>
+    </div>
     
 
-      <div class="form-group">
-        <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
+    <div class="form-group">
+      <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
 
-        <?php
-        echo form_input(array(
-          "id" => "fuel_balance",
-          "name" => "fuel_balance",
-          "value" => $jobs[0]['balance'],
-          "class" => "form-control",
-          "disabled" => "disabled",
+      <?php
+      echo form_input(array(
+        "id" => "fuel_balance",
+        "name" => "fuel_balance",
+        "value" => $jobs[0]['balance'],
+        "class" => "form-control",
+        "disabled" => "disabled",
 
-        ));
-        ?>
-      </div>
+      ));
+      ?>
     </div>
   </div>
+</div>
 
-  <hr>
+<hr>
 <div class="row">
-    <div class="col-sm-12">
-      <table class="table table-striped" id="items_table">
-        <thead>
-          <tr>
+  <div class="col-sm-12">
+    <table class="table table-striped" id="items_table">
+      <thead>
+        <tr>
 
-            <th><?php echo lang('inspection'); ?></th>
-            <th><?php echo lang('done_by'); ?></th>
-            <th><?php echo lang('status'); ?></th>
+          <th><?php echo lang('inspection'); ?></th>
+          <th><?php echo lang('done_by'); ?></th>
+          <th><?php echo lang('status'); ?></th>
 
-          </tr>
-        </thead>
-        <tbody>
+        </tr>
+      </thead>
+      <tbody>
 
-          <tr>
-            <td> 
-              <?php
-              if($inspections['inspect']){
+        <tr>
+          <td> 
+            <?php
+            if($inspections['inspect']){
               foreach ($inspections['inspect'] as $key => $value) { ?>
               <select  name="inspection_id" class="form-control" disabled="true">
 
@@ -253,7 +259,7 @@
 
   </tbody>
 </table>
-  </div>
+</div>
 
 </div>
 <br>
@@ -520,14 +526,14 @@
         html += '<td>'+ '<select name="done_by['+inputid+'][]" class="form-control" id="done_by">';
         $.each(status_data['emp'], function(value,empl)
         {
-         
+
           html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
         }); 
         html +=  '</select></td>';
         html += '<td>'+ '<select name="status_id['+inputid+'][]" class="form-control" id="status_id">';
         $.each(status_data['status'], function(value,item)
         {
-          
+
           html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
         });
         

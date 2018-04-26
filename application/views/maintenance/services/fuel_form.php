@@ -15,7 +15,7 @@
             <th>ID</th>
             <th>Supplier</th>
             <th>Vehicle</th>
-            <th>Mileage</th>
+            <th>Mileage(KM)</th>
             <th>Driver</th>
             <th>Litres</th>
             <th>Pump Price</th>
@@ -59,6 +59,7 @@
        <th>ID</th>
        <th>Supplier</th>
        <th>Vehicle</th>
+       <th>Mileage(KM)</th>
        <th>Driver</th>
        <th>Litres</th>
        <th>Pump Price</th>

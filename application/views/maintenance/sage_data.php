@@ -53,6 +53,9 @@
                  <div class="title-button-group">
                     <?php echo anchor(get_uri("other_expenses"), "<i class='fa fa-certificate'></i> " . 'Expenses ', array("class" => "btn btn-warning", "title" => 'Expenses')); ?>
                 </div>
+                <div class="title-button-group">
+                    <?php echo anchor(get_uri("trimmers"), "<i class='fa fa-certificate'></i> " . 'Trimmers ', array("class" => "btn btn-default", "title" => 'Trimmers')); ?>
+                </div>
               </div>
                 
             </div>

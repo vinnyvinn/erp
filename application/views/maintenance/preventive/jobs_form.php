@@ -39,11 +39,12 @@
         </select>
         
       </div>
-    <div id="internal" class="providers internal" style="display: none;">
+    <div id="external" class="providers external" style="display: none;">
       <div class="form-group">
-         <label for="supplier_id"><b><?php echo lang('service_provider'); ?></b></label>
-         <select class="form-control" name="internal_provider" id="internal_provider" required>
-          <?php
+         <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
+         <select class="form-control" name="external_provider" id="external_provider" placeholder="provider">
+          <option value="">--Choose Service Provider--</option>
+           <?php
           foreach ($providers_dropdown as $provider) {
             echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
           }
@@ -52,10 +53,10 @@
         
       </div>
     </div>
-    <div id="external" class="providers external">
+    <div id="internal" class="providers internal">
       <div class="form-group">
-         <label for="supplier_id"><b><?php echo lang('service_provider'); ?></b></label>
-        <input type="text" name="external_provider" class="form-control" placeholder="Name">
+         <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
+        <input type="text" name="internal_provider" class="form-control" placeholder="Name">
         
       </div>
       <div class="col-sm-4">
@@ -459,34 +460,7 @@
   });
  });
 </script>
-<script type="text/javascript">
-   //Save product
-   $('#saved_data').on('click',function(){
-    var time_in = $('#time_in').val();
-    var time_out = $('#time_out').val();
-    var hours = $('#hours_id').val();
-    var actual_date = $('#act').val();
-    var tasks       = $('#tasks').val();
-    var activity    = $('#activity').val();
-    $.ajax({
-      type : "POST",
-      url  : "<?php echo site_url('preventive/save_task')?>",
-      dataType : "json",
-      data : {service_type_id:operation_name, start_date:start_date, assigned_to:assigned_to,job_time_in:job_time_in,tasks:tasks,jobs_type_id:activity},
-      success: function(data){
-        $('[name="service_type_id"]').val("");
-        $('[name="start_date"]').val("");
-        $('[name="assigned_to"]').val("");
-        $('[name="job_time_in"]').val("");
-        $('[name="tasks"]').val("");
-        $('[name="jobs_type_id"]').val("");
-        
-      }
-    });
-    return false;
-  });
-   
-</script>
+
 <script type="text/javascript">
   var inputid=0;
   $(document).on('click', '.add', function(){
@@ -600,35 +574,6 @@
    var hrs_id=localStorage.getItem("hrs");
    $("#actual_hours").html(hrs-hrs_id);
  });
-</script>
-
-<script type="text/javascript">
- $(document).ready(function() {
-  $('select[name="vehicle_no"]').on('change', function() {
-    var id = $(this).val();
-    var path = "<?php echo site_url('preventive/selectedService')?>/" + id;
-    console.log(path)
-    if(id) {
-      $.ajax({
-        url: path,
-        type: "GET",
-        dataType: "json",
-        success:function(data) {
-                      // $('select[name="job_type_name"]').empty();
-                      $.each(data, function(key, value) {
-                        console.log(value.name);
-                        $('select[name="service_type_id"]').append('<option value="'+ value.id +'">'+ value.name +'</option>');
-                      });
-                      
-                      
-                    }
-                  });
-    }else{
-      $('select[name="service_type_id"]').empty();
-    }
-  });
-});
- 
 </script>
 
 <script type="text/javascript">

@@ -38,14 +38,15 @@ class Jobs_model extends Crud_model {
 
    $view_data=[];
    $query="SELECT jobs.*,jobs.description as explanation,job_services.*,jobs.id as id ,fuel_balances.description as balance,
-   job_services.id as serviceID,assets.code,assets.asset_no,employees.name as driver,parts_suppliers.name as provider,
+   job_services.id as serviceID,assets.code,assets.asset_no,employees.name as driver,parts_suppliers.name as provider,spares.stock_name,
    service_types.name as service FROM jobs 
    LEFT JOIN job_services ON job_services.id=jobs.job_service_id
    LEFT JOIN assets ON assets.id=jobs.vehicle_no
    LEFT JOIN employees ON employees.id=assets.driver_id
-   LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.supplier_id
+   LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.external_provider
    LEFT JOIN fuel_balances ON fuel_balances.id=jobs.fuel_balance
    LEFT JOIN service_types ON service_types.id=jobs.service_type_id
+   LEFT JOIN spares ON spares.job_card_id=jobs.id
    WHERE jobs.id=$id";
    $data = $this->db->query($query)->result_array();
    return $data;
