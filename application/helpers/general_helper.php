@@ -1491,6 +1491,22 @@ if (!function_exists('get_invoice_making_data')) {
     }
 
 }
+function  get_invoice_data($invoice_id){
+    $ci = get_instance();
+   $invoice_info = $ci->db->query("SELECT hire_assets.*,employees.name as staff,parts_suppliers.name as supplier,
+      sage_clients.name as client,equipments.description as equipment FROM hire_assets
+      LEFT JOIN employees ON employees.id=hire_assets.staff_id
+      LEFT JOIN sage_clients ON sage_clients.id=hire_assets.client_id
+      LEFT JOIN equipments ON equipments.id=hire_assets.asset
+      LEFT JOIN parts_suppliers ON parts_suppliers.id=hire_assets.supplier_id WHERE hire_assets.id=$invoice_id")->row();
+               if ($invoice_info) {
+                $data['invoice_info'] = $invoice_info;
+                $data['client_info'] = $ci->Sage_clients_model->get_one($data['invoice_info']->client_id);
+           
+            return $data;
+        
+        }  
+}
 
 /**
  * ger all data to make an estimate

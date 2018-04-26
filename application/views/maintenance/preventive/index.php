@@ -18,6 +18,7 @@
         <th>Vehicle</th>
          <th>Driver Name</th>
          <th>Description</th>
+         <th>Spare part</th>
          <th>Actions</th>
          
          </tr>
@@ -26,11 +27,26 @@
       <?php foreach ($all_details as $asset) {?>
          <tr>
          <td><?php echo $asset['id']?></td>
-         <td><a href="<?php echo base_url('preventive/show_job/'.$asset['id'])?>"><?php echo $asset['card_no']?></a></td>
-            <td><?php echo $asset['job_type_id']?></td>
+         <td>
+          <?php if ($asset['status'] == 'In Progress'){?>
+         <a href="<?php echo base_url('preventive/show_job/'.$asset['id'])?>"><?php echo $asset['card_no']?></a>
+          <?php } elseif($asset['status'] == 'Completed') {?>
+          <a href="<?php echo base_url('preventive/process_form/'.$asset['id'])?>"><?php echo $asset['card_no']?></a>
+          <?php }?>
+          </td>
+           <td><?php echo $asset['job_type_id']?></td>
             <td><?php echo $asset['code']?></td>
              <td><?php echo $asset['driver']?></td>
               <td><?php echo $asset['description']?></td>
+              <td><?php if($asset['stock']) {
+                echo $asset['stock'];
+              }
+              elseif($asset['part_name']){
+                echo $asset['part_name'];
+              }
+              ?>
+                
+              </td>
             <td>
             </td>
       

@@ -208,6 +208,7 @@
                     $attendanceSubs [] = ["name" => "Warranty Parts", "url" => "warranty_parts"];
                     $attendanceSubs [] = ["name" => "Fueling", "url" => "fuel"];
                     $attendanceSubs [] = ["name" => "Hiring Assets", "url" => "hire_assets"];
+                    $attendanceSubs [] = ["name" => "Trimmer Sheets", "url" => "trimmer_sheets"];
                     $attendanceSubs [] = ["name" => "Reports", "url" => "fuel_reports"];
                     $sidebar_menu[] = array("name" => "technical", "url" => "attendance", "class" => "fa-subway font-16", "submenu" => $attendanceSubs);
                 }

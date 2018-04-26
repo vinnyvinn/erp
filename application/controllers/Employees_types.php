@@ -28,15 +28,14 @@ class Employees_types extends Pre_loader {
     $existing = array_map(function ($item) {
       return $item['code_no'];
     }, $existing);
-
     
    $HRQuery = "SELECT tblEmployee.*,tblEmployee_Contact.Emp_WorkEmail FROM tblEmployee
    LEFT JOIN  tblEmployee_Contact ON tblEmployee_Contact.Emp_Id=tblEmployee.Emp_Id 
-   WHERE tblEmployee.Emp_dept_id=4 AND tblEmployee.Emp_Code NOT IN ( '" . implode( "', '" , $existing ) . "' )";
-    $fromHr = $query=$this->HR_DB()
-      ->query($HRQuery)
-      ->result_array();
-       $fromHr = array_map(function ($item) {
+   WHERE tblEmployee.Emp_Code NOT IN ( '" . implode( "', '" , $existing ) . "' )";
+    $fromHr = $this->HR_DB()
+      ->query($HRQuery)->result_array();
+      
+     $fromHr = array_map(function ($item) {
        return [
          "name" =>$item['Emp_Name'],
          "email" =>$item['Emp_WorkEmail'],

@@ -85,13 +85,28 @@
  <div class="col-sm-6">
 <div class="form-group">
     <label for="description"><b><?php echo lang('description'); ?></b></label>
-    <textarea name="description" cols="10" rows="4" class="form-control" id="details" value="" disabled></textarea>
+    <textarea name="description" cols="3" rows="4" class="form-control"></textarea>
           
     </div>
   </div>
 </div>
 <br><br><br><br>
 <div id="parts" class="row services parts">
+  <div class="col-sm-3">
+  <div class="form-group">
+    <label for="supplier" class="col-sm-10"><b>Item</b></label>
+   <select class="form-control" name="stock_id" id="stock_id">
+       <option></option>
+              <?php
+              foreach ($equipments_dropdown as $equipment) {
+                  echo "<option value=". $equipment->id . ">" . ucfirst($equipment->description) . "</option>";
+              }
+              ?>
+           </select>
+           
+      
+    </div>
+  </div>
   <div class="col-sm-3">
   <div class="form-group">
     <label for="supplier" class="col-sm-10"><b><?php echo lang('supplier'); ?></b></label>
@@ -107,7 +122,7 @@
       
     </div>
   </div>
-<div class="col-sm-3">
+<div class="col-sm-2">
 <div class="form-group">
     <label for="amount"><b>Cost</b></label>
     
@@ -122,7 +137,7 @@
         ?>
     </div>
 </div>
-<div class="col-sm-3">
+<div class="col-sm-2">
 <div class="form-group">
     <label for="quantity"><b><?php echo lang('quantity'); ?></b></label>
     
@@ -139,8 +154,7 @@
         ?>
     </div>
 </div>
-
-<div class="col-sm-3">
+<div class="col-sm-2">
 <div class="form-group">
   <br>
   <button type="submit" class="btn btn-success" id="saved_parts">Update Parts</button>
@@ -159,18 +173,16 @@
 <link href="<?php echo base_url('assets/js/jquery-theme.css');?>" rel="Stylesheet" type="text/css"/>
  <script type="text/javascript">   
              $(document).ready(function() {
-
              $('select[name="job_card_id"]').on('change', function() {
             var spare_id = $(this).val();
-            console.log(spare_id)
-            var path="<?php echo site_url('reactive/spare')?>/" + spare_id;
+                 var path="<?php echo site_url('reactive/spare')?>/" + spare_id;
                  $.ajax({
                 type  : 'ajax',
                 url   : path,
                 async : false,
                 dataType : 'json',
                 success : function(data){
-                    var html ='<p>'+data+'</p>';
+                   var html ='<p>'+data+'</p>';
                    $('#vehicle_spare').html(html);
                 }
  
@@ -178,27 +190,7 @@
         });
         });
 </script>
-<script type="text/javascript">   
-             $(document).ready(function() {
-             $('select[name="job_card_id"]').on('change', function() {
-              var ds_id=$(this).val();
-              console.log('id='+ ds_id);
-               var path="<?php echo site_url('reactive/description')?>/" + ds_id;
-                $.ajax({
-                type  : 'ajax',
-                url   : path,
-                async : false,
-                dataType : 'json',
-                success : function(data){
-                  console.log('check' + data)
-                    var html =data;
-                   $('#details').html(html);
-                }
- 
-            });
-        });
-        });
-</script>
+
 <script type="text/javascript">   
              $(document).ready(function() {
 
@@ -223,9 +215,10 @@
 <script type="text/javascript">
   $('#saved_parts').on('click',function(){
             var job_card = $('#job_card').val();
-            var quantity       = $('#quantity').val();
+            var quantity = $('#quantity').val();
             var amount = $('#amount').val();
             var supplier = $('#supp').val();
+            var stock_id = $('#stock_id').val();
             var description = $('#description').val();
             var partselected = $('#partselected').val();
           
@@ -233,7 +226,7 @@
                 type : "POST",
                 url  : "<?php echo site_url('reactive/save_parts_service')?>",
                 dataType : "JSON",
-                data : {job_card_id:job_card,description:description,
+                data : {job_card_id:job_card,description:description,stock_id:stock_id,
                   amount:amount,quantity:quantity,service_type:partselected,supplier_id:supplier},
                 success: function(data){
                     $('[name="job_card_id"]').val("");
@@ -241,6 +234,7 @@
                     $('[name="amount"]').val("");
                     $('[name="description"]').val("");
                     $('[name="service_type"]').val("");
+                    $('[name="stock_id"]').val("");
                     window.location = "<?php echo site_url('reactive/external_service')?>";
                 }
             });
@@ -299,14 +293,11 @@
         maxDate:"+60D",
         numberOfMonths: 2,
         onSelect: function(selected) {
-           $("#txtFromDate").datepicker("option","maxDate", selected)
+         $("#txtFromDate").datepicker("option","maxDate", selected)
         }
     });  
 });
 
 </script>
 
-<script type="text/javascript">
-  $('#supp').select2();
-</script>
 

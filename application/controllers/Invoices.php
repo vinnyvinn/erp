@@ -14,7 +14,7 @@ class Invoices extends Pre_loader {
     /* load invoice list view */
 
     function index() {
-        $this->check_module_availability("module_invoice");
+        //$this->check_module_availability("module_invoice");
 
         if ($this->login_user->user_type === "staff") {
             $this->access_only_allowed_members();

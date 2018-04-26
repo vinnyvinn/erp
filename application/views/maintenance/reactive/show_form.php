@@ -3,7 +3,7 @@
 <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading">Requisition #<?php echo $services[0]['requisition_no']?>
-     <a href="<?php echo base_url('reactive/print_external/'.$services[0]['id']);?>" class="bt btn-success pull-right">Print Page</a>
+     <a href="<?php echo base_url('reactive/print_external/'.$services[0]['id']);?>" class="btn btn-success pull-right">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>
     </div>
     <div class="panel-body">
      <div class="row">
@@ -47,13 +47,9 @@
 <div class="col-sm-3">
 <div class="form-group">
     <label for="name"><b><?php echo lang('spare'); ?></b></label>
-    <select class="form-control" name="spare_id" id="part" disabled>
-      <option value=""><?php echo $services[0]['spare']?></option>
-      <?php
-              foreach ($spare_parts_dropdown as $spare) {
-                  echo "<option value=". $spare->id . ">" . ucfirst($spare->description) . "</option>";
-              }
-              ?>
+    <select class="form-control" name="stock_id" id="part" disabled>
+      <option value=""><?php echo $services[0]['stock_name']?></option>
+     
     </select>
        
     </div>
@@ -68,7 +64,7 @@
             "id" => "amount",
             "name" => "amount",
             "class" => "form-control",
-            "value" => $services[0]['amount'],
+            "value" => $services[0]['avg_cost'],
             "type" => "number",
             "required" => "required",
             "disabled" => "disabled",
@@ -85,7 +81,7 @@
             "id" => "quantity",
             "name" => "quantity",
             "class" => "form-control",
-             "value" => $services[0]['quantity'],
+             "value" => $services[0]['qnty_out'],
             "type" => "number",
             "required" => "required",
             "disabled" => "disabled",

@@ -197,9 +197,9 @@
             <div class="form-group">
               <label class="control-label col-md-3">Description</label>
               <div class="col-md-9">
-                <input name="description" placeholder="Description" class="form-control" type="text">
-              </div>
+                <textarea name="description" placeholder="Description" class="form-control"></textarea>  
             </div>
+          </div>
             <div class="form-group">
               <label class="control-label col-md-3">Rate</label>
               <div class="col-md-9">

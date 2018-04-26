@@ -1,17 +1,17 @@
 <div class="container">
-  <?php echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?>
+ <form method="POST" action="<?php echo base_url('preventive/update_checklist') ?>" enctype="multipart/form-data">
   <div class="modal-body clearfix">
    <div class="panel panel-default">
-    <div class="panel-heading">Job Card #<?php echo $jobs[0]['data']['card_no']?>
-     <a href="<?php echo base_url('preventive/print_job/'.$jobs[0]['data']['id']);?>" class="bt btn-success pull-right">Print Page</a>
-   </div>
+    <input type="hidden" name="id" value="<?php echo $jobs[0]['id'];?>">
+    <div class="panel-heading">Job Card #<?php echo $jobs[0]['card_no']?>
+     </div>
    <div class="panel-body">
      <div class="row">
       <div class="col-sm-4">
         <div class="form-group vehicle_sel">
           <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
           <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled>
-            <option value=""><?php echo $jobs[0]['data']['code'];?></option>
+            <option value=""><?php echo $jobs[0]['code'];?></option>
             <?php
             foreach ($vehicles_dropdown as $value) {
               echo "<option value=". $value->id . ">" . ucfirst($value->code) . "</option>";
@@ -23,8 +23,14 @@
         <br>
         <div class="form-group">
 
-          <label for="job_service" class="col-sm-3"><b><?php echo lang('job_type'); ?></b></label>
-          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['data']['job_type_id'];?>" disabled>
+          <label for="job_service"><b><?php echo lang('job_type'); ?></b></label>
+          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['job_type_id'];?>" disabled>
+           
+     </div>
+     <div class="form-group">
+
+          <label for="job_service" ><b>Service Type</b></label>
+          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['service'];?>" disabled>
            
      </div>
 
@@ -34,7 +40,7 @@
         echo form_textarea(array(
           "id" => "description",
           "name" => "description",
-          "value" => $jobs[0]['data']['explanation'],
+          "value" => $jobs[0]['explanation'],
           "class" => "form-control",
           'rows' => '5',
           'cols' => '40',
@@ -42,17 +48,27 @@
         ));
         ?>
       </div>
+      <div>
+        <label for="job_service"><b>Spare Part</b>
+          <p><?php echo $jobs[0]['stock_name'] ? $jobs[0]['stock_name'] : $jobs[0]['part_name'] ;?></p>
+        </label>
+         </div>
       <div class="form-group">
-        <?php if(!empty($jobs[0]['data']['picture'])){?>
-      <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['data']['picture']; ?>" class="fa fa-download fa-2x">Download File</a>
-      <?php }?>
+      <a href="<?php echo base_url().'uploads/images/1_January_Job_Cards_2017.xlsx'; ?>" class="fa fa-download fa-2x">Download File</a>
+     
+     </div>
+      <div class="form-group">
+        <label for="client_id" style="color:#7988a2"><?php echo lang("upload_file"); ?>
+         <input type='file' name='picture' size='20' />
+       </label>
+       
      </div>
     </div>
     <div class="col-sm-4">
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
         <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-          <option value=""><?php echo $jobs[0]['data']['provider']?></option>     
+          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
         </select>
 
       </div>
@@ -64,16 +80,31 @@
         echo form_input(array(
           "id" => "completion_date",
           "name" => "completion_date",
-          "value" => $jobs[0]['data']['completion_date'],
+          "value" => $jobs[0]['completion_date'],
           "class" => "form-control",
           "disabled" => "disabled",
 
         ));
         ?>
       </div>
+   
+      <div class="form-group">
+        <label for="completion_date"><b>Actual Date</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "completion_date",
+          "name" => "completion_date",
+          "value" => $jobs[0]['actual_date'],
+          "class" => "form-control",
+          "disabled" => "disabled",
+        ));
+        ?>
+    
+    </div>
       <div class="form-group">
         <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-        <p id="driver"><?php echo $jobs[0]['data']['driver'];?></p>
+        <p id="driver"><?php echo $jobs[0]['driver'];?></p>
       </div> 
     </div>
 
@@ -81,17 +112,18 @@
       <div class="form-group">
         <b><?php echo lang('make_model'); ?></b>
         <br>
-        <p id="model"><?php echo $jobs[0]['data']['code'];?></p>      
+        <p id="model"><?php echo $jobs[0]['code'];?></p>      
       </div>
       <br><br>
+      <div class="col-sm-6">
       <div class="form-group">
-        <label for="time_in" class="col-sm-3"><b><?php echo lang('time_in'); ?></b></label>
+        <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
 
         <?php
         echo form_input(array(
           "id" => "time_in",
           "name" => "time_in",
-          "value" => $jobs[0]['data']['time_in'],
+          "value" => $jobs[0]['time_in'],
           "class" => "form-control",
           "type"  => "time",
           "disabled" => "disabled",
@@ -100,7 +132,25 @@
         ?>
 
       </div>
-      
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="time_in"><b>Time Out</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "time_in",
+          "name" => "time_in",
+          "value" => $jobs[0]['time_out'],
+          "class" => "form-control",
+          "type"  => "time",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+
+      </div>
+      </div>
       <div class="form-group">
         <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
 
@@ -108,31 +158,13 @@
         echo form_input(array(
           "id" => "km_reading",
           "name" => "km_reading",
-          "value" => number_format($jobs[0]['data']['km_reading'],2),
+          "value" => number_format($jobs[0]['km_reading'],2),
           "class" => "form-control",
           "disabled" => "disabled",
 
         ));
         ?>
       </div>
-    
-    <div class="col-sm-6">
-      <div class="form-group">
-        <label for="km_reading"><b>Miles</b></label>
-
-        <?php
-        echo form_input(array(
-          "id" => "km_reading",
-          "name" => "km_reading",
-          "value" => number_format(($jobs[0]['data']['miles']),2),
-          "class" => "form-control",
-          "disabled" => "disabled",
-
-        ));
-        ?>
-      </div>
-    </div>
-    <div class="col-sm-6">
       <div class="form-group">
         <label for="km_reading"><b>Hours</b></label>
 
@@ -140,14 +172,14 @@
         echo form_input(array(
           "id" => "km_reading",
           "name" => "km_reading",
-          "value" => $jobs[0]['data']['hours'],
+          "value" => $jobs[0]['hours'],
           "class" => "form-control",
           "disabled" => "disabled",
 
         ));
         ?>
       </div>
-    </div>
+    
 
       <div class="form-group">
         <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
@@ -156,7 +188,7 @@
         echo form_input(array(
           "id" => "fuel_balance",
           "name" => "fuel_balance",
-          "value" => $jobs[0]['data']['balance'],
+          "value" => $jobs[0]['balance'],
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -168,75 +200,36 @@
 
   <hr>
   <div class="row">
-    <div class="col-sm-12">
-      <table class="table table-striped" id="items_table">
-        <thead>
-          <tr>
+  <div class="col-sm-12">
+    <table class="table table-striped" id="items_table">
+      <thead>
+        <tr>
+          
+          <th><?php echo lang('inspection'); ?></th>
+          <th><?php echo lang('done_by'); ?></th>
+          <th><?php echo lang('status'); ?></th>
+          <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
+          
+        </tr>
+      </thead>
+      <tbody>
+        
+      </tbody>
+    </table>
+  </div>
 
-            <th><?php echo lang('inspection'); ?></th>
-            <th><?php echo lang('done_by'); ?></th>
-            <th><?php echo lang('status'); ?></th>
-
-          </tr>
-        </thead>
-        <tbody>
-
-          <tr>
-            <td> 
-              <?php
-
-              foreach ($inspections['inspect'] as $key => $value) { ?>
-              <select  name="inspection_id" class="form-control" disabled="true">
-
-
-                <option value="">
-                  <?php  echo $value[0]->type; ?>
-                </option>
-              </select>
-              <?php
-            }
-            ?>
-          </td>
-
-          <td>
-            <?php
-            foreach ($inspections['emp'] as $key => $value) { ?>
-            <select  name="inspection_id" class="form-control" disabled="true">
-
-
-              <option value="">
-                <?php  echo $value[0]['name'];?>
-              </option>
-            </select>
-            <?php
-          }
-          ?>
-        </td>
-        <td>
-          <?php
-          foreach ($inspections['status'] as $key => $value) { ?>
-          <select  name="inspection_id" class="form-control" disabled="true">
-
-
-            <option value="">
-              <?php  echo $value[0]->name; ?>
-            </option>
-          </select>
-          <?php
-        }
-        ?>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
 </div>
+<br>
+<div class="form-group">
+     <button type="submit" class="btn btn-success" name="submit"><span class="fa fa-check-circle"></span>Process</button>
 
+  <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
+</div>
 
 <br>
 
-<?php echo form_close(); ?>
-</div></div></div></div></div>
+</form>
+</div></div></div></div>
 
 <script type="text/javascript">
  $(document).ready(function() {
@@ -476,48 +469,69 @@
  });
 </script>
 <script type="text/javascript">
+  var inputid=0;
   $(document).on('click', '.add', function(){
+    inputid ++;
     var status_data="<?php echo site_url('preventive/status_data')?>";
     $.ajax({
       type: "GET",
       url: status_data,
       dataType: "json",
       success: function (status_data) {
-
-       var value = status_data;
-
-       var html = '';
-       html += '<tr>';
-       html += '<td>'+ '<select name="inspection_id[]" class="form-control">';
-       $.each(status_data['inspect'], function(value,ins)
-       {
-        html += '<option value="'+ ins['id'] +'">'+ ins['type'] +'</option>' ;
-      }); 
-       html +=  '</select></td>';
-       html += '<td>'+ '<select name="done_by[]" class="form-control">';
-       $.each(status_data['emp'], function(value,empl)
-       {
-
-        html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
-      }); 
-       html +=  '</select></td>';
-       html += '<td>'+ '<select name="status_id[]" class="form-control">';
-       $.each(status_data['status'], function(value,item)
-       {
-
-        html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
-      });
-       
-       html +=  '</select></td>'; 
-       html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
-       $('#items_table').append(html);
-
-     }
-   });
+        var value = status_data;
+        
+        var html = '';
+        html += '<tr>';
+        html += '<td>'+ '<select name="inspection_id['+inputid+'][]" class="form-control" id="inspection_id" onchange="myFunction()">';
+        $.each(status_data['inspect'], function(value,ins)
+        {
+          html += '<option value="'+ ins['id'] +'">'+ ins['type'] +'</option>' ;
+        }); 
+        html +=  '</select></td>';
+        html += '<td>'+ '<select name="done_by['+inputid+'][]" class="form-control" id="done_by">';
+        $.each(status_data['emp'], function(value,empl)
+        {
+         
+          html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
+        }); 
+        html +=  '</select></td>';
+        html += '<td>'+ '<select name="status_id['+inputid+'][]" class="form-control" id="status_id">';
+        $.each(status_data['status'], function(value,item)
+        {
+          
+          html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
+        });
+        
+        html +=  '</select></td>'; 
+        html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+        $('#items_table').append(html);
+        
+      }
+    });
   });
-
+  
   $(document).on('click', '.remove', function(){
     $(this).closest('tr').remove();
   });
+
+  $('#gohome').on('submit',function(){
+    var inspection= $('#inspection_id').val();
+    console.log(inspection);
+
+    var  who= $('#done_by').val();
+    console.log('abcd');
+    var status= $('#status_id').val();
+ //                $.ajax({
+ //                type : "post",
+ //                url  : "<?php echo site_url('preventive/save')?>",
+ //                dataType : "json",
+ //                 data:{inspection_id:inspection,done_by:who,status_id:status},
+ //                    success: function(data){
+ //                      console.log('thank  you'+data);
+ 
+ //   }
+ 
+ // });
+});
 
 </script>

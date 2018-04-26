@@ -8,7 +8,7 @@
          <button class="btn btn-default pull-right" onclick="add_support()" style="margin-top: -24px;padding-left: 10px;margin-right: 5%"><i class="fa fa-tasks"></i> Assign Staff</button> 
 
 
-         <button class="btn btn-default pull-right" onclick="add_support()" style="margin-top: -24px;padding-left: 10px;margin-right: 5%"><i class="fa fa-plus-circle"></i> Add support </button>
+         <button class="btn btn-default pull-right" onclick="assign_staff()" style="margin-top: -24px;padding-left: 10px;margin-right: 5%"><i class="fa fa-plus-circle"></i> Add support </button>
 
        </div> 
 

@@ -5,3 +5,4 @@
 <meta name="author" content="Wagura Maurice">
 <link rel="icon" href="<?php echo get_file_uri("assets/images/favicon.png"); ?>" />
 <title><?php echo get_setting('app_title'); ?></title>
+<link type="text/css" media="print" rel="stylesheet" href="assets/css/printstyle.css">

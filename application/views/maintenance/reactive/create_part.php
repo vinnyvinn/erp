@@ -1,4 +1,4 @@
-<?php echo form_open('"id" = "create-parts-form", "class" = "general-form", "role" = "form"'); ?>
+<form method="POST" action="<?php echo base_url('parts_requisition/save_part') ?>">
 
 <div class="modal-body clearfix">
      <div class="panel panel-default">
@@ -7,6 +7,7 @@
      <div class="row">
   <div class="col-sm-6">
     <div class="form-group vehicle_sel">
+      
     <label for="job_card" class="col-sm-10"><b><?php echo lang('job_card'); ?></b></label>
       <select class="form-control" name="job_card_id" id="job_card">
          <option value=""></option>
@@ -24,20 +25,14 @@
        <p id="vehicle_spare"></p>                        
 </div>
 </div>
-<div class="col-sm-6">
-<div class="form-group">
-    <label for="description"><b><?php echo lang('description'); ?></b></label>
-    <textarea name="description" id="details" cols="10" rows="5" class="form-control" disabled></textarea>
-        
-    </div>
-  </div>
+
 <div class="col-sm-3">
 <div class="form-group">
     <label for="name"><b><?php echo lang('spare'); ?></b></label>
-    <select class="form-control" name="spare_id" id="part">
+    <select class="form-control" name="stock_id" id="part">
       <?php
-              foreach ($spare_parts_dropdown as $spare) {
-                  echo "<option value=". $spare->id . ">" . ucfirst($spare->description) . "</option>";
+              foreach ($stocks_dropdown as $spare) {
+                  echo "<option value=". $spare->Stk_ID . ">" . ucfirst($spare->Stk_Name) . "</option>";
               }
               ?>
     </select>
@@ -52,7 +47,7 @@
         <?php
         echo form_input(array(
             "id" => "quantity",
-            "name" => "quantity",
+            "name" => "qnty_out",
             "class" => "form-control",
             "type" => "number",
             "required" => "required",
@@ -66,7 +61,7 @@
 <div class="col-sm-3">
 <div class="form-group">
   <br>
-  <button type="submit" class="btn btn-success" id="saved_data">Update</button>
+  <button type="submit" class="btn btn-success">Update</button>
 </div>
 </div>
 </div>
@@ -74,7 +69,7 @@
 </div>
 </div>
 
-<?php echo form_close(); ?>
+</form>
 
 <script type="text/javascript">
   $("#job_card").select2();

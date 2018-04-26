@@ -20,7 +20,7 @@
          <th>No.</th>
          <th>Requisition #</th>
          <th>Card #</th>
-         <th>Vehicle</th>
+         <th>Asset Code</th>
          <th>Total Amount</th>
          <th>Requested On</th>
          </tr>
