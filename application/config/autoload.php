@@ -239,6 +239,7 @@ $autoload['model'] = array(
     'Mailing_activity_model',
     'Mailing_parcel_model',
     'Fuel_price_model',
-    'Cheques_model'
+    'Cheques_model',
+    'Preventive_maintainance_model'
 );
 

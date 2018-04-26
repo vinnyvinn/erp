@@ -11,7 +11,7 @@
  Target Server Version : 100125
  File Encoding         : 65001
 
- Date: 20/04/2018 10:21:43
+ Date: 26/04/2018 10:13:56
 */
 
 SET NAMES utf8mb4;
@@ -388,7 +388,12 @@ CREATE TABLE `escalation_matrix`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `created_by`(`created_by`) USING BTREE,
   CONSTRAINT `escalation_matrix_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of escalation_matrix
+-- ----------------------------
+INSERT INTO `escalation_matrix` VALUES (1, 'ICT Assets', '90,113,84,145', '45', NULL, '2018-04-25 19:47:33', NULL, 0);
 
 -- ----------------------------
 -- Table structure for estimate_forms
@@ -1932,6 +1937,31 @@ CREATE TABLE `posts`  (
 ) ENGINE = InnoDB AUTO_INCREMENT = 1 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
+-- Table structure for preventive_maintainance
+-- ----------------------------
+DROP TABLE IF EXISTS `preventive_maintainance`;
+CREATE TABLE `preventive_maintainance`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sage_item_id` int(11) NOT NULL,
+  `maintainance_date` date NOT NULL,
+  `assigned_id` int(11) NOT NULL,
+  `excalation_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL,
+  `performed_by` int(11) NOT NULL,
+  `created_at` timestamp(0) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp(0) NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP(0),
+  `deleted` int(11) NOT NULL DEFAULT 0,
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+
+-- ----------------------------
+-- Records of preventive_maintainance
+-- ----------------------------
+INSERT INTO `preventive_maintainance` VALUES (3, 247, '2018-04-26', 91, 1, 1, 91, '2018-04-25 23:35:34', '2018-04-26 02:14:15', 1);
+INSERT INTO `preventive_maintainance` VALUES (4, 247, '2018-04-27', 91, 1, 1, 91, '2018-04-25 23:37:42', '2018-04-26 02:46:58', 0);
+INSERT INTO `preventive_maintainance` VALUES (5, 247, '2018-04-27', 93, 1, 0, 0, '2018-04-25 23:37:42', '2018-04-26 00:06:35', 0);
+
+-- ----------------------------
 -- Table structure for project_comments
 -- ----------------------------
 DROP TABLE IF EXISTS `project_comments`;
@@ -2926,9 +2956,9 @@ INSERT INTO `settings` VALUES ('module_estimate', '', 0);
 INSERT INTO `settings` VALUES ('module_estimate_request', '', 0);
 INSERT INTO `settings` VALUES ('module_event', '1', 0);
 INSERT INTO `settings` VALUES ('module_expense', '', 0);
-INSERT INTO `settings` VALUES ('module_invoice', '1', 0);
+INSERT INTO `settings` VALUES ('module_invoice', '', 0);
 INSERT INTO `settings` VALUES ('module_leave', '', 0);
-INSERT INTO `settings` VALUES ('module_message', '1', 0);
+INSERT INTO `settings` VALUES ('module_message', '', 0);
 INSERT INTO `settings` VALUES ('module_note', '1', 0);
 INSERT INTO `settings` VALUES ('module_parcel', '1', 0);
 INSERT INTO `settings` VALUES ('module_sage', '', 0);
@@ -3141,13 +3171,14 @@ CREATE TABLE `tbl_checklist_performed_on`  (
   `name` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `deleted` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_checklist_performed_on
 -- ----------------------------
 INSERT INTO `tbl_checklist_performed_on` VALUES (1, 'ICT', 0);
 INSERT INTO `tbl_checklist_performed_on` VALUES (2, 'Maintenance', 0);
+INSERT INTO `tbl_checklist_performed_on` VALUES (4, 'Preventive', 0);
 
 -- ----------------------------
 -- Table structure for tbl_checklist_status
@@ -3173,6 +3204,7 @@ INSERT INTO `tbl_checklist_status` VALUES (3, 'Closed', 0);
 DROP TABLE IF EXISTS `tbl_checklist_task_checks`;
 CREATE TABLE `tbl_checklist_task_checks`  (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ref_no` int(11) NULL DEFAULT NULL,
   `check_item` int(11) NOT NULL,
   `status` int(11) NOT NULL COMMENT '1 passed 0 failed',
   `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL,
@@ -3183,9 +3215,9 @@ CREATE TABLE `tbl_checklist_task_checks`  (
 -- ----------------------------
 -- Records of tbl_checklist_task_checks
 -- ----------------------------
-INSERT INTO `tbl_checklist_task_checks` VALUES (1, 1, 0, 'check out', 3);
-INSERT INTO `tbl_checklist_task_checks` VALUES (2, 1, 1, NULL, 4);
-INSERT INTO `tbl_checklist_task_checks` VALUES (3, 2, 1, 'comment', 4);
+INSERT INTO `tbl_checklist_task_checks` VALUES (1, 1524660246, 1, 0, '', 1);
+INSERT INTO `tbl_checklist_task_checks` VALUES (2, 1524660246, 2, 1, '', 1);
+INSERT INTO `tbl_checklist_task_checks` VALUES (3, 1524660246, 3, 1, '', 1);
 
 -- ----------------------------
 -- Table structure for tbl_checklist_tasks
@@ -3200,15 +3232,12 @@ CREATE TABLE `tbl_checklist_tasks`  (
   `escalate_to` int(11) NOT NULL,
   `deleted` int(11) NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_checklist_tasks
 -- ----------------------------
-INSERT INTO `tbl_checklist_tasks` VALUES (1, '1523546027', 1, 5, '2018-04-12', 0, 0);
-INSERT INTO `tbl_checklist_tasks` VALUES (2, '1523598375', 1, 5, '2018-04-13', 0, 0);
-INSERT INTO `tbl_checklist_tasks` VALUES (3, '1523598900', 2, 5, '2018-04-13', 106, 0);
-INSERT INTO `tbl_checklist_tasks` VALUES (4, '1523623486', 1, 5, '2018-04-13', 0, 0);
+INSERT INTO `tbl_checklist_tasks` VALUES (1, '1524660246', 2, 5, '2018-04-25', 113, 0);
 
 -- ----------------------------
 -- Table structure for tbl_checklist_types
@@ -3239,13 +3268,14 @@ CREATE TABLE `tbl_checklists`  (
   `performed_on` int(11) NOT NULL,
   `comment` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_checklists
 -- ----------------------------
 INSERT INTO `tbl_checklists` VALUES (1, 'demo', 0, 1, 'to be done');
 INSERT INTO `tbl_checklists` VALUES (2, 'Comp', 0, 2, 'spoilt battery');
+INSERT INTO `tbl_checklists` VALUES (3, 'Tethering', 0, 4, 'demonstration ');
 
 -- ----------------------------
 -- Table structure for tbl_cust_supp_checkitems
@@ -3388,6 +3418,7 @@ CREATE TABLE `tbl_knowledge_base`  (
 INSERT INTO `tbl_knowledge_base` VALUES (1, 5, 'Replacing A Car Battery', 'Open The car', 5, '2018-04-18 17:33:42', NULL, 0, '');
 INSERT INTO `tbl_knowledge_base` VALUES (2, 3, 'How to Access Pro-Kazi', 'Type pro-kazi.com on your Browser.', 5, '2018-04-18 17:35:36', NULL, 0, '');
 INSERT INTO `tbl_knowledge_base` VALUES (3, 3, 'Fixing Phone Error', 'Buy a new one, simple', 5, '2018-04-18 17:38:30', NULL, 0, '1524065910.xlsx');
+INSERT INTO `tbl_knowledge_base` VALUES (4, 6, 'iugygyugyu', 'ivyvyuvyu', 5, '2018-04-23 17:56:00', NULL, 0, '');
 
 -- ----------------------------
 -- Table structure for tbl_knowledge_base_ticket
@@ -3416,7 +3447,7 @@ CREATE TABLE `tbl_knowledge_base_types`  (
   `name` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL,
   `deleted` int(11) NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 6 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of tbl_knowledge_base_types
@@ -3426,6 +3457,7 @@ INSERT INTO `tbl_knowledge_base_types` VALUES (2, 'improvement', 0);
 INSERT INTO `tbl_knowledge_base_types` VALUES (3, 'recomendation', 0);
 INSERT INTO `tbl_knowledge_base_types` VALUES (4, 'development', 0);
 INSERT INTO `tbl_knowledge_base_types` VALUES (5, 'Mechanical', 0);
+INSERT INTO `tbl_knowledge_base_types` VALUES (6, 'help', 0);
 
 -- ----------------------------
 -- Table structure for tbl_legal_case_procedures
@@ -3709,7 +3741,7 @@ CREATE TABLE `ticket_types`  (
   `title` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 8 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 7 CHARACTER SET = utf8 COLLATE = utf8_unicode_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of ticket_types
@@ -3718,7 +3750,6 @@ INSERT INTO `ticket_types` VALUES (1, 'System', 0);
 INSERT INTO `ticket_types` VALUES (2, 'Email', 0);
 INSERT INTO `ticket_types` VALUES (3, 'Call', 0);
 INSERT INTO `ticket_types` VALUES (6, 'Visit', 0);
-INSERT INTO `ticket_types` VALUES (7, 'Slow Internet', 0);
 
 -- ----------------------------
 -- Table structure for tickets
@@ -3893,7 +3924,7 @@ CREATE TABLE `warranties`  (
   `created` varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
   `deleted` tinyint(1) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 3 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
+) ENGINE = InnoDB AUTO_INCREMENT = 2 CHARACTER SET = latin1 COLLATE = latin1_swedish_ci ROW_FORMAT = Compact;
 
 -- ----------------------------
 -- Records of warranties

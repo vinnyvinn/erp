@@ -46,9 +46,7 @@ class Checklist_daily_tasks extends Pre_loader{
             "from" => 1,
             "to" => 15,
         ]);
-
     }
-
 
     function savetasks()
     {
@@ -57,13 +55,16 @@ class Checklist_daily_tasks extends Pre_loader{
 
         $status = $this->allyes($postdata->check);
 
-        $taskid = $this->savetask((!empty($postdata->escalate_to))?$postdata->escalate_to->value:'', ($status)?1:2); //customer or supplier id
+        $ref_no = time();
+
+        $taskid = $this->savetask($ref_no ,(!empty($postdata->escalate_to))?$postdata->escalate_to->value:'', ($status)?1:2); //customer or supplier id
 
         foreach ($postdata->check as $key=>$check){
             //get check id
             $data = array(
-                "status" => (int)$this->check_passed($check),
+                "ref_no" => $ref_no,
                 "check_item" => ($postdata->checkitems)?$postdata->checkitems[$key]->id:'',
+                "status" => (int)$this->check_passed($check),
                 "comment" => ($postdata->comment)?$postdata->comment[$key]:'',
                 "checklist_task" => $taskid,
             );
@@ -79,9 +80,9 @@ class Checklist_daily_tasks extends Pre_loader{
 
     }
 
-    function savetask($escalate_to, $status){
+    function savetask($ref_no, $escalate_to, $status){
         $data = array(
-            "ref_no" => time(),
+            "ref_no" => $ref_no,
             "status" => $status,
             "performed_by" => $this->login_user->id,
             "performed_on" => date('Y-m-d'),
