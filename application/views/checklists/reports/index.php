@@ -10,11 +10,11 @@
       <i class="fa fa-envelope" style="font-size:18px;color: green;"></i> <b>Support Entries</b>
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#">System Support Entries</a></li>
-      <li><a href="#">Email Support Entries</a></li>
-      <li><a href="#">Call Support Entries</a></li>
-      <li><a href="#">Support Escalations</a></li>
-      <li><a href="#">Combined Support Entries</a></li>
+      <?php
+       foreach ($ticket_types_dropdown as $key => $value) {
+        echo "<li><a href=\"support_entries_report/entry_report/{$key}\">{$value} Entries</a></li>";
+       }
+      ?>
        </ul>
   </div>
   </div>
@@ -23,11 +23,11 @@
     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: -8px;"> <i class="fa fa-check-circle-o" style="font-size:18px;color: green;"></i> <b>Checklists</b>
     <span class="caret"></span></button>
     <ul class="dropdown-menu">
-      <li><a href="#">Checklist Database</a></li>
-      <li><a href="#">Daily Task Checklist</a></li>
-      <li><a href="#">Daily Task Escalation</a></li>
-      <li><a href="#">Monthly Task Checklist Summary</a></li>
-      <li><a href="#">Third Level Support </a></li>
+      <li><a href="checklist_report/cd">Checklist Database</a></li>
+      <li><a href="checklist_report/dtc">Daily Task Checklist</a></li>
+      <li><a href="checklist_report/te">Task Escalation</a></li>
+      <li><a href="checklist_report/mtcs">Monthly Task Checklist Summary</a></li>
+      <li><a href="checklist_report/tls">Third Level Support </a></li>
        </ul>
   </div>
 </div>

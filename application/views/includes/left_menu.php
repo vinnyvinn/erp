@@ -47,19 +47,19 @@
                 foreach ($projects as $project) {
                     $openProjects[] = ['name' => $project->title, 'url' => 'projects/view/' . $project->id];
                 }
-
                 $sidebar_menu[] = array("name" => "projects", "url" => "projects", "class" => "fa-th-large", "submenu" => $openProjects);*/
 
-                
-
                 $sidebar_menu[] = ["name" => "All Projects", "class" => "fa-th-large", "url" => "projects/all_projects"];
+                $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "decider" => true);
 
-                $sidebar_menu[] = array("name" => "Your Tasks", "url" => "projects/all_tasks", "class" => "fa-check", "devider" => true);
-
-                if (($this->login_user->is_admin)) {
+                if (($this->login_user->user_type == "staff")) {
                     $checklistsSubs = [];
                     $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
-                    $checklistsSubs [] = ["name" => "ICT Reports", "url" => "ict_reports"];
+                    $checklistsSubs [] = ["name" => "Support Reports", "url" => "ict_reports/support_entries"];
+                    $checklistsSubs [] = ["name" => "Checklists Reports", "url" => "ict_reports/checklists"];
+                    $checklistsSubs [] = ["name" => "ICT Assets", "url" => "ict_reports/inventory"];
+                    $checklistsSubs [] = ["name" => "ICT Assets Maintenance", "url" => "ict_reports/inventory_maintenance"];
+                    $checklistsSubs [] = ["name" => "ICT Assets Maintenance Reports", "url" => "ict_reports/maintainance_reports"];
                     $sidebar_menu[] = array("name" => "ICT", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
                 }
                if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
