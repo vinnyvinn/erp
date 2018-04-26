@@ -33,7 +33,7 @@ public function add_trimmer()
    'time_in' => $this->input->post('time_in'),
    'time_out' => $this->input->post('time_out'),
    );
- $inserted=$this->Trimmer_sheets_model->add_trimmers($data);
+$inserted=$this->Trimmer_sheets_model->add_trimmers($data);
 $trimmer=$this->db->query("SELECT * from trimmer_sheets WHERE id=$inserted")->row_array();
 $tr_id=$trimmer['trimmer'];
 $time_in=strtotime($trimmer['time_in']);
