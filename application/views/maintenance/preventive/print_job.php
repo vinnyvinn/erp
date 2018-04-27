@@ -41,10 +41,11 @@
    </tbody>
       
 </table>
+<b>Repair / Service Required</b>: <?php echo $reports_data[0]['job_type_id']?>
 <table class="table table-striped table-bordered"  style="width: 100%">
            <thead>
              <tr>
-               <th>Repair / Service Required</th>
+               
                <th>Parts</th>
                <th>Qty</th>
                <th>Cost</th>
@@ -52,31 +53,49 @@
            </tr>
        </thead> 
        <tbody>
+          <?php
 
-            <tr>
-           <td><?php echo $reports_data[0]['job_type_id']?></td>
-           <td><?php echo $reports_data[0]['stock_name'] ? $reports_data[0]['stock_name'] : $reports_data[0]['part_name'];?>
-           </td>
-           <td><?php echo $reports_data[0]['qnty_out'] ? $reports_data[0]['qnty_out'] : $reports_data[0]['quantity']?>
-           <td><?php echo $reports_data[0]['avg_cost'] ? $reports_data[0]['avg_cost'] : $reports_data[0]['cost']?>
+          $parts=json_decode($reports_data[0]['part_name']);
+          $quantity=json_decode($reports_data[0]['quantity']);
+          $cost=json_decode($reports_data[0]['cost']);
 
-           </td>
-           </tr>
-     
+        ?>
+
+         <?php  
+          foreach ($parts as $key => $value): ?>
+          
+          <tr>
+            <td><?= $value ?></td>
+            <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
+            <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : '' ?></td>
+          </tr>
+
+        <?php endforeach; ?>
+               
      
    </tbody>
       <tfoot>
         <tr>
           <td style="color: red; font-size: 18px; text-align: right;"><b>Total Cost</b></td>
           <td></td>
-          <td></td>
-          <td><?php echo $reports_data[0]['avg_cost'] ? $reports_data[0]['avg_cost'] : $reports_data[0]['cost']?></td>
+          <td>
+            <?php
+            $sum=0; 
+            $cost= json_decode($reports_data[0]['cost']);
+            foreach ($cost as $key => $value) {
+            $sum+=$value;
+            }
+              echo $sum;
+          ?></td>
         </tr>
       </tfoot>
 </table>
 <p style="line-height: 1.6">
-<p>Comments: <?php echo $reports_data[0]['stock_name'] ? $reports_data[0]['stock_name'] : $reports_data[0]['part_name'];?> supplied by
- <?php echo  $reports_data[0]['supplier'] ? $reports_data[0]['supplier'] : $reports_data[0]['internal_provider']?>. Fixed on 
+<p>Comments: <?php $items= json_decode($reports_data[0]['part_name']);
+   echo implode(',',$items);
+;?>
+ supplied by
+ <?php echo  $reports_data[0]['supplier'] ? $reports_data[0]['supplier'] : $reports_data[0]['external_provider']?>. Fixed on 
  <?php $date=strtotime($reports_data[0]['completion_date']);
  echo date('Y/m/d',$date)?> from <?php echo $reports_data[0]['time_in']?> -  <?php echo $reports_data[0]['time_out']?>
    Total downtime <?php $time_in = strtotime($reports_data[0]['time_in']);

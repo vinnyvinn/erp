@@ -36,6 +36,15 @@ class Parts_requisition extends Pre_loader {
     LEFT JOIN  external_services ON external_services.job_card_id=jobs.id WHERE jobs.id=$id")->row()->description;
    echo json_encode($description);
  }
+ public function displayParts($id){
+  $parts=$this->SAGE_DB()->query("SELECT StkItem . StockLink AS Stk_ID , WhseMst . WhseLink AS Whse_ID , StkItem . Code AS Stk_Code , StkItem . Description_1 AS Stk_Name , StkItem . ItemGroup AS Stk_Grp , StkItem . AveUCst AS Avg_Cost , StkItem . Qty_On_Hand , 
+WhseMst . Code AS Whse_Code , WhseMst . Name AS Whse_Name , WhseStk . WHQtyOnHand AS Qty_In_Whse , StkItem . iUOMStockingUnitID AS Item_Unit
+FROM WhseStk INNER JOIN
+WhseMst ON WhseStk . WHWhseID = WhseMst . WhseLink INNER JOIN
+StkItem ON WhseStk . WHStockLink = StkItem . StockLink WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkItem . StockLink = $id) " )->row_array()['Qty_In_Whse'];
+ 
+ echo json_encode($parts);
+ }
   public function createPart(){
   $view_data['stocks_dropdown'] =$this->SAGE_DB()->query("SELECT StkItem . StockLink AS Stk_ID , WhseMst . WhseLink AS Whse_ID , StkItem . Code AS Stk_Code , StkItem . Description_1 AS Stk_Name , StkItem . ItemGroup AS Stk_Grp , StkItem . AveUCst AS Avg_Cost , StkItem . Qty_On_Hand , 
 WhseMst . Code AS Whse_Code , WhseMst . Name AS Whse_Name , WhseStk . WHQtyOnHand AS Qty_In_Whse , StkItem . iUOMStockingUnitID AS Item_Unit
@@ -102,6 +111,7 @@ WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkIt
   $updated=array('requisition_no' => substr('RQ-0'.$id,0,8),'total'=>$total);
   $this->db->update('spares',$updated);
   $batchlines=array(
+    
    'iInvJrBatchID' => 7,
    'iStockID' => $items->stock_id,
    'iWarehouseID' => $items->warehouse_id,

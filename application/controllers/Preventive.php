@@ -23,7 +23,6 @@ class Preventive extends Pre_loader
 
     public function index()
     {
-
      $view_data['all_details'] = $this->Jobs_model->get_details();
      $this->template->rander("maintenance/preventive/index", $view_data);
    }
@@ -233,6 +232,23 @@ public function save_task()
 public function save()
 {
 
+
+
+  $partArr = $this->input->post('part_name');
+  $qntyArr = $this->input->post('quantity');
+  $costArr = $this->input->post('cost');
+  if(!empty($partArr)){
+    for($i = 0; $i < count($partArr); $i++){
+      if(!empty($partArr[$i])){
+        $part_name = $partArr[$i];
+        $qnty = $qntyArr[$i];
+        $cost = $costArr[$i];
+        
+      }
+    }
+  }
+  
+  
   $km_reading='';
   $hours='';
   $internal_provider='';
@@ -249,7 +265,7 @@ if($this->input->post('internal_provider')){
 if($this->input->post('external_provider')){
  $external_provider= $this->input->post('external_provider');
 }
-$total_cost=$this->input->post('quantity')*$this->input->post('cost');
+//$total_cost=$this->input->post('quantity')*$this->input->post('cost');
 $data = array(
  "vehicle_no" => $this->input->post('vehicle_no'),
  "time_in" => $this->input->post('time_in'),
@@ -260,16 +276,18 @@ $data = array(
  "fuel_balance" => $this->input->post('fuel_balance'),
  "supplier_id" => $this->input->post('supplier_id'),
  "job_type_id" => $this->input->post('job_type_name'),
+ "labour" => $this->input->post('labour'),
+ "labour_cost" => $this->input->post('labour_cost'),
  "hours" => $hours,
  "time_out" => $this->input->post('time_out'),
  "actual_date" => $this->input->post('actual_date'),
  "track_by" => $this->input->post('track_by'),
  "service_type_id" => $this->input->post('service_type_id'),
  "provider" => $this->input->post('provider'),
- "part_name" => $this->input->post('part_name'),
- "total" => $total_cost,
- "quantity" => $this->input->post('quantity'),
- "cost" => $this->input->post('cost'),
+ "part_name" => json_encode($partArr),
+ "total" =>  0,
+ "quantity" => json_encode($qntyArr),
+ "cost" => json_encode($costArr),
  "internal_provider" => $internal_provider,
  "external_provider" => $external_provider,
 );
@@ -394,15 +412,12 @@ public function print_job($id)
     LEFT JOIN spares ON spares.job_card_id=jobs.id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no 
     LEFT JOIN employees ON employees.id=assets.driver_id
-    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.external_provider
+    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.internal_provider
     WHERE jobs.id=$id" )->result_array();
   $this->load->library('pdf2');
   $this->pdf2->load_view('maintenance/preventive/print_job', $view_data);
   $this->pdf2->render();
   $this->pdf2->stream('jobcard.pdf');
-
-
-
 }
 
 public function employee()
@@ -457,6 +472,18 @@ public function HR_DB()
   return $this->load->database('HR', TRUE);
 }
 
+function convertToHoursMins($time, $format = '%02d:%02d') {
+  if ($time < 1) {
+    return;
+  }
+  $hours = floor($time / 60);
+  $minutes = ($time % 60);
+  return sprintf($format, $hours, $minutes);
+}
+public function mytime(){
+  $tt=$this->convertToHoursMins(250, '%02d hours %02d minutes'); 
+  var_dump($tt);
+}
 
 }
 
