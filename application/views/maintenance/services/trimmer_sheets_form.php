@@ -1,3 +1,15 @@
+<?php
+
+function convertToHoursMins($time, $format = '%02d:%02d') {
+    if ($time < 1) {
+        return;
+    }
+    $hours = floor($time / 60);
+    $minutes = ($time % 60);
+    return sprintf($format, $hours, $minutes);
+}
+
+ ?>
 <div class="row">
   <div class="col-sm-12">
     <div class="panel-default">
@@ -34,8 +46,7 @@
            $time_out=strtotime( $trimmer['time_out']);
            $start_date=strtotime($trimmer['start_date']);
            $end_date=strtotime( $trimmer['end_date']);
-           $time_taken=ceil(($time_out+$end_date)/(60*60)-($time_in+$start_date)/(60*60));
-           echo $time_taken;?>hrs
+           echo convertToHoursMins((($time_out+$end_date)-($time_in+$start_date))/60, '%02d hours %02d minutes');?>
            <td><?php echo $trimmer['rate'];?></td>
            <td><?php echo $trimmer['total'];?></td>
            <td>

@@ -29,10 +29,10 @@ class Reactive extends Pre_loader {
  public function spare($id){
   $vehicle=$this->db->query("SELECT assets.code as code FROM assets 
     LEFT JOIN  jobs ON jobs.vehicle_no=assets.id WHERE jobs.id=$id")->row()->code;
-   echo json_encode($vehicle);
- }
+  echo json_encode($vehicle);
+}
 
- public function save_labour_service(){
+public function save_labour_service(){
   $amount=$this->db->query("SELECT * FROM rates_perhour LIMIT 1")->row()->amount;
   $start_date=$this->input->post('start_date');
   $end_date=$this->input->post('end_date');
@@ -86,7 +86,7 @@ public function external_service_create(){
   $view_data['jobs_card_dropdown'] = $this->Jobs_model->get_all_where(array("deleted" => 0))->result();
   $view_data['suppliers_dropdown']=$this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result();
   $view_data['equipments_dropdown']=$this->Equipments_model->get_all_where(array("deleted" => 0))->result();
- $view_data['service_providers_dropdown']=$this->Service_providers_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['service_providers_dropdown']=$this->Service_providers_model->get_all_where(array("deleted" => 0))->result();
   $this->template->rander('maintenance/reactive/external',$view_data);
 }
 public function view_external($id){
@@ -117,11 +117,11 @@ public function show_job($id)
   $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
   $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
   
- $view_data['jobs'] = $this->Jobs_model->fetchId($id);
- $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
- $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
- $view_data ['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
- $this->template->rander('maintenance/reactive/edit_form', $view_data);
+  $view_data['jobs'] = $this->Jobs_model->fetchId($id);
+  $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+  $view_data ['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+  $this->template->rander('maintenance/reactive/edit_form', $view_data);
 }
 
 public function print_external($id){
@@ -140,15 +140,15 @@ public function print_external($id){
 }
 public function printService($id){
  $view_data['services']=$this->db->query("SELECT external_services.* ,equipments.description as item,
-    providers.name as provider,assets.code as vehicle,
-    jobs.card_no,jobs.id as jID,parts_suppliers.name as supplier,assets.description as make,
-    parts_suppliers.id as sID,jobs.description FROM external_services
-    LEFT JOIN jobs ON jobs.id=external_services.job_card_id
-    LEFT JOIN assets ON assets.id=jobs.vehicle_no
-    LEFT JOIN parts_suppliers ON parts_suppliers.id=external_services.supplier_id
-    LEFT JOIN providers ON external_services.service_provider_id=providers.id
-    LEFT JOIN equipments ON equipments.id=external_services.stock_id
-    WHERE external_services.id=$id")->result_array();
+  providers.name as provider,assets.code as vehicle,
+  jobs.card_no,jobs.id as jID,parts_suppliers.name as supplier,assets.description as make,
+  parts_suppliers.id as sID,jobs.description FROM external_services
+  LEFT JOIN jobs ON jobs.id=external_services.job_card_id
+  LEFT JOIN assets ON assets.id=jobs.vehicle_no
+  LEFT JOIN parts_suppliers ON parts_suppliers.id=external_services.supplier_id
+  LEFT JOIN providers ON external_services.service_provider_id=providers.id
+  LEFT JOIN equipments ON equipments.id=external_services.stock_id
+  WHERE external_services.id=$id")->result_array();
  $view_data['jobs_card_dropdown'] = $this->Jobs_model->get_all_where(array("deleted" => 0))->result();
  $view_data['suppliers_dropdown']=$this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result();
  $this->load->library('pdf2');
@@ -173,22 +173,36 @@ public function index_job(){
  $this->template->rander("maintenance/reactive/job_card_index", $view_data);
 }
 public function job_card(){
-    $job_id = $this->input->post('id');
-    $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
-    $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
-    $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
-    $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
-    $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
+  $job_id = $this->input->post('id');
+  $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
+  $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
+  $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['service_types_dropdown'] = $this->Job_services_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['inspections_dropdown'] = $this->Inspections_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['job_types_dropdown'] = $this->Job_types_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['jobs_status_dropdown'] = $this->Jobs_status_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['sage_staff_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();
+  $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
+  $view_data['fuel_dropdown'] = $this->Fuel_balances_model->get_all_where(array("deleted" => 0))->result();
   $this->template->rander('maintenance/reactive/job_card_form',$view_data); 
 }
 public function save(){
-   $km_reading='';
+  $partArr = $this->input->post('part_name');
+  $qntyArr = $this->input->post('quantity');
+  $costArr = $this->input->post('cost');
+  if(!empty($partArr)){
+    for($i = 0; $i < count($partArr); $i++){
+      if(!empty($partArr[$i])){
+        $part_name = $partArr[$i];
+        $qnty = $qntyArr[$i];
+        $cost = $costArr[$i];
+        
+      }
+    }
+  }
+  
+  $km_reading='';
   $hours='';
   $internal_provider='';
   $external_provider='';
@@ -204,11 +218,12 @@ if($this->input->post('internal_provider')){
 if($this->input->post('external_provider')){
  $external_provider= $this->input->post('external_provider');
 }
-$total_cost=$this->input->post('quantity')*$this->input->post('cost');
 $data = array(
  "vehicle_no" => $this->input->post('vehicle_no'),
  "time_in" => $this->input->post('time_in'),
  "km_reading" => $km_reading ,
+ "labour" => $this->input->post('labour'),
+ "labour_cost" => $this->input->post('labour_cost'),
  "description" => $this->input->post('description'),
  "completion_date" => $this->input->post('completion_date'),
  "fuel_balance" => $this->input->post('fuel_balance'),
@@ -221,10 +236,10 @@ $data = array(
  "track_by" => $this->input->post('track_by'),
  "service_type_id" => $this->input->post('service_type_id'),
  "provider" => $this->input->post('provider'),
- "part_name" => $this->input->post('part_name'),
- "total" => $total_cost,
- "quantity" => $this->input->post('quantity'),
- "cost" => $this->input->post('cost'),
+ "part_name" => json_encode($partArr),
+ "total" =>  0,
+ "quantity" => json_encode($qntyArr),
+ "cost" => json_encode($costArr),
  "internal_provider" => $internal_provider,
  "external_provider" => $external_provider,
  "reactive" => 1,
@@ -238,36 +253,36 @@ $card = array("card_no" => substr('ESL-' . $last_id . '-' . $model->code, 0, 20)
 $km_r=array("km_reading" => $model->km_reading);
 $this->db->where('id', $last_id)->update('jobs', $card);
 $this->db->where('id', $model->vehicle_no)->update('assets', $km_r);
-  return redirect(base_url('reactive'));
+return redirect(base_url('reactive'));
 }
 public function update_checklist(){
  if(!empty($_FILES['picture']['name'])){
-    $config['upload_path'] = 'uploads/images/';
-    $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|csv|txt|rtf|html|zip|mp3|wma|mpg|flv|avi';
-    $config['file_name'] = $_FILES['picture']['name'];
+  $config['upload_path'] = 'uploads/images/';
+  $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|csv|txt|rtf|html|zip|mp3|wma|mpg|flv|avi';
+  $config['file_name'] = $_FILES['picture']['name'];
     //Load upload library and initialize configuration
-    $this->load->library('upload',$config);
-    $this->upload->initialize($config);
+  $this->load->library('upload',$config);
+  $this->upload->initialize($config);
 
-    if($this->upload->do_upload('picture')){
-      $uploadData = $this->upload->data();
-      $picture = $uploadData['file_name'];
-    }else{
-      $picture = '';
-    }
+  if($this->upload->do_upload('picture')){
+    $uploadData = $this->upload->data();
+    $picture = $uploadData['file_name'];
   }else{
     $picture = '';
   }
-  $inspection = $this->input->post('inspection_id');
-  $done_by = $this->input->post('done_by');
-  $status = $this->input->post('status_id');
-  $tosave = [];
-  for ($i = 1; $i <= count($inspection); $i++) {
-   array_push($tosave, ['items' => array("inspection_id" => $inspection[$i][0], "user" => $done_by[$i][0], "satus" => $status[$i][0])]);
-  }
-  $data=array("application_data" => json_encode($tosave),"status" => "Completed","picture" => $picture);
-  $this->db->where('id', $this->input->post('id'));
- $this->db->update('jobs', $data); 
- return redirect(base_url('reactive'));
+}else{
+  $picture = '';
+}
+$inspection = $this->input->post('inspection_id');
+$done_by = $this->input->post('done_by');
+$status = $this->input->post('status_id');
+$tosave = [];
+for ($i = 1; $i <= count($inspection); $i++) {
+ array_push($tosave, ['items' => array("inspection_id" => $inspection[$i][0], "user" => $done_by[$i][0], "satus" => $status[$i][0])]);
+}
+$data=array("application_data" => json_encode($tosave),"status" => "Completed","picture" => $picture);
+$this->db->where('id', $this->input->post('id'));
+$this->db->update('jobs', $data); 
+return redirect(base_url('reactive'));
 }
 }
