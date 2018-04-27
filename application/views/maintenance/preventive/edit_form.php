@@ -48,9 +48,19 @@
         ));
         ?>
       </div>
-      <div>
+      <div class="col-sm-6">
         <label for="job_service"><b>Spare Part</b>
           <p><?php echo $jobs[0]['stock_name'] ? $jobs[0]['stock_name'] : $jobs[0]['part_name'] ;?></p>
+        </label>
+         </div>
+         <div class="col-sm-3">
+        <label for="job_service"><b>Quantity</b>
+          <p><?php echo $jobs[0]['quantity'] ? $jobs[0]['quantity'] : $jobs[0]['qnty_out'] ;?></p>
+        </label>
+         </div>
+         <div class="col-sm-3">
+        <label for="job_service"><b>Cost</b>
+          <p><?php echo $jobs[0]['total'] ? $jobs[0]['total'] : $jobs[0]['totalcost'] ;?></p>
         </label>
          </div>
       <div class="form-group">

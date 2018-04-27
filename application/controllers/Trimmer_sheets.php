@@ -32,13 +32,17 @@ public function add_trimmer()
    'trimmer' => $this->input->post('trimmer'),
    'time_in' => $this->input->post('time_in'),
    'time_out' => $this->input->post('time_out'),
+   'start_date' => $this->input->post('start_date'),
+   'end_date' => $this->input->post('end_date'),
    );
 $inserted=$this->Trimmer_sheets_model->add_trimmers($data);
 $trimmer=$this->db->query("SELECT * from trimmer_sheets WHERE id=$inserted")->row_array();
 $tr_id=$trimmer['trimmer'];
 $time_in=strtotime($trimmer['time_in']);
 $time_out=strtotime($trimmer['time_out']);
-$time_taken=ceil(($time_out)/(60*60)-($time_in)/(60*60));
+$start_date=strtotime($trimmer['start_date']);
+$end_date=strtotime($trimmer['end_date']);
+$time_taken=ceil(($time_out+$end_date)/(60*60)-($time_in+$start_date)/(60*60));
 $queryTrimmer=$this->db->query("SELECT * FROM trimmers WHERE id=$tr_id")->row_array();
 $total=$queryTrimmer['rate']*$time_taken;
 $updated=array('rate' => $queryTrimmer['rate'],'total' => $total);
@@ -59,6 +63,8 @@ public function trimmer_update()
    'trimmer' => $this->input->post('trimmer'),
    'time_in' => $this->input->post('time_in'),
    'time_out' => $this->input->post('time_out'),
+   'start_date' => $this->input->post('start_date'),
+   'end_date' => $this->input->post('end_date'),
    'updated' => date("Y-m-d H:i:s"),
    
  );

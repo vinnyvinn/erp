@@ -18,6 +18,7 @@ class Parts_requisition extends Pre_loader {
 
   } 
   public function index(){
+
      $view_data['spares']=$this->db->query("SELECT spares.*,spares.id as spID,
       assets.code as vehicle,jobs.card_no FROM spares
       LEFT JOIN jobs ON jobs.id=spares.job_card_id 
@@ -62,13 +63,19 @@ WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 )")->result()
 
  public function save_part(){
   $stock_id=$this->input->post('stock_id');
- 
+ $qnty_out=$this->input->post('qnty_out');
+
   $stocks=$this->SAGE_DB()->query("SELECT StkItem . StockLink AS Stk_ID , WhseMst . WhseLink AS Whse_ID , StkItem . Code AS Stk_Code , StkItem . Description_1 AS Stk_Name , StkItem . ItemGroup AS Stk_Grp , StkItem . AveUCst AS Avg_Cost , StkItem . Qty_On_Hand , 
 WhseMst . Code AS Whse_Code , WhseMst . Name AS Whse_Name , WhseStk . WHQtyOnHand AS Qty_In_Whse , StkItem . iUOMStockingUnitID AS Item_Unit
 FROM WhseStk INNER JOIN
 WhseMst ON WhseStk . WHWhseID = WhseMst . WhseLink INNER JOIN
 StkItem ON WhseStk . WHStockLink = StkItem . StockLink
 WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkItem . StockLink = $stock_id)")->result_array();
+  if(($stocks[0]['Qty_In_Whse']) < 1  || ($qnty_out > $stocks[0]['Qty_In_Whse'])){
+    $this->session->set_flashdata('item','sorry quantity in store is less than what you have request'); 
+    return redirect(base_url('parts_requisition'));
+
+}
  
  $data=array(
    'job_card_id' => $this->input->post('job_card_id'),

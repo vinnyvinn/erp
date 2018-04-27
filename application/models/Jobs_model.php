@@ -39,7 +39,7 @@ class Jobs_model extends Crud_model {
    $view_data=[];
    $query="SELECT jobs.*,jobs.description as explanation,job_services.*,jobs.id as id ,fuel_balances.description as balance,
    job_services.id as serviceID,assets.code,assets.asset_no,employees.name as driver,parts_suppliers.name as provider,spares.stock_name,
-   service_types.name as service FROM jobs 
+   spares.qnty_out,spares.total as totalcost,service_types.name as service FROM jobs 
    LEFT JOIN job_services ON job_services.id=jobs.job_service_id
    LEFT JOIN assets ON assets.id=jobs.vehicle_no
    LEFT JOIN employees ON employees.id=assets.driver_id
