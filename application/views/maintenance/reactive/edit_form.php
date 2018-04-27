@@ -10,7 +10,7 @@
       <div class="col-sm-4">
         <div class="form-group vehicle_sel">
           <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
-          <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled>
+          <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled="disabled">
             <option value=""><?php echo $jobs[0]['code'];?></option>
             <?php
             foreach ($vehicles_dropdown as $value) {

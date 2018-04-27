@@ -21,8 +21,7 @@
          <th>Description</th>
          
          <th>Actions</th>
-         
-       </tr>
+          </tr>
      </thead> 
      <tbody>
       <?php foreach ($all_details as $asset) {?>
