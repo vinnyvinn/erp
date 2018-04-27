@@ -19,7 +19,7 @@ class Parts_requisition extends Pre_loader {
   } 
   public function index(){
 
-     $view_data['spares']=$this->db->query("SELECT spares.*,spares.id as spID,
+   $view_data['spares']=$this->db->query("SELECT spares.*,spares.id as spID,
       assets.code as vehicle,jobs.card_no FROM spares
       LEFT JOIN jobs ON jobs.id=spares.job_card_id 
       LEFT JOIN assets ON assets.id=jobs.vehicle_no")->result_array();
@@ -37,7 +37,7 @@ class Parts_requisition extends Pre_loader {
    echo json_encode($description);
  }
   public function createPart(){
-     $view_data['stocks_dropdown'] =$this->SAGE_DB()->query("SELECT StkItem . StockLink AS Stk_ID , WhseMst . WhseLink AS Whse_ID , StkItem . Code AS Stk_Code , StkItem . Description_1 AS Stk_Name , StkItem . ItemGroup AS Stk_Grp , StkItem . AveUCst AS Avg_Cost , StkItem . Qty_On_Hand , 
+  $view_data['stocks_dropdown'] =$this->SAGE_DB()->query("SELECT StkItem . StockLink AS Stk_ID , WhseMst . WhseLink AS Whse_ID , StkItem . Code AS Stk_Code , StkItem . Description_1 AS Stk_Name , StkItem . ItemGroup AS Stk_Grp , StkItem . AveUCst AS Avg_Cost , StkItem . Qty_On_Hand , 
 WhseMst . Code AS Whse_Code , WhseMst . Name AS Whse_Name , WhseStk . WHQtyOnHand AS Qty_In_Whse , StkItem . iUOMStockingUnitID AS Item_Unit
 FROM WhseStk INNER JOIN
 WhseMst ON WhseStk . WHWhseID = WhseMst . WhseLink INNER JOIN
@@ -62,6 +62,7 @@ WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 )")->result()
 }
 
  public function save_part(){
+  
   $stock_id=$this->input->post('stock_id');
  $qnty_out=$this->input->post('qnty_out');
 
@@ -71,6 +72,7 @@ FROM WhseStk INNER JOIN
 WhseMst ON WhseStk . WHWhseID = WhseMst . WhseLink INNER JOIN
 StkItem ON WhseStk . WHStockLink = StkItem . StockLink
 WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkItem . StockLink = $stock_id)")->result_array();
+  
   if(($stocks[0]['Qty_In_Whse']) < 1  || ($qnty_out > $stocks[0]['Qty_In_Whse'])){
     $this->session->set_flashdata('item','sorry quantity in store is less than what you have request'); 
     return redirect(base_url('parts_requisition'));
@@ -97,7 +99,7 @@ WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkIt
   $items=$this->db->query("SELECT spares.*,jobs.card_no FROM spares
   LEFT JOIN jobs ON jobs.id=spares.job_card_id WHERE spares.id=$id")->row();
   $total=$items->qnty_out*$items->avg_cost;
-  $updated=array('requisition_no' => substr('RQ-0'.$id,0,8),'total'=>$total,);
+  $updated=array('requisition_no' => substr('RQ-0'.$id,0,8),'total'=>$total);
   $this->db->update('spares',$updated);
   $batchlines=array(
    'iInvJrBatchID' => 7,
@@ -115,9 +117,11 @@ WHERE ( StkItem . ItemActive = 1 ) AND ( StkItem . ServiceItem = 0 ) AND ( StkIt
    'iUnitsOfMeasureCategoryID' => $items->stock_id,
    'iUnitsOfMeasureID' => $items->stock_id,
   );
-  $this->SAGE_DB()->insert('_etblInvJrBatchlines',$batchlines);
-  return redirect(base_url('parts_requisition'));
-  //echo json_encode($inserted);
+$this->SAGE_DB()->insert('_etblInvJrBatchlines',$batchlines);
+$whse_id=$this->SAGE_DB()->query("SELECT * FROM _etblInvJrBatchlines ORDER BY dTrDate DESC")->row_array()['iWarehouseID'];
+$quantity=$items->qnty_out;
+$this->SAGE_DB()->query("UPDATE  WhseStk SET WHQtyOnHand-=$quantity WHERE IdWhseStk=$whse_id");
+return redirect(base_url('parts_requisition'));
 }
 public function inventory(){
   echo "<pre>";
