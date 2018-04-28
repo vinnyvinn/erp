@@ -42,14 +42,7 @@
       <div id="internal" class="providers internal" style="display: none;">
         <div class="form-group">
          <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
-         <select class="form-control" name="internal_provider" id="internal_provider" placeholder="provider">
-          <option value="">--Choose Service Provider--</option>
-          <?php
-          foreach ($providers_dropdown as $provider) {
-            echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
-          }
-          ?>
-        </select>
+         <input type="text" name="internal_provider" id="internal_provider" class="form-control" placeholder="name">
         
       </div>
     </div>
@@ -57,7 +50,14 @@
     <div id="external" class="providers external">
       <div class="form-group">
        <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
-       <input type="text" name="external_provider" class="form-control" placeholder="Name">
+        <select class="form-control" name="external_provider" id="external_provider" placeholder="provider">
+          <option value="">--Choose Service Provider--</option>
+          <?php
+          foreach ($providers_dropdown as $provider) {
+            echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
+          }
+          ?>
+        </select>
 
      </div>
      

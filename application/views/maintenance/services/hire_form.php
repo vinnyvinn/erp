@@ -123,6 +123,7 @@
           $('[name="rate"]').val(data.rate);
           $('[name="currency"]').val(data.currency);
           $('[name="measurement"]').val(data.measurement);
+          $('[name="project_id"]').val(data.project_id);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Hired Asset'); // Set title to Bootstrap modal title
 
@@ -333,6 +334,19 @@
       </div>
     </div>
 
+<div class="form-group">
+        <label class="control-label col-md-3">Add Project</label>
+        <div class="col-md-9">
+          <select class="form-control" name="project_id" placeholder="Project" id="project_id" required>
+
+           <?php
+           foreach ($projects_dropdown as $project) {
+            echo "<option value=". $project->ProjectLink . ">" . ucfirst($project->ProjectName) . "</option>";
+          }
+          ?>
+        </select>
+      </div>
+    </div>
   </form>
 </div>
 <div class="modal-footer">
@@ -351,6 +365,7 @@
   $('#client_id').select2();
   $('#supplier_id').select2();
   $('#asset_inhouse').select2();
+  $('#project_id').select2();
 </script>
 <script type="text/javascript">
   $(function() {

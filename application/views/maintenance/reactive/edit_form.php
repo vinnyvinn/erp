@@ -48,6 +48,7 @@
           ));
           ?>
         </div>
+       
         <table style="width: 100%">
           <tr>
             <th>Spare Parts</th>
@@ -75,7 +76,6 @@
 
 
         </table>
-        
         <div class="form-group">
           <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
            <input type='file' name='picture' size='20' />
@@ -87,7 +87,7 @@
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
         <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['external_provider'] ?></option>     
+          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
         </select>
 
       </div>
@@ -125,6 +125,7 @@
         <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
         <p id="driver"><?php echo $jobs[0]['driver'];?></p>
       </div>
+       <?php if(!empty($jobs[0]['labour'])){?>
       <div class="col-sm-6">
         <div class="form-group">
           <label for="driver"><b>Labour</b></label>
@@ -136,7 +137,8 @@
           <label for="driver"><b>Cost</b></label>
           <p id="driver"><?php echo $jobs[0]['labour_cost'];?></p>
         </div> 
-      </div> 
+      </div>
+      <?php }?> 
     </div>
 
     <div class="col-sm-4">
@@ -190,6 +192,20 @@
           "id" => "km_reading",
           "name" => "km_reading",
           "value" => number_format($jobs[0]['km_reading'],2),
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="km_reading"><b>Miles</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "value" => number_format(($jobs[0]['km_reading']*0.621371),2),
           "class" => "form-control",
           "disabled" => "disabled",
 

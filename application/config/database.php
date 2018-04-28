@@ -99,7 +99,7 @@ $db['default'] = array(
 
 $db['SAGE'] = array(
   'dsn' => '',
-  'hostname' => '5.189.187.134',
+  'hostname' => ' 5.189.187.134',
   'username' => 'sa',
   'password' => 'Qwerty123!',
   'database' => 'ESL_LTD',

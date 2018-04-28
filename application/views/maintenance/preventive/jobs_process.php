@@ -49,6 +49,10 @@
           ));
           ?>
         </div>
+         <?php
+         $name=json_decode($jobs[0]['part_name']);
+         $check=implode(',',$name);
+          if(is_numeric($check)) {?>
         <table style="width: 100%">
           <tr>
             <th>Spare Parts</th>
@@ -76,6 +80,7 @@
 
 
         </table>
+        <?php }?>
         <br>
         <div class="form-group">
           <?php if(!empty($jobs[0]['picture'])){?>
@@ -124,6 +129,7 @@
           <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
           <p id="driver"><?php echo $jobs[0]['driver'];?></p>
         </div> 
+        <?php if(!empty($jobs[0]['labour'])){?>
         <div class="col-sm-6">
         <div class="form-group">
           <label for="driver"><b>Labour</b></label>
@@ -136,6 +142,7 @@
           <p id="driver"><?php echo $jobs[0]['labour_cost'];?></p>
         </div> 
       </div>
+      <?php }?>
       </div>
 
       <div class="col-sm-4">
@@ -190,6 +197,20 @@
           "id" => "km_reading",
           "name" => "km_reading",
           "value" => number_format($jobs[0]['km_reading'],2),
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="km_reading"><b>Miles</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "value" => number_format(($jobs[0]['km_reading']*0.621371),2),
           "class" => "form-control",
           "disabled" => "disabled",
 

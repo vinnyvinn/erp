@@ -433,12 +433,11 @@ public function employee()
 
 public function supplier()
 {
-  $sql = "SELECT * FROM StkItem";
+  $sql = "SELECT * FROM _btblFAAsset";
   $results = $this->SAGE_DB()->query($sql)->result_array();
   echo "<pre>";
   var_dump($results);
 }
-
 
 public function asset()
 {

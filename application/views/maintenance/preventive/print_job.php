@@ -42,6 +42,7 @@
       
 </table>
 <b>Repair / Service Required</b>: <?php echo $reports_data[0]['job_type_id']?>
+
 <table class="table table-striped table-bordered"  style="width: 100%">
            <thead>
              <tr>
@@ -90,6 +91,7 @@
         </tr>
       </tfoot>
 </table>
+
 <p style="line-height: 1.6">
 <p>Comments: <?php $items= json_decode($reports_data[0]['part_name']);
    echo implode(',',$items);

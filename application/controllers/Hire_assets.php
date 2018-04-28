@@ -24,6 +24,7 @@ class Hire_assets extends Pre_loader {
     $view_data['providers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['clients_dropdown'] = $this->Sage_clients_model->get_all_where(array("deleted" => 0))->result();
     $view_data['outsource_dropdown'] = $this->Equipments_model->get_all_where(array("deleted" => 0))->result();
+    $view_data['projects_dropdown'] = $this->SAGE_DB()->query("SELECT ProjectLink,ProjectName FROM project")->result();
     $view_data['hires_dropdown']=$this->SAGE_DB()->query("SELECT cAssetCode,cAssetDesc, ubFAForHire,ulFAHireItemGroup,idAssetNo,fPurchaseValue FROM _btblFAAsset")->result();
     $view_data['hires']=$this->db->query("SELECT hire_assets.*,employees.name as staff,parts_suppliers.name as supplier,
       sage_clients.name as client,equipments.description as equipment FROM hire_assets
@@ -59,6 +60,7 @@ class Hire_assets extends Pre_loader {
      'staff_id' => $this->input->post('staff_id'),
      'client_id' => $this->input->post('client_id'),
      'supplier_id' => $this->input->post('supplier_id'),
+     'project_id' => $this->input->post('project_id'),
      'hours' => $hours,
      'rate' => $this->input->post('rate'),
      'currency' => $this->input->post('currency'),
@@ -161,7 +163,7 @@ class Hire_assets extends Pre_loader {
                 'PAddress6' => $details->Physical5,
 //            'POSAmntTendered',
 //            'POSChange',
-                'ProjectID' => 0,
+                'ProjectID' => $query->project_id,
                 'TaxInclusive' => 0,
 //            'TillID',
                 'bInvRounding' => 1,
@@ -426,7 +428,7 @@ $this->SAGE_DB()->insert('_btblinvoicelines',$invoice_details);
   }
   public function asset_update()
   {
-    $tonnes='';
+   $tonnes='';
     $hours=''; 
     $asset='';
     
@@ -448,6 +450,7 @@ $this->SAGE_DB()->insert('_btblinvoicelines',$invoice_details);
      'staff_id' => $this->input->post('staff_id'),
      'client_id' => $this->input->post('client_id'),
      'supplier_id' => $this->input->post('supplier_id'),
+     'project_id' => $this->input->post('project_id'),
      'hours' => $hours,
      'rate' => $this->input->post('rate'),
      'currency' => $this->input->post('currency'),
