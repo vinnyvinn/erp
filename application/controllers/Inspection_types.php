@@ -13,12 +13,13 @@ class Inspection_types extends Pre_loader {
 
   public function __construct() {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
      
   }
 
   public function index(){
-
+$this->access_only_allowed_members();
      $view_data['all_details']=$this->Inspections_model->get_all_inspections();
      $this->template->rander("maintenance/services/tasks_form",$view_data);
   }

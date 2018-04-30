@@ -13,11 +13,13 @@ class Fuel extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
     
   }
 
   public function index(){
+    $this->access_only_allowed_members();
     $view_data['suppliers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result();  
     $view_data['staffs_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['expenses_dropdown'] = $this->Other_expenses_model->get_all_where(array("deleted" => 0))->result();   

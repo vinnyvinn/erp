@@ -13,12 +13,13 @@ class Employees_types extends Pre_loader {
 
   public function __construct() {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
      
   }
 
   public function index(){
-     
+      $this->access_only_allowed_members();
      $view_data['employees']=$this->Employees_model->get_all_employees();
      $this->template->rander("maintenance/services/employees_form",$view_data);
   }

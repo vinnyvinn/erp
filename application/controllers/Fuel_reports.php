@@ -16,13 +16,14 @@ class Fuel_reports extends Pre_loader
     public function __construct()
     {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
 
     }
 
     public function index()
     {
-
+      $this->access_only_allowed_members();
       $users = $this->db->query("SELECT * FROM employees")->result_array();
       $arrayData=[];
       foreach ($users as $key => $user) {

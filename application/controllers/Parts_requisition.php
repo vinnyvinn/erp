@@ -14,11 +14,12 @@ class Parts_requisition extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
 
   } 
   public function index(){
-
+$this->access_only_allowed_members();
    $view_data['spares']=$this->db->query("SELECT spares.*,spares.id as spID,
       assets.code as vehicle,jobs.card_no FROM spares
       LEFT JOIN jobs ON jobs.id=spares.job_card_id 

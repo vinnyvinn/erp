@@ -14,10 +14,12 @@ class Spare_parts extends Pre_loader {
 
   public function __construct() {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
      
   }
    public function index(){
+    $this->access_only_allowed_members();
    	$view_data['equipments']=$this->Equipments_model->get_all_equipment();
    	$this->template->rander('maintenance/reactive/add_equipment',$view_data);
    }

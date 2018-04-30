@@ -13,12 +13,13 @@ class Warranty_parts extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
     
   }
 
   public function index(){
-   
+   $this->access_only_allowed_members();
    $query="SELECT warranties.*,warranties.id as id,assets.code FROM warranties LEFT JOIN assets ON assets.id=warranties.asset";
    $view_data['assets_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result();   
    $view_data['parts']=$this->db->query($query)->result_array();

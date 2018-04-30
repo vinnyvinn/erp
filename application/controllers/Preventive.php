@@ -16,13 +16,17 @@ class Preventive extends Pre_loader
     public function __construct()
     {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
       $this->load->library('excel');
+      
+
 
     }
 
     public function index()
     {
+      $this->access_only_allowed_members();
      $view_data['all_details'] = $this->Jobs_model->get_details();
      $this->template->rander("maintenance/preventive/index", $view_data);
    }
@@ -107,6 +111,7 @@ public function DisplayTasksData()
 
 public function jobs_form()
 {
+  $this->access_only_allowed_members();
   $job_id = $this->input->post('id');
   $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
   $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
@@ -123,6 +128,7 @@ public function jobs_form()
   $this->template->rander('maintenance/preventive/jobs_form', $view_data);
 }
 public function process_form($id){
+  $this->access_only_allowed_members();
   $job_id = $this->input->post('id');
   $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
   $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
@@ -359,6 +365,7 @@ public function save_job_type()
 public function show_job($id)
 {
 
+   $this->access_only_allowed_members();
   $job_id = $this->input->post('id');
   $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
   $view_data['job_info'] = $this->Jobs_model->get_one($job_id);

@@ -13,12 +13,14 @@ class Job_types extends Pre_loader {
 
   public function __construct() {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
      
   }
 
   public function index(){
 
+      $this->access_only_allowed_members();
      $query="SELECT job_types.*,job_types.id as job_ID,service_types.*,job_services.*,job_services.id as js_ID FROM job_types LEFT JOIN service_types ON service_types.id=job_types.service_type LEFT JOIN job_services ON job_services.id=job_types.job_id";
     $view_data['all_details']=$this->db->query($query)->result_array();
     $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();

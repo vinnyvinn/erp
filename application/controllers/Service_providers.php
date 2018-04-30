@@ -13,11 +13,13 @@ class Service_providers extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
     
   }
 
   public function index(){
+    $this->access_only_allowed_members();
    $view_data['suppliers']=$this->db->query("SELECT * FROM providers")->result_array();
    $this->template->rander("maintenance/services/providers_form",$view_data);
  }

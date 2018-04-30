@@ -13,11 +13,13 @@ class Sage_clients extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
     
   }
 
   public function index(){
+    $this->access_only_allowed_members();
    $view_data['clients']=$this->db->query("SELECT * FROM sage_clients")->result_array();
     $this->template->rander("maintenance/services/clients_form",$view_data);
   }

@@ -13,11 +13,13 @@ class Fuel_price extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
     
   }
 
   public function index(){
+    $this->access_only_allowed_members();
     $view_data['prices']=$this->db->query("SELECT * FROM fuel_prices")->result_array();
     $this->template->rander("maintenance/services/price_form",$view_data);
   }
