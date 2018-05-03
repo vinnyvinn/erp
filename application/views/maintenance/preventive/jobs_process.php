@@ -49,77 +49,133 @@
           ));
           ?>
         </div>
-        <div>
-        <label for="job_service"><b>Spare Part</b>
-          <p><?php echo $jobs[0]['stock_name'] ? $jobs[0]['stock_name'] : $jobs[0]['part_name'] ;?></p>
-        </label>
-         </div>
+         
+        <table style="width: 100%">
+          <tr>
+            <th>Spare Parts</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+          </tr>
 
-      <div class="form-group">
-        <?php if(!empty($jobs[0]['picture'])){?>
-        <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download File</a>
-        <?php }?>
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="form-group">
-        <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
-        <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
-        </select>
+          <?php
 
-      </div>
+          $parts=json_decode($jobs[0]['part_name']);
+          $quantity=json_decode($jobs[0]['quantity']);
+          $cost=json_decode($jobs[0]['cost']);
 
-      <div class="form-group">
-        <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
+          ?>
 
-        <?php
-        echo form_input(array(
-          "id" => "completion_date",
-          "name" => "completion_date",
-          "value" => $jobs[0]['completion_date'],
-          "class" => "form-control",
-          "disabled" => "disabled",
+          <?php foreach ($parts as $key => $value): ?>
 
-        ));
-        ?>
-      </div>
-      <div class="form-group">
-        <label for="actual_date"><b>Actual Date</b></label>
+            <tr>
+              <td><?= $value ?></td>
+              <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
+              <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : '' ?></td>
+            </tr>
 
-        <?php
-        echo form_input(array(
-          "id" => "completion_date",
-          "name" => "completion_date",
-          "value" => $jobs[0]['actual_date'],
-          "class" => "form-control",
-          "disabled" => "disabled",
+          <?php endforeach; ?>
 
-        ));
-        ?>
-      </div>
-      <div class="form-group">
-        <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-        <p id="driver"><?php echo $jobs[0]['driver'];?></p>
-      </div> 
-    </div>
 
-    <div class="col-sm-4">
-      <div class="form-group">
-        <b><?php echo lang('make_model'); ?></b>
+        </table>
+       
         <br>
-        <p id="model"><?php echo $jobs[0]['code'];?></p>      
+        <div class="form-group">
+          <?php if(!empty($jobs[0]['picture'])){?>
+          <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download Checklist</a>
+          <?php }?>
+        </div>
       </div>
-      <br><br>
+      <div class="col-sm-4">
+        <div class="form-group">
+          <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
+          <select class="form-control" name="job_type_name" id="job_typo" required disabled>
+            <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
+          </select>
+
+        </div>
+      <div class="form-group">
+          <label for="actual_date"><b>Actual Date</b></label>
+
+          <?php
+          echo form_input(array(
+            "id" => "completion_date",
+            "name" => "completion_date",
+            "value" => $jobs[0]['actual_date'],
+            "class" => "form-control",
+            "disabled" => "disabled",
+
+          ));
+          ?>
+        </div>
+        <div class="form-group">
+          <label for="completion_date"><b>Actual Completion Date</b></label>
+
+          <?php
+          echo form_input(array(
+            "id" => "completion_date",
+            "name" => "completion_date",
+            "value" => $jobs[0]['completion_date'],
+            "class" => "form-control",
+            "disabled" => "disabled",
+
+          ));
+          ?>
+        </div>
+       
+        <div class="form-group">
+          <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
+          <p id="driver"><?php echo $jobs[0]['driver'];?></p>
+        </div> 
+        <?php if(!empty($jobs[0]['labour'])){?>
+        <div class="col-sm-6">
+        <div class="form-group">
+          <label for="driver"><b>Labour</b></label>
+          <p id="driver"><?php echo $jobs[0]['labour'];?></p>
+        </div> 
+      </div>
       <div class="col-sm-6">
         <div class="form-group">
-          <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
+          <label for="driver"><b>Cost</b></label>
+          <p id="driver"><?php echo $jobs[0]['labour_cost'];?></p>
+        </div> 
+      </div>
+      <?php }?>
+      </div>
+
+      <div class="col-sm-4">
+        <div class="form-group">
+          <b><?php echo lang('make_model'); ?></b>
+          <br>
+          <p id="model"><?php echo $jobs[0]['code'];?></p>      
+        </div>
+        <br><br>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
+
+            <?php
+            echo form_input(array(
+              "id" => "time_in",
+              "name" => "time_in",
+              "value" => $jobs[0]['time_in'],
+              "class" => "form-control",
+              "type"  => "time",
+              "disabled" => "disabled",
+
+            ));
+            ?>
+
+          </div>
+        </div>
+        <div class="col-sm-6">
+         <div class="form-group">
+          <label for="time_out"><b>Time Out</b></label>
 
           <?php
           echo form_input(array(
             "id" => "time_in",
             "name" => "time_in",
-            "value" => $jobs[0]['time_in'],
+            "value" => $jobs[0]['time_out'],
             "class" => "form-control",
             "type"  => "time",
             "disabled" => "disabled",
@@ -129,136 +185,133 @@
 
         </div>
       </div>
-      <div class="col-sm-6">
-       <div class="form-group">
-        <label for="time_out"><b>Time Out</b></label>
+
+      <div class="form-group">
+        <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
 
         <?php
         echo form_input(array(
-          "id" => "time_in",
-          "name" => "time_in",
-          "value" => $jobs[0]['time_out'],
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "value" => number_format($jobs[0]['km_reading'],2),
           "class" => "form-control",
-          "type"  => "time",
           "disabled" => "disabled",
 
         ));
         ?>
+      </div>
+      <div class="form-group">
+        <label for="km_reading"><b>Miles</b></label>
 
+        <?php
+        echo form_input(array(
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "value" => number_format(($jobs[0]['km_reading']*0.621371),2),
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="km_reading"><b>Hours</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "value" => $jobs[0]['hours'],
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+      </div>
+
+
+      <div class="form-group">
+        <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "fuel_balance",
+          "name" => "fuel_balance",
+          "value" => $jobs[0]['balance'],
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
       </div>
     </div>
-
-    <div class="form-group">
-      <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
-
-      <?php
-      echo form_input(array(
-        "id" => "km_reading",
-        "name" => "km_reading",
-        "value" => number_format($jobs[0]['km_reading'],2),
-        "class" => "form-control",
-        "disabled" => "disabled",
-
-      ));
-      ?>
-    </div>
-    <div class="form-group">
-      <label for="km_reading"><b>Hours</b></label>
-
-      <?php
-      echo form_input(array(
-        "id" => "km_reading",
-        "name" => "km_reading",
-        "value" => $jobs[0]['hours'],
-        "class" => "form-control",
-        "disabled" => "disabled",
-
-      ));
-      ?>
-    </div>
-    
-
-    <div class="form-group">
-      <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
-
-      <?php
-      echo form_input(array(
-        "id" => "fuel_balance",
-        "name" => "fuel_balance",
-        "value" => $jobs[0]['balance'],
-        "class" => "form-control",
-        "disabled" => "disabled",
-
-      ));
-      ?>
-    </div>
   </div>
-</div>
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped" id="items_table">
+        <thead>
+          <tr>
 
-<hr>
-<div class="row">
-  <div class="col-sm-12">
-    <table class="table table-striped" id="items_table">
-      <thead>
-        <tr>
+            <th><?php echo lang('inspection'); ?></th>
+            <th><?php echo lang('done_by'); ?></th>
+            <th><?php echo lang('status'); ?></th>
 
-          <th><?php echo lang('inspection'); ?></th>
-          <th><?php echo lang('done_by'); ?></th>
-          <th><?php echo lang('status'); ?></th>
+          </tr>
+        </thead>
+        <tbody>
 
-        </tr>
-      </thead>
-      <tbody>
+          <tr>
+            <td> 
+              <?php
+              if(!empty($inspections['inspect'])){
+                foreach ($inspections['inspect'][0] as $key => $value) { ?>
+                <select  name="inspection_id" class="form-control" disabled="true">
 
-        <tr>
-          <td> 
-            <?php
-            if($inspections['inspect']){
-              foreach ($inspections['inspect'] as $key => $value) { ?>
+
+                  <option value="">
+                    <?php  echo $value->type; ?>
+                  </option>
+                </select>
+                <?php
+              } }
+              ?>
+            </td>
+
+            <td>
+              <?php
+              if(!empty($inspections['emp'])){
+              foreach ($inspections['emp'][0] as $key => $empl) { ?>
               <select  name="inspection_id" class="form-control" disabled="true">
 
 
                 <option value="">
-                  <?php  echo $value[0]->type; ?>
+                  <?php  echo $empl['name'];?>
                 </option>
               </select>
               <?php
             } }
             ?>
           </td>
-
           <td>
             <?php
-            foreach ($inspections['emp'] as $key => $value) { ?>
+            if(!empty($inspections['status'])){
+            foreach ($inspections['status'][0] as $key => $value) { ?>
             <select  name="inspection_id" class="form-control" disabled="true">
 
 
               <option value="">
-                <?php  echo $value[0]['name'];?>
+                <?php  echo $value->name; ?>
               </option>
             </select>
             <?php
-          }
+          } }
           ?>
         </td>
-        <td>
-          <?php
-          foreach ($inspections['status'] as $key => $value) { ?>
-          <select  name="inspection_id" class="form-control" disabled="true">
+      </tr>
 
-
-            <option value="">
-              <?php  echo $value[0]->name; ?>
-            </option>
-          </select>
-          <?php
-        }
-        ?>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
+    </tbody>
+  </table>
 </div>
 
 </div>

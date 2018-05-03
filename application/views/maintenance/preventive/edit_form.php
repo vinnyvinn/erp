@@ -4,8 +4,8 @@
    <div class="panel panel-default">
     <input type="hidden" name="id" value="<?php echo $jobs[0]['id'];?>">
     <div class="panel-heading">Job Card #<?php echo $jobs[0]['card_no']?>
-     </div>
-   <div class="panel-body">
+    </div>
+    <div class="panel-body">
      <div class="row">
       <div class="col-sm-4">
         <div class="form-group vehicle_sel">
@@ -25,46 +25,75 @@
 
           <label for="job_service"><b><?php echo lang('job_type'); ?></b></label>
           <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['job_type_id'];?>" disabled>
-           
-     </div>
-     <div class="form-group">
+          
+        </div>
+        <div class="form-group">
 
           <label for="job_service" ><b>Service Type</b></label>
           <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['service'];?>" disabled>
-           
-     </div>
+          
+        </div>
 
-      <div class="form-group">
-        <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
-        <?php
-        echo form_textarea(array(
-          "id" => "description",
-          "name" => "description",
-          "value" => $jobs[0]['explanation'],
-          "class" => "form-control",
-          'rows' => '5',
-          'cols' => '40',
-          "disabled" => "disabled",
-        ));
-        ?>
-      </div>
-      <div>
-        <label for="job_service"><b>Spare Part</b>
-          <p><?php echo $jobs[0]['stock_name'] ? $jobs[0]['stock_name'] : $jobs[0]['part_name'] ;?></p>
-        </label>
-         </div>
-      <div class="form-group">
-      <a href="<?php echo base_url().'uploads/images/1_January_Job_Cards_2017.xlsx'; ?>" class="fa fa-download fa-2x">Download File</a>
-     
+        <div class="form-group">
+          <label for="description" class="col-sm-3"><b><?php echo lang('description'); ?></b></label>
+          <?php
+          echo form_textarea(array(
+            "id" => "description",
+            "name" => "description",
+            "value" => $jobs[0]['explanation'],
+            "class" => "form-control",
+            'rows' => '5',
+            'cols' => '40',
+            "disabled" => "disabled",
+          ));
+          ?>
+        </div>
+        
+         
+        <table style="width: 100%">
+          <tr>
+            <th>Spare Parts</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+          </tr>
+          
+          <?php
+
+          $parts=json_decode($jobs[0]['part_name']);
+          $quantity=json_decode($jobs[0]['quantity']);
+          $cost=json_decode($jobs[0]['cost']);
+          ?>
+
+
+          <?php
+
+           foreach ($parts as $key => $value): ?>
+            
+            <tr>
+              <td><?= $value ?></td>
+              <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
+              <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : ''?></td>
+            </tr>
+
+          <?php endforeach; ?>
+          
+
+        </table>
+         <br>
+        <div class="form-group">
+          <?php if(!empty($jobs[0]['picture'])){?>
+          <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download Checklist</a>
+          <?php } elseif(empty($jobs[0]['picture'])) {?>
+        </div>
+              <div class="form-group">
+          <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
+           <input type='file' name='picture' size='20' class="btn btn-info"/>
+         </label>
+         
+       </div>
+       <?php }?>
      </div>
-      <div class="form-group">
-        <label for="client_id" style="color:#7988a2"><?php echo lang("upload_file"); ?>
-         <input type='file' name='picture' size='20' />
-       </label>
-       
-     </div>
-    </div>
-    <div class="col-sm-4">
+     <div class="col-sm-4">
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
         <select class="form-control" name="job_type_name" id="job_typo" required disabled>
@@ -87,7 +116,7 @@
         ));
         ?>
       </div>
-   
+      
       <div class="form-group">
         <label for="completion_date"><b>Actual Date</b></label>
 
@@ -100,14 +129,28 @@
           "disabled" => "disabled",
         ));
         ?>
-    
-    </div>
+        
+      </div>
       <div class="form-group">
         <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
         <p id="driver"><?php echo $jobs[0]['driver'];?></p>
+      </div>
+      <?php if(!empty($jobs[0]['labour'])){?>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="driver"><b>Labour</b></label>
+          <p id="driver"><?php echo $jobs[0]['labour'];?></p>
+        </div> 
+      </div>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="driver"><b>Cost</b></label>
+          <p id="driver"><?php echo $jobs[0]['labour_cost'];?></p>
+        </div> 
       </div> 
+       <?php }?>
     </div>
-
+ 
     <div class="col-sm-4">
       <div class="form-group">
         <b><?php echo lang('make_model'); ?></b>
@@ -116,40 +159,40 @@
       </div>
       <br><br>
       <div class="col-sm-6">
-      <div class="form-group">
-        <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
+        <div class="form-group">
+          <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
 
-        <?php
-        echo form_input(array(
-          "id" => "time_in",
-          "name" => "time_in",
-          "value" => $jobs[0]['time_in'],
-          "class" => "form-control",
-          "type"  => "time",
-          "disabled" => "disabled",
+          <?php
+          echo form_input(array(
+            "id" => "time_in",
+            "name" => "time_in",
+            "value" => $jobs[0]['time_in'],
+            "class" => "form-control",
+            "type"  => "time",
+            "disabled" => "disabled",
 
-        ));
-        ?>
+          ));
+          ?>
 
+        </div>
       </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="form-group">
-        <label for="time_in"><b>Time Out</b></label>
+      <div class="col-sm-6">
+        <div class="form-group">
+          <label for="time_in"><b>Time Out</b></label>
 
-        <?php
-        echo form_input(array(
-          "id" => "time_in",
-          "name" => "time_in",
-          "value" => $jobs[0]['time_out'],
-          "class" => "form-control",
-          "type"  => "time",
-          "disabled" => "disabled",
+          <?php
+          echo form_input(array(
+            "id" => "time_in",
+            "name" => "time_in",
+            "value" => $jobs[0]['time_out'],
+            "class" => "form-control",
+            "type"  => "time",
+            "disabled" => "disabled",
 
-        ));
-        ?>
+          ));
+          ?>
 
-      </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="km_reading"><b><?php echo lang('km_reading'); ?></b></label>
@@ -159,6 +202,20 @@
           "id" => "km_reading",
           "name" => "km_reading",
           "value" => number_format($jobs[0]['km_reading'],2),
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+      </div>
+      <div class="form-group">
+        <label for="km_reading"><b>Miles</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "km_reading",
+          "name" => "km_reading",
+          "value" => number_format(($jobs[0]['km_reading']*0.621371),2),
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -179,7 +236,7 @@
         ));
         ?>
       </div>
-    
+      
 
       <div class="form-group">
         <label for="fuel_balance " class="col-sm-8"><b><?php echo lang('fuel_balance'); ?></b></label>
@@ -200,33 +257,34 @@
 
   <hr>
   <div class="row">
-  <div class="col-sm-12">
-    <table class="table table-striped" id="items_table">
-      <thead>
-        <tr>
+    <div class="col-sm-12">
+      <table class="table table-striped" id="items_table">
+        <thead>
+          <tr>
+            
+            <th><?php echo lang('inspection'); ?></th>
+            <th><?php echo lang('done_by'); ?></th>
+            <th><?php echo lang('status'); ?></th>
+            <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
+            
+          </tr>
+        </thead>
+        <tbody>
           
-          <th><?php echo lang('inspection'); ?></th>
-          <th><?php echo lang('done_by'); ?></th>
-          <th><?php echo lang('status'); ?></th>
-          <th><button type="button" name="add" class="btn btn-success btn-sm add"><span class="glyphicon glyphicon-plus"></span></button></th>
-          
-        </tr>
-      </thead>
-      <tbody>
-        
-      </tbody>
-    </table>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+  <br>
+  <div class="form-group">
+    <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
+    <button type="submit" class="btn btn-success" name="submit"><span class="fa fa-check-circle"></span>Close Job Card</button>
+
+    
   </div>
 
-</div>
-<br>
-<div class="form-group">
-     <button type="submit" class="btn btn-success" name="submit"><span class="fa fa-check-circle"></span>Process</button>
-
-  <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
-</div>
-
-<br>
+  <br>
 
 </form>
 </div></div></div></div>
@@ -235,28 +293,27 @@
  $(document).ready(function() {
   $('select[name="job_service_id"]').on('change', function() {
     var serviceID = $(this).val();
+    
+    var path = "<?php echo site_url('preventive/serviceTypesAjax')?>/" + serviceID;
 
-           //console.log(serviceID);
-           var path = "<?php echo site_url('preventive/serviceTypesAjax')?>/" + serviceID;
-
-           if(serviceID) {
-            $.ajax({
-              url: path,
-              type: "GET",
-              dataType: "json",
-              success:function(data) {
-               $('select[name="job_type_name"]').empty();
-               $.each(data, function(key, value) {
+    if(serviceID) {
+      $.ajax({
+        url: path,
+        type: "GET",
+        dataType: "json",
+        success:function(data) {
+         $('select[name="job_type_name"]').empty();
+         $.each(data, function(key, value) {
                           //console.log(value.id);
 
                           $('select[name="job_type_name"]').append('<option value="'+ value.id +'">'+ value.job_type_name +'</option>');
                         });
-             }
-           });
-          }else{
-            $('select[name="job_type_name"]').empty();
-          }
-        });
+       }
+     });
+    }else{
+      $('select[name="job_type_name"]').empty();
+    }
+  });
 });
  
 </script>

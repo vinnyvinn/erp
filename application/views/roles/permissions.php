@@ -206,6 +206,29 @@
                     </div>
                 </li>
                 <li>
+                    <h5><?php echo lang("can_access_technical"); ?></h5>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "invoice_no",
+                            "name" => "technical_permission",
+                            "value" => "",
+                                ), $technical, ($technical === "") ? true : false);
+                        ?>
+                        <label for="invoice_no"><?php echo lang("no"); ?> </label>
+                    </div>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "technical_yes",
+                            "name" => "technical_permission",
+                            "value" => "all",
+                                ), $technical, ($technical === "all") ? true : false);
+                        ?>
+                        <label for="technical_yes"><?php echo lang("yes"); ?></label>
+                    </div>
+                </li>
+                <li>
                     <h5><?php echo lang("can_access_estimates"); ?></h5>
                     <div>
                         <?php

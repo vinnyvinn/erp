@@ -1,5 +1,5 @@
-   <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
-   <form method="POST" action="<?php echo base_url('preventive/save') ?>">
+ <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
+   <form method="POST" action="<?php echo base_url('preventive/save') ?>" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $job_info->id; ?>" />
     <div class="modal-body clearfix">
      <div class="panel panel-default">
@@ -34,81 +34,99 @@
          <label for="supplier_id"><b>Service Provider Type</b></label>
          <select class="form-control" name="provider" id="providerselected" required>
           <option value="">--Select Provider Type--</option>
-         <option value="internal">Internal</option>
-         <option value="external">External</option>
+          <option value="internal">Internal</option>
+          <option value="external">External</option>
         </select>
         
       </div>
-    <div id="external" class="providers external" style="display: none;">
-      <div class="form-group">
+      <div id="internal" class="providers internal" style="display: none;">
+        <div class="form-group">
          <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
-         <select class="form-control" name="external_provider" id="external_provider" placeholder="provider">
+         <input type="text" name="internal_provider" id="internal_provider" class="form-control" placeholder="name">
+        
+      </div>
+    </div>
+    
+    <div id="external" class="providers external">
+      <div class="form-group">
+       <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
+        <select class="form-control" name="external_provider" id="external_provider" placeholder="provider">
           <option value="">--Choose Service Provider--</option>
-           <?php
+          <?php
           foreach ($providers_dropdown as $provider) {
             echo "<option value=". $provider->id . ">" . ucfirst($provider->name) . "</option>";
           }
           ?>
         </select>
-        
-      </div>
-    </div>
-    <div id="internal" class="providers internal">
-      <div class="form-group">
-         <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
-        <input type="text" name="internal_provider" class="form-control" placeholder="Name">
-        
-      </div>
-      <div class="col-sm-4">
-      <div class="form-group">
-         <label for="part_id"><b>Part Name</b></label>
-        <input type="text" name="part_name" class="form-control" placeholder="Part Name">
-        
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="form-group">
-         <label for="quantity"><b>Quantity</b></label>
-        <input type="number" name="quantity" class="form-control" placeholder="Quantity">
-        
-      </div>
-    </div>
-    <div class="col-sm-4">
-      <div class="form-group">
-         <label for="cost"><b>Cost</b></label>
-        <input type="number" name="cost" class="form-control" placeholder="Cost">
-        
-      </div>
-    </div>
-  </div>
 
-      <br>
-      <div class="form-group">
+     </div>
+     
+     
+      <div class="form-group fieldGroup">
+        <div class="input-group">
+       <input type="text" name="part_name[]" class="form-control" placeholder="Part Name">
+        <input type="number" name="quantity[]" class="form-control" placeholder="Quantity">
+        <input type="number" name="cost[]" class="form-control" placeholder="Cost">
+    <div class="input-group-addon"> 
+                <a href="javascript:void(0)" class="btn btn-success addMore"><span class="glyphicon glyphicon glyphicon-plus" aria-hidden="true"></span> Add</a>
+            </div>
+     </div>
+  
+</div>
+<!-- copy of input fields group -->
+<div class="form-group fieldGroupCopy" style="display: none;">
+    <div class="input-group">
+       <input type="text" name="part_name[]" class="form-control" placeholder="Part Name">
+        <input type="number" name="quantity[]" class="form-control" placeholder="Quantity">
+        <input type="number" name="cost[]" class="form-control" placeholder="Cost">
+        <div class="input-group-addon"> 
+            <a href="javascript:void(0)" class="btn btn-danger remove"><span class="glyphicon glyphicon glyphicon-remove" aria-hidden="true"></span> Remove</a>
+        </div>
+    </div>
+</div>
+<div class="col-sm-6">
+ <div class="form-group">
+       <label for="external_provider"><b>Labour</b></label>
+       <input type="text" name="labour" class="form-control" placeholder="Labour">
 
-        <label for="job_service"><b>Service Type</b></label>
-        <select class="form-control" name="service_type_id" id="s_type">
-          
-          <?php
-          foreach ($services_dropdown as $ss) {
-            echo "<option value=". $ss->id . ">" . ucfirst($ss->name) . "</option>";
-          }
-          ?>
-          
-        </select>
-        
-      </div>
-      <br>
-      
-     <br>
-
+     </div>
    </div>
-   <div class="col-sm-4">
-    <div class="form-group">
-      <label for="job_type"><b>Job Type</b></label>
-      <input type="text" class="form-control" name="job_type_name" id="job_typo">
-      
-    </div>
     <div class="col-sm-6">
+      <div class="form-group">
+       <label for="external_provider"><b>Labour Cost</b></label>
+       <input type="number" name="labour_cost" class="form-control" placeholder="Labour Cost">
+
+     </div>
+</div>
+</div>
+<br>
+
+
+<br>
+
+</div>
+<div class="col-sm-4">
+<div class="form-group">
+
+  <label for="job_service"><b>Service Type</b></label>
+  <select class="form-control" name="service_type_id" id="s_type">
+
+    <?php
+    foreach ($services_dropdown as $ss) {
+      echo "<option value=". $ss->id . ">" . ucfirst($ss->name) . "</option>";
+    }
+    ?>
+
+  </select>
+
+</div>
+
+  <div class="form-group">
+    <label for="job_type"><b>Job Type</b></label>
+    <input type="text" class="form-control" name="job_type_name" id="job_typo">
+
+  </div>
+  <div class="col-sm-6">
     <div class="form-group">
       <label for="actual_date"><b>Actual Date</b></label>
       
@@ -122,9 +140,9 @@
       ?>
     </div>
   </div>
-<div class="col-sm-6">
+  <div class="col-sm-6">
     <div class="form-group">
-      <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
+      <label for="completion_date"><b>Actual Completion Date</b></label>
       
       <?php
       echo form_input(array(
@@ -137,34 +155,38 @@
     </div>
   </div>
   
-    <div class="form-group">
-      <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-      <p id="driver"></p>
-    </div>
-    <div class="form-group">
-      <label for="description"><b><?php echo lang('description'); ?></b></label>
-      <?php
-      echo form_textarea(array(
-        "id" => "description",
-        "name" => "description",
-        "class" => "form-control",
-        'rows' => '5',
-        'cols' => '40',
-
-
-      ));
-      ?>
-    </div> 
+  <div class="form-group">
+    <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
+    <p id="driver"></p>
   </div>
+  <div class="form-group">
+    <label for="description"><b><?php echo lang('description'); ?></b></label>
+    <?php
+    echo form_textarea(array(
+      "id" => "description",
+      "name" => "description",
+      "class" => "form-control",
+      'rows' => '5',
+      'cols' => '40',
+    ));
+    ?>
+  </div> 
+ <div class="form-group">
+          <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
+           <input type='file' name='picture' size='20' class="btn btn-info" />
+         </label>
+         
+       </div>
+</div>
 
-  <div class="col-sm-4">
-    <div class="form-group">
-      <b><?php echo lang('make_model'); ?></b>
-      <br>
-      <p id="model"></p>      
-    </div>
-    <br><br>
-    <div class="col-sm-6">
+<div class="col-sm-4">
+  <div class="form-group">
+    <b><?php echo lang('make_model'); ?></b>
+    <br>
+    <p id="model"></p>      
+  </div>
+  <br><br>
+  <div class="col-sm-6">
     <div class="form-group">
       <label for="time_in"><b><?php echo lang('time_in'); ?></b></label>
       
@@ -196,7 +218,7 @@
       
     </div>
   </div>
-    <div id="kilometer" class="services kilometer">
+  <div id="kilometer" class="services kilometer">
     <div class="col-sm-6">
       <div class="form-group">
         <label for="previous_km_reading"><b><?php echo lang('previous_km_reading'); ?></b></label>
@@ -214,7 +236,6 @@
           "id" => "km_reading",
           "name" => "km_reading",
           "class" => "form-control",
-
         ));
         ?>
       </div>
@@ -226,39 +247,39 @@
       
     </div>
   </div>
-    <br>
-    <div id="hours" class="services hours">
+  <br>
+  <div id="hours" class="services hours">
     <div class="col-sm-6">
-    <div class="form-group">
-      <label for="hours"><b>Previous Hours</b>
-      <p id="prev_hrs"></p>
-      </label>
+      <div class="form-group">
+        <label for="hours"><b>Previous Hours</b>
+          <p id="prev_hrs"></p>
+        </label>
       </div>
     </div>
-   
-    <div class="col-sm-6">
-    <div class="form-group">
-      <label for="hours"><b>Hours</b></label>
-      <input type="text"  class="form-control" name="hours" id="hours_id" >
-    </div>
-       <label for="actual_hours"><b>Actual Hours Used</b></label>
-      <p id="actual_hours"></p>
- 
-    </div>
-   </div>
-    <div class="form-group">
-      <label for="fuel_balance"><b><?php echo lang('fuel_balance'); ?></b></label>
-      <select class="form-control" name="fuel_balance" id="fuel_balance" required>
-        <?php
-        foreach ($fuel_dropdown as $fuel) {
-          echo "<option value=". $fuel->id . ">" . ucfirst($fuel->description) . "</option>";
-        }
-        ?>
-      </select>
-    </div>
-  </div>
 
+    <div class="col-sm-6">
+      <div class="form-group">
+        <label for="hours"><b>Hours</b></label>
+        <input type="text"  class="form-control" name="hours" id="hours_id" >
+      </div>
+      <label for="actual_hours"><b>Actual Hours Used</b></label>
+      <p id="actual_hours"></p>
+
+    </div>
   </div>
+  <div class="form-group">
+    <label for="fuel_balance"><b><?php echo lang('fuel_balance'); ?></b></label>
+    <select class="form-control" name="fuel_balance" id="fuel_balance" required>
+      <?php
+      foreach ($fuel_dropdown as $fuel) {
+        echo "<option value=". $fuel->id . ">" . ucfirst($fuel->description) . "</option>";
+      }
+      ?>
+    </select>
+  </div>
+</div>
+
+</div>
 </div>
 <hr>
 <br>
@@ -276,8 +297,8 @@
   <table class="table table-striped" style="display: none;">
     <thead>
       <tr>
-        
-        
+
+
         <th>Operation</th>
         <th>Action</th>
         <th>Allocated To</th>
@@ -287,7 +308,7 @@
       </tr>
     </thead>
     <tbody id="show_data">
-      
+
     </tbody>
     
   </tr>
@@ -343,7 +364,6 @@
   $("#supplier_id").select2();
   
   setDatePicker("#completion_date,#start_date,#actual_date");
-
   
 </script>
 <script type="text/javascript">
@@ -391,7 +411,6 @@
       success : function(data){
        var html ='<p>'+data+'</p>';
        $('#model').html(html);
-
      }
      
    });
@@ -412,7 +431,6 @@
         localStorage.setItem('km_r', data);
         var html ='<p>'+data+'</p>';
         $('#previous_km_reading').html(html);
-
       }
       
     });
@@ -433,7 +451,6 @@
         localStorage.setItem('hrs', data);
         var html ='<p>'+data+'</p>';
         $('#prev_hrs').html(html);
-
       }
       
     });
@@ -442,7 +459,6 @@
 </script>
 <script type="text/javascript">   
  $(document).ready(function() {
-
    $('select[name="vehicle_no"]').on('change', function() {
     var driver_id = $(this).val();
     var path="<?php echo site_url('preventive/driver')?>/" + driver_id;
@@ -461,73 +477,7 @@
  });
 </script>
 
-<script type="text/javascript">
-  var inputid=0;
-  $(document).on('click', '.add', function(){
-    inputid ++;
-    var status_data="<?php echo site_url('preventive/status_data')?>";
-    $.ajax({
-      type: "GET",
-      url: status_data,
-      dataType: "json",
-      success: function (status_data) {
-        var value = status_data;
-        
-        var html = '';
-        html += '<tr>';
-        html += '<td>'+ '<select name="inspection_id['+inputid+'][]" class="form-control" id="inspection_id" onchange="myFunction()">';
-        $.each(status_data['inspect'], function(value,ins)
-        {
-          html += '<option value="'+ ins['id'] +'">'+ ins['type'] +'</option>' ;
-        }); 
-        html +=  '</select></td>';
-        html += '<td>'+ '<select name="done_by['+inputid+'][]" class="form-control" id="done_by">';
-        $.each(status_data['emp'], function(value,empl)
-        {
-         
-          html += '<option value="'+ empl['id'] +'">'+ empl['name'] +'</option>' ;
-        }); 
-        html +=  '</select></td>';
-        html += '<td>'+ '<select name="status_id['+inputid+'][]" class="form-control" id="status_id">';
-        $.each(status_data['status'], function(value,item)
-        {
-          
-          html += '<option value="'+ item['id'] +'">'+ item['name'] +'</option>' ;
-        });
-        
-        html +=  '</select></td>'; 
-        html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
-        $('#items_table').append(html);
-        
-      }
-    });
-  });
-  
-  $(document).on('click', '.remove', function(){
-    $(this).closest('tr').remove();
-  });
 
-  $('#gohome').on('submit',function(){
-    var inspection= $('#inspection_id').val();
-    console.log(inspection);
-
-    var  who= $('#done_by').val();
-    console.log('abcd');
-    var status= $('#status_id').val();
- //                $.ajax({
- //                type : "post",
- //                url  : "<?php echo site_url('preventive/save')?>",
- //                dataType : "json",
- //                 data:{inspection_id:inspection,done_by:who,status_id:status},
- //                    success: function(data){
- //                      console.log('thank  you'+data);
- 
- //   }
- 
- // });
-});
-
-</script>
 <script>
   function myFunction() {
     $('#inspection_id').each(function(){
@@ -547,7 +497,6 @@
       async : false,
       dataType : 'json',
       success : function(data){
-        
        if (!data.length){ 
          alert('sorry,this vehicle is still under warranty');
          window.location.replace('jobs_form');
@@ -578,17 +527,59 @@
 
 <script type="text/javascript">
   $(function() {
-  $('#partselected').change(function(){
-    $('.services').hide();
-    $('#' + $(this).val()).show();
+    $('#partselected').change(function(){
+      $('.services').hide();
+      $('#' + $(this).val()).show();
+    });
   });
-});
 </script>
 <script type="text/javascript">
   $(function() {
-  $('#providerselected').change(function(){
-    $('.providers').hide();
-    $('#' + $(this).val()).show();
+    $('#providerselected').change(function(){
+      $('.providers').hide();
+      $('#' + $(this).val()).show();
+    });
   });
+</script>
+<script type="text/javascript">
+  var inputid=0;
+  $(document).on('click', '.add', function(){
+    inputid ++;
+        var html = '';
+         html +='<input type="text" name="part_name['+inputid+'][]" class="form-control">';
+             
+        html +='<input type="text" name="quantity['+inputid+'][]" class="form-control">';
+        
+        html +='<input type="text" name="cost['+inputid+'][]" class="form-control">';
+         html += '<td><button type="button" name="remove" class="btn btn-danger btn-sm remove"><span class="glyphicon glyphicon-minus"></span></button></td></tr>';
+        $('#parts_id').append(html);
+        
+      
+  });
+  
+  $(document).on('click', '.remove', function(){
+    $(this).closest('tr').remove();
+  });
+ 
+</script>
+<script type="text/javascript">
+  $(document).ready(function(){
+    //group add limit
+    var maxGroup = 10;
+    
+    //add more fields group
+    $(".addMore").click(function(){
+        if($('body').find('.fieldGroup').length < maxGroup){
+            var fieldHTML = '<div class="form-group fieldGroup">'+$(".fieldGroupCopy").html()+'</div>';
+            $('body').find('.fieldGroup:last').after(fieldHTML);
+        }else{
+            alert('Maximum '+maxGroup+' groups are allowed.');
+        }
+    });
+    
+    //remove fields group
+    $("body").on("click",".remove",function(){ 
+        $(this).parents(".fieldGroup").remove();
+    });
 });
 </script>

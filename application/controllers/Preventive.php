@@ -16,14 +16,17 @@ class Preventive extends Pre_loader
     public function __construct()
     {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
       $this->load->library('excel');
+      
+
 
     }
 
     public function index()
     {
-
+      $this->access_only_allowed_members();
      $view_data['all_details'] = $this->Jobs_model->get_details();
      $this->template->rander("maintenance/preventive/index", $view_data);
    }
@@ -108,6 +111,7 @@ public function DisplayTasksData()
 
 public function jobs_form()
 {
+  $this->access_only_allowed_members();
   $job_id = $this->input->post('id');
   $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
   $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
@@ -124,6 +128,7 @@ public function jobs_form()
   $this->template->rander('maintenance/preventive/jobs_form', $view_data);
 }
 public function process_form($id){
+  $this->access_only_allowed_members();
   $job_id = $this->input->post('id');
   $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
   $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
@@ -233,6 +238,40 @@ public function save_task()
 public function save()
 {
 
+
+if(!empty($_FILES['picture']['name'])){
+  $config['upload_path'] = 'uploads/images/';
+  $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|csv|txt|rtf|html|zip|mp3|wma|mpg|flv|avi';
+  $config['file_name'] = $_FILES['picture']['name'];
+
+                //Load upload library and initialize configuration
+  $this->load->library('upload',$config);
+  $this->upload->initialize($config);
+
+  if($this->upload->do_upload('picture')){
+    $uploadData = $this->upload->data();
+    $picture = $uploadData['file_name'];
+  }else{
+    $picture = '';
+  }
+}else{
+  $picture = '';
+}
+  $partArr = $this->input->post('part_name');
+  $qntyArr = $this->input->post('quantity');
+  $costArr = $this->input->post('cost');
+  if(!empty($partArr)){
+    for($i = 0; $i < count($partArr); $i++){
+      if(!empty($partArr[$i])){
+        $part_name = $partArr[$i];
+        $qnty = $qntyArr[$i];
+        $cost = $costArr[$i];
+        
+      }
+    }
+  }
+  
+  
   $km_reading='';
   $hours='';
   $internal_provider='';
@@ -249,7 +288,7 @@ if($this->input->post('internal_provider')){
 if($this->input->post('external_provider')){
  $external_provider= $this->input->post('external_provider');
 }
-$total_cost=$this->input->post('quantity')*$this->input->post('cost');
+//$total_cost=$this->input->post('quantity')*$this->input->post('cost');
 $data = array(
  "vehicle_no" => $this->input->post('vehicle_no'),
  "time_in" => $this->input->post('time_in'),
@@ -260,18 +299,21 @@ $data = array(
  "fuel_balance" => $this->input->post('fuel_balance'),
  "supplier_id" => $this->input->post('supplier_id'),
  "job_type_id" => $this->input->post('job_type_name'),
+ "labour" => $this->input->post('labour'),
+ "labour_cost" => $this->input->post('labour_cost'),
  "hours" => $hours,
  "time_out" => $this->input->post('time_out'),
  "actual_date" => $this->input->post('actual_date'),
  "track_by" => $this->input->post('track_by'),
  "service_type_id" => $this->input->post('service_type_id'),
  "provider" => $this->input->post('provider'),
- "part_name" => $this->input->post('part_name'),
- "total" => $total_cost,
- "quantity" => $this->input->post('quantity'),
- "cost" => $this->input->post('cost'),
+ "part_name" => json_encode($partArr),
+ "total" =>  0,
+ "quantity" => json_encode($qntyArr),
+ "cost" => json_encode($costArr),
  "internal_provider" => $internal_provider,
  "external_provider" => $external_provider,
+ "picture" => $picture,
 );
 
 $data = $this->db->insert('jobs', $data);
@@ -341,6 +383,7 @@ public function save_job_type()
 public function show_job($id)
 {
 
+   $this->access_only_allowed_members();
   $job_id = $this->input->post('id');
   $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
   $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
@@ -389,20 +432,17 @@ public function import_assets_from_sage()
 public function print_job($id)
 {
 
-  $view_data['reports_data']=$this->db->query("SELECT jobs.*,spares.*,assets.code as reg,assets.description as make,employees.name as employee,
+    $view_data['reports_data']=$this->db->query("SELECT jobs.*,spares.*,assets.code as reg,assets.description as make,employees.name as employee,
     jobs.description as description,assets.km_reading as km_reading,assets.next_time,jobs.created_at as created,parts_suppliers.name as supplier FROM jobs
     LEFT JOIN spares ON spares.job_card_id=jobs.id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no 
     LEFT JOIN employees ON employees.id=assets.driver_id
-    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.external_provider
+    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.internal_provider
     WHERE jobs.id=$id" )->result_array();
   $this->load->library('pdf2');
   $this->pdf2->load_view('maintenance/preventive/print_job', $view_data);
   $this->pdf2->render();
   $this->pdf2->stream('jobcard.pdf');
-
-
-
 }
 
 public function employee()
@@ -418,12 +458,11 @@ public function employee()
 
 public function supplier()
 {
-  $sql = "SELECT * FROM StkItem";
+  $sql = "SELECT * FROM _btblFAAsset";
   $results = $this->SAGE_DB()->query($sql)->result_array();
   echo "<pre>";
   var_dump($results);
 }
-
 
 public function asset()
 {
@@ -457,6 +496,18 @@ public function HR_DB()
   return $this->load->database('HR', TRUE);
 }
 
+function convertToHoursMins($time, $format = '%02d:%02d') {
+  if ($time < 1) {
+    return;
+  }
+  $hours = floor($time / 60);
+  $minutes = ($time % 60);
+  return sprintf($format, $hours, $minutes);
+}
+public function mytime(){
+  $tt=$this->convertToHoursMins(250, '%02d hours %02d minutes'); 
+  var_dump($tt);
+}
 
 }
 

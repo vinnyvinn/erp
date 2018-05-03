@@ -7,6 +7,11 @@
    <?php echo anchor(get_uri("parts_requisition/createPart"), "<i class='fa fa-plus-circle'></i> " . lang('new_requisition'), array("class" => "btn btn-default pull-right rq", "title" => lang('new_requisition'))); ?>
             </div>
     </div>
+    <h2><?php if($this->session->flashdata('item')) {?></h2> 
+    <div class="alert alert-info">
+            <a href="#" class="close" data-dismiss="alert">&times;</a>
+            <strong>Info!</strong> <?php echo $this->session->flashdata('item'); }?>
+        </div>
     <div class="panel-body">
      <div class="row">
   <div class="col-sm-12">

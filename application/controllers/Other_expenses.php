@@ -13,11 +13,13 @@ class Other_expenses extends Pre_loader {
 
    public function __construct() {
     parent::__construct();
+    $this->init_permission_checker("technical");
     $this->load->helper(array('form', 'url'));
     
   }
 
   public function index(){
+    $this->access_only_allowed_members();
     $query="SELECT assets.*,assets.id as asset_ID,employees.name FROM assets
     LEFT JOIN employees ON assets.driver_id=employees.id";
     $view_data['drivers_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result();   

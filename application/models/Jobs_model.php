@@ -23,9 +23,8 @@ class Jobs_model extends Crud_model {
 
   }
   function get_reactive_details() {
-    $query="SELECT jobs.*,job_services.*,jobs.id as id ,assets.code,employees.name as driver,
+    $query="SELECT jobs.* ,assets.code,employees.name as driver,
     job_types.job_type_name job_type,spares.stock_name as stock FROM jobs 
-    LEFT JOIN job_services ON job_services.id=jobs.job_service_id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no
     LEFT JOIN employees ON employees.id=assets.driver_id
     LEFT JOIN job_types ON job_types.id=jobs.job_type_id
@@ -39,7 +38,7 @@ class Jobs_model extends Crud_model {
    $view_data=[];
    $query="SELECT jobs.*,jobs.description as explanation,job_services.*,jobs.id as id ,fuel_balances.description as balance,
    job_services.id as serviceID,assets.code,assets.asset_no,employees.name as driver,parts_suppliers.name as provider,spares.stock_name,
-   service_types.name as service FROM jobs 
+   spares.qnty_out,spares.total as totalcost,service_types.name as service FROM jobs 
    LEFT JOIN job_services ON job_services.id=jobs.job_service_id
    LEFT JOIN assets ON assets.id=jobs.vehicle_no
    LEFT JOIN employees ON employees.id=assets.driver_id

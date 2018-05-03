@@ -14,10 +14,12 @@ class PartsSuppliers extends Pre_loader {
 
   public function __construct() {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
      
   } 
   public function index(){
+    $this->access_only_allowed_members();
   	$view_data['suppliers']=$this->Parts_suppliers_model->get_all_suppliers();
   $this->template->rander('maintenance/reactive/supplier',$view_data);
   }

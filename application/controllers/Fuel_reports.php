@@ -1,28 +1,22 @@
 <?php
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 require_once("Pre_loader.php");
-
 class Fuel_reports extends Pre_loader
 {
-
     /**
      * Get All Data from this method.
      *
      * @return Response
      */
-
     public function __construct()
     {
       parent::__construct();
+      $this->init_permission_checker("technical");
       $this->load->helper(array('form', 'url'));
-
     }
-
     public function index()
     {
-
+      $this->access_only_allowed_members();
       $users = $this->db->query("SELECT * FROM employees")->result_array();
       $arrayData=[];
       foreach ($users as $key => $user) {
@@ -38,8 +32,6 @@ class Fuel_reports extends Pre_loader
           LEFT JOIN spares ON spares.job_card_id=jobs.id 
           WHERE fuels.staff_id=$id
           GROUP BY fuels.total")->result_array();
-
-
         $total = $this->db->query("SELECT fuels.*,SUM(fuels.total) as totalcost,parts_suppliers.name as supplier,
           other_expenses.name as expenses,assets.code as vehicle,SUM(fuels.expense_cost) as totalexpense FROM fuels
           LEFT JOIN other_expenses ON other_expenses.id=fuels.expense_id
@@ -55,10 +47,8 @@ class Fuel_reports extends Pre_loader
      
      
       $view_data['all_data']=$arrayData;
-
       $this->template->rander("maintenance/reports/fuel/index", $view_data);
     }
-
     public function print_report(){
      $users = $this->db->query("SELECT * FROM employees")->result_array();
      $arrayData=[];
