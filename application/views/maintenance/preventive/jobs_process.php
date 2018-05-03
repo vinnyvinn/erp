@@ -271,7 +271,7 @@
 
 
                   <option value="">
-                    <?php  echo $value[0]->type; ?>
+                    <?php  echo $value[0]['type']; ?>
                   </option>
                 </select>
                 <?php
@@ -300,7 +300,7 @@
 
 
               <option value="">
-                <?php  echo $value[0]->name; ?>
+                <?php  echo $value[0]['name']; ?>
               </option>
             </select>
             <?php
