@@ -239,7 +239,24 @@ public function save()
 {
 
 
+if(!empty($_FILES['picture']['name'])){
+  $config['upload_path'] = 'uploads/images/';
+  $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|csv|txt|rtf|html|zip|mp3|wma|mpg|flv|avi';
+  $config['file_name'] = $_FILES['picture']['name'];
 
+                //Load upload library and initialize configuration
+  $this->load->library('upload',$config);
+  $this->upload->initialize($config);
+
+  if($this->upload->do_upload('picture')){
+    $uploadData = $this->upload->data();
+    $picture = $uploadData['file_name'];
+  }else{
+    $picture = '';
+  }
+}else{
+  $picture = '';
+}
   $partArr = $this->input->post('part_name');
   $qntyArr = $this->input->post('quantity');
   $costArr = $this->input->post('cost');
@@ -296,6 +313,7 @@ $data = array(
  "cost" => json_encode($costArr),
  "internal_provider" => $internal_provider,
  "external_provider" => $external_provider,
+ "picture" => $picture,
 );
 
 $data = $this->db->insert('jobs', $data);
@@ -414,7 +432,7 @@ public function import_assets_from_sage()
 public function print_job($id)
 {
 
-  $view_data['reports_data']=$this->db->query("SELECT jobs.*,spares.*,assets.code as reg,assets.description as make,employees.name as employee,
+    $view_data['reports_data']=$this->db->query("SELECT jobs.*,spares.*,assets.code as reg,assets.description as make,employees.name as employee,
     jobs.description as description,assets.km_reading as km_reading,assets.next_time,jobs.created_at as created,parts_suppliers.name as supplier FROM jobs
     LEFT JOIN spares ON spares.job_card_id=jobs.id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no 

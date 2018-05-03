@@ -48,7 +48,7 @@ public function save_labour_service(){
    'end_date' => $this->input->post('end_date'),
    'start_date' => $this->input->post('start_date'),
    'total_service' => $total
- );
+   );
 
   $inserted=$this->db->insert('external_services',$data);
   $id=$this->db->insert_id();
@@ -69,7 +69,7 @@ public function save_parts_service(){
    'stock_id' => $this->input->post('stock_id'),
    'supplier_id' => $this->input->post('supplier_id')
 
- );
+   );
  $inserted=$this->db->insert('external_services',$data);
  $id=$this->db->insert_id();
  $this->db->where('id',$id);
@@ -190,6 +190,24 @@ public function job_card(){
   $this->template->rander('maintenance/reactive/job_card_form',$view_data); 
 }
 public function save(){
+  if(!empty($_FILES['picture']['name'])){
+    $config['upload_path'] = 'uploads/images/';
+    $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|csv|txt|rtf|html|zip|mp3|wma|mpg|flv|avi';
+    $config['file_name'] = $_FILES['picture']['name'];
+
+                //Load upload library and initialize configuration
+    $this->load->library('upload',$config);
+    $this->upload->initialize($config);
+
+    if($this->upload->do_upload('picture')){
+      $uploadData = $this->upload->data();
+      $picture = $uploadData['file_name'];
+    }else{
+      $picture = '';
+    }
+  }else{
+    $picture = '';
+  }
   $partArr = $this->input->post('part_name');
   $qntyArr = $this->input->post('quantity');
   $costArr = $this->input->post('cost');
@@ -244,8 +262,9 @@ $data = array(
  "cost" => json_encode($costArr),
  "internal_provider" => $internal_provider,
  "external_provider" => $external_provider,
+ "picture" => $picture,
  "reactive" => 1,
-);
+ );
 
 $data = $this->db->insert('jobs', $data);
 $last_id = $this->db->insert_id();

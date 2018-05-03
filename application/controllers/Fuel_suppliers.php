@@ -30,8 +30,9 @@ class Fuel_suppliers extends Pre_loader {
      'code' => $this->input->post('code'),
      'name' => $this->input->post('name'),
      'phone_no' => $this->input->post('phone_no'),
-     'price' => $this->input->post('price')
-   );
+     'price' => $this->input->post('price'),
+     'fuel_type' => $this->input->post('fuel_type'),
+     );
 
     $this->Fuel_suppliers_model->add_fuel_suppliers($data);
     echo json_encode(array("status" => TRUE));
@@ -50,9 +51,10 @@ class Fuel_suppliers extends Pre_loader {
      'code' => $this->input->post('code'),
      'name' => $this->input->post('name'),
      'phone_no' => $this->input->post('phone_no'),
-     'price' => $this->input->post('price')
+     'price' => $this->input->post('price'),
+     'fuel_type' => $this->input->post('fuel_type'),
 
-   );
+     );
     $this->Fuel_suppliers_model->fuel_suppliers_update(array('id' => $this->input->post('id')), $data);
     echo json_encode(array("status" => TRUE));
 

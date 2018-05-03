@@ -24,6 +24,7 @@
                     <th>Name</th>
                     <th>Phone No.</th>
                     <th>Price</th>
+                    <th>Fuel Type</th>
                     <th style="width:125px;">Action
           </th>
         </tr>
@@ -35,7 +36,8 @@
                            <td><?php echo $supplier['code'];?></td>
                            <td><?php echo $supplier['name'];?></td>
                            <td><?php echo $supplier['phone_no'];?></td>
-                           <td><?php echo $supplier['price'];?></td>
+                           <td><?php echo number_format($supplier['price'],2);?></td>
+                           <td><?php echo $supplier['fuel_type'];?></td>
                                              
                             <td>
                            <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
@@ -60,6 +62,7 @@
          <th>Name</th>
          <th>Phone No.</th>
          <th>Price</th>
+         <th>Fuel Type</th>
          <th>Action</th>
         </tr>
       </tfoot>
@@ -107,6 +110,7 @@
             $('[name="name"]').val(data.name);
             $('[name="phone_no"]').val(data.phone_no);
             $('[name="price"]').val(data.price);
+            $('[name="fuel_type"]').val(data.fuel_type);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Supplier'); // Set title to Bootstrap modal title
 
@@ -214,7 +218,13 @@
               <div class="col-md-9">
                 <input name="price" placeholder="Price" class="form-control" type="text">
               </div>
-            </div>          
+            </div>  
+            <div class="form-group">
+              <label class="control-label col-md-3">Fuel Type</label>
+              <div class="col-md-9">
+                <input name="fuel_type" placeholder="Fuel Type" class="form-control" type="text">
+              </div>
+            </div        
                 
         </form>
           </div>

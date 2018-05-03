@@ -47,6 +47,7 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
            $start_date=strtotime($trimmer['start_date']);
            $end_date=strtotime( $trimmer['end_date']);
            echo convertToHoursMins((($time_out+$end_date)-($time_in+$start_date))/60, '%02d hours %02d minutes');?>
+           </td>
            <td><?php echo $trimmer['rate'];?></td>
            <td><?php echo $trimmer['total'];?></td>
            <td>

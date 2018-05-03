@@ -76,12 +76,18 @@
 
 
         </table>
-        <div class="form-group">
+         <div class="form-group">
+          <?php if(!empty($jobs[0]['picture'])){?>
+          <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download Checklist</a>
+          <?php } elseif(empty($jobs[0]['picture'])) {?>
+        </div>
+              <div class="form-group">
           <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
-           <input type='file' name='picture' size='20' />
+           <input type='file' name='picture' size='20' class="btn btn-info"/>
          </label>
          
        </div>
+       <?php }?>
      </div>
      <div class="col-sm-4">
       <div class="form-group">
@@ -92,20 +98,7 @@
 
       </div>
 
-      <div class="form-group">
-        <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
-
-        <?php
-        echo form_input(array(
-          "id" => "completion_date",
-          "name" => "completion_date",
-          "value" => $jobs[0]['completion_date'],
-          "class" => "form-control",
-          "disabled" => "disabled",
-
-        ));
-        ?>
-      </div>
+     
       
       <div class="form-group">
         <label for="completion_date"><b>Actual Date</b></label>
@@ -120,6 +113,20 @@
         ));
         ?>
         
+      </div>
+       <div class="form-group">
+        <label for="completion_date"><b>Actual Completion Date</b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "completion_date",
+          "name" => "completion_date",
+          "value" => $jobs[0]['completion_date'],
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
       </div>
       <div class="form-group">
         <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>

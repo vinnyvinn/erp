@@ -1,5 +1,5 @@
-   <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
-   <form method="POST" action="<?php echo base_url('preventive/save') ?>">
+ <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
+   <form method="POST" action="<?php echo base_url('preventive/save') ?>" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?php echo $job_info->id; ?>" />
     <div class="modal-body clearfix">
      <div class="panel panel-default">
@@ -100,6 +100,12 @@
 </div>
 </div>
 <br>
+
+
+<br>
+
+</div>
+<div class="col-sm-4">
 <div class="form-group">
 
   <label for="job_service"><b>Service Type</b></label>
@@ -114,12 +120,7 @@
   </select>
 
 </div>
-<br>
 
-<br>
-
-</div>
-<div class="col-sm-4">
   <div class="form-group">
     <label for="job_type"><b>Job Type</b></label>
     <input type="text" class="form-control" name="job_type_name" id="job_typo">
@@ -141,7 +142,7 @@
   </div>
   <div class="col-sm-6">
     <div class="form-group">
-      <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
+      <label for="completion_date"><b>Actual Completion Date</b></label>
       
       <?php
       echo form_input(array(
@@ -167,11 +168,15 @@
       "class" => "form-control",
       'rows' => '5',
       'cols' => '40',
-
-
     ));
     ?>
   </div> 
+ <div class="form-group">
+          <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
+           <input type='file' name='picture' size='20' class="btn btn-info" />
+         </label>
+         
+       </div>
 </div>
 
 <div class="col-sm-4">
@@ -231,7 +236,6 @@
           "id" => "km_reading",
           "name" => "km_reading",
           "class" => "form-control",
-
         ));
         ?>
       </div>
@@ -360,7 +364,6 @@
   $("#supplier_id").select2();
   
   setDatePicker("#completion_date,#start_date,#actual_date");
-
   
 </script>
 <script type="text/javascript">
@@ -408,7 +411,6 @@
       success : function(data){
        var html ='<p>'+data+'</p>';
        $('#model').html(html);
-
      }
      
    });
@@ -429,7 +431,6 @@
         localStorage.setItem('km_r', data);
         var html ='<p>'+data+'</p>';
         $('#previous_km_reading').html(html);
-
       }
       
     });
@@ -450,7 +451,6 @@
         localStorage.setItem('hrs', data);
         var html ='<p>'+data+'</p>';
         $('#prev_hrs').html(html);
-
       }
       
     });
@@ -459,7 +459,6 @@
 </script>
 <script type="text/javascript">   
  $(document).ready(function() {
-
    $('select[name="vehicle_no"]').on('change', function() {
     var driver_id = $(this).val();
     var path="<?php echo site_url('preventive/driver')?>/" + driver_id;
@@ -498,7 +497,6 @@
       async : false,
       dataType : 'json',
       success : function(data){
-
        if (!data.length){ 
          alert('sorry,this vehicle is still under warranty');
          window.location.replace('jobs_form');
@@ -563,7 +561,6 @@
     $(this).closest('tr').remove();
   });
  
-
 </script>
 <script type="text/javascript">
   $(document).ready(function(){

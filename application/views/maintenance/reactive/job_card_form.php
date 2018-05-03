@@ -1,6 +1,6 @@
    <!-- <?php //echo form_open('"id" = "jobs-form", "class" = "general-form", "role" = "form"'); ?> -->
-   <form method="POST" action="<?php echo base_url('reactive/save') ?>">
-    <input type="hidden" name="id" value="<?php echo $job_info->id; ?>" />
+   <form method="POST" action="<?php echo base_url('reactive/save') ?>" enctype="multipart/form-data">
+   <input type="hidden" name="id" value="<?php echo $job_info->id; ?>" />
     <div class="modal-body clearfix">
      <div class="panel panel-default">
       <div class="panel-heading">New Job Card</div>
@@ -41,16 +41,16 @@
       </div>
       <div id="internal" class="providers internal" style="display: none;">
         <div class="form-group">
-         <label for="internal_provider"><b><?php echo lang('service_provider'); ?></b></label>
-         <input type="text" name="internal_provider" class="form-control" placeholder="Name">
+         <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
+         <input type="text" name="internal_provider" id="internal_provider" class="form-control" placeholder="name">
+        
       </div>
     </div>
     
     <div id="external" class="providers external">
       <div class="form-group">
        <label for="external_provider"><b><?php echo lang('service_provider'); ?></b></label>
-       
-       <select class="form-control" name="external_provider" id="external_provider" placeholder="provider">
+        <select class="form-control" name="external_provider" id="external_provider" placeholder="provider">
           <option value="">--Choose Service Provider--</option>
           <?php
           foreach ($providers_dropdown as $provider) {
@@ -58,7 +58,6 @@
           }
           ?>
         </select>
-        
 
      </div>
      
@@ -101,6 +100,12 @@
 </div>
 </div>
 <br>
+
+
+<br>
+
+</div>
+<div class="col-sm-4">
 <div class="form-group">
 
   <label for="job_service"><b>Service Type</b></label>
@@ -115,12 +120,7 @@
   </select>
 
 </div>
-<br>
 
-<br>
-
-</div>
-<div class="col-sm-4">
   <div class="form-group">
     <label for="job_type"><b>Job Type</b></label>
     <input type="text" class="form-control" name="job_type_name" id="job_typo">
@@ -142,7 +142,7 @@
   </div>
   <div class="col-sm-6">
     <div class="form-group">
-      <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
+      <label for="completion_date"><b>Actual Completion Date</b></label>
       
       <?php
       echo form_input(array(
@@ -168,11 +168,15 @@
       "class" => "form-control",
       'rows' => '5',
       'cols' => '40',
-
-
     ));
     ?>
   </div> 
+ <div class="form-group">
+          <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
+           <input type='file' name='picture' size='20' class="btn btn-info" />
+         </label>
+         
+       </div>
 </div>
 
 <div class="col-sm-4">
@@ -232,7 +236,6 @@
           "id" => "km_reading",
           "name" => "km_reading",
           "class" => "form-control",
-
         ));
         ?>
       </div>

@@ -274,7 +274,7 @@
                 <div class="col-md-6" style="width: 45%;">
                  <div class="form-group">
                   <label class="control-label" style="background-color: white;margin-left: 10px;">Assigned To</label>
-                  <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" required">
+                  <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" style="width: 90%;margin-left: 8px;" required>
                   <option value="">--Select Staff--</option>
                    <?php
                    foreach ($drivers_dropdown as $driver) {

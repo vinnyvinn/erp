@@ -49,10 +49,7 @@
           ));
           ?>
         </div>
-         <?php
-         $name=json_decode($jobs[0]['part_name']);
-         $check=implode(',',$name);
-          if(is_numeric($check)) {?>
+         
         <table style="width: 100%">
           <tr>
             <th>Spare Parts</th>
@@ -80,7 +77,7 @@
 
 
         </table>
-        <?php }?>
+       
         <br>
         <div class="form-group">
           <?php if(!empty($jobs[0]['picture'])){?>
@@ -96,22 +93,7 @@
           </select>
 
         </div>
-
-        <div class="form-group">
-          <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
-
-          <?php
-          echo form_input(array(
-            "id" => "completion_date",
-            "name" => "completion_date",
-            "value" => $jobs[0]['completion_date'],
-            "class" => "form-control",
-            "disabled" => "disabled",
-
-          ));
-          ?>
-        </div>
-        <div class="form-group">
+      <div class="form-group">
           <label for="actual_date"><b>Actual Date</b></label>
 
           <?php
@@ -125,6 +107,21 @@
           ));
           ?>
         </div>
+        <div class="form-group">
+          <label for="completion_date"><b>Actual Completion Date</b></label>
+
+          <?php
+          echo form_input(array(
+            "id" => "completion_date",
+            "name" => "completion_date",
+            "value" => $jobs[0]['completion_date'],
+            "class" => "form-control",
+            "disabled" => "disabled",
+
+          ));
+          ?>
+        </div>
+       
         <div class="form-group">
           <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
           <p id="driver"><?php echo $jobs[0]['driver'];?></p>
