@@ -265,12 +265,12 @@
             <td> 
               <?php
               if(!empty($inspections['inspect'])){
-                foreach ($inspections['inspect'] as $key => $value) { ?>
+                foreach ($inspections['inspect'][0] as $key => $value) { ?>
                 <select  name="inspection_id" class="form-control" disabled="true">
 
 
                   <option value="">
-                    <?php  echo $value[0]->type; ?>
+                    <?php  echo $value->type; ?>
                   </option>
                 </select>
                 <?php
@@ -281,12 +281,12 @@
             <td>
               <?php
               if(!empty($inspections['emp'])){
-              foreach ($inspections['emp'] as $key => $empl) { ?>
+              foreach ($inspections['emp'][0] as $key => $empl) { ?>
               <select  name="inspection_id" class="form-control" disabled="true">
 
 
                 <option value="">
-                  <?php  echo $empl[0]['name'];?>
+                  <?php  echo $empl['name'];?>
                 </option>
               </select>
               <?php
@@ -296,12 +296,12 @@
           <td>
             <?php
             if(!empty($inspections['status'])){
-            foreach ($inspections['status'] as $key => $value) { ?>
+            foreach ($inspections['status'][0] as $key => $value) { ?>
             <select  name="inspection_id" class="form-control" disabled="true">
 
 
               <option value="">
-                <?php  echo $value[0]->name; ?>
+                <?php  echo $value->name; ?>
               </option>
             </select>
             <?php
