@@ -44,7 +44,6 @@ class Notification_processor extends CI_Controller {
         $user_id = get_array_value($_POST, "user_id");
         $activity_log_id = get_array_value($_POST, "activity_log_id");
 
-
         $options = array(
             "project_id" => get_array_value($_POST, "project_id"),
             "task_id" => get_array_value($_POST, "task_id"),
@@ -67,7 +66,6 @@ class Notification_processor extends CI_Controller {
         if ($event == "project_task_updated") {
             $this->_clasified_task_modification($event, $options, $activity_log_id); //overwrite event and  options
         }
-
 
         $this->Notifications_model->create_notification($event, $user_id, $options);
     }

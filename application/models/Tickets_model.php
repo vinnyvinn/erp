@@ -43,6 +43,13 @@ class Tickets_model extends Crud_model {
             $where .= " AND $tickets_table.assigned_to=$assigned_to";
         }
 
+        $team_id = get_array_value($options, "team_id");
+        if ($team_id) {
+            $where .= " AND $tickets_table.team_id=$team_id";
+        }
+
+        $team_id = get_array_value($options, "team_id");
+
         $sql = "SELECT $tickets_table.*, $ticket_types_table.title AS ticket_type,$projectsTable.title as projectTitle,
               $projectsTable.id as projectId, $clientsTable.company_name, $clientsTable.id as client_id,
               CONCAT($users_table.first_name, ' ',$users_table.last_name) AS assigned_to_user, $users_table.image as assigned_to_avatar

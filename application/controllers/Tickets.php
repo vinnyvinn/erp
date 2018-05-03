@@ -332,6 +332,7 @@ class Tickets extends Pre_loader
             "created_by" => $this->login_user->id,
             "created_at" => $now,
             "last_activity_at" => $now,
+            "team_id" => $this->input->post('team_id'),
             "labels" => $this->input->post('labels'),
             "assigned_to" => $assigned_to ? $assigned_to : 0,
             "escalation_matrix" => $escalation_matrix ? $escalation_matrix : 0,
@@ -408,14 +409,12 @@ class Tickets extends Pre_loader
             $assigned_to = $this->login_user->id;
         }
 
-        $options = array("status" => $status, "access_type" => $this->access_type, "ticket_label" => $ticket_label, "assigned_to" => $assigned_to);
+        $options = array("status" => $status, "access_type" => $this->access_type, "ticket_label" => $ticket_label, "assigned_to" => $assigned_to, "team_id" => 0);
 
         $list_data = $this->Tickets_model->get_details($options)->result();
 
         $result = array();
         foreach ($list_data as $data) {
-
-
             $result[] = $this->_make_row($data);
 
         }
@@ -485,15 +484,6 @@ class Tickets extends Pre_loader
             $options .= modal_anchor(get_uri("tickets/modal_form"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('ticket'), "data-post-view" => "details", "data-post-id" => $data->id));
             $options .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_task'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("tickets/delete_ticket"), "data-action" => "delete"));
         }
-      //   $date1=$data->created_at;
-      //  $date2=new DateTime($data->last_activity);
-      //  $time_diff=$date2->diff($date1);
-      // $duration= gmdate('H:i:s', $time_diff);
-      // $t1=json_encode($duration);
-      //  // $post_date = $data->created_at;
-      //  // $now = $data->last_activity;
-      //  //
-      //  // $tt=$post_date-$now;
 
         return array(
             $data->id,
