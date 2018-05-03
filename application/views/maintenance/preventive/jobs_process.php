@@ -246,8 +246,7 @@
       </div>
     </div>
   </div>
-
-  <hr>
+  
   <div class="row">
     <div class="col-sm-12">
       <table class="table table-striped" id="items_table">
@@ -265,13 +264,13 @@
           <tr>
             <td> 
               <?php
-              if($inspections['inspect']){
+              if(!empty($inspections['inspect'])){
                 foreach ($inspections['inspect'] as $key => $value) { ?>
                 <select  name="inspection_id" class="form-control" disabled="true">
 
 
                   <option value="">
-                    <?php  echo $value[0]['type']; ?>
+                    <?php  echo $value[0]->type; ?>
                   </option>
                 </select>
                 <?php
@@ -281,30 +280,32 @@
 
             <td>
               <?php
-              foreach ($inspections['emp'] as $key => $value) { ?>
+              if(!empty($inspections['emp'])){
+              foreach ($inspections['emp'] as $key => $empl) { ?>
               <select  name="inspection_id" class="form-control" disabled="true">
 
 
                 <option value="">
-                  <?php  echo $value[0]['name'];?>
+                  <?php  echo $empl[0]['name'];?>
                 </option>
               </select>
               <?php
-            }
+            } }
             ?>
           </td>
           <td>
             <?php
+            if(!empty($inspections['status'])){
             foreach ($inspections['status'] as $key => $value) { ?>
             <select  name="inspection_id" class="form-control" disabled="true">
 
 
               <option value="">
-                <?php  echo $value[0]['name']; ?>
+                <?php  echo $value[0]->name; ?>
               </option>
             </select>
             <?php
-          }
+          } }
           ?>
         </td>
       </tr>
