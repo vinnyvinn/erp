@@ -123,6 +123,7 @@
           $('[name="next_time"]').val(data.next_time);
           $('[name="make"]').val(data.make); 
           $('[name="km_reading"]').val(data.km_reading);
+          $('[name="miles"]').val(data.km_reading);
           $('[name="hours"]').val(data.machine_hours);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Asset'); // Set title to Bootstrap modal title
@@ -252,15 +253,30 @@
                     <input name="year_of_reg" placeholder="Registration year" class="form-control" type="date">
                   </div>
                 </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6" style="width: 45%;">
+
+            </div>
+            <div class="row">
+            <div class="col-md-6">
                   <div class="form-group">
-                    <label class="control-label" style="margin-left: 10px;">Hours</label>
-                    <input name="hours" placeholder="Hours" class="form-control" 
-                    type="text" style="width: 90%;margin-left: 8px;">
+                   <label for="supplier_id" class="col-md-6"><b>Track By</b></label>
+                   <select class="form-control" name="track_by" id="partselected" style="width: 90%;margin-left: 8px;" required>
+                    <option value="">--Track By--</option>
+                    <option value="km">Kilometer</option>
+                    <option value="miles">Miles</option>
+                  </select>
                   </div>
+              </div>
+              </div>
+            <div class="row">
+
+              <div class="col-md-6" style="width: 45%;">
+                <div class="form-group">
+                  <label class="control-label" style="margin-left: 10px;">Hours</label>
+                  <input name="hours" placeholder="Hours" class="form-control" 
+                  type="text" style="width: 90%;margin-left: 8px;">
                 </div>
+              </div>
+              <div id="km" class="track km">
                 <div class="col-md-6" style="width: 45%;">
                   <div class="form-group">
                     <label class="control-label">Current KM Readings</label>
@@ -269,56 +285,66 @@
                   </div>
                 </div>
               </div>
-
-              <div class="row"> 
-                <div class="col-md-6" style="width: 45%;">
-                 <div class="form-group">
-                  <label class="control-label" style="background-color: white;margin-left: 10px;">Assigned To</label>
-                  <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" style="width: 90%;margin-left: 8px;" required>
-                  <option value="">--Select Staff--</option>
-                   <?php
-                   foreach ($drivers_dropdown as $driver) {
-                    echo "<option value=". $driver->id . ">" . ucfirst($driver->name) . "</option>";
-                  }
-                  ?>
-                </select>
-              </div>
-            </div>
-            <div class="col-md-6" style="width: 45%">
-              <div class="form-group">
-                <label class="control-label">Warranty Expiry</label>
-                <input name="warranty" placeholder="Warranty" class="form-control" type="date">
+              <div id="miles" class="track miles" style="display: none;">
+               <div class="col-md-6" style="width: 45%;">
+                <div class="form-group">
+                  <label class="control-label">Current Miles Readings</label>
+                  <input name="miles" placeholder="Current Miles Readings" class="form-control"  
+                  type="text">
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="row">
+          <div class="row"> 
+            <div class="col-md-6" style="width: 45%;">
+             <div class="form-group">
+              <label class="control-label" style="background-color: white;margin-left: 10px;">Assigned To</label>
+              <select class="form-control" name="driver_id" id="driver_id" placeholder="Assigned To" style="width: 90%;margin-left: 8px;" required>
+                <option value="">--Select Staff--</option>
+                <?php
+                foreach ($drivers_dropdown as $driver) {
+                  echo "<option value=". $driver->id . ">" . ucfirst($driver->name) . "</option>";
+                }
+                ?>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-6" style="width: 45%">
+            <div class="form-group">
+              <label class="control-label">Warranty Expiry</label>
+              <input name="warranty" placeholder="Warranty" class="form-control" type="date">
+            </div>
+          </div>
+        </div>
 
-            <div class="col-md-6" style="width: 45%">
-              <div class="form-group">
-                <label class="control-label" style="margin-left: 10px;">Make</label>
-                <input name="make" placeholder="Make" class="form-control" type="text" style="width: 90%;margin-left: 8px;">
-              </div>
+        <div class="row">
+
+          <div class="col-md-6" style="width: 45%">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Make</label>
+              <input name="make" placeholder="Make" class="form-control" type="text" style="width: 90%;margin-left: 8px;">
             </div>
-            <div class="col-md-6" style="width: 45%">
-              <div class="form-group">
-                <label class="control-label" style="margin-left: 10px;">Next Maintenance Date</label>
-                <input name="next_time" placeholder="Next visit time" class="form-control" type="date" style="width: 90%;margin-left: 8px;">
-              </div>
+          </div>
+          <div class="col-md-6" style="width: 45%">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Next Maintenance Date</label>
+              <input name="next_time" placeholder="Next visit time" class="form-control" type="date" style="width: 90%;margin-left: 8px;">
             </div>
-            
           </div>
 
+        </div>
 
-          
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
-      </div>
-    </div><!-- /.modal-content -->
-  </div><!-- /.modal-dialog -->
+
+
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
 
@@ -330,3 +356,11 @@
 }
 </script>
 
+<script type="text/javascript">
+  $(function() {
+    $('#partselected').change(function(){
+      $('.track').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
+</script>

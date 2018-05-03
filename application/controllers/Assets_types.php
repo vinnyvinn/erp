@@ -67,6 +67,16 @@ class Assets_types extends Pre_loader {
 }
 public function add_asset()
 {
+
+  $km_reading='';
+  if($this->input->post('km_reading')){
+    $km_reading=$this->input->post('km_reading');
+  }
+  elseif($this->input->post('miles')) {
+   $km_reading=($this->input->post('miles')/0.621371);
+
+  }
+  
   $data = array(
    'code' => $this->input->post('code'),
    'year_of_reg' => $this->input->post('year_of_reg'),
@@ -78,8 +88,9 @@ public function add_asset()
    'warranty' => $this->input->post('warranty'),
    'next_time' => $this->input->post('next_time'),
    'make' => $this->input->post('make'),
-   'km_reading' => $this->input->post('km_reading'),
-   'machine_hours' => $this->input->post('hours')
+   'km_reading' => $km_reading,
+   'machine_hours' => $this->input->post('hours'),
+
    
  );
   
@@ -96,6 +107,15 @@ public function asset_edit($id)
 }
 public function asset_update()
 {
+  $km_reading='';
+  if($this->input->post('km_reading')){
+    $km_reading=$this->input->post('km_reading');
+  }
+  elseif($this->input->post('miles')) {
+   $km_reading=($this->input->post('miles')/0.621371);
+
+  }
+  
   $data = array(
    'code' => $this->input->post('code'),
    'year_of_reg' => $this->input->post('year_of_reg'),
@@ -107,7 +127,7 @@ public function asset_update()
    'warranty' => $this->input->post('warranty'),
    'next_time' => $this->input->post('next_time'),
    'make' => $this->input->post('make'),
-   'km_reading' => $this->input->post('km_reading'),
+   'km_reading' => $km_reading,
    'machine_hours' => $this->input->post('hours'),
    'updated_at' => date("Y-m-d H:i:s"),
    
