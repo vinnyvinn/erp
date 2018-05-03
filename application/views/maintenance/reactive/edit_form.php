@@ -10,7 +10,7 @@
       <div class="col-sm-4">
         <div class="form-group vehicle_sel">
           <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
-          <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled="disabled">
+          <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled>
             <option value=""><?php echo $jobs[0]['code'];?></option>
             <?php
             foreach ($vehicles_dropdown as $value) {
@@ -48,7 +48,8 @@
           ));
           ?>
         </div>
-       
+        
+         
         <table style="width: 100%">
           <tr>
             <th>Spare Parts</th>
@@ -61,22 +62,25 @@
           $parts=json_decode($jobs[0]['part_name']);
           $quantity=json_decode($jobs[0]['quantity']);
           $cost=json_decode($jobs[0]['cost']);
-
           ?>
 
-          <?php foreach ($parts as $key => $value): ?>
+
+          <?php
+
+           foreach ($parts as $key => $value): ?>
             
             <tr>
               <td><?= $value ?></td>
               <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
-              <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : '' ?></td>
+              <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : ''?></td>
             </tr>
 
           <?php endforeach; ?>
-
+          
 
         </table>
-         <div class="form-group">
+         <br>
+        <div class="form-group">
           <?php if(!empty($jobs[0]['picture'])){?>
           <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download Checklist</a>
           <?php } elseif(empty($jobs[0]['picture'])) {?>
@@ -98,7 +102,20 @@
 
       </div>
 
-     
+      <div class="form-group">
+        <label for="completion_date"><b><?php echo lang('completion_date'); ?></b></label>
+
+        <?php
+        echo form_input(array(
+          "id" => "completion_date",
+          "name" => "completion_date",
+          "value" => $jobs[0]['completion_date'],
+          "class" => "form-control",
+          "disabled" => "disabled",
+
+        ));
+        ?>
+      </div>
       
       <div class="form-group">
         <label for="completion_date"><b>Actual Date</b></label>
@@ -114,25 +131,11 @@
         ?>
         
       </div>
-       <div class="form-group">
-        <label for="completion_date"><b>Actual Completion Date</b></label>
-
-        <?php
-        echo form_input(array(
-          "id" => "completion_date",
-          "name" => "completion_date",
-          "value" => $jobs[0]['completion_date'],
-          "class" => "form-control",
-          "disabled" => "disabled",
-
-        ));
-        ?>
-      </div>
       <div class="form-group">
         <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
         <p id="driver"><?php echo $jobs[0]['driver'];?></p>
       </div>
-       <?php if(!empty($jobs[0]['labour'])){?>
+      <?php if(!empty($jobs[0]['labour'])){?>
       <div class="col-sm-6">
         <div class="form-group">
           <label for="driver"><b>Labour</b></label>
@@ -144,10 +147,10 @@
           <label for="driver"><b>Cost</b></label>
           <p id="driver"><?php echo $jobs[0]['labour_cost'];?></p>
         </div> 
-      </div>
-      <?php }?> 
+      </div> 
+       <?php }?>
     </div>
-
+ 
     <div class="col-sm-4">
       <div class="form-group">
         <b><?php echo lang('make_model'); ?></b>
@@ -275,7 +278,7 @@
   </div>
   <br>
   <div class="form-group">
-    <a href="<?php echo base_url();?>preventive" class="btn btn-danger" role="button">back</a>
+    <a href="<?php echo base_url();?>reactive" class="btn btn-danger" role="button">back</a>
     <button type="submit" class="btn btn-success" name="submit"><span class="fa fa-check-circle"></span>Close Job Card</button>
 
     
