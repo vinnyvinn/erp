@@ -20,7 +20,6 @@ class Maintenance_report extends Pre_loader
       $this->load->library('excel');
       
 
-
   }
 
   public function index()
@@ -93,7 +92,11 @@ public function print_page($month){
        array_push($search_results,$found);
    }
 } 
-
+if(empty($search_results)){
+   $this->session->set_flashdata('item','sorry, no record was found for the selected Month'); 
+ 
+  return redirect('maintenance_report','refresh');
+}
 $view_data['reports_data'] = $search_results;
 $this->load->library('pdf2');
 $this->pdf2->load_view('maintenance/reports/print_page',$view_data);

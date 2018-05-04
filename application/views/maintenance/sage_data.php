@@ -27,7 +27,7 @@
                     <?php echo anchor(get_uri("assets_types"), "<i class='fa fa-certificate'></i> " . 'Assets', array("class" => "btn btn-info", "title" => 'Assets')); ?>
                 </div>
                  <div class="title-button-group">
-                    <?php echo anchor(get_uri("employees_types"), "<i class='fa fa-certificate'></i> " . 'Staff', array("class" => "btn btn-success", "title" => 'Staff')); ?>
+                    <?php echo anchor(get_uri("employees_types"), "<i class='fa fa-certificate'></i> " . 'Clients', array("class" => "btn btn-success", "title" => 'Clients')); ?>
                 </div>
                 <div class="title-button-group">
                     <?php echo anchor(get_uri("equipments"), "<i class='fa fa-certificate'></i> " . 'Equipments', array("class" => "btn btn-success", "title" => 'Equipments')); ?>
@@ -48,7 +48,7 @@
                     <?php echo anchor(get_uri("fuel_suppliers"), "<i class='fa fa-certificate'></i> " . 'Fuel Suppliers', array("class" => "btn btn-info", "title" => 'Fuel Suppliers')); ?>
                 </div>
                 <div class="title-button-group">
-                    <?php echo anchor(get_uri("sage_clients"), "<i class='fa fa-certificate'></i> " . 'Clients ', array("class" => "btn btn-default", "title" => 'Clients')); ?>
+                    <?php echo anchor(get_uri("sage_clients"), "<i class='fa fa-certificate'></i> " . 'Customers ', array("class" => "btn btn-default", "title" => 'Customers')); ?>
                 </div>
                  <div class="title-button-group">
                     <?php echo anchor(get_uri("other_expenses"), "<i class='fa fa-certificate'></i> " . 'Expenses ', array("class" => "btn btn-warning", "title" => 'Expenses')); ?>

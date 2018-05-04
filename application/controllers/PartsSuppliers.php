@@ -38,10 +38,15 @@ class PartsSuppliers extends Pre_loader {
      	 'phone' => $item['Telephone'],
      	 'tax_no' => $item['Tax_Number']
      ];
-    },$querySage);    
+    },$querySage);  
+    
+    if(!empty($querySage)){  
     $this->db->insert_batch('parts_suppliers',$querySage);
     return redirect(base_url().'partsSuppliers');
-  
+    }
+    else{
+      return redirect(base_url().'partsSuppliers');
+    }
    //$fromSage=array_map(function($item))
 
   }

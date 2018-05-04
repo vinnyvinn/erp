@@ -100,6 +100,8 @@
             $('[name="asset_no"]').val(data.asset_no);
             $('[name="description"]').val(data.description);
             $('[name="purchase_price"]').val(data.purchase_price);
+             $('[name="currency"]').val(data.currency);
+             $('[name="charge_per"]').val(data.charge_per);
 
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Equipment'); // Set title to Bootstrap modal title
@@ -200,13 +202,36 @@
                 <textarea name="description" placeholder="Description" class="form-control"></textarea>  
             </div>
           </div>
+           <div class="form-group">
+              <label class="control-label col-md-3">Currency</label>
+              <div class="col-md-9">
+              <select name="currency" class="form-control">
+                <option value="">--Choose Currency--</option>
+                <option value="KSH">KSH</option>
+                <option value="USD">USD</option>
+              </select>
+                
+              </div>
+            </div>
+                    <div class="form-group">
+              <label class="control-label col-md-3">Charges Per</label>
+              <div class="col-md-9">
+              <select name="charge_per" class="form-control">
+                <option value="">--Choose Unit--</option>
+                <option value="tonne">Tonne</option>
+                <option value="hour">Hour</option>
+              </select>
+                
+              </div>
+            </div> 
             <div class="form-group">
               <label class="control-label col-md-3">Rate</label>
               <div class="col-md-9">
                 <input name="purchase_price" placeholder="Rate" class="form-control" type="text">
               </div>
             </div>
-                        
+
+
           </div>
         </form>
           </div>

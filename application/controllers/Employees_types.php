@@ -47,10 +47,12 @@ class Employees_types extends Pre_loader {
        ];
      }, $fromHr);
 
-    
-    if($this->db->insert_batch('employees', $fromHr)){
-     return redirect(base_url().'employees_types'); 
-   } else
+    if(!empty($fromHr)){
+    $this->db->insert_batch('employees', $fromHr);
+     return redirect(base_url().'employees_types');
+    }
+     
+    else
    {
     return redirect(base_url().'employees_types');
    }

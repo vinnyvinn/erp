@@ -58,9 +58,9 @@
              
              <th>Parts</th>
              <th>Qty</th>
-             <th>Cost</th>
-             <th>Labour Cost</th>
-             <th>Description</th>
+             <th>Unit Cost</th>
+             <th>Total Cost(Ksh)</th>
+            
              
            </tr>
          </thead> 
@@ -70,47 +70,52 @@
           $parts=json_decode($reports_data[0]['part_name']);
           $quantity=json_decode($reports_data[0]['quantity']);
           $cost=json_decode($reports_data[0]['cost']);
-
+          $total=0;
           ?>
 
           <?php  
-          $item=false;
+         
           foreach ($parts as $key => $value): ?>
           
           <tr>
             <td><?= $value ?></td>
             <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
             <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : '' ?></td>
-            <?php if(!$item) {?>
-            <td><?php echo $reports_data[0]['labour_cost'];?></td>
-            <td><?php echo $reports_data[0]['labour'];?></td>
-            <?php }
-            else{?>
-
-            <td></td>
-            <td></td>
-            <?php } ?>
+             <td><?php echo number_format($quantity[$key] * $cost[$key],2);
+               $total+=($quantity[$key] * $cost[$key]);
+             ?></td>
           </tr>
-          <?php 
-          $item=true;
-          endforeach; ?>
+          <?php  endforeach; ?>
           
           
         </tbody>
         <tfoot>
           <tr>
-            <td style="color: red; font-size: 18px; text-align: right;"><b>Total Cost</b></td>
+            <td><</td>
             <td></td>
-            <td></td>
-            <td></td>
-            <td>
+            <td style="color: red; font-size: 18px; text-align: right;"><b>Sub Totals</b></td>
+             <td>
               <?php
-              $sum=0; 
-              $cost= json_decode($reports_data[0]['cost']);
-              foreach ($cost as $key => $value) {
-                $sum+=$value;
-              }
-              echo number_format($sum + $reports_data[0]['labour_cost'],2);
+              echo number_format($total,2);
+              ?></td>
+            </tr>
+            <tr>
+            <td><</td>
+            <td></td>
+            <td style="color: red; font-size: 18px; text-align: right;"><b>Labour Cost</b></td>
+             <td>
+              <?php
+              echo number_format($reports_data[0]['labour_cost'],2);
+              ?></td>
+            </tr>
+            <tr>
+            <td><</td>
+            <td></td>
+            <td style="color: red; font-size: 18px; text-align: right;"><b>Totals Cost</b></td>
+             <td>
+              <?php
+              
+              echo number_format($total + $reports_data[0]['labour_cost'],2);
               ?></td>
             </tr>
           </tfoot>
@@ -122,7 +127,7 @@
            echo implode(',',$items);
            ;?>
            supplied by
-           <?php echo  $reports_data[0]['supplier'] ? $reports_data[0]['supplier'] : $reports_data[0]['external_provider']?>. Fixed on 
+           <?php echo  $reports_data[0]['supplier'] ? $reports_data[0]['supplier'] : $reports_data[0]['internal_provider']?>. Fixed on 
            <?php $date=strtotime($reports_data[0]['completion_date']);
            echo date('Y/m/d',$date)?> from <?php echo $reports_data[0]['time_in']?> -  <?php echo $reports_data[0]['time_out']?>
            Total downtime <?php 

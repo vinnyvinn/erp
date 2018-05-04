@@ -41,28 +41,30 @@ class Assets_types extends Pre_loader {
    
    $fromSage = array_map(function ($item) {
     return [
-      "code" => $item['cAssetCode'],
-      "asset_no" => $item['idAssetNo'],
-      "description" => $item['cAssetDesc'],
-      "km_reading" => $item['ufFACurrentKMReading'],
-      "machine_hours" => $item['ufFAMachineHours'],
-      "track_by" => $item['ulFATrackBy'],
-      "chasis_no" => $item['ucFAChasisnumber'],
-      "engine_no" => $item['ucFAEnginenumber'],
-      "year_of_make" => $item['ucFAYearofmake'],
-      "year_of_reg" => $item['ucFARegyear'],
-      "make" => $item['ucFAMake'],
-      "code_type" => $item['cAssetTypeCode'],
+    "code" => $item['cAssetCode'],
+    "asset_no" => $item['idAssetNo'],
+    "description" => $item['cAssetDesc'],
+    "km_reading" => $item['ufFACurrentKMReading'],
+    "machine_hours" => $item['ufFAMachineHours'],
+    "track_by" => $item['ulFATrackBy'],
+    "chasis_no" => $item['ucFAChasisnumber'],
+    "engine_no" => $item['ucFAEnginenumber'],
+    "year_of_make" => $item['ucFAYearofmake'],
+    "year_of_reg" => $item['ucFARegyear'],
+    "make" => $item['ucFAMake'],
+    "code_type" => $item['cAssetTypeCode'],
     ];
   }, $fromSage);
 
 
-   if($this->db->insert_batch('assets', $fromSage)){
-     return redirect(base_url().'assets_types'); 
-   }
-   else
-   {
-    return redirect(base_url().'assets_types'); 
+   if(!empty($fromSage)){
+    $this->db->insert_batch('assets', $fromSage);
+    return redirect('assets_types','refresh'); 
+  }
+
+  else
+  {
+    return redirect('assets_types','refresh'); 
   }
 }
 public function add_asset()
@@ -75,9 +77,9 @@ public function add_asset()
   elseif($this->input->post('miles')) {
    $km_reading=($this->input->post('miles')/0.621371);
 
-  }
-  
-  $data = array(
+ }
+
+ $data = array(
    'code' => $this->input->post('code'),
    'year_of_reg' => $this->input->post('year_of_reg'),
    'year_of_make' => $this->input->post('year_of_make'),
@@ -92,12 +94,12 @@ public function add_asset()
    'machine_hours' => $this->input->post('hours'),
 
    
- );
-  
-  $this->db->insert('assets',$data);
+   );
 
-  echo json_encode(array("status" => TRUE));
-  
+ $this->db->insert('assets',$data);
+
+ echo json_encode(array("status" => TRUE));
+
 }
 
 public function asset_edit($id)
@@ -114,9 +116,9 @@ public function asset_update()
   elseif($this->input->post('miles')) {
    $km_reading=($this->input->post('miles')/0.621371);
 
-  }
-  
-  $data = array(
+ }
+
+   $data = array(
    'code' => $this->input->post('code'),
    'year_of_reg' => $this->input->post('year_of_reg'),
    'year_of_make' => $this->input->post('year_of_make'),
@@ -131,14 +133,14 @@ public function asset_update()
    'machine_hours' => $this->input->post('hours'),
    'updated_at' => date("Y-m-d H:i:s"),
    
- );
-  $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
-  $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
-  $result = $query->row()->id; 
-  $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM Assets
-    LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
-  echo json_encode(array("status" => TRUE));
-        $this->tech_mail($variables);
+   );
+ $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
+ $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
+ $result = $query->row_array()['id']; 
+ $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM assets
+  LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
+ echo json_encode(array("status" => TRUE));
+ $this->tech_mail($variables);
 
 }
 

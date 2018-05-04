@@ -1,15 +1,15 @@
 <?php
 
 function convertToHoursMins($time, $format = '%02d:%02d') {
-    if ($time < 1) {
-        return;
-    }
-    $hours = floor($time / 60);
-    $minutes = ($time % 60);
-    return sprintf($format, $hours, $minutes);
+  if ($time < 1) {
+    return;
+  }
+  $hours = floor($time / 60);
+  $minutes = ($time % 60);
+  return sprintf($format, $hours, $minutes);
 }
 
- ?>
+?>
 <div class="row">
   <div class="col-sm-12">
     <div class="panel-default">
@@ -42,11 +42,11 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
            <td><?php echo $trimmer['name'];?></td>
            <td><?php echo $trimmer['trimmer'];?></td>
            <td><?php 
-           $time_in=strtotime($trimmer['time_in']);
-           $time_out=strtotime( $trimmer['time_out']);
-           $start_date=strtotime($trimmer['start_date']);
-           $end_date=strtotime( $trimmer['end_date']);
-           echo convertToHoursMins((($time_out+$end_date)-($time_in+$start_date))/60, '%02d hours %02d minutes');?>
+             $time_in=strtotime($trimmer['time_in']);
+             $time_out=strtotime( $trimmer['time_out']);
+             $start_date=strtotime($trimmer['start_date']);
+             $end_date=strtotime( $trimmer['end_date']);
+             echo convertToHoursMins((($time_out+$end_date)-($time_in+$start_date))/60, '%02d hours %02d minutes');?>
            </td>
            <td><?php echo $trimmer['rate'];?></td>
            <td><?php echo $trimmer['total'];?></td>
@@ -123,6 +123,8 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
           $('[name="time_out"]').val(data.time_out);
           $('[name="start_date"]').val(data.start_date);
           $('[name="end_date"]').val(data.end_date);
+          $('[name="delayed_hours"]').val(data.delayed_hours);
+          $('[name="delayed_minutes"]').val(data.delayed_minutes);
            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
            $('.modal-title').text('Edit Trimmer'); // Set title to Bootstrap modal title
 
@@ -225,19 +227,19 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
               </div>
             </div>
             
-              <div class="form-group">
-                <label class="control-label col-md-3" for="rate"><b><?php echo lang('start_date');?></b></label>
-                  <div class="col-md-9">
+            <div class="form-group">
+              <label class="control-label col-md-3" for="rate"><b><?php echo lang('start_date');?></b></label>
+              <div class="col-md-9">
                 <input type="text" id="txtFromDate" name="start_date" class="form-control"/>
-             </div>
-             
+              </div>
+              
             </div>
             
-              <div class="form-group">
-                <label class="control-label col-md-3" for="hours"><b><?php echo lang('end_date')?></b></label>
-                <div class="col-md-9">
+            <div class="form-group">
+              <label class="control-label col-md-3" for="hours"><b><?php echo lang('end_date')?></b></label>
+              <div class="col-md-9">
                 <input type="text" name="end_date" id="txtToDate" name="end_date" class="form-control">
-               </div>
+              </div>
               
             </div>
 
@@ -251,6 +253,18 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
               <label class="control-label col-md-3">Time Out</label>
               <div class="col-md-9">
                 <input name="time_out" placeholder="Time Out" class="form-control" id="time_out" type="time">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Delayed Hours</label>
+              <div class="col-md-9">
+                <input name="delayed_hours" placeholder="Delayed Hours" class="form-control" id="delayed_hours" type="number">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-md-3">Delayed Minutes</label>
+              <div class="col-md-9">
+                <input name="delayed_minutes" placeholder="Delayed Minutes" class="form-control" id="time_out" type="number">
               </div>
             </div>
           </form>
@@ -268,21 +282,21 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
 <script type="text/javascript">
   $(document).ready(function(){
     $("#txtFromDate").datepicker({
-        minDate: 0,
-        maxDate: "+60D",
-        numberOfMonths: 2,
-        onSelect: function(selected) {
-          $("#txtToDate").datepicker("option","minDate", selected)
-        }
+      minDate: 0,
+      maxDate: "+60D",
+      numberOfMonths: 2,
+      onSelect: function(selected) {
+        $("#txtToDate").datepicker("option","minDate", selected)
+      }
     });
     $("#txtToDate").datepicker({ 
-        minDate: 0,
-        maxDate:"+60D",
-        numberOfMonths: 2,
-        onSelect: function(selected) {
-         $("#txtFromDate").datepicker("option","maxDate", selected)
-        }
-    });  
-});
+      minDate: 0,
+      maxDate:"+60D",
+      numberOfMonths: 2,
+      onSelect: function(selected) {
+       $("#txtFromDate").datepicker("option","maxDate", selected)
+     }
+   });  
+  });
 
 </script>

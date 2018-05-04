@@ -41,8 +41,13 @@ class Equipments extends Pre_loader {
            'forhire_group' => $parts['ulFAHireItemGroup']
           ];
  	},$querySage);
+  if(!empty($querySage)){
     $this->db->insert_batch('equipments',$querySage);
     return redirect(base_url().'equipments');
+    }
+    else{
+       return redirect(base_url().'equipments');
+    }
  }
    public function add_equipment()
     {
@@ -51,6 +56,8 @@ class Equipments extends Pre_loader {
            'asset_no' => $this->input->post('asset_no'),
            'description' => $this->input->post('description'),
             'purchase_price' => $this->input->post('purchase_price'),
+            'currency' => $this->input->post('currency'),
+            'charge_per' => $this->input->post('charge_per'),
             'source' => 'inhouse',
             );
       
@@ -69,6 +76,8 @@ class Equipments extends Pre_loader {
            'asset_no' => $this->input->post('asset_no'),
            'description' => $this->input->post('description'),
            'purchase_price' => $this->input->post('purchase_price'),
+           'currency' => $this->input->post('currency'),
+           'charge_per' => $this->input->post('charge_per'),
            'source' => 'inhouse',
             );
          

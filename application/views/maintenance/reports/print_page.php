@@ -1,4 +1,16 @@
-
+        <img src="./assets/images/esl.png" align="right" width="20%">
+    <div class="panel-heading">
+    <h2 style="text-align: center;"><?php 
+    if(isset($reports_data[0]['reports']['reactive'] )){
+      echo 'Preventive Maintance Reports For The Month Of '.date("F Y", strtotime($reports_data[0]['reports']['created_at'])) ;
+    }
+    else{
+       echo 'Reactive Maintance Reports For The Month Of '.date("F Y", strtotime($reports_data[0]['reports']['created_at'])) ;
+    }
+    ?>
+      </h2>
+       <br>
+   </div>
       <table class="table table-striped table-bordered"  style="width: 100%">
        <thead>
          <tr>

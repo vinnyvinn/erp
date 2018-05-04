@@ -20,16 +20,15 @@ class Fuel extends Pre_loader {
 
   public function index(){
     $this->access_only_allowed_members();
-    $view_data['suppliers_dropdown'] = $this->Parts_suppliers_model->get_all_where(array("deleted" => 0))->result();  
+    $view_data['suppliers_dropdown'] = $this->Fuel_suppliers_model->get_all_where(array("deleted" => 0))->result();  
     $view_data['staffs_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['expenses_dropdown'] = $this->Other_expenses_model->get_all_where(array("deleted" => 0))->result();   
     $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result(); 
-    $view_data['fuels']=$this->db->query("SELECT fuels.*,employees.name as staff,parts_suppliers.name as supplier,
-      assets.code as vehicle FROM fuels
-      LEFT JOIN parts_suppliers ON parts_suppliers.id=fuels.supplier_id
+    $view_data['fuels']=$this->db->query("SELECT fuels.*,employees.name as staff,fuel_suppliers.name as supplier,
+      fuel_suppliers.fuel_type,assets.code as vehicle FROM fuels
+      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id
       LEFT JOIN employees ON employees.id=fuels.staff_id
       LEFT JOIN assets ON assets.id=fuels.vehicle_id")->result_array();
-
     $this->template->rander("maintenance/services/fuel_form",$view_data);
   }
   public function km_reading($id)
@@ -50,31 +49,29 @@ class Fuel extends Pre_loader {
      'done_on' => $this->input->post('done_on'),
      'vehicle_id' => $this->input->post('vehicle_id'),
      'currency' => $this->input->post('currency'),
-     'price' => $this->input->post('price'),
-     
+     'fuel_id' => $this->input->post('fuel_id'),
+     );
 
-   );
-
-    
     $insert = $this->Fuel_model->fuels_add($data);
     $query=$this->db->query("SELECT * FROM fuels WHERE id=$insert")->row_array();
 
-     $supplier=$query['supplier_id'];
-     $expense_id=$query['expense_id'];
-     $distance=$query['km_reading'];
-     $vehicle=$query['vehicle_id'];
-     $price=$query['price'];
-     
+    $supplier=$query['supplier_id'];
+    $expense_id=$query['expense_id'];
+    $distance=$query['km_reading'];
+    $vehicle=$query['vehicle_id'];
+    $supp=$query['supplier_id'];
+
     $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
-   
+    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp")->row_array();
+
     $expense='';
     if($expense_id){
       $expense=$this->db->query("SELECT * FROM other_expenses WHERE id=$expense_id")->row_array()['cost'];
     }
     $km=$distance-$assets['km_reading'];
-    $total=$price*$query['litres'];
+    $total=$suppliers['price']*$query['litres'];
     $update_km=array('km_reading' => $distance);
-    $updated = array('total' => $total,'expense_cost' => $expense,'mileage' => $km);
+    $updated = array('price' => $suppliers['price'],'total' => $total,'expense_cost' => $expense,'mileage' => $km);
     $this->Fuel_model->fuel_update(array('id' => $insert), $updated);
     $this->Assets_model->assets_update(array('id' => $assets['id']), $update_km);
     echo json_encode(array("status" => TRUE));
@@ -96,22 +93,23 @@ class Fuel extends Pre_loader {
       'vehicle_id' => $this->input->post('vehicle_id'),
       'currency' => $this->input->post('currency'),
       'done_on' => $this->input->post('done_on'),
-      'price' => $this->input->post('price'),
+      'fuel_id' => $this->input->post('fuel_id'),
       'updated_at' => date('Y-m-d H:i:s')
-    );
-     $this->Fuel_model->fuel_update(array('id' => $this->input->post('id')), $data);
-     $fuel=$this->db->query("SELECT * FROM fuels ORDER BY updated_at DESC LIMIT 1")->row_array();
-     $id=$fuel['id'];
-     $supplier=$fuel['supplier_id'];
-     $expense_id=$fuel['expense_id'];
-     $distance=$fuel['km_reading'];
-     $vehicle=$fuel['vehicle_id'];
-     $price=$fuel['price'];
+      );
+    $this->Fuel_model->fuel_update(array('id' => $this->input->post('id')), $data);
+    $fuel=$this->db->query("SELECT * FROM fuels ORDER BY updated_at DESC LIMIT 1")->row_array();
+    $id=$fuel['id'];
+    $supplier=$fuel['supplier_id'];
+    $expense_id=$fuel['expense_id'];
+    $distance=$fuel['km_reading'];
+    $vehicle=$fuel['vehicle_id'];
+    $supp=$fuel['supplier_id'];
     $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
+    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp")->row_array();
     $km=$distance-$assets['km_reading'];
-    $total=$price*$fuel['litres'];
+    $total=$suppliers['price']*$fuel['litres'];
     $update_km=array('km_reading' => $distance);
-    $updated = array('total'=>$total,'mileage' => $km);
+    $updated = array('price' => $suppliers['price'],'total'=>$total,'mileage' => $km);
     $this->Fuel_model->fuel_update(array('id' => $id), $updated);
     $this->Assets_model->assets_update(array('id' => $assets['id']), $update_km);
     echo json_encode(array("status" => TRUE));

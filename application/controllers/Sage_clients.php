@@ -20,7 +20,7 @@ class Sage_clients extends Pre_loader {
 
   public function index(){
     $this->access_only_allowed_members();
-   $view_data['clients']=$this->db->query("SELECT * FROM sage_clients")->result_array();
+    $view_data['clients']=$this->db->query("SELECT * FROM sage_clients")->result_array();
     $this->template->rander("maintenance/services/clients_form",$view_data);
   }
   public function import_sage_clients(){
@@ -36,24 +36,29 @@ class Sage_clients extends Pre_loader {
    
    $fromSage = array_map(function ($item) {
     return [
-      "code" => $item['Account'],
-      "name" => $item['Name'],
-      "contact_person" => $item['Contact_Person'],
-      "telephone" => $item['Telephone']  
+    "code" => $item['Account'],
+    "name" => $item['Name'],
+    "contact_person" => $item['Contact_Person'],
+    "telephone" => $item['Telephone']  
     ];
   }, $fromSage);
-
-   $this->db->insert_batch('sage_clients', $fromSage);
-   return redirect(base_url().'sage_clients');
- }
- public function add_sage_clients()
- {
+   
+   if(!empty($fromSage)){
+    $this->db->insert_batch('sage_clients', $fromSage);
+    return redirect(base_url().'sage_clients');
+  }
+  else{
+    return redirect(base_url().'sage_clients');
+  }
+}
+public function add_sage_clients()
+{
   $data = array(
    'code' => $this->input->post('code'),
    'name' => $this->input->post('name'),
    'contact_person' => $this->input->post('contact_person'),
    'telephone' => $this->input->post('telephone'),
- );
+   );
   
   $insert = $this->Sage_clients_model->add_sage_clients($data);
   echo json_encode(array("status" => TRUE));
@@ -75,7 +80,7 @@ public function sage_clients_update()
    'telephone' => $this->input->post('telephone'),
    'updated_at' => date("Y-m-d H:i:s"),
    
- );
+   );
   $this->Sage_clients_model->sage_clients_update(array('id' => $this->input->post('id')), $data);
   echo json_encode(array("status" => TRUE));
         //$this->tech_mail($variables);

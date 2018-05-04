@@ -372,6 +372,7 @@ $lang["project_comment_reply"] = "Project comment reply";
 $lang["task_comment_reply"] = "Task comment reply";
 $lang["file_comment_reply"] = "File comment reply   ";
 $lang["customer_feedback_reply"] = "Customer feedback reply";
+$lang["customers"] = "Customers";
 
 /* expense */
 $lang["add_category"] = "Add category";

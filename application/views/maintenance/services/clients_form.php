@@ -9,9 +9,9 @@
   <div class="col-sm-9 col-lg-10">
     <div class="panel-default">
       <div class="panel-heading">
-        <div class="panel-title">Staffs</div>
+        <div class="panel-title">Customers</div>
         <a href="<?php echo base_url();?>sage_clients/import_sage_clients" class="btn btn-info" style="float: right;margin-top: -26px;margin-left: 100px"><i class="glyphicon glyphicon-upload"></i> <span style="font-size: 12px">Import From Sage</span></a>
-        <button class="btn btn-success" onclick="add_client()" style="float: right;margin-top: -26px;margin-right: 50px"><i class="glyphicon glyphicon-plus"></i> <span style="font-size: 12px">Add Client</span></button>  
+        <button class="btn btn-success" onclick="add_client()" style="float: right;margin-top: -26px;margin-right: 50px"><i class="glyphicon glyphicon-plus"></i> <span style="font-size: 12px">Add Customer</span></button>  
       </div>
       <div class="panel-body">   
         <br />
@@ -103,7 +103,7 @@
           
 
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Client'); // Set title to Bootstrap modal title
+            $('.modal-title').text('Edit Customer'); // Set title to Bootstrap modal title
 
           },
           error: function (jqXHR, textStatus, errorThrown)
@@ -176,7 +176,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title">Clients Form</h3>
+          <h3 class="modal-title">Customers Form</h3>
         </div>
         <div class="modal-body form">
           <form action="#" id="form" class="form-horizontal">

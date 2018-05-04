@@ -422,7 +422,7 @@ public function import_assets_from_sage()
       "location" => $item['iLocationNo'],
       "purchased_date" => $item['dPurchaseDate']
     ];
-  }, $fromSage);
+   }, $fromSage);
 
 
   $this->db->insert_batch('assets', $fromSage);
@@ -437,7 +437,7 @@ public function print_job($id)
     LEFT JOIN spares ON spares.job_card_id=jobs.id
     LEFT JOIN assets ON assets.id=jobs.vehicle_no 
     LEFT JOIN employees ON employees.id=assets.driver_id
-    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.internal_provider
+    LEFT JOIN parts_suppliers ON parts_suppliers.id=jobs.external_provider
     WHERE jobs.id=$id" )->result_array();
   $this->load->library('pdf2');
   $this->pdf2->load_view('maintenance/preventive/print_job', $view_data);

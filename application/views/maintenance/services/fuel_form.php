@@ -17,6 +17,7 @@
             <th>Vehicle</th>
             <th>Mileage(KM)</th>
             <th>Driver</th>
+            <th>Fuel Type</th>
             <th>Litres</th>
             <th>Pump Price</th>
             <th>Cost</th>
@@ -33,6 +34,7 @@
            <td><?php echo $fuel['vehicle'];?></td>
            <td><?php echo $fuel['mileage'];?></td>
            <td><?php echo $fuel['staff'];?></td>
+           <td><?php echo $fuel['fuel_type'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
            <td><?php echo $fuel['total'];?></td>
@@ -61,6 +63,7 @@
        <th>Vehicle</th>
        <th>Mileage(KM)</th>
        <th>Driver</th>
+       <th>Fuel Type</th>
        <th>Litres</th>
        <th>Pump Price</th>
        <th>Cost</th>
@@ -116,7 +119,7 @@
           $('[name="km_reading"]').val(data.km_reading);  
           $('[name="done_on"]').val(data.done_on);   
           $('[name="currency"]').val(data.currency);  
-          $('[name="price"]').val(data.price);       
+          $('[name="fuel_id"]').val(data.fuel_id);     
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Fuel'); // Set title to Bootstrap modal title
 
@@ -197,113 +200,134 @@
         <div class="modal-body form">
           <form action="#" id="form" class="form-horizontal">
             <input type="hidden" value="" name="id"/>
-            <div class="form-body">
 
-              <div class="form-group">
-                <label class="control-label col-md-3">Litres</label>
-                <div class="col-md-9">
-                  <input name="litres" placeholder="Litres" class="form-control" type="number">
+            <div class="form-body">
+              <div class="row">
+                <div class="col-md-6" style="width: 45%;">
+                  <div class="form-group">
+                    <label class="control-label"  style="margin-left: 10px;">Litres</label>
+                    <input name="litres" placeholder="Litres" class="form-control" type="number" style="width: 90%;margin-left: 8px;">
+                  </div>
                 </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3">Pump Price</label>
-                <div class="col-md-9">
-                  <input name="price" placeholder="Pump Price" class="form-control" type="number">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3">Invoice No.</label>
-                <div class="col-md-9">
-                  <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3">Currency</label>
-                <div class="col-md-9">
-                  <select class="form-control" name="currency" placeholder="Currency">
-                    <option value="">--Choose Currency--</option>
-                    <option value="USD">USD</option>
-                    <option value="KSH">KSH</option>
-                    
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3">Vehicle</label>
-                <div class="col-md-9">
-                  <select class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicle_id" required>
-                    <option value="">--Choose Vehicle--</option>
+                <div class="col-md-6" style="width: 45%;">
+                 <div class="form-group">
+                  <label class="control-label">Fuel Type</label>
+                  <select class="form-control" name="fuel_id" placeholder="Fuel Type" id="fuel_id" required>
                     <?php
-                    foreach ($vehicles_dropdown as $vehicle) {
-                      echo "<option value=". $vehicle->id . ">" . ucfirst($vehicle->code) . "</option>";
-                    }
-                    ?>
-                  </select>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="control-label col-md-3">Previous KM</label>
-                <div class="col-md-9">
-                 <p id="prevoius_km_reading"></p>
-               </div>
-             </div>
-             <div class="form-group">
-              <label class="control-label col-md-3">Current KM Readings</label>
-              <div class="col-md-9">
-                <input name="km_reading" placeholder="KM Readings" class="form-control" id="km_reading" type="text">
+                   foreach ($suppliers_dropdown as $fuel) {
+                    echo "<option value=". $fuel->id . ">" . ucfirst($fuel->fuel_type) . "</option>";
+                  }
+                  ?>
+                </select>
               </div>
             </div>
-            <div class="form-group">
-              <label class="control-label col-md-3">Supplier</label>
-              <div class="col-md-9">
-                <select class="form-control" name="supplier_id" placeholder="Supplier" id="supplier" required>
+          </div>
 
-                 <?php
-                 foreach ($suppliers_dropdown as $supplier) {
-                  echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
-                }
-                ?>
+          <div class="row">
+           <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Invoice No.</label>
+              <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text" style="width: 90%;margin-left: 8px;">
+            </div>
+          </div>
+
+          <div class="col-md-6" style="width: 45%;">
+            <div class="form-group">
+              <label class="control-label">Currency</label>
+              <select class="form-control" name="currency" placeholder="Currency">
+                <option value="">--Choose Currency--</option>
+                <option value="USD">USD</option>
+                <option value="KSH">KSH</option>
+
               </select>
             </div>
           </div>
-          <div class="form-group">
-            <label class="control-label col-md-3">Driver</label>
-            <div class="col-md-9">
-              <select class="form-control" name="staff_id" placeholder="Staff" id="staff" required>
+        </div>
 
-               <?php
-               foreach ($staffs_dropdown as $staff) {
-                echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
+        <div class="row">
+         <div class="col-md-6" style="width: 45%;">
+          <div class="form-group">
+            <label class="control-label" style="margin-left: 10px;">Vehicle</label>
+            <select class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicle_id" style="width: 90%;margin-left: 8px;" required>
+              <option value="">--Choose Vehicle--</option>
+              <?php
+              foreach ($vehicles_dropdown as $vehicle) {
+                echo "<option value=". $vehicle->id . ">" . ucfirst($vehicle->code) . "</option>";
               }
               ?>
             </select>
           </div>
         </div>
-        <div class="form-group">
-          <label class="control-label col-md-3">Expenses(Optional)</label>
-          <div class="col-md-9">
-            <select class="form-control" name="expense_id" placeholder="Expenses" id="expense">
-             <option value=""></option>
-             <?php
-             foreach ($expenses_dropdown as $expense) {
-              echo "<option value=". $expense->id . ">" . ucfirst($expense->name) . "</option>";
-            }
-            ?>
-          </select>
+
+        <div class="col-md-6" style="width: 45%;">
+          <div class="form-group">
+            <label class="control-label">Previous KM</label>
+            <p id="prevoius_km_reading"></p>
+          </div>
         </div>
       </div>
       <div class="form-group">
-        <label class="control-label col-md-3">Date</label>
-        <div class="col-md-9">
-          <input name="done_on" placeholder="Fueled On" class="form-control" id="done_on" type="text">
-        </div>
+        <label class="control-label" style="margin-left: 10px;">Current KM Readings</label>
+
+        <input name="km_reading" placeholder="KM Readings" class="form-control" id="km_reading" type="text" style="width: 90%;margin-left: 8px;">
       </div>
-    </form>
+    </div>
+
+    <div class="row">
+     <div class="col-md-6" style="width: 45%;">
+      <div class="form-group">
+        <label class="control-label" style="margin-left: 10px;">Supplier</label>
+        <select class="form-control" name="supplier_id" placeholder="Supplier" id="supplier" style="width: 90%;margin-left: 8px;" required>
+         <?php
+         foreach ($suppliers_dropdown as $supplier) {
+          echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
+        }
+        ?>
+      </select>
+    </div>
   </div>
-  <div class="modal-footer">
-    <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
-    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+  <div class="col-md-6" style="width: 45%;">
+    <div class="form-group">
+      <label class="control-label">Driver</label>
+      <select class="form-control" name="staff_id" placeholder="Staff" id="staff" required>
+
+       <?php
+       foreach ($staffs_dropdown as $staff) {
+        echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
+      }
+      ?>
+    </select>
   </div>
+</div>
+</div>
+
+<div class="row">
+  <div class="col-md-6"  style="width: 45%;">
+    <div class="form-group">
+      <label class="control-label"  style="margin-left: 10px;">Expenses(Optional)</label>
+      <select class="form-control" name="expense_id" placeholder="Expenses" id="expense" style="width: 90%;margin-left: 8px;">
+       <option value="">--Choose Expenses--</option>
+       <?php
+       foreach ($expenses_dropdown as $expense) {
+        echo "<option value=". $expense->id . ">" . ucfirst($expense->name) . "</option>";
+      }
+      ?>
+    </select>
+  </div>
+</div>
+<div class="col-md-6" style="width: 45%;">
+  <div class="form-group">
+    <label class="control-label">Date</label>
+    <input name="done_on" placeholder="Fueled On" class="form-control" id="done_on" type="text">
+  </div>
+</div>
+</div>
+</form>
+</div>
+<div class="modal-footer">
+  <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+</div>
 </div><!-- /.modal-content -->
 </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
