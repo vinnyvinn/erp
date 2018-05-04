@@ -242,6 +242,7 @@ $autoload['model'] = array(
     'Cheques_model',
     'Preventive_maintainance_model',
     'Trimmers_model',
-    'Trimmer_sheets_model'
+    'Trimmer_sheets_model',
+    'Ict_issets_model'
 );
 

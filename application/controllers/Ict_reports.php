@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+ini_set('max_execution_time', 300); //300 seconds 
 
 require_once("Pre_loader.php");
 
@@ -19,17 +20,26 @@ class Ict_reports extends Pre_loader {
 
   public function index(){
 
-    $view_data['ticket_types_dropdown'] = $this->Ticket_types_model->get_dropdown_list(array("title"), "id");
-    
-    $this->template->rander("checklists/reports/index", $view_data);
+    // $view_data['ticket_types_dropdown'] = $this->Ticket_types_model->get_dropdown_list(array("title"), "id");
+    // $this->template->rander("checklists/reports/index", $view_data);
+
+    $this->support_entries();
   }
 
   public function support_entries() {
     $this->template->rander("checklists/reports/support_entries/index");
   }
 
+  public function support_tickets() {
+    $this->template->rander("checklists/reports/support_tickets/index");
+  }
+
   public function checklists() {
     $this->template->rander("checklists/reports/checklists/index");
+  }
+
+  public function asset_disposal() {
+    $this->template->rander("checklists/disposal/index");
   }
 
   public function support_entries_list_data() {
@@ -66,6 +76,117 @@ class Ict_reports extends Pre_loader {
         return array($data->id, $subject, $project, $ticket_type, $assigned_to, $ticket_status);
     }
 
+
+  public function support_tickets_list_data() {
+
+    $id = $this->input->post("ticket_type_id");
+    $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "team_id" => 3, "deleted" => 0))->result();
+    $result = array();
+    foreach ($list_data as $data) {
+        $result[] = $this->support_tickets_make_row($data);
+    }
+    echo json_encode(array("data" => $result));
+  }
+
+  private function support_tickets_make_row($data) {
+
+        $subject = anchor(get_uri("tickets/view/" . $data->id), $data->title);
+
+        //show labels fild to team members only
+        $ticket_labels = "";
+        if ($data->labels && $this->login_user->user_type == "staff") {
+            $labels = explode(",", $data->labels);
+            foreach ($labels as $label) {
+                $ticket_labels.="<span class='label label-info'  title='$label'>" . $label . "</span> ";
+            }
+        }
+        if ($ticket_labels) {
+            $subject.="<span class='pull-right'>" . $ticket_labels . "</span>";
+        }
+
+        $ticket_type = $this->Ticket_types_model->get_one($data->ticket_type_id)->title;
+
+        // $assigned_to = anchor(get_uri("team_members/view/" . $data->id), $this->Users_model->get_one($data->assigned_to)->first_name . " " . $this->Users_model->get_one($data->assigned_to)->last_name);
+
+        // $escalation_matrix = $data->escalation_matrix != 0 ? modal_anchor(get_uri("ict_reports/excalation_matrix_view"), $data->escalation_matrix, array("class" => "edit", "title" => "Escalation Matrix", "data-post-view" => "details", "data-post-id" => $data->escalation_matrix)) : "None";
+
+        $assigned_to = $this->Team_model->get_one($data->team_id)->title;
+
+        $ticket_status_class = "label-danger";
+        if ($data->status === "new") {
+            $ticket_status_class = "label-warning";
+        } else if ($data->status === "closed") {
+            $ticket_status_class = "label-success";
+        } else if ($data->status === "client_replied" && $this->login_user->user_type === "client") {
+            $data->status = "open"; //don't show client_replied status to client
+        }
+
+        $ticket_status = "<span class='label $ticket_status_class large'>" . lang($data->status) . "</span> ";
+
+        $options = "";
+        if ($this->login_user->user_type == "staff" && $data->status !== "closed") {
+            $options .= modal_anchor(get_uri("ict_reports/support_tickets_modal_form"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('ticket'), "data-post-view" => "details", "data-post-id" => $data->id));
+            $options .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_task'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("tickets/delete_ticket"), "data-action" => "delete"));
+        }
+
+        return array($data->id, $subject, $ticket_type, $assigned_to, format_to_relative_time($data->last_activity_at), $ticket_status, $options);
+    }
+
+        //load new tickt modal
+    public function support_tickets_modal_form()
+    {
+        validate_submitted_data(array(
+            "id" => "numeric"
+        ));
+
+        //client should not be able to edit ticket
+        if ($this->login_user->user_type === "client" && $this->input->post('id')) {
+            redirect("forbidden");
+        }
+
+        $view_data['ticket_types_dropdown'] = $this->Ticket_types_model->get_dropdown_list(array("title"), "id");
+        $view_data['model_info'] = $this->Tickets_model->get_one($this->input->post('id'));
+
+        //prepare assign to list
+        $assigned_to_dropdown = array("" => "-") + $this->Users_model
+                ->get_dropdown_list(
+                    ["first_name", "last_name"],
+                    "id",
+                    ['status' => 'active', "deleted" => 0, "user_type" => "staff"]
+                );
+
+        asort($assigned_to_dropdown, SORT_STRING);
+
+        $view_data['assigned_to_dropdown'] = $assigned_to_dropdown;
+
+        $escalation_matrix_dropdown = array("" => "-") + $this->Escalation_matrix_model
+        ->get_dropdown_list(
+            ["escalation_matrix"],
+            "id",
+            ["deleted" => 0]
+        );
+
+        asort($escalation_matrix_dropdown, SORT_STRING);
+
+        $view_data['escalation_matrix_dropdown'] = $escalation_matrix_dropdown;
+
+        //prepare label suggestions
+        $labels = explode(",", $this->Tickets_model->get_label_suggestions());
+        $label_suggestions = array();
+        foreach ($labels as $label) {
+            if ($label && !in_array($label, $label_suggestions)) {
+                $label_suggestions[] = $label;
+            }
+        }
+        if (!count($label_suggestions)) {
+            $label_suggestions = array("0" => "");
+        }
+        $view_data['label_suggestions'] = $label_suggestions;
+        $view_data['staffs_dropdown'] = $this->HR_DB()->query("SELECT Emp_Name FROM tblEmployee")->result();
+
+        $this->load->view('checklists/reports/support_tickets/modal_form', $view_data);
+    }
+
     public function checklists_list_data() {
 
       // $id = $this->input->post("ticket_type_id");
@@ -98,7 +219,12 @@ class Ict_reports extends Pre_loader {
         $this->load->view('checklists/reports/checklists/view_modal', $view_data);
     }
 
-    public function inventory() {      
+    public function inventory() {
+      $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
+      foreach ($list_data as $data) {
+        // $this->Ict_issets_model->save(array("sage_id" => $data->idAssetNo));
+        $this->db->get_where('ict_issets', array("sage_id" => $data->idAssetNo), 1)->num_rows() ? '' : $this->db->insert('ict_issets', array("sage_id" => $data->idAssetNo));
+      }
       $this->template->rander("checklists/ict_inventory/index");
     }
 
@@ -113,7 +239,111 @@ class Ict_reports extends Pre_loader {
     }
 
     private function inventory_make_row($data) {
-      return array($data->idAssetNo, $data->cAssetDesc, $data->ucFAModel ? $data->ucFAModel : "Not Set", $data->cAssetCode, $data->iLocationNo, $data->iLocationNo, $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc, $data->ucFACustodian ? $data->ucFACustodian : "Not Set", $data->iAssetTypeNo, date("dS M Y",strtotime($data->dPurchaseDate)), number_format($data->fPurchaseValue, 2), $data->iSupplierNo);
+
+      $id = $data->idAssetNo;
+      $description = $data->cAssetDesc;
+      $model = $data->ucFAModel ? $data->ucFAModel : "NOT SET";
+      $serial = $data->cAssetCode;
+      $area = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
+      $location = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
+      $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
+      $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to;
+      // $depertment = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("Dept", array("idDept" => $data->iAssetTypeNo))->result()[0]->Description : "NOT SET";
+      $depertment = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
+      $pDate = date("dS M Y",strtotime($data->dPurchaseDate));
+      $pCost = number_format($data->fPurchaseValue, 2);
+      $Supplier = $data->iSupplierNo != 0 ? $this->SAGE_DB()->get_where("Vendor", array("idVendor" => $data->iSupplierNo))->result()[0]->cVendorName : "NOT SET";
+
+      $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
+
+      return array($id, $description, $model, $serial, $area, $location, $category, $custodian, $depertment, $pDate, $pCost, $Supplier);
+    }
+
+    public function custodian_modal_form() {
+
+      $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
+      $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $view_data['sage_id'] = $sage_id;
+      $view_data['users_dropdown'] = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("user_type" => "staff"));
+      $this->load->view('checklists/ict_inventory/custodian_modal_form', $view_data);
+    }
+
+    function save_custodian() {
+
+      $id = $this->input->post('id');
+
+      $data = array(
+        "assigned_to" => $this->input->post('user_id')
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+      if ($save_id) {
+          echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+      } else {
+          echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+      }
+    }
+
+    public function disposal_list_data() {
+
+      $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
+
+      /*if ($this->login_user->is_admin) {
+        $user_assets = $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
+        $list_data = array();
+        foreach ($user_assets as $asset) {
+          $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
+        }
+      } else {
+        $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "deleted" => 0))->result();
+        $list_data = array();
+        foreach ($user_assets as $asset) {
+          $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
+        }
+      }*/
+
+      $result = array();
+      foreach ($list_data as $data) {
+        $result[] = $this->disposal_make_row($data);
+      }
+      echo json_encode(array("data" => $result));
+    }
+
+    private function disposal_make_row($data) {
+
+      $id = $data->idAssetNo;
+      $description = $data->cAssetDesc;
+      $model = $data->ucFAModel ? $data->ucFAModel : "NOT SET";
+      $serial = $data->cAssetCode;
+      $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
+      $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to;
+      $pDate = date("dS M Y",strtotime($data->dPurchaseDate));
+      // $dDate = strtotime(date("Y-m-d", strtotime($data->dDepreciationStartDate)) . " +3 years");
+      $dDate = (new DateTime($data->dDepreciationStartDate))->add(new DateInterval('P3Y'));
+      $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
+      $date_now = new DateTime();
+      $optoins = ($date_now > $dDate) ? js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => "Dispose Asset", "class" => "delete", "data-id" => $id, "data-action-url" => get_uri("ict_reports/delete_asset"), "data-action" => "delete")) : '';
+
+      return array($id, $description, $serial, $category, $custodian, $pDate, $dDate->format('dS M Y'), $optoins);
+    }
+
+    function delete_asset() {
+
+       $id = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->id;
+
+        if ($this->input->post('undo')) {
+            if ($this->Ict_issets_model->delete($id, true)) {
+                echo json_encode(array("success" => true, "message" => lang('record_undone')));
+            } else {
+                echo json_encode(array("success" => false, "message" => lang('error_occurred')));
+            }
+        } else {
+            if ($this->Ict_issets_model->delete($id)) {
+                echo json_encode(array("success" => true, "message" => lang('record_deleted')));
+            } else {
+                echo json_encode(array("success" => false, "message" => lang('record_cannot_be_deleted')));
+            }
+        }
     }
 
     public function inventory_maintenance() {      
@@ -247,8 +477,109 @@ class Ict_reports extends Pre_loader {
       return array($data->id, $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $data->sage_item_id))->result()[0]->cAssetDesc, $data->performed_by != 0 ? $this->Users_model->get_one($data->performed_by)->first_name . " " . $this->Users_model->get_one($data->performed_by)->last_name : $status, date("dS M Y",strtotime($data->maintainance_date)), $status);
     }
 
+        // add a new ticket
+    public function support_tickets_save()
+    {
+        $id = $this->input->post('id');
+
+        validate_submitted_data(array(
+            "ticket_type_id" => "required|numeric"
+        ));
+
+        $ticket_type_id = $this->input->post('ticket_type_id');
+
+        $now = get_current_utc_time();
+        $ticket_data = array(
+            "title" => $this->input->post('title'),
+            "ticket_type_id" => $ticket_type_id,
+            "created_by" => $this->login_user->id,
+            "created_at" => $now,
+            "last_activity_at" => $now,
+            "team_id" => $this->input->post('team_id'),
+            "labels" => $this->input->post('labels')
+        );
+
+        if ($id) {
+            //client can't update ticket
+            if ($this->login_user->user_type === "client") {
+                redirect("forbidden");
+            }
+
+            //remove not updateable fields
+            unset($ticket_data['created_by']);
+            unset($ticket_data['created_at']);
+            unset($ticket_data['last_activity_at']);
+        }
+
+        $ticket_id = $this->Tickets_model->save($ticket_data, $id);
+
+        $target_path = get_setting("timeline_file_path");
+        $files_data = move_files_from_temp_dir_to_permanent_dir($target_path, "ticket");
+
+
+        if ($ticket_id) {
+            //ticket added. now add a comment in this ticket
+            if (!$id) {
+                $comment_data = array(
+                    "description" => $this->input->post('description'),
+                    "ticket_id" => $ticket_id,
+                    "created_by" => $this->login_user->id,
+                    "created_at" => $now,
+                    "files" => $files_data
+                );
+                $ticket_comment_id = $this->Ticket_comments_model->save($comment_data);
+
+                if ($ticket_id && $ticket_comment_id) {
+                    // log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
+                  $team = explode(',', $this->Team_model->get_one($this->input->post('team_id'))->members);
+                  foreach ($team as $key => $value) {
+                    $log_notification = array(
+                      "user_id" => $this->login_user->id,
+                      "created_at" => $now,
+                      "notify_to" => $value,
+                      "event" => "ticket_created",
+                      "ticket_id" => $ticket_id,
+                      "ticket_comment_id" => $ticket_comment_id
+                    );
+                    $notification_id = $this->Notifications_model->save($log_notification);
+                  }
+                }
+            }
+
+            echo json_encode(array("success" => true, "data" => $this->_row_data($ticket_id), 'id' => $ticket_id, 'message' => lang('record_saved')));
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
+    }
+
+    /* upload a file */
+
+    public function upload_file ()
+    {
+        upload_file_to_temp();
+    }
+
+    /* check valid file for ticket */
+
+    public function validate_ticket_file ()
+    {
+        return validate_post_file($this->input->post("file_name"));
+    }
+
+    // return a row of ticket list table
+    private function _row_data($id) {
+        $options = array("id" => $id, "access_type" => $this->access_type);
+
+        $data = $this->Tickets_model->get_details($options)->row();
+        return $this->support_tickets_make_row($data);
+    }
+
     public function SAGE_DB() {
       return $this->load->database('SAGE', TRUE);
     }
 
-}
+    public function HR_DB(){
+       return  $this->load->database('HR',TRUE);
+    }
+
+  }

@@ -35,6 +35,10 @@ class Crud_model extends CI_Model {
         return $this->get_one_where(array('id' => $id));
     }
 
+    function get_one_ict_asset($id = 0) {
+        return $this->get_one_where(array('sage_id' => $id));
+    }
+
     function get_one_where($where = array()) {
         $result = $this->db->get_where($this->table, $where, 1);
         if ($result->num_rows()) {
