@@ -46,7 +46,8 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
              $time_out=strtotime( $trimmer['time_out']);
              $start_date=strtotime($trimmer['start_date']);
              $end_date=strtotime( $trimmer['end_date']);
-             echo convertToHoursMins((($time_out+$end_date)-($time_in+$start_date))/60, '%02d hours %02d minutes');?>
+             $delayed_time=($trimmer['delayed_hours'] *60 *60) + ($trimmer['delayed_minutes'] * 60);
+             echo convertToHoursMins((($time_out+$end_date)-($time_in+$start_date-$delayed_time))/60, '%02d hours %02d minutes');?>
            </td>
            <td><?php echo $trimmer['rate'];?></td>
            <td><?php echo $trimmer['total'];?></td>
@@ -232,7 +233,7 @@ function convertToHoursMins($time, $format = '%02d:%02d') {
               <div class="col-md-9">
                 <input type="text" id="txtFromDate" name="start_date" class="form-control"/>
               </div>
-              
+
             </div>
             
             <div class="form-group">

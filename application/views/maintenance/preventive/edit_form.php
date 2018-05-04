@@ -93,6 +93,7 @@
        </div>
        <?php }?>
      </div>
+     
      <div class="col-sm-4">
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
