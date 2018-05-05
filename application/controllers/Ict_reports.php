@@ -223,17 +223,31 @@ class Ict_reports extends Pre_loader {
       $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
       foreach ($list_data as $data) {
         // $this->Ict_issets_model->save(array("sage_id" => $data->idAssetNo));
-        $this->db->get_where('ict_issets', array("sage_id" => $data->idAssetNo), 1)->num_rows() ? '' : $this->db->insert('ict_issets', array("sage_id" => $data->idAssetNo));
+        $this->db->get_where('ict_issets', array("sage_id" => $data->idAssetNo), 1)->num_rows() ? '' : $this->db->insert('ict_issets', array("sage_id" => $data->idAssetNo, "category_id" => 0));
       }
       $this->template->rander("checklists/ict_inventory/index");
     }
 
     public function inventory_list_data() {
-      $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
+
+      $category_id = $this->input->post("category_id");
+
+      if ($this->login_user->is_admin) {
+        $user_assets = $this->Ict_issets_model->get_all_where(array("category_id" => $category_id, "deleted" => 0))->result();
+      } else {
+        $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $category_id, "deleted" => 0))->result();
+      }
+
+      $list_data = array();
+      foreach ($user_assets as $asset) {
+        $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
+      }
 
       $result = array();
       foreach ($list_data as $data) {
-          $result[] = $this->inventory_make_row($data);
+        foreach ($data as $value) {
+          $result[] = $this->inventory_make_row($value);
+        }
       }
       echo json_encode(array("data" => $result));
     }
@@ -242,21 +256,24 @@ class Ict_reports extends Pre_loader {
 
       $id = $data->idAssetNo;
       $description = $data->cAssetDesc;
-      $model = $data->ucFAModel ? $data->ucFAModel : "NOT SET";
       $serial = $data->cAssetCode;
-      $area = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
       $location = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
       $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
       $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to;
-      // $depertment = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("Dept", array("idDept" => $data->iAssetTypeNo))->result()[0]->Description : "NOT SET";
-      $depertment = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
+      $depertment = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->sage_dept != 0 ? $this->SAGE_DB()->get_where("departments", array("id" => $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->sage_dept))->result()[0]->name : "NOT SET";
       $pDate = date("dS M Y",strtotime($data->dPurchaseDate));
       $pCost = number_format($data->fPurchaseValue, 2);
-      $Supplier = $data->iSupplierNo != 0 ? $this->SAGE_DB()->get_where("Vendor", array("idVendor" => $data->iSupplierNo))->result()[0]->cVendorName : "NOT SET";
+      $Supplier = $data->iSupplierNo != 0 ? $this->SAGE_DB()->get_where("Vendor", array("DCLink" => $data->iSupplierNo))->result()[0]->Name : "NOT SET";
 
-      $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
+      if ($this->login_user->is_admin) {
+        $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
+        $depertment = modal_anchor(get_uri("ict_reports/depertment_modal_form"), $depertment, array("class" => "edit", "title" => "Update Asset Depertment", "data-post-id" => $id));
+      } else {
+        $custodian = $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET";
+        $depertment = $depertment;
+      }
 
-      return array($id, $description, $model, $serial, $area, $location, $category, $custodian, $depertment, $pDate, $pCost, $Supplier);
+      return array($id, $description, $serial, $location, $category, $custodian, $depertment, $pDate, $pCost, $Supplier);
     }
 
     public function custodian_modal_form() {
@@ -284,27 +301,93 @@ class Ict_reports extends Pre_loader {
       }
     }
 
+    public function depertment_modal_form() {
+
+      $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
+      $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $view_data['sage_id'] = $sage_id;
+      $view_data['depertments_dropdown'] = $this->SAGE_DB()->get('departments')->result();
+      $this->load->view('checklists/ict_inventory/depertment_modal_form', $view_data);
+    }
+
+    function save_depertment() {
+
+      $id = $this->input->post('id');
+
+      $data = array(
+        "sage_dept" => $this->input->post('sage_dept')
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+      if ($save_id) {
+          echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+      } else {
+          echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+      }
+    }
+
+    public function actual_asset_modal_form() {
+      $view_data['users_dropdown'] = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("user_type" => "staff"));
+      $view_data['suppliers_dropdown'] = $this->SAGE_DB()->get('Vendor')->result();
+      $this->load->view('checklists/ict_inventory/actual_asset_modal_form', $view_data);
+    }
+
+    function save_actual_asset() {
+
+      $sage_data = array(
+        // "assigned_to" => $this->input->post('user_id'),
+        "cAssetCode" => $this->input->post('serial'),
+        "cAssetDesc" => $this->input->post('title'),
+        "iAssetTypeNo" => 6,
+        "iSupplierNo" => $this->input->post('supplier'),
+        "fNoOfUnits" => 1,
+        "dPurchaseDate" => $this->input->post('dPurchaseDate'),
+        "dDepreciationStartDate" => $this->input->post('dPurchaseDate'),
+        "dWTStartDate" => $this->input->post('dPurchaseDate'),
+        "fPurchaseValue" => $this->input->post('fPurchaseValue'),
+        "fRevalueValue" => $this->input->post('fPurchaseValue'),
+        "fInsuredValue" => 0,
+        "fResidualValue" => 0,
+        "fScrapValue" => 0,
+        "dOriginalWTStartDate" => $this->input->post('dPurchaseDate'),
+        "dOriginalDeprStartDate" => $this->input->post('dPurchaseDate')
+      );
+
+      $this->SAGE_DB()->insert("_btblFAAsset", $sage_data);
+
+      $actual_data = array(
+        "sage_id" => $this->SAGE_DB()->get_where("_btblFAAsset", array("cAssetCode" => $this->input->post('serial'), "cAssetDesc" => $this->input->post('title')))->result()[0]->idAssetNo,
+        "assigned_to" => $this->input->post('user_id'),
+        "category_id" => 1
+      );
+
+      $save_id = $this->Ict_issets_model->save($actual_data);
+
+      if ($save_id) {
+          echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+      } else {
+          echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+      }
+    }
+
     public function disposal_list_data() {
 
-      $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
-
-      /*if ($this->login_user->is_admin) {
+      if ($this->login_user->is_admin) {
         $user_assets = $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
-        $list_data = array();
-        foreach ($user_assets as $asset) {
-          $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
-        }
       } else {
         $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "deleted" => 0))->result();
-        $list_data = array();
-        foreach ($user_assets as $asset) {
-          $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
-        }
-      }*/
+      }
+
+      $list_data = array();
+      foreach ($user_assets as $asset) {
+        $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
+      }
 
       $result = array();
       foreach ($list_data as $data) {
-        $result[] = $this->disposal_make_row($data);
+        foreach ($data as $value) {
+          $result[] = $this->disposal_make_row($value);
+        }
       }
       echo json_encode(array("data" => $result));
     }
@@ -313,14 +396,11 @@ class Ict_reports extends Pre_loader {
 
       $id = $data->idAssetNo;
       $description = $data->cAssetDesc;
-      $model = $data->ucFAModel ? $data->ucFAModel : "NOT SET";
       $serial = $data->cAssetCode;
       $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
-      $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to;
+      $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to != 0 ? $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to)->first_name : "NOT SET";
       $pDate = date("dS M Y",strtotime($data->dPurchaseDate));
-      // $dDate = strtotime(date("Y-m-d", strtotime($data->dDepreciationStartDate)) . " +3 years");
       $dDate = (new DateTime($data->dDepreciationStartDate))->add(new DateInterval('P3Y'));
-      $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
       $date_now = new DateTime();
       $optoins = ($date_now > $dDate) ? js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => "Dispose Asset", "class" => "delete", "data-id" => $id, "data-action-url" => get_uri("ict_reports/delete_asset"), "data-action" => "delete")) : '';
 
