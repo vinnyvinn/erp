@@ -2,10 +2,15 @@
 <div class="modal-body clearfix">
  <div class="panel panel-default">
   <div class="panel-heading" > Reports
-   
-<a href="<?php echo base_url('maintenance_report/print_page/'.$this->session->month);?>" class="btn btn-success pull-right" style="margin-top: -5px">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>
+  <?php if ($this->session->preventive) {?>
+
+    <a href="<?php echo base_url('maintenance_report/print_page_p/'.$this->session->month);?>" class="btn btn-success pull-right" style="margin-top: -5px">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>
+  <?php }
+ elseif($this->session->reactive) {?>
+<a href="<?php echo base_url('maintenance_report/print_page_r/'.$this->session->month);?>" class="btn btn-success pull-right" style="margin-top: -5px">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>
+<?php }?>
   </div>
- 
+
   <div class="panel-body">
    <div class="row">
      <div class="col-sm-12">
@@ -19,9 +24,11 @@
        </thead> 
        <tbody>
 
-        <?php foreach ($reports_data as $key => $data_value) : ?>
 
-        <tr>
+         <?php
+         $total=0;
+         foreach ($reports_data as $key => $data_value) : ?>
+         <tr>
           <td><?php echo $data_value['reports']['id'];?></td>
           <td><?php echo $data_value['reports']['card_no'];?></td>
           <td>
@@ -30,14 +37,28 @@
             foreach ($costs as $key => $cost) :
              $sum+=$cost;
            endforeach;
-            echo  number_format($sum + $data_value['reports']['labour_cost'],2);
+           echo  number_format($sum + $data_value['reports']['labour_cost'],2);
+           $totalCost=$sum + $data_value['reports']['labour_cost'];
+           $total+=$totalCost;
            ?>
+           
          </td>
 
        </tr>
-    
-   <?php endforeach?>
- </tbody>     
+     <?php endforeach;?>
+   </tbody>
+   <tfoot>
+    <tr>
+      <td style="text-align: right;"><b>Total Cost</b></td>
+      <td></td>
+
+      <td>
+      <?php echo number_format($total,2);?>
+     </td>
+   </tr>
+ </tfoot>
+
+</tbody>     
 </table>
 
 </div>

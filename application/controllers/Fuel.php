@@ -25,10 +25,11 @@ class Fuel extends Pre_loader {
     $view_data['expenses_dropdown'] = $this->Other_expenses_model->get_all_where(array("deleted" => 0))->result();   
     $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['fuels']=$this->db->query("SELECT fuels.*,employees.name as staff,fuel_suppliers.name as supplier,
-      fuel_suppliers.fuel_type,assets.code as vehicle FROM fuels
-      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id
+      fuel_suppliers.fuel_type as fuel,assets.code as vehicle FROM fuels
+      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.fuel_id
       LEFT JOIN employees ON employees.id=fuels.staff_id
       LEFT JOIN assets ON assets.id=fuels.vehicle_id")->result_array();
+
     $this->template->rander("maintenance/services/fuel_form",$view_data);
   }
   public function km_reading($id)

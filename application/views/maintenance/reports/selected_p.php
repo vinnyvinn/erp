@@ -77,8 +77,7 @@
  $(document).ready(function() {
  $('select[name="month"]').on('change', function() {
     var month_id = $(this).val();
-    console.log(month_id);
-    var path="<?php echo site_url('maintenance_report/view')?>/"+ month_id ;
+    var path="<?php echo site_url('maintenance_report/view_r')?>/"+ month_id ;
    window.location.replace(path);
     
   });

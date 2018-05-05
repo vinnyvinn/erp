@@ -257,6 +257,8 @@ if(!empty($_FILES['picture']['name'])){
 }else{
   $picture = '';
 }
+
+
   $partArr = $this->input->post('part_name');
   $qntyArr = $this->input->post('quantity');
   $costArr = $this->input->post('cost');
@@ -270,8 +272,7 @@ if(!empty($_FILES['picture']['name'])){
       }
     }
   }
-  
-  
+
   $km_reading='';
   $hours='';
   $internal_provider='';

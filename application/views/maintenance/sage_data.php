@@ -27,7 +27,7 @@
                     <?php echo anchor(get_uri("assets_types"), "<i class='fa fa-certificate'></i> " . 'Assets', array("class" => "btn btn-info", "title" => 'Assets')); ?>
                 </div>
                  <div class="title-button-group">
-                    <?php echo anchor(get_uri("employees_types"), "<i class='fa fa-certificate'></i> " . 'Clients', array("class" => "btn btn-success", "title" => 'Clients')); ?>
+                    <?php echo anchor(get_uri("employees_types"), "<i class='fa fa-certificate'></i> " . 'Staff', array("class" => "btn btn-success", "title" => 'Staff')); ?>
                 </div>
                 <div class="title-button-group">
                     <?php echo anchor(get_uri("equipments"), "<i class='fa fa-certificate'></i> " . 'Equipments', array("class" => "btn btn-success", "title" => 'Equipments')); ?>

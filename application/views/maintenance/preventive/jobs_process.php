@@ -69,8 +69,8 @@
 
             <tr>
               <td><?= $value ?></td>
-              <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
-              <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : '' ?></td>
+              <td><?= isset($quantity[$key]) && $quantity[$key] > 0 ? number_format((int) $quantity[$key], 0) : '' ?></td>
+              <td><?= isset($cost[$key]) && $cost[$key] > 0 ? number_format((int) $cost[$key], 2) : '' ?></td>
             </tr>
 
           <?php endforeach; ?>

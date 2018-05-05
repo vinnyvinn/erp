@@ -79,9 +79,9 @@
           
           <tr>
             <td><?= $value ?></td>
-            <td><?= isset($quantity[$key]) ? number_format((int) $quantity[$key], 0) : '' ?></td>
-            <td><?= isset($cost[$key]) ? number_format((int) $cost[$key], 2) : '' ?></td>
-             <td><?php echo number_format($quantity[$key] * $cost[$key],2);
+            <td><?= isset($quantity[$key]) && $quantity[$key]>0 ? number_format((int) $quantity[$key], 0) : '' ?></td>
+            <td><?= isset($cost[$key]) && $cost[$key]>0 ? number_format((int) $cost[$key], 2) : '' ?></td>
+             <td><?= isset($quantity[$key]) && ($quantity[$key]) > 0 ? number_format($quantity[$key] * $cost[$key],2) : '';
                $total+=($quantity[$key] * $cost[$key]);
              ?></td>
           </tr>

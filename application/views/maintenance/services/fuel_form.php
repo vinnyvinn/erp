@@ -34,7 +34,7 @@
            <td><?php echo $fuel['vehicle'];?></td>
            <td><?php echo $fuel['mileage'];?></td>
            <td><?php echo $fuel['staff'];?></td>
-           <td><?php echo $fuel['fuel_type'];?></td>
+           <td><?php echo $fuel['fuel'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
            <td><?php echo $fuel['total'];?></td>
