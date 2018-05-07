@@ -34,7 +34,7 @@
            <td><?php echo $fuel['vehicle'];?></td>
            <td><?php echo $fuel['mileage'];?></td>
            <td><?php echo $fuel['staff'];?></td>
-           <td><?php echo $fuel['fuel'];?></td>
+           <td><?php echo $fuel['fuel_id'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
            <td><?php echo $fuel['total'];?></td>
@@ -213,11 +213,8 @@
                  <div class="form-group">
                   <label class="control-label">Fuel Type</label>
                   <select class="form-control" name="fuel_id" placeholder="Fuel Type" id="fuel_id" required>
-                    <?php
-                   foreach ($suppliers_dropdown as $fuel) {
-                    echo "<option value=". $fuel->id . ">" . ucfirst($fuel->fuel_type) . "</option>";
-                  }
-                  ?>
+                   <option value="petrol">Petrol</option>
+                   <option value="diesel">Diesel</option>
                 </select>
               </div>
             </div>

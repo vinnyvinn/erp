@@ -25,8 +25,8 @@ class Fuel extends Pre_loader {
     $view_data['expenses_dropdown'] = $this->Other_expenses_model->get_all_where(array("deleted" => 0))->result();   
     $view_data['vehicles_dropdown'] = $this->Assets_model->get_all_where(array("deleted" => 0))->result(); 
     $view_data['fuels']=$this->db->query("SELECT fuels.*,employees.name as staff,fuel_suppliers.name as supplier,
-      fuel_suppliers.fuel_type as fuel,assets.code as vehicle FROM fuels
-      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.fuel_id
+      assets.code as vehicle FROM fuels
+      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id
       LEFT JOIN employees ON employees.id=fuels.staff_id
       LEFT JOIN assets ON assets.id=fuels.vehicle_id")->result_array();
 
@@ -51,7 +51,7 @@ class Fuel extends Pre_loader {
      'vehicle_id' => $this->input->post('vehicle_id'),
      'currency' => $this->input->post('currency'),
      'fuel_id' => $this->input->post('fuel_id'),
-     );
+      );
 
     $insert = $this->Fuel_model->fuels_add($data);
     $query=$this->db->query("SELECT * FROM fuels WHERE id=$insert")->row_array();
@@ -59,11 +59,13 @@ class Fuel extends Pre_loader {
     $supplier=$query['supplier_id'];
     $expense_id=$query['expense_id'];
     $distance=$query['km_reading'];
-    $vehicle=$query['vehicle_id'];
+    $asset_id=$query['vehicle_id'];
     $supp=$query['supplier_id'];
+    $fuel_type=$query['fuel_id'];
+ 
 
-    $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
-    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp")->row_array();
+    $assets=$this->db->query("SELECT * FROM assets WHERE id=$asset_id")->row_array();
+    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp AND fuel_type LIKE '%$fuel_type%'")->row_array();
 
     $expense='';
     if($expense_id){
@@ -105,8 +107,10 @@ class Fuel extends Pre_loader {
     $distance=$fuel['km_reading'];
     $vehicle=$fuel['vehicle_id'];
     $supp=$fuel['supplier_id'];
+    $fuel_typ=$fuel['fuel_id'];
     $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
-    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp")->row_array();
+    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp AND fuel_type LIKE '%$fuel_typ%'")->row_array();
+    
     $km=$distance-$assets['km_reading'];
     $total=$suppliers['price']*$fuel['litres'];
     $update_km=array('km_reading' => $distance);
