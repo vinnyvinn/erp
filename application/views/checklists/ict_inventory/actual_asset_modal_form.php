@@ -79,14 +79,17 @@
         </div>
     </div>
 
-    <div class="col-md-9">
-      <select class="select2 validate-hidden" name="supplier" id="supplier" required>
-          <?php
-          foreach ($suppliers_dropdown as $value) {
-              echo "<option value=". $value->DCLink . ">" . ucfirst($value->Account . " : " . $value->Name) . "</option>";
-          }
-          ?>
-        </select>
+    <div class="form-group">
+        <label for="suppliers" class=" col-md-3">Suppliers</label>
+        <div class="col-md-9">
+            <select class="select2 validate-hidden" name="supplier" id="supplier" required>
+              <?php
+              foreach ($suppliers_dropdown as $value) {
+                  echo "<option value=". $value->DCLink . ">" . ucfirst($value->Account . " : " . $value->Name) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
     </div>
 
 </div>

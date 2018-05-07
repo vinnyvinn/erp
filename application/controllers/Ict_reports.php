@@ -220,7 +220,7 @@ class Ict_reports extends Pre_loader {
     }
 
     public function inventory() {
-      $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
+      $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       foreach ($list_data as $data) {
         // $this->Ict_issets_model->save(array("sage_id" => $data->idAssetNo));
         $this->db->get_where('ict_issets', array("sage_id" => $data->idAssetNo), 1)->num_rows() ? '' : $this->db->insert('ict_issets', array("sage_id" => $data->idAssetNo, "category_id" => 0));
@@ -240,7 +240,7 @@ class Ict_reports extends Pre_loader {
 
       $list_data = array();
       foreach ($user_assets as $asset) {
-        $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
+        $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       }
 
       $result = array();
@@ -338,7 +338,7 @@ class Ict_reports extends Pre_loader {
         // "assigned_to" => $this->input->post('user_id'),
         "cAssetCode" => $this->input->post('serial'),
         "cAssetDesc" => $this->input->post('title'),
-        "iAssetTypeNo" => 6,
+        "iAssetTypeNo" => get_setting("iAssetTypeNo"),
         "iSupplierNo" => $this->input->post('supplier'),
         "fNoOfUnits" => 1,
         "dPurchaseDate" => $this->input->post('dPurchaseDate'),
@@ -380,7 +380,7 @@ class Ict_reports extends Pre_loader {
 
       $list_data = array();
       foreach ($user_assets as $asset) {
-        $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => 6))->result();
+        $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       }
 
       $result = array();
@@ -431,7 +431,7 @@ class Ict_reports extends Pre_loader {
     }
 
     public function inventory_maintenance_modal_form() {
-      $view_data['ict_assets_dropdown'] = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => 6))->result();
+      $view_data['ict_assets_dropdown'] = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       $view_data['assign_dropdown'] = $this->Users_model->get_all_where(array("user_type" => "staff", "deleted" => 0))->result();
       $view_data['excalation_dropdown'] = $this->Escalation_matrix_model->get_all_where(array("deleted" => 0))->result();
       $this->load->view("checklists/maintenance/modal_form", $view_data);
