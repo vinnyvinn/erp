@@ -222,12 +222,16 @@ public function save(){
     }
   }
   
+  $miles_reading='';
   $km_reading='';
   $hours='';
   $internal_provider='';
   $external_provider='';
   if($this->input->post('km_reading')){
    $km_reading = $this->input->post('km_reading');
+ }
+  if($this->input->post('miles_reading')){
+   $miles_reading = $this->input->post('miles_reading');
  }
  if($this->input->post('hours')){
   $hours = $this->input->post('hours');
@@ -242,6 +246,7 @@ $data = array(
  "vehicle_no" => $this->input->post('vehicle_no'),
  "time_in" => $this->input->post('time_in'),
  "km_reading" => $km_reading ,
+ "miles_reading" => $miles_reading ,
  "labour" => $this->input->post('labour'),
  "labour_cost" => $this->input->post('labour_cost'),
  "description" => $this->input->post('description'),
@@ -269,11 +274,12 @@ $data = array(
 $data = $this->db->insert('jobs', $data);
 $last_id = $this->db->insert_id();
 $model = $this->db->query("SELECT assets.code,jobs.* FROM jobs
- LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row();
-$card = array("card_no" => substr('ESL-' . $last_id . '-' . $model->code, 0, 20));
-$km_r=array("km_reading" => $model->km_reading);
+ LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row_array();
+$card = array("card_no" => substr('ESL-' . $last_id . '-' . $model['code'], 0, 20));
+$mileage=array("km_reading" => $model['km_reading'],"miles_reading" => $model['miles_reading'],
+  "machine_hours" => $model['hours']);
 $this->db->where('id', $last_id)->update('jobs', $card);
-$this->db->where('id', $model->vehicle_no)->update('assets', $km_r);
+$this->db->where('id', $model['vehicle_no'])->update('assets', $mileage);
 return redirect(base_url('reactive'));
 }
 public function update_checklist(){

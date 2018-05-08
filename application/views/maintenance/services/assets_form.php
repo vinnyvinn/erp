@@ -25,7 +25,7 @@
             <th>Description</th>
             <th>Assigned To</th>
             <th>Warranty Expiry</th>
-            <th>KM Reading</th>
+            <th>Mileage Reading</th>
             <th>Machine Hours</th>
             <th>Next Maintenance Date</th>
             <th style="width:125px;">Action
@@ -40,7 +40,7 @@
            <td><?php echo $asset['description'];?></td>
            <td><?php echo $asset['name'];?></td>
            <td><?php echo $asset['warranty'];?></td>
-           <td><?php echo $asset['km_reading'];?></td>
+           <td><?php echo $asset['km_reading'] ? $asset['km_reading'] .' km' : $asset['km_reading'] .' mi';?></td>
            <td><?php echo $asset['machine_hours'];?></td>
            <td><?php echo $asset['next_time'];?></td>                            
            <td>
@@ -123,7 +123,7 @@
           $('[name="next_time"]').val(data.next_time);
           $('[name="make"]').val(data.make); 
           $('[name="km_reading"]').val(data.km_reading);
-          $('[name="miles"]').val(data.km_reading);
+          $('[name="miles"]').val(data.miles_reading);
           $('[name="hours"]').val(data.machine_hours);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Asset'); // Set title to Bootstrap modal title

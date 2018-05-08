@@ -69,15 +69,7 @@ class Assets_types extends Pre_loader {
 }
 public function add_asset()
 {
-
-  $km_reading='';
-  if($this->input->post('km_reading')){
-    $km_reading=$this->input->post('km_reading');
-  }
-  elseif($this->input->post('miles')) {
-   $km_reading=($this->input->post('miles')/0.621371);
-
- }
+ 
 
  $data = array(
    'code' => $this->input->post('code'),
@@ -90,7 +82,8 @@ public function add_asset()
    'warranty' => $this->input->post('warranty'),
    'next_time' => $this->input->post('next_time'),
    'make' => $this->input->post('make'),
-   'km_reading' => $km_reading,
+   'km_reading' => $this->input->post('km_reading'),
+   'miles_reading' => $this->input->post('miles'),
    'machine_hours' => $this->input->post('hours'),
 
    
@@ -129,7 +122,8 @@ public function asset_update()
    'warranty' => $this->input->post('warranty'),
    'next_time' => $this->input->post('next_time'),
    'make' => $this->input->post('make'),
-   'km_reading' => $km_reading,
+   'km_reading' => $this->input->post('km_reading'),
+   'miles_reading' => $this->input->post('miles'),
    'machine_hours' => $this->input->post('hours'),
    'updated_at' => date("Y-m-d H:i:s"),
    
@@ -140,7 +134,7 @@ public function asset_update()
  $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM assets
   LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
  echo json_encode(array("status" => TRUE));
- $this->tech_mail($variables);
+ //$this->tech_mail($variables);
 
 }
 
