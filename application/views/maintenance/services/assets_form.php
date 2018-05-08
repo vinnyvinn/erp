@@ -40,7 +40,7 @@
            <td><?php echo $asset['description'];?></td>
            <td><?php echo $asset['name'];?></td>
            <td><?php echo $asset['warranty'];?></td>
-           <td><?php echo $asset['km_reading'] ? $asset['km_reading'] .' km' : $asset['km_reading'] .' mi';?></td>
+           <td><?php echo $asset['km_reading'] ? $asset['km_reading'] .' km' : $asset['miles_reading'] .' mi';?></td>
            <td><?php echo $asset['machine_hours'];?></td>
            <td><?php echo $asset['next_time'];?></td>                            
            <td>
