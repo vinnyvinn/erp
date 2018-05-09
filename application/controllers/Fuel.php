@@ -58,7 +58,6 @@ public function miles_reading($id)
      'fuel_id' => $this->input->post('fuel_id'),
      'miles_reading' => $this->input->post('miles_reading'),
       );
-
     $insert = $this->Fuel_model->fuels_add($data);
     $query=$this->db->query("SELECT * FROM fuels WHERE id=$insert")->row_array();
 
@@ -126,7 +125,7 @@ public function miles_reading($id)
     if($expense_id){
       $expense=$this->db->query("SELECT * FROM other_expenses WHERE id=$expense_id")->row_array()['cost'];
     }
-    
+
     $km=$distance_km-$assets['km_reading'];
     $mils=$distance_miles-$assets['miles_reading'];
     $total=$suppliers['price']*$fuel['litres'];

@@ -542,11 +542,11 @@
    );
   }
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
  $(document).ready(function() {
    $('select[name="vehicle_no"]').on('change', function() {
     var warranty_id = $(this).val();
-    var path="<?php echo site_url('preventive/warrantyCheck')?>/" + warranty_id;
+    // var path="<?php //echo site_url('preventive/warrantyCheck')?>/" + warranty_id;
     $.ajax({
       type  : 'ajax',
       url   : path,
@@ -566,7 +566,7 @@
   });
   });
  });
-</script>
+</script> -->
 <script type="text/javascript">
   $('#km_reading').on('keyup',function(){
    var km = $(this).val();

@@ -134,7 +134,7 @@ public function asset_update()
  $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM assets
   LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
  echo json_encode(array("status" => TRUE));
- //$this->tech_mail($variables);
+ $this->tech_mail($variables);
 
 }
 
