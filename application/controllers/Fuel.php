@@ -68,7 +68,8 @@ class Fuel extends Pre_loader {
      'is_petrol' => $is_petrol
      );
     $insert = $this->Fuel_model->fuels_add($data);
-    $query=$this->db->query("SELECT * FROM fuels WHERE id=$insert")->row_array();
+    $query=$this->db->query("SELECT fuels.*,fuel_suppliers.code FROM fuels 
+      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id WHERE fuels.id=$insert")->row_array();
 
     $supplier=$query['supplier_id'];
     $expense_id=$query['expense_id'];
@@ -78,11 +79,11 @@ class Fuel extends Pre_loader {
     $supp=$query['supplier_id'];
     $fuel_type=$query['fuel_id'];
     $ptrl=$query['is_petrol'];
-
+    $code_no=$query['code'];
     $assets=$this->db->query("SELECT * FROM assets WHERE id=$asset_id")->row_array();
     $suppliers=$this->db->query("SELECT fuel_suppliers.* FROM fuel_suppliers
-    LEFT JOIN fuels ON  fuel_suppliers.is_petrol=fuels.is_petrol WHERE
-     fuel_suppliers.id=$supp AND fuel_suppliers.is_petrol=$ptrl")->row_array();
+    LEFT JOIN fuels ON  fuel_suppliers.id=fuels.supplier_id WHERE
+     fuel_suppliers.code LIKE '%$code_no%' AND fuel_suppliers.is_petrol=$ptrl")->row_array();
 
     $expense='';
     if($expense_id){
@@ -128,7 +129,9 @@ class Fuel extends Pre_loader {
     'updated_at' => date('Y-m-d H:i:s')
     );
   $this->Fuel_model->fuel_update(array('id' => $this->input->post('id')), $data);
-  $fuel=$this->db->query("SELECT * FROM fuels ORDER BY updated_at DESC LIMIT 1")->row_array();
+  $fuel=$this->db->query("SELECT fuels.*,fuel_suppliers.code FROM fuels
+      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id 
+      ORDER BY fuels.updated_at DESC LIMIT 1")->row_array();
   $id=$fuel['id'];
   $supplier=$fuel['supplier_id'];
   $expense_id=$fuel['expense_id'];
@@ -138,11 +141,12 @@ class Fuel extends Pre_loader {
   $supp=$fuel['supplier_id'];
   $fuel_typ=$fuel['fuel_id'];
   $ptrl=$fuel['is_petrol'];
+  $code_no=$fuel['code'];
 
   $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
-  $suppliers=$this->db->query("SELECT fuel_suppliers.* FROM fuel_suppliers
+  $suppliers=$this->db->query("SELECT fuel_suppliers.*, fuel_suppliers.code as code FROM fuel_suppliers
     LEFT JOIN fuels ON  fuel_suppliers.is_petrol=fuels.is_petrol WHERE
-     fuel_suppliers.id=$supp AND fuel_suppliers.is_petrol=$ptrl")->row_array();
+     fuel_suppliers.code LIKE '%$code_no%' AND fuel_suppliers.is_petrol=$ptrl")->row_array();
 
   $expense='';
   if($expense_id){
