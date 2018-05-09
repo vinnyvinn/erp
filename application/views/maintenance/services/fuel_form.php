@@ -244,7 +244,7 @@
 
           <div class="row">
 
-           <div class="col-md-6" style="width: 45%;">
+           <div class="col-md-12" style="width: 45%;">
             <div class="form-group">
               <label class="control-label" style="margin-left: 10px;">Vehicle</label>
               <select class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicle_id" style="width: 90%;margin-left: 8px;" required>
@@ -257,23 +257,13 @@
               </select>
             </div>
           </div>
-          <div class="col-md-6" style="width: 45%;">
-            <div class="form-group">
-             <label for="supplier_id"><b>Track By</b></label>
-             <select class="form-control" name="track_by" id="partselected" required>
-              <option value="">--Select type--</option>
-              <option value="kilometer">Kilometers</option>
-              <option value="miles">Miles</option>
-            </select>
-
-          </div>
-        </div>
+     
       </div>
-      <div id="kilometer" class="fuels kilometer">
-        <div class="col-md-6" style="width: 45%;">
+          <div class="row kmreadings" style="display: none;">
+          <div class="col-md-6" style="width: 45%;">
           <div class="form-group">
-            <label class="control-label">Previous KM</label>
-            <p id="prevoius_km_reading"></p>
+            <label class="control-label" style="margin-left: 10px;">Previous KM</label>
+            <p id="prevoius_km_reading" style="margin-left: 10px;"></p>
           </div>
         </div>
         <div class="col-md-6">
@@ -284,11 +274,13 @@
           </div>
         </div>
       </div>
-       <div id="miles" class="fuels miles" style="display: none;">
+
+       
+        <div class="row milesreadings" style="display: none;">
         <div class="col-md-6" style="width: 45%;">
           <div class="form-group">
-            <label class="control-label">Previous Miles</label>
-            <p id="prevoius_miles_reading"></p>
+            <label class="control-label" style="margin-left: 10px;">Previous Miles</label>
+            <p id="prevoius_miles_reading" style="margin-left: 10px;"></p>
           </div>
         </div>
         <div class="col-md-6">
@@ -402,6 +394,36 @@
       success : function(data){
        var html ='<p>'+data+'</p>';
        $('#prevoius_miles_reading').html(html);
+
+     }
+     
+   });
+  });
+ });
+</script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('select[name="vehicle_id"]').on('change', function() {
+    var km_id = $(this).val();
+    var path="<?php echo site_url('fuel/km_reading')?>/" + km_id;
+    $.ajax({
+      type  : 'ajax',
+      url   : path,
+      async : false,
+      dataType : 'json',
+      success : function(data){
+        if(data > 1){
+           $('.milesreadings').hide();
+           $('.kmreadings').show();
+      console.log('great' +data);
+       }
+
+       if(data < 1){
+           $('.milesreadings').show();
+           $('.kmreadings').hide();
+        console.log('try again' +data);
+       }
 
      }
      
