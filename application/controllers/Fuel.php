@@ -37,7 +37,7 @@ class Fuel extends Pre_loader {
     $query = $this->db->query("SELECT assets.km_reading FROM assets WHERE id=$id")->row()->km_reading;
     echo json_encode($query);
   }
-public function miles_reading($id)
+  public function miles_reading($id)
   {
     $query = $this->db->query("SELECT assets.miles_reading FROM assets WHERE id=$id")->row()->miles_reading;
     echo json_encode($query);
@@ -45,6 +45,14 @@ public function miles_reading($id)
 
   public function add_fuel()
   {
+
+    $is_petrol='';
+    if($this->input->post('fuel_id')=='petrol'){
+      $is_petrol=1;
+    }
+    elseif($this->input->post('fuel_id')=='diesel'){
+      $is_petrol=0;
+    }
     $data = array(
      'litres' => $this->input->post('litres'),
      'supplier_id' => $this->input->post('supplier_id'),
@@ -57,7 +65,8 @@ public function miles_reading($id)
      'currency' => $this->input->post('currency'),
      'fuel_id' => $this->input->post('fuel_id'),
      'miles_reading' => $this->input->post('miles_reading'),
-      );
+     'is_petrol' => $is_petrol
+     );
     $insert = $this->Fuel_model->fuels_add($data);
     $query=$this->db->query("SELECT * FROM fuels WHERE id=$insert")->row_array();
 
@@ -68,9 +77,12 @@ public function miles_reading($id)
     $asset_id=$query['vehicle_id'];
     $supp=$query['supplier_id'];
     $fuel_type=$query['fuel_id'];
+    $ptrl=$query['is_petrol'];
 
-   $assets=$this->db->query("SELECT * FROM assets WHERE id=$asset_id")->row_array();
-    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp AND fuel_type LIKE '%$fuel_type%'")->row_array();
+    $assets=$this->db->query("SELECT * FROM assets WHERE id=$asset_id")->row_array();
+    $suppliers=$this->db->query("SELECT fuel_suppliers.* FROM fuel_suppliers
+    LEFT JOIN fuels ON  fuel_suppliers.is_petrol=fuels.is_petrol WHERE
+     fuel_suppliers.id=$supp AND fuel_suppliers.is_petrol=$ptrl")->row_array();
 
     $expense='';
     if($expense_id){
@@ -93,54 +105,65 @@ public function miles_reading($id)
   }
   public function fuel_update()
   {
-    $data = array(
-      'litres' => $this->input->post('litres'),
-      'supplier_id' => $this->input->post('supplier_id'),
-      'staff_id' => $this->input->post('staff_id'),
-      'expense_id' => $this->input->post('expense_id'),
-      'invoice_no' => $this->input->post('invoice_no'),
-      'km_reading' => $this->input->post('km_reading'),
-      'vehicle_id' => $this->input->post('vehicle_id'),
-      'currency' => $this->input->post('currency'),
-      'done_on' => $this->input->post('done_on'),
-      'fuel_id' => $this->input->post('fuel_id'),
-      'miles_reading' => $this->input->post('miles_reading'),
-      'updated_at' => date('Y-m-d H:i:s')
-      );
-   $this->Fuel_model->fuel_update(array('id' => $this->input->post('id')), $data);
-    $fuel=$this->db->query("SELECT * FROM fuels ORDER BY updated_at DESC LIMIT 1")->row_array();
-    $id=$fuel['id'];
-    $supplier=$fuel['supplier_id'];
-    $expense_id=$fuel['expense_id'];
-    $distance_km=$fuel['km_reading'];
-    $distance_miles=$fuel['miles_reading'];
-    $vehicle=$fuel['vehicle_id'];
-    $supp=$fuel['supplier_id'];
-    $fuel_typ=$fuel['fuel_id'];
+   $is_petrol='';
+   if($this->input->post('fuel_id')=='petrol'){
+    $is_petrol=1;
+  }
+  elseif($this->input->post('fuel_id')=='diesel'){
+    $is_petrol=0;
+  }
+  $data = array(
+    'litres' => $this->input->post('litres'),
+    'supplier_id' => $this->input->post('supplier_id'),
+    'staff_id' => $this->input->post('staff_id'),
+    'expense_id' => $this->input->post('expense_id'),
+    'invoice_no' => $this->input->post('invoice_no'),
+    'km_reading' => $this->input->post('km_reading'),
+    'vehicle_id' => $this->input->post('vehicle_id'),
+    'currency' => $this->input->post('currency'),
+    'done_on' => $this->input->post('done_on'),
+    'fuel_id' => $this->input->post('fuel_id'),
+    'is_petrol' => $is_petrol,
+    'miles_reading' => $this->input->post('miles_reading'),
+    'updated_at' => date('Y-m-d H:i:s')
+    );
+  $this->Fuel_model->fuel_update(array('id' => $this->input->post('id')), $data);
+  $fuel=$this->db->query("SELECT * FROM fuels ORDER BY updated_at DESC LIMIT 1")->row_array();
+  $id=$fuel['id'];
+  $supplier=$fuel['supplier_id'];
+  $expense_id=$fuel['expense_id'];
+  $distance_km=$fuel['km_reading'];
+  $distance_miles=$fuel['miles_reading'];
+  $vehicle=$fuel['vehicle_id'];
+  $supp=$fuel['supplier_id'];
+  $fuel_typ=$fuel['fuel_id'];
+  $ptrl=$fuel['is_petrol'];
 
-    $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
-    $suppliers=$this->db->query("SELECT * FROM fuel_suppliers WHERE id=$supp AND fuel_type LIKE '%$fuel_typ%'")->row_array();
-    
-    $expense='';
-    if($expense_id){
-      $expense=$this->db->query("SELECT * FROM other_expenses WHERE id=$expense_id")->row_array()['cost'];
-    }
+  $assets=$this->db->query("SELECT * FROM assets WHERE id=$vehicle")->row_array();
+  $suppliers=$this->db->query("SELECT fuel_suppliers.* FROM fuel_suppliers
+    LEFT JOIN fuels ON  fuel_suppliers.is_petrol=fuels.is_petrol WHERE
+     fuel_suppliers.id=$supp AND fuel_suppliers.is_petrol=$ptrl")->row_array();
 
-    $km=$distance_km-$assets['km_reading'];
-    $mils=$distance_miles-$assets['miles_reading'];
-    $total=$suppliers['price']*$fuel['litres'];
-    $update_km=array('km_reading' => $distance_km,'miles_reading' => $distance_miles);
-    $updated = array('price' => $suppliers['price'],'total' => $total,'expense_cost' => $expense,
-      'mileage_km' => $km,'mileage_miles' => $mils);
-    $this->Fuel_model->fuel_update(array('id' => $id), $updated);
-    $this->Assets_model->assets_update(array('id' => $assets['id']), $update_km);
-    echo json_encode(array("status" => TRUE));
+  $expense='';
+  if($expense_id){
+    $expense=$this->db->query("SELECT * FROM other_expenses WHERE id=$expense_id")->row_array()['cost'];
   }
 
-  public function delete($id)
-  {
-    $this->Fuel_model->delete_fuel($id);
-    echo json_encode(array("status" => TRUE));
-  }
+  $km=$distance_km-$assets['km_reading'];
+  $mils=$distance_miles-$assets['miles_reading'];
+  $total=$suppliers['price']*$fuel['litres'];
+  $update_km=array('km_reading' => $distance_km,'miles_reading' => $distance_miles);
+  $updated = array('price' => $suppliers['price'],'total' => $total,'expense_cost' => $expense,
+    'mileage_km' => $km,'mileage_miles' => $mils);
+  $this->Fuel_model->fuel_update(array('id' => $id), $updated);
+  $this->Assets_model->assets_update(array('id' => $assets['id']), $update_km);
+  echo json_encode(array("status" => TRUE));
+}
+
+public function delete($id)
+{
+  $this->Fuel_model->delete_fuel($id);
+  echo json_encode(array("status" => TRUE));
+}
 
 }
