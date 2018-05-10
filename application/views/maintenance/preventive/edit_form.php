@@ -214,9 +214,9 @@
 
         <?php
         echo form_input(array(
-          "id" => "km_reading",
-          "name" => "km_reading",
-          "value" => number_format(($jobs[0]['km_reading']*0.621371),2),
+          "id" => "miles_reading",
+          "name" => "miles_reading",
+          "value" => number_format(($jobs[0]['miles_reading']),2),
           "class" => "form-control",
           "disabled" => "disabled",
 

@@ -25,7 +25,8 @@
          <select class="form-control" name="track_by" id="partselected" required>
           <option value="">--Select type--</option>
           <option value="hours">Hours</option>
-          <option value="kilometer">Kilometer</option>
+          <option value="kilometer">Kilometers</option>
+          <option value="miles">Miles</option>
         </select>
         
       </div>
@@ -248,8 +249,37 @@
                 
               </div>
             </div>
+             <div id="miles" class="services miles" style="display: none;">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="previous_km_reading"><b>Previous Miles</b></label>
+                <p id="previous_miles_reading">
+                </p>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="km_reading"><b>Current mi readings</b></label>
+                
+                <?php
+                echo form_input(array(
+                  "id" => "miles_reading",
+                  "name" => "miles_reading",
+                  "class" => "form-control",
+                  ));
+                  ?>
+                </div>
+              </div>
+
+              <div class="form-group input-group-sm">
+                <label for="actual_miles_reading"><b>Actual mi Covered</b></label>
+                <p id="miles_id"></p>
+                
+              </div>
+            </div>
             <br>
-            <div id="hours" class="services hours">
+            <div id="hours" class="services hours" style="display: none;">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="hours"><b>Previous Hours</b>
@@ -277,6 +307,14 @@
                 }
                 ?>
               </select>
+            </div>
+            <div class="form-group mile" style="display: none;">
+              <label for="next_time_miles"><b>Next Mileage Maintenance</b></label>
+               <input type="number" name="next_time_miles" class="form-control">
+            </div>
+            <div class="form-group kms" style="display: none;">
+              <label for="next_time_km"><b>Next KM Maintenance</b></label>
+              <input type="number" name="next_time_km" class="form-control">
             </div>
           </div>
 
@@ -441,6 +479,26 @@
 <script type="text/javascript">
  $(document).ready(function() {
    $('select[name="vehicle_no"]').on('change', function() {
+    var km_id = $(this).val();
+    var path="<?php echo site_url('preventive/miles_reading')?>/" + km_id;
+    $.ajax({
+      type  : 'ajax',
+      url   : path,
+      async : false,
+      dataType : 'json',
+      success : function(data){
+        localStorage.setItem('miles_r', data);
+        var html ='<p>'+data+'</p>';
+        $('#previous_miles_reading').html(html);
+      }
+      
+    });
+  });
+ });
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('select[name="vehicle_no"]').on('change', function() {
     var hrs_id = $(this).val();
     var path="<?php echo site_url('preventive/machine_hours')?>/" + hrs_id;
     $.ajax({
@@ -487,11 +545,11 @@
    );
   }
 </script>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
  $(document).ready(function() {
    $('select[name="vehicle_no"]').on('change', function() {
     var warranty_id = $(this).val();
-    var path="<?php echo site_url('preventive/warrantyCheck')?>/" + warranty_id;
+    var path="<?php //echo site_url('preventive/warrantyCheck')?>/" + warranty_id;
     $.ajax({
       type  : 'ajax',
       url   : path,
@@ -510,12 +568,19 @@
   });
   });
  });
-</script>
+</script> -->
 <script type="text/javascript">
   $('#km_reading').on('keyup',function(){
    var km = $(this).val();
    var km_rd=localStorage.getItem("km_r");
    $("#km_id").html(km-km_rd);
+ });
+</script>
+<script type="text/javascript">
+  $('#miles_reading').on('keyup',function(){
+   var miles = $(this).val();
+   var miles_rd=localStorage.getItem("miles_r");
+   $("#miles_id").html(miles-miles_rd);
  });
 </script>
 <script type="text/javascript">
@@ -529,6 +594,19 @@
 <script type="text/javascript">
   $(function() {
     $('#partselected').change(function(){
+      var unit=$(this).val();
+       if(unit=='miles'){
+         $('.mile').show();
+         $('.kms').hide();
+      }
+      if(unit=='kilometer'){
+         $('.kms').show();
+         $('.mile').hide();
+      }
+      if(unit=='hours'){
+         $('.kms').hide();
+         $('.mile').hide();
+      }
       $('.services').hide();
       $('#' + $(this).val()).show();
     });

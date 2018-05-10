@@ -25,9 +25,8 @@
             <th>Description</th>
             <th>Assigned To</th>
             <th>Warranty Expiry</th>
-            <th>KM Reading</th>
+            <th>Mileage Reading</th>
             <th>Machine Hours</th>
-            <th>Next Maintenance Date</th>
             <th style="width:125px;">Action
             </th>
           </tr>
@@ -40,9 +39,9 @@
            <td><?php echo $asset['description'];?></td>
            <td><?php echo $asset['name'];?></td>
            <td><?php echo $asset['warranty'];?></td>
-           <td><?php echo $asset['km_reading'];?></td>
+           <td><?php echo $asset['km_reading'] ? $asset['km_reading'] .' km' : $asset['miles_reading'] .' mi';?></td>
            <td><?php echo $asset['machine_hours'];?></td>
-           <td><?php echo $asset['next_time'];?></td>                            
+                                 
            <td>
              <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
               <button class="btn btn-warning edito" onclick="edit_asset(<?php echo $asset['asset_ID'];?>)" style="font-size: 10px;margin-left: -24px !important;"><i class="glyphicon glyphicon-pencil"></i></button>
@@ -68,8 +67,7 @@
        <th>Warranty Expiry</th>
        <th>KM Reading</th>
        <th>Machine Hours</th>
-       <th>Next Maintenance Date</th>
-       <th>Action</th>
+        <th>Action</th>
      </tr>
    </tfoot>
  </table>
@@ -120,10 +118,11 @@
           $('[name="description"]').val(data.description);
           $('[name="driver_id"]').val(data.driver_id);
           $('[name="warranty"]').val(data.warranty);
-          $('[name="next_time"]').val(data.next_time);
+          $('[name="next_time_km"]').val(data.next_time_km);
+          $('[name="next_time_miles"]').val(data.next_time_miles);
           $('[name="make"]').val(data.make); 
           $('[name="km_reading"]').val(data.km_reading);
-          $('[name="miles"]').val(data.km_reading);
+          $('[name="miles"]').val(data.miles_reading);
           $('[name="hours"]').val(data.machine_hours);
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Asset'); // Set title to Bootstrap modal title
@@ -259,7 +258,7 @@
             <div class="col-md-6">
                   <div class="form-group">
                    <label for="supplier_id" class="col-md-6"><b>Track By</b></label>
-                   <select class="form-control" name="track_by" id="partselected" style="width: 90%;margin-left: 8px;" required>
+                   <select class="form-control" name="track_by" id="mileselected" style="width: 90%;margin-left: 8px;" required>
                     <option value="">--Track By--</option>
                     <option value="km">Kilometer</option>
                     <option value="miles">Miles</option>
@@ -268,7 +267,6 @@
               </div>
               </div>
             <div class="row">
-
               <div class="col-md-6" style="width: 45%;">
                 <div class="form-group">
                   <label class="control-label" style="margin-left: 10px;">Hours</label>
@@ -276,16 +274,16 @@
                   type="text" style="width: 90%;margin-left: 8px;">
                 </div>
               </div>
-              <div id="km" class="track km">
+              <div id="km" class="tracks km">
                 <div class="col-md-6" style="width: 45%;">
                   <div class="form-group">
                     <label class="control-label">Current KM Readings</label>
-                    <input name="km_reading" placeholder="Current KM Readings" class="form-control" onmouseleave="kmReading()" 
+                    <input name="km_reading" placeholder="Current KM Readings" class="form-control" 
                     type="text">
                   </div>
                 </div>
               </div>
-              <div id="miles" class="track miles" style="display: none;">
+              <div id="miles" class="tracks miles" style="display: none;">
                <div class="col-md-6" style="width: 45%;">
                 <div class="form-group">
                   <label class="control-label">Current Miles Readings</label>
@@ -320,16 +318,22 @@
 
         <div class="row">
 
-          <div class="col-md-6" style="width: 45%">
+          <div class="col-md-6" style="width: 45%";>
             <div class="form-group">
               <label class="control-label" style="margin-left: 10px;">Make</label>
               <input name="make" placeholder="Make" class="form-control" type="text" style="width: 90%;margin-left: 8px;">
             </div>
           </div>
-          <div class="col-md-6" style="width: 45%">
+          <div class="col-md-6 mile" style="width: 45%;display: none;">
             <div class="form-group">
-              <label class="control-label" style="margin-left: 10px;">Next Maintenance Date</label>
-              <input name="next_time" placeholder="Next visit time" class="form-control" type="date" style="width: 90%;margin-left: 8px;">
+              <label class="control-label" style="margin-left: 10px;">Next Mileage Maintenance</label>
+              <input name="next_time_miles" placeholder="Next visit Mileage" class="form-control" type="number" style="width: 90%;margin-left: 8px;">
+            </div>
+          </div>
+           <div class="col-md-6 kms" style="width: 45%; display: none;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Next KM Maintenance</label>
+              <input name="next_time_km" placeholder="Next visit Km" class="form-control" type="number" style="width: 90%;margin-left: 8px;">
             </div>
           </div>
 
@@ -349,18 +353,24 @@
 <!-- End Bootstrap modal -->
 
 </body>
-<script type="text/javascript">
- $("#driver_id").select2();
- function kmReading(){
-  console.log('km Readings')
-}
-</script>
+
 
 <script type="text/javascript">
   $(function() {
-    $('#partselected').change(function(){
-      $('.track').hide();
+    $('#mileselected').change(function(){
+      var unit=$(this).val();
+      if(unit=='miles'){
+         $('.mile').show();
+         $('.kms').hide();
+      }
+      if(unit=='km'){
+         $('.kms').show();
+         $('.mile').hide();
+      }
+      $('.tracks').hide();
       $('#' + $(this).val()).show();
     });
   });
+
 </script>
+

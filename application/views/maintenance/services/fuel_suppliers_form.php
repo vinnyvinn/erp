@@ -222,7 +222,11 @@
             <div class="form-group">
               <label class="control-label col-md-3">Fuel Type</label>
               <div class="col-md-9">
-                <input name="fuel_type" placeholder="Fuel Type" class="form-control" type="text">
+              <select  name="fuel_type" placeholder="Fuel Type" class="form-control">
+                <option value="petrol">Petrol</option>
+                <option value="diesel">Diesel</option>
+              </select>
+               
               </div>
             </div        
                 

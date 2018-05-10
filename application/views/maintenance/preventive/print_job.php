@@ -22,7 +22,7 @@
            <thead>
              <tr>
                <th>Maintenance Required</th>
-               <th>Root Cause</th>
+               <th>Description</th>
                <th>Job Card No: <?php echo $reports_data[0]['card_no']?></th>
                
              </tr>
@@ -40,8 +40,8 @@
                <b>Time:</b> <?php echo date('H:i:s',$date)?><br>
                <b style="text-align: left;">Reg: </b> <?php echo $reports_data[0]['reg']?>;<br>
                <b>Make: </b> <?php echo $reports_data[0]['make']?><br>
-               <b>Km Reading: </b>  <?php echo $reports_data[0]['km_reading']?> <br>
-               <b>Next Service: </b> <?php echo $reports_data[0]['next_time']?> <br>
+               <b>Mileage Reading: </b>  <?php echo $reports_data[0]['km_reading'] ? $reports_data[0]['km_reading'] .' km' : $reports_data[0]['miles_reading'] .' mi'?> <br>
+               <b>Next Service Mileage: </b> <?php echo $reports_data[0]['next_time_km'] ? $reports_data[0]['next_time_km'].' km' : $reports_data[0]['next_time_miles'] .' mi'?> <br>
 
              </td>
            </tr>

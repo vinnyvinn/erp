@@ -26,12 +26,20 @@ class Fuel_suppliers extends Pre_loader {
 
   public function add_supplier()
   {
+     $is_petrol='';
+     if($this->input->post('fuel_type')=='petrol'){
+      $is_petrol=1;
+     }
+     elseif($this->input->post('fuel_type')=='diesel'){
+      $is_petrol=0;
+     }
     $data = array(
      'code' => $this->input->post('code'),
      'name' => $this->input->post('name'),
      'phone_no' => $this->input->post('phone_no'),
      'price' => $this->input->post('price'),
      'fuel_type' => $this->input->post('fuel_type'),
+     'is_petrol' => $is_petrol
      );
 
     $this->Fuel_suppliers_model->add_fuel_suppliers($data);
@@ -47,12 +55,20 @@ class Fuel_suppliers extends Pre_loader {
   }
   public function supplier_update()
   {
+    $is_petrol='';
+     if($this->input->post('fuel_type')=='petrol'){
+      $is_petrol=1;
+     }
+     elseif($this->input->post('fuel_type')=='diesel'){
+      $is_petrol=0;
+     }
     $data = array(
      'code' => $this->input->post('code'),
      'name' => $this->input->post('name'),
      'phone_no' => $this->input->post('phone_no'),
      'price' => $this->input->post('price'),
      'fuel_type' => $this->input->post('fuel_type'),
+     'is_petrol' => $is_petrol
 
      );
     $this->Fuel_suppliers_model->fuel_suppliers_update(array('id' => $this->input->post('id')), $data);

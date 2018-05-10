@@ -15,7 +15,7 @@
             <th>ID</th>
             <th>Supplier</th>
             <th>Vehicle</th>
-            <th>Mileage(KM)</th>
+            <th>Mileage</th>
             <th>Driver</th>
             <th>Fuel Type</th>
             <th>Litres</th>
@@ -32,9 +32,9 @@
            <td><?php echo $fuel['id'];?></td>
            <td><?php echo $fuel['supplier'];?></td>
            <td><?php echo $fuel['vehicle'];?></td>
-           <td><?php echo $fuel['mileage'];?></td>
+           <td><?php echo $fuel['mileage_km'] ? $fuel['mileage_km'] .' km' : $fuel['mileage_miles'] .' mi';?></td>
            <td><?php echo $fuel['staff'];?></td>
-           <td><?php echo $fuel['fuel'];?></td>
+           <td><?php echo $fuel['fuel_id'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
            <td><?php echo $fuel['total'];?></td>
@@ -61,7 +61,7 @@
        <th>ID</th>
        <th>Supplier</th>
        <th>Vehicle</th>
-       <th>Mileage(KM)</th>
+       <th>Mileage</th>
        <th>Driver</th>
        <th>Fuel Type</th>
        <th>Litres</th>
@@ -117,6 +117,7 @@
           $('[name="expense_id"]').val(data.expense_id);
           $('[name="invoice_no"]').val(data.invoice_no);
           $('[name="km_reading"]').val(data.km_reading);  
+          $('[name="miles_reading"]').val(data.miles_reading);
           $('[name="done_on"]').val(data.done_on);   
           $('[name="currency"]').val(data.currency);  
           $('[name="fuel_id"]').val(data.fuel_id);     
@@ -213,92 +214,111 @@
                  <div class="form-group">
                   <label class="control-label">Fuel Type</label>
                   <select class="form-control" name="fuel_id" placeholder="Fuel Type" id="fuel_id" required>
-                    <?php
-                   foreach ($suppliers_dropdown as $fuel) {
-                    echo "<option value=". $fuel->id . ">" . ucfirst($fuel->fuel_type) . "</option>";
-                  }
-                  ?>
+                   <option value="petrol">Petrol</option>
+                   <option value="diesel">Diesel</option>
+                 </select>
+               </div>
+             </div>
+           </div>
+
+           <div class="row">
+             <div class="col-md-6" style="width: 45%;">
+              <div class="form-group">
+                <label class="control-label" style="margin-left: 10px;">Invoice No.</label>
+                <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text" style="width: 90%;margin-left: 8px;">
+              </div>
+            </div>
+
+            <div class="col-md-6" style="width: 45%;">
+              <div class="form-group">
+                <label class="control-label">Currency</label>
+                <select class="form-control" name="currency" placeholder="Currency">
+                  <option value="">--Choose Currency--</option>
+                  <option value="USD">USD</option>
+                  <option value="KSH">KSH</option>
+
                 </select>
               </div>
             </div>
           </div>
 
           <div class="row">
-           <div class="col-md-6" style="width: 45%;">
-            <div class="form-group">
-              <label class="control-label" style="margin-left: 10px;">Invoice No.</label>
-              <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text" style="width: 90%;margin-left: 8px;">
-            </div>
-          </div>
 
-          <div class="col-md-6" style="width: 45%;">
+           <div class="col-md-12" style="width: 45%;">
             <div class="form-group">
-              <label class="control-label">Currency</label>
-              <select class="form-control" name="currency" placeholder="Currency">
-                <option value="">--Choose Currency--</option>
-                <option value="USD">USD</option>
-                <option value="KSH">KSH</option>
-
+              <label class="control-label" style="margin-left: 10px;">Vehicle</label>
+              <select class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicle_id" style="width: 90%;margin-left: 8px;" required>
+                <option value="">--Choose Vehicle--</option>
+                <?php
+                foreach ($vehicles_dropdown as $vehicle) {
+                  echo "<option value=". $vehicle->id . ">" . ucfirst($vehicle->code) . "</option>";
+                }
+                ?>
               </select>
             </div>
           </div>
-        </div>
-
-        <div class="row">
-         <div class="col-md-6" style="width: 45%;">
+     
+      </div>
+          <div class="row kmreadings" style="display: none;">
+          <div class="col-md-6" style="width: 45%;">
           <div class="form-group">
-            <label class="control-label" style="margin-left: 10px;">Vehicle</label>
-            <select class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicle_id" style="width: 90%;margin-left: 8px;" required>
-              <option value="">--Choose Vehicle--</option>
-              <?php
-              foreach ($vehicles_dropdown as $vehicle) {
-                echo "<option value=". $vehicle->id . ">" . ucfirst($vehicle->code) . "</option>";
-              }
-              ?>
-            </select>
+            <label class="control-label" style="margin-left: 10px;">Previous KM</label>
+            <p id="prevoius_km_reading" style="margin-left: 10px;"></p>
           </div>
         </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" style="margin-left: 10px;">Current KM Readings</label>
 
+            <input name="km_reading" placeholder="KM Readings" class="form-control" id="km_reading" type="text" style="width: 90%;margin-left: 8px;">
+          </div>
+        </div>
+      </div>
+
+       
+        <div class="row milesreadings" style="display: none;">
         <div class="col-md-6" style="width: 45%;">
           <div class="form-group">
-            <label class="control-label">Previous KM</label>
-            <p id="prevoius_km_reading"></p>
+            <label class="control-label" style="margin-left: 10px;">Previous Miles</label>
+            <p id="prevoius_miles_reading" style="margin-left: 10px;"></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" style="margin-left: 10px;">Current mi Readings</label>
+
+            <input name="miles_reading" placeholder="mi Readings" class="form-control" id="miles_reading" type="text" style="width: 90%;margin-left: 8px;">
           </div>
         </div>
       </div>
-      <div class="form-group">
-        <label class="control-label" style="margin-left: 10px;">Current KM Readings</label>
 
-        <input name="km_reading" placeholder="KM Readings" class="form-control" id="km_reading" type="text" style="width: 90%;margin-left: 8px;">
+
+      <div class="row">
+       <div class="col-md-6" style="width: 45%;">
+        <div class="form-group">
+          <label class="control-label" style="margin-left: 10px;">Supplier</label>
+          <select class="form-control" name="supplier_id" placeholder="Supplier" id="supplier" style="width: 90%;margin-left: 8px;" required>
+           <?php
+           foreach ($suppliers_dropdown as $supplier) {
+            echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
+          }
+          ?>
+        </select>
       </div>
     </div>
-
-    <div class="row">
-     <div class="col-md-6" style="width: 45%;">
+    <div class="col-md-6" style="width: 45%;">
       <div class="form-group">
-        <label class="control-label" style="margin-left: 10px;">Supplier</label>
-        <select class="form-control" name="supplier_id" placeholder="Supplier" id="supplier" style="width: 90%;margin-left: 8px;" required>
+        <label class="control-label">Driver</label>
+        <select class="form-control" name="staff_id" placeholder="Staff" id="staff" required>
+
          <?php
-         foreach ($suppliers_dropdown as $supplier) {
-          echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
+         foreach ($staffs_dropdown as $staff) {
+          echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
         }
         ?>
       </select>
     </div>
   </div>
-  <div class="col-md-6" style="width: 45%;">
-    <div class="form-group">
-      <label class="control-label">Driver</label>
-      <select class="form-control" name="staff_id" placeholder="Staff" id="staff" required>
-
-       <?php
-       foreach ($staffs_dropdown as $staff) {
-        echo "<option value=". $staff->id . ">" . ucfirst($staff->name) . "</option>";
-      }
-      ?>
-    </select>
-  </div>
-</div>
 </div>
 
 <div class="row">
@@ -360,4 +380,62 @@
    });
   });
  });
+</script>
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('select[name="vehicle_id"]').on('change', function() {
+    var km_id = $(this).val();
+    var path="<?php echo site_url('fuel/miles_reading')?>/" + km_id;
+    $.ajax({
+      type  : 'ajax',
+      url   : path,
+      async : false,
+      dataType : 'json',
+      success : function(data){
+       var html ='<p>'+data+'</p>';
+       $('#prevoius_miles_reading').html(html);
+
+     }
+     
+   });
+  });
+ });
+</script>
+
+<script type="text/javascript">
+ $(document).ready(function() {
+   $('select[name="vehicle_id"]').on('change', function() {
+    var km_id = $(this).val();
+    var path="<?php echo site_url('fuel/km_reading')?>/" + km_id;
+    $.ajax({
+      type  : 'ajax',
+      url   : path,
+      async : false,
+      dataType : 'json',
+      success : function(data){
+        if(data > 1){
+           $('.milesreadings').hide();
+           $('.kmreadings').show();
+      console.log('great' +data);
+       }
+
+       if(data < 1){
+           $('.milesreadings').show();
+           $('.kmreadings').hide();
+        console.log('try again' +data);
+       }
+
+     }
+     
+   });
+  });
+ });
+</script>
+<script type="text/javascript">
+  $(function() {
+    $('#partselected').change(function(){
+      $('.fuels').hide();
+      $('#' + $(this).val()).show();
+    });
+  });
 </script>
