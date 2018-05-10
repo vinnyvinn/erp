@@ -26,6 +26,7 @@
             columns: [
                     {title: "Asset NO", "class": "text-center w50"},
                     {title: "Description"},
+                    {title: "Model NO"},
                     {title: "Serial NO"},
                     {title: "Location"},
                     {title: "Category"},

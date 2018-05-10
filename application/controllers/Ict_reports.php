@@ -256,6 +256,7 @@ class Ict_reports extends Pre_loader {
 
       $id = $data->idAssetNo;
       $description = $data->cAssetDesc;
+      $model_no = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->model_no ? $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->model_no : "NOT SET";
       $serial = $data->cAssetCode;
       $location = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
       $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
@@ -268,12 +269,13 @@ class Ict_reports extends Pre_loader {
       if ($this->login_user->is_admin) {
         $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
         $depertment = modal_anchor(get_uri("ict_reports/depertment_modal_form"), $depertment, array("class" => "edit", "title" => "Update Asset Depertment", "data-post-id" => $id));
+        $model_no = modal_anchor(get_uri("ict_reports/model_no_modal_form"), $model_no, array("class" => "edit", "title" => "Update Model NO", "data-post-id" => $id));
       } else {
         $custodian = $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET";
         $depertment = $depertment;
       }
 
-      return array($id, $description, $serial, $location, $category, $custodian, $depertment, $pDate, $pCost, $Supplier);
+      return array($id, $description, $model_no, $serial, $location, $category, $custodian, $depertment, $pDate, $pCost, $Supplier);
     }
 
     public function custodian_modal_form() {
@@ -326,6 +328,29 @@ class Ict_reports extends Pre_loader {
       }
     }
 
+    public function model_no_modal_form() {
+      $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
+      $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $view_data['sage_id'] = $sage_id;
+      $this->load->view('checklists/ict_inventory/model_no_modal_form', $view_data);
+    }
+
+    function save_model_no() {
+
+      $id = $this->input->post('id');
+
+      $data = array(
+        "model_no" => $this->input->post('model_no')
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+      if ($save_id) {
+          echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+      } else {
+          echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+      }
+    }
+
     public function actual_asset_modal_form() {
       $view_data['users_dropdown'] = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("user_type" => "staff"));
       $view_data['suppliers_dropdown'] = $this->SAGE_DB()->get('Vendor')->result();
@@ -357,6 +382,8 @@ class Ict_reports extends Pre_loader {
 
       $actual_data = array(
         "sage_id" => $this->SAGE_DB()->get_where("_btblFAAsset", array("cAssetCode" => $this->input->post('serial'), "cAssetDesc" => $this->input->post('title')))->result()[0]->idAssetNo,
+        "sage_dept" => $this->input->post('sage_dept'),
+        "model_no" => $this->input->post('model_no'),
         "assigned_to" => $this->input->post('user_id'),
         "category_id" => 1
       );

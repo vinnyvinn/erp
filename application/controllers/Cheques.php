@@ -45,7 +45,7 @@ class Cheques extends Pre_loader {
         if ($data->status == 0) {
             $status = $this->login_user->is_admin ? "<button type=\"button\" class=\"btn btn-info\">Processing</button>" : "<button type=\"button\" class=\"btn btn-info\">Process</button>";
         } elseif ($data->status == 1) {
-            $status = "<button type=\"button\" class=\"btn btn-success\">Accepted</button>";
+            $status = "<button type=\"button\" class=\"btn btn-success\">Collected</button>";
         } elseif ($data->status == 2) {
             $status = "<button type=\"button\" class=\"btn btn-danger\">Rejected</button>";
         }

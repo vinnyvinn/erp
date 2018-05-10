@@ -1,33 +1,6 @@
 <?php echo form_open(get_uri("ict_reports/save_actual_asset"), array("id" => "project-member-form", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
 
-    <div class="form-group" style="min-height: 50px">
-        <label for="user_id" class=" col-md-3"><?php echo lang('member'); ?></label>
-        <div class="col-md-9">
-            <?php
-            echo form_dropdown("user_id", $users_dropdown, '', "class='select2'");
-            ?>
-        </div>
-    </div>
-
-    <div class="form-group">
-        <label for="serial" class=" col-md-3">Serial</label>
-        <div class=" col-md-9">
-            <?php
-            echo form_input(array(
-                "id" => "serial",
-                "name" => "serial",
-                // "value" => $model_info->title,
-                "class" => "form-control",
-                "placeholder" => 'Serial',
-                "autofocus" => true,
-                "data-rule-required" => true,
-                "data-msg-required" => lang("field_required"),
-            ));
-            ?>
-        </div>
-    </div>
-
     <div class="form-group">
         <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
         <div class=" col-md-9">
@@ -47,15 +20,36 @@
     </div>
 
     <div class="form-group">
-        <label for="purchase_date" class=" col-md-3">Purchase Date</label>
+        <label for="model_no" class=" col-md-3">Model NO</label>
         <div class=" col-md-9">
             <?php
             echo form_input(array(
-                "id" => "dPurchaseDate",
-                "name" => "dPurchaseDate",
-                // "value" => $model_info->start_date * 1 ? $model_info->start_date : "",
+                "id" => "model_no",
+                "name" => "model_no",
+                // "value" => $model_info->title,
                 "class" => "form-control",
-                "placeholder" => 'Purchase Date'
+                "placeholder" => 'Model NO',
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required"),
+            ));
+            ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="serial" class=" col-md-3">Serial</label>
+        <div class=" col-md-9">
+            <?php
+            echo form_input(array(
+                "id" => "serial",
+                "name" => "serial",
+                // "value" => $model_info->title,
+                "class" => "form-control",
+                "placeholder" => 'Serial',
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required"),
             ));
             ?>
         </div>
@@ -89,6 +83,30 @@
               }
               ?>
             </select>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="purchase_date" class=" col-md-3">Purchase Date</label>
+        <div class=" col-md-9">
+            <?php
+            echo form_input(array(
+                "id" => "dPurchaseDate",
+                "name" => "dPurchaseDate",
+                // "value" => $model_info->start_date * 1 ? $model_info->start_date : "",
+                "class" => "form-control",
+                "placeholder" => 'Purchase Date'
+            ));
+            ?>
+        </div>
+    </div>
+
+    <div class="form-group" style="min-height: 50px">
+        <label for="user_id" class=" col-md-3"><?php echo lang('member'); ?></label>
+        <div class="col-md-9">
+            <?php
+            echo form_dropdown("user_id", $users_dropdown, '', "class='select2'");
+            ?>
         </div>
     </div>
 
