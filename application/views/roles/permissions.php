@@ -229,6 +229,52 @@
                     </div>
                 </li>
                 <li>
+                    <h5><?php echo lang("can_access_legal"); ?></h5>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "legal",
+                            "name" => "legal_permission",
+                            "value" => "",
+                                ), $technical, ($technical === "") ? true : false);
+                        ?>
+                        <label for="legal"><?php echo lang("no"); ?> </label>
+                    </div>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "legal_yes",
+                            "name" => "legal_permission",
+                            "value" => "all",
+                                ), $legal, ($legal === "all") ? true : false);
+                        ?>
+                        <label for="legal_yes"><?php echo lang("yes"); ?></label>
+                    </div>
+                </li>
+                <li>
+                    <h5><?php echo lang("can_access_finance"); ?></h5>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "finance",
+                            "name" => "finance_permission",
+                            "value" => "",
+                                ), $finance, ($finance === "") ? true : false);
+                        ?>
+                        <label for="finance"><?php echo lang("no"); ?> </label>
+                    </div>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "finance_yes",
+                            "name" => "finance_permission",
+                            "value" => "all",
+                                ), $finance, ($finance === "all") ? true : false);
+                        ?>
+                        <label for="finance_yes"><?php echo lang("yes"); ?></label>
+                    </div>
+                </li>
+                <li>
                     <h5><?php echo lang("can_access_estimates"); ?></h5>
                     <div>
                         <?php

@@ -13,6 +13,7 @@ class Legal extends Pre_loader
 {
     public function __construct() {
         parent::__construct();
+        $this->init_permission_checker("legal");
         $this->load->helper(array('form', 'url','language'));
     }
 

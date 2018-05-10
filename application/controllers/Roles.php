@@ -58,6 +58,8 @@ class roles extends Pre_loader {
             $view_data['client'] = get_array_value($permissions, "client");
             $view_data['ticket'] = get_array_value($permissions, "ticket");
             $view_data['announcement'] = get_array_value($permissions, "announcement");
+             $view_data['legal'] = get_array_value($permissions, "legal");
+            $view_data['finance'] = get_array_value($permissions, "finance");
 
             $view_data['can_create_projects'] = get_array_value($permissions, "can_create_projects");
             $view_data['can_edit_projects'] = get_array_value($permissions, "can_edit_projects");
@@ -135,6 +137,8 @@ class roles extends Pre_loader {
         $expense = $this->input->post('expense_permission');
         $client = $this->input->post('client_permission');
         $ticket = $this->input->post('ticket_permission');
+        $legal = $this->input->post('legal_permission');
+        $finance = $this->input->post('finance_permission');
 
         $can_create_projects = $this->input->post('can_create_projects');
         $can_edit_projects = $this->input->post('can_edit_projects');
@@ -167,6 +171,8 @@ class roles extends Pre_loader {
             "invoice" => $invoice,
             "technical" => $technical,
             "estimate" => $estimate,
+            "legal" => $legal,
+            "finance" => $finance,
             "expense" => $expense,
             "client" => $client,
             "ticket" => $ticket,

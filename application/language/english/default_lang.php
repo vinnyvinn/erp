@@ -504,6 +504,7 @@ $lang["payment_methods"] = "Payment methods";
 $lang["edit_payment_method"] = "Edit payment method";
 $lang["delete_payment_method"] = "Delete payment method";
 
+
 /* invoices */
 
 $lang["add_invoice"] = "Add invoice";
@@ -591,6 +592,8 @@ $lang["can_access_clients_information"] = "Can access client's information?";
 $lang["can_access_tickets"] = "Can access tickets?";
 $lang["can_manage_announcements"] = "Can manage announcements?";
 $lang["can_access_technical"] = "Can access Technical?";
+$lang["can_access_finance"] = "Can access Finance?";
+$lang["can_access_legal"] = "Can access Legal?";
 
 /* timeline */
 $lang["post_placeholder_text"] = "Share an idea or documents...";
