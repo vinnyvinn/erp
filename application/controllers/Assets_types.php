@@ -26,6 +26,7 @@ class Assets_types extends Pre_loader {
     $view_data['assets']=$this->db->query($query)->result_array();
     $this->template->rander("maintenance/services/assets_form",$view_data);
   }
+  
   public function import_assets(){
    $existing = $this->db->query('SELECT asset_no from assets')->result_array();
    $existing = array_map(function ($item) {
@@ -80,7 +81,8 @@ public function add_asset()
    'description' => $this->input->post('description'),
    'driver_id' => $this->input->post('driver_id'),
    'warranty' => $this->input->post('warranty'),
-   'next_time' => $this->input->post('next_time'),
+   'next_time_km' => $this->input->post('next_time_km'),
+   'next_time_miles' => $this->input->post('next_time_miles'),
    'make' => $this->input->post('make'),
    'km_reading' => $this->input->post('km_reading'),
    'miles_reading' => $this->input->post('miles'),
@@ -102,15 +104,7 @@ public function asset_edit($id)
 }
 public function asset_update()
 {
-  $km_reading='';
-  if($this->input->post('km_reading')){
-    $km_reading=$this->input->post('km_reading');
-  }
-  elseif($this->input->post('miles')) {
-   $km_reading=($this->input->post('miles')/0.621371);
-
- }
-
+  
    $data = array(
    'code' => $this->input->post('code'),
    'year_of_reg' => $this->input->post('year_of_reg'),
@@ -120,7 +114,8 @@ public function asset_update()
    'description' => $this->input->post('description'),
    'driver_id' => $this->input->post('driver_id'),
    'warranty' => $this->input->post('warranty'),
-   'next_time' => $this->input->post('next_time'),
+   'next_time_km' => $this->input->post('next_time_km'),
+   'next_time_miles' => $this->input->post('next_time_miles'),
    'make' => $this->input->post('make'),
    'km_reading' => $this->input->post('km_reading'),
    'miles_reading' => $this->input->post('miles'),
@@ -131,24 +126,26 @@ public function asset_update()
  $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
  $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
  $result = $query->row_array()['id']; 
- $variables = $this->db->query("SELECT assets.code,assets.next_time,employees.* FROM assets
-  LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->result_array();
+ $variables = $this->db->query("SELECT assets.code,assets.next_time_km,assets.next_time_miles,employees.* FROM assets
+  LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->row_array();
+ if($variables['next_time_km'] <= 200 || $variables['next_time_miles'] <=200){
+  $this->tech_mail($variables);
+ }
  echo json_encode(array("status" => TRUE));
- $this->tech_mail($variables);
+ 
 
 }
 
 public function tech_mail($variables) {
-
   $email_template = $this->Email_templates_model->get_final_template("next_maintenance_date");
-  $parser_data["VEHICLE_NO"] =$variables[0]['code'];
-  $parser_data["USER_NAME"] = $variables[0]['name'];
-  $parser_data["NEXT_DATE"] = $variables[0]['next_time'];
-  $parser_data["TITLE"] = $variables[0]['title'];
+  $parser_data["VEHICLE_NO"] =$variables['code'];
+  $parser_data["USER_NAME"] = $variables['name'];
+  $parser_data["MILEAGE"] = $variables['next_time_km'] ? $variables['next_time_km'] .' km' : $variables['next_time_miles'] .' mi';
+  $parser_data["TITLE"] = $variables['title'];
   $parser_data["SIGNATURE"] = $email_template->signature;
 
   $message = $this->parser->parse_string($email_template->message, $parser_data, true);
-  send_app_mail($variables[0]['email'], $email_template->subject, $message);
+  send_app_mail($variables['email'], $email_template->subject, $message);
 }
 public function asset_delete($id)
 {

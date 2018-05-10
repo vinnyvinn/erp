@@ -269,6 +269,8 @@ $data = array(
  "external_provider" => $external_provider,
  "picture" => $picture,
  "reactive" => 1,
+'next_time_km' => $this->input->post('next_time_km'),
+ 'next_time_miles' => $this->input->post('next_time_miles'),
  );
 
 $data = $this->db->insert('jobs', $data);
@@ -277,7 +279,7 @@ $model = $this->db->query("SELECT assets.code,jobs.* FROM jobs
  LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row_array();
 $card = array("card_no" => substr('ESL-' . $last_id . '-' . $model['code'], 0, 20));
 $mileage=array("km_reading" => $model['km_reading'],"miles_reading" => $model['miles_reading'],
-  "machine_hours" => $model['hours']);
+  "machine_hours" => $model['hours'],"next_time_km" => $model['next_time_km'],"next_time_miles" => $model['next_time_miles']);
 $this->db->where('id', $last_id)->update('jobs', $card);
 $this->db->where('id', $model['vehicle_no'])->update('assets', $mileage);
 return redirect(base_url('reactive'));
