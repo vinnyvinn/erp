@@ -102,8 +102,9 @@
                     if ($show_expenses_menu && $show_payments_menu) {
                         $finance_submenu[] = array("name" => "income_vs_expenses", "url" => "expenses/income_vs_expenses_chart");
                     }
-
+                   if ($this->login_user->is_admin) {
                     $sidebar_menu[] = array("name" => "finance", "url" => $finance_url, "class" => "fa-money", "submenu" => $finance_submenu);
+                }
                 }
 
                 if ((get_setting("module_admin") == "1") && ($this->login_user->role_id)) {
