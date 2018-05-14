@@ -8,7 +8,7 @@ class Invoice_payments extends Pre_loader {
 
     function __construct() {
         parent::__construct();
-        $this->init_permission_checker("invoice");
+        $this->init_permission_checker("finance");
     }
 
     /* load invoice list view */
