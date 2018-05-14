@@ -58,6 +58,33 @@ class Team extends Pre_loader {
         }
     }
 
+    public function import_hr_depertments() {
+        $list_depertments = $this->HR_DB()->get('tblDepartment')->result();
+
+        foreach ($list_depertments as $value) {
+            // insert hr departments
+            if (!$this->Team_model->dept_id_exists($value->Dept_Id)) {
+                $this->db->insert('team', array("dept_id" => $value->Dept_Id, "title" => $value->Dept_Code . " : " . $value->Dept_Name));
+            }
+        }
+    }
+
+    public function import_hr_designations() {
+        $list_designations = $this->HR_DB()->get('tblDesignation')->result();
+
+        foreach ($list_designations as $value) {
+            $data = array(
+                'desig_id' => $value->Desig_Id,
+                'title'  => $value->Desig_Name,
+            );
+            // insert hr designation
+            if (!$this->Team_model->desig_id_exists($value->Desig_Id)) {
+                // $this->db->insert('team', $data);
+                $team_id = $this->Team_model->save($data);
+            }
+        }
+    }
+
     /* delete/undo a team */
 
     function delete() {
@@ -103,7 +130,7 @@ class Team extends Pre_loader {
     /* prepare a row of team list table */
 
     private function _make_row($data) {
-        $total_members = "<span class='label label-light w100'><i class='fa fa-users'></i> " . count(explode(",", $data->members)) . "</span>";
+        $total_members = "<span class='label label-light w100'><i class='fa fa-users'></i> " . (count(explode(",", $data->members)) - 1) . "</span>";
         return array($data->title,
             modal_anchor(get_uri("team/members_list"), $total_members, array("title" => lang('team_members'), "data-post-members" => $data->members)),
             modal_anchor(get_uri("team/modal_form"), "<i class='fa fa-pencil'></i>", array("class" => "edit", "title" => lang('edit_team'), "data-post-id" => $data->id))
@@ -114,6 +141,10 @@ class Team extends Pre_loader {
     function members_list() {
         $view_data['team_members'] = $this->Users_model->get_team_members($this->input->post('members'))->result();
         $this->load->view('team/members_list', $view_data);
+    }
+
+    public function HR_DB() {
+        return $this->load->database('HR', TRUE);
     }
 
 }

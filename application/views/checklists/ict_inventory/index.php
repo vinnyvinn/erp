@@ -4,7 +4,7 @@
             <h1>ICT Asset Register</h1>
             <div class="title-button-group">
                 <?php
-                if ($this->login_user->is_admin) {
+                if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
                   echo modal_anchor(get_uri("ict_reports/actual_asset_modal_form"), "<i class='fa fa-plus-circle'></i> " . "Actual ICT Assets", array("class" => "btn btn-default", "title" => "Add Actual ICT Assets"));
                 }
                 ?>
@@ -25,7 +25,7 @@
             radioButtons: [{text: 'Actual Assets', name: "category_id", value: "1", isChecked: true}, {text: 'Sage Assets', name: "category_id", value: "0", isChecked: false}],
             columns: [
                     {title: "Asset NO", "class": "text-center w50"},
-                    {title: "Description"},
+                    {title: "Title"},
                     {title: "Model NO"},
                     {title: "Serial NO"},
                     {title: "Location"},

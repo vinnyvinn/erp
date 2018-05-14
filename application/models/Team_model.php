@@ -41,4 +41,39 @@ class Team_model extends Crud_model {
         WHERE $team_table.deleted=0 AND id in($team_ids)";
         return $this->db->query($sql);
     }
+
+    function dept_id_exists($dept_id, $id = 0) {
+        $result = $this->get_all_where(array("dept_id" => $dept_id, "deleted" => 0));
+        if ($result->num_rows() && $result->row()->id != $id) {
+            return $result->row();
+        } else {
+            return false;
+        }
+    }
+
+    function desig_id_exists($desig_id, $id = 0) {
+        $result = $this->get_all_where(array("desig_id" => $desig_id, "deleted" => 0));
+        if ($result->num_rows() && $result->row()->id != $id) {
+            return $result->row();
+        } else {
+            return false;
+        }
+    }
+
+    function is_ict_member() {
+
+        $ict_members = $this->db->like('title', 'ict')->get('team')->result();
+        $data = [];
+        foreach ($ict_members as $members) {
+            foreach (explode(",", $members->members) as $member) {
+                $data[] = $member;
+            }
+        }
+
+        if (array_search($this->login_user->id, $data)) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
 }

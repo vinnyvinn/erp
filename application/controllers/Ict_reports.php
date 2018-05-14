@@ -232,7 +232,7 @@ class Ict_reports extends Pre_loader {
 
       $category_id = $this->input->post("category_id");
 
-      if ($this->login_user->is_admin) {
+      if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
         $user_assets = $this->Ict_issets_model->get_all_where(array("category_id" => $category_id, "deleted" => 0))->result();
       } else {
         $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $category_id, "deleted" => 0))->result();
@@ -257,7 +257,7 @@ class Ict_reports extends Pre_loader {
       $id = $data->idAssetNo;
       $description = $data->cAssetDesc;
       $model_no = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->model_no ? $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->model_no : "NOT SET";
-      $serial = $data->cAssetCode;
+      $serial = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->serial_no ? $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->serial_no : "NOT SET";
       $location = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
       $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
       $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to;
@@ -266,16 +266,100 @@ class Ict_reports extends Pre_loader {
       $pCost = number_format($data->fPurchaseValue, 2);
       $Supplier = $data->iSupplierNo != 0 ? $this->SAGE_DB()->get_where("Vendor", array("DCLink" => $data->iSupplierNo))->result()[0]->Name : "NOT SET";
 
-      if ($this->login_user->is_admin) {
+      if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
+        $description = modal_anchor(get_uri("ict_reports/description_modal_form"), $description, array("class" => "edit", "title" => "View Item Description", "data-post-id" => $id, "data-post-desc" => $data->cAssetDesc));
         $custodian = modal_anchor(get_uri("ict_reports/custodian_modal_form"), $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET", array("class" => "edit", "title" => "Update Asset Custodian", "data-post-id" => $id));
         $depertment = modal_anchor(get_uri("ict_reports/depertment_modal_form"), $depertment, array("class" => "edit", "title" => "Update Asset Depertment", "data-post-id" => $id));
         $model_no = modal_anchor(get_uri("ict_reports/model_no_modal_form"), $model_no, array("class" => "edit", "title" => "Update Model NO", "data-post-id" => $id));
+        $serial = modal_anchor(get_uri("ict_reports/serial_no_modal_form"), $serial, array("class" => "edit", "title" => "Update Serial NO", "data-post-id" => $id));
       } else {
         $custodian = $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET";
-        $depertment = $depertment;
+      }
+
+      // $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted
+
+      if ($this->login_user->id == $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to) {
+
+        if ($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted == "No") {
+
+          // $custodian = modal_anchor(get_uri("ict_reports/accept_asset"), "<button class=\"btn btn-success\">ACCEPT</button>", array("class" => "edit", "title" => lang('edit_form'), "data-post-id" => $id));
+
+          $custodian = js_anchor("<button class=\"btn btn-success\">ACCEPT</button>", array('title' => "Accept Asset", "class" => "edit", "data-id" => $id, "data-action-url" => get_uri("ict_reports/accept_asset"), "data-action" => "delete"));
+        } elseif ($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted == "Yes") {
+          $custodian = js_anchor("<button class=\"btn btn-danger\">RETURN</button>", array('title' => "Return Asset", "class" => "edit", "data-id" => $id, "data-action-url" => get_uri("ict_reports/return_asset"), "data-action" => "delete"));
+        }
       }
 
       return array($id, $description, $model_no, $serial, $location, $category, $custodian, $depertment, $pDate, $pCost, $Supplier);
+    }
+
+    public function accept_asset() {
+
+      $id = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->id;
+      
+      $data = array(
+        "assigned_to" => $this->login_user->id,
+        "accepted" => "Yes"
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+
+        if ($save_id) {
+            echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
+    }
+
+    public function return_asset() {
+
+      $id = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->id;
+      
+      $data = array(
+        "assigned_to" => 0,
+        "accepted" => NULL
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+
+        if ($save_id) {
+            echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
+    }
+
+    public function description_modal_form() {
+
+      $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
+      $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $view_data['sage_id'] = $sage_id;
+      $view_data['title'] = $this->input->post('desc');
+      $this->load->view('checklists/ict_inventory/description_modal_form', $view_data);
+    }
+
+    function edit_description_modal_form() {
+
+      $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
+      $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $view_data['sage_id'] = $sage_id;
+      $this->load->view('checklists/ict_inventory/edit_description_modal_form', $view_data);
+    }
+
+    function save_description() {
+
+      $id = $this->input->post('id');
+
+      $data = array(
+        "description" => $this->input->post('description')
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+      if ($save_id) {
+          echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+      } else {
+          echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+      }
     }
 
     public function custodian_modal_form() {
@@ -351,6 +435,29 @@ class Ict_reports extends Pre_loader {
       }
     }
 
+    public function serial_no_modal_form() {
+      $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
+      $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $view_data['sage_id'] = $sage_id;
+      $this->load->view('checklists/ict_inventory/serial_no_modal_form', $view_data);
+    }
+
+    function save_serial_no() {
+
+      $id = $this->input->post('id');
+
+      $data = array(
+        "serial_no" => $this->input->post('serial_no')
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+      if ($save_id) {
+          echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+      } else {
+          echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+      }
+    }
+
     public function actual_asset_modal_form() {
       $view_data['users_dropdown'] = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("user_type" => "staff"));
       $view_data['suppliers_dropdown'] = $this->SAGE_DB()->get('Vendor')->result();
@@ -361,7 +468,7 @@ class Ict_reports extends Pre_loader {
 
       $sage_data = array(
         // "assigned_to" => $this->input->post('user_id'),
-        "cAssetCode" => $this->input->post('serial'),
+        "cAssetCode" => $this->input->post('cassetcode'),
         "cAssetDesc" => $this->input->post('title'),
         "iAssetTypeNo" => get_setting("iAssetTypeNo"),
         "iSupplierNo" => $this->input->post('supplier'),
@@ -381,10 +488,12 @@ class Ict_reports extends Pre_loader {
       $this->SAGE_DB()->insert("_btblFAAsset", $sage_data);
 
       $actual_data = array(
-        "sage_id" => $this->SAGE_DB()->get_where("_btblFAAsset", array("cAssetCode" => $this->input->post('serial'), "cAssetDesc" => $this->input->post('title')))->result()[0]->idAssetNo,
+        "sage_id" => $this->SAGE_DB()->get_where("_btblFAAsset", array("cAssetCode" => $this->input->post('cassetcode'), "cAssetDesc" => $this->input->post('title')))->result()[0]->idAssetNo,
         "sage_dept" => $this->input->post('sage_dept'),
         "model_no" => $this->input->post('model_no'),
+        "serial_no" => $this->input->post('serial'),
         "assigned_to" => $this->input->post('user_id'),
+        "description" => $this->input->post('description'),
         "category_id" => 1
       );
 

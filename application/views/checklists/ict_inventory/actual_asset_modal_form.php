@@ -2,6 +2,24 @@
 <div class="modal-body clearfix">
 
     <div class="form-group">
+        <label for="asset code" class=" col-md-3">Asset Code</label>
+        <div class=" col-md-9">
+            <?php
+            echo form_input(array(
+                "id" => "cassetcode",
+                "name" => "cassetcode",
+                // "value" => $model_info->title,
+                "class" => "form-control",
+                "placeholder" => 'Asset Code',
+                "autofocus" => true,
+                "data-rule-required" => true,
+                "data-msg-required" => lang("field_required"),
+            ));
+            ?>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="title" class=" col-md-3"><?php echo lang('title'); ?></label>
         <div class=" col-md-9">
             <?php
@@ -102,10 +120,26 @@
     </div>
 
     <div class="form-group" style="min-height: 50px">
-        <label for="user_id" class=" col-md-3"><?php echo lang('member'); ?></label>
+        <label for="user_id" class=" col-md-3">Custodian</label>
         <div class="col-md-9">
             <?php
             echo form_dropdown("user_id", $users_dropdown, '', "class='select2'");
+            ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="description" class=" col-md-12"><?php echo lang('description'); ?></label>
+        <div class=" col-md-12">
+            <?php
+            echo form_textarea(array(
+                "id" => "description",
+                "name" => "description",
+                // "value" => $model_info->description,
+                "class" => "form-control wysiwyg",
+                "placeholder" => lang('description'),
+                "style" => "height:150px;",
+            ));
             ?>
         </div>
     </div>

@@ -185,70 +185,76 @@ class Team_members extends Pre_loader
         }
     }
 
-    public function HR_DB() {
-        return $this->load->database('HR', TRUE);
-    }
-
     function import_hr_members() {
 
-       foreach ($this->HR_DB()->select("tblEmployee.Emp_Id, tblEmployee.Emp_First_Name, tblEmployee.Emp_Last_Name, tblEmployee.Emp_Gender, tblEmployee.Emp_Birth_Date, tblEmployee_Contact.Emp_WorkEmail, tblEmployee_Contact.Emp_WorkPhone, tblEmployee.Emp_Join_Date, tblEmployee.Is_Active, tblDepartment.Dept_Name + ' : ' + dbo.tblDesignation.Desig_Name AS Emp_Job_Title")->from('tblEmployee')->join('tblDesignation', 'tblEmployee.Emp_Desig_Id = tblDesignation.Desig_Id', 'inner')->join('tblEmployee_Contact', 'tblEmployee_Contact.Emp_Id = tblEmployee.Emp_Id', 'inner')->join('tblDepartment', 'tblEmployee.Cmp_Id = tblDepartment.Cmp_Id AND tblEmployee.Emp_Dept_Id = tblDepartment.Dept_Id', 'inner')->get()->result() as $value) {
+        // find users wilh valid email addresses for each depertment code provides
+        $members = $this->HR_DB()->select('tblEmployee.Emp_Id, tblEmployee.Emp_First_Name, tblEmployee.Emp_Last_Name, tblEmployee.Emp_Birth_Date, tblEmployee.Emp_Gender, tblEmployee_Contact.Emp_WorkEmail, tblEmployee_Contact.Emp_WorkPhone, tblEmployee_Contact.Emp_MobileNo, tblEmployee.Emp_Location_Id, tblEmployee.Emp_Join_Date, tblEmployee.Employment_Type, tblDesignation.Desig_Id, tblDesignation.Desig_Name, tblDepartment.Dept_Id, tblDepartment.Dept_Name, tblEmployeeCustomDetail.GrossSalary')->from('tblEmployee')->join('tblEmployee_Contact', 'tblEmployee_Contact.Cmp_Id = tblEmployee.Cmp_Id AND tblEmployee_Contact.Emp_Id = tblEmployee.Emp_Id')->join('tblDesignation', 'tblEmployee.Cmp_Id = tblDesignation.Cmp_Id AND tblEmployee.Emp_Desig_Id = tblDesignation.Desig_Id', 'left')->join('tblDepartment', 'tblEmployee.Cmp_Id = tblDepartment.Cmp_Id AND tblEmployee.Emp_Dept_Id = tblDepartment.Dept_Id', 'left')->join('tblEmployeeCustomDetail', 'tblEmployeeCustomDetail.Cmp_Id = tblEmployee.Cmp_Id AND tblEmployeeCustomDetail.Emp_Id = tblEmployee.Emp_Id', 'left')->get()->result();
+        
+       foreach ($members as $member) {
 
-            /*if ($value->Emp_WorkEmail != NULL) {
-                $Emp_WorkEmail = $value->Emp_WorkEmail;
-            } else {
-                $Emp_WorkEmail = strtolower("{$value->Emp_First_Name}_{$value->Emp_Last_Name}". rand(99,9999) . "@teamkazi.com");
-            }*/
-
-            if ($value->Emp_Gender == 1) {
-                $Emp_Gender = "male";
-            } elseif ($value->Emp_Gender == 2) {
-                $Emp_Gender = "female";
-            }
-
-            if ($value->Is_Active == 1) {
-                $status = "active";
-            } else {
-                $status = "inactive";
-            }    
+            // $status = $member->Is_Active == 1 ? "active" : "inactive";
 
             $user_data = array(
-                'first_name' => $value->Emp_First_Name,
-                'last_name'  => $value->Emp_Last_Name,
+                'first_name' => $member->Emp_First_Name,
+                'last_name'  => $member->Emp_Last_Name,
                 'user_type'  => 'staff',
                 'is_admin'   => 0,
                 'role_id'    => 2,
-                'email'      => $value->Emp_WorkEmail,
-                'password'   => '25d55ad283aa400af464c76d713c07ad',
-                'status'     => $status,
-                'job_title'  => $value->Emp_Job_Title,
-                'phone'      => $value->Emp_WorkPhone,
-                'dob'        => $value->Emp_Birth_Date,
-                'gender'     => $Emp_Gender,
+                'email'      => $member->Emp_WorkEmail,
+                'password'   => md5(get_setting("default_hr_pwd")),
+                'status'     => "active",
+                'job_title'  => $member->Desig_Name . " (" . $member->Dept_Name . ") ",
+                'phone'      => $member->Emp_WorkPhone ? $member->Emp_WorkPhone : $member->Emp_MobileNo,
+                'dob'        => $member->Emp_Birth_Date,
+                'gender'     => $member->Emp_Gender == 1 ? 'male' : ($member->Emp_Gender == 2 ? 'female' : ''),
                 'created_at' => date('Y-m-d')
             );
 
-            if (!$this->Users_model->is_email_exists($value->Emp_WorkEmail)) {
+            if (!$this->Users_model->is_email_exists($member->Emp_WorkEmail)) {
 
                 // add a new team member
                 $user_id = $this->Users_model->save($user_data);
 
                 if ($user_id) {
+
+                    $current_members = $this->db->get_where('team', array('desig_id' => $member->Desig_Id))->result()[0]->members; // string
+                    $team_data = array(
+                        "members" => $current_members ? $current_members . "," . $user_id : "," . $user_id
+                    );
+
+                    $this->db->update('team', $team_data, array("desig_id" => $member->Desig_Id));
+
                     //user added, now add the job info for the user
                     $job_data = array(
                         "user_id"      => $user_id,
-                        "salary"       => 0,
-                        "salary_term"  => "Contract",
+                        "salary"       => ltrim($member->GrossSalary, '$'),
+                        "salary_term"  => $member->Employment_Type == 3 ? "Full-Time Contract" : "Part-Time Contract",
                         "working_hours" => get_setting("working_hours"),
-                        "hourly_rate"  => 0 / get_setting("working_hours"), // salary / hourly_rate
-                        "date_of_hire" => (new DateTime($value->Emp_Join_Date))->format('Y-m-d')
+                        "hourly_rate"  => ltrim($member->GrossSalary, '$') / get_setting("working_hours"), // salary / hourly_rate
+                        "date_of_hire" => (new DateTime($member->Emp_Join_Date))->format('Y-m-d')
                     );
 
                     $this->Team_member_model->save($job_data);
-                    
+
+                    //send login details to user
+                    /*if (get_setting("email_login_details_to_hr_imports")) {
+
+                        //get the login details template
+                        $email_template = $this->Email_templates_model->get_final_template("login_info");
+
+                        $parser_data["SIGNATURE"] = $email_template->signature;
+                        $parser_data["USER_FIRST_NAME"] = $memeber->Emp_First_Name;
+                        $parser_data["USER_LAST_NAME"] = $memeber->Emp_Last_Name;
+                        $parser_data["USER_LOGIN_EMAIL"] = $member->Emp_WorkEmail;
+                        $parser_data["USER_LOGIN_PASSWORD"] = get_setting("default_hr_pwd");
+                        $parser_data["DASHBOARD_URL"] = base_url();
+
+                        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+                        send_app_mail($member->Emp_WorkEmail, $email_template->subject, $message);
+                    }  */
                 }
             }            
         }
-
     }
 
     /* open invitation modal */
@@ -722,6 +728,10 @@ class Team_members extends Pre_loader
     {
         $view_data["user_id"] = $user_id;
         $this->load->view("team_members/expenses", $view_data);
+    }
+
+    public function HR_DB() {
+        return $this->load->database('HR', TRUE);
     }
 
 }
