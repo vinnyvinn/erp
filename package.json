@@ -1,0 +1,23 @@
+{
+  "name": "prokazi",
+  "version": "1.0.0",
+  "description": "Prokazi app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wizag-ke/pro-kazi.git"
+  },
+  "keywords": [
+    "Prokazi",
+    "app"
+  ],
+  "author": "Wagura Maurice",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wizag-ke/pro-kazi/issues"
+  },
+  "homepage": "https://github.com/wizag-ke/pro-kazi#readme"
+}

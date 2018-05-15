@@ -1,0 +1,8 @@
+//IMPORTANT
+disabled config base url for migations line 34 -> remove false on production
+enabled migrations on config/migration.php disable on production ->line 14 set to false
+
+
+//NON IMPORTANT
+changed migration type on config/migration.php dfrom migration to sequential
+migrations run via php index.php migrate index
