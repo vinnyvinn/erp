@@ -229,6 +229,29 @@
                     </div>
                 </li>
                 <li>
+                    <h5><?php echo lang("can_access_administration"); ?></h5>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "administration",
+                            "name" => "administration_permission",
+                            "value" => "",
+                                ), $administration, ($administration === "") ? true : false);
+                        ?>
+                        <label for="administration"><?php echo lang("no"); ?> </label>
+                    </div>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "administration_yes",
+                            "name" => "administration_permission",
+                            "value" => "all",
+                                ), $administration, ($administration === "all") ? true : false);
+                        ?>
+                        <label for="administration_yes"><?php echo lang("yes"); ?></label>
+                    </div>
+                </li>
+                <li>
                     <h5><?php echo lang("can_access_legal"); ?></h5>
                     <div>
                         <?php

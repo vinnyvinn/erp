@@ -107,7 +107,7 @@
                 }
                 }
 
-                if ((get_setting("module_admin") == "1") && ($this->login_user->role_id)) {
+                if (($this->login_user->is_admin) || ($this->login_user->role_id)) {
 
                     $administration_badge = 0;
                     if ($this->login_user->is_admin && $this->login_user->role_id == 2) {

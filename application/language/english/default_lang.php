@@ -594,6 +594,7 @@ $lang["can_manage_announcements"] = "Can manage announcements?";
 $lang["can_access_technical"] = "Can access Technical?";
 $lang["can_access_finance"] = "Can access Finance?";
 $lang["can_access_legal"] = "Can access Legal?";
+$lang["can_access_administration"] = "Can access Administration?";
 
 /* timeline */
 $lang["post_placeholder_text"] = "Share an idea or documents...";
