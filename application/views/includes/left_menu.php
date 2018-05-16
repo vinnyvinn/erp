@@ -81,9 +81,9 @@
                 if (get_setting("module_invoice") == "1" && ($this->login_user->is_admin || $access_invoice)) {
                     $sidebar_menu[] = array("name" => "invoices", "url" => "invoices", "class" => "fa-file-text");
                 }
-
+             
                
-                if (($this->login_user->is_admin) || ($this->login_user->role_id == 5)) {
+                if (($this->login_user->is_admin) ||($this->login_user->role_id)) {
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "invoice_payments", "url" => "invoice_payments"];
                     $attendanceSubs [] = ["name" => "expenses", "url" => "expenses"];
@@ -92,7 +92,7 @@
                     $sidebar_menu[] = array("name" => "Finance", "url" => "expenses", "class" => "fa-money", "submenu" => $attendanceSubs);
                 }
 
-                if (($this->login_user->is_admin) || ($this->login_user->role_id == 7)) {
+                if (($this->login_user->is_admin) || ($this->login_user->role_id)) {
 
                     $administration_badge = 0;
                     if ($this->login_user->is_admin && $this->login_user->role_id == 2) {
@@ -188,7 +188,7 @@
                     $sidebar_menu[] = array("name" => "Sage", "url" => "sage", "class" => "fa-cloud");
                 }
                  
-                if (($this->login_user->is_admin) || ($this->login_user->role_id == 4)) {
+                if (($this->login_user->is_admin) || ($this->login_user->role_id)) {
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
                     $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
@@ -202,7 +202,7 @@
                     $sidebar_menu[] = array("name" => "technical", "url" => "attendance", "class" => "fa-subway font-16", "submenu" => $attendanceSubs);
                 }
             
-                if (($this->login_user->is_admin) || ($this->login_user->role_id == 3)) {
+                if (($this->login_user->is_admin) || ($this->login_user->role_id)) {
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
                     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
