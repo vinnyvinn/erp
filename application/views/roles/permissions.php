@@ -210,7 +210,7 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "invoice_no",
+                            "id" => "technical_no",
                             "name" => "technical_permission",
                             "value" => "",
                                 ), $technical, ($technical === "") ? true : false);
@@ -233,7 +233,7 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "administration",
+                            "id" => "administration_no",
                             "name" => "administration_permission",
                             "value" => "",
                                 ), $administration, ($administration === "") ? true : false);
@@ -256,7 +256,7 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "legal",
+                            "id" => "legal_no",
                             "name" => "legal_permission",
                             "value" => "",
                                 ), $technical, ($technical === "") ? true : false);
@@ -279,7 +279,7 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "finance",
+                            "id" => "finance_no",
                             "name" => "finance_permission",
                             "value" => "",
                                 ), $finance, ($finance === "") ? true : false);

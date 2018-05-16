@@ -11,12 +11,12 @@ class Expenses extends Pre_loader {
 
         $this->init_permission_checker("expense");
 
-        $this->access_only_allowed_members();
+       // $this->access_only_allowed_members();
     }
 
     //load the expenses list view
     function index() {
-        $this->check_module_availability("module_expense");
+        //$this->check_module_availability("module_expense");
 
         $categories = $this->Expense_categories_model->get_all_where(array("deleted" => 0))->result();
         $categories_dropdown = array(array("id" => "", "text" => "- " . lang("category") . " -"));
