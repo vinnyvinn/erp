@@ -51,11 +51,12 @@ class Cheques extends Pre_loader {
         }
 
         $optoins = NULL;
-        if (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+        if ($this->login_user->is_admin || $this->login_user->role_id == 7) {
             if ($data->status == 0) {
                 $optoins .= anchor(get_uri("cheques/delete/" . $data->id), "<i class='fa fa-trash'></i>");
             }
-        } elseif ($this->login_user->is_admin) {
+
+        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             if ($data->status == 0) {
                 $optoins .= anchor(get_uri("cheques/accept/" . $data->id), "<i class='fa fa-check'></i>");
                 $optoins .= anchor(get_uri("cheques/reject/" . $data->id), "<i class='fa fa-trash'></i>");
