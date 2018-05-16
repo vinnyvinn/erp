@@ -22,7 +22,7 @@ class Cheques extends Pre_loader {
 
     function outwards_list_data() {
 
-        if ($this->login_user->is_admin) {
+        if (!$this->login_user->is_admin && $this->login_user->role_id == 7) {
             $list_data = $this->Cheques_model->get_all_where(array("activity_id" => 4, "deleted" => 0))->result();
         } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
             $list_data = $this->Cheques_model->get_all_where(array("activity_id" => 4, "sender_id" => $this->login_user->id, "deleted" => 0))->result();
