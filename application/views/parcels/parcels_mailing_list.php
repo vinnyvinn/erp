@@ -3,11 +3,7 @@
         <div class="page-title clearfix">
             <h1>My Mailing List </h1>
             <div class="title-button-group">
-                <?php
-             
-                    echo modal_anchor(get_uri("parcels/modal_form_mailing_list"), "<i class='fa fa-plus-circle'></i> " . "Mailing List", array("class" => "btn btn-default", "title" => "Add Mailing List"));
-                
-                ?>
+                <?php echo modal_anchor(get_uri("parcels/modal_form_mailing_list"), "<i class='fa fa-plus-circle'></i> " . "Mailing List", array("class" => "btn btn-default", "title" => "Add Mailing List")); ?>
             </div>
         </div>
         <div class="table-responsive">
