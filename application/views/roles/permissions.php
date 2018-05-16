@@ -255,7 +255,7 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "legal_no",
+                          "id" => "legal_no",
                             "name" => "legal_permission",
                             "value" => "",
                                 ), $technical, ($technical === "") ? true : false);
@@ -278,7 +278,8 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "finance_no",
+                           "id" => "finance_no",
+
                             "name" => "finance_permission",
                             "value" => "",
                                 ), $finance, ($finance === "") ? true : false);

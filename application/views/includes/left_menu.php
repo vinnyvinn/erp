@@ -14,7 +14,9 @@
 
                 $access_expense = get_array_value($permissions, "expense");
                 $access_invoice = get_array_value($permissions, "invoice");
+
                 $access_technical = get_array_value($permissions, "technical");
+
                 $access_ticket = get_array_value($permissions, "ticket");
                 $access_client = get_array_value($permissions, "client");
                 $access_timecard = get_array_value($permissions, "attendance");
@@ -86,11 +88,13 @@
                 if (get_setting("module_invoice") == "1" && ($this->login_user->is_admin || $access_invoice)) {
                     $sidebar_menu[] = array("name" => "invoices", "url" => "invoices", "class" => "fa-file-text");
                 }
+
              
                     
                      {
                  if (get_setting("module_finance") && (($this->login_user->is_admin || $access_finance))) {
                    
+
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "invoice_payments", "url" => "invoice_payments"];
                     $attendanceSubs [] = ["name" => "expenses", "url" => "expenses"];
@@ -109,7 +113,6 @@
                     $attendanceSubs [] = ["name" => "Mails & Parcels : Outwards", "url" => "parcels/outwards"];
                     $attendanceSubs [] = ["name" => "Cheques : Outwards", "url" => "cheques/outwards"];
                     $attendanceSubs [] = ["name" => "Mailing List", "url" => "parcels/parcels_mailing_list"];
-
                     $sidebar_menu[] = array("name" => "Administration", "url" => "inventory_requisitions", "class" => "fa-ils", "submenu" => $attendanceSubs);
                   
 
@@ -176,9 +179,12 @@
                 if (get_setting("module_sage") == "1") {
                     $sidebar_menu[] = array("name" => "Sage", "url" => "sage", "class" => "fa-cloud");
                 }
+
                  
+
                 if (get_setting("module_technical") && (($this->login_user->is_admin || $access_technical))) {
                     
+
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
                     $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
@@ -196,7 +202,9 @@
 
                   }
             
+
                 if (get_setting("module_legal") && (($this->login_user->is_admin || $access_legal))) {
+
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
                     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];

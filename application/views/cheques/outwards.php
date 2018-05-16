@@ -4,9 +4,9 @@
             <h1>Cheques</h1>
             <div class="title-button-group">
                 <?php
-                if ($this->login_user->is_admin) {
+               
                     echo modal_anchor(get_uri("cheques/modal_form_outwards"), "<i class='fa fa-plus-circle'></i> " . "Outwards Cheques", array("class" => "btn btn-default", "title" => "Outwards Cheques"));
-                }
+                
                 ?>
             </div>
         </div>
