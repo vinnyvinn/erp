@@ -1,5 +1,5 @@
 <?php echo form_open('"id" = "create-parts-form", "class" = "general-form", "role" = "form"'); ?>
- <?php print_r('role id '.$this->login_user->role_id);?>
+
 <div class="modal-body clearfix">
      <div class="panel panel-default">
     <div class="panel-heading" style="margin-top: -8px">Preventive Maintenance
