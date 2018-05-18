@@ -565,6 +565,10 @@ $lang["send_invoice"] = "Send invoice";
 $lang["petty_cash"] = "Petty Cash";
 $lang["inventory_requisitions"] = "Inventory Requisitions";
 $lang["legal_notification"] = "Legal Notification";
+$lang["event_notification"] = "Event Planner Notification";
+$lang["ict_asset_issue"] = "ICT Asset Issue";
+$lang["ict_asset_accept"] = "ICT Asset Accept";
+$lang["ict_asset_return"] = "ICT Asset Return";
 $lang["signature"] = "Signature";
 
 /* roles */
