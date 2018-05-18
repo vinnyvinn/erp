@@ -2,6 +2,8 @@
     <div id="sidebar-scroll">
         <ul class="" id="sidebar-menu">
             <?php
+           
+                  
             if ($this->login_user->user_type == "staff") {
 
                 $sidebar_menu = array(
@@ -12,11 +14,17 @@
 
                 $access_expense = get_array_value($permissions, "expense");
                 $access_invoice = get_array_value($permissions, "invoice");
+
+                $access_technical = get_array_value($permissions, "technical");
+
                 $access_ticket = get_array_value($permissions, "ticket");
                 $access_client = get_array_value($permissions, "client");
                 $access_timecard = get_array_value($permissions, "attendance");
                 $access_leave = get_array_value($permissions, "leave");
                 $access_estimate = get_array_value($permissions, "estimate");
+                $access_finance = get_array_value($permissions, "finance");
+                $access_administrator = get_array_value($permissions, "administration");
+                $access_legal = get_array_value($permissions, "legal");
 
                 if (get_setting("module_timeline") == "1") {
                     $sidebar_menu[] = array("name" => "timeline", "url" => "timeline", "class" => " fa-comments font-18");
@@ -81,67 +89,36 @@
                     $sidebar_menu[] = array("name" => "invoices", "url" => "invoices", "class" => "fa-file-text");
                 }
 
-                if ((get_setting("module_invoice") == "1" || get_setting("module_expense") == "1") && ($this->login_user->is_admin || $access_expense || $access_invoice)) {
-                    $finance_submenu = array();
-                    $finance_url = "";
-                    $show_payments_menu = false;
-                    $show_expenses_menu = false;
+             
+                    
+                     {
+                 if (get_setting("module_finance") && (($this->login_user->is_admin || $access_finance))) {
+                   
 
+                    $attendanceSubs = [];
+                    $attendanceSubs [] = ["name" => "invoice_payments", "url" => "invoice_payments"];
+                    $attendanceSubs [] = ["name" => "expenses", "url" => "expenses"];
+                    $attendanceSubs [] = ["name" => "income_vs_expenses", "url" => "expenses/income_vs_expenses_chart"];
 
-                    if (get_setting("module_invoice") == "1" && ($this->login_user->is_admin || $access_invoice)) {
-                        $finance_submenu[] = array("name" => "invoice_payments", "url" => "invoice_payments");
-                        $finance_url = "invoice_payments";
-                        $show_payments_menu = true;
-                    }
-                    if (get_setting("module_expense") == "1" && ($this->login_user->is_admin || $access_expense)) {
-                        $finance_submenu[] = array("name" => "expenses", "url" => "expenses");
-                        $finance_url = "expenses";
-                        $show_expenses_menu = true;
-                    }
-
-                    if ($show_expenses_menu && $show_payments_menu) {
-                        $finance_submenu[] = array("name" => "income_vs_expenses", "url" => "expenses/income_vs_expenses_chart");
-                    }
-                   if (($this->login_user->is_admin) || ($this->login_user->role_id)) {
-                    $sidebar_menu[] = array("name" => "finance", "url" => $finance_url, "class" => "fa-money", "submenu" => $finance_submenu);
+                    $sidebar_menu[] = array("name" => "Finance", "url" => "expenses", "class" => "fa-money", "submenu" => $attendanceSubs);
                 }
-                }
+                
+            }
+               
+                if (get_setting("module_administrator") && (($this->login_user->is_admin || $access_administrator))) {
 
-                if ((get_setting("module_admin") == "1") && ($this->login_user->role_id)) {
-
-                    $administration_badge = 0;
-                    if ($this->login_user->is_admin && $this->login_user->role_id == 2) {
-                        $administration_badge = count_ict_administration($this->login_user->id, NULL);
-                    } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
-                        $administration_badge = count_ict_administration(NULL, $this->login_user->id);
-                    }
-
-                    $administration_submenu = array();
-                    $administration_url = "";
-
-                    /*$administration_submenu[] = array("name" => "Petty Cash", "url" => "petty_cash", "class" => "badge");
-                    $administration_url = "petty_cash";*/
-
-                    $administration_submenu[] = array("name" => "Inventory / Requisitions", "url" => "inventory_requisitions");
-                    $administration_url = "inventory_requisitions";
-
-                    $administration_submenu[] = array("name" => "Mails & Parcels : Inwards", "url" => "parcels/inwards");
-                    $administration_url = "parcels/inwards";
-
-                    $administration_submenu[] = array("name" => "Mails & Parcels : Outwards", "url" => "parcels/outwards");
-                    $administration_url = "parcels/outwards";
-
-                    $administration_submenu[] = array("name" => "Cheques : Outwards", "url" => "cheques/outwards");
-                    $administration_url = "parcels/cheques/outwards";
-
-                    $administration_submenu[] = array("name" => "Mailing List", "url" => "parcels/parcels_mailing_list");
-                    $administration_url = "parcels/parcels_mailing_list";
-
-                    $sidebar_menu[] = array("name" => "Administration", "url" => $administration_url, "class" => "fa-ils", "submenu" => $administration_submenu, "devider" => false, "badge" => $administration_badge, "badge_class" => "badge-secondary");
+                    $attendanceSubs = [];
+                    $attendanceSubs [] = ["name" => "Inventory / Requisitions", "url" => "inventory_requisitions"];
+                    $attendanceSubs [] = ["name" => "Mails & Parcels : Inwards", "url" => "parcels/inwards"];
+                    $attendanceSubs [] = ["name" => "Mails & Parcels : Outwards", "url" => "parcels/outwards"];
+                    $attendanceSubs [] = ["name" => "Cheques : Outwards", "url" => "cheques/outwards"];
+                    $attendanceSubs [] = ["name" => "Mailing List", "url" => "parcels/parcels_mailing_list"];
+                    $sidebar_menu[] = array("name" => "Administration", "url" => "inventory_requisitions", "class" => "fa-ils", "submenu" => $attendanceSubs);
+                  
 
                 }
 
-
+             
                 if (get_setting("module_escalation_matrix") == "1" && ($this->login_user->is_admin)) {
                     $sidebar_menu[] = array("name" => "Escalation Matrix", "url" => "escalation_matrix", "class" => "fa-stack-overflow");
                 }
@@ -203,7 +180,11 @@
                     $sidebar_menu[] = array("name" => "Sage", "url" => "sage", "class" => "fa-cloud");
                 }
 
-                if ($this->login_user->is_admin) {
+                 
+
+                if (get_setting("module_technical") && (($this->login_user->is_admin || $access_technical))) {
+                    
+
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
                     $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
@@ -215,8 +196,15 @@
                     $attendanceSubs [] = ["name" => "Maintenance Reports", "url" => "maintenance_report"];
                     $attendanceSubs [] = ["name" => "Fuel Reports", "url" => "fuel_reports"];
                     $sidebar_menu[] = array("name" => "technical", "url" => "attendance", "class" => "fa-subway font-16", "submenu" => $attendanceSubs);
-                }
-                if (($this->login_user->is_admin) || ($this->login_user->role_id)) {
+               
+                  }
+                  else{
+
+                  }
+            
+
+                if (get_setting("module_legal") && (($this->login_user->is_admin || $access_legal))) {
+
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Documents", "url" => "legal/documents"];
                     $attendanceSubs [] = ["name" => "Cases & Lawsuits", "url" => "legal/lawsuits"];
@@ -224,6 +212,7 @@
 
                     $sidebar_menu[] = array("name" => "legal", "url" => "attendance", "class" => "fa-road font-16", "submenu" => $attendanceSubs);
                 }
+
 
                 if ($this->login_user->is_admin) {
                     $sidebar_menu[] = array("name" => "settings", "url" => "settings/general", "class" => "fa-wrench");

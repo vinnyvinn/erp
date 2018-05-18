@@ -210,7 +210,7 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "invoice_no",
+                            "id" => "technical_no",
                             "name" => "technical_permission",
                             "value" => "",
                                 ), $technical, ($technical === "") ? true : false);
@@ -228,12 +228,34 @@
                         <label for="technical_yes"><?php echo lang("yes"); ?></label>
                     </div>
                 </li>
-                <li>
+               <li>
+                    <h5><?php echo lang("can_access_administration"); ?></h5>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "administration_no",
+                            "name" => "administration_permission",
+                            "value" => "",
+                                ), $administration, ($administration === "") ? true : false);
+                        ?>
+                        <label for="legal"><?php echo lang("no"); ?> </label>
+                    </div>
+                    <div>
+                        <?php
+                        echo form_radio(array(
+                            "id" => "administration_yes",
+                            "name" => "administration_permission",
+                            "value" => "all",
+                                ), $administration, ($administration === "all") ? true : false);
+                        ?>
+                        <label for="administration_yes"><?php echo lang("yes"); ?></label>
+                    </div>
+                </li>                <li>
                     <h5><?php echo lang("can_access_legal"); ?></h5>
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "legal",
+                          "id" => "legal_no",
                             "name" => "legal_permission",
                             "value" => "",
                                 ), $technical, ($technical === "") ? true : false);
@@ -256,7 +278,8 @@
                     <div>
                         <?php
                         echo form_radio(array(
-                            "id" => "finance",
+                           "id" => "finance_no",
+
                             "name" => "finance_permission",
                             "value" => "",
                                 ), $finance, ($finance === "") ? true : false);

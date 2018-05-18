@@ -16,6 +16,8 @@ class Maintenance_report extends Pre_loader
     public function __construct()
     {
       parent::__construct();
+      $this->init_permission_checker("technical");
+
       $this->load->helper(array('form', 'url'));
       $this->load->library('excel');
       
