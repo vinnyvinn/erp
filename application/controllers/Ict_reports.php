@@ -79,8 +79,12 @@ class Ict_reports extends Pre_loader {
 
   public function support_tickets_list_data() {
 
-    $id = $this->input->post("ticket_type_id");
-    $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "team_id" => 3, "deleted" => 0))->result();
+    if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
+      $id = $this->input->post("ticket_type_id");
+      $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "team_id" => 3, "deleted" => 0))->result();
+    } else {
+      $list_data = $this->Tickets_model->get_all_where(array("created_by" => $this->login_user->id, "deleted" => 0))->result();
+    }
     $result = array();
     foreach ($list_data as $data) {
         $result[] = $this->support_tickets_make_row($data);
@@ -110,6 +114,7 @@ class Ict_reports extends Pre_loader {
 
         // $escalation_matrix = $data->escalation_matrix != 0 ? modal_anchor(get_uri("ict_reports/excalation_matrix_view"), $data->escalation_matrix, array("class" => "edit", "title" => "Escalation Matrix", "data-post-view" => "details", "data-post-id" => $data->escalation_matrix)) : "None";
 
+        $created_by =  $this->Users_model->get_one($data->created_by)->first_name . " " . $this->Users_model->get_one($data->created_by)->last_name;
         $assigned_to = $this->Team_model->get_one($data->team_id)->title;
 
         $ticket_status_class = "label-danger";
@@ -129,7 +134,7 @@ class Ict_reports extends Pre_loader {
             $options .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_task'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("tickets/delete_ticket"), "data-action" => "delete"));
         }
 
-        return array($data->id, $subject, $ticket_type, $assigned_to, format_to_relative_time($data->last_activity_at), $ticket_status, $options);
+        return array($data->id, $subject, $ticket_type, $created_by, format_to_relative_time($data->last_activity_at), $ticket_status, $options);
     }
 
         //load new tickt modal
@@ -183,6 +188,7 @@ class Ict_reports extends Pre_loader {
         }
         $view_data['label_suggestions'] = $label_suggestions;
         $view_data['staffs_dropdown'] = $this->HR_DB()->query("SELECT Emp_Name FROM tblEmployee")->result();
+        $view_data['ict_team'] = 3;
 
         $this->load->view('checklists/reports/support_tickets/modal_form', $view_data);
     }
@@ -276,8 +282,6 @@ class Ict_reports extends Pre_loader {
         $custodian = $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET";
       }
 
-      // $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted
-
       if ($this->login_user->id == $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to) {
 
         if ($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted == "No") {
@@ -302,9 +306,27 @@ class Ict_reports extends Pre_loader {
         "accepted" => "Yes"
       );
 
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => NULL,
+        "assigned_by" => NULL,
+        "status" => "accepted",
+        "assigned_to" => $this->login_user->id
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->email
+      );
+
       $save_id = $this->Ict_issets_model->save($data, $id);
 
         if ($save_id) {
+            $this->_acceptMail($mail_data);
+            $this->Ict_asset_history_model->save($log_data);
             echo json_encode(array("success" => true, 'message' => lang('record_saved')));
         } else {
             echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
@@ -317,12 +339,31 @@ class Ict_reports extends Pre_loader {
       
       $data = array(
         "assigned_to" => 0,
-        "accepted" => NULL
+        "assigned_by" => NULL,
+        "accepted" => "NO"
+      );
+
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => "returned",
+        "assigned_by" => NULL,
+        "status" => "returned",
+        "assigned_to" => NULL
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->email
       );
 
       $save_id = $this->Ict_issets_model->save($data, $id);
 
         if ($save_id) {
+            $this->_returnMail($mail_data);
+            $this->Ict_asset_history_model->save($log_data);
             echo json_encode(array("success" => true, 'message' => lang('record_saved')));
         } else {
             echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
@@ -376,11 +417,30 @@ class Ict_reports extends Pre_loader {
       $id = $this->input->post('id');
 
       $data = array(
+        "assigned_to" => $this->input->post('user_id'),
+        "assigned_by" => $this->login_user->id
+      );
+
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => "issued",
+        "assigned_by" => $this->login_user->id,
+        "status" => NULL,
         "assigned_to" => $this->input->post('user_id')
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->input->post('user_id'))->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('sage_id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->input->post('user_id'))->email
       );
 
       $save_id = $this->Ict_issets_model->save($data, $id);
       if ($save_id) {
+          $this->Ict_asset_history_model->save($log_data);
+          $this->_issueMail($mail_data);
           echo json_encode(array("success" => true, 'message' => lang('record_saved')));
       } else {
           echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
@@ -460,6 +520,7 @@ class Ict_reports extends Pre_loader {
 
     public function actual_asset_modal_form() {
       $view_data['users_dropdown'] = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("user_type" => "staff"));
+      $view_data['locations_dropdown'] = $this->SAGE_DB()->get('_btblFALocation')->result();
       $view_data['suppliers_dropdown'] = $this->SAGE_DB()->get('Vendor')->result();
       $this->load->view('checklists/ict_inventory/actual_asset_modal_form', $view_data);
     }
@@ -471,6 +532,7 @@ class Ict_reports extends Pre_loader {
         "cAssetCode" => $this->input->post('cassetcode'),
         "cAssetDesc" => $this->input->post('title'),
         "iAssetTypeNo" => get_setting("iAssetTypeNo"),
+        "iLocationNo" => get_setting("iLocationNo"),
         "iSupplierNo" => $this->input->post('supplier'),
         "fNoOfUnits" => 1,
         "dPurchaseDate" => $this->input->post('dPurchaseDate'),
@@ -698,11 +760,7 @@ class Ict_reports extends Pre_loader {
     {
         $id = $this->input->post('id');
 
-        validate_submitted_data(array(
-            "ticket_type_id" => "required|numeric"
-        ));
-
-        $ticket_type_id = $this->input->post('ticket_type_id');
+        $ticket_type_id = $this->input->post('ticket_type_id') ? $this->input->post('ticket_type_id') : 1;
 
         $now = get_current_utc_time();
         $ticket_data = array(
@@ -796,6 +854,48 @@ class Ict_reports extends Pre_loader {
 
     public function HR_DB(){
        return  $this->load->database('HR',TRUE);
+    }
+
+    public function _issueMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_issue");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _acceptMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_accept");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _returnMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_return");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
     }
 
   }

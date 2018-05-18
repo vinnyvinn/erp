@@ -105,6 +105,19 @@
     </div>
 
     <div class="form-group">
+        <label for="location" class=" col-md-3">Location</label>
+        <div class="col-md-9">
+            <select class="select2 validate-hidden" name="iLocationNo" id="iLocationNo" required>
+              <?php
+              foreach ($locations_dropdown as $value) {
+                  echo "<option value=". $value->idLocationNo . ">" . ucfirst($value->cLocationCode . " : " . $value->cLocationDesc) . "</option>";
+              }
+              ?>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="purchase_date" class=" col-md-3">Purchase Date</label>
         <div class=" col-md-9">
             <?php

@@ -4,6 +4,7 @@
         <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
         <input type="hidden" name="team_id" value="3"/>
 
+        <?php if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) { ?>
         <div class="form-group">
             <label for="ticket_type_id" class=" col-md-3"><?php echo lang('ticket_type'); ?></label>
             <div class="col-md-9">
@@ -12,6 +13,7 @@
                 ?>
             </div>
         </div>
+        <?php } ?>
 
         <div class="form-group">
             <label for="title" class=" col-md-3"><?php echo lang('subject'); ?></label>
