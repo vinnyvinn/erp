@@ -754,7 +754,6 @@ class Ict_reports extends Pre_loader {
       return array($data->id, $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $data->sage_item_id))->result()[0]->cAssetDesc, $data->performed_by != 0 ? $this->Users_model->get_one($data->performed_by)->first_name . " " . $this->Users_model->get_one($data->performed_by)->last_name : $status, date("dS M Y",strtotime($data->maintainance_date)), $status);
     }
 
-        // add a new ticket
     public function support_tickets_save()
     {
         $id = $this->input->post('id');
@@ -768,7 +767,7 @@ class Ict_reports extends Pre_loader {
             "created_by" => $this->login_user->id,
             "created_at" => $now,
             "last_activity_at" => $now,
-            "team_id" => $this->input->post('team_id'),
+            // "team_id" => $this->input->post('team_id'),
             "labels" => $this->input->post('labels')
         );
 
@@ -803,18 +802,17 @@ class Ict_reports extends Pre_loader {
                 $ticket_comment_id = $this->Ticket_comments_model->save($comment_data);
 
                 if ($ticket_id && $ticket_comment_id) {
-                    // log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
-                  $team = explode(',', $this->Team_model->get_one($this->input->post('team_id'))->members);
-                  foreach ($team as $key => $value) {
-                    $log_notification = array(
-                      "user_id" => $this->login_user->id,
-                      "created_at" => $now,
-                      "notify_to" => $value,
-                      "event" => "ticket_created",
+                  // log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
+                  foreach (json_decode($this->Team_model->list_ict_members()) as $ict_member) {
+                    $ticket_data = array(
                       "ticket_id" => $ticket_id,
-                      "ticket_comment_id" => $ticket_comment_id
+                      "ticket_title" => $this->input->post('title'),
+                      "user_name" => $this->Users_model->get_one($this->login_user->id)->first_name,
+                      "ticket_content" => $this->input->post('description'),
+                      "ticket_url" => get_uri("tickets/view/" . $ticket_id),
+                      "send_to" => $this->Users_model->get_one($ict_member)->email
                     );
-                    $notification_id = $this->Notifications_model->save($log_notification);
+                    $this->_support_ticket_created_mail($ticket_data);
                   }
                 }
             }
@@ -891,6 +889,21 @@ class Ict_reports extends Pre_loader {
         $parser_data["FROM"] = $data["from"];
         $parser_data["ASSET"] = $data["asset"];
         $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _support_ticket_created_mail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ticket_created");
+
+        $parser_data["TICKET_ID"] = $data['ticket_id'];
+        $parser_data["TICKET_TITLE"] = $data["ticket_title"];
+        $parser_data["USER_NAME"] = $data["user_name"];
+        $parser_data["TICKET_CONTENT"] = $data["ticket_content"];
+        $parser_data["TICKET_URL"] = $data["ticket_url"];
         $parser_data["SIGNATURE"] = $email_template->signature;
 
         $message = $this->parser->parse_string($email_template->message, $parser_data, true);
