@@ -26,9 +26,9 @@ class Parcels extends Pre_loader {
 
 	function inwards_list_data() {
 
-        if (!$this->login_user->is_admin && $this->login_user->role_id == 7) {
+        if ($this->login_user->is_admin) {
             $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 3, "deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+        } elseif ($this->login_user->role_id == 2) {
             $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 3, "receiver_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
@@ -53,11 +53,11 @@ class Parcels extends Pre_loader {
         }
 
         $optoins = NULL;
-        if ($this->login_user->is_admin || $this->login_user->role_id == 7) {
+        if ($this->login_user->is_admin) {
             if ($data->status == 0) {
                 $optoins .= anchor(get_uri("parcels/delete/" . $data->id), "<i class='fa fa-trash'></i>");
             }
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+        } elseif ($this->login_user->role_id == 2) {
             if ($data->status == 0) {
                 $optoins .= anchor(get_uri("parcels/accept/" . $data->id), "<i class='fa fa-check'></i>");
                 $optoins .= anchor(get_uri("parcels/reject/" . $data->id), "<i class='fa fa-trash'></i>");
@@ -84,9 +84,9 @@ class Parcels extends Pre_loader {
 
     function outwards_list_data() {
 
-        if (!$this->login_user->is_admin && $this->login_user->role_id == 7) {
+        if ($this->login_user->is_admin) {
             $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 4, "deleted" => 0))->result();
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+        } elseif ($this->login_user->role_id == 2) {
             $list_data = $this->Mailing_parcel_model->get_all_where(array("activity_id" => 4, "sender_id" => $this->login_user->id, "deleted" => 0))->result();
         }
 
@@ -111,11 +111,11 @@ class Parcels extends Pre_loader {
         }
 
         $optoins = NULL;
-        if ($this->login_user->is_admin || $this->login_user->role_id == 7) {
+        if ($this->login_user->is_admin) {
             if ($data->status == 0) {
                 $optoins .= anchor(get_uri("parcels/delete/" . $data->id), "<i class='fa fa-trash'></i>");
             }
-        } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
+        } elseif ($this->login_user->role_id == 2) {
             if ($data->status == 0) {
                 $optoins .= anchor(get_uri("parcels/accept/" . $data->id), "<i class='fa fa-check'></i>");
                 $optoins .= anchor(get_uri("parcels/reject/" . $data->id), "<i class='fa fa-trash'></i>");

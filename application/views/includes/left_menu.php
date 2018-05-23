@@ -111,7 +111,7 @@
                 
             }
                
-                if ((($this->login_user->is_admin || $access_administrator))) {
+                if ($this->login_user->user_type == "staff") {
 
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Inventory / Requisitions", "url" => "inventory_requisitions"];
@@ -120,8 +120,6 @@
                     $attendanceSubs [] = ["name" => "Cheques : Outwards", "url" => "cheques/outwards"];
                     $attendanceSubs [] = ["name" => "Mailing List", "url" => "parcels/parcels_mailing_list"];
                     $sidebar_menu[] = array("name" => "Administration", "url" => "inventory_requisitions", "class" => "fa-ils", "submenu" => $attendanceSubs);
-                  
-
                 }
 
              

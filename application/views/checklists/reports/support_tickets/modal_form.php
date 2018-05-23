@@ -2,8 +2,6 @@
     <div id="new-ticket-dropzone" class="post-dropzone">
         <?php echo form_open(get_uri("ict_reports/support_tickets_save"), array("id" => "ticket-form", "class" => "general-form", "role" => "form")); ?>
         <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
-        <input type="hidden" name="team_id" value="3"/>
-
         <?php if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) { ?>
         <div class="form-group">
             <label for="ticket_type_id" class=" col-md-3"><?php echo lang('ticket_type'); ?></label>
@@ -33,7 +31,6 @@
             </div>
         </div>
 
-                <!-- Assign to only visible to team members -->
         <?php if ($this->login_user->user_type == "staff") { ?>
             <div class="form-group">
                 <label for="ticket_labels" class=" col-md-3"><?php echo lang('labels'); ?></label>
