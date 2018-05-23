@@ -15,7 +15,7 @@
 
         $("#ict_reports_support_entries-table").appTable({
             source: '<?php echo_uri("ict_reports/support_entries_list_data") ?>',
-            radioButtons: [{text: 'System', name: "ticket_type_id", value: "1", isChecked: true}, {text: 'Email', name: "ticket_type_id", value: "2", isChecked: false}, {text: 'Call', name: "ticket_type_id", value: "3", isChecked: false}, {text: 'Visit', name: "ticket_type_id", value: "6", isChecked: false}],
+            radioButtons: [{text: 'ALL', name: "ticket_type_id", value: "", isChecked: true}, {text: 'System', name: "ticket_type_id", value: "1", isChecked: false}, {text: 'Email', name: "ticket_type_id", value: "2", isChecked: false}, {text: 'Call', name: "ticket_type_id", value: "3", isChecked: false}, {text: 'Visit', name: "ticket_type_id", value: "6", isChecked: false}],
             columns: [
                     {title: "ID", "class": "text-center w50"},
                     {title: "Subject"},

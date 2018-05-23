@@ -44,8 +44,7 @@ class Ict_reports extends Pre_loader {
 
   public function support_entries_list_data() {
 
-    $id = $this->input->post("ticket_type_id");
-    $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "deleted" => 0))->result();
+    $list_data = $this->input->post("ticket_type_id") ? $this->Tickets_model->get_all_where(array("ticket_type_id" => $this->input->post("ticket_type_id"), "deleted" => 0))->result() : $this->Tickets_model->get_all_where(array("deleted" => 0))->result();
 
     $result = array();
     foreach ($list_data as $data) {
@@ -236,12 +235,12 @@ class Ict_reports extends Pre_loader {
 
     public function inventory_list_data() {
 
-      $category_id = $this->input->post("category_id");
+      // $user_assets = $this->input->post("category_id") ? $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $category_id, "deleted" => 0))->result() : $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
 
       if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
-        $user_assets = $this->Ict_issets_model->get_all_where(array("category_id" => $category_id, "deleted" => 0))->result();
+        $user_assets = $this->input->post("category_id") ? $this->Ict_issets_model->get_all_where(array("category_id" => $this->input->post("category_id"), "deleted" => 0))->result() : $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
       } else {
-        $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $category_id, "deleted" => 0))->result();
+        $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $this->input->post("category_id"), "deleted" => 0))->result();
       }
 
       $list_data = array();
