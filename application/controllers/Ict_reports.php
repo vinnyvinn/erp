@@ -57,7 +57,7 @@ class Ict_reports extends Pre_loader {
 
         $subject = anchor(get_uri("tickets/view/" . $data->id), $data->title);
 
-        $project = $data->project_id ? anchor(get_uri("projects/view/" . $data->id), $this->Projects_model->get_one($data->project_id)->title) : "No Project";
+        // $project = $data->project_id ? anchor(get_uri("projects/view/" . $data->id), $this->Projects_model->get_one($data->project_id)->title) : "No Project";
         $ticket_type = $this->Ticket_types_model->get_one($data->ticket_type_id)->title;
         $assigned_to = anchor(get_uri("team_members/view/" . $data->id), $this->Users_model->get_one($data->assigned_to)->first_name . " " . $this->Users_model->get_one($data->assigned_to)->last_name);
 
@@ -72,7 +72,7 @@ class Ict_reports extends Pre_loader {
 
         $ticket_status = "<span class='label $ticket_status_class large'>" . lang($data->status) . "</span> ";
 
-        return array($data->id, $subject, $project, $ticket_type, $assigned_to, $ticket_status);
+        return array($data->id, $subject, $ticket_type, $assigned_to, $ticket_status);
     }
 
 

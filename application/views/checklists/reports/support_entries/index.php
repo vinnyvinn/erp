@@ -19,7 +19,6 @@
             columns: [
                     {title: "ID", "class": "text-center w50"},
                     {title: "Subject"},
-                    {title: "Project"},
                     {title: "Ticket Type"},
                     {title: "Assigned To"},
                     {title: "Status"}
