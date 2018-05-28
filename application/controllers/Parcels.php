@@ -212,7 +212,7 @@ class Parcels extends Pre_loader {
 
         $title = modal_anchor(get_uri("parcels/view_modal"), ucwords($data->title), array("class" => "edit", "title" => "Mailing List Details", "data-post-id" => $data->id));
 
-        if ($this->login_user->is_admin) {
+        if ($this->login_user->is_admin || $this->login_user->role_id == 7) {
             $optoins = NULL;
             $optoins .= anchor(get_uri("parcels/disapprove_parcels_mailing_list/" . $data->id), "<i class='fa fa-trash'></i>");
         } elseif (!$this->login_user->is_admin && $this->login_user->role_id == 2) {
