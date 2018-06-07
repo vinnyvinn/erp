@@ -4,8 +4,9 @@
             <h1>Mails and Parcels </h1>
             <div class="title-button-group">
                 <?php
-           
+                if ($this->login_user->is_admin || $this->login_user->role_id == 7) {
                     echo modal_anchor(get_uri("parcels/modal_form_outwards"), "<i class='fa fa-plus-circle'></i> " . "Outwards Mail or Parcel", array("class" => "btn btn-default", "title" => "Outwards Mail or Parcel"));
+                }
             
                 ?>
             </div>
