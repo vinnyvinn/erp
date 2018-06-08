@@ -134,7 +134,7 @@ class Preventive extends Pre_loader
   }
   public function process_form($id){
     $this->access_only_allowed_members();
-    $job_id = $this->input->post('id');
+     $job_id = $this->input->post('id');
     $view_data['tasks_info'] = $this->Job_tasks_model->get_details();
     $view_data['job_info'] = $this->Jobs_model->get_one($job_id);
     $view_data['services_dropdown'] = $this->Service_types_model->get_all_where(array("deleted" => 0))->result();
@@ -186,7 +186,7 @@ class Preventive extends Pre_loader
    $all_data=array_merge(['inspect' => $inspection_info, 'emp' => $user_info, 'status' => $status_info]);
    $view_data['inspections'] = $all_data;
    $view_data['jobs'] = $this->Jobs_model->fetchId($id);
-
+ 
    $this->template->rander('maintenance/preventive/jobs_process', $view_data);
  }
 
@@ -327,6 +327,7 @@ $data = array(
  "picture" => $picture,
  'next_time_km' => $this->input->post('next_time_km'),
  'next_time_miles' => $this->input->post('next_time_miles'),
+ 'next_time_hours' => $this->input->post('next_time_hours'),
  );
 
 $data = $this->db->insert('jobs', $data);
@@ -335,7 +336,7 @@ $model = $this->db->query("SELECT assets.code,jobs.* FROM jobs
  LEFT JOIN assets ON assets.id=jobs.vehicle_no WHERE jobs.id=$last_id")->row_array();
 $card = array("card_no" => substr('ESL-' . $last_id . '-' . $model['code'], 0, 20));
 $mileage=array("km_reading" => $model['km_reading'],"miles_reading" => $model['miles_reading'],
-  "machine_hours" => $model['hours'],"next_time_km" => $model['next_time_km'],"next_time_miles" => $model['next_time_miles']);
+  "machine_hours" => $model['hours'],"next_time_km" => $model['next_time_km'],"next_time_miles" => $model['next_time_miles'],"next_time_hours" => $model['next_time_hours']);
 $this->db->where('id', $last_id)->update('jobs', $card);
 $this->db->where('id', $model['vehicle_no'])->update('assets', $mileage);
 return redirect(base_url('preventive'));
@@ -491,14 +492,13 @@ public function asset()
         //echo json_encode($result);
 }
 public function ss(){
- $SAGEQuery = 'SELECT * FROM _btblFAAsset WHERE iAssetTypeNo = 4';
+ $SAGEQuery = 'SELECT * FROM _btblFAAsset WHERE iAssetTypeNo = 2 OR  iAssetTypeNo = 7';
  $fromSage = $query=$this->SAGE_DB()
  ->query($SAGEQuery)
  ->result_array();
- $assets=$this->HR_DB()->query("Select a . idAssetNo , A . cAssetCode , a . cAssetDesc , A . ufFACurrentKMReading , A . ufFAMachineHours , A . ulFATrackBy , A . ucFAChasisnumber , A . ucFAEnginenumber , A . ucFAYearofmake , A . ucFARegyear , A . ucFAMake , A . ucFAModel from [dbo] . [_btblFAAsset] A Inner Join [dbo] . [_btblFAAssetType] B on A . iAssetTypeNo = b . idAssetTypeNo Where B . cAssetTypeCode = 'MC")->result_array();
-
+ 
  echo "<pre>";
- var_dump($assets);
+ var_dump($fromSage);
 }
 public function SAGE_DB()
 {

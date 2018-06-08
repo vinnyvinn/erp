@@ -190,6 +190,7 @@ public function job_card(){
   $this->template->rander('maintenance/reactive/job_card_form',$view_data); 
 }
 public function save(){
+  
   if(!empty($_FILES['picture']['name'])){
     $config['upload_path'] = 'uploads/images/';
     $config['allowed_types'] = 'jpg|jpeg|png|gif|pdf|doc|docx|xls|xlsx|csv|txt|rtf|html|zip|mp3|wma|mpg|flv|avi';
@@ -208,6 +209,7 @@ public function save(){
   }else{
     $picture = '';
   }
+  
   $partArr = $this->input->post('part_name');
   $qntyArr = $this->input->post('quantity');
   $costArr = $this->input->post('cost');

@@ -1,7 +1,7 @@
 <div class="modal-body clearfix">
     <div id="new-ticket-dropzone" class="post-dropzone">
         <?php echo form_open(get_uri("tickets/save_mark_solved"), array("id" => "ticket-form", "class" => "general-form", "role" => "form")); ?>
-             
+             <input type="hidden" name="id" value="<?php echo $model_info->id; ?>" />
        
        
             <div class="form-group">

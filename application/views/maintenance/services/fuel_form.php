@@ -32,7 +32,7 @@
            <td><?php echo $fuel['id'];?></td>
            <td><?php echo $fuel['supplier'];?></td>
            <td><?php echo $fuel['vehicle'];?></td>
-           <td><?php echo $fuel['mileage_km'] ? $fuel['mileage_km'] .' km' : $fuel['mileage_miles'] .' mi';?></td>
+           <td><?php echo $fuel['mileage_km'] ? $fuel['mileage_km'] .' km' : ($fuel['mileage_miles'] ? $fuel['mileage_miles'] .' mi' : $fuel['machine_hours'].' hrs');?></td>
            <td><?php echo $fuel['staff'];?></td>
            <td><?php echo $fuel['fuel_id'];?></td>
            <td><?php echo $fuel['litres'];?></td>
@@ -121,6 +121,7 @@
           $('[name="done_on"]').val(data.done_on);   
           $('[name="currency"]').val(data.currency);  
           $('[name="fuel_id"]').val(data.fuel_id);     
+          $('[name="machine_hours"]').val(data.machine_hours); 
             $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
             $('.modal-title').text('Edit Fuel'); // Set title to Bootstrap modal title
 
@@ -292,6 +293,22 @@
         </div>
       </div>
 
+      <div class="row hoursreadings" style="display: none;">
+        <div class="col-md-6" style="width: 45%;">
+          <div class="form-group">
+            <label class="control-label" style="margin-left: 10px;">Previous Hours</label>
+            <p id="prevoius_hours_reading" style="margin-left: 10px;"></p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label class="control-label" style="margin-left: 10px;">Current Hours Readings</label>
+
+            <input name="machine_hours" placeholder="Hours Readings" class="form-control" id="hours_reading" type="text" style="width: 90%;margin-left: 8px;">
+          </div>
+        </div>
+      </div>
+
 
       <div class="row">
        <div class="col-md-6" style="width: 45%;">
@@ -372,29 +389,13 @@
       async : false,
       dataType : 'json',
       success : function(data){
-       var html ='<p>'+data+'</p>';
-       $('#prevoius_km_reading').html(html);
 
-     }
-     
-   });
-  });
- });
-</script>
-<script type="text/javascript">
- $(document).ready(function() {
-   $('select[name="vehicle_id"]').on('change', function() {
-    var km_id = $(this).val();
-    var path="<?php echo site_url('fuel/miles_reading')?>/" + km_id;
-    $.ajax({
-      type  : 'ajax',
-      url   : path,
-      async : false,
-      dataType : 'json',
-      success : function(data){
-       var html ='<p>'+data+'</p>';
-       $('#prevoius_miles_reading').html(html);
-
+       var html_km ='<p>'+data.km_reading+'</p>';
+       var html_mile ='<p>'+data.miles_reading+'</p>';
+       var html_hr ='<p>'+data.machine_hours+'</p>';
+       $('#prevoius_km_reading').html(html_km);
+       $('#prevoius_miles_reading').html(html_mile);
+       $('#prevoius_hours_reading').html(html_hr);
      }
      
    });
@@ -413,18 +414,27 @@
       async : false,
       dataType : 'json',
       success : function(data){
-        if(data > 1){
+        console.log(data.machine_hours);
+        if(data.km_reading > 1){
            $('.milesreadings').hide();
            $('.kmreadings').show();
-      console.log('great' +data);
+           $('.hoursreadings').hide();
+     // console.log('great' +data);
        }
 
-       if(data < 1){
+       if(data.miles_reading > 1){
            $('.milesreadings').show();
            $('.kmreadings').hide();
-        console.log('try again' +data);
+             $('.hoursreadings').hide();
+        //console.log('try again' +data);
        }
-
+       if(data.machine_hours > 1){
+           $('.milesreadings').hide();
+           $('.kmreadings').hide();
+           $('.hoursreadings').show();
+           //console.log('try again' +data);
+       }
+         
      }
      
    });

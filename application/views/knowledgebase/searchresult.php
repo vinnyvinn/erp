@@ -61,7 +61,7 @@ if(count($data)== 0){
                                     </p>
                                 </div>
                                 <div class="article-read-more">
-                                    <a href="/knowledge_base/viewknowledge/<?php echo $datum->id?>" class="btn btn-default btn-wide">Read more...</a>
+                                    <a href="<?php echo base_url();?>knowledge_base/viewknowledge/<?php echo $datum->id?>" class="btn btn-default btn-wide">Read more...</a>
                                 </div>
                             </div>
                             <?php

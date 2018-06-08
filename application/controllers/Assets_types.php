@@ -33,14 +33,14 @@ class Assets_types extends Pre_loader {
     return $item['asset_no'];
   }, $existing);
 
-   $SAGEQuery = 'SELECT * 
-   FROM _btblFAAsset WHERE iAssetTypeNo = 4 AND idAssetNo NOT IN (' . implode(',', $existing). ')';
-   
-   $fromSage = $this->SAGE_DB()
-   ->query("SELECT  a . idAssetNo , A . cAssetCode , a . cAssetDesc , A . ufFACurrentKMReading , A . ufFAMachineHours , A . ulFATrackBy , A . ucFAChasisnumber , A . ucFAEnginenumber , A . ucFAYearofmake , A . ucFARegyear , A . ucFAMake , A . ucFAModel , B . cAssetTypeCode from [dbo] . [_btblFAAsset] A Inner Join [dbo] . [_btblFAAssetType] B on A . iAssetTypeNo = b . idAssetTypeNo Where 
-    B . cAssetTypeCode IN ('MC') AND  idAssetNo NOT IN ( '" . implode( "', '" , $existing ) . "' )")->result_array();
-   
-   $fromSage = array_map(function ($item) {
+$SAGEQuery = "SELECT idAssetNo,cAssetCode,cAssetDesc,ufFACurrentKMReading,ufFAMachineHours,ulFATrackBy,ucFAChasisnumber,ucFAEnginenumber
+,ucFAYearofmake,ucFARegyear,ucFAMake,fInsuredValue FROM _btblFAAsset
+      WHERE (iAssetTypeNo = 2 OR iAssetTypeNo = 7) AND idAssetNo NOT IN ( '" . implode( "', '" , $existing ) . "' )";
+// var_dump($this->SAGE_DB()->query($SAGEQuery)->result_array());
+// die();
+
+    $fromSage = $this->SAGE_DB()->query($SAGEQuery)->result_array();
+     $fromSage = array_map(function ($item) {
     return [
     "code" => $item['cAssetCode'],
     "asset_no" => $item['idAssetNo'],
@@ -53,7 +53,7 @@ class Assets_types extends Pre_loader {
     "year_of_make" => $item['ucFAYearofmake'],
     "year_of_reg" => $item['ucFARegyear'],
     "make" => $item['ucFAMake'],
-    "code_type" => $item['cAssetTypeCode'],
+    "status" => $item['fInsuredValue'],
     ];
   }, $fromSage);
 
@@ -71,8 +71,7 @@ class Assets_types extends Pre_loader {
 public function add_asset()
 {
  
-
- $data = array(
+  $data = array(
    'code' => $this->input->post('code'),
    'year_of_reg' => $this->input->post('year_of_reg'),
    'year_of_make' => $this->input->post('year_of_make'),
@@ -123,14 +122,14 @@ public function asset_update()
    'updated_at' => date("Y-m-d H:i:s"),
    
    );
- $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
- $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
- $result = $query->row_array()['id']; 
- $variables = $this->db->query("SELECT assets.code,assets.next_time_km,assets.next_time_miles,employees.* FROM assets
-  LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->row_array();
- if($variables['next_time_km'] <= 200 || $variables['next_time_miles'] <=200){
-  $this->tech_mail($variables);
- }
+  $this->Assets_model->assets_update(array('id' => $this->input->post('id')), $data);
+ // $query = $this->db->query('SELECT id FROM assets ORDER BY updated_at DESC LIMIT 1');  
+ // $result = $query->row_array()['id']; 
+ // $variables = $this->db->query("SELECT assets.code,assets.next_time_km,assets.next_time_miles,employees.* FROM assets
+ //  LEFT JOIN employees ON employees.id= assets.driver_id WHERE assets.id=$result")->row_array();
+ // if($variables['next_time_km'] <= 200 || $variables['next_time_miles'] <=200){
+ //  $this->tech_mail($variables);
+ // }
  echo json_encode(array("status" => TRUE));
  
 

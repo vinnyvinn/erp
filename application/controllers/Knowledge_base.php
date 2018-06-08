@@ -22,11 +22,14 @@ class Knowledge_base extends Pre_loader
 
 
     function search()
-    {
-        $term = $_GET['term'];
+       {
+
+       $term = $_GET['term'];
+
         /* if (!$term) {
              redirect('/knowledge_base', 'location');
          }*/
+      
         $sql = "SELECT * FROM tbl_knowledge_base WHERE tbl_knowledge_base.solution LIKE '%$term%'";
         $viewdata = [];
         $viewdata['data'] = $this->db->query($sql)->result();

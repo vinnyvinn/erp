@@ -22,12 +22,13 @@
 
         </div>
         <br>
-        <div class="form-group">
+       
+      
 
-          <label for="job_service" class="col-sm-3"><b><?php echo lang('job_type'); ?></b></label>
-          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['job_type_id'];?>" disabled>
+          <strong>Job Type</strong>
 
-        </div>
+         <p style="padding-top: 10px"><?php echo $jobs[0]['job_type_id'];?></p>
+                  
         <div class="form-group">
 
           <label for="job_service"><b><?php echo lang('service_type'); ?></b></label>
@@ -247,7 +248,7 @@
     </div>
   </div>
   
-  <div class="row">
+  <div class="row" style="display: none">
     <div class="col-sm-12">
       <table class="table table-striped" id="items_table">
         <thead>
@@ -314,7 +315,7 @@
   </table>
 </div>
 
-</div>
+</div> 
 <br>
 </form>
 </div></div></div></div>

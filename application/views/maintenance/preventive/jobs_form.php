@@ -290,7 +290,7 @@
 
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="hours"><b>Hours</b></label>
+                  <label for="hours"><b>Current Hours</b></label>
                   <input type="text"  class="form-control" name="hours" id="hours_id" >
                 </div>
                 <label for="actual_hours"><b>Actual Hours Used</b></label>
@@ -311,6 +311,10 @@
             <div class="form-group mile" style="display: none;">
               <label for="next_time_miles"><b>Next Mileage Maintenance</b></label>
                <input type="number" name="next_time_miles" class="form-control">
+            </div>
+             <div class="form-group hour" style="display: none;">
+              <label for="next_time_hours"><b>Next Hours Maintenance</b></label>
+               <input type="number" name="next_time_hours" class="form-control">
             </div>
             <div class="form-group kms" style="display: none;">
               <label for="next_time_km"><b>Next KM Maintenance</b></label>
@@ -606,6 +610,7 @@
       if(unit=='hours'){
          $('.kms').hide();
          $('.mile').hide();
+         $('.hour').show();
       }
       $('.services').hide();
       $('#' + $(this).val()).show();

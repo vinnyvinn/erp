@@ -21,12 +21,11 @@
 
         </div>
         <br>
-        <div class="form-group">
 
-          <label for="job_service"><b><?php echo lang('job_type'); ?></b></label>
-          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['job_type_id'];?>" disabled>
-          
-        </div>
+        <strong>Job Type</strong>
+
+         <p style="padding-top: 10px"><?php echo $jobs[0]['job_type_id'];?></p>
+
         <div class="form-group">
 
           <label for="job_service" ><b>Service Type</b></label>

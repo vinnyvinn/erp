@@ -173,7 +173,7 @@
           ));
           ?>
         </div> 
-        <div class="form-group">
+        <div class="form-group" style="display: none;">
           <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
            <input type='file' name='picture' size='20' class="btn btn-info" />
          </label>

@@ -188,6 +188,7 @@
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Preventive", "url" => "preventive"];
                     $attendanceSubs [] = ["name" => "Reactive", "url" => "reactive"];
+                    $attendanceSubs [] = ["name" => "Checklists", "url" => "followups"];
                     $attendanceSubs [] = ["name" => "Requisitions", "url" => "parts_requisition"];
                     $attendanceSubs [] = ["name" => "Warranty Parts", "url" => "warranty_parts"];
                     $attendanceSubs [] = ["name" => "Fueling", "url" => "fuel"];

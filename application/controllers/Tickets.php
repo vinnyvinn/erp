@@ -282,13 +282,15 @@ class Tickets extends Pre_loader
 
      //comments for mark as solved
         function mark_solved_modal()
-        {
-            $this->load->view('tickets/mark_solved_form');
+         {
+            $id = $this->input->post('id');
+            $view_data['model_info'] = $this->Tickets_model->get_one($id);
+            $this->load->view('tickets/mark_solved_form',$view_data);
         }
 
         //save comment
         function save_mark_solved(){
-
+        $tkt_id = $this->input->post('id');
         $now = get_current_utc_time();
 
         $target_path = get_setting("timeline_file_path");
@@ -305,10 +307,17 @@ class Tickets extends Pre_loader
         validate_submitted_data(array(
             "description" => "required"
              ));
-       $this->Ticket_comments_model->save($comment_data);
-         $datasaved = true;
-      echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
-        
+       $datasaved =$this->Ticket_comments_model->save($comment_data,$tkt_id);
+         
+
+     
+       if ($datasaved) {
+
+            echo json_encode(["success" => true, "data" =>$datasaved , 'message' => lang('record_saved')]);
+            
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
         
      }
     // add a new ticket

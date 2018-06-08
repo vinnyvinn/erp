@@ -6,12 +6,13 @@
     ?>
 
     <script>
-        $(document).ready(function(){
-            var searchterm = $('#searchval').val();
-            $("#searchbtn").on('click', function(){
-                window.location.href="/knowledge_base/search?term="+searchterm;
-            })
-        })
+
+    function searchnow() {
+    var x = document.getElementById("searchval");
+    var searchterm=x.value;
+     window.location.href="<?php echo base_url();?>knowledge_base/search?term="+searchterm;
+      }
+      
     </script>
 <div id="page-content" class="p20 row">
     <!-- SEARCH FIELD AREA -->
@@ -22,8 +23,8 @@
             </div>
             <br>
             <div class="row search-row">
-                <input type="text" id="searchval" class="search" placeholder="Search Knowledgebase ...">
-                <a id="searchbtn" class="buttonsearch btn btn-info btn-lg" >Search</a>
+                <input type="text" id="searchval" class="search" name="search" placeholder="Search Knowledgebase ...">
+                <a id="searchbtn" onclick="searchnow()" class="buttonsearch btn btn-info btn-lg" >Search</a>
             </div>
         </div>
     </div>

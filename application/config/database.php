@@ -79,7 +79,7 @@ $db['default'] = array(
     'dsn' => '',
     'hostname' => 'localhost',
     'username' => 'root',
-    'password' => '',
+    'password' => '123456',
     'database' => 'prokazi', // getDatabasae(),
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
@@ -99,7 +99,7 @@ $db['default'] = array(
 
 $db['SAGE'] = array(
   'dsn' => '',
-  'hostname' => '127.0.0.1',
+  'hostname' => 'esl.dnsalias.com',
   'username' => 'sa',
   'password' => 'Qwerty123!',
   'database' => 'ESL_LTD',
@@ -121,7 +121,7 @@ $db['SAGE'] = array(
 
 $db['HR'] = array(
   'dsn' => '',
-  'hostname' => '127.0.0.1',
+  'hostname' => 'esl.dnsalias.com',
   'username' => 'sa',
   'password' => 'Qwerty123!',
   'database' => 'ESL',

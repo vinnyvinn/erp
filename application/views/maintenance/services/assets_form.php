@@ -27,6 +27,7 @@
             <th>Warranty Expiry</th>
             <th>Mileage Reading</th>
             <th>Machine Hours</th>
+            <th>Status</th>
             <th style="width:125px;">Action
             </th>
           </tr>
@@ -41,6 +42,7 @@
            <td><?php echo $asset['warranty'];?></td>
            <td><?php echo $asset['km_reading'] ? $asset['km_reading'] .' km' : $asset['miles_reading'] .' mi';?></td>
            <td><?php echo $asset['machine_hours'];?></td>
+           <td><?php echo ($asset['status']) == 0 ? 'Not Insured' : 'Insured';?></td>
                                  
            <td>
              <div class="col-xs-6" style="width: 20%;margin-right: -10px;">
@@ -67,6 +69,7 @@
        <th>Warranty Expiry</th>
        <th>KM Reading</th>
        <th>Machine Hours</th>
+       <th>Status</th>
         <th>Action</th>
      </tr>
    </tfoot>
@@ -255,40 +258,43 @@
 
             </div>
             <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                   <div class="form-group">
                    <label for="supplier_id" class="col-md-6"><b>Track By</b></label>
                    <select class="form-control" name="track_by" id="mileselected" style="width: 90%;margin-left: 8px;" required>
                     <option value="">--Track By--</option>
                     <option value="km">Kilometer</option>
                     <option value="miles">Miles</option>
+                    <option value="hours">Hours</option>
                   </select>
                   </div>
               </div>
               </div>
             <div class="row">
-              <div class="col-md-6" style="width: 45%;">
+              <div id="hours" class="tracks hours" style="display: none;">
+              <div class="col-md-12">
                 <div class="form-group">
-                  <label class="control-label" style="margin-left: 10px;">Hours</label>
+                  <label class="control-label" style="margin-left: 10px;">Current Hours Readings</label>
                   <input name="hours" placeholder="Hours" class="form-control" 
                   type="text" style="width: 90%;margin-left: 8px;">
                 </div>
               </div>
-              <div id="km" class="tracks km">
-                <div class="col-md-6" style="width: 45%;">
+            </div>
+              <div id="km" class="tracks km" style="display: none;">
+                <div class="col-md-12">
                   <div class="form-group">
-                    <label class="control-label">Current KM Readings</label>
+                    <label class="control-label" style="margin-left: 10px;">Current KM Readings</label>
                     <input name="km_reading" placeholder="Current KM Readings" class="form-control" 
-                    type="text">
+                    type="text" style="width: 90%;margin-left: 8px;">
                   </div>
                 </div>
               </div>
               <div id="miles" class="tracks miles" style="display: none;">
-               <div class="col-md-6" style="width: 45%;">
+               <div class="col-md-12">
                 <div class="form-group">
-                  <label class="control-label">Current Miles Readings</label>
+                  <label class="control-label" style="margin-left: 10px;">Current Miles Readings</label>
                   <input name="miles" placeholder="Current Miles Readings" class="form-control"  
-                  type="text">
+                  type="text" style="width: 90%;margin-left: 8px;">
                 </div>
               </div>
             </div>
@@ -336,7 +342,12 @@
               <input name="next_time_km" placeholder="Next visit Km" class="form-control" type="number" style="width: 90%;margin-left: 8px;">
             </div>
           </div>
-
+             <div class="col-md-6 hour" style="width: 45%; display: none;">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Next Hours Maintenance</label>
+              <input name="next_time_hours" placeholder="Next visit Hours" class="form-control" type="number" style="width: 90%;margin-left: 8px;">
+            </div>
+          </div>
         </div>
 
 
@@ -362,10 +373,17 @@
       if(unit=='miles'){
          $('.mile').show();
          $('.kms').hide();
+         $('.hour').hide();
       }
       if(unit=='km'){
          $('.kms').show();
          $('.mile').hide();
+         $('.hour').hide();
+      }
+      if(unit=='hours'){
+         $('.kms').hide();
+         $('.mile').hide();
+         $('.hour').show();
       }
       $('.tracks').hide();
       $('#' + $(this).val()).show();
