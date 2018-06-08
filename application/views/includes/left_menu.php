@@ -62,14 +62,20 @@
 
                 if (($this->login_user->user_type == "staff")) {
                     $checklistsSubs = [];
-                    $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
-                    $checklistsSubs [] = ["name" => "Support Reports", "url" => "ict_reports/support_entries"];
+                    if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
+                        $checklistsSubs [] = ["name" => "Checklists", "url" => "checklists"];
+                        $checklistsSubs [] = ["name" => "Support Reports", "url" => "ict_reports/support_entries"];
+                    }
                     $checklistsSubs [] = ["name" => "Support Tickets", "url" => "ict_reports/support_tickets"];
-                    $checklistsSubs [] = ["name" => "Checklists Reports", "url" => "ict_reports/checklists"];
+                    if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
+                        $checklistsSubs [] = ["name" => "Checklists Reports", "url" => "ict_reports/checklists"];
+                    }
                     $checklistsSubs [] = ["name" => "Assets", "url" => "ict_reports/inventory"];
                     $checklistsSubs [] = ["name" => "Assets Maintenance", "url" => "ict_reports/inventory_maintenance"];
-                    $checklistsSubs [] = ["name" => "Assets Maintenance Reports", "url" => "ict_reports/maintainance_reports"];
-                    $checklistsSubs [] = ["name" => "Assets Disposal", "url" => "ict_reports/asset_disposal"];
+                    if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
+                        $checklistsSubs [] = ["name" => "Assets Maintenance Reports", "url" => "ict_reports/maintainance_reports"];
+                        $checklistsSubs [] = ["name" => "Assets Disposal", "url" => "ict_reports/asset_disposal"];
+                    }
                     $sidebar_menu[] = array("name" => "ICT", "url" => "checklists", "class" => "fa-road", "submenu" => $checklistsSubs,"devider" => true);
                 }
                if (get_setting("module_estimate") && get_setting("module_estimate_request") && ($this->login_user->is_admin || $access_estimate)) {
@@ -105,7 +111,7 @@
                 
             }
                
-                if (get_setting("module_administrator") && (($this->login_user->is_admin || $access_administrator))) {
+                if ($this->login_user->user_type == "staff") {
 
                     $attendanceSubs = [];
                     $attendanceSubs [] = ["name" => "Inventory / Requisitions", "url" => "inventory_requisitions"];
@@ -114,8 +120,6 @@
                     $attendanceSubs [] = ["name" => "Cheques : Outwards", "url" => "cheques/outwards"];
                     $attendanceSubs [] = ["name" => "Mailing List", "url" => "parcels/parcels_mailing_list"];
                     $sidebar_menu[] = array("name" => "Administration", "url" => "inventory_requisitions", "class" => "fa-ils", "submenu" => $attendanceSubs);
-                  
-
                 }
 
              

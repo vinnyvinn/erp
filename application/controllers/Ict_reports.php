@@ -44,8 +44,7 @@ class Ict_reports extends Pre_loader {
 
   public function support_entries_list_data() {
 
-    $id = $this->input->post("ticket_type_id");
-    $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "deleted" => 0))->result();
+    $list_data = $this->input->post("ticket_type_id") ? $this->Tickets_model->get_all_where(array("ticket_type_id" => $this->input->post("ticket_type_id"), "deleted" => 0))->result() : $this->Tickets_model->get_all_where(array("deleted" => 0))->result();
 
     $result = array();
     foreach ($list_data as $data) {
@@ -58,7 +57,7 @@ class Ict_reports extends Pre_loader {
 
         $subject = anchor(get_uri("tickets/view/" . $data->id), $data->title);
 
-        $project = $data->project_id ? anchor(get_uri("projects/view/" . $data->id), $this->Projects_model->get_one($data->project_id)->title) : "No Project";
+        // $project = $data->project_id ? anchor(get_uri("projects/view/" . $data->id), $this->Projects_model->get_one($data->project_id)->title) : "No Project";
         $ticket_type = $this->Ticket_types_model->get_one($data->ticket_type_id)->title;
         $assigned_to = anchor(get_uri("team_members/view/" . $data->id), $this->Users_model->get_one($data->assigned_to)->first_name . " " . $this->Users_model->get_one($data->assigned_to)->last_name);
 
@@ -73,14 +72,18 @@ class Ict_reports extends Pre_loader {
 
         $ticket_status = "<span class='label $ticket_status_class large'>" . lang($data->status) . "</span> ";
 
-        return array($data->id, $subject, $project, $ticket_type, $assigned_to, $ticket_status);
+        return array($data->id, $subject, $ticket_type, $assigned_to, $ticket_status);
     }
 
 
   public function support_tickets_list_data() {
 
-    $id = $this->input->post("ticket_type_id");
-    $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "team_id" => 3, "deleted" => 0))->result();
+    if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
+      $id = $this->input->post("ticket_type_id");
+      $list_data = $this->Tickets_model->get_all_where(array("ticket_type_id" => $id, "team_id" => 3, "deleted" => 0))->result();
+    } else {
+      $list_data = $this->Tickets_model->get_all_where(array("created_by" => $this->login_user->id, "deleted" => 0))->result();
+    }
     $result = array();
     foreach ($list_data as $data) {
         $result[] = $this->support_tickets_make_row($data);
@@ -110,6 +113,7 @@ class Ict_reports extends Pre_loader {
 
         // $escalation_matrix = $data->escalation_matrix != 0 ? modal_anchor(get_uri("ict_reports/excalation_matrix_view"), $data->escalation_matrix, array("class" => "edit", "title" => "Escalation Matrix", "data-post-view" => "details", "data-post-id" => $data->escalation_matrix)) : "None";
 
+        $created_by =  $this->Users_model->get_one($data->created_by)->first_name . " " . $this->Users_model->get_one($data->created_by)->last_name;
         $assigned_to = $this->Team_model->get_one($data->team_id)->title;
 
         $ticket_status_class = "label-danger";
@@ -129,7 +133,7 @@ class Ict_reports extends Pre_loader {
             $options .= js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => lang('delete_task'), "class" => "delete", "data-id" => $data->id, "data-action-url" => get_uri("tickets/delete_ticket"), "data-action" => "delete"));
         }
 
-        return array($data->id, $subject, $ticket_type, $assigned_to, format_to_relative_time($data->last_activity_at), $ticket_status, $options);
+        return array($data->id, $subject, $ticket_type, $created_by, format_to_relative_time($data->last_activity_at), $ticket_status, $options);
     }
 
         //load new tickt modal
@@ -183,6 +187,7 @@ class Ict_reports extends Pre_loader {
         }
         $view_data['label_suggestions'] = $label_suggestions;
         $view_data['staffs_dropdown'] = $this->HR_DB()->query("SELECT Emp_Name FROM tblEmployee")->result();
+        $view_data['ict_team'] = 3;
 
         $this->load->view('checklists/reports/support_tickets/modal_form', $view_data);
     }
@@ -223,23 +228,23 @@ class Ict_reports extends Pre_loader {
       $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       foreach ($list_data as $data) {
         // $this->Ict_issets_model->save(array("sage_id" => $data->idAssetNo));
-        $this->db->get_where('ict_issets', array("sage_id" => $data->idAssetNo), 1)->num_rows() ? '' : $this->db->insert('ict_issets', array("sage_id" => $data->idAssetNo, "category_id" => 0));
+        $this->db->get_where('ict_issets', array("sage_id" => $data->idAssetNo), 1)->num_rows() ? '' : $this->db->insert('ict_issets', array("sage_id" => $data->idAssetNo, "depreciation_date" => (new DateTime($data->dDepreciationStartDate))->add(new DateInterval('P3Y'))->format('Y-m-d'), "category_id" => 0));
       }
       $this->template->rander("checklists/ict_inventory/index");
     }
 
     public function inventory_list_data() {
 
-      $category_id = $this->input->post("category_id");
+      // $app_assets = $this->input->post("category_id") ? $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $category_id, "deleted" => 0))->result() : $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
 
       if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) {
-        $user_assets = $this->Ict_issets_model->get_all_where(array("category_id" => $category_id, "deleted" => 0))->result();
+        $app_assets = $this->input->post("category_id") ? $this->Ict_issets_model->get_all_where(array("category_id" => $this->input->post("category_id"), "deleted" => 0))->result() : $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
       } else {
-        $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $category_id, "deleted" => 0))->result();
+        $app_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "category_id" => $this->input->post("category_id"), "deleted" => 0))->result();
       }
 
       $list_data = array();
-      foreach ($user_assets as $asset) {
+      foreach ($app_assets as $asset) {
         $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       }
 
@@ -255,7 +260,7 @@ class Ict_reports extends Pre_loader {
     private function inventory_make_row($data) {
 
       $id = $data->idAssetNo;
-      $description = $data->cAssetDesc;
+      $description = $data->cAssetDesc . " <span class='label label-info'  title='Label'>Item History</span> ";
       $model_no = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->model_no ? $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->model_no : "NOT SET";
       $serial = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->serial_no ? $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->serial_no : "NOT SET";
       $location = $data->iLocationNo != 0 ? $this->SAGE_DB()->get_where("_btblFALocation", array("idLocationNo" => $data->iLocationNo))->result()[0]->cLocationDesc : "NOT SET";
@@ -276,17 +281,10 @@ class Ict_reports extends Pre_loader {
         $custodian = $custodian != 0 ? $this->Users_model->get_one($custodian)->first_name : "NOT SET";
       }
 
-      // $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted
-
       if ($this->login_user->id == $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to) {
 
         if ($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted == "No") {
-
-          // $custodian = modal_anchor(get_uri("ict_reports/accept_asset"), "<button class=\"btn btn-success\">ACCEPT</button>", array("class" => "edit", "title" => lang('edit_form'), "data-post-id" => $id));
-
-          $custodian = js_anchor("<button class=\"btn btn-success\">ACCEPT</button>", array('title' => "Accept Asset", "class" => "edit", "data-id" => $id, "data-action-url" => get_uri("ict_reports/accept_asset"), "data-action" => "delete"));
-        } elseif ($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->accepted == "Yes") {
-          $custodian = js_anchor("<button class=\"btn btn-danger\">RETURN</button>", array('title' => "Return Asset", "class" => "edit", "data-id" => $id, "data-action-url" => get_uri("ict_reports/return_asset"), "data-action" => "delete"));
+          $custodian = js_anchor("<button class=\"btn btn-success btn-xs\">ACCEPT</button>", array('title' => "Accept Asset", "class" => "edit", "data-id" => $id, "data-action-url" => get_uri("ict_reports/accept_asset"), "data-action" => "delete")) . " <hr> " . js_anchor("<button class=\"btn btn-warning btn-xs\">DECLINE</button>", array('title' => "Decline Asset", "class" => "edit", "data-id" => $id, "data-action-url" => get_uri("ict_reports/decline_asset"), "data-action" => "delete"));
         }
       }
 
@@ -302,9 +300,63 @@ class Ict_reports extends Pre_loader {
         "accepted" => "Yes"
       );
 
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => NULL,
+        "assigned_by" => NULL,
+        "status" => "accepted",
+        "assigned_to" => $this->login_user->id
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc . " : " . $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetCode,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->email
+      );
+
       $save_id = $this->Ict_issets_model->save($data, $id);
 
         if ($save_id) {
+            $this->_acceptMail($mail_data);
+            $this->Ict_asset_history_model->save($log_data);
+            echo json_encode(array("success" => true, 'message' => lang('record_saved')));
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
+    }
+
+    public function decline_asset() {
+
+      $id = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->id;
+      
+      $data = array(
+        "assigned_to" => 0,
+        "accepted" => "NO"
+      );
+
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => "NULL",
+        "assigned_by" => NULL,
+        "status" => "declined",
+        "assigned_to" => $this->login_user->id
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc . " : " . $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetCode,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->email
+      );
+
+      $save_id = $this->Ict_issets_model->save($data, $id);
+
+        if ($save_id) {
+            $this->_declineMail($mail_data);
+            $this->Ict_asset_history_model->save($log_data);
             echo json_encode(array("success" => true, 'message' => lang('record_saved')));
         } else {
             echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
@@ -317,12 +369,31 @@ class Ict_reports extends Pre_loader {
       
       $data = array(
         "assigned_to" => 0,
-        "accepted" => NULL
+        "assigned_by" => NULL,
+        "accepted" => "NO"
+      );
+
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => "returned",
+        "assigned_by" => NULL,
+        "status" => "returned",
+        "assigned_to" => NULL
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc . " : " . $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetCode,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($this->input->post('id'))->assigned_by)->email
       );
 
       $save_id = $this->Ict_issets_model->save($data, $id);
 
         if ($save_id) {
+            $this->_returnMail($mail_data);
+            $this->Ict_asset_history_model->save($log_data);
             echo json_encode(array("success" => true, 'message' => lang('record_saved')));
         } else {
             echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
@@ -333,8 +404,12 @@ class Ict_reports extends Pre_loader {
 
       $view_data['model_info'] = $this->Ict_issets_model->get_one_ict_asset($this->input->post('id'));
       $sage_id = $this->input->post('sage_id') ? $this->input->post('sage_id') : $view_data['model_info']->sage_id;
+      $asset_id = $view_data['model_info']->id;
       $view_data['sage_id'] = $sage_id;
       $view_data['title'] = $this->input->post('desc');
+
+      $view_data['model_info_history'] = $this->Ict_asset_history_model->get_one_ict_asset_history($asset_id)->result();
+
       $this->load->view('checklists/ict_inventory/description_modal_form', $view_data);
     }
 
@@ -376,11 +451,30 @@ class Ict_reports extends Pre_loader {
       $id = $this->input->post('id');
 
       $data = array(
+        "assigned_to" => $this->input->post('user_id'),
+        "assigned_by" => $this->login_user->id
+      );
+
+      $log_data = array(
+        "asset_id" => $id,
+        "action" => "issued",
+        "assigned_by" => $this->login_user->id,
+        "status" => NULL,
         "assigned_to" => $this->input->post('user_id')
+      );
+
+      $mail_data = array(
+        "to" => $this->Users_model->get_one($this->input->post('user_id'))->first_name,
+        "from" => $this->Users_model->get_one($this->login_user->id)->first_name,
+        "asset" => $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('sage_id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetDesc . " : " . $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $this->input->post('sage_id'),"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result()[0]->cAssetCode,
+        "asset_url" => get_uri("ict_reports/inventory"),
+        "send_to" => $this->Users_model->get_one($this->input->post('user_id'))->email
       );
 
       $save_id = $this->Ict_issets_model->save($data, $id);
       if ($save_id) {
+          $this->Ict_asset_history_model->save($log_data);
+          $this->_issueMail($mail_data);
           echo json_encode(array("success" => true, 'message' => lang('record_saved')));
       } else {
           echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
@@ -460,6 +554,7 @@ class Ict_reports extends Pre_loader {
 
     public function actual_asset_modal_form() {
       $view_data['users_dropdown'] = $this->Users_model->get_dropdown_list(array("first_name", "last_name"), "id", array("user_type" => "staff"));
+      $view_data['locations_dropdown'] = $this->SAGE_DB()->get('_btblFALocation')->result();
       $view_data['suppliers_dropdown'] = $this->SAGE_DB()->get('Vendor')->result();
       $this->load->view('checklists/ict_inventory/actual_asset_modal_form', $view_data);
     }
@@ -471,6 +566,7 @@ class Ict_reports extends Pre_loader {
         "cAssetCode" => $this->input->post('cassetcode'),
         "cAssetDesc" => $this->input->post('title'),
         "iAssetTypeNo" => get_setting("iAssetTypeNo"),
+        "iLocationNo" => get_setting("iLocationNo"),
         "iSupplierNo" => $this->input->post('supplier'),
         "fNoOfUnits" => 1,
         "dPurchaseDate" => $this->input->post('dPurchaseDate'),
@@ -509,13 +605,13 @@ class Ict_reports extends Pre_loader {
     public function disposal_list_data() {
 
       if ($this->login_user->is_admin) {
-        $user_assets = $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
+        $app_assets = $this->Ict_issets_model->get_all_where(array("deleted" => 0))->result();
       } else {
-        $user_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "deleted" => 0))->result();
+        $app_assets = $this->Ict_issets_model->get_all_where(array("assigned_to" => $this->login_user->id, "deleted" => 0))->result();
       }
 
       $list_data = array();
-      foreach ($user_assets as $asset) {
+      foreach ($app_assets as $asset) {
         $list_data[] = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
       }
 
@@ -535,12 +631,33 @@ class Ict_reports extends Pre_loader {
       $serial = $data->cAssetCode;
       $category = $data->iAssetTypeNo != 0 ? $this->SAGE_DB()->get_where("_btblFAAssetType", array("idAssetTypeNo" => $data->iAssetTypeNo))->result()[0]->cAssetTypeDesc : "NOT SET";
       $custodian = $this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to != 0 ? $this->Users_model->get_one($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->assigned_to)->first_name : "NOT SET";
-      $pDate = date("dS M Y",strtotime($data->dPurchaseDate));
-      $dDate = (new DateTime($data->dDepreciationStartDate))->add(new DateInterval('P3Y'));
-      $date_now = new DateTime();
-      $optoins = ($date_now > $dDate) ? js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => "Dispose Asset", "class" => "delete", "data-id" => $id, "data-action-url" => get_uri("ict_reports/delete_asset"), "data-action" => "delete")) : '';
+      $dDate = (new DateTime($this->Ict_issets_model->get_one_ict_asset($data->idAssetNo)->depreciation_date));
+      $optoins = ((new DateTime()) > $dDate) ? js_anchor("<i class='fa fa-times fa-fw'></i>", array('title' => "Dispose Asset", "class" => "delete", "data-id" => $id, "data-action-url" => get_uri("ict_reports/delete_asset"), "data-action" => "delete")) : '';
 
-      return array($id, $description, $serial, $category, $custodian, $pDate, $dDate->format('dS M Y'), $optoins);
+      return array($id, $description, $serial, $category, $custodian, date("dS M Y",strtotime($data->dPurchaseDate)), $dDate->format('dS M Y'), $optoins);
+    }
+
+    function asset_disposal_job($hours = 0) {
+
+      $date = (new \DateTime())->modify('+' . $hours . ' hours')->format('Y-m-d');
+      $app_assets = $this->Ict_issets_model->get_all_where(array("depreciation_date <=" => $date, "deleted" => 0))->result();
+      $disposal_data = array();
+      foreach ($app_assets as $asset) {
+        $list_data = $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $asset->sage_id,"iAssetTypeNo" => get_setting("iAssetTypeNo")))->result();
+        foreach ($list_data as $data) {
+          foreach (json_decode($this->Team_model->list_ict_members()) as $ict_member) {
+            $disposal_data = array(
+              "to" => $this->Users_model->get_one($ict_member)->first_name,
+              "from" => "ICT TEAM",
+              "asset" => $data->cAssetDesc . " : " . $data->cAssetCode,
+              "asset_url" => get_uri("ict_reports/asset_disposal"),
+              "disposal_date" => (new \DateTime($data->dDepreciationStartDate))->modify('+' . $hours . ' hours')->format('dS M Y'),
+              "send_to" => $this->Users_model->get_one($ict_member)->email
+            );
+            $this->_desposeMail($disposal_data);
+          }
+        }
+      }
     }
 
     function delete_asset() {
@@ -693,16 +810,11 @@ class Ict_reports extends Pre_loader {
       return array($data->id, $this->SAGE_DB()->get_where("_btblFAAsset", array("idAssetNo" => $data->sage_item_id))->result()[0]->cAssetDesc, $data->performed_by != 0 ? $this->Users_model->get_one($data->performed_by)->first_name . " " . $this->Users_model->get_one($data->performed_by)->last_name : $status, date("dS M Y",strtotime($data->maintainance_date)), $status);
     }
 
-        // add a new ticket
     public function support_tickets_save()
     {
         $id = $this->input->post('id');
 
-        validate_submitted_data(array(
-            "ticket_type_id" => "required|numeric"
-        ));
-
-        $ticket_type_id = $this->input->post('ticket_type_id');
+        $ticket_type_id = $this->input->post('ticket_type_id') ? $this->input->post('ticket_type_id') : 1;
 
         $now = get_current_utc_time();
         $ticket_data = array(
@@ -711,7 +823,7 @@ class Ict_reports extends Pre_loader {
             "created_by" => $this->login_user->id,
             "created_at" => $now,
             "last_activity_at" => $now,
-            "team_id" => $this->input->post('team_id'),
+            // "team_id" => $this->input->post('team_id'),
             "labels" => $this->input->post('labels')
         );
 
@@ -746,18 +858,17 @@ class Ict_reports extends Pre_loader {
                 $ticket_comment_id = $this->Ticket_comments_model->save($comment_data);
 
                 if ($ticket_id && $ticket_comment_id) {
-                    // log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
-                  $team = explode(',', $this->Team_model->get_one($this->input->post('team_id'))->members);
-                  foreach ($team as $key => $value) {
-                    $log_notification = array(
-                      "user_id" => $this->login_user->id,
-                      "created_at" => $now,
-                      "notify_to" => $value,
-                      "event" => "ticket_created",
+                  // log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
+                  foreach (json_decode($this->Team_model->list_ict_members()) as $ict_member) {
+                    $ticket_data = array(
                       "ticket_id" => $ticket_id,
-                      "ticket_comment_id" => $ticket_comment_id
+                      "ticket_title" => $this->input->post('title'),
+                      "user_name" => $this->Users_model->get_one($this->login_user->id)->first_name,
+                      "ticket_content" => $this->input->post('description'),
+                      "ticket_url" => get_uri("tickets/view/" . $ticket_id),
+                      "send_to" => $this->Users_model->get_one($ict_member)->email
                     );
-                    $notification_id = $this->Notifications_model->save($log_notification);
+                    $this->_support_ticket_created_mail($ticket_data);
                   }
                 }
             }
@@ -796,6 +907,92 @@ class Ict_reports extends Pre_loader {
 
     public function HR_DB(){
        return  $this->load->database('HR',TRUE);
+    }
+
+    public function _issueMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_issue");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _acceptMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_accept");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _declineMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_decline");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _returnMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_return");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _desposeMail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ict_asset_disposal");
+
+        $parser_data["TO"] = $data['to'];
+        $parser_data["FROM"] = $data["from"];
+        $parser_data["ASSET"] = $data["asset"];
+        $parser_data["ASSET_URL"] = $data["asset_url"];
+        $parser_data["DISPOSAL_DATE"] = $data["disposal_date"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
+    }
+
+    public function _support_ticket_created_mail($data) {
+
+        $email_template = $this->Email_templates_model->get_final_template("ticket_created");
+
+        $parser_data["TICKET_ID"] = $data['ticket_id'];
+        $parser_data["TICKET_TITLE"] = $data["ticket_title"];
+        $parser_data["USER_NAME"] = $data["user_name"];
+        $parser_data["TICKET_CONTENT"] = $data["ticket_content"];
+        $parser_data["TICKET_URL"] = $data["ticket_url"];
+        $parser_data["SIGNATURE"] = $email_template->signature;
+
+        $message = $this->parser->parse_string($email_template->message, $parser_data, true);
+        send_app_mail($data['send_to'], $email_template->subject, $message);
     }
 
   }

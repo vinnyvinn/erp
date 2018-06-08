@@ -30,6 +30,11 @@ class Email_templates extends Pre_loader {
             "ticket_done" => array("TICKET_ID", "CREATED_AT", "CREATED_BY", "SIGNATURE"),
             "third_party" => array("TICKET_ID", "CREATED_AT", "CREATED_BY","THIRD_PARTY_NAME" ,"SIGNATURE"),
             "next_maintenance_date" => array("VEHICLE_NO", "USER_NAME", "NEXT_DATE", "TITLE"),
+            "ict_asset_issue" => array("TO", "FROM", "ASSET", "ASSET_URL", "SIGNATURE"),
+            "ict_asset_accept" => array("TO", "FROM", "ASSET", "ASSET_URL", "SIGNATURE"),
+            "ict_asset_decline" => array("TO", "FROM", "ASSET", "ASSET_URL", "SIGNATURE"),
+            "ict_asset_return" => array("TO", "FROM", "ASSET", "ASSET_URL", "SIGNATURE"),
+            "ict_asset_disposal" => array("TO", "FROM", "ASSET", "ASSET_URL", "DISPOSAL_DATE", "SIGNATURE"),
             "signature" => array()
         );
     }

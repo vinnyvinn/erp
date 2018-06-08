@@ -245,5 +245,7 @@ $autoload['model'] = array(
     'Trimmer_sheets_model',
     'Ict_issets_model',
     'Followups_model'
+    'Ict_asset_history_model'
+
 );
 

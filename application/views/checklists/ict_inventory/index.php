@@ -22,7 +22,11 @@
 
         $("#ict_inventory-table").appTable({
             source: '<?php echo_uri("ict_reports/inventory_list_data") ?>',
-            radioButtons: [{text: 'Actual Assets', name: "category_id", value: "1", isChecked: true}, {text: 'Sage Assets', name: "category_id", value: "0", isChecked: false}],
+            <?php if ($this->login_user->is_admin || $this->Team_model->is_ict_member()) { ?>
+                radioButtons: [{text: 'ALL', name: "category_id", value: "", isChecked: true}, {text: 'Actual Assets', name: "category_id", value: "1", isChecked: false}, {text: 'Sage Assets', name: "category_id", value: "0", isChecked: false}],
+            <?php } else { ?>
+                radioButtons: [{text: 'ALL', name: "category_id", value: "", isChecked: true}],
+            <?php } ?>
             columns: [
                     {title: "Asset NO", "class": "text-center w50"},
                     {title: "Title"},
