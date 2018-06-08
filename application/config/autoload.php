@@ -244,8 +244,8 @@ $autoload['model'] = array(
     'Trimmers_model',
     'Trimmer_sheets_model',
     'Ict_issets_model',
-    'Followups_model'
-    'Ict_asset_history_model'
+    'Followups_model',
+    'Ict_asset_history_model',
 
 );
 
