@@ -50,7 +50,7 @@
                     "value" => $model_info->covered_from * 1 ? $model_info->covered_from : "",
                     "class" => "form-control",
                     "placeholder" => lang('covered_from'),
-                    "data-date-start-date" => "+1d"
+                    //"data-date-start-date" => "+1d"
                 ));
                 ?>
             </div>
@@ -65,7 +65,7 @@
                     "value" => $model_info->covered_to * 1 ? $model_info->covered_to : "",
                     "class" => "form-control",
                     "placeholder" => lang('covered_to'),
-                    "data-date-start-date" => "+1d"
+                    //"data-date-start-date" => "+1d"
                 ));
                 ?>
             </div>
