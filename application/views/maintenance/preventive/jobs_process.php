@@ -6,7 +6,7 @@
     <div class="panel-heading">Job Card #<?php echo $jobs[0]['card_no']?>
      <a href="<?php echo base_url('preventive/print_job/'.$jobs[0]['id']);?>" class="btn btn-success pull-right">Download Page <i class="fa fa-download" aria-hidden="true"></i></a>
    </div>
-   <div class="panel-body">
+      <div class="panel-body">
      <div class="row">
       <div class="col-sm-4">
         <div class="form-group vehicle_sel">
