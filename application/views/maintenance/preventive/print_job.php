@@ -40,7 +40,7 @@
                <b>Time:</b> <?php echo date('H:i:s',$date)?><br>
                <b style="text-align: left;">Reg: </b> <?php echo $reports_data[0]['reg']?>;<br>
                <b>Make: </b> <?php echo $reports_data[0]['make']?><br>
-               <b>Mileage Reading: </b>  <?php echo $reports_data[0]['km_reading'] ? $reports_data[0]['km_reading'] .' km' : $reports_data[0]['miles_reading'] .' mi'?> <br>
+               <b>Mileage Reading: </b>  <?php echo $reports_data[0]['km_reading'] ? $reports_data[0]['km_reading'] .' km' : ($reports_data[0]['miles_reading'] ? $reports_data[0]['miles_reading'] .' mi': $reports_data[0]['next_time_hours'] .' hrs')?> <br>
                <b>Next Service Mileage: </b> <?php echo $reports_data[0]['next_time_km'] ? $reports_data[0]['next_time_km'].' km' : ($reports_data[0]['next_time_miles'] ? $reports_data[0]['next_time_miles'] .' mi' : $reports_data[0]['next_time_hours'] .' hrs')?> <br>
 
              </td>

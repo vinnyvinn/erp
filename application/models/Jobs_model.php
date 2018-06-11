@@ -47,7 +47,7 @@ class Jobs_model extends Crud_model {
    LEFT JOIN service_types ON service_types.id=jobs.service_type_id
    LEFT JOIN spares ON spares.job_card_id=jobs.id
    WHERE jobs.id=$id";
-   $data = $this->db->query($query)->result_array();
+   $data = $this->db->query($query)->row_array();
    return $data;
      
  }
