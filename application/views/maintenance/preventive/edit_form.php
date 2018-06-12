@@ -2,8 +2,8 @@
  <form method="POST" action="<?php echo base_url('preventive/update_checklist') ?>" enctype="multipart/form-data">
   <div class="modal-body clearfix">
    <div class="panel panel-default">
-    <input type="hidden" name="id" value="<?php echo $jobs[0]['id'];?>">
-    <div class="panel-heading">Job Card #<?php echo $jobs[0]['card_no']?>
+    <input type="hidden" name="id" value="<?php echo $jobs['id'];?>">
+    <div class="panel-heading">Job Card #<?php echo $jobs['card_no']?>
     </div>
     <div class="panel-body">
      <div class="row">
@@ -11,7 +11,7 @@
         <div class="form-group vehicle_sel">
           <label for="vehicle_no" class="col-sm-10"><b><?php echo lang('vehicle_no'); ?></b></label>
           <select class="form-control" name="vehicle_no" id="vehicle_no" class="vehicle" style="width: 100% !important;" disabled>
-            <option value=""><?php echo $jobs[0]['code'];?></option>
+            <option value=""><?php echo $jobs['code'];?></option>
             <?php
             foreach ($vehicles_dropdown as $value) {
               echo "<option value=". $value->id . ">" . ucfirst($value->code) . "</option>";
@@ -24,12 +24,12 @@
 
         <strong>Job Type</strong>
 
-         <p style="padding-top: 10px"><?php echo $jobs[0]['job_type_id'];?></p>
+         <p style="padding-top: 10px"><?php echo $jobs['job_type_id'];?></p>
 
         <div class="form-group">
 
           <label for="job_service" ><b>Service Type</b></label>
-          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs[0]['service'];?>" disabled>
+          <input type="text" class="form-control" name="job_type_name" value="<?php echo $jobs['service'];?>" disabled>
           
         </div>
 
@@ -39,7 +39,7 @@
           echo form_textarea(array(
             "id" => "description",
             "name" => "description",
-            "value" => $jobs[0]['explanation'],
+            "value" => $jobs['explanation'],
             "class" => "form-control",
             'rows' => '5',
             'cols' => '40',
@@ -58,9 +58,9 @@
           
           <?php
 
-          $parts=json_decode($jobs[0]['part_name']);
-          $quantity=json_decode($jobs[0]['quantity']);
-          $cost=json_decode($jobs[0]['cost']);
+          $parts=json_decode($jobs['part_name']);
+          $quantity=json_decode($jobs['quantity']);
+          $cost=json_decode($jobs['cost']);
           ?>
 
 
@@ -80,9 +80,9 @@
         </table>
          <br>
         <div class="form-group">
-          <?php if(!empty($jobs[0]['picture'])){?>
-          <a href="<?php echo base_url().'uploads/images/'.$jobs[0]['picture']; ?>" class="fa fa-download fa-2x">Download Checklist</a>
-          <?php } elseif(empty($jobs[0]['picture'])) {?>
+          <?php if(!empty($jobs['picture'])){?>
+          <a href="<?php echo base_url().'uploads/images/'.$jobs['picture']; ?>" class="fa fa-download fa-2x">Download Checklist</a>
+          <?php } elseif(empty($jobs['picture'])) {?>
         </div>
               <div class="form-group">
           <label for="client_id" style="color:#7988a2"><b>Upload Checklist</b>
@@ -97,7 +97,7 @@
       <div class="form-group">
         <label for="job_type" class="col-sm-10"><b>Service Provider</b></label>
         <select class="form-control" name="job_type_name" id="job_typo" required disabled>
-          <option value=""><?php echo $jobs[0]['provider'] ? $jobs[0]['provider'] : $jobs[0]['internal_provider'] ?></option>     
+          <option value=""><?php echo $jobs['provider'] ? $jobs['provider'] : $jobs['internal_provider'] ?></option>     
         </select>
 
       </div>
@@ -109,7 +109,7 @@
         echo form_input(array(
           "id" => "completion_date",
           "name" => "completion_date",
-          "value" => $jobs[0]['completion_date'],
+          "value" => $jobs['completion_date'],
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -124,7 +124,7 @@
         echo form_input(array(
           "id" => "completion_date",
           "name" => "completion_date",
-          "value" => $jobs[0]['actual_date'],
+          "value" => $jobs['actual_date'],
           "class" => "form-control",
           "disabled" => "disabled",
         ));
@@ -133,19 +133,19 @@
       </div>
       <div class="form-group">
         <label for="driver"><b><?php echo lang('assigned_to'); ?></b></label>
-        <p id="driver"><?php echo $jobs[0]['driver'];?></p>
+        <p id="driver"><?php echo $jobs['driver'];?></p>
       </div>
-      <?php if(!empty($jobs[0]['labour'])){?>
+      <?php if(!empty($jobs['labour'])){?>
       <div class="col-sm-6">
         <div class="form-group">
           <label for="driver"><b>Labour</b></label>
-          <p id="driver"><?php echo $jobs[0]['labour'];?></p>
+          <p id="driver"><?php echo $jobs['labour'];?></p>
         </div> 
       </div>
       <div class="col-sm-6">
         <div class="form-group">
           <label for="driver"><b>Cost</b></label>
-          <p id="driver"><?php echo $jobs[0]['labour_cost'];?></p>
+          <p id="driver"><?php echo $jobs['labour_cost'];?></p>
         </div> 
       </div> 
        <?php }?>
@@ -155,7 +155,7 @@
       <div class="form-group">
         <b><?php echo lang('make_model'); ?></b>
         <br>
-        <p id="model"><?php echo $jobs[0]['code'];?></p>      
+        <p id="model"><?php echo $jobs['code'];?></p>      
       </div>
       <br><br>
       <div class="col-sm-6">
@@ -166,7 +166,7 @@
           echo form_input(array(
             "id" => "time_in",
             "name" => "time_in",
-            "value" => $jobs[0]['time_in'],
+            "value" => $jobs['time_in'],
             "class" => "form-control",
             "type"  => "time",
             "disabled" => "disabled",
@@ -184,7 +184,7 @@
           echo form_input(array(
             "id" => "time_in",
             "name" => "time_in",
-            "value" => $jobs[0]['time_out'],
+            "value" => $jobs['time_out'],
             "class" => "form-control",
             "type"  => "time",
             "disabled" => "disabled",
@@ -201,7 +201,7 @@
         echo form_input(array(
           "id" => "km_reading",
           "name" => "km_reading",
-          "value" => number_format($jobs[0]['km_reading'],2),
+          "value" => number_format($jobs['km_reading'],2),
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -215,7 +215,7 @@
         echo form_input(array(
           "id" => "miles_reading",
           "name" => "miles_reading",
-          "value" => number_format(($jobs[0]['miles_reading']),2),
+          "value" => number_format(($jobs['miles_reading']),2),
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -229,7 +229,7 @@
         echo form_input(array(
           "id" => "km_reading",
           "name" => "km_reading",
-          "value" => $jobs[0]['hours'],
+          "value" => $jobs['hours'],
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -245,7 +245,7 @@
         echo form_input(array(
           "id" => "fuel_balance",
           "name" => "fuel_balance",
-          "value" => $jobs[0]['balance'],
+          "value" => $jobs['balance'],
           "class" => "form-control",
           "disabled" => "disabled",
 
@@ -256,7 +256,7 @@
   </div>
 
   <hr>
-  <div class="row">
+  <div class="row" style="display: none;">
     <div class="col-sm-12">
       <table class="table table-striped" id="items_table">
         <thead>

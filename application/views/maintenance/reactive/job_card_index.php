@@ -28,8 +28,13 @@
       <tr>
         <td><?php echo $asset['id']?></td>
        <td>
-      <a href="<?php echo base_url('preventive/process_form/'.$asset['id'])?>"><?php echo $asset['card_no']?></a>
-       
+         <?php if($asset['status'] == 'In Progress') {?>
+      <a href="<?php echo base_url('reactive/show_job/'.$asset['id'])?>"><?php echo $asset['card_no']?></a>
+       <?php }
+       else{
+       ?>
+ <a href="<?php echo base_url('preventive/process_form/'.$asset['id'])?>"><?php echo $asset['card_no']?></a>
+<?php }?>
       </td>
       <td><?php echo $asset['provider']?></td>
       <td><?php echo $asset['job_type_id']?></td>
