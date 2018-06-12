@@ -1,8 +1,8 @@
 <?php echo form_open('"id" = "create-parts-form", "class" = "general-form", "role" = "form"'); ?>
 <div class="modal-body clearfix">
  <div class="panel panel-default">
-  <div class="panel-heading" style="margin-top: -8px">Checklists
-    <?php echo anchor(get_uri("followups/checklist_form"), "<i class='fa fa-plus-circle'></i> " . 'Add Checklist', array("class" => "btn btn-default pull-right rq", "title" => 'Add Checlist')); ?>
+  <div class="panel-heading" style="margin-top: -8px">Inspections
+    <?php echo anchor(get_uri("followups/checklist_form"), "<i class='fa fa-plus-circle'></i> " . 'Add Inspection', array("class" => "btn btn-default pull-right rq", "title" => 'Add Checlist')); ?>
     
   </div>
 </div>

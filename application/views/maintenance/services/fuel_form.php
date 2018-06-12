@@ -1,14 +1,17 @@
+<script type="text/javascript" src="<?php echo base_url('/bower_components/moment/min/moment.min.js');?>"></script>
+ <script type="text/javascript" src="<?php echo base_url('/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js');?>"></script>
+  <link rel="stylesheet" href="<?php echo base_url('/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css');?>" />
 <div class="row">
   <div class="col-sm-12">
     <div class="panel-default">
      <div class="panel-heading">
        <div class="panel-title">Fuel</div>
-       <button class="btn btn-success" onclick="add_fuel()" style="float: right;margin-top: -26px;margin-right: 100px"><i class="glyphicon glyphicon-plus"></i> <span style="font-size: 12px">Add Fuel</span></button> 
+       <a class="btn btn-success" href="<?php echo base_url();?>fuel/other_fuel_form" style="float: right;margin-top: -26px;margin-right: 100px"><i class="glyphicon glyphicon-plus"></i> <span style="font-size: 12px">Add Others Fuel</span></a> 
+       <button class="btn btn-success" onclick="add_fuel()" style="float: right;margin-top: -26px;margin-right: 100px"><i class="glyphicon glyphicon-plus"></i> <span style="font-size: 12px">Add Company Assets Fuel</span></button> 
+
      </div>
      <div class="panel-body">   
       <br />
-      <br />
-
       <table id="fuels_table" class="table table-striped table-bordered" cellspacing="0" width="100%">
         <thead>
           <tr>
@@ -31,9 +34,9 @@
           <tr>
            <td><?php echo $fuel['id'];?></td>
            <td><?php echo $fuel['supplier'];?></td>
-           <td><?php echo $fuel['vehicle'];?></td>
+           <td><?php echo $fuel['vehicle'] ? $fuel['vehicle'] : $fuel['vehicle_id'];?></td>
            <td><?php echo $fuel['mileage_km'] ? $fuel['mileage_km'] .' km' : ($fuel['mileage_miles'] ? $fuel['mileage_miles'] .' mi' : $fuel['machine_hours'].' hrs');?></td>
-           <td><?php echo $fuel['staff'];?></td>
+           <td><?php echo $fuel['staff'] ? $fuel['staff'] : $fuel['staff_id'];?></td>
            <td><?php echo $fuel['fuel_id'];?></td>
            <td><?php echo $fuel['litres'];?></td>
            <td><?php echo $fuel['price'];?></td>
@@ -77,7 +80,9 @@
 </div>
 </div>
 </div>
-</div>
+
+
+
 <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/js/datatable/css/dataTables.bootstrap.min.css">
 
@@ -94,6 +99,15 @@
       save_method = 'add';
       $('#form')[0].reset(); // reset form on modals
       $('#modal_form').modal('show'); // show bootstrap modal
+    //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
+  }
+
+
+    function add_other_fuel()
+    {
+      save_method = 'add';
+      $('#form_other')[0].reset(); // reset form on modals
+      $('#modal_form_other').modal('show'); // show bootstrap modal
     //$('.modal-title').text('Add Person'); // Set Title to Bootstrap modal title
   }
 
@@ -122,8 +136,8 @@
           $('[name="currency"]').val(data.currency);  
           $('[name="fuel_id"]').val(data.fuel_id);     
           $('[name="machine_hours"]').val(data.machine_hours); 
-            $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
-            $('.modal-title').text('Edit Fuel'); // Set title to Bootstrap modal title
+          $('#modal_form').modal('show'); // show bootstrap modal when complete loaded
+          $('.modal-title').text('Edit Fuel'); // Set title to Bootstrap modal title
 
           },
           error: function (jqXHR, textStatus, errorThrown)
@@ -166,6 +180,39 @@
           });
      }
 
+ function save_other()
+    {
+      
+      var url;
+      if(save_method == 'add')
+      {
+        url = "<?php echo site_url('fuel/add_fuel_other')?>";
+      }
+      else
+      {
+        url = "<?php echo site_url('fuel/fuel_update')?>";
+      }
+
+       // ajax adding data to database
+       $.ajax({
+        url : url,
+        type: "POST",
+        data: $('#form').serialize(),
+        dataType: "JSON",
+        success: function(data)
+        {
+              console.log('qwwerwerwer');
+               //if success close modal and reload ajax table
+               $('#modal_form').modal('hide');
+              location.reload();// for reload a page
+            },
+            error: function (jqXHR, textStatus, errorThrown)
+            {
+              alert('Error adding / update data');
+            }
+          });
+     }
+
      function delete_fuel(id)
      {
       if(confirm('Are you sure delete this data?'))
@@ -191,19 +238,154 @@
 
   </script>
 
+
+ <!-- Bootstrap modal -->
+  <div class="modal fade" id="modal_form_other" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h3 class="modal-title">Others Fuel Form</h3>
+        </div>
+        <div class="modal-body form">
+          <form action="#" id="form_other" class="form-horizontal">
+              <input type="hidden" value="" name="id"/>
+
+              <div class="row">
+                <div class="col-md-6" style="width: 45%;">
+                  <div class="form-group">
+                    <label class="control-label"  style="margin-left: 10px;">Litres</label>
+                    <input name="litres" placeholder="Litres" class="form-control" type="number" style="width: 90%;margin-left: 8px;">
+                  </div>
+                </div>
+                <div class="col-md-6" style="width: 45%;">
+                 <div class="form-group">
+                  <label class="control-label">Fuel Type</label>
+                  <select class="form-control" name="fuel_id" placeholder="Fuel Type" id="fuel_id" required>
+                   <option value="petrol">Petrol</option>
+                   <option value="diesel">Diesel</option>
+                 </select>
+               </div>
+             </div>
+           </div>
+ 
+            <div class="row">
+             <div class="col-md-6" style="width: 45%;">
+              <div class="form-group">
+                <label class="control-label" style="margin-left: 10px;">Invoice No.</label>
+                <input name="invoice_no" placeholder="Invoice No." class="form-control" type="text" style="width: 90%;margin-left: 8px;">
+              </div>
+            </div>
+
+            <div class="col-md-6" style="width: 45%;">
+              <div class="form-group">
+                <label class="control-label">Currency</label>
+                <select class="form-control" name="currency" placeholder="Currency">
+                  <option value="">--Choose Currency--</option>
+                  <option value="USD">USD</option>
+                  <option value="KSH">KSH</option>
+
+                </select>
+              </div>
+            </div>
+          </div>
+ 
+          <div class="row">
+
+           <div class="col-md-12">
+            <div class="form-group">
+              <label class="control-label" style="margin-left: 10px;">Vehicle</label>
+              <input type="text" name="" class="form-control" name="vehicle_id" placeholder="Vehicle" id="vehicleid" style="width: 90%;margin-left: 8px;" >
+                             
+            </div>
+          </div>
+     
+      </div>
+          <div class="row">
+      
+        <div class="col-md-12">
+          <div class="form-group">
+            <label class="control-label" style="margin-left: 10px;">Current KM Readings</label>
+
+            <input name="km_reading" placeholder="KM Readings" class="form-control" id="kmreading" type="text" style="width: 90%;margin-left: 8px;">
+          </div>
+        </div>
+      </div 
+   
+      <div class="row">
+       <div class="col-md-6" style="width: 45%;">
+        <div class="form-group">
+          <label class="control-label" style="margin-left: 10px;">Supplier</label>
+          <select class="form-control" name="supplier_id" placeholder="Supplier" id="supplier" style="width: 90%;margin-left: 8px;" required>
+           <?php
+           foreach ($suppliers_dropdown as $supplier) {
+            echo "<option value=". $supplier->id . ">" . ucfirst($supplier->name) . "</option>";
+          }
+          ?>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-6" style="width: 45%;">
+      <div class="form-group">
+        <label class="control-label">Driver</label>
+        <input type="text" name="staff_id" placeholder="Staff" id="driver_id" class="form-control">
+               
+    
+    </div>
+  </div>
+</div>
+
+<div class="row">
+      <div class="col-md-6"  style="width: 45%;">
+        <div class="form-group">
+          <label class="control-label"  style="margin-left: 10px;">Expenses(Optional)</label>
+          <select class="form-control" name="expense_id" placeholder="Expenses" id="expense_id" style="width: 90%;margin-left: 8px;">
+           <option value="">--Choose Expenses--</option>
+           <?php
+           foreach ($expenses_dropdown as $expense) {
+            echo "<option value=". $expense->id . ">" . ucfirst($expense->name) . "</option>";
+          }
+          ?>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-md-6" style="width: 45%;">
+      <label>Date</label>
+      <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='text' class="form-control" name="done_on" />
+                    <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+    </div>
+</div>
+</div>
+</form>
+<div class="modal-footer">
+  <button type="button" id="btnSave" onclick="save()" class="btn btn-primary">Save</button>
+  <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+</div>
+</div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+<!-- End Bootstrap modal -->
+
   <!-- Bootstrap modal -->
   <div class="modal fade" id="modal_form" role="dialog">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h3 class="modal-title">Fuel Form</h3>
+          <h3 class="modal-title">Company Assets Fuel Form</h3>
         </div>
         <div class="modal-body form">
           <form action="#" id="form" class="form-horizontal">
+            <input type="hidden" name="company" value="1">
             <input type="hidden" value="" name="id"/>
 
-            <div class="form-body">
               <div class="row">
                 <div class="col-md-6" style="width: 45%;">
                   <div class="form-group">
@@ -370,6 +552,8 @@
 </div><!-- /.modal -->
 <!-- End Bootstrap modal -->
 
+
+
 </body>
 <script type="text/javascript">
   $('#supplier').select2();
@@ -377,6 +561,10 @@
   $('#expense').select2();
   $('#vehicle_id').select2();
   setDatePicker('#done_on');
+
+            $(function () {
+            $('#datetimepicker1').datetimepicker();
+            });
 </script>
 <script type="text/javascript">
  $(document).ready(function() {
