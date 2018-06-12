@@ -20,6 +20,7 @@ class Fuel extends Pre_loader {
 
   public function index(){
    
+
     $this->access_only_allowed_members();
     $view_data['suppliers_dropdown'] = $this->Fuel_suppliers_model->get_all_where(array("deleted" => 0))->result();  
     $view_data['staffs_dropdown'] = $this->Employees_model->get_all_where(array("deleted" => 0))->result(); 

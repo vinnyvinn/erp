@@ -12,7 +12,7 @@
       <div class="col-sm-4">
        <div class="form-group">
             <label class="control-label">Litres</label>
-          <input name="litres" placeholder="Litres" class="form-control" >
+          <input name="litres" placeholder="Litres" class="form-control" type="number">
              </div>
       </div>
 
@@ -66,7 +66,7 @@
       
            <label class="control-label">Current KM Readings</label>
 
-            <input name="km_reading" placeholder="KM Readings" class="form-control" id="kmreading" type="text">
+            <input name="km_reading" placeholder="KM Readings" class="form-control" id="kmreading" type="number">
           </div>
                  
        
