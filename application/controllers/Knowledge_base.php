@@ -11,6 +11,7 @@ class Knowledge_base extends Pre_loader
     {
         $viewdata = [];
         $types = $this->TblKnowledgeBaseTypesModel->getall()->result();
+
         foreach ($types as $type) {
             $type->knowledges = $this->TblKnowledgeBaseModel->getTypeKNowledges($type->id)->result();
                 
@@ -26,11 +27,15 @@ class Knowledge_base extends Pre_loader
 
        $term = $_GET['term'];
 
+       
+
         /* if (!$term) {
              redirect('/knowledge_base', 'location');
          }*/
       
-        $sql = "SELECT * FROM tbl_knowledge_base WHERE tbl_knowledge_base.solution LIKE '%$term%'";
+        $sql = "SELECT * FROM tbl_knowledge_base WHERE title OR solution '%$term%'";
+
+
         $viewdata = [];
         $viewdata['data'] = $this->db->query($sql)->result();
         $this->template->rander("knowledgebase/searchresult", $viewdata);

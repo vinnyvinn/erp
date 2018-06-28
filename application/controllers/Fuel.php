@@ -76,7 +76,7 @@ $this->template->rander("maintenance/services/fuel_form_other",$view_data);
      );
     $insert = $this->Fuel_model->fuels_add($data);
     $query=$this->db->query("SELECT fuels.*,fuel_suppliers.code FROM fuels 
-      LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id WHERE fuels.id=$insert")->row_array();
+     LEFT JOIN fuel_suppliers ON fuel_suppliers.id=fuels.supplier_id WHERE fuels.id=$insert")->row_array();
 
     $supplier=$query['supplier_id'];
     $expense_id=$query['expense_id'];
@@ -104,7 +104,7 @@ $this->template->rander("maintenance/services/fuel_form_other",$view_data);
     $assets=$this->db->query("SELECT * FROM assets WHERE id=$asset_id")->row_array();
     $machine_no=$assets['id'];
    
-     $km=$distance_km-$assets['km_reading'];
+    $km=$distance_km-$assets['km_reading'];
     $mils=$distance_miles-$assets['miles_reading'];
     $m_hrs=$machine_hours-$assets['machine_hours'];
    

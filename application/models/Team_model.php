@@ -76,6 +76,7 @@ class Team_model extends Crud_model {
     function is_ict_member() {
 
         $ict_members = $this->db->like('title', 'ict')->get('team')->result();
+        
         $data = [];
         foreach ($ict_members as $members) {
             foreach (explode(",", $members->members) as $member) {

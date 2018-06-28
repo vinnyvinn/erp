@@ -30,7 +30,7 @@
                                 if($assgn_status==1){
                                 echo modal_anchor(get_uri("tickets/knowledge_base_modal_form"), "<i class='fa fa-stethoscope'></i> Add knowledge base", array( "title" => "Add knowledge base", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
                                  }
-                                 echo modal_anchor(get_uri("tickets/ticket_solved_email"), "<i class='fa fa-stack-exchange'></i> Mark as done", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
+                                 echo anchor(get_uri("tickets/ticket_solved_email"), "<i class='fa fa-stack-exchange'></i> Mark as Done", array( "title" => "Mark as Done", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
 
                                   echo modal_anchor(get_uri("tickets/mark_solved_modal"), "<i class='fa fa-stack-exchange'></i> Mark as Solved", array( "title" => "Mark as Solved", "data-post-view" => "details", "data-post-id" => $ticket_info->id));
 

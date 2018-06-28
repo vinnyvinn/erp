@@ -246,6 +246,12 @@ $autoload['model'] = array(
     'Ict_issets_model',
     'Followups_model',
     'Ict_asset_history_model',
+    'Defferal_model',
+    'Gl_model',
+    'Sage_projects_model',
+    'Support_entries_model',
+    'Support_comments_model'
+   
 
 );
 

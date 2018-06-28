@@ -1,4 +1,4 @@
-<?php echo form_open(get_uri("tickets/save_ticket_status/$tk_id/closed"), array("id" => "comments-form", "class" => "general-form", "role" => "form")); ?>
+<?php echo form_open(get_uri("ticket_types/save_ticket_status"), array("id" => "comments-form", "class" => "general-form", "role" => "form")); ?>
 <div class="modal-body clearfix">
     <input type="hidden" name="id"/>
     <div class="form-group">

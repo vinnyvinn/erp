@@ -487,6 +487,10 @@ $lang["last_activity"] = "Last activity";
 $lang["open_tickets"] = "Open tickets";
 $lang["ticket_status"] = "Ticket Status";
 $lang["ticket_done"] = "Ticket Done";
+$lang["assign_ticket"] = "Assign Ticket";
+$lang["ticket_owner"] = "Ticket Owner";
+$lang["ticket_solved"] = "Ticket Solved";
+
 
 /* ticket types */
 
@@ -708,6 +712,7 @@ $lang["ticket_closed"] = "Ticket closed";
 $lang["ticket_reopened"] = "Ticket reopened";
 $lang["leave"] = "Leave";
 $lang["next_maintenance_date"] = "Next maintenance date";
+$lang["ticket_info"] = "Ticket";
 
 $lang["client_primary_contact"] = "Primary contact of client";
 $lang["client_all_contacts"] = "All contacts of client";

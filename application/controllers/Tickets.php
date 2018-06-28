@@ -73,8 +73,9 @@ class Tickets extends Pre_loader
 
      $data=array('username' => $this->input->post('username'),
                  'phone' => $this->input->post('phone'),
-                  'email' => $this->input->post('email'));
+                'email' => $this->input->post('email'));
      $this->Tickets_model->insert_thirdparty($data);
+
       $datasaved = true;
       echo json_encode(array("success" => $datasaved, 'message' => ($datasaved) ? lang('record_saved') : lang('error_occurred') ));
 
@@ -188,12 +189,33 @@ class Tickets extends Pre_loader
             $parser_data["CREATED_BY"] = $this->session->person_name;
             $parser_data["CREATED_AT"] =  $this->session->created_at;
             $parser_data["THIRD_PARTY_NAME"] =  $this->session->Name;
+            $parser_data["SIGNATURE"] =  $email_template->signature;
+
            $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
             if (send_app_mail($email, $email_template->subject, $message)) {
                 echo json_encode(array('success' => true, 'message' => lang("reset_info_send")));
             } else {
                 echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
             }
+    }
+      public function ticket_mail($data)
+    {
+     
+          $email_template = $this->Email_templates_model->get_final_template("ticket_info");
+         
+            $parser_data["TICKET_TYPE"] = $data['ticket_type'];
+            $parser_data["CREATED_BY"] = $this->login_user->first_name.' '.$this->login_user->last_name;
+            $parser_data["CREATED_AT"] =  $data['created_at'];
+            $parser_data["SUBJECT"] =  $data['subject'];
+            $parser_data["DESCRIPTION"] =  $data['info'];
+            $parser_data["ASSIGNED_TO"] =  $data['username'];
+            $parser_data["REFERENCE"] =  $data['external_reference'];
+            $parser_data["SIGNATURE"] = $email_template->signature;
+           $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
+           
+            send_app_mail($data['email'], $email_template->subject, $message);
+
+
     }
     public function knowledge_base_modal_form() {
 
@@ -271,13 +293,12 @@ class Tickets extends Pre_loader
             $parser_data["TICKET_ID"] = $this->session->ticket_ID;
             $parser_data["CREATED_BY"] = $this->session->person_name;
             $parser_data["CREATED_AT"] =  $this->session->created_at;
-             
+            $parser_data["SOLVED_BY"] =  $this->login_user->first_name .' '. $this->login_user->last_name ;
+            $parser_data["SIGNATURE"] =  $email_template->signature;
+
            $message = $this->parser->parse_string($email_template->message, $parser_data, TRUE);
-            if (send_app_mail($email, $email_template->subject, $message)) {
-                echo json_encode(array('success' => true, 'message' => lang("reset_info_send")));
-            } else {
-                echo json_encode(array('success' => false, 'message' => lang('error_occurred')));
-            }
+            send_app_mail($email, $email_template->subject, $message);
+            return redirect(base_url('tickets'));
         } 
 
      //comments for mark as solved
@@ -287,6 +308,8 @@ class Tickets extends Pre_loader
             $view_data['model_info'] = $this->Tickets_model->get_one($id);
             $this->load->view('tickets/mark_solved_form',$view_data);
         }
+
+        
 
         //save comment
         function save_mark_solved(){
@@ -304,20 +327,12 @@ class Tickets extends Pre_loader
             "files" => $files_data
         );
 
-        validate_submitted_data(array(
-            "description" => "required"
-             ));
-       $datasaved =$this->Ticket_comments_model->save($comment_data,$tkt_id);
-         
-
-     
-       if ($datasaved) {
-
-            echo json_encode(["success" => true, "data" =>$datasaved , 'message' => lang('record_saved')]);
+        $datasaved =$this->Ticket_comments_model->save($comment_data);
+          
             
-        } else {
-            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
-        }
+        return redirect(base_url('tickets'));
+      
+
         
      }
     // add a new ticket
@@ -330,7 +345,7 @@ class Tickets extends Pre_loader
         ));
 
         $ticket_type_id = $this->input->post('ticket_type_id');
-        $assigned_to = $this->input->post('assigned_to');
+       
         $escalation_matrix = $this->input->post('escalation_matrix');
 
         $now = get_current_utc_time();
@@ -343,12 +358,13 @@ class Tickets extends Pre_loader
             "last_activity_at" => $now,
             "team_id" => $this->input->post('team_id'),
             "labels" => $this->input->post('labels'),
-            "assigned_to" => $assigned_to ? $assigned_to : 0,
+            "assigned_to" => $this->input->post('assigned_to'),
             "escalation_matrix" => $escalation_matrix ? $escalation_matrix : 0,
             "external_reference" => $this->input->post('external_reference')
         );
 
         if ($id) {
+
             //client can't update ticket
             if ($this->login_user->user_type === "client") {
                 redirect("forbidden");
@@ -362,7 +378,7 @@ class Tickets extends Pre_loader
         }
 
         $ticket_id = $this->Tickets_model->save($ticket_data, $id);
-
+         
         $target_path = get_setting("timeline_file_path");
         $files_data = move_files_from_temp_dir_to_permanent_dir($target_path, "ticket");
 
@@ -378,17 +394,20 @@ class Tickets extends Pre_loader
                     "files" => $files_data
                 );
                 $ticket_comment_id = $this->Ticket_comments_model->save($comment_data);
-
-                if ($ticket_id && $ticket_comment_id) {
-                    log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
-                }
+                
+                // if ($ticket_id && $ticket_comment_id) {
+                //     log_notification("ticket_created", array("ticket_id" => $ticket_id, "ticket_comment_id" => $ticket_comment_id));
+                // }
             }
-
+              $data = $this->Tickets_model->ticket_info($ticket_id);
+                $this->ticket_mail($data);
             echo json_encode(array("success" => true, "data" => $this->_row_data($ticket_id), 'id' => $ticket_id, 'message' => lang('record_saved')));
+
         } else {
             echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
         }
     }
+
 
     /* upload a file */
 
@@ -569,6 +588,41 @@ class Tickets extends Pre_loader
             show_404();
         }
     }
+     public function view_support($ticket_id = 0)
+    {
+        if (! $ticket_id) {
+            return;
+        }
+ 
+        $options = array("id" => $ticket_id);
+        $options["access_type"] = $this->access_type;
+ 
+        $ticket_info = $this->db->query("SELECT support_entries.*,ticket_types.title as ticket,
+            support_comments.description as title,users.id as USERID,users.email as USEREMAIL,
+            CONCAT(users.first_name,' ',users.last_name) as USERNAME FROM support_entries
+           LEFT JOIN ticket_types ON ticket_types.id = support_entries.ticket_type_id
+           LEFT JOIN support_comments ON support_comments.ticket_id = support_entries.id
+           LEFT JOIN users ON users.id = support_entries.created_by 
+            WHERE support_entries.id=$ticket_id")->row_array();
+        $this->session->set_userdata('TK_ID',$ticket_info['id']);
+        $this->session->set_userdata('TK_OWNER',$ticket_info['USERID']);
+        $this->session->set_userdata('TK_TITLE',$ticket_info['title']);
+        $this->session->set_userdata('TK_EMAIL',$ticket_info['USEREMAIL']);
+        $this->session->set_userdata('TK_USERNAME',$ticket_info['USERNAME']);
+           
+        if ($ticket_info) {
+            $view_data['ticket_info'] = $ticket_info;
+            $comments_options = array("ticket_id" => $ticket_id);
+        // $view_data['assgn_status']=$this->Tickets_model->get_userassigned();  
+           
+          $view_data['comments'] = $this->Support_comments_model->getComments($ticket_id);
+            //$view_data['status']=$this->Tickets_model->get_tickets_id();
+           // $view_data['assgn_status']=$this->Tickets_model->get_userassigned();
+            $this->template->rander("tickets/support_view", $view_data);
+        } else {
+            show_404();
+        }
+    }
 
     public function save_comment() {
         $ticket_id = $this->input->post('ticket_id');
@@ -608,6 +662,52 @@ class Tickets extends Pre_loader
 
             $comments_options = array("id" => $comment_id);
             $view_data['comment'] = $this->Ticket_comments_model->get_details($comments_options)->row();
+            $comment_view = $this->load->view("tickets/comment_row", $view_data, true);
+            echo json_encode(array("success" => true, "data" => $comment_view, 'message' => lang('comment_submited')));
+
+            log_notification("ticket_commented", array("ticket_id" => $ticket_id, "ticket_comment_id" => $comment_id));
+        } else {
+            echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
+        }
+    }
+
+  public function save_support() {
+        $ticket_id = $this->input->post('ticket_id');
+        $now = get_current_utc_time();
+
+        $target_path = get_setting("timeline_file_path");
+        $files_data = move_files_from_temp_dir_to_permanent_dir($target_path, "ticket");
+
+        $comment_data = array(
+            "description" => $this->input->post('description'),
+            "ticket_id" => $ticket_id,
+            "created_by" => $this->login_user->id,
+            "created_at" => $now,
+            "files" => $files_data
+        );
+
+        validate_submitted_data(array(
+            "description" => "required",
+            "ticket_id" => "required|numeric"
+        ));
+
+        $comment_id = $this->Support_comments_model->save($comment_data);
+        if ($comment_id) {
+            //update ticket status;
+            if ($this->login_user->user_type === "client") {
+                $ticket_data = array(
+                    "status" => "client_replied",
+                    "last_activity_at" => $now
+                );
+            } else {
+                $ticket_data = array(
+                    "status" => "open",
+                    "last_activity_at" => $now
+                );
+            }
+            $this->Support_entries_model->save($ticket_data, $ticket_id);
+            $comments_options = array("id" => $comment_id);
+            $view_data['comment'] = $this->db->query("SELECT * FROM support_comments WHERE id=$comment_id")->row_array();
             $comment_view = $this->load->view("tickets/comment_row", $view_data, true);
             echo json_encode(array("success" => true, "data" => $comment_view, 'message' => lang('comment_submited')));
 

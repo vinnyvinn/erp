@@ -185,6 +185,15 @@
                 }
 
                  
+                  if (($this->login_user->is_admin || $access_technical)) {
+                    
+
+                    $attendanceSubs = [];
+                    $attendanceSubs [] = ["name" => "Project Defferals", "url" => "project_defferal"];
+                    $attendanceSubs [] = ["name" => "Accounts Transactions", "url" => "gl_process"];
+                    $sidebar_menu[] = array("name" => "Defferals", "url" => "attendance", "class" => " fa-credit-card-alt font-16", "submenu" => $attendanceSubs);
+               
+                  }
 
                 if (get_setting("module_technical") && (($this->login_user->is_admin || $access_technical))) {
                     

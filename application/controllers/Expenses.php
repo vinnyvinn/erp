@@ -115,7 +115,7 @@ class Expenses extends Pre_loader {
 
         $save_id = $this->Expenses_model->save($data, $id);
         if ($save_id) {
-            echo json_encode(array("success" => true, "data" => $this->_row_data($save_id), 'id' => $save_id, 'message' => lang('record_saved')));
+            echo json_encode(array("success" => true,  'message' => lang('record_saved')));
         } else {
             echo json_encode(array("success" => false, 'message' => lang('error_occurred')));
         }

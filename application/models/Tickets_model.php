@@ -137,8 +137,16 @@ function get_userassigned()
          return false;
 }
 }
+
 function insert_thirdparty($data)
 {
   $this->db->insert('tbl_third_party',$data);
+}
+public function ticket_info($ticket_id){
+    $sql = $this->db->query("SELECT ticket_comments.description as info,tickets.external_reference,tickets.title as subject,tickets.created_at,CONCAT(users.first_name, ' ', users.last_name) as username ,users.email,ticket_types.title as ticket_type FROM tickets
+                    LEFT JOIN users ON users.id=tickets.assigned_to
+                    LEFT JOIN ticket_types ON ticket_types.id=tickets.ticket_type_id
+                    LEFT JOIN ticket_comments ON ticket_comments.ticket_id=tickets.id WHERE tickets.id=$ticket_id")->row_array();
+    return $sql;
 }
 }

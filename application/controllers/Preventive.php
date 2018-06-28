@@ -464,7 +464,7 @@ public function employee()
 {
 
 
-  $query = $this->SAGE_DB()->get_where('Client', array(''));
+  $query = $this->SAGE_DB()->get_where('Project', array(''));
   $res = $query->result_array();
   echo "<pre>";
   var_dump($res);
@@ -473,8 +473,10 @@ public function employee()
 
 public function supplier()
 {
-  $sql = "SELECT * FROM _btblFAAsset";
-  $results = $this->SAGE_DB()->query($sql)->result_array();
+  $sql = "CREATE PROCEDURE 'SelectUsersdata' 
+AS 
+SELECT * FROM users";
+  $results = $this->db->query($sql)->result_array();
   echo "<pre>";
   var_dump($results);
 }
@@ -482,18 +484,17 @@ public function supplier()
 public function asset()
 {
 
-  $sql = "SELECT * FROM invnum";
+  $sql = "Select * from ESL_PROJ_DEF_POSTING";
   $query = $this->SAGE_DB()->query($sql)->result_array();
-        // $query=$this->SAGE_DB()->get_where('_btblFAAsset',array('iAssetTypeNo' => 1));
-        // $result=$query->result_array();
+        
   echo "<pre>";
   var_dump($query);
   die();
         //echo json_encode($result);
 }
 public function ss(){
- $SAGEQuery = 'SELECT * FROM _btblFAAsset WHERE iAssetTypeNo = 2 OR  iAssetTypeNo = 7';
- $fromSage = $query=$this->SAGE_DB()
+ $SAGEQuery = "SELECT * FROM Accounts";
+ $fromSage = $query = $this->SAGE_DB()
  ->query($SAGEQuery)
  ->result_array();
  

@@ -18,11 +18,11 @@
 
 
       <div class="col-sm-4">
-                <div class="form-group">
-                  <label class="control-label">Fuel Type</label>
-                  <select class="form-control" name="fuel_id" placeholder="Fuel Type" id="fuel_id" required>
-                   <option value="petrol">Petrol</option>
-                   <option value="diesel">Diesel</option>
+                 <div class="form-group">
+                 <label class="control-label">Fuel Type</label>
+                 <select class="form-control" name="fuel_id" placeholder="Fuel Type" id="fuel_id" required>
+                 <option value="petrol">Petrol</option>
+                 <option value="diesel">Diesel</option>
                  </select>
                </div>
       </div>
@@ -132,10 +132,8 @@
     <a href="<?php echo base_url();?>followups" class="btn btn-danger" role="button">back</a>
   </div>
 </form>
-<!-- <?php //echo form_close();?> -->
 
 <?php echo form_close(); ?>
-
 
 <script type="text/javascript">
  $("#vehicle_id").select2();

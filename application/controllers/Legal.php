@@ -100,10 +100,12 @@ class Legal extends Pre_loader
     }
 
     function view($id){
+        
         if (! $id) {
             return;
         }
         $model_info = $this->LegalDocumentsModel->getOne($id);
+       
         if ($model_info) {
 
             $list_data = [];
@@ -125,6 +127,7 @@ class Legal extends Pre_loader
      //get items passed through sage
         $sageitems = $this->TblLegalDocsItems->getSageItems();
         $addeditems = $this->TblLegalDocsItems->get_doc_items($id);
+
         $result = [];
         foreach ($addeditems as $key=>$addeditem){
             $addeditem->desc = $this->TblLegalDocsItems->getSageItem($addeditem->sage_item_id);
@@ -137,9 +140,10 @@ class Legal extends Pre_loader
 
 
     private function _make_sage_items_row($datas, $key=0) {
+       
         $optoins = "";
 
-        return array(
+       return array(
             $key+1,
         $datas->desc->cAssetCode,
         $datas->desc->cAssetDesc,
